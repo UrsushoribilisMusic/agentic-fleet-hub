@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-03-12",
+    "file": "2026-03-12.md",
+    "summary": "Ticket #10 done: vault.py + Infisical wired into music-video-tool and crm-poc. PR cleanup, deploy keys, agentegra site checked in."
+  },
+  {
     "date": "2026-03-11",
     "file": "2026-03-11.md",
     "summary": "Initialized today's standup, mapping infrastructure, and addressing user questions."
