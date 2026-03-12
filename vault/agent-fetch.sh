@@ -17,7 +17,8 @@ if ! command -v infisical &> /dev/null; then
 fi
 
 # Fetch the secret
-SECRET=$(infisical secrets get "$SECRET_NAME" --env="$ENV" --plain 2>/dev/null)
+DOMAIN="https://eu.infisical.com/api"
+SECRET=$(infisical secrets get "$SECRET_NAME" --domain="$DOMAIN" --env="$ENV" --plain 2>/dev/null)
 
 if [ $? -ne 0 ] || [ -z "$SECRET" ]; then
     echo "Error: Failed to retrieve secret '$SECRET_NAME' from environment '$ENV'. Ensure you are logged in and the secret exists."

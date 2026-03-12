@@ -13,7 +13,8 @@ if (-not (Get-Command "infisical" -ErrorAction SilentlyContinue)) {
 }
 
 # Fetch the secret
-$secret = infisical secrets get $SecretName --env=$Environment --plain 2>$null
+$domain = "https://eu.infisical.com/api"
+$secret = infisical secrets get $SecretName --domain=$domain --env=$Environment --plain 2>$null
 
 if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($secret)) {
     Write-Error "Failed to retrieve secret '$SecretName' from environment '$Environment'. Ensure you are logged in and the secret exists."
