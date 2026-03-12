@@ -304,6 +304,14 @@ function activateSection(targetId) {
   if (targetId === 'section-rules') loadRules();
   if (targetId === 'section-users') loadUsers();
   if (targetId === 'section-inbox') loadInbox();
+
+  // Close sidebar on mobile after selection
+  const sidebar = document.getElementById('sidebar');
+  const toggle = document.getElementById('mobile-toggle');
+  if (sidebar) {
+    sidebar.classList.remove('is-open');
+    if (toggle) toggle.textContent = '☰';
+  }
 }
 
 function wireNavControls() {
@@ -312,6 +320,16 @@ function wireNavControls() {
   for (let i = 0; i < MAIN_SECTION_BUTTONS.length; i++) {
     const button = MAIN_SECTION_BUTTONS[i];
     button.onclick = function() { activateSection(this.getAttribute('data-section-button')); };
+  }
+
+  // Mobile Toggle
+  const toggle = document.getElementById('mobile-toggle');
+  const sidebar = document.getElementById('sidebar');
+  if (toggle && sidebar) {
+    toggle.onclick = function() {
+      const isOpen = sidebar.classList.toggle('is-open');
+      toggle.textContent = isOpen ? '✕' : '☰';
+    };
   }
 }
 
