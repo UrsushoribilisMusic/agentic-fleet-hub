@@ -1,0 +1,12 @@
+﻿{
+    "id":  "caddy-trailing-slash-gotcha",
+    "category":  "integration",
+    "project":  "Fleet Hub",
+    "root_cause":  "Browser resolves relative paths from the last slash. Without /fleet/, it looks in the root /assets/ instead of /fleet/assets/.",
+    "agent":  "Gem (Gemini CLI)",
+    "date":  "2026-03-12T10:20:00Z",
+    "symptom":  "Relative assets (CSS/JS) failed to load (401/404) when accessing /fleet without a trailing slash.",
+    "status":  "pending_review",
+    "lesson":  "Always enforce a 301 trailing slash redirect in the backend static handler for management sub-folders.",
+    "title":  "Caddy Trailing Slash Requirement"
+}

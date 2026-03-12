@@ -19,13 +19,21 @@
       <p class="eyebrow" style="font-size: 0.65rem; opacity: 0.6;">Ursushoribilis Fleet</p>
     </div>
     
-    <nav class="sidebar-nav">
+    <nav class="sidebar-nav" id="sidebar-nav">
       <button class="nav-button is-active" data-section-button="section-team">
         <span>👥</span> Team
       </button>
       <button class="nav-button" data-section-button="section-projects">
         <span>📂</span> Projects
       </button>
+      <!-- Growth Specific Links -->
+      <a href="/crm-demo/" target="_blank" class="nav-button growth-only" style="display:none; text-decoration:none;">
+        <span>📊</span> Lead Pipeline
+      </a>
+      <a href="/crm-demo/?tab=calendar" target="_blank" class="nav-button growth-only" style="display:none; text-decoration:none;">
+        <span>🗓️</span> Content Calendar
+      </a>
+      <!-- End Growth Specific -->
       <button class="nav-button" data-section-button="section-rules">
         <span>📜</span> Rules
       </button>
@@ -36,12 +44,12 @@
         <span>⏱️</span> Standups
       </button>
       <button class="nav-button" data-section-button="section-users">
-        <span>🔑</span> Users
+        <span>👤</span> User Management
       </button>
     </nav>
 
     <div class="sidebar-footer" style="margin-top: auto; padding: 1.5rem; border-top: 1px solid var(--border);">
-      <div id="user-info" style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Loading...</div>
+      <div id="user-info" style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;"></div>
       <a href="/stats/" target="_blank" class="nav-button" style="padding: 0.5rem 0; color: var(--teal-bright); font-size: 0.85rem;">
         📈 Analytics Dashboard
       </a>
@@ -83,8 +91,14 @@
       <header class="page-header">
         <p class="eyebrow">Knowledge Base</p>
         <h1>Memory Tree</h1>
-        <p class="lede">Deep context and architectural blueprints for the fleet.</p>
+        <p class="lede">Deep context, architectural blueprints, and evolutionary lessons.</p>
       </header>
+      
+      <div class="tree-group" id="lessons-group">
+        <h4 style="color: #f59e0b; margin-bottom: 1.25rem;">🧪 Lessons Learned ( scratchpad )</h4>
+        <div id="lessons-grid" class="tree-list">Loading lessons...</div>
+      </div>
+
       <div id="docs-grid"></div>
     </section>
 
