@@ -3,491 +3,479 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Big Bear Engineering GmbH — Coordinated Multi-Agent AI for Engineering Teams</title>
+  <title>Big Bear Engineering GmbH | Coordinated Multi-Agent AI for Engineering Teams</title>
+  <meta name="description" content="Big Bear Engineering builds coordinated multi-agent systems for engineering teams: shared memory, vault-first security, and production-focused deployment." />
   <style>
-    :root {
-      --bg: #0a0c10;
-      --surface: #111318;
-      --border: #1e2230;
-      --accent: #2dd4bf;
-      --accent2: #10b981;
-      --green: #22c55e;
-      --text: #e2e8f0;
-      --muted: #64748b;
-      --card: #13161e;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      line-height: 1.6;
-      font-size: 1.125rem; /* Increased font size */
-    }
-
-    /* NAV */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(10,12,16,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 5%;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 64px;
-    }
-    .logo {
-      font-size: 1.15rem; font-weight: 800; letter-spacing: -0.5px;
-      background: linear-gradient(90deg, #2dd4bf, #10b981);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      text-decoration: none;
-    }
-    nav ul { list-style: none; display: flex; gap: 2rem; }
-    nav ul a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
-    nav ul a:hover { color: var(--text); }
-    .nav-cta {
-      background: var(--accent); color: #fff;
-      padding: 0.45rem 1.2rem; border-radius: 6px;
-      text-decoration: none; font-size: 0.875rem; font-weight: 600;
-      transition: background 0.2s; cursor: pointer; border: none;
-    }
-    .nav-cta:hover { background: #0d9488; }
-
-    /* HERO */
-    .hero {
-      min-height: 80vh;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center;
-      padding: 4rem 5% 4rem;
-      position: relative; overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(45,212,191,0.12) 0%, transparent 70%),
-        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(16,185,129,0.08) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(45,212,191,0.1); border: 1px solid rgba(45,212,191,0.3);
-      color: #99f6e4; padding: 0.35rem 1rem; border-radius: 100px;
-      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em;
-      text-transform: uppercase; margin-bottom: 1.5rem;
-    }
-    .dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-    h1 {
-      font-size: clamp(2.4rem, 6vw, 4.5rem);
-      font-weight: 800; letter-spacing: -1.5px; line-height: 1.1;
-      max-width: 820px; margin-bottom: 1.5rem;
-    }
-    h1 em {
-      font-style: normal;
-      background: linear-gradient(90deg, #2dd4bf, #6ee7b7);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .hero p {
-      font-size: 1.2rem; color: var(--muted); max-width: 580px;
-      margin: 0 auto 2.5rem;
-    }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: #fff; padding: 0.8rem 2rem; border-radius: 8px;
-      text-decoration: none; font-weight: 700; font-size: 1rem;
-      box-shadow: 0 0 30px rgba(45,212,191,0.3);
-      transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; border: none;
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(45,212,191,0.45); }
-    .btn-secondary {
-      border: 1px solid var(--border); color: var(--text);
-      padding: 0.8rem 2rem; border-radius: 8px;
-      text-decoration: none; font-weight: 600; font-size: 1rem;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .btn-secondary:hover { border-color: var(--accent); background: rgba(45,212,191,0.05); }
-
-    /* SECTIONS */
-    section { padding: 6rem 5%; }
-    .section-label {
-      text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.75rem;
-      font-weight: 700; color: var(--accent); margin-bottom: 1rem;
-    }
-    h2 {
-      font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 800;
-      letter-spacing: -1px; line-height: 1.15; max-width: 700px;
-      margin-bottom: 1rem;
-    }
-    .section-sub { color: var(--muted); font-size: 1.1rem; max-width: 580px; margin-bottom: 3rem; }
-
-    /* PROBLEM */
-    .problem { background: var(--surface); }
-    .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-    .problem-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 12px; padding: 2rem; transition: border-color 0.2s;
-    }
-    .problem-card:hover { border-color: rgba(45,212,191,0.4); }
-    .problem-card .icon {
-      width: 42px; height: 42px; border-radius: 10px;
-      background: rgba(45,212,191,0.12); display: flex; align-items: center;
-      justify-content: center; margin-bottom: 1rem; font-size: 1.25rem;
-    }
-    .problem-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .problem-card p { color: var(--muted); font-size: 0.95rem; line-height: 1.6; }
-
-    /* HUB SHOWCASE */
-    .showcase { background: var(--bg); }
-    .showcase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-    .showcase-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; }
-    .showcase-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--accent); }
-    .showcase-card .sub { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
-    .agent-pill { background: #161b22; border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 1rem; }
-    .agent-pill .avatar { width: 32px; height: 32px; border-radius: 6px; background: #21262d; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
-    .agent-pill .info strong { display: block; font-size: 0.9rem; color: var(--text); }
-    .agent-pill .info span { font-size: 0.75rem; color: var(--muted); }
-
-    /* SOLUTION */
-    .solution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-    .solution-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 12px; padding: 2rem; transition: border-color 0.2s, transform 0.2s;
-    }
-    .solution-card:hover { border-color: rgba(45,212,191,0.4); transform: translateY(-3px); }
-    .solution-card .icon {
-      width: 42px; height: 42px; border-radius: 10px;
-      background: rgba(45,212,191,0.12); display: flex; align-items: center;
-      justify-content: center; margin-bottom: 1rem; font-size: 1.25rem;
-    }
-    .solution-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text); }
-    .solution-card p { color: var(--muted); font-size: 0.9rem; }
-    .tag {
-      display: inline-block; font-size: 0.7rem; font-weight: 700;
-      padding: 0.2rem 0.6rem; border-radius: 4px;
-      background: rgba(45,212,191,0.12); color: #99f6e4;
-      text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem;
-    }
-
-    /* WHY US */
-    .why { background: var(--surface); }
-    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
-    .why-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; }
-    .why-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .why-card p { color: var(--muted); font-size: 0.875rem; }
-    .why-card .badge { font-size: 1.5rem; margin-bottom: 0.75rem; display: block; }
-
-    /* OFFERING */
-    .offering-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1300px; }
-    .offer-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; position: relative; overflow: hidden; display: flex; flex-direction: column; }
-    .offer-card.featured { border-color: var(--accent); box-shadow: 0 0 40px rgba(45,212,191,0.15); }
-    .offer-card.featured::before { content: 'RECOMMENDED'; position: absolute; top: 1.25rem; right: 1.25rem; background: var(--accent); color: #fff; font-size: 0.65rem; font-weight: 800; padding: 0.25rem 0.6rem; border-radius: 4px; }
-    .offer-card h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem; }
-    .offer-card .price { font-size: 0.9rem; color: var(--muted); margin-bottom: 1.5rem; }
-    .offer-card .price strong { font-size: 2rem; color: var(--text); font-weight: 800; }
-    .offer-card ul { list-style: none; margin-bottom: 2rem; flex: 1; display: flex; flex-direction: column; gap: 0.75rem; }
-    .offer-card ul li { font-size: 0.875rem; color: var(--muted); display: flex; gap: 0.6rem; align-items: flex-start; }
-    .offer-card ul li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
-    .addon-badge { display: inline-block; background: rgba(16,185,129,0.1); color: #10b981; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.65rem; font-weight: 800; margin-bottom: 0.5rem; border: 1px solid rgba(16,185,129,0.2); }
-    .offer-cta { display: block; text-align: center; text-decoration: none; padding: 0.8rem; border-radius: 8px; font-weight: 700; font-size: 0.95rem; transition: background 0.2s; cursor: pointer; border: none; width: 100%; }
-    .offer-cta.primary { background: var(--accent); color: #fff; }
-    .offer-cta.outline { border: 1px solid var(--border); color: var(--text); background: transparent; }
-
-    /* FAQ */
-    .faq { background: var(--surface); }
-    .faq-list { max-width: 850px; display: flex; flex-direction: column; }
-    .faq-item { border-bottom: 1px solid var(--border); }
-    .faq-question { width: 100%; background: none; border: none; color: var(--text); text-align: left; padding: 1.5rem 0; font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-    .faq-chevron { transition: transform 0.3s; }
-    .faq-item.open .faq-chevron { transform: rotate(180deg); }
-    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
-    .faq-answer-inner { padding-bottom: 1.5rem; color: var(--muted); font-size: 0.95rem; line-height: 1.75; }
-    .faq-item.open .faq-answer { max-height: 1000px; }
-
-    /* MODAL */
-    .modal-overlay { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.75); backdrop-filter: blur(6px); align-items: center; justify-content: center; padding: 1.5rem; }
-    .modal-overlay.open { display: flex; }
-    .modal { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; width: 100%; max-width: 520px; position: relative; max-height: 90vh; overflow-y: auto; }
-    .form-group { margin-bottom: 1.1rem; }
-    .form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--muted); margin-bottom: 0.4rem; text-transform: uppercase; }
-    .form-group input, .form-group select, .form-group textarea { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 0.7rem 1rem; color: var(--text); font-size: 0.9rem; outline: none; }
-    .form-submit { width: 100%; background: linear-gradient(135deg, #2dd4bf, #10b981); color: #fff; padding: 0.85rem; border-radius: 8px; border: none; font-weight: 700; cursor: pointer; }
-
-    footer { border-top: 1px solid var(--border); padding: 2.5rem 5%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    footer p { color: var(--muted); font-size: 0.825rem; }
-
-    @media (max-width: 640px) { nav ul { display: none; } section { padding: 4rem 5%; } }
+    :root { --bg:#0a0c10; --surface:#111318; --border:#1e2230; --accent:#2dd4bf; --accent2:#10b981; --text:#e2e8f0; --muted:#8b9bb0; --danger:#f87171; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body { background:radial-gradient(circle at top, rgba(45,212,191,.12), transparent 28%), linear-gradient(180deg,#0a0c10 0%,#0d1015 100%); color:var(--text); font-family:"Segoe UI",system-ui,sans-serif; line-height:1.6; }
+    a { color:inherit; }
+    nav, section, footer, .hero { padding-left:5%; padding-right:5%; }
+    nav { position:sticky; top:0; z-index:20; min-height:72px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; padding-top:.9rem; padding-bottom:.9rem; background:rgba(10,12,16,.88); backdrop-filter:blur(14px); border-bottom:1px solid var(--border); }
+    .logo { text-decoration:none; font-size:1.15rem; font-weight:800; letter-spacing:-.04em; background:linear-gradient(90deg,var(--accent),var(--accent2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    nav ul, .nav-actions, .hero-actions, .proof-links, .footer-links, .legal-links, .cookie-actions { display:flex; flex-wrap:wrap; gap:.8rem; }
+    nav ul { list-style:none; }
+    nav ul a, .footer-links a { text-decoration:none; color:var(--muted); }
+    .button, .button-secondary { display:inline-flex; align-items:center; justify-content:center; padding:.8rem 1.25rem; border-radius:10px; text-decoration:none; font-weight:700; border:1px solid transparent; cursor:pointer; }
+    .button { background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#06211d; }
+    .button-secondary { background:rgba(255,255,255,.02); border-color:var(--border); color:var(--text); }
+    .hero { padding-top:5rem; padding-bottom:4.5rem; }
+    .hero-grid, .proof-grid, .fit-grid, .pricing-grid, .legal-grid, .footer-wrap { max-width:1180px; margin:0 auto; display:grid; gap:1rem; }
+    .hero-grid { grid-template-columns:1.15fr .85fr; align-items:center; }
+    .proof-grid, .legal-grid { grid-template-columns:1.1fr .9fr; }
+    .fit-grid { grid-template-columns:repeat(2,1fr); }
+    .pricing-grid { grid-template-columns:repeat(3,1fr); }
+    .eyebrow { display:inline-flex; align-items:center; gap:.55rem; margin-bottom:1.25rem; padding:.4rem .95rem; border-radius:999px; color:#99f6e4; background:rgba(45,212,191,.08); border:1px solid rgba(45,212,191,.22); font-size:.78rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+    h1 { font-size:clamp(2.7rem,7vw,5rem); line-height:1.03; letter-spacing:-.06em; margin-bottom:1.25rem; max-width:13ch; }
+    h1 em { font-style:normal; background:linear-gradient(90deg,var(--accent),#6ee7b7); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    h2 { font-size:clamp(1.9rem,4.5vw,3.1rem); line-height:1.08; letter-spacing:-.05em; margin-bottom:1rem; max-width:18ch; }
+    .hero-copy p, .section-intro, .panel p, .panel li, .card p, .faq-answer, .legal-note p, .footer-copy, .cookie-copy { color:var(--muted); }
+    .hero-copy p, .section-intro { max-width:64ch; font-size:1.04rem; margin-bottom:1.8rem; }
+    .metrics, .cards, .faq-list { display:grid; gap:1rem; }
+    .metrics { grid-template-columns:repeat(3,1fr); margin-top:1.6rem; }
+    .cards { grid-template-columns:repeat(4,1fr); }
+    .metric, .panel, .card, .proof-card, .fit-card, .pricing-card, .faq-item, .legal-note { background:rgba(17,19,24,.92); border:1px solid var(--border); border-radius:18px; }
+    .metric, .panel, .card, .proof-card, .fit-card, .pricing-card, .legal-note { padding:1.35rem; }
+    .metric strong { display:block; margin-bottom:.25rem; }
+    .panel { box-shadow:0 20px 80px rgba(0,0,0,.35); }
+    .panel ul, .pricing-card ul, .fit-card ul { list-style:none; display:grid; gap:.55rem; margin-top:.8rem; }
+    .panel li::before, .pricing-card li::before, .fit-card li::before { content:"+"; color:var(--accent); margin-right:.55rem; font-weight:800; }
+    section { padding-top:4.5rem; padding-bottom:4.5rem; }
+    .section-wrap { max-width:1180px; margin:0 auto; }
+    .section-label, .tag { color:var(--accent); text-transform:uppercase; letter-spacing:.12em; font-size:.76rem; font-weight:700; }
+    .card .icon, .tag { display:inline-flex; align-items:center; justify-content:center; }
+    .card .icon { width:2.3rem; height:2.3rem; border-radius:12px; background:rgba(45,212,191,.1); margin-bottom:.9rem; color:var(--accent); font-weight:800; }
+    .proof-links, .legal-links, .footer-links { margin-top:.9rem; }
+    .proof-links a, .legal-links a { text-decoration:none; }
+    .proof-links div, .pricing-card li, .fit-card li { padding:.8rem .9rem; border-radius:12px; background:rgba(255,255,255,.02); border:1px solid rgba(255,255,255,.04); }
+    .pricing-card.featured { border-color:rgba(45,212,191,.35); }
+    .browser-frame { background:#0d1117; border:1px solid var(--border); border-radius:18px; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,.45); margin-top:1.25rem; }
+    .browser-bar { background:#161b22; padding:.75rem 1rem; display:flex; align-items:center; gap:.5rem; border-bottom:1px solid var(--border); }
+    .browser-dot { width:10px; height:10px; border-radius:50%; }
+    .browser-dot.r { background:#f87171; }
+    .browser-dot.y { background:#fbbf24; }
+    .browser-dot.g { background:#4ade80; }
+    .browser-url { margin-left:.75rem; background:#0d1117; border:1px solid var(--border); border-radius:6px; padding:.25rem 1rem; color:var(--muted); font-size:.75rem; flex:1; max-width:320px; }
+    .hub-layout { display:grid; grid-template-columns:220px 1fr; min-height:360px; }
+    .hub-sidebar { background:#11161d; border-right:1px solid var(--border); padding:1rem; }
+    .hub-sidebar-brand { border-bottom:1px solid var(--border); padding-bottom:.9rem; margin-bottom:.9rem; }
+    .hub-sidebar-brand .sub { font-size:.65rem; letter-spacing:.12em; color:var(--muted); text-transform:uppercase; }
+    .hub-sidebar-brand .name { font-size:1rem; font-weight:700; color:var(--text); }
+    .hub-nav-item { padding:.6rem .7rem; border-radius:8px; color:var(--muted); margin-bottom:.35rem; background:rgba(255,255,255,.02); border:1px solid transparent; }
+    .hub-nav-item.active { color:var(--text); border-color:rgba(45,212,191,.25); background:rgba(45,212,191,.08); }
+    .hub-content { padding:1.25rem; }
+    .hub-panel-label { font-size:.68rem; color:var(--accent); text-transform:uppercase; letter-spacing:.12em; margin-bottom:.45rem; }
+    .hub-title { font-size:1.35rem; font-weight:700; margin-bottom:.35rem; }
+    .hub-sub { font-size:.86rem; color:var(--muted); margin-bottom:1rem; }
+    .agent-grid { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; }
+    .agent-card { background:#161b22; border:1px solid var(--border); border-radius:10px; padding:.9rem; }
+    .agent-env { font-size:.58rem; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; margin-bottom:.2rem; }
+    .agent-name { font-size:.82rem; font-weight:700; margin-bottom:.25rem; }
+    .agent-role { font-size:.72rem; color:var(--accent); margin-bottom:.35rem; }
+    .agent-desc { font-size:.74rem; color:var(--muted); }
+    .mem-group { margin-bottom:1rem; }
+    .mem-group-label { font-size:.66rem; color:#f59e0b; text-transform:uppercase; letter-spacing:.1em; margin-bottom:.45rem; }
+    .mem-row { display:flex; justify-content:space-between; align-items:center; gap:1rem; background:#161b22; border:1px solid var(--border); border-radius:8px; padding:.75rem .9rem; margin-bottom:.4rem; }
+    .mem-row strong { display:block; font-size:.8rem; }
+    .mem-row span { font-size:.72rem; color:var(--muted); }
+    .mem-link { font-size:.66rem; color:var(--accent); text-transform:uppercase; letter-spacing:.06em; white-space:nowrap; }
+    .standup-tabs { display:flex; gap:.45rem; margin-bottom:.9rem; }
+    .standup-tab { font-size:.7rem; padding:.25rem .65rem; border-radius:4px; border:1px solid var(--border); color:var(--muted); }
+    .standup-tab.active { background:rgba(45,212,191,.1); color:var(--accent); border-color:var(--accent); }
+    .standup-agent-name { font-size:.86rem; font-weight:700; margin-bottom:.5rem; }
+    .standup-block { margin-bottom:.75rem; }
+    .standup-block-label { font-size:.68rem; font-weight:700; margin-bottom:.25rem; }
+    .standup-block ul { padding-left:1rem; }
+    .standup-block li { font-size:.74rem; color:var(--muted); line-height:1.45; margin-bottom:.2rem; }
+    .faq-item button { width:100%; border:0; background:transparent; color:var(--text); text-align:left; display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1.2rem 1.3rem; font-size:1rem; font-weight:700; cursor:pointer; }
+    .faq-answer { max-height:0; overflow:hidden; transition:max-height .25s ease; padding:0 1.3rem; }
+    .faq-item.open .faq-answer { max-height:280px; padding-bottom:1.2rem; }
+    footer { padding-top:2rem; padding-bottom:2.2rem; border-top:1px solid var(--border); }
+    .footer-wrap { grid-template-columns:1fr auto; align-items:center; }
+    .modal-overlay { position:fixed; inset:0; display:none; align-items:center; justify-content:center; padding:1.25rem; background:rgba(0,0,0,.72); backdrop-filter:blur(6px); z-index:40; }
+    .modal-overlay.open { display:flex; }
+    .modal { width:min(100%,560px); max-height:90vh; overflow-y:auto; padding:2rem; border-radius:20px; background:linear-gradient(180deg,#12161d,#0d1117); border:1px solid var(--border); position:relative; }
+    .modal-close { position:absolute; top:.8rem; right:.9rem; width:2rem; height:2rem; border:0; border-radius:999px; background:transparent; color:var(--muted); cursor:pointer; font-size:1.4rem; }
+    .modal-sub, .form-help { color:var(--muted); margin-bottom:1rem; }
+    .form-grid { display:grid; gap:1rem; }
+    .form-group label { display:block; margin-bottom:.35rem; font-size:.82rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+    .form-group input, .form-group select, .form-group textarea { width:100%; border:1px solid var(--border); border-radius:12px; padding:.85rem .95rem; background:#0b1016; color:var(--text); font:inherit; }
+    .form-group textarea { min-height:110px; resize:vertical; }
+    .form-consent { display:flex; gap:.7rem; align-items:flex-start; color:var(--muted); font-size:.92rem; }
+    .form-error { color:var(--danger); display:none; }
+    .form-success { display:none; text-align:center; padding-top:1rem; }
+    .cookie-banner { position:fixed; left:1rem; right:1rem; bottom:1rem; display:none; z-index:30; }
+    .cookie-banner.visible { display:block; }
+    .cookie-card { max-width:960px; margin:0 auto; padding:1rem 1.1rem; border-radius:18px; border:1px solid var(--border); background:rgba(12,15,21,.96); display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem; }
+    @media (max-width:980px) { .hero-grid, .proof-grid, .fit-grid, .pricing-grid, .legal-grid, .footer-wrap, .hub-layout, .agent-grid { grid-template-columns:1fr; } .cards { grid-template-columns:repeat(2,1fr); } .metrics { grid-template-columns:1fr; } }
+    @media (max-width:760px) { .cards { grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
+  <div class="modal-overlay" id="contactModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+      <button class="modal-close" type="button" aria-label="Close contact form" onclick="closeModal()">X</button>
+      <div id="formContent">
+        <h3 id="contactTitle">Request a Fleet Intro</h3>
+        <p class="modal-sub">Your message is intended for a Google Sheets intake workflow. No public email address is exposed on the page.</p>
+        <form id="contactForm" class="form-grid" onsubmit="submitForm(event)">
+          <div class="form-group"><label for="f-name">Full Name</label><input id="f-name" type="text" placeholder="Jane Doe" required /></div>
+          <div class="form-group"><label for="f-email">Work Email</label><input id="f-email" type="email" placeholder="jane@company.com" required /></div>
+          <div class="form-group"><label for="f-company">Company</label><input id="f-company" type="text" placeholder="Acme GmbH" required /></div>
+          <div class="form-group"><label for="f-tier">Interest</label><select id="f-tier"><option>Fleet Command</option><option>Deployment Intensive</option><option>Growth Fleet</option><option>Exploratory Call</option></select></div>
+          <div class="form-group"><label for="f-message">Message</label><textarea id="f-message" placeholder="Current team, stack, timeline, or the workflow you want to automate."></textarea></div>
+          <label class="form-consent" for="f-consent"><input id="f-consent" type="checkbox" required /><span>I agree that Big Bear Engineering may process this request according to the <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</span></label>
+          <p class="form-help">If the Google Apps Script endpoint is not configured yet, the page will show a setup warning instead of silently failing.</p>
+          <p class="form-error" id="formError"></p>
+          <button id="submitBtn" class="button" type="submit">Send Request</button>
+        </form>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <strong>Request received.</strong>
+        <p class="modal-sub">The intake request was sent to the lead-capture workflow.</p>
+      </div>
+    </div>
+  </div>
 
-  <div class="modal-overlay" id="contactModal">
-    <div class="modal">
-      <button onclick="closeModal()" style="position:absolute; top:1rem; right:1rem; background:none; border:none; color:var(--muted); font-size:1.5rem; cursor:pointer;">×</button>
-      <h3>Get in Touch</h3>
-      <p style="color:var(--muted); font-size:0.9rem; margin-bottom:1.5rem;">Ready to deploy your fleet? Let's talk.</p>
-      <form id="contactForm" onsubmit="submitForm(event)">
-        <div class="form-group"><label>Full Name</label><input type="text" id="f-name" required /></div>
-        <div class="form-group"><label>Work Email</label><input type="email" id="f-email" required /></div>
-        <div class="form-group"><label>Company</label><input type="text" id="f-company" required /></div>
-        <div class="form-group">
-          <label>Interest</label>
-          <select id="f-tier">
-            <option value="Fleet Command">Fleet Command Hub</option>
-            <option value="Deployment Intensive">Deployment Intensive</option>
-            <option value="Growth Expansion">Growth Fleet expansion</option>
-          </select>
-        </div>
-        <button type="submit" class="form-submit">Send Message →</button>
-      </form>
+  <div class="cookie-banner" id="cookieBanner" aria-live="polite">
+    <div class="cookie-card">
+      <p class="cookie-copy">This site uses essential browser storage for consent preferences and contact-flow state. No marketing cookies are enabled here. See the <a href="cookies.html">Cookie Policy</a> and <a href="privacy.html">Privacy Policy</a>.</p>
+      <div class="cookie-actions">
+        <button class="button-secondary" type="button" onclick="dismissCookieBanner('essential')">Keep Essential Only</button>
+        <button class="button" type="button" onclick="dismissCookieBanner('acknowledged')">Acknowledge</button>
+      </div>
     </div>
   </div>
 
   <nav>
-    <a href="/" class="logo">Big Bear<span> Engineering GmbH</span></a>
+    <a href="/" class="logo">Big Bear Engineering GmbH</a>
     <ul>
-      <li><a href="gmbh.html#expertise">Expertise</a></li>
-      <li><a href="gmbh.html#portfolio">Portfolio</a></li>
-      <li><a href="https://api.robotross.art/demo/" target="_blank" style="color: var(--accent); font-weight: 700;">Try Demo</a></li>
+      <li><a href="#problem">Problem</a></li>
+      <li><a href="#solution">Solution</a></li>
+      <li><a href="#proof">Proof</a></li>
+      <li><a href="#fit">Fit</a></li>
+      <li><a href="#faq">FAQ</a></li>
     </ul>
-    <button class="nav-cta" onclick="openModal()">Get Started</button>
+    <div class="nav-actions">
+      <a class="button-secondary" href="https://api.robotross.art/demo/" target="_blank" rel="noopener noreferrer">Try Demo</a>
+      <button class="button" type="button" onclick="openModal('Fleet Command')">Get Started</button>
+    </div>
   </nav>
 
-  <section class="hero">
-    <div class="hero-badge"><span class="dot"></span>Now available · Zurich · Swiss Precision</div>
-    <h1>Your Engineering Team,<br /><em>Multiplied by AI.</em></h1>
-    <p>A coordinated multi-agent system that works 24/7, maintains state across sessions, and ships real tickets — not demos.</p>
-    <div class="hero-actions">
-      <a href="https://api.robotross.art/demo/" target="_blank" class="btn-primary">Experience the Hub →</a>
-      <a href="gmbh.html" class="btn-secondary">GmbH Portfolio</a>
-    </div>
-  </section>
-
-  <!-- THE PROBLEM -->
-  <section class="problem" id="problem">
-    <div class="section-label">The AI State Problem</div>
-    <h2>Solving the friction points of professional AI</h2>
-    <p class="section-sub">Standard AI deployments fail because they lack persistence, coordination, and professional economics.</p>
-    <div class="problem-grid">
-      <div class="problem-card">
-        <div class="icon">🧠</div>
-        <h3>The Memory Gap</h3>
-        <p>Goldfish memory. Standard agents forget project architecture and previous decisions once the session ends, leading to repeat mistakes and coordination drift.</p>
-      </div>
-      <div class="problem-card">
-        <div class="icon">💸</div>
-        <h3>The Subscription Ceiling</h3>
-        <p>Enterprise per-seat licenses are expensive. We move you to **flat-cost API usage**, often saving clients 60% compared to standard cloud-only packages (~$20/agent).</p>
-      </div>
-      <div class="problem-card">
-        <div class="icon">🧪</div>
-        <h3>Evolutionary Leak</h3>
-        <p>Agents don't learn from mistakes. Without a "Lessons Learned" ledger, your AI fleet repeats the same errors every single session, wasting time and token budget.</p>
-      </div>
-      <div class="problem-card">
-        <div class="icon">🔓</div>
-        <h3>The Security Trap</h3>
-        <p>Hardcoding secrets in .env files is a massive risk. Most agent setups lack a professional, vault-backed security layer for industrial data.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- HUB SHOWCASE -->
-  <section class="showcase">
-    <div class="section-label">Fleet Command Hub</div>
-    <h2>Mission Control for your AI Workforce</h2>
-    <p class="section-sub">A centralized, human-readable management plane where you monitor, direct, and "teach" your workforce.</p>
-    <div class="showcase-grid">
-      <div class="showcase-card">
-        <h3>👥 Agentic Team</h3>
-        <p class="sub">Coordinated models working in sync.</p>
-        <div class="agent-pill"><div class="avatar">🤖</div><div class="info"><strong>Clau (Claude)</strong><span>Senior Logic & Code</span></div></div>
-        <div class="agent-pill"><div class="avatar">♊</div><div class="info"><strong>Gem (Gemini)</strong><span>Infrastructure Architect</span></div></div>
-        <div class="agent-pill"><div class="avatar">🛠️</div><div class="info"><strong>Codi (Codex)</strong><span>QA & Velocity Runner</span></div></div>
-      </div>
-      <div class="showcase-card">
-        <h3>🧠 Memory Tree</h3>
-        <p class="sub">Structured project context & blueprints.</p>
-        <div class="agent-pill"><div class="avatar">📜</div><div class="info"><strong>Team Rules</strong><span>Standardized protocols</span></div></div>
-        <div class="agent-pill"><div class="avatar">🏗️</div><div class="info"><strong>Architecture</strong><span>System blueprints</span></div></div>
-        <div class="agent-pill"><div class="avatar">🧪</div><div class="info"><strong>Lessons Learned</strong><span>Evolutionary memory</span></div></div>
-      </div>
-      <div class="showcase-card">
-        <h3>⏱️ Daily Standups</h3>
-        <p class="sub">Automated audit trails & session logs.</p>
-        <div style="background:#161b22; border:1px solid var(--border); border-radius:8px; padding:1rem; font-size:0.8rem;">
-          <strong style="color:#2dd4bf">Clau:</strong> Migrated CRM to Vault-backed cloud deployment. #Ticket15.
+  <header class="hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">Zurich | Shared Consciousness | Vault-First</div>
+        <h1>Your Engineering Team, <em>Multiplied by AI.</em></h1>
+        <p>Big Bear Engineering builds coordinated multi-agent systems for engineering teams that need persistence, handoffs, and operational discipline, not one-off prompts.</p>
+        <div class="hero-actions">
+          <a class="button" href="https://api.robotross.art/demo/" target="_blank" rel="noopener noreferrer">Experience the Hub</a>
+          <button class="button-secondary" type="button" onclick="openModal('Exploratory Call')">Book an Intro Call</button>
         </div>
-        <div style="margin-top:1rem; font-size:0.75rem; color:var(--muted);">"Never repeat the same blocker twice."</div>
+        <div class="metrics">
+          <div class="metric"><strong>Persistent State</strong><span>Shared memory, standups, and architectural context across sessions.</span></div>
+          <div class="metric"><strong>Vault-First Security</strong><span>Infisical-based secret delivery with no `.env` files in the workflow.</span></div>
+          <div class="metric"><strong>Production Bias</strong><span>Built for real tickets, handoffs, and infrastructure accountability.</span></div>
+        </div>
+      </div>
+        <div class="panel">
+          <div class="section-label">Fleet Command Preview</div>
+          <h3>Mission-control onboarding for engineering teams</h3>
+          <p>Every coding agent session begins from the same operating memory: mission control, team rules, context, and current standups.</p>
+          <ul>
+            <li>Agents pick their tickets from GitHub and work on them.</li>
+            <li>They update results in shared markdown files so the whole fleet can inherit the current state.</li>
+            <li>They document lessons learned for other agents to see, avoiding the same mistakes twice.</li>
+            <li>The setup can leverage fixed-cost per-seat licenses instead of expensive token API calls, so there are no cost surprises.</li>
+          </ul>
+        </div>
+    </div>
+  </header>
+
+  <section id="problem">
+    <div class="section-wrap">
+      <div class="section-label">The AI State Problem</div>
+      <h2>Most AI deployments break where engineering teams actually live.</h2>
+        <p class="section-intro">Standard AI deployments fail because they lose context, drift across sessions, and create unpredictable operating costs.</p>
+        <div class="cards">
+        <article class="card"><div class="icon">M</div><h3>Memory Loss</h3><p>Stateless agents forget architecture and prior decisions once the tab closes, so you have to tell them again how to do things.</p></article>
+        <article class="card"><div class="icon">C</div><h3>Runaway API Token Costs</h3><p>Usage-based token billing can create unexpected large bills and unpredictable economics for engineering teams.</p></article>
+        <article class="card"><div class="icon">L</div><h3>Evolutionary Leak</h3><p>Agents don't learn from mistakes. Without a "Lessons Learned" ledger, your fleet repeats the same errors every session.</p></article>
+        <article class="card"><div class="icon">S</div><h3>Security Trap</h3><p>Hardcoding secrets in .env files is a massive risk. Most setups lack a professional, vault-backed security layer.</p></article>
       </div>
     </div>
   </section>
 
-  <!-- SOLUTION -->
+  <section id="showcase" style="background: var(--bg);">
+    <div class="section-wrap">
+      <div class="section-label">Fleet Command Showcase</div>
+      <h2>Mission Control for your AI Workforce</h2>
+      <p class="section-intro">A centralized, human-readable management plane where you monitor, direct, and teach your workforce. The snapshots below are meant to give visitors a feel for the UI at a glance.</p>
+
+      <div class="browser-frame">
+        <div class="browser-bar">
+          <div class="browser-dot r"></div>
+          <div class="browser-dot y"></div>
+          <div class="browser-dot g"></div>
+          <div class="browser-url">fleet-hub.bigbearengineering.com/team</div>
+        </div>
+        <div class="hub-layout">
+          <div class="hub-sidebar">
+            <div class="hub-sidebar-brand"><div class="sub">Ursushoribilis</div><div class="name">Fleet Hub</div></div>
+            <div class="hub-nav-item active">Team</div>
+            <div class="hub-nav-item">Projects</div>
+            <div class="hub-nav-item">Rules</div>
+            <div class="hub-nav-item">Memory</div>
+            <div class="hub-nav-item">Standups</div>
+          </div>
+          <div class="hub-content">
+            <div class="hub-panel-label">Fleet Crew</div>
+            <div class="hub-title">Agentic Team</div>
+            <div class="hub-sub">Role-specific agents working in sync with visible environments, responsibilities, and operating context.</div>
+            <div class="agent-grid">
+              <div class="agent-card"><div class="agent-env">Runs on: local workstation</div><div class="agent-name">Logic agent</div><div class="agent-role">Implementation lead</div><div class="agent-desc">Picks tickets from GitHub, executes code changes, and updates shared state for the rest of the fleet.</div></div>
+              <div class="agent-card"><div class="agent-env">Runs on: cloud context</div><div class="agent-name">Architecture agent</div><div class="agent-role">Platform and system design</div><div class="agent-desc">Maintains architectural context, project plans, and deployment constraints.</div></div>
+              <div class="agent-card"><div class="agent-env">Runs on: verification lane</div><div class="agent-name">QA agent</div><div class="agent-role">Review and delivery pressure</div><div class="agent-desc">Checks regressions, validates changes, and keeps delivery moving across tickets.</div></div>
+              <div class="agent-card"><div class="agent-env">Runs on: growth lane</div><div class="agent-name">Commercial agent</div><div class="agent-role">Lead ops and handoff support</div><div class="agent-desc">Captures inbound requests, structures context, and hands off work to the right workflow.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="browser-frame">
+        <div class="browser-bar">
+          <div class="browser-dot r"></div>
+          <div class="browser-dot y"></div>
+          <div class="browser-dot g"></div>
+          <div class="browser-url">fleet-hub.bigbearengineering.com/memory</div>
+        </div>
+        <div class="hub-layout">
+          <div class="hub-sidebar">
+            <div class="hub-sidebar-brand"><div class="sub">Ursushoribilis</div><div class="name">Fleet Hub</div></div>
+            <div class="hub-nav-item">Team</div>
+            <div class="hub-nav-item">Projects</div>
+            <div class="hub-nav-item">Rules</div>
+            <div class="hub-nav-item active">Memory</div>
+            <div class="hub-nav-item">Standups</div>
+          </div>
+          <div class="hub-content">
+            <div class="hub-panel-label">Knowledge Base</div>
+            <div class="hub-title">Memory Tree</div>
+            <div class="hub-sub">Centralized project context and architectural blueprints, linked directly to the shared markdown memory system.</div>
+            <div class="mem-group">
+              <div class="mem-group-label">Global Rules</div>
+              <div class="mem-row"><div><strong>Team Rules</strong><span>Commit, Kanban, and shared-memory protocols for all agents.</span></div><div class="mem-link">Open</div></div>
+              <div class="mem-row"><div><strong>Mission Control</strong><span>The operational source of truth every coding agent reads at session start.</span></div><div class="mem-link">Open</div></div>
+            </div>
+            <div class="mem-group">
+              <div class="mem-group-label">Project Context</div>
+              <div class="mem-row"><div><strong>Architecture</strong><span>Component maps, deployment constraints, and system boundaries.</span></div><div class="mem-link">Open</div></div>
+              <div class="mem-row"><div><strong>Lessons Learned</strong><span>Shared notes that help the fleet avoid the same mistakes twice.</span></div><div class="mem-link">Open</div></div>
+              <div class="mem-row"><div><strong>Standup History</strong><span>Recent work logs, ticket progress, and blockers.</span></div><div class="mem-link">Open</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="browser-frame">
+        <div class="browser-bar">
+          <div class="browser-dot r"></div>
+          <div class="browser-dot y"></div>
+          <div class="browser-dot g"></div>
+          <div class="browser-url">fleet-hub.bigbearengineering.com/standups</div>
+        </div>
+        <div class="hub-layout">
+          <div class="hub-sidebar">
+            <div class="hub-sidebar-brand"><div class="sub">Ursushoribilis</div><div class="name">Fleet Hub</div></div>
+            <div class="hub-nav-item">Team</div>
+            <div class="hub-nav-item">Projects</div>
+            <div class="hub-nav-item">Rules</div>
+            <div class="hub-nav-item">Memory</div>
+            <div class="hub-nav-item active">Standups</div>
+          </div>
+          <div class="hub-content">
+            <div class="hub-panel-label">Daily Pulse</div>
+            <div class="hub-title">Standups</div>
+            <div class="hub-sub">Session logs that show what each agent finished, what changed, and what still needs human attention.</div>
+            <div class="standup-tabs"><div class="standup-tab active">2026-03-12</div><div class="standup-tab">2026-03-11</div></div>
+            <div class="standup-agent-name">Current Session</div>
+            <div class="standup-block"><div class="standup-block-label">Done</div><ul><li>Homepage contact form wired into Google Sheets intake.</li><li>Legal pages added for privacy, cookies, and terms.</li><li>Shared markdown notes updated for the next agent.</li></ul></div>
+            <div class="standup-block"><div class="standup-block-label">Today</div><ul><li>Review homepage messaging and proof sections.</li><li>Validate live lead capture from production.</li></ul></div>
+            <div class="standup-block"><div class="standup-block-label">Blockers</div><ul><li>No blocker if the live path is deployed and the webhook stays reachable.</li></ul></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="solution">
-    <div class="section-label">Our Solution</div>
-    <h2>Resilient Multi-Agent Infrastructure</h2>
-    <div class="solution-grid">
-      <div class="solution-card">
-        <div class="tag">Intelligence</div>
-        <div class="icon">🧠</div>
-        <h3>Triple-Model Intelligence</h3>
-        <p>Model-agnostic by design. Leverage Claude for coding precision, Gemini for massive context windows, and Codex for velocity.</p>
-      </div>
-      <div class="solution-card">
-        <div class="tag">Learning</div>
-        <div class="icon">🧪</div>
-        <h3>Evolutionary Memory</h3>
-        <p>Inspired by Andrej Karpathy's identified paradigm. Our "Lessons Learned" system captures insights, making them active rules for all future agents.</p>
-      </div>
-      <div class="solution-card">
-        <div class="tag">Memory</div>
-        <div class="icon">🗂</div>
-        <h3>Shared Consciousness</h3>
-        <p>Centralized Markdown memory files link coding conventions and project states. Agents never ask the same question twice.</p>
-      </div>
-      <div class="solution-card">
-        <div class="tag">Security</div>
-        <div class="icon">🏗</div>
-        <h3>Vault-First Architecture</h3>
-        <p>Zero-footprint security via Infisical. Secrets are injected directly into memory on-the-fly, leaving nothing on the disk.</p>
+    <div class="section-wrap">
+      <div class="section-label">Our Solution</div>
+      <h2>Resilient multi-agent infrastructure with human-readable control.</h2>
+      <p class="section-intro">The Fleet Hub is a management layer for coordinated agents: shared memory, vault-backed secret access, role specialization, and explicit reporting.</p>
+      <div class="cards">
+        <article class="card"><div class="icon">1</div><h3>Mission-Control Sync</h3><p>Agents start from the same source of truth and synchronize before they act.</p></article>
+        <article class="card"><div class="icon">2</div><h3>Memory Tree</h3><p>Architecture, context, and project decisions stay versioned and accessible across sessions.</p></article>
+        <article class="card"><div class="icon">3</div><h3>Vault-First Secrets</h3><p>Secrets are fetched on demand through Infisical scripts and injected in-memory.</p></article>
+        <article class="card"><div class="icon">4</div><h3>Evolutionary Learning</h3><p>Lessons learned can be reviewed, approved, and pushed back into future agent behavior.</p></article>
       </div>
     </div>
   </section>
 
-  <!-- WHY US -->
-  <section class="why" id="why">
-    <div class="section-label">Why Big Bear</div>
-    <h2>Engineering Discipline, Not AI Hype</h2>
-    <div class="why-grid">
-      <div class="why-card">
-        <span class="badge">💶</span>
-        <h3>Predictable Costs</h3>
-        <p>Move from "Pay-per-Thought" to fixed-cost infrastructure. Full professional agents run for ~$20/month with zero mid-day throttles.</p>
-      </div>
-      <div class="why-card">
-        <span class="badge">🔓</span>
-        <h3>Data Sovereignty</h3>
-        <p>Run local models like Mistral and Apertus on your own hardware — keeping sensitive data private while staying cloud-optional.</p>
-      </div>
-      <div class="why-card">
-        <span class="badge">🇨🇭</span>
-        <h3>Swiss Precision</h3>
-        <p>Based in Zurich, we focus on rigorous engineering standards. Every system we deploy is production-grade from day one.</p>
+  <section id="proof">
+    <div class="section-wrap">
+      <div class="section-label">Proof Surface</div>
+      <h2>Public proof should point to live artifacts, not abstract claims.</h2>
+      <p class="section-intro">The page now steers visitors into working demos and visible portfolio artifacts instead of unsupported hard numbers.</p>
+      <div class="proof-grid">
+        <div class="proof-card">
+          <h3>Live touchpoints</h3>
+          <div class="proof-links">
+            <div><a href="https://api.robotross.art/demo/" target="_blank" rel="noopener noreferrer">Fleet Hub demo environment</a></div>
+            <div><a href="gmbh.html">Big Bear Engineering portfolio and project history</a></div>
+            <div><a href="https://api.robotross.art/stats/" target="_blank" rel="noopener noreferrer">Robot Ross operational stats</a></div>
+          </div>
+        </div>
+        <div class="proof-card">
+          <h3>Commercial posture</h3>
+          <p>The messaging is centered on workflow discipline, security, and deployment readiness. It avoids unsupported public savings claims.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- OFFERING -->
+  <section id="fit">
+    <div class="section-wrap">
+      <div class="section-label">Who It Fits</div>
+      <h2>Good for teams that already have real engineering workflows.</h2>
+      <p class="section-intro">This is not aimed at casual AI experimentation. It is best for technical teams willing to run structured processes and explicit handoffs.</p>
+      <div class="fit-grid">
+        <div class="fit-card"><h3>Good fit</h3><ul><li>Engineering teams with active repos, tickets, and infrastructure responsibility.</li><li>Startups that need disciplined AI delivery instead of ad hoc prompting.</li><li>Organizations that care about data handling and operator visibility.</li></ul></div>
+        <div class="fit-card"><h3>Not the first step for</h3><ul><li>Teams looking only for generic chatbot access.</li><li>Organizations without a workflow owner for code, process, or security.</li><li>Buyers expecting one prompt to replace delivery discipline.</li></ul></div>
+      </div>
+    </div>
+  </section>
+
   <section id="offering">
-    <div class="section-label">The Offering</div>
-    <h2>Four Ways to Deploy Your Fleet</h2>
-    <div class="offering-grid">
-      <div class="offer-card">
-        <h3>🛠 The Blueprint</h3>
-        <div class="price">Open-source starter — <strong>Free</strong></div>
-        <ul>
-          <li>Markdown Memory Framework</li>
-          <li>Kanban Sync Protocols</li>
-          <li>Agent Hand-off Templates</li>
-        </ul>
-        <button class="offer-cta outline">Coming Soon</button>
-      </div>
-      <div class="offer-card featured">
-        <h3>🎛 Fleet Command</h3>
-        <div class="price">Platform + Setup — <strong>Contact us</strong></div>
-        <ul>
-          <li>Full Management Dashboard</li>
-          <li>Evolutionary Memory Engine</li>
-          <li>**4h Monthly Fleet Support**</li>
-          <li>Continuous Platform Updates</li>
-        </ul>
-        <button class="offer-cta primary" onclick="openModal('Fleet Command')">Get Fleet Command</button>
-      </div>
-      <div class="offer-card">
-        <h3>🚀 Deployment Intensive</h3>
-        <div class="price">Hands-on Service — <strong>Contact us</strong></div>
-        <ul>
-          <li>Full Stack Private Installation</li>
-          <li>Workflow Role Mapping</li>
-          <li>Live Ticket Execution Day</li>
-          <li>Post-Deployment Support</li>
-        </ul>
-        <button class="offer-cta outline" onclick="openModal('Deployment Intensive')">Book Your Intensive</button>
-      </div>
-      <div class="offer-card">
-        <span class="addon-badge">EXPANSION PACK</span>
-        <h3>📈 Growth Fleet</h3>
-        <div class="price">Market Traction Add-on</div>
-        <ul>
-          <li>Scout: Lead Discovery Agent</li>
-          <li>Echo: Social Media Manager</li>
-          <li>Closer: Sales & CRM Architect</li>
-          <li>Full Growth Hub Template</li>
-        </ul>
-        <button class="offer-cta outline" onclick="openModal('Growth Expansion')">Add to Fleet</button>
+    <div class="section-wrap">
+      <div class="section-label">Offerings</div>
+      <h2>Four ways to deploy the fleet.</h2>
+      <p class="section-intro">The stack can be consumed as a blueprint, a managed command layer, a hands-on engagement, or a commercial expansion pack.</p>
+      <div class="pricing-grid">
+        <article class="pricing-card"><div class="tag">Open</div><h3>Multi-Agent Blueprint</h3><p>Public orchestration patterns, markdown conventions, and handoff structure.</p><ul><li>Shared memory pattern</li><li>Operational markdown conventions</li><li>Team protocol starter templates</li></ul></article>
+        <article class="pricing-card featured"><div class="tag">Core Offer</div><h3>Fleet Command</h3><p>The management plane, role setup, **4h monthly support**, and platform updates.</p><ul><li>Hub setup and workflow alignment</li><li>Vault-backed secret path</li><li>Standups, memory, and lesson flow</li></ul></article>
+        <article class="pricing-card"><div class="tag">Premium</div><h3>Deployment Intensive</h3><p>A focused one-day engagement to install the stack and clear tickets with your team.</p><ul><li>Private deployment</li><li>Workflow role mapping</li><li>Live ticket execution day</li></ul></article>
+        <article class="pricing-card"><div class="tag">Add-on</div><h3>Growth Expansion</h3><p>Market traction pack for technical teams ready to go to market.</p><ul><li>Scout & Echo agent roles</li><li>Autonomous CRM (Lead Pipeline)</li><li>Content Calendar integration</li></ul></article>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="faq" id="faq">
-    <div class="section-label">FAQ</div>
-    <h2>Common Questions</h2>
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">How does cost control work? <span class="faq-chevron">▾</span></button>
-        <div class="faq-answer"><div class="faq-answer-inner"><p>Instead of API keys with per-token billing, we configure agents to authenticate using <strong>OAuth with standard subscriptions</strong> (e.g. Claude Pro). This turns unpredictable costs into a flat monthly fee (~$20/agent).</p></div></div>
+  <section id="faq">
+    <div class="section-wrap">
+      <div class="section-label">FAQ</div>
+      <h2>Common questions from technical buyers.</h2>
+      <div class="faq-list">
+        <article class="faq-item"><button type="button" onclick="toggleFaq(this)">How does cost control actually work? <span>v</span></button><div class="faq-answer">Instead of API keys with per-token billing, we configure agents to authenticate using <strong>OAuth with standard subscriptions</strong> (e.g. Claude Pro). This turns unpredictable costs into a flat monthly fee (~$20/agent).</div></article>
+        <article class="faq-item"><button type="button" onclick="toggleFaq(this)">Why multiple models instead of one? <span>v</span></button><div class="faq-answer">Engineering workflows are heterogeneous. Claude leads in logic, Gemini in context, Codex in speed. A fleet is more resilient when providers are model-agnostic.</div></article>
+        <article class="faq-item"><button type="button" onclick="toggleFaq(this)">How are secrets handled? <span>v</span></button><div class="faq-answer">Through a <strong>Vault-First, Zero-Footprint</strong> architecture using Infisical. Agents fetch secrets when needed directly into memory; no keys are ever stored on disk or in .env files.</div></article>
+        <article class="faq-item"><button type="button" onclick="toggleFaq(this)">What do you need from a client? <span>v</span></button><div class="faq-answer">A GitHub account for orchestration, at least one Pro agent license, and an Infisical account for secure secret management.</div></article>
+        <article class="faq-item"><button type="button" onclick="toggleFaq(this)">What about local models? <span>v</span></button><div class="faq-answer">We recommend Mistral and Apertus for teams prioritizing data sovereignty. These run on your own hardware with zero data sent to third parties.</div></article>
+        <article class="faq-item"><button type="button" onclick="toggleFaq(this)">What does the Hub dashboard include? <span>v</span></button><div class="faq-answer">A live view of agent status, project-specific memory trees, evolutionary lessons learned, and automated daily standups for audit trails.</div></article>
+        <article class="faq-item"><button type="button" onclick="toggleFaq(this)">How long does the Deployment Intensive take? <span>v</span></button><div class="faq-answer">It is a one-day hands-on engagement. We don't consider it finished until your fleet clears its first real-world production tickets on your own infrastructure.</div></article>
+        <article class="faq-item"><button type="button" onclick="toggleFaq(this)">Is there ongoing support? <span>v</span></button><div class="faq-answer">Yes. Commercial plans include monthly support hours and continuous platform updates to keep your fleet running on the latest protocols.</div></article>
+        <article class="faq-item"><button type="button" onclick="toggleFaq(this)">Can I manage multiple projects? <span>v</span></button><div class="faq-answer">Yes. The Fleet Hub is designed to manage several engineering projects simultaneously, each with its own context, agents, and Kanban boards.</div></article>
+        <article class="faq-item"><button type="button" onclick="toggleFaq(this)">Why GitHub for orchestration? <span>v</span></button><div class="faq-answer">GitHub is the center of engineering. We leverage it for Kanban ticketing, source control of rules, and Shared Memory storage via MD files.</div></article>
       </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">Why use multiple AI models? <span class="faq-chevron">▾</span></button>
-        <div class="faq-answer"><div class="faq-answer-inner"><p>Being model-agnostic means you always have access to the best tool for each job. If one provider hits a rate limit, the fleet keeps running. Claude leads in logic, Gemini in context, Codex in speed.</p></div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">What roles can agents take on? <span class="faq-chevron">▾</span></button>
-        <div class="faq-answer"><div class="faq-answer-inner"><p>Beyond coding, agents handle **Research**, **QA & API Architecture**, **Infrastructure Management**, and **Commerce Operations**. We map your specific engineering workflows to agentic roles.</p></div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">What about local models? <span class="faq-chevron">▾</span></button>
-        <div class="faq-answer"><div class="faq-answer-inner"><p>We particularly recommend **Mistral** and **Apertus** for teams prioritizing data sovereignty. These run on your own hardware with zero data sent to third parties.</p></div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">Why GitHub for orchestration? <span class="faq-chevron">▾</span></button>
-        <div class="faq-answer"><div class="faq-answer-inner"><p>GitHub is the center of engineering infrastructure. We leverage it for **Kanban ticketing**, **Source control of rules**, and **Shared Memory storage** via MD files.</p></div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">What are the prerequisites? <span class="faq-chevron">▾</span></button>
-        <div class="faq-answer"><div class="faq-answer-inner"><ul><li>**GitHub Account**: For orchestration.</li><li>**Agent License**: At least one Pro subscription.</li><li>**KeyVault**: An Infisical account for secure management.</li></ul></div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">How secure is our data? <span class="faq-chevron">▾</span></button>
-        <div class="faq-answer"><div class="faq-answer-inner"><p>Our **Vault-First, Zero-Footprint** architecture ensures secrets are never on disk. Agents fetch credentials directly into memory using cryptographically secure tokens.</p></div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">What does the Hub dashboard include? <span class="faq-chevron">▾</span></button>
-        <div class="faq-answer"><div class="faq-answer-inner"><p>The dashboard provides a live view of agent status, project-specific memory trees, evolutionary lessons learned, and automated daily standups for audit trails.</p></div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">How long does the Deployment Intensive take? <span class="faq-chevron">▾</span></button>
-        <div class="faq-answer"><div class="faq-answer-inner"><p>It is a one-day hands-on engagement. We don't consider it finished until your fleet clears its first real-world production tickets on your own infrastructure.</p></div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">Is there ongoing support? <span class="faq-chevron">▾</span></button>
-        <div class="faq-answer"><div class="faq-answer-inner"><p>Yes. Commercial plans include monthly support hours and continuous platform updates to keep your fleet running on the latest agentic protocols.</p></div></div>
+      <div class="legal-grid" style="margin-top:2rem;">
+        <div class="legal-note">
+          <h3>Compliance baseline</h3>
+          <p>This site now exposes separate privacy, cookie, and terms pages tailored for a static B2B lead-gen site with Google Sheets-based contact intake. They should still receive legal review before production use.</p>
+          <div class="legal-links"><a href="privacy.html">Privacy Policy</a><a href="cookies.html">Cookie Policy</a><a href="terms.html">Terms</a></div>
+        </div>
+        <div class="legal-note">
+          <h3>Contact flow</h3>
+          <p>The form is wired for a Google Apps Script endpoint. Until the deployment URL is configured, the page now fails loudly with a setup message instead of silently dropping submissions.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <footer>
-    <div class="logo">Big Bear<span> Engineering GmbH</span></div>
-    <p>© 2025 Big Bear Engineering GmbH · Zurich, Switzerland</p>
+    <div class="footer-wrap">
+      <div><div class="logo">Big Bear Engineering GmbH</div><p class="footer-copy">(c) 2026 Big Bear Engineering GmbH - Zurich, Switzerland - Engineering discipline, not AI hype.</p></div>
+      <div class="footer-links"><a href="gmbh.html">Portfolio</a><a href="privacy.html">Privacy</a><a href="cookies.html">Cookies</a><a href="terms.html">Terms</a></div>
+    </div>
   </footer>
 
   <script>
-    function openModal(t) { if(t) document.getElementById('f-tier').value = t; document.getElementById('contactModal').classList.add('open'); }
-    function closeModal() { document.getElementById('contactModal').classList.remove('open'); }
-    function toggleFaq(btn) { btn.closest('.faq-item').classList.toggle('open'); }
+    const CONTACT_FORM_ENDPOINT = window.CONTACT_FORM_ENDPOINT || "https://script.google.com/macros/s/AKfycbwSLcuKjYXJASV0MTV2Lny3-X6AVxIHV5gMaXMSBlEUwO6SXywGGDEX9GjiLbDrqSIKvg/exec";
+    const COOKIE_PREF_KEY = "bbe_cookie_pref_v1";
+
+    function openModal(interest) {
+      const modal = document.getElementById("contactModal");
+      if (interest) document.getElementById("f-tier").value = interest;
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("contactModal");
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+    }
+
+    function toggleFaq(button) {
+      button.closest(".faq-item").classList.toggle("open");
+    }
+
+    function dismissCookieBanner(value) {
+      localStorage.setItem(COOKIE_PREF_KEY, value);
+      document.getElementById("cookieBanner").classList.remove("visible");
+    }
+
+    async function submitForm(event) {
+      event.preventDefault();
+      const button = document.getElementById("submitBtn");
+      const error = document.getElementById("formError");
+      button.disabled = true;
+      button.textContent = "Sending...";
+      error.style.display = "none";
+      const payload = {
+        source_site: "bigbearengineering.com",
+        source_page: "/",
+        source_form: "homepage_contact_modal",
+        full_name: document.getElementById("f-name").value.trim(),
+        work_email: document.getElementById("f-email").value.trim(),
+        company: document.getElementById("f-company").value.trim(),
+        interest: document.getElementById("f-tier").value,
+        message: document.getElementById("f-message").value.trim(),
+        consent: document.getElementById("f-consent").checked,
+        status: "new",
+        owner: "",
+        notes: ""
+      };
+      try {
+        await fetch(CONTACT_FORM_ENDPOINT, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+        document.getElementById("formContent").style.display = "none";
+        document.getElementById("formSuccess").style.display = "block";
+      } catch (submissionError) {
+        button.disabled = false;
+        button.textContent = "Send Request";
+        error.textContent = "Submission failed. Check the Apps Script deployment URL and CORS/no-cors behavior.";
+        error.style.display = "block";
+      }
+    }
+
+    document.getElementById("contactModal").addEventListener("click", function (event) {
+      if (event.target === this) closeModal();
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") closeModal();
+    });
+    if (!localStorage.getItem(COOKIE_PREF_KEY)) {
+      document.getElementById("cookieBanner").classList.add("visible");
+    }
   </script>
 </body>
 </html>

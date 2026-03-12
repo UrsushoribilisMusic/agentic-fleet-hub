@@ -43,17 +43,19 @@
       <button class="nav-button" data-section-button="section-standups">
         <span>⏱️</span> Standups
       </button>
+      <button class="nav-button" data-section-button="section-inbox">
+        <span>💬</span> Inbox
+      </button>
       <button class="nav-button" data-section-button="section-users">
         <span>👤</span> User Management
       </button>
     </nav>
 
-    <div class="sidebar-footer" style="margin-top: auto; padding: 1.5rem; border-top: 1px solid var(--border);">
-      <div id="user-info" style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;"></div>
-      <a href="/stats/" target="_blank" class="nav-button" style="padding: 0.5rem 0; color: var(--teal-bright); font-size: 0.85rem;">
-        📈 Analytics Dashboard
-      </a>
-    </div>
+  <footer class="sidebar-footer" style="padding: 1.5rem; border-top: 1px solid var(--border); text-align: center;">
+    <p style="font-size: 0.75rem; color: var(--text-muted);">
+      © 2025 <a href="https://bigbearengineering.com" target="_blank" style="color: var(--teal-bright); text-decoration: none;">Big Bear Engineering GmbH</a>
+    </p>
+  </footer>
   </aside>
 
   <main class="main-content">
@@ -130,7 +132,59 @@
       </form>
     </section>
 
-    <section id="section-users" class="section">
+    <section id="section-inbox" class="section">
+      <header class="page-header">
+        <p class="eyebrow">Fleet Protocol</p>
+        <h1>Inter-Agent Inbox</h1>
+        <p class="lede">Pass context, requests, and "soft context" between fleet members.</p>
+      </header>
+      
+      <div class="dashboard-grid">
+        <!-- Message Feed -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Message Feed</h3>
+          </div>
+          <div id="inbox-feed" class="activity-list">Loading messages...</div>
+        </div>
+
+        <!-- Quick Send -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Quick Send</h3>
+          </div>
+          <form id="message-form" class="standup-form">
+            <div class="form-group">
+              <label>To</label>
+              <select id="m-to">
+                <option value="All">Everyone (All)</option>
+                <option value="Clau">Clau (Claude)</option>
+                <option value="Gem">Gem (Gemini)</option>
+                <option value="Codi">Codi (Codex)</option>
+                <option value="Salesman">Salesman</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Subject</label>
+              <input type="text" id="m-subject" placeholder="e.g., Trailing slash fix" required />
+            </div>
+            <div class="form-group">
+              <label>Priority</label>
+              <select id="m-priority">
+                <option value="normal">Normal</option>
+                <option value="high">High</option>
+                <option value="urgent">Urgent (Triggers Phase 2)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Body</label>
+              <textarea id="m-body" placeholder="Write your message here..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit" id="msgSubmitBtn">Send Message →</button>
+          </form>
+        </div>
+      </div>
+    </section>
       <header class="page-header">
         <p class="eyebrow">Access Control</p>
         <h1>Authorized Users</h1>

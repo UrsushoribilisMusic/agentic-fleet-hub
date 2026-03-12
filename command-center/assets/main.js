@@ -231,6 +231,43 @@ window.updateLessonStatus = async function(id, status) {
   } catch (err) { alert('Failed to update lesson status.'); }
 };
 
+async function loadInbox() {
+  const container = document.getElementById('inbox-feed');
+  if (!container) return;
+  try {
+    const messages = await fetchJson('/fleet/api/messages');
+    let html = '';
+    if (messages.length === 0) {
+      html = '<p class="muted">No messages in your inbox.</p>';
+    } else {
+      for (let i = 0; i < messages.length; i++) {
+        const m = messages[i];
+        const isUrgent = m.priority === 'urgent';
+        const statusIcon = m.status === 'unread' ? '🔵' : '⚪';
+        html += '<div class="activity-item" style="border-left: 3px solid ' + (isUrgent ? '#FF5252' : 'var(--teal)') + '">';
+        html += '<div style="display:flex; justify-content:space-between; align-items:center;">';
+        html += '<span class="badge" style="background:rgba(255,255,255,0.05); color:var(--teal-bright)">' + m.from + ' → ' + m.to + '</span>';
+        html += '<span style="font-size:0.7rem; color:var(--text-muted)">' + new Date(m.timestamp).toLocaleString() + '</span>';
+        html += '</div>';
+        html += '<h4 style="margin:0.5rem 0; font-size:0.95rem;">' + statusIcon + ' ' + m.subject + '</h4>';
+        html += '<p style="font-size:0.85rem; color:var(--text-muted); white-space: pre-wrap;">' + m.body + '</p>';
+        if (m.status === 'unread') {
+          html += '<button class="btn" style="margin-top:0.75rem; font-size:0.65rem; padding:0.25rem 0.5rem;" onclick="markAsRead(\'' + m.id + '\')">MARK AS READ</button>';
+        }
+        html += '</div>';
+      }
+    }
+    container.innerHTML = html;
+  } catch (err) { console.error(err); }
+}
+
+window.markAsRead = async function(id) {
+  try {
+    await fetchJson('/fleet/api/messages/' + id, { method: 'PATCH', body: JSON.stringify({ status: 'read' }) });
+    loadInbox();
+  } catch (err) { alert('Failed to update message.'); }
+};
+
 async function loadRules() {
   const el = document.getElementById('rules-view');
   if (!el) return;
@@ -266,6 +303,7 @@ function activateSection(targetId) {
   }
   if (targetId === 'section-rules') loadRules();
   if (targetId === 'section-users') loadUsers();
+  if (targetId === 'section-inbox') loadInbox();
 }
 
 function wireNavControls() {
@@ -371,7 +409,7 @@ function setupForms() {
   if (projectForm) {
     projectForm.onsubmit = async function(e) {
       e.preventDefault();
-      const f = new FormData(e.target);
+      const f = new FormData(projectForm);
       const newProject = {
         title: f.get('title'),
         summary: f.get('summary'),
@@ -385,6 +423,26 @@ function setupForms() {
         closeProjectModal();
         loadFleetMeta();
       } catch (err) { alert('Failed to save project.'); }
+    };
+  }
+
+  const msgForm = document.getElementById('message-form');
+  if (msgForm) {
+    msgForm.onsubmit = async function(e) {
+      e.preventDefault();
+      const body = {
+        from: (currentUser && currentUser.email) || 'Admin',
+        to: document.getElementById('m-to').value,
+        subject: document.getElementById('m-subject').value,
+        priority: document.getElementById('m-priority').value,
+        body: document.getElementById('m-body').value
+      };
+      try {
+        await fetchJson('/fleet/api/messages', { method: 'POST', body: JSON.stringify(body) });
+        msgForm.reset();
+        loadInbox();
+        alert('Message sent to the fleet!');
+      } catch (err) { alert('Failed to send message.'); }
     };
   }
 }
