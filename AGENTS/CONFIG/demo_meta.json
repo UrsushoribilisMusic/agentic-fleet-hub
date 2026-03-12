@@ -7,7 +7,7 @@
       "roleDesc": "Orchestrates Shopify webhooks, Virtuals Protocol ACP, and order normalization. The business brain of the operation.",
       "skills": ["Shopify", "Virtuals ACP", "Order Routing"],
       "runtime": "Cloud VPS (DigitalOcean)",
-      "memoryLink": "#"
+      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/RULES.md"
     },
     {
       "name": "Robot Ross Artist",
@@ -16,7 +16,7 @@
       "roleDesc": "Controls the Huenit robot arm and local capture suite. Translates digital prompts into Swiss ink and paper.",
       "skills": ["Robot Control", "Computer Vision", "Swiss Ink"],
       "runtime": "Local Studio (Mac Mini)",
-      "memoryLink": "#"
+      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/RULES.md"
     },
     {
       "name": "Clau (Claude Code)",
@@ -25,7 +25,7 @@
       "roleDesc": "Specializes in music and story video generation pipelines. Master of RunwayML and audio fusion.",
       "skills": ["Music Tool", "Story Tool", "Video Fusion"],
       "runtime": "Hybrid (Cloud/Local)",
-      "memoryLink": "#"
+      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/RULES.md"
     },
     {
       "name": "Gem (Gemini CLI)",
@@ -34,7 +34,7 @@
       "roleDesc": "Maintains the Fleet Management Hub, KeyVault integration, and cross-agent synchronization protocols.",
       "skills": ["Automation CLI", "KeyVault", "Hub Sync"],
       "runtime": "Cloud Infrastructure",
-      "memoryLink": "#"
+      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/RULES.md"
     },
     {
       "name": "Codi (Codex)",
@@ -43,7 +43,7 @@
       "roleDesc": "Prototyping new API endpoints and maintaining the test suite. Ensures the fleet remains stable and verified.",
       "skills": ["API Design", "QA Automation", "CI/CD"],
       "runtime": "Cloud Runner",
-      "memoryLink": "#"
+      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/RULES.md"
     }
   ],
   "projects": [
@@ -51,7 +51,7 @@
       "title": "Agentic CRM Prototype",
       "owners": "Ursus Fleet",
       "summary": "High-fidelity React/FastAPI prototype for autonomous customer relationship management. Featuring deep Google Calendar integration and agent-driven scheduling.",
-      "docs": ["https://github.com/UrsushoribilisMusic/crm-poc"],
+      "docs": ["https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/crm_poc_context.md"],
       "kanban": "https://github.com/users/UrsushoribilisMusic/projects/2/views/2"
     },
     {

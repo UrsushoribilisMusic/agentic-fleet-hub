@@ -7,7 +7,7 @@
       "roleDesc": "Orchestrates Shopify webhooks, Virtuals Protocol ACP, and order normalization. The business brain of the operation.",
       "skills": ["Shopify", "Virtuals ACP", "Order Routing"],
       "runtime": "Cloud VPS (DigitalOcean)",
-      "memoryLink": "https://github.com/UrsushoribilisMusic/salesman-cloud-infra/blob/main/AGENTS/CONTEXT/robot_ross_salesman.md"
+      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/robot_ross_salesman.md"
     },
     {
       "name": "Robot Ross Artist",
@@ -16,7 +16,7 @@
       "roleDesc": "Controls the Huenit robot arm and local capture suite. Translates digital prompts into Swiss ink and paper.",
       "skills": ["Robot Control", "Computer Vision", "Swiss Ink"],
       "runtime": "Local Studio (Mac Mini)",
-      "memoryLink": "https://github.com/UrsushoribilisMusic/salesman-cloud-infra/blob/main/AGENTS/CONTEXT/robot_ross_artist.md"
+      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/robot_ross_artist.md"
     },
     {
       "name": "Clau (Claude Code)",
@@ -25,7 +25,7 @@
       "roleDesc": "Specializes in music and story video generation pipelines. Master of RunwayML and audio fusion.",
       "skills": ["Music Tool", "Story Tool", "Video Fusion"],
       "runtime": "Hybrid (Cloud/Local)",
-      "memoryLink": "https://github.com/UrsushoribilisMusic/salesman-cloud-infra/blob/main/AGENTS/CONTEXT/music_video_tool.md"
+      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/music_video_tool.md"
     },
     {
       "name": "Gem (Gemini CLI)",
@@ -34,7 +34,7 @@
       "roleDesc": "Maintains the Fleet Management Hub, KeyVault integration, and cross-agent synchronization protocols.",
       "skills": ["Automation CLI", "KeyVault", "Hub Sync"],
       "runtime": "Cloud Infrastructure",
-      "memoryLink": "https://github.com/UrsushoribilisMusic/salesman-cloud-infra/blob/main/AGENTS/RULES.md"
+      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/RULES.md"
     },
     {
       "name": "Codi (Codex)",
@@ -43,7 +43,7 @@
       "roleDesc": "Prototyping new API endpoints and maintaining the test suite. Ensures the fleet remains stable and verified.",
       "skills": ["API Design", "QA Automation", "CI/CD"],
       "runtime": "Cloud Runner",
-      "memoryLink": "https://github.com/UrsushoribilisMusic/salesman-cloud-infra/blob/main/AGENTS/RULES.md"
+      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/RULES.md"
     }
   ],
   "projects": [
@@ -58,7 +58,7 @@
       "title": "Salesman Cloud Infra",
       "owners": "Infrastructure Team",
       "summary": "Cloud-side Node.js API and Caddy proxy. Manages the 8x8 Wall of Fame bidding engine and Shopify sync.",
-      "docs": ["https://github.com/UrsushoribilisMusic/salesman-cloud-infra/blob/main/AGENTS/CONTEXT/robot_ross_salesman.md"],
+      "docs": ["https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/robot_ross_salesman.md"],
       "kanban": "https://github.com/orgs/UrsushoribilisMusic/projects/1/views/1"
     },
     {
@@ -88,7 +88,7 @@
       "title": "Robot Ross Artist",
       "owners": "Hardware Team",
       "summary": "Local worker controlling the Huenit arm. Processes orders from the Salesman API and generates video proof.",
-      "docs": ["https://github.com/UrsushoribilisMusic/salesman-cloud-infra/blob/main/AGENTS/CONTEXT/robot_ross_artist.md"],
+      "docs": ["https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/robot_ross_artist.md"],
       "kanban": "https://github.com/users/UrsushoribilisMusic/projects/2/views/2"
     }
   ]

@@ -22,20 +22,20 @@ const memoryTree = [
   {
     folder: 'Global Rules',
     files: [
-      { title: 'Team Rules', desc: 'Standardized protocols for commits, Kanban, and shared memory.', url: 'https://github.com/UrsushoribilisMusic/salesman-cloud-infra/blob/main/AGENTS/RULES.md' },
-      { title: 'KeyVault Strategy', desc: 'Infisical secrets management guide.', url: 'https://github.com/UrsushoribilisMusic/salesman-cloud-infra/blob/main/AGENTS/KEYVAULT.md' }
+      { title: 'Team Rules', desc: 'Standardized protocols for commits, Kanban, and shared memory.', url: 'https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/RULES.md' },
+      { title: 'KeyVault Strategy', desc: 'Infisical secrets management guide.', url: 'https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/KEYVAULT.md' }
     ]
   },
   {
     folder: 'Project Context',
     files: [
-      { title: 'Salesman API', desc: 'Commerce and Marketplace logic.', url: 'https://github.com/UrsushoribilisMusic/salesman-cloud-infra/blob/main/AGENTS/CONTEXT/robot_ross_salesman.md' },
-      { title: 'Artist Architecture', desc: 'Robot control and Huenit integration.', url: 'https://github.com/UrsushoribilisMusic/salesman-cloud-infra/blob/main/AGENTS/CONTEXT/robot_ross_artist.md' },
-      { title: 'Music Video Automation', desc: 'Video generation heuristics.', url: 'https://github.com/UrsushoribilisMusic/salesman-cloud-infra/blob/main/AGENTS/CONTEXT/music_video_tool.md' },
-      { title: 'Story Video Tool', desc: 'Narrative video pipeline.', url: 'https://github.com/UrsushoribilisMusic/salesman-cloud-infra/blob/main/AGENTS/CONTEXT/story_video_tool.md' },
-      { title: 'The Lost Coins Story', desc: 'Story chapter breakdown.', url: 'https://github.com/UrsushoribilisMusic/salesman-cloud-infra/blob/main/AGENTS/CONTEXT/the_lost_coins_story.md' },
-      { title: 'CRM Prototype', desc: 'Relational management logic.', url: 'https://github.com/UrsushoribilisMusic/salesman-cloud-infra/blob/main/AGENTS/CONTEXT/crm_poc_context.md' },
-      { title: 'Agentegra Briefing', desc: 'Global project context and business model.', url: 'https://github.com/UrsushoribilisMusic/salesman-cloud-infra/blob/main/AGENTS/CONTEXT/agentegra.md' }
+      { title: 'Salesman API', desc: 'Commerce and Marketplace logic.', url: 'https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/robot_ross_salesman.md' },
+      { title: 'Artist Architecture', desc: 'Robot control and Huenit integration.', url: 'https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/robot_ross_artist.md' },
+      { title: 'Music Video Automation', desc: 'Video generation heuristics.', url: 'https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/music_video_tool.md' },
+      { title: 'Story Video Tool', desc: 'Narrative video pipeline.', url: 'https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/story_video_tool.md' },
+      { title: 'The Lost Coins Story', desc: 'Story chapter breakdown.', url: 'https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/the_lost_coins_story.md' },
+      { title: 'CRM Prototype', desc: 'Relational management logic.', url: 'https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/crm_poc_context.md' },
+      { title: 'Agentegra Briefing', desc: 'Global project context and business model.', url: 'https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/agentegra.md' }
     ]
   }
 ];
