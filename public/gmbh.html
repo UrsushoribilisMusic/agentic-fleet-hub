@@ -39,6 +39,34 @@
     nav ul { list-style: none; display: flex; gap: 2rem; }
     nav ul a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
     nav ul a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--accent); color: #fff;
+      padding: 0.45rem 1.2rem; border-radius: 6px;
+      text-decoration: none; font-size: 0.875rem; font-weight: 600;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #0d9488; }
+    .project-links { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.5rem; }
+    .project-link {
+      display: inline-block; padding: 0.5rem 1.1rem; border-radius: 7px;
+      font-size: 0.825rem; font-weight: 700; text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .project-link:hover { transform: translateY(-1px); }
+    .project-link.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; box-shadow: 0 0 18px rgba(45,212,191,0.25);
+    }
+    .project-link.secondary {
+      border: 1px solid var(--border); color: var(--text);
+      background: rgba(255,255,255,0.03);
+    }
+    .project-link.secondary:hover { border-color: var(--accent); }
+    .project-link.disabled {
+      border: 1px solid var(--border); color: var(--muted);
+      cursor: default; opacity: 0.6;
+    }
+    .project-link.disabled:hover { transform: none; }
 
     /* CONTENT */
     .container { max-width: 1100px; margin: 0 auto; padding: 6rem 5%; }
@@ -81,8 +109,9 @@
     <ul>
       <li><a href="index.html">Fleet Hub</a></li>
       <li><a href="#expertise">Expertise</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="https://api.robotross.art/demo/" target="_blank" style="color: var(--accent); font-weight: 700;">Try Demo Hub</a></li>
     </ul>
+    <a href="https://api.robotross.art/demo/" target="_blank" class="nav-cta">Get Started</a>
   </nav>
 
   <div class="container">
@@ -105,7 +134,7 @@
       </div>
     </div>
 
-    <div class="portfolio-header" id="portfolio">
+    <div class="portfolio-header" id="expertise-projects">
       <p class="eyebrow">Project Portfolio</p>
       <h2>Proven Industrial Execution</h2>
     </div>
@@ -120,6 +149,9 @@
             <span class="tag">AI Orchestration</span>
             <span class="tag">Infisical Vault</span>
             <span class="tag">Node.js</span>
+          </div>
+          <div class="project-links">
+            <a href="https://api.robotross.art/demo/" target="_blank" class="project-link primary">Try Demo Hub →</a>
           </div>
         </div>
         <div class="project-image">🤖🛰️</div>
@@ -136,6 +168,10 @@
             <span class="tag">Computer Vision</span>
             <span class="tag">Huenit SDK</span>
           </div>
+          <div class="project-links">
+            <a href="https://robotross.art" target="_blank" class="project-link primary">Visit Shop →</a>
+            <a href="https://api.robotross.art/fleet/" target="_blank" class="project-link secondary">View Dashboard</a>
+          </div>
         </div>
       </div>
 
@@ -148,6 +184,9 @@
             <span class="tag">CRM Architecture</span>
             <span class="tag">FastAPI</span>
             <span class="tag">Google OAuth</span>
+          </div>
+          <div class="project-links">
+            <span class="project-link disabled">Demo Coming Soon</span>
           </div>
         </div>
         <div class="project-image">🤝📅</div>
