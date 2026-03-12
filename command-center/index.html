@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" data-auth-loading="1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fleet Hub</title>
+  <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+  <link rel="stylesheet" href="assets/style.css">
+  <script>window.RobotRossAuthConfig = { enabled: true }; document.documentElement.dataset.authLoading = "1";</script>
+  <script src="/auth/auth.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+        <img src="assets/icon.svg" alt="Icon" style="width: 32px; height: 32px;">
+        <h2 style="font-size: 1.1rem; letter-spacing: -0.02em;">Fleet Hub</h2>
+      </div>
+      <p class="eyebrow" style="font-size: 0.65rem; opacity: 0.6;">Ursushoribilis Fleet</p>
+    </div>
+    
+    <nav class="sidebar-nav">
+      <button class="nav-button is-active" data-section-button="section-team">
+        <span>👥</span> Team
+      </button>
+      <button class="nav-button" data-section-button="section-projects">
+        <span>📂</span> Projects
+      </button>
+      <button class="nav-button" data-section-button="section-rules">
+        <span>📜</span> Rules
+      </button>
+      <button class="nav-button" data-section-button="section-memory">
+        <span>🧠</span> Memory
+      </button>
+      <button class="nav-button" data-section-button="section-standups">
+        <span>⏱️</span> Standups
+      </button>
+      <button class="nav-button" data-section-button="section-users">
+        <span>🔑</span> Users
+      </button>
+    </nav>
+
+    <div class="sidebar-footer" style="margin-top: auto; padding: 1.5rem; border-top: 1px solid var(--border);">
+      <div id="user-info" style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Loading...</div>
+      <a href="/stats/" target="_blank" class="nav-button" style="padding: 0.5rem 0; color: var(--teal-bright); font-size: 0.85rem;">
+        📈 Analytics Dashboard
+      </a>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <section id="section-team" class="section is-active">
+      <header class="page-header">
+        <p class="eyebrow">Fleet Crew</p>
+        <h1>Agentic Team</h1>
+        <p class="lede">Manage the roles and deployment status of your multi-agent fleet.</p>
+      </header>
+      <div id="team-grid" class="cards-grid"></div>
+    </section>
+
+    <section id="section-projects" class="section">
+      <header class="page-header" style="display: flex; justify-content: space-between; align-items: flex-end;">
+        <div>
+          <p class="eyebrow">Active Work</p>
+          <h1>Project Portfolio</h1>
+          <p class="lede">Centralized view of all repositories, boards, and documentation.</p>
+        </div>
+        <button class="btn-submit" onclick="openProjectModal()" style="width: auto; padding: 0.75rem 1.5rem; font-size: 0.8rem;">+ ADD PROJECT</button>
+      </header>
+      <div id="projects-grid" class="projects-grid"></div>
+    </section>
+
+    <section id="section-rules" class="section">
+      <header class="page-header">
+        <p class="eyebrow">Protocols</p>
+        <h1>Team Rules</h1>
+        <p class="lede">Shared agreements on commits, Kanban, and synchronization.</p>
+      </header>
+      <div id="rules-view" class="markdown-view">Loading rules...</div>
+    </section>
+
+    <section id="section-memory" class="section">
+      <header class="page-header">
+        <p class="eyebrow">Knowledge Base</p>
+        <h1>Memory Tree</h1>
+        <p class="lede">Deep context and architectural blueprints for the fleet.</p>
+      </header>
+      <div id="docs-grid"></div>
+    </section>
+
+    <section id="section-standups" class="section">
+      <header class="page-header">
+        <p class="eyebrow">Daily Pulse</p>
+        <h1>Standups</h1>
+        <p class="lede">Keep track of progress and roadblocks across the crew.</p>
+      </header>
+      
+      <div class="daily-buttons" id="daily-buttons"></div>
+      <div id="daily-view" class="daily-view">Select a date.</div>
+
+      <form id="standup-form" class="standup-form">
+        <h3 style="color: var(--white); font-size: 1.1rem;">Add Daily Entry</h3>
+        <label>
+          <span>Done (What moved forward?)</span>
+          <textarea name="done" required rows="4"></textarea>
+        </label>
+        <label>
+          <span>Today (What is the focus?)</span>
+          <textarea name="today" required rows="4"></textarea>
+        </label>
+        <label>
+          <span>Blockers (Anything in the way?)</span>
+          <textarea name="blockers" rows="2" placeholder="None"></textarea>
+        </label>
+        <button type="submit" class="btn-submit">SUBMIT LOG</button>
+      </form>
+    </section>
+
+    <section id="section-users" class="section">
+      <header class="page-header">
+        <p class="eyebrow">Access Control</p>
+        <h1>Authorized Users</h1>
+        <p class="lede">Manage who can access the Fleet Hub via Google OAuth.</p>
+      </header>
+      
+      <div id="users-list" class="tree-list" style="margin-bottom: 2rem;"></div>
+
+      <form id="user-form" class="standup-form" style="padding: 1.5rem;">
+        <h3 style="color: var(--white); font-size: 1.1rem; margin-bottom: 1rem;">Add Authorized Email</h3>
+        <div style="display: flex; gap: 1rem;">
+          <input type="email" name="email" required placeholder="user@example.com" style="flex: 1; background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: 8px; color: var(--white); padding: 0.75rem;">
+          <button type="submit" class="btn-submit" style="width: auto; padding: 0 2rem; align-self: stretch;">ADD USER</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Modals -->
+  <div id="project-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 1.5rem;">
+        <h2 style="font-size: 1.25rem;">Add New Project</h2>
+        <button onclick="closeProjectModal()" style="background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.5rem;">&times;</button>
+      </div>
+      <form id="project-form" class="standup-form" style="background: none; padding: 0; border: none; margin: 0;">
+        <label><span>Project Title</span><input type="text" name="title" required></label>
+        <label><span>Description / Goal</span><textarea name="summary" required rows="3"></textarea></label>
+        <label><span>GitHub URL</span><input type="url" name="github" required placeholder="https://github.com/org/repo"></label>
+        <label><span>Documentation URL (Markdown)</span><input type="url" name="docs" placeholder="https://github.com/.../README.md"></label>
+        <label><span>Kanban / Issue Board URL</span><input type="url" name="kanban" placeholder="https://github.com/orgs/.../projects/X"></label>
+        <label><span>Additional Resource URL (Optional)</span><input type="url" name="extra_url" placeholder="https://api.robotross.art/stats/"></label>
+        <label><span>Resource Label (Optional)</span><input type="text" name="extra_label" placeholder="VIEW STATS"></label>
+        <button type="submit" class="btn-submit" style="width: 100%; margin-top: 1rem;">SAVE PROJECT</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/main.js?v=20260311_v4" defer></script>
+</body>
+</html>

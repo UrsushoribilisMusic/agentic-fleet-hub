@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects & Expertise — Big Bear Engineering GmbH</title>
+  <style>
+    :root {
+      --bg: #0a0c10;
+      --surface: #111318;
+      --border: #1e2230;
+      --accent: #2dd4bf;
+      --accent2: #10b981;
+      --text: #e2e8f0;
+      --muted: #64748b;
+      --card: #13161e;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,12,16,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%; display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .logo {
+      font-size: 1.15rem; font-weight: 800; letter-spacing: -0.5px;
+      background: linear-gradient(90deg, #2dd4bf, #10b981);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    nav ul a:hover { color: var(--text); }
+
+    /* CONTENT */
+    .container { max-width: 1100px; margin: 0 auto; padding: 6rem 5%; }
+    .eyebrow { color: var(--accent); text-transform: uppercase; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 1rem; }
+    h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 1.5rem; line-height: 1.1; }
+    .lede { font-size: 1.25rem; color: var(--muted); max-width: 700px; margin-bottom: 4rem; }
+
+    .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 6rem; }
+    .exp-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; }
+    .exp-card h3 { font-size: 1.25rem; margin-bottom: 1rem; color: var(--text); }
+    .exp-card p { color: var(--muted); font-size: 0.95rem; }
+
+    .portfolio-header { border-top: 1px solid var(--border); padding-top: 6rem; margin-bottom: 4rem; }
+    .portfolio-grid { display: flex; flex-direction: column; gap: 4rem; }
+    .project-row { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .project-info h2 { font-size: 2rem; font-weight: 800; margin-bottom: 1.5rem; color: var(--text); }
+    .project-info p { color: var(--muted); margin-bottom: 1.5rem; }
+    .project-tags { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .tag { background: rgba(45,212,191,0.1); color: var(--accent); padding: 0.3rem 0.8rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700; }
+
+    .project-image { 
+      background: var(--surface); border: 1px solid var(--border); border-radius: 20px; 
+      height: 350px; display: flex; align-items: center; justify-content: center; font-size: 4rem;
+      position: relative; overflow: hidden;
+    }
+    .project-image img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
+
+    footer { border-top: 1px solid var(--border); padding: 4rem 5%; text-align: center; }
+    footer p { color: var(--muted); font-size: 0.85rem; }
+
+    @media (max-width: 768px) {
+      .project-row { grid-template-columns: 1fr; gap: 2rem; }
+      h1 { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo">Big Bear<span> Engineering GmbH</span></a>
+    <ul>
+      <li><a href="index.html">Fleet Hub</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <p class="eyebrow">Established 2016 · Switzerland</p>
+    <h1>The Convergence of<br>Engineering & Intelligence.</h1>
+    <p class="lede">Big Bear Engineering drives digital transformation by bridging industrial discipline with the next generation of Agentic Infrastructure.</p>
+
+    <div class="expertise-grid" id="expertise">
+      <div class="exp-card">
+        <h3>IoT & Cloud Computing</h3>
+        <p>Specializing in scalable, secure, and performant cloud architectures for connected industrial platforms.</p>
+      </div>
+      <div class="exp-card">
+        <h3>Smart Device Development</h3>
+        <p>End-to-end execution for customer-facing digital products, including mobile apps and intuitive hardware interfaces.</p>
+      </div>
+      <div class="exp-card">
+        <h3>Agentic Infrastructure</h3>
+        <p>Deploying coordinated multi-agent fleets that automate complex engineering workflows and physical hardware manifestation.</p>
+      </div>
+    </div>
+
+    <div class="portfolio-header" id="portfolio">
+      <p class="eyebrow">Project Portfolio</p>
+      <h2>Proven Industrial Execution</h2>
+    </div>
+
+    <div class="portfolio-grid">
+      <!-- Agentic Fleet Hub -->
+      <div class="project-row">
+        <div class="project-info">
+          <h2>Agentic Fleet Command</h2>
+          <p>Our proprietary management hub for multi-agent synchronization. Features include shared consciousness protocol, vault-backed secret management, and asynchronous task execution via GitHub Kanban.</p>
+          <div class="project-tags">
+            <span class="tag">AI Orchestration</span>
+            <span class="tag">Infisical Vault</span>
+            <span class="tag">Node.js</span>
+          </div>
+        </div>
+        <div class="project-image">🤖🛰️</div>
+      </div>
+
+      <!-- Robot Ross -->
+      <div class="project-row">
+        <div class="project-image">🎨🦾</div>
+        <div class="project-info">
+          <h2>Robot Ross</h2>
+          <p>Physical manifestation of AI. A coordinated agent system that translates LLM prompts into real-world ink and paper using high-precision robot arms and computer vision verification.</p>
+          <div class="project-tags">
+            <span class="tag">Robotics</span>
+            <span class="tag">Computer Vision</span>
+            <span class="tag">Huenit SDK</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Agentic CRM -->
+      <div class="project-row">
+        <div class="project-info">
+          <h2>Agentic CRM & Multi-Agent Sync</h2>
+          <p>A high-fidelity React/FastAPI prototype for autonomous customer relationship management. Featuring deep Google Calendar integration and agent-driven scheduling.</p>
+          <div class="project-tags">
+            <span class="tag">CRM Architecture</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Google OAuth</span>
+          </div>
+        </div>
+        <div class="project-image">🤝📅</div>
+      </div>
+
+      <!-- Historical Expertise -->
+      <div class="portfolio-header" style="border-top: 1px solid var(--border); padding-top: 6rem; margin-top: 2rem;">
+        <p class="eyebrow">Historical Expertise</p>
+        <h2>Industrial Engineering Roots</h2>
+      </div>
+
+      <!-- Komax -->
+      <div class="project-row">
+        <div class="project-image">🏗️🔌</div>
+        <div class="project-info">
+          <h2>Komax AG (2018 – Present)</h2>
+          <p>Leading the creation of the <strong>OPC UA standard OPC 40570</strong> for wire processing. Managing the development and deployment of industrial IoT platforms and digital growth strategies.</p>
+          <div class="project-tags">
+            <span class="tag">Industrial IoT</span>
+            <span class="tag">OPC UA</span>
+            <span class="tag">Project Mgmt</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Klepsydra -->
+      <div class="project-row">
+        <div class="project-info">
+          <h2>Klepsydra Technologies</h2>
+          <p>Project management for embedded AI inference engines used in space and mission-critical applications. Focused on low-latency deployment and high-performance edge computing.</p>
+          <div class="project-tags">
+            <span class="tag">Space-Tech</span>
+            <span class="tag">AI Inference</span>
+            <span class="tag">Edge Computing</span>
+          </div>
+        </div>
+        <div class="project-image">🛰️🌌</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Big Bear Engineering GmbH · Zurich, Switzerland · Engineering discipline, not AI hype.</p>
+  </footer>
+</body>
+</html>

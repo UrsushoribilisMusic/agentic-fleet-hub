@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Big Bear Engineering GmbH — Coordinated Multi-Agent AI for Engineering Teams</title>
+  <style>
+    :root {
+      --bg: #0a0c10;
+      --surface: #111318;
+      --border: #1e2230;
+      --accent: #2dd4bf;
+      --accent2: #10b981;
+      --green: #22c55e;
+      --text: #e2e8f0;
+      --muted: #64748b;
+      --card: #13161e;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,12,16,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .logo {
+      font-size: 1.15rem; font-weight: 800; letter-spacing: -0.5px;
+      background: linear-gradient(90deg, #2dd4bf, #10b981);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .logo span { font-weight: 300; }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    nav ul a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--accent); color: #fff;
+      padding: 0.45rem 1.2rem; border-radius: 6px;
+      text-decoration: none; font-size: 0.875rem; font-weight: 600;
+      transition: background 0.2s; cursor: pointer; border: none;
+    }
+    .nav-cta:hover { background: #0d9488; }
+
+    /* HERO */
+    .hero {
+      min-height: 90vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 6rem 5% 4rem;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(45,212,191,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(16,185,129,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(45,212,191,0.1); border: 1px solid rgba(45,212,191,0.3);
+      color: #99f6e4; padding: 0.35rem 1rem; border-radius: 100px;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em;
+      text-transform: uppercase; margin-bottom: 1.5rem;
+    }
+    .dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      font-weight: 800; letter-spacing: -1.5px; line-height: 1.1;
+      max-width: 820px; margin-bottom: 1.5rem;
+    }
+    h1 em {
+      font-style: normal;
+      background: linear-gradient(90deg, #2dd4bf, #6ee7b7);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 1.2rem; color: var(--muted); max-width: 580px;
+      margin: 0 auto 2.5rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; padding: 0.8rem 2rem; border-radius: 8px;
+      text-decoration: none; font-weight: 700; font-size: 1rem;
+      box-shadow: 0 0 30px rgba(45,212,191,0.3);
+      transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; border: none;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(45,212,191,0.45); }
+    .btn-secondary {
+      border: 1px solid var(--border); color: var(--text);
+      padding: 0.8rem 2rem; border-radius: 8px;
+      text-decoration: none; font-weight: 600; font-size: 1rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--accent); background: rgba(45,212,191,0.05); }
+    .hero-metrics {
+      display: flex; gap: 3rem; margin-top: 4rem; flex-wrap: wrap; justify-content: center;
+    }
+    .metric { text-align: center; }
+    .metric strong { display: block; font-size: 2rem; font-weight: 800; color: var(--text); letter-spacing: -1px; }
+    .metric span { font-size: 0.85rem; color: var(--muted); }
+
+    /* SECTIONS */
+    section { padding: 6rem 5%; }
+    .section-label {
+      text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.75rem;
+      font-weight: 700; color: var(--accent); margin-bottom: 1rem;
+    }
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 800;
+      letter-spacing: -1px; line-height: 1.15; max-width: 700px;
+      margin-bottom: 1rem;
+    }
+    .section-sub { color: var(--muted); font-size: 1.1rem; max-width: 580px; margin-bottom: 3rem; }
+
+    /* PROBLEM */
+    .problem { background: var(--surface); }
+    .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .problem-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 2rem; transition: border-color 0.2s;
+    }
+    .problem-card:hover { border-color: rgba(239,68,68,0.4); }
+    .problem-card .icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      background: rgba(239,68,68,0.12); display: flex; align-items: center;
+      justify-content: center; margin-bottom: 1rem; font-size: 1.25rem;
+    }
+    .problem-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .problem-card p { color: var(--muted); font-size: 0.9rem; }
+
+    /* SOLUTION */
+    .solution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .solution-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 2rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .solution-card:hover { border-color: rgba(45,212,191,0.4); transform: translateY(-3px); }
+    .solution-card .icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      background: rgba(45,212,191,0.12); display: flex; align-items: center;
+      justify-content: center; margin-bottom: 1rem; font-size: 1.25rem;
+    }
+    .solution-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text); }
+    .solution-card p { color: var(--muted); font-size: 0.9rem; }
+    .tag {
+      display: inline-block; font-size: 0.7rem; font-weight: 700;
+      padding: 0.2rem 0.6rem; border-radius: 4px;
+      background: rgba(45,212,191,0.12); color: #99f6e4;
+      text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem;
+    }
+
+    /* WHY NOW */
+    .why { background: var(--surface); }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+    .why-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.75rem;
+    }
+    .why-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .why-card p { color: var(--muted); font-size: 0.875rem; }
+    .why-card .badge { font-size: 1.5rem; margin-bottom: 0.75rem; display: block; }
+
+    /* DASHBOARD PREVIEW */
+    .dashboard-section { background: var(--bg); }
+    .browser-frame {
+      max-width: 1000px;
+      background: #0d1117;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    }
+    .browser-bar {
+      background: #161b22;
+      padding: 0.75rem 1rem;
+      display: flex; align-items: center; gap: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .browser-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .browser-dot.r { background: #f87171; }
+    .browser-dot.y { background: #fbbf24; }
+    .browser-dot.g { background: #4ade80; }
+    .browser-url {
+      margin-left: 0.75rem;
+      background: #0d1117; border: 1px solid var(--border);
+      border-radius: 6px; padding: 0.25rem 1rem;
+      color: var(--muted); font-size: 0.75rem; flex: 1; max-width: 300px;
+    }
+    .hub-layout { display: flex; min-height: 440px; }
+    .hub-sidebar {
+      width: 175px; flex-shrink: 0;
+      background: #0d1117;
+      border-right: 1px solid var(--border);
+      padding: 1.25rem 0;
+    }
+    .hub-sidebar-brand {
+      padding: 0 1rem 1rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 0.75rem;
+    }
+    .hub-sidebar-brand .sub { font-size: 0.6rem; color: #2dd4bf; text-transform: uppercase; letter-spacing: 0.1em; }
+    .hub-sidebar-brand .name { font-size: 0.95rem; font-weight: 700; color: var(--text); }
+    .hub-nav-item {
+      padding: 0.5rem 1rem; font-size: 0.8rem;
+      color: var(--muted); cursor: pointer;
+      border-left: 2px solid transparent;
+      transition: all 0.15s;
+    }
+    .hub-nav-item.active { color: var(--text); border-left-color: #2dd4bf; background: rgba(45,212,191,0.06); }
+    .hub-nav-item:hover:not(.active) { color: var(--text); background: rgba(255,255,255,0.03); }
+    .hub-nav-link {
+      padding: 0.5rem 1rem; font-size: 0.75rem;
+      color: #2dd4bf; cursor: pointer; display: flex; align-items: center; gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+    .hub-content { flex: 1; padding: 1.75rem; overflow: hidden; }
+    .hub-panel { display: none; }
+    .hub-panel.active { display: block; }
+    .hub-panel-label { font-size: 0.65rem; color: #2dd4bf; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.4rem; }
+    .hub-panel h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.3rem; color: var(--text); }
+    .hub-panel .sub { font-size: 0.8rem; color: var(--muted); margin-bottom: 1.25rem; }
+    /* Team cards */
+    .agent-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .agent-card {
+      background: #161b22; border: 1px solid var(--border);
+      border-radius: 8px; padding: 0.85rem;
+    }
+    .agent-card-top { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; }
+    .agent-avatar {
+      width: 28px; height: 28px; border-radius: 6px;
+      background: #21262d; display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; flex-shrink: 0;
+    }
+    .agent-card-info { min-width: 0; }
+    .agent-env { font-size: 0.55rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .agent-name { font-size: 0.8rem; font-weight: 700; color: var(--text); }
+    .agent-role { font-size: 0.7rem; color: #2dd4bf; margin-bottom: 0.4rem; }
+    .agent-desc { font-size: 0.7rem; color: var(--muted); line-height: 1.4; margin-bottom: 0.5rem; }
+    .agent-tags { display: flex; gap: 0.3rem; flex-wrap: wrap; }
+    .agent-tag {
+      font-size: 0.6rem; background: rgba(45,212,191,0.08);
+      color: #2dd4bf; border-radius: 3px; padding: 0.1rem 0.35rem;
+    }
+    /* Memory tree */
+    .mem-group { margin-bottom: 1rem; }
+    .mem-group-label { font-size: 0.65rem; color: #f59e0b; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.3rem; }
+    .mem-row {
+      display: flex; justify-content: space-between; align-items: center;
+      background: #161b22; border: 1px solid var(--border);
+      border-radius: 6px; padding: 0.6rem 0.85rem; margin-bottom: 0.35rem;
+    }
+    .mem-row-info strong { display: block; font-size: 0.78rem; color: var(--text); }
+    .mem-row-info span { font-size: 0.68rem; color: var(--muted); }
+    .mem-link { font-size: 0.65rem; color: #2dd4bf; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+    /* Standup */
+    .standup-tabs { display: flex; gap: 0.4rem; margin-bottom: 1rem; }
+    .standup-tab {
+      font-size: 0.7rem; padding: 0.25rem 0.65rem;
+      border-radius: 4px; border: 1px solid var(--border);
+      color: var(--muted); cursor: pointer;
+    }
+    .standup-tab.active { background: rgba(45,212,191,0.1); color: #2dd4bf; border-color: #2dd4bf; }
+    .standup-agent { margin-bottom: 1rem; }
+    .standup-agent-name { font-size: 0.85rem; font-weight: 700; color: var(--text); margin-bottom: 0.6rem; }
+    .standup-block { margin-bottom: 0.6rem; }
+    .standup-block-label { font-size: 0.65rem; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; }
+    .standup-block ul { padding-left: 1rem; }
+    .standup-block ul li { font-size: 0.72rem; color: var(--muted); line-height: 1.5; }
+    /* Tab switcher buttons */
+    .dash-tabs { display: flex; gap: 0.75rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .dash-tab-btn {
+      background: var(--card); border: 1px solid var(--border);
+      color: var(--muted); padding: 0.5rem 1.1rem; border-radius: 8px;
+      font-size: 0.85rem; font-weight: 600; cursor: pointer;
+      transition: all 0.2s; font-family: inherit;
+    }
+    .dash-tab-btn.active { background: rgba(45,212,191,0.1); border-color: #2dd4bf; color: #2dd4bf; }
+    .dash-tab-btn:hover:not(.active) { border-color: var(--muted); color: var(--text); }
+
+    /* PRICING / OFFERING */
+    .offering-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+    }
+    .offer-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 2.5rem;
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .offer-card.featured {
+      border-color: var(--accent);
+      box-shadow: 0 0 40px rgba(45,212,191,0.15);
+    }
+    .offer-card.featured::before {
+      content: 'MOST POPULAR';
+      position: absolute; top: 1.25rem; right: 1.25rem;
+      background: var(--accent); color: #fff;
+      font-size: 0.65rem; font-weight: 800; letter-spacing: 0.1em;
+      padding: 0.25rem 0.6rem; border-radius: 4px;
+    }
+    .offer-card h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .offer-card .price { font-size: 0.9rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .offer-card .price strong { font-size: 2rem; color: var(--text); font-weight: 800; }
+    .offer-card ul {
+      list-style: none; margin-bottom: 2rem;
+      display: flex; flex-direction: column; gap: 0.75rem;
+      flex: 1;
+    }
+    .offer-card ul li { font-size: 0.875rem; color: var(--muted); display: flex; gap: 0.6rem; align-items: flex-start; }
+    .offer-card ul li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .offer-cta {
+      display: block; text-align: center; text-decoration: none;
+      padding: 0.8rem; border-radius: 8px; font-weight: 700; font-size: 0.95rem;
+      transition: background 0.2s, transform 0.2s; cursor: pointer; border: none; width: 100%;
+    }
+    .offer-cta.primary { background: var(--accent); color: #fff; }
+    .offer-cta.primary:hover { background: #0d9488; transform: translateY(-1px); }
+    .offer-cta.outline { border: 1px solid var(--border); color: var(--text); background: transparent; }
+    .offer-cta.outline:hover { border-color: var(--accent); background: rgba(45,212,191,0.05); }
+
+    /* MODELS */
+    .models-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem; }
+    .model-chip {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 0.4rem 0.85rem;
+      font-size: 0.8rem; font-weight: 600; color: var(--text);
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,0.75); backdrop-filter: blur(6px);
+      align-items: center; justify-content: center; padding: 1.5rem;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 2.5rem; width: 100%; max-width: 520px;
+      position: relative; max-height: 90vh; overflow-y: auto;
+    }
+    .modal h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.4rem; }
+    .modal p.modal-sub { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.75rem; }
+    .modal-close {
+      position: absolute; top: 1.25rem; right: 1.25rem;
+      background: none; border: none; color: var(--muted);
+      font-size: 1.5rem; cursor: pointer; line-height: 1;
+      transition: color 0.2s;
+    }
+    .modal-close:hover { color: var(--text); }
+    .form-group { margin-bottom: 1.1rem; }
+    .form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--muted); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%; background: var(--bg); border: 1px solid var(--border);
+      border-radius: 8px; padding: 0.7rem 1rem; color: var(--text);
+      font-size: 0.9rem; font-family: inherit;
+      transition: border-color 0.2s; outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--accent); }
+    .form-group select option { background: var(--bg); }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-submit {
+      width: 100%; background: linear-gradient(135deg, #2dd4bf, #10b981);
+      color: #fff; padding: 0.85rem; border-radius: 8px;
+      border: none; font-weight: 700; font-size: 1rem; cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s; margin-top: 0.5rem;
+    }
+    .form-submit:hover { opacity: 0.9; transform: translateY(-1px); }
+    .form-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    .form-success {
+      display: none; text-align: center; padding: 2rem 0;
+    }
+    .form-success .checkmark { font-size: 3rem; margin-bottom: 1rem; }
+    .form-success h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .form-success p { color: var(--muted); font-size: 0.9rem; }
+    .form-error { color: #f87171; font-size: 0.8rem; margin-top: 0.75rem; display: none; }
+
+    /* FAQ */
+    .faq { background: var(--surface); }
+    .faq-list { max-width: 780px; display: flex; flex-direction: column; gap: 0; }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-question {
+      width: 100%; background: none; border: none; color: var(--text);
+      text-align: left; padding: 1.35rem 0;
+      font-size: 1rem; font-weight: 600; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 1rem; font-family: inherit;
+      transition: color 0.2s;
+    }
+    .faq-question:hover { color: #99f6e4; }
+    .faq-chevron {
+      flex-shrink: 0; width: 20px; height: 20px;
+      border: 1.5px solid var(--muted); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.3s, border-color 0.2s;
+      font-style: normal; font-size: 0.75rem; color: var(--muted);
+    }
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg); border-color: var(--accent); color: var(--accent);
+    }
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.2s;
+    }
+    .faq-answer-inner {
+      padding-bottom: 1.35rem; color: var(--muted); font-size: 0.925rem; line-height: 1.75;
+    }
+    .faq-answer-inner p { margin-bottom: 0.6rem; }
+    .faq-answer-inner p:last-child { margin-bottom: 0; }
+    .faq-answer-inner ul { padding-left: 1.25rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.35rem; }
+    .faq-answer-inner ul li { color: var(--muted); }
+    .faq-answer-inner strong { color: var(--text); }
+    .faq-item.open .faq-answer { max-height: 600px; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    footer .logo { font-size: 1rem; }
+    footer p { color: var(--muted); font-size: 0.825rem; }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      nav ul { display: none; }
+      .hero-metrics { gap: 2rem; }
+      section { padding: 4rem 5%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       GOOGLE SHEETS SETUP INSTRUCTIONS
+       ============================================================
+       1. Go to script.google.com and create a new project
+       2. Paste this Apps Script code:
+
+         function doPost(e) {
+           var sheet = SpreadsheetApp.openById('YOUR_SHEET_ID').getActiveSheet();
+           var data = JSON.parse(e.postData.contents);
+           sheet.appendRow([
+             new Date(),
+             data.name,
+             data.email,
+             data.company,
+             data.tier,
+             data.message
+           ]);
+           return ContentService.createTextOutput(JSON.stringify({result:'success'}))
+             .setMimeType(ContentService.MimeType.JSON);
+         }
+
+       3. Deploy → New deployment → Web App
+          - Execute as: Me
+          - Who has access: Anyone
+       4. Copy the deployment URL
+       5. Replace YOUR_APPS_SCRIPT_URL below with that URL
+       ============================================================ -->
+
+  <!-- MODAL CONTACT FORM -->
+  <div class="modal-overlay" id="contactModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <div id="formContent">
+        <h3>Get in Touch</h3>
+        <p class="modal-sub">Tell us about your team and we'll get back to you within one business day.</p>
+        <form id="contactForm" onsubmit="submitForm(event)">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="f-name" placeholder="Jane Doe" required />
+          </div>
+          <div class="form-group">
+            <label>Work Email</label>
+            <input type="email" id="f-email" placeholder="jane@company.com" required />
+          </div>
+          <div class="form-group">
+            <label>Company</label>
+            <input type="text" id="f-company" placeholder="Acme GmbH" required />
+          </div>
+          <div class="form-group">
+            <label>I'm interested in</label>
+            <select id="f-tier">
+              <option value="Multi-Agent Blueprint (Free)">🛠 Multi-Agent Blueprint (Free)</option>
+              <option value="Fleet Command (Dashboard + Remote Setup)">🎛 Fleet Command — Dashboard + Remote Setup</option>
+              <option value="Fleet Deployment Intensive">🚀 Fleet Deployment Intensive</option>
+              <option value="Just exploring">Just exploring</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message (optional)</label>
+            <textarea id="f-message" placeholder="Tell us about your team size, current stack, or any questions…"></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="submitBtn">Send Message →</button>
+          <p class="form-error" id="formError">Something went wrong. Please try again or contact us directly.</p>
+        </form>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <div class="checkmark">✅</div>
+        <h4>Message received!</h4>
+        <p>We'll get back to you within one business day.<br/>— Big Bear Engineering GmbH</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">Big Bear<span> Engineering GmbH</span></div>
+    <ul>
+      <li><a href="gmbh.html#expertise">Expertise</a></li>
+      <li><a href="gmbh.html#portfolio">Portfolio</a></li>
+    </ul>
+    <button class="nav-cta" onclick="openModal()">Get Started</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Now available · Zurich-based · Swiss Precision
+    </div>
+    <h1>Your Engineering Team,<br /><em>Multiplied by AI.</em></h1>
+    <p>A coordinated multi-agent system that works 24/7, never burns your token budget, and ships real tickets — not demos.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="openModal('Fleet Deployment Intensive')">Deploy Your Fleet →</button>
+      <a href="#solution" class="btn-secondary">See How It Works</a>
+    </div>
+    <div class="hero-metrics">
+      <div class="metric"><strong>~$20</strong><span>per agent / month</span></div>
+      <div class="metric"><strong>3</strong><span>model integrations</span></div>
+      <div class="metric"><strong>24/7</strong><span>autonomous operation</span></div>
+      <div class="metric"><strong>0</strong><span>data leaves your infra</span></div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="problem" id="problem">
+    <div class="section-label">The Problem</div>
+    <h2>Engineering Teams Are Hitting the Same Three Walls</h2>
+    <p class="section-sub">Scaling AI automation without a coordinated system creates friction — and costs — at every layer.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="icon">🔥</div>
+        <h3>The Token Burn Trap</h3>
+        <p>Uncoordinated agents drift, repeat work, and burn cloud credits without finishing tasks. Costs spike before value is delivered.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon">⛔</div>
+        <h3>The Mid-Day Ceiling</h3>
+        <p>Standard cloud packages hit rate limits halfway through the day. Engineering stops because the "brain" is throttled by a third-party provider.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon">🧊</div>
+        <h3>The Strategic Inertia</h3>
+        <p>Teams not yet started are paralyzed by complexity. Without a proven blueprint, the risk of expensive experimental mistakes is too high to move.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section id="solution">
+    <div class="section-label">The Solution</div>
+    <h2>A Coordinated Multi-Agent Sidekick</h2>
+    <p class="section-sub">A resilient architecture that turns AI into a disciplined, 24/7 force multiplier for your developers.</p>
+    <div class="solution-grid">
+      <div class="solution-card">
+        <div class="tag">Intelligence</div>
+        <div class="icon">🧠</div>
+        <h3>Triple-Model Intelligence</h3>
+        <p>Model-agnostic by design. Leverage Claude for coding precision, Gemini for massive context windows, and Codex for high-velocity generation.</p>
+        <div class="models-row">
+          <div class="model-chip">Claude</div>
+          <div class="model-chip">Gemini</div>
+          <div class="model-chip">Codex</div>
+        </div>
+      </div>
+      <div class="solution-card">
+        <div class="tag">Memory</div>
+        <div class="icon">🗂</div>
+        <h3>Shared Consciousness Protocol</h3>
+        <p>Centralized Markdown memory files link coding conventions, reporting rules, and project states. Agents never ask the same question twice.</p>
+      </div>
+      <div class="solution-card">
+        <div class="tag">Resilience</div>
+        <div class="icon">🏗</div>
+        <h3>Hybrid Deployment</h3>
+        <p>Sensitive, high-IQ tasks run locally for zero-cost inference and total privacy. Remote continuity via private cloud keeps the fleet active 24/7.</p>
+      </div>
+      <div class="solution-card">
+        <div class="tag">Orchestration</div>
+        <div class="icon">📋</div>
+        <h3>GitHub Kanban Orchestration</h3>
+        <p>All activity flows through a GitHub Kanban board. You groom the roadmap as Switchboard Manager — agents pull and execute tickets asynchronously.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY NOW -->
+  <section class="why" id="why">
+    <div class="section-label">Why Now</div>
+    <h2>Choice &amp; Predictable Economics</h2>
+    <p class="section-sub">Own your AI stack — in cost, in model choice, and in precision.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <span class="badge">💶</span>
+        <h3>Predictable Cost by Design</h3>
+        <p>Move from "Pay-per-Thought" to fixed-cost infrastructure. A full professional agent runs for approximately $20/month — no surprise bills, no throttled mid-day stops.</p>
+      </div>
+      <div class="why-card">
+        <span class="badge">🔓</span>
+        <h3>Freedom to Choose Your Models</h3>
+        <p>Not locked into one provider. We help you run local models like Mistral and Apertus on your own hardware — keeping sensitive data private while staying cloud-optional.</p>
+      </div>
+      <div class="why-card">
+        <span class="badge">🇨🇭</span>
+        <h3>Swiss Precision</h3>
+        <p>Based in Zurich, we focus on engineering discipline, not AI hype. Every system we deploy is production-grade from day one.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DASHBOARD PREVIEW -->
+  <section class="dashboard-section" id="dashboard">
+    <div class="section-label">Fleet Command</div>
+    <h2>Your Mission Control, Built In</h2>
+    <p class="section-sub">Fleet Command gives you a live dashboard to monitor every agent, manage your knowledge base, and read daily standups — all in one place.</p>
+
+    <div class="dash-tabs">
+      <button class="dash-tab-btn active" onclick="switchDashTab('team', this)">🤖 Agentic Team</button>
+      <button class="dash-tab-btn" onclick="switchDashTab('memory', this)">🗂 Memory Tree</button>
+      <button class="dash-tab-btn" onclick="switchDashTab('standups', this)">📋 Daily Standups</button>
+    </div>
+
+    <div class="browser-frame">
+      <div class="browser-bar">
+        <div class="browser-dot r"></div>
+        <div class="browser-dot y"></div>
+        <div class="browser-dot g"></div>
+        <div class="browser-url">fleet-hub.bigbearengineering.ch</div>
+      </div>
+      <div class="hub-layout">
+        <!-- Sidebar -->
+        <div class="hub-sidebar">
+          <div class="hub-sidebar-brand">
+            <div class="sub">URSUSHORIBILIS</div>
+            <div class="name">Fleet Hub</div>
+          </div>
+          <div class="hub-nav-item" id="snav-team" onclick="switchDashTab('team', null)" style="cursor:pointer">Team</div>
+          <div class="hub-nav-item" id="snav-projects" onclick="">Projects</div>
+          <div class="hub-nav-item" id="snav-rules" onclick="">Rules</div>
+          <div class="hub-nav-item" id="snav-memory" onclick="switchDashTab('memory', null)" style="cursor:pointer">Memory</div>
+          <div class="hub-nav-item" id="snav-standups" onclick="switchDashTab('standups', null)" style="cursor:pointer">Standups</div>
+          <div class="hub-nav-link">📊 View Stats</div>
+        </div>
+
+        <!-- Content panels -->
+        <div class="hub-content">
+
+          <!-- TEAM PANEL -->
+          <div class="hub-panel active" id="panel-team">
+            <div class="hub-panel-label">FLEET CREW</div>
+            <h3>Agentic Team</h3>
+            <p class="sub">The multi-agent crew building the future of industrial automation.</p>
+            <div class="agent-grid">
+              <div class="agent-card">
+                <div class="agent-card-top">
+                  <div class="agent-avatar">🛒</div>
+                  <div class="agent-card-info">
+                    <div class="agent-env">RUNS ON: CLOUD VPS (DIGITALOCEAN)</div>
+                    <div class="agent-name">robotrosssalesman</div>
+                  </div>
+                </div>
+                <div class="agent-role">Chief of Commerce</div>
+                <div class="agent-desc">Orchestrates Shopify webhooks, Virtuals Protocol ACP, and order normalization.</div>
+                <div class="agent-tags"><span class="agent-tag">Shopify</span><span class="agent-tag">Virtuals ACP</span><span class="agent-tag">Order Routing</span></div>
+              </div>
+              <div class="agent-card">
+                <div class="agent-card-top">
+                  <div class="agent-avatar">🎨</div>
+                  <div class="agent-card-info">
+                    <div class="agent-env">RUNS ON: LOCAL STUDIO (MAC MINI)</div>
+                    <div class="agent-name">Robot Ross Artist</div>
+                  </div>
+                </div>
+                <div class="agent-role">Physical Manifestation Lead</div>
+                <div class="agent-desc">Controls the Huenit robot arm. Translates digital prompts into Swiss ink and paper.</div>
+                <div class="agent-tags"><span class="agent-tag">Robot Control</span><span class="agent-tag">Computer Vision</span><span class="agent-tag">Swiss Ink</span></div>
+              </div>
+              <div class="agent-card">
+                <div class="agent-card-top">
+                  <div class="agent-avatar">🤖</div>
+                  <div class="agent-card-info">
+                    <div class="agent-env">RUNS ON: HYBRID (CLOUD/LOCAL)</div>
+                    <div class="agent-name">Clau (Claude Code)</div>
+                  </div>
+                </div>
+                <div class="agent-role">Senior Video Engineer</div>
+                <div class="agent-desc">Specializes in music and story video generation pipelines. Master of RunwayML.</div>
+                <div class="agent-tags"><span class="agent-tag">Music Tool</span><span class="agent-tag">Story Tool</span><span class="agent-tag">Video Fusion</span></div>
+              </div>
+              <div class="agent-card">
+                <div class="agent-card-top">
+                  <div class="agent-avatar">♊</div>
+                  <div class="agent-card-info">
+                    <div class="agent-env">RUNS ON: CLOUD INFRASTRUCTURE</div>
+                    <div class="agent-name">Gem (Gemini CLI)</div>
+                  </div>
+                </div>
+                <div class="agent-role">Infrastructure &amp; Automation</div>
+                <div class="agent-desc">Maintains the Fleet Hub, KeyVault integration, and cross-agent sync protocols.</div>
+                <div class="agent-tags"><span class="agent-tag">Automation CLI</span><span class="agent-tag">KeyVault</span><span class="agent-tag">Hub Sync</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MEMORY PANEL -->
+          <div class="hub-panel" id="panel-memory">
+            <div class="hub-panel-label">KNOWLEDGE BASE</div>
+            <h3>Memory Tree</h3>
+            <p class="sub">Centralized project context and architectural blueprints.</p>
+            <div class="mem-group">
+              <div class="mem-group-label">📁 GLOBAL RULES</div>
+              <div class="mem-row">
+                <div class="mem-row-info"><strong>Team Rules</strong><span>Standardized protocols for commits, Kanban, and shared memory.</span></div>
+                <div class="mem-link">OPEN ON GITHUB →</div>
+              </div>
+              <div class="mem-row">
+                <div class="mem-row-info"><strong>KeyVault Strategy</strong><span>Infiscal secrets management guide.</span></div>
+                <div class="mem-link">OPEN ON GITHUB →</div>
+              </div>
+            </div>
+            <div class="mem-group">
+              <div class="mem-group-label">📁 PROJECT CONTEXT</div>
+              <div class="mem-row">
+                <div class="mem-row-info"><strong>Salesman API</strong><span>Commerce and Marketplace logic.</span></div>
+                <div class="mem-link">OPEN ON GITHUB →</div>
+              </div>
+              <div class="mem-row">
+                <div class="mem-row-info"><strong>Artist Architecture</strong><span>Robot control and Huenit integration.</span></div>
+                <div class="mem-link">OPEN ON GITHUB →</div>
+              </div>
+              <div class="mem-row">
+                <div class="mem-row-info"><strong>Music Video Automation</strong><span>Video generation heuristics.</span></div>
+                <div class="mem-link">OPEN ON GITHUB →</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STANDUPS PANEL -->
+          <div class="hub-panel" id="panel-standups">
+            <div class="hub-panel-label">DAILY PULSE</div>
+            <h3>Standups</h3>
+            <p class="sub">Session logs tracking progress and identifying blockers.</p>
+            <div class="standup-tabs">
+              <div class="standup-tab active">2026-03-11</div>
+              <div class="standup-tab">2026-03-10</div>
+            </div>
+            <div class="standup-agent">
+              <div class="standup-agent-name">Clau (Current Session)</div>
+              <div class="standup-block">
+                <div class="standup-block-label">Done</div>
+                <ul>
+                  <li><strong>Hub Consolidation:</strong> Created <code>agentic-fleet-hub/</code></li>
+                  <li><strong>Infrastructure Migration:</strong> Moved MISSION_CONTROL.md, AGENTS/, standups/ to new hub</li>
+                  <li><strong>Agent Hooking:</strong> Updated .gemini/GEMINI.md and created agentic-fleet-hub/CLAUDE.md</li>
+                  <li><strong>Ticket #10 (KeyVault):</strong> Initialized AGENTS/KEYVAULT.md with Infiscal strategy</li>
+                </ul>
+              </div>
+              <div class="standup-block">
+                <div class="standup-block-label">Today</div>
+                <ul>
+                  <li><strong>Ticket #10:</strong> Prepare and implement actual Infiscal Service Tokens</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFERING -->
+  <section id="offering">
+    <div class="section-label">The Offering</div>
+    <h2>Three Ways to Deploy Your Fleet</h2>
+    <p class="section-sub">From open-source starter to fully hands-on deployment — pick the level that fits your team.</p>
+    <div class="offering-grid">
+
+      <!-- TIER 1: FREE -->
+      <div class="offer-card">
+        <h3>🛠 The Multi-Agent Blueprint</h3>
+        <div class="price">Open-source starter kit — <strong>Free</strong></div>
+        <ul>
+          <li>Initial MD Memory Framework — linked templates for agent conventions and hand-offs</li>
+          <li>The Kanban Bridge — scripts to sync agents with your GitHub project board</li>
+          <li>Model-agnostic configs for Claude, Gemini, and Codex</li>
+          <li>Community access &amp; documentation</li>
+        </ul>
+        <button class="offer-cta outline" onclick="openModal('Multi-Agent Blueprint (Free)')">Get the Blueprint →</button>
+      </div>
+
+      <!-- TIER 2: FLEET COMMAND -->
+      <div class="offer-card featured">
+        <h3>🎛 Fleet Command</h3>
+        <div class="price">Dashboard + remote setup — <strong>Contact us</strong></div>
+        <ul>
+          <li>Everything in the Blueprint — all MD memory templates included</li>
+          <li>Web dashboard to monitor, manage, and direct your agent fleet in real time</li>
+          <li>Remote setup session — we configure your fleet live with your team</li>
+          <li>Agent health monitoring and task-completion reporting</li>
+          <li>Priority email support</li>
+        </ul>
+        <button class="offer-cta primary" onclick="openModal('Fleet Command (Dashboard + Remote Setup)')">Get Fleet Command →</button>
+      </div>
+
+      <!-- TIER 3: INTENSIVE -->
+      <div class="offer-card">
+        <h3>🚀 Fleet Deployment Intensive</h3>
+        <div class="price">One-day hands-on engagement — <strong>Contact us</strong></div>
+        <ul>
+          <li>Everything in Fleet Command</li>
+          <li>Full stack installation on your local hardware and private cloud</li>
+          <li>Workflow mapping — translating your engineering processes into agentic roles</li>
+          <li>Live execution — we don't finish until your fleet clears its first real-world tickets</li>
+          <li>Post-deployment support &amp; tuning</li>
+        </ul>
+        <button class="offer-cta outline" onclick="openModal('Fleet Deployment Intensive')">Book Your Intensive →</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="section-label">FAQ</div>
+    <h2>Common Questions</h2>
+    <p class="section-sub">Everything you need to know before deploying your fleet.</p>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How does cost control actually work?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Instead of API keys with per-token billing, we configure agents to authenticate using <strong>OAuth with standard model subscriptions</strong> (e.g. Claude Pro). This turns unpredictable, per-token costs into a flat, predictable monthly fee — around $20 per agent.</p>
+            <p>We also implement structural guardrails to prevent agents from going down rabbit holes: task scoping rules, timeout policies, and Kanban-enforced boundaries that keep every agent focused on its assigned ticket and nothing else.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Why use multiple AI models instead of just one?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Two reasons: <strong>pace and resilience</strong>. The AI landscape is moving fast — a model that leads today may be surpassed next month. Being model-agnostic means you always have access to the best tool for each job without rebuilding your infrastructure.</p>
+            <p>It also eliminates single points of failure. If one provider has an outage or hits a rate limit, the fleet keeps running. Each model also brings genuine strengths — Claude for code precision, Gemini for large-context tasks, Codex for rapid generation.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What roles can agents actually take on?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Far beyond coding. Agents can be assigned roles including:</p>
+            <ul>
+              <li><strong>Research & information gathering</strong> — summarizing documents, monitoring competitors, pulling external data</li>
+              <li><strong>QA & API architecture</strong> — prototyping endpoints, maintaining test suites, CI/CD integration</li>
+              <li><strong>Infrastructure & automation</strong> — cloud management, secrets handling, cross-agent synchronization</li>
+              <li><strong>Commerce & operations</strong> — webhook orchestration, order routing, marketplace logic</li>
+            </ul>
+            <p>During the Fleet Deployment Intensive, we map your specific workflows to agent roles tailored to your team's actual needs.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What are local models and open-weight AI?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p><strong>Open-weight models</strong> are AI models whose parameters are publicly released — meaning you download and run them on your own hardware, with zero data sent to a third party. There is no per-token billing and no external dependency.</p>
+            <p>We particularly recommend <strong>Mistral</strong> (French) and <strong>Apertus</strong> (Swiss-led) for European teams prioritizing data sovereignty. Models from other ecosystems — such as Qwen from China — are also available and can be installed in minutes using <strong>Ollama</strong>, a lightweight tool that lets you run and switch between open-weight models locally with a single command.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Why GitHub for orchestration?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>GitHub is already the center of every engineering team's infrastructure. We leverage it for everything the fleet needs:</p>
+            <ul>
+              <li><strong>Token &amp; credential management</strong> — model API tokens and secrets stored securely via GitHub Secrets</li>
+              <li><strong>Kanban &amp; ticketing</strong> — agents pull tasks from GitHub Projects boards and update status asynchronously</li>
+              <li><strong>Source control</strong> — every agent configuration, memory file, and rule set is version-controlled</li>
+              <li><strong>Memory storage</strong> — MD files live in the repo, linked and accessible to all agents in the fleet</li>
+            </ul>
+            <p>Your fleet lives where your code already lives — no new tooling to adopt.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What does the Fleet Command dashboard include?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>The Fleet Hub dashboard gives you a live command center for your entire operation:</p>
+            <ul>
+              <li><strong>Agent Team view</strong> — each agent's role, deployment environment (local, cloud, hybrid), and capabilities at a glance</li>
+              <li><strong>Memory Tree</strong> — your centralized knowledge base with global rules (commits, Kanban protocols, secrets strategy) and per-project context files, all linked directly to GitHub</li>
+              <li><strong>Multi-project management</strong> — manage several engineering projects simultaneously, each with its own context, agent assignments, and Kanban board</li>
+              <li><strong>Preconfigured rule sets</strong> — global rules that govern all agents across the org, plus per-project overrides for specialized workflows</li>
+              <li><strong>Daily Standups</strong> — automated session logs from each agent, documenting what was completed, what's in progress, and any blockers — giving you a full audit trail without micromanaging</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What support comes with the free Blueprint?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>The Blueprint includes <strong>community support</strong> — documentation, shared templates, and a community forum. If you need faster, direct support, paid support plans are available as an add-on.</p>
+            <p><strong>Fleet Command</strong> customers receive priority email support included. <strong>Fleet Deployment Intensive</strong> customers receive post-deployment support and tuning as part of the engagement.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How long does the Deployment Intensive take?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>It is a <strong>one-day, hands-on engagement</strong>. We install the full stack on your hardware and private cloud, map your workflows to agentic roles, and run live execution with real tickets. We don't consider it complete until your fleet has cleared its first batch of real-world tasks — not a demo, a live production run.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="logo">Big Bear<span> Engineering GmbH</span></div>
+    <p>© 2025 Big Bear Engineering GmbH · Zurich, Switzerland · Engineering discipline, not AI hype.</p>
+    <button class="nav-cta" onclick="openModal()" style="font-size:0.8rem; padding: 0.4rem 1rem;">Contact Us</button>
+  </footer>
+
+  <script>
+    // ─── CONFIG ────────────────────────────────────────────────────
+    // Replace with your deployed Google Apps Script URL
+    const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL';
+    // ───────────────────────────────────────────────────────────────
+
+    function openModal(tier) {
+      const modal = document.getElementById('contactModal');
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+
+      // Pre-select tier if provided
+      if (tier) {
+        const select = document.getElementById('f-tier');
+        for (let i = 0; i < select.options.length; i++) {
+          if (select.options[i].value.includes(tier) || tier.includes(select.options[i].value.split('(')[0].trim())) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    }
+
+    function closeModal() {
+      document.getElementById('contactModal').classList.remove('open');
+      document.body.style.overflow = '';
+      // Reset form after a short delay
+      setTimeout(() => {
+        document.getElementById('formContent').style.display = 'block';
+        document.getElementById('formSuccess').style.display = 'none';
+        document.getElementById('contactForm').reset();
+        document.getElementById('formError').style.display = 'none';
+        document.getElementById('submitBtn').disabled = false;
+        document.getElementById('submitBtn').textContent = 'Send Message →';
+      }, 400);
+    }
+
+    // Close on overlay click
+    document.getElementById('contactModal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    async function submitForm(e) {
+      e.preventDefault();
+
+      const btn = document.getElementById('submitBtn');
+      const errEl = document.getElementById('formError');
+      errEl.style.display = 'none';
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      const payload = {
+        name:    document.getElementById('f-name').value.trim(),
+        email:   document.getElementById('f-email').value.trim(),
+        company: document.getElementById('f-company').value.trim(),
+        tier:    document.getElementById('f-tier').value,
+        message: document.getElementById('f-message').value.trim()
+      };
+
+      // If the Apps Script URL hasn't been configured yet, show a setup reminder
+      if (APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL') {
+        btn.disabled = false;
+        btn.textContent = 'Send Message →';
+        errEl.textContent = '⚙️ Setup required: replace YOUR_APPS_SCRIPT_URL in the page source with your Google Apps Script deployment URL.';
+        errEl.style.display = 'block';
+        return;
+      }
+
+      try {
+        await fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        // no-cors means we can't read the response, but if it didn't throw we treat it as success
+        document.getElementById('formContent').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = 'Send Message →';
+        errEl.textContent = 'Something went wrong. Please try again.';
+        errEl.style.display = 'block';
+      }
+    }
+    const sidebarMap = { team: 'snav-team', memory: 'snav-memory', standups: 'snav-standups' };
+    function switchDashTab(tab, btn) {
+      // Update top tab buttons
+      if (btn) {
+        document.querySelectorAll('.dash-tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      } else {
+        // Called from sidebar — sync top buttons
+        document.querySelectorAll('.dash-tab-btn').forEach(b => {
+          b.classList.toggle('active', b.textContent.toLowerCase().includes(tab === 'memory' ? 'memory' : tab === 'standups' ? 'standup' : 'team'));
+        });
+      }
+      // Update sidebar
+      document.querySelectorAll('.hub-nav-item').forEach(el => el.classList.remove('active'));
+      if (sidebarMap[tab]) document.getElementById(sidebarMap[tab]).classList.add('active');
+      // Update panels
+      document.querySelectorAll('.hub-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('panel-' + tab).classList.add('active');
+    }
+    // Init sidebar highlight
+    switchDashTab('team', null);
+
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      // Open clicked if it was closed
+      if (!isOpen) item.classList.add('open');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+[
+  {
+    "date": "2026-03-11",
+    "file": "2026-03-11.md",
+    "summary": "Initialized today's standup, mapping infrastructure, and addressing user questions."
+  },
+  {
+    "date": "2026-03-10",
+    "file": "2026-03-10.md",
+    "summary": "Tickets #1-#6 complete: Sheets migration, tracker API live, OAuth wired, Codi deploy key, heatmap improvements"
+  }
+]

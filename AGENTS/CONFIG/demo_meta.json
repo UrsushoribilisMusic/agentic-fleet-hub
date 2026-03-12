@@ -1,0 +1,72 @@
+{
+  "team": [
+    {
+      "name": "robotrosssalesman",
+      "avatar": "🛍️",
+      "roleTitle": "Chief of Commerce",
+      "roleDesc": "Orchestrates Shopify webhooks, Virtuals Protocol ACP, and order normalization. The business brain of the operation.",
+      "skills": ["Shopify", "Virtuals ACP", "Order Routing"],
+      "runtime": "Cloud VPS (DigitalOcean)",
+      "memoryLink": "#"
+    },
+    {
+      "name": "Robot Ross Artist",
+      "avatar": "🎨",
+      "roleTitle": "Physical Manifestation Lead",
+      "roleDesc": "Controls the Huenit robot arm and local capture suite. Translates digital prompts into Swiss ink and paper.",
+      "skills": ["Robot Control", "Computer Vision", "Swiss Ink"],
+      "runtime": "Local Studio (Mac Mini)",
+      "memoryLink": "#"
+    },
+    {
+      "name": "Clau (Claude Code)",
+      "avatar": "🤖",
+      "roleTitle": "Senior Video Engineer",
+      "roleDesc": "Specializes in music and story video generation pipelines. Master of RunwayML and audio fusion.",
+      "skills": ["Music Tool", "Story Tool", "Video Fusion"],
+      "runtime": "Hybrid (Cloud/Local)",
+      "memoryLink": "#"
+    },
+    {
+      "name": "Gem (Gemini CLI)",
+      "avatar": "♊",
+      "roleTitle": "Infrastructure & Automation",
+      "roleDesc": "Maintains the Fleet Management Hub, KeyVault integration, and cross-agent synchronization protocols.",
+      "skills": ["Automation CLI", "KeyVault", "Hub Sync"],
+      "runtime": "Cloud Infrastructure",
+      "memoryLink": "#"
+    },
+    {
+      "name": "Codi (Codex)",
+      "avatar": "🛠️",
+      "roleTitle": "QA & API Architect",
+      "roleDesc": "Prototyping new API endpoints and maintaining the test suite. Ensures the fleet remains stable and verified.",
+      "skills": ["API Design", "QA Automation", "CI/CD"],
+      "runtime": "Cloud Runner",
+      "memoryLink": "#"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Agentic CRM Prototype",
+      "owners": "Ursus Fleet",
+      "summary": "High-fidelity React/FastAPI prototype for autonomous customer relationship management. Featuring deep Google Calendar integration and agent-driven scheduling.",
+      "docs": ["https://github.com/UrsushoribilisMusic/crm-poc"],
+      "kanban": "https://github.com/users/UrsushoribilisMusic/projects/2/views/2"
+    },
+    {
+      "title": "Robot Ross (Public)",
+      "owners": "Community",
+      "summary": "The open-source version of the physical painting agent. Connects LLMs to hardware via Python. Manifesting digital ideas into physical ink.",
+      "docs": ["https://github.com/UrsushoribilisMusic/BobRossSkill"],
+      "kanban": "#"
+    },
+    {
+      "title": "Fleet Hub Blueprint",
+      "owners": "Big Bear Engineering",
+      "summary": "Our upcoming open-source starter kit for agentic development. Templates for MISSION_CONTROL, RULES, and shared consciousness protocols.",
+      "docs": ["#"],
+      "kanban": "#"
+    }
+  ]
+}

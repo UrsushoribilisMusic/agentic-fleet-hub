@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" data-auth-loading="1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robot Ross Analytics</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script>window.RobotRossAuthConfig = { enabled: true }; document.documentElement.dataset.authLoading = "1";</script>
+  <script src="assets/plotly-2.32.0.min.js" defer></script>
+  <script src="/auth/auth.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">Robot Ross Insights</p>
+        <h1>Stats Dashboard</h1>
+        <p class="lede">Live performance data from YouTube, TikTok, and the Wall of Fame.</p>
+      </div>
+      <div class="header-status">
+        <div class="status-pill" id="tracker-status">
+          <span class="status-dot" id="tracker-status-dot"></span>
+          <span id="tracker-status-text">Checking tracker...</span>
+        </div>
+        <span class="status-chip">Server: <strong>api.robotross.art</strong></span>
+      </div>
+    </header>
+
+    <nav class="main-nav" aria-label="Primary navigation">
+      <button class="nav-button is-active" data-stats-group="robotross">Robot Ross</button>
+      <button class="nav-button" data-stats-group="music">Music</button>
+      <button class="nav-button" data-stats-group="story">Story</button>
+    </nav>
+
+    <section id="section-stats" class="section is-active" aria-label="Statistics">
+      <div class="stats-panels">
+        <div class="stats-panel is-active" data-stats-panel="robotross">
+          <div class="robotross-summary-grid">
+            <article class="summary-card">
+              <p class="summary-label">Total orders</p>
+              <p class="summary-value" id="rr-total-orders">—</p>
+            </article>
+            <article class="summary-card">
+              <p class="summary-label">Complete</p>
+              <p class="summary-value" id="rr-complete">—</p>
+            </article>
+            <article class="summary-card">
+              <p class="summary-label">Active</p>
+              <p class="summary-value" id="rr-active">—</p>
+            </article>
+            <article class="summary-card">
+              <p class="summary-label">Grid occupied</p>
+              <p class="summary-value" id="rr-grid">—</p>
+            </article>
+          </div>
+          <div class="panel-header">
+            <h2>Latest orders</h2>
+            <p>Live order queue mirrored from the Salesman API.</p>
+          </div>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Slot</th>
+                  <th>Buyer</th>
+                  <th>Status</th>
+                  <th>Price</th>
+                  <th>Proof</th>
+                </tr>
+              </thead>
+              <tbody id="rr-orders-table"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="stats-panel" data-stats-panel="music">
+          <div class="music-tabs" role="tablist" aria-label="Music tabs">
+            <button class="music-tab is-active" data-music-tab="shorts">Shorts</button>
+            <button class="music-tab" data-music-tab="longform">Long-form Videos</button>
+            <button class="music-tab" data-music-tab="analytics">Analytics</button>
+          </div>
+          <div class="music-content">
+            <div class="music-panel is-active" data-music-panel="shorts">
+              <div class="panel-header">
+                <h2>Music Shorts leaderboard</h2>
+                <p>Sorted by YouTube views. Click column headers to re-sort.</p>
+              </div>
+              <div class="table-wrapper" aria-live="polite">
+                <table>
+                  <thead>
+                    <tr>
+                      <th data-sortable="title">Title</th>
+                      <th data-sortable="date">Date</th>
+                      <th data-sortable="yt_views">YT views</th>
+                      <th data-sortable="tt_views">TT views</th>
+                      <th data-sortable="insta_views">Insta views</th>
+                    </tr>
+                  </thead>
+                  <tbody id="shorts-table"></tbody>
+                </table>
+              </div>
+            </div>
+            <div class="music-panel" data-music-panel="longform">
+              <div class="panel-header">
+                <h2>Long-form videos</h2>
+                <p>Ordered by YouTube views.</p>
+              </div>
+              <div class="table-wrapper">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Title</th>
+                      <th>Style</th>
+                      <th>Date</th>
+                      <th>YT views</th>
+                    </tr>
+                  </thead>
+                  <tbody id="videos-table"></tbody>
+                </table>
+              </div>
+            </div>
+            <div class="music-panel" data-music-panel="analytics">
+              <div class="panel-header">
+                <h2>Analytics</h2>
+                <p>Pre-computed charts supplied by the tracker analytics feed.</p>
+              </div>
+              <div class="analytics-grid">
+                <div class="chart-card">
+                  <h3>Avg YT views per style</h3>
+                  <div id="chart-style-average" class="chart-canvas"></div>
+                </div>
+                <div class="chart-card">
+                  <h3>Avg YT views per piece</h3>
+                  <div id="chart-piece-average" class="chart-canvas"></div>
+                </div>
+                <div class="chart-card heatmap">
+                  <h3>Piece × Style heatmap</h3>
+                  <div id="chart-heatmap" class="chart-canvas"></div>
+                </div>
+                <div class="chart-card">
+                  <h3>Cross-platform per piece</h3>
+                  <div id="chart-cross-platform" class="chart-canvas"></div>
+                </div>
+                <div class="chart-card leaderboard">
+                  <h3>Top YouTube Shorts</h3>
+                  <div id="table-top-yt" class="leaderboard-table"></div>
+                </div>
+                <div class="chart-card leaderboard">
+                  <h3>Top TikTok Shorts</h3>
+                  <div id="table-top-tt" class="leaderboard-table"></div>
+                </div>
+                <div class="chart-card leaderboard">
+                  <h3>Recommendations</h3>
+                  <div id="table-recommendations" class="leaderboard-table"></div>
+                </div>
+                <div class="chart-card leaderboard">
+                  <h3>Long-form video stats</h3>
+                  <div id="table-top-videos" class="leaderboard-table"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-panel" data-stats-panel="story">
+          <div class="panel-header">
+            <h2>Story chapter performance</h2>
+            <p>YouTube vs TikTok reach per chapter.</p>
+          </div>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Chapter</th>
+                  <th>Title</th>
+                  <th>Date</th>
+                  <th>YT views</th>
+                  <th>TT views</th>
+                  <th>Insta</th>
+                  <th>TT vs YT</th>
+                </tr>
+              </thead>
+              <tbody id="story-table"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="assets/stats.js?v=20260311" defer></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+deploy/
+deploy-cc/
+deploy-final/
+deploy-fleet/
+deploy-fleet-v2/
+deploy-fleet-v3/
+deploy-fleet-v4/
+deploy-stats/
+deploy-stats-v2/
+.DS_Store
+node_modules/
+*.log
