@@ -1,5 +1,17 @@
 [
   {
+    "id": "kanban-ui-must-match-package-api",
+    "title": "Kanban UI must consume the packaged API shape, not a parallel frontend contract",
+    "category": "integration",
+    "project": "Flotilla Package",
+    "symptom": "The Kanban refresh appeared broken even though the backend endpoint was live.",
+    "root_cause": "The UI implementation was reading a different payload shape (`planned`/`working`/`done`) in a separate frontend path, while the packaged API returned `columns.planned`, `columns.in_work`, and `columns.merged`.",
+    "lesson": "For distributable features, define and consume one contract in the package itself. Do not mark UI work complete until it is wired against the actual packaged endpoint and response shape.",
+    "agent": "Codi (Codex)",
+    "date": "2026-03-13T00:00:00Z",
+    "status": "approved"
+  },
+  {
     "id": "npm-publish-from-package-dir",
     "title": "npm publish must run from the package directory",
     "category": "release",
