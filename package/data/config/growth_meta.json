@@ -1,0 +1,48 @@
+{
+  "team": [
+    {
+      "name": "Scout",
+      "avatar": "🔍",
+      "roleTitle": "Lead Discovery & Trends",
+      "roleDesc": "Monitors LinkedIn, industry news, and competitor activity to identify high-value opportunities.",
+      "skills": ["Web Research", "Trend Analysis", "Lead Enrichment"],
+      "runtime": "Cloud Runner",
+      "memoryLink": "#"
+    },
+    {
+      "name": "Echo",
+      "avatar": "📣",
+      "roleTitle": "Social Media Manager",
+      "roleDesc": "Drafts high-engagement posts, suggests content calendar items, and amplifies the brand voice.",
+      "skills": ["Content Writing", "Social Strategy", "Viral Loops"],
+      "runtime": "Cloud VPS",
+      "memoryLink": "#"
+    },
+    {
+      "name": "Closer",
+      "avatar": "🤝",
+      "roleTitle": "Sales & CRM Architect",
+      "roleDesc": "Inputs leads into the CRM, drafts personalized outreach, and coordinates follow-ups with humans-in-the-loop.",
+      "skills": ["CRM Automation", "Personalized Outreach", "Pipeline Management"],
+      "runtime": "Hybrid",
+      "memoryLink": "#"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Lead Pipeline (CRM)",
+      "owners": "Closer",
+      "summary": "Shared memory for your sales team. Agents discover leads, Closer inputs them, you take the final action.",
+      "crmLink": "#",
+      "docs": ["#"],
+      "kanban": "#"
+    },
+    {
+      "title": "Content Calendar",
+      "owners": "Echo",
+      "summary": "Autonomous content planning. Echo suggests the posts, you hit Publish.",
+      "docs": ["#"],
+      "kanban": "#"
+    }
+  ]
+}

@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-03-13",
+    "file": "2026-03-13.md",
+    "summary": "Tickets #20 and #21 complete: open-source package structure (server, dashboards, blueprint) + Kanban bridge scripts."
+  },
+  {
     "date": "2026-03-12",
     "file": "2026-03-12.md",
     "summary": "Tickets #14 and #17-#19 complete: Growth Fleet demo, Big Bear homepage refresh, legal pages, and Google Sheets lead intake live."

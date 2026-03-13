@@ -1,0 +1,31 @@
+{
+  "team": [
+    {
+      "name": "{{AGENT_1_NAME}}",
+      "avatar": "🤖",
+      "roleTitle": "{{AGENT_1_ROLE}}",
+      "roleDesc": "{{AGENT_1_DESC}}",
+      "skills": ["{{SKILL_1}}", "{{SKILL_2}}", "{{SKILL_3}}"],
+      "runtime": "{{AGENT_1_RUNTIME}}",
+      "memoryLink": "{{AGENT_1_MEMORY_LINK}}"
+    },
+    {
+      "name": "{{AGENT_2_NAME}}",
+      "avatar": "♊",
+      "roleTitle": "{{AGENT_2_ROLE}}",
+      "roleDesc": "{{AGENT_2_DESC}}",
+      "skills": ["{{SKILL_4}}", "{{SKILL_5}}", "{{SKILL_6}}"],
+      "runtime": "{{AGENT_2_RUNTIME}}",
+      "memoryLink": "{{AGENT_2_MEMORY_LINK}}"
+    }
+  ],
+  "projects": [
+    {
+      "title": "{{PROJECT_1_TITLE}}",
+      "owners": "{{PROJECT_1_OWNER}}",
+      "summary": "{{PROJECT_1_SUMMARY}}",
+      "docs": ["{{PROJECT_1_DOCS_URL}}"],
+      "kanban": "{{KANBAN_URL}}"
+    }
+  ]
+}

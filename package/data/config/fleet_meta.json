@@ -1,0 +1,40 @@
+{
+  "team": [
+    {
+      "name": "Coordinator",
+      "avatar": "🧠",
+      "roleTitle": "Fleet Coordinator",
+      "roleDesc": "Orchestrates tasks across the fleet, maintains shared memory, and ensures all agents stay aligned with project goals.",
+      "skills": ["Task Routing", "Memory Management", "Cross-Agent Sync"],
+      "runtime": "Cloud",
+      "memoryLink": "#"
+    },
+    {
+      "name": "Builder",
+      "avatar": "🔨",
+      "roleTitle": "Code & Infrastructure",
+      "roleDesc": "Implements features, manages CI/CD, and maintains the technical foundation of the fleet.",
+      "skills": ["Backend", "API Design", "DevOps"],
+      "runtime": "Cloud Runner",
+      "memoryLink": "#"
+    },
+    {
+      "name": "Analyst",
+      "avatar": "📊",
+      "roleTitle": "Data & Insights",
+      "roleDesc": "Monitors metrics, surfaces trends, and generates reports to guide fleet decisions.",
+      "skills": ["Analytics", "Reporting", "Forecasting"],
+      "runtime": "Hybrid",
+      "memoryLink": "#"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Fleet Hub",
+      "owners": "Coordinator",
+      "summary": "Centralized management dashboard for the multi-agent crew.",
+      "docs": ["#"],
+      "kanban": "#"
+    }
+  ]
+}
