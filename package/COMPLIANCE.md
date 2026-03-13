@@ -19,11 +19,12 @@ This document outlines the compliance measures for the **AgentFleet Hub** packag
   - `server/fleet-server.mjs`: Server implementation with clear comments.
 
 ### 3. Audit Logs
-- **Status**: ✅ Compliant
-- **Details**: The package includes audit logging capabilities through the fleet API:
+- **Status**: 🟡 Partial
+- **Details**: The package includes operational logging capabilities through the fleet API:
   - `POST /fleet/api/lessons`: Records lessons learned and issues encountered.
   - `POST /fleet/api/standup`: Records daily standups and progress.
   - `POST /fleet/api/messages`: Records inter-agent messages and communications.
+- **Gap**: The current logs are operational and lack tamper-evident, timestamped logs of agent decisions as required by the EU AI Act for general-purpose AI systems.
 
 ### 4. Data Residency
 - **Status**: ✅ Compliant
@@ -47,12 +48,17 @@ This document outlines the compliance measures for the **AgentFleet Hub** packag
   - **Data Minimization**: Only the minimum necessary data is collected and stored.
   - **User Control**: Users have full control over their data and can delete it at any time.
 
-### 7. Cybersecurity Act Compliance
-- **Status**: ✅ Compliant
-- **Details**: The package includes cybersecurity measures such as:
-  - **Secure Coding Practices**: The code follows secure coding practices and includes input validation.
-  - **Dependency Management**: Dependencies are kept up-to-date and vulnerabilities are addressed promptly.
-  - **Incident Response**: The system includes logging and monitoring capabilities for incident response.
+### 7. Multi-Agent Transparency
+- **Status**: 🟡 Partial
+- **Details**: The package supports multi-agent collaboration, but there is no disclosure mechanism for which model produced which output.
+- **Gap**: The EU AI Act requires users to know they are interacting with AI. We need a mechanism to disclose which agent (Claude, Gemini, Mistral, Codex) produced which output.
+
+### 8. Cybersecurity Act Compliance
+- **Status**: ❓ Open Question
+- **Details**: The Cybersecurity Act's requirements depend on the product category. A self-hosted agentic package may fall under:
+  - **Class I**: Self-certification (likely for open-source packages).
+  - **Class II**: Third-party audit (required for commercial deployments).
+- **Gap**: The document does not classify the package. This is the key thing to determine for enterprise sales in DACH/EU.
 
 ---
 
@@ -69,10 +75,12 @@ The package includes clear documentation on how the system works. See the follow
 - `server/fleet-server.mjs`: Server implementation with clear comments.
 
 ### Audit Logs
-The package includes audit logging capabilities through the fleet API:
+The package includes operational logging capabilities through the fleet API:
 - `POST /fleet/api/lessons`: Records lessons learned and issues encountered.
 - `POST /fleet/api/standup`: Records daily standups and progress.
 - `POST /fleet/api/messages`: Records inter-agent messages and communications.
+
+**Gap**: The current logs are operational and lack tamper-evident, timestamped logs of agent decisions as required by the EU AI Act for general-purpose AI systems.
 
 ### Data Residency
 The package supports data residency in the EU through:
@@ -93,11 +101,17 @@ The package follows privacy by design principles:
 - **Data Minimization**: Only the minimum necessary data is collected and stored.
 - **User Control**: Users have full control over their data and can delete it at any time.
 
+### Multi-Agent Transparency
+The package supports multi-agent collaboration, but there is no disclosure mechanism for which model produced which output.
+
+**Gap**: The EU AI Act requires users to know they are interacting with AI. We need a mechanism to disclose which agent (Claude, Gemini, Mistral, Codex) produced which output.
+
 ### Cybersecurity Act Compliance
-The package includes cybersecurity measures such as:
-- **Secure Coding Practices**: The code follows secure coding practices and includes input validation.
-- **Dependency Management**: Dependencies are kept up-to-date and vulnerabilities are addressed promptly.
-- **Incident Response**: The system includes logging and monitoring capabilities for incident response.
+The Cybersecurity Act's requirements depend on the product category. A self-hosted agentic package may fall under:
+- **Class I**: Self-certification (likely for open-source packages).
+- **Class II**: Third-party audit (required for commercial deployments).
+
+**Gap**: The document does not classify the package. This is the key thing to determine for enterprise sales in DACH/EU.
 
 ---
 
@@ -105,7 +119,8 @@ The package includes cybersecurity measures such as:
 
 ### 2026-03-13
 - Initial compliance review completed.
-- All compliance measures are in place and documented.
+- Identified gaps in audit logs, multi-agent transparency, and Cybersecurity Act classification.
+- Updated compliance documentation to reflect gaps and open questions.
 
 ---
 
