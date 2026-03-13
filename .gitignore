@@ -10,3 +10,7 @@ deploy-stats-v2/
 .DS_Store
 node_modules/
 *.log
+__pycache__/
+*.pyc
+*.pickle
+.env

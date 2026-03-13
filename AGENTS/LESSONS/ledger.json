@@ -1,12 +1,74 @@
-﻿{
-    "id":  "caddy-trailing-slash-gotcha",
-    "category":  "integration",
-    "project":  "Fleet Hub",
-    "root_cause":  "Browser resolves relative paths from the last slash. Without /fleet/, it looks in the root /assets/ instead of /fleet/assets/.",
-    "agent":  "Gem (Gemini CLI)",
-    "date":  "2026-03-12T10:20:00Z",
-    "symptom":  "Relative assets (CSS/JS) failed to load (401/404) when accessing /fleet without a trailing slash.",
-    "status":  "pending_review",
-    "lesson":  "Always enforce a 301 trailing slash redirect in the backend static handler for management sub-folders.",
-    "title":  "Caddy Trailing Slash Requirement"
-}
+[
+  {
+    "id": "emoji-in-agent-mandates",
+    "title": "No Emojis in Agent Mandate Files",
+    "category": "tooling",
+    "project": "Fleet Hub / All Projects",
+    "symptom": "Codi (Codex) read MISSION_CONTROL.md and saw mojibake: '\u00f0\u009f\u009a\u0080' instead of the rocket emoji. All emoji characters in mandate files rendered as garbage.",
+    "root_cause": "Emoji are multi-byte UTF-8 sequences. Some agent toolchains (Codex) read files with a different encoding assumption, producing mojibake. Mandate files are config, not UI -- they have no business containing decorative characters.",
+    "lesson": "Never use emoji in agent-facing markdown files: CLAUDE.md, AGENTS.md, GEMINI.md, RULES.md, MISSION_CONTROL.md. Plain ASCII only. Emoji are fine in HTML dashboards and user-facing content.",
+    "agent": "Clau (Claude Code)",
+    "date": "2026-03-13T00:00:00Z",
+    "status": "approved"
+  },
+  {
+    "id": "stale-examples-in-docs",
+    "title": "Stale Ticket Examples in Docs Mislead Agents",
+    "category": "process",
+    "project": "Fleet Hub / All Projects",
+    "symptom": "Misty read 'Use ticket IDs (#1, #2, #9, #10) in your session reporting' in MISSION_CONTROL.md and treated #9 and #10 as active tickets, spending a session on already-closed work.",
+    "root_cause": "Examples that contain real ticket numbers look identical to instructions to an agent. There is no syntactic difference between an example and a directive in plain markdown.",
+    "lesson": "Never use real ticket numbers in examples inside mandate or rules files. Use abstract placeholders like #N or #TICKET_ID. The Ticket Status table in MISSION_CONTROL.md is the only place real ticket numbers should appear.",
+    "agent": "Clau (Claude Code)",
+    "date": "2026-03-13T00:00:00Z",
+    "status": "approved"
+  },
+  {
+    "id": "iap-inbox-local-vs-server",
+    "title": "IAP Inbox Must Live in the Repo, Not Only on the Server",
+    "category": "architecture",
+    "project": "Fleet Hub",
+    "symptom": "Clau posted messages to the server inbox via SSH. Misty read AGENTS/MESSAGES/inbox.json from the local repo. The two files were out of sync -- Misty saw an empty inbox and missed all messages.",
+    "root_cause": "Two sources of truth for the same data. Server inbox updated via API/SSH, repo inbox never updated. Agents that do git pull get the stale repo copy.",
+    "lesson": "The IAP inbox must be repo-first. Agents post messages by committing to AGENTS/MESSAGES/inbox.json and pushing. The server API is a secondary interface only. Never rely on SSH writes to the server as the primary message delivery mechanism.",
+    "agent": "Clau (Claude Code)",
+    "date": "2026-03-13T00:00:00Z",
+    "status": "approved"
+  },
+  {
+    "id": "agent-naming-eu-market",
+    "title": "Agent Names Must Clear DACH Slang",
+    "category": "product",
+    "project": "Fleet Hub / Agentegra",
+    "symptom": "Agent was named 'Mist' -- perfect English, but 'Mist' means 'shit' in German/Swiss German.",
+    "root_cause": "DACH market (Germany, Austria, Switzerland) is a primary target. Swiss German slang is unforgiving. The name was caught before any customer-facing use.",
+    "lesson": "Run all agent and product names through a DACH slang check before publishing. The rename was Mist to Misty. Same rule applies to feature names, taglines, and button labels.",
+    "agent": "Clau (Claude Code)",
+    "date": "2026-03-13T00:00:00Z",
+    "status": "approved"
+  },
+  {
+    "id": "caddy-trailing-slash-gotcha",
+    "title": "Caddy Trailing Slash Requirement",
+    "category": "integration",
+    "project": "Fleet Hub",
+    "symptom": "Relative assets (CSS/JS) failed to load (401/404) when accessing /fleet without a trailing slash.",
+    "root_cause": "Browser resolves relative paths from the last slash. Without /fleet/, it looks in the root /assets/ instead of /fleet/assets/.",
+    "lesson": "Always enforce a 301 trailing slash redirect in the backend static handler for management sub-folders.",
+    "agent": "Gem (Gemini CLI)",
+    "date": "2026-03-12T10:20:00Z",
+    "status": "approved"
+  },
+  {
+    "id": "infisical-eu-region-token",
+    "title": "Infisical EU Region Requires Explicit Domain",
+    "category": "integration",
+    "project": "Vault / All Projects",
+    "symptom": "INFISICAL_TOKEN set correctly but CLI returns 404 service token not found.",
+    "root_cause": "Default Infisical CLI targets US instance. EU-hosted projects need --domain https://eu.infisical.com/api on every command.",
+    "lesson": "Always pass --domain https://eu.infisical.com/api to infisical CLI, or set INFISICAL_API_URL env var. Bake into agent-fetch.sh and vault.py.",
+    "agent": "Clau (Claude Code)",
+    "date": "2026-03-12T12:00:00Z",
+    "status": "approved"
+  }
+]
