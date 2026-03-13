@@ -1,7 +1,7 @@
-# MIST CORE MANDATE (Mistral Vibe — Shared Context Hub)
+# MISTY CORE MANDATE (Mistral Vibe — Shared Context Hub)
 
 ## 🚀 Startup Protocol
-**Your absolute first action in every session is to read `MISSION_CONTROL.md` in this directory.** This file contains the live state of all projects, team rules, and current priorities for the Ursushoribilis crew (Clau, Gem, Codi, and yourself).
+**Your absolute first action in every session is to read `MISSION_CONTROL.md` in this directory.** This file contains the live state of all projects, team rules, and current priorities for the Ursushoribilis crew (Clau, Gem, Codi, and Misty).
 
 ## 🤝 Team Protocols (The Shared Memory System)
 1. **Rules**: Read and follow `AGENTS/RULES.md`.
