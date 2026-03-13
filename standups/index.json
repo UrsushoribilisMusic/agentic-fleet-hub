@@ -1,22 +1,27 @@
-[
-  {
-    "date": "2026-03-13",
-    "file": "2026-03-13.md",
-    "summary": "Tickets #20 and #21 complete: open-source package structure (server, dashboards, blueprint) + Kanban bridge scripts."
-  },
-  {
-    "date": "2026-03-12",
-    "file": "2026-03-12.md",
-    "summary": "Tickets #14 and #17-#19 complete: Growth Fleet demo, Big Bear homepage refresh, legal pages, and Google Sheets lead intake live."
-  },
-  {
-    "date": "2026-03-11",
-    "file": "2026-03-11.md",
-    "summary": "Hub Consolidation, Sidebar Overhaul, and CRM Cloud Rollout."
-  },
-  {
-    "date": "2026-03-10",
-    "file": "2026-03-10.md",
-    "summary": "Tickets #1-#6 complete: Sheets migration, tracker API live, OAuth wired."
-  }
+﻿[
+    {
+        "date":  "2026-03-13",
+        "summary":  "Ticket #25 (Demo Cleanup) and #23 (README overhaul) complete. Fleet is release-ready.",
+        "file":  "2026-03-13.md"
+    },
+    {
+        "date":  "2026-03-13",
+        "file":  "2026-03-13.md",
+        "summary":  "Tickets #20 and #21 complete: open-source package structure (server, dashboards, blueprint) + Kanban bridge scripts."
+    },
+    {
+        "date":  "2026-03-12",
+        "file":  "2026-03-12.md",
+        "summary":  "Tickets #14 and #17-#19 complete: Growth Fleet demo, Big Bear homepage refresh, legal pages, and Google Sheets lead intake live."
+    },
+    {
+        "date":  "2026-03-11",
+        "file":  "2026-03-11.md",
+        "summary":  "Hub Consolidation, Sidebar Overhaul, and CRM Cloud Rollout."
+    },
+    {
+        "date":  "2026-03-10",
+        "file":  "2026-03-10.md",
+        "summary":  "Tickets #1-#6 complete: Sheets migration, tracker API live, OAuth wired."
+    }
 ]

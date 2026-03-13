@@ -44,6 +44,15 @@
       "skills": ["API Design", "QA Automation", "CI/CD"],
       "runtime": "Cloud Runner",
       "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/RULES.md"
+    },
+    {
+      "name": "Mist (Mistral Vibe)",
+      "avatar": "🌬️",
+      "roleTitle": "European Intelligence & Compliance",
+      "roleDesc": "EU-hosted, GDPR-compliant, open-weight Mistral model. Handles regulated-industry workloads, customer-facing content, and self-hostable fleet deployments.",
+      "skills": ["EU Compliance", "Content Strategy", "Open-Weight Deployment"],
+      "runtime": "EU Cloud / Self-Hosted",
+      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS.md"
     }
   ],
   "projects": [
