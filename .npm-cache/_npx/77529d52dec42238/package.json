@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "create-flotilla": "file:../../../package/create-flotilla-0.1.0.tgz"
+  },
+  "_npx": {
+    "packages": [
+      "C:\\Users\\migue\\agentic-fleet-hub\\package\\create-flotilla-0.1.0.tgz"
+    ]
+  }
+}

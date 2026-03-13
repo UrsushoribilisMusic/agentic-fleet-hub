@@ -52,12 +52,13 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 - **#26**: EU Compliance Review -- Misty. COMPLIANCE.md v2 complete: gap table with amber/open items for audit logs, multi-agent transparency, Cybersecurity Act classification.
 - **#27**: Fleet config -- absorbed into #24. Codi implemented as meta.installation block inside fleet_meta.json.
 - **#24**: Onboarding wizard + Doctor + commit step -- Codi. Complete.
+- **#22**: `npx create-flotilla` installer -- Codi. Complete. Published to npm as `create-flotilla@0.1.0`.
 - **#28**: Fleet Doctor -- absorbed into #24. Complete.
 - **#29**: GEMINI.md template -- Gem. Added to blueprint.
 
 ### OPEN
 | Ticket | Description | Owner | Notes |
 | :--- | :--- | :--- | :--- |
-| **#22** | `npx create-agentfleet` installer | Codi | In progress. |
+| *(none)* | -- | -- | Waiting for next ticket assignment. |
 
-**Status: OPEN-SOURCE PACKAGE IN PROGRESS.**
+**Status: OPEN-SOURCE PACKAGE PUBLISHED. `create-flotilla@0.1.0` is live on npm.**

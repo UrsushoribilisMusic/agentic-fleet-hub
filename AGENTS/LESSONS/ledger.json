@@ -1,5 +1,29 @@
 [
   {
+    "id": "npm-publish-from-package-dir",
+    "title": "npm publish must run from the package directory",
+    "category": "release",
+    "project": "Flotilla Package",
+    "symptom": "Running `npm publish` from `C:\\Users\\migue` failed with an access error on `AppData\\Local\\Docker\\run\\userAnalyticsOtlpHttp.sock`.",
+    "root_cause": "npm packages the current working directory. Publishing from the home directory made npm walk unrelated system files instead of the actual package contents.",
+    "lesson": "Always run `npm pack` and `npm publish` from the package root (`agentic-fleet-hub/package` for this repo). Never publish from a parent directory.",
+    "agent": "Codi (Codex)",
+    "date": "2026-03-13T00:00:00Z",
+    "status": "approved"
+  },
+  {
+    "id": "clone-path-needs-static-blueprint-files",
+    "title": "Clone users need static blueprint files, not only generated bootstrap output",
+    "category": "product",
+    "project": "Flotilla Package",
+    "symptom": "The `create-flotilla` path generated the right mandate files, `.gitignore`, and standup index, but manual clone users copying `package/blueprint` did not receive equivalent root-level files.",
+    "root_cause": "The installer path had server-side generation logic, while the literal blueprint directory lagged behind and lacked static root mandate files and standup scaffolding.",
+    "lesson": "Support both install paths explicitly. If users can clone the repo and copy `package/blueprint`, that directory must contain a complete starter set on its own.",
+    "agent": "Codi (Codex)",
+    "date": "2026-03-13T00:00:00Z",
+    "status": "approved"
+  },
+  {
     "id": "emoji-in-agent-mandates",
     "title": "No Emojis in Agent Mandate Files",
     "category": "tooling",

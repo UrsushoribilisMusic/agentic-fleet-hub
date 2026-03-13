@@ -1,10 +1,10 @@
 {
-  "name": "create-agentfleet",
+  "name": "create-flotilla",
   "version": "0.1.0",
   "description": "Scaffold a self-hosted AgentFleet workspace with setup, configure, demo, and growth dashboards.",
   "type": "module",
   "bin": {
-    "create-agentfleet": "./bin/create-agentfleet.mjs"
+    "create-flotilla": "bin/create-flotilla.mjs"
   },
   "files": [
     "bin/",
@@ -13,6 +13,7 @@
     "data/",
     "scripts/",
     "server/",
+    "INSTALL.md",
     "LICENSE",
     "COMPLIANCE.md",
     "README.md"
@@ -21,7 +22,7 @@
     "agentfleet",
     "multi-agent",
     "scaffolder",
-    "create-agentfleet"
+    "create-flotilla"
   ],
   "engines": {
     "node": ">=18.0.0"

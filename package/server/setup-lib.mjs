@@ -53,7 +53,7 @@ const AGENT_PRESETS = {
     roleDesc: "Adds parallel implementation capacity and exploratory reasoning for adjacent tickets.",
     skills: ["Parallel Execution", "Exploration", "Support"],
     memoryLinkSuffix: "AGENTS/RULES.md",
-    bootstrapInstruction: "In the first prompt, paste: Read AGENTS.md before doing anything else.",
+    bootstrapInstruction: "In the first prompt, paste: Read MISTRAL.md before doing anything else.",
   },
 };
 
@@ -332,8 +332,12 @@ function appendGitignore(repoPath) {
   const block = [
     "",
     "# AgentFleet managed secrets",
+    "node_modules/",
+    "__pycache__/",
+    "*.pyc",
     ".env",
     ".env.*",
+    "*.pickle",
   ].join("\n");
   let current = "";
   if (fileExists(targetPath)) current = fs.readFileSync(targetPath, "utf8");
@@ -375,13 +379,15 @@ function buildRootAgentDocs(orgName, selectedAgents) {
   const agentIds = new Set(selectedAgents.map(agent => agent.id));
   const files = {
     "AGENTS.md": [
-      `# ${orgName} Agent Instructions`,
+      `# ${orgName} Shared Agent Mandate`,
       "",
       "Read `MISSION_CONTROL.md` before doing anything else.",
       "Read `AGENTS/RULES.md` before making changes.",
       "Check `AGENTS/MESSAGES/inbox.json` at session start.",
       "",
       "Update standups before closing a session.",
+      "",
+      "If a model-specific mandate file exists for your runtime, read it after this file.",
     ].join("\n"),
   };
 
@@ -402,6 +408,20 @@ function buildRootAgentDocs(orgName, selectedAgents) {
       "Read `MISSION_CONTROL.md` first.",
       "Then read `AGENTS/RULES.md`.",
       "Use `AGENTS/MESSAGES/inbox.json` for handoffs and updates.",
+    ].join("\n");
+  }
+
+  if (agentIds.has("mistral_vibe")) {
+    files["MISTRAL.md"] = [
+      `# ${orgName} Mistral Vibe Bootstrap`,
+      "",
+      "Read `AGENTS.md` first.",
+      "Then read `MISSION_CONTROL.md`.",
+      "Then read `AGENTS/RULES.md`.",
+      "Check `AGENTS/MESSAGES/inbox.json` before starting work.",
+      "",
+      "European model advantage:",
+      "Lean into EU-hosted, self-hostable, GDPR-aware positioning when relevant for regulated customers.",
     ].join("\n");
   }
 
@@ -533,6 +553,9 @@ export function runDoctor(meta) {
     if (installation.selected_agents.some(agent => agent.id === "gemini_cli")) {
       addCheck("file:GEMINI.md", fileExists(path.join(repoPath, "GEMINI.md")), "Missing agent bootstrap file: GEMINI.md");
     }
+    if (installation.selected_agents.some(agent => agent.id === "mistral_vibe")) {
+      addCheck("file:MISTRAL.md", fileExists(path.join(repoPath, "MISTRAL.md")), "Missing agent bootstrap file: MISTRAL.md");
+    }
   }
 
   return {
@@ -586,6 +609,7 @@ function getManagedFiles(meta) {
   files.add("vault/agent-fetch.ps1");
   if (selected.some(agent => agent.id === "claude_code")) files.add("CLAUDE.md");
   if (selected.some(agent => agent.id === "gemini_cli")) files.add("GEMINI.md");
+  if (selected.some(agent => agent.id === "mistral_vibe")) files.add("MISTRAL.md");
   return Array.from(files).sort();
 }
 

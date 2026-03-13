@@ -1,8 +1,8 @@
-# CODI SHARED MANDATE (Codex and Shared Context Hub)
+# {{ORG_NAME}} Shared Agent Mandate
 
 ## Startup Protocol -- follow this order every session, no exceptions
 
-1. `git pull origin master` -- get the latest state from the team.
+1. `git pull` -- get the latest state from the team.
 2. Read `MISSION_CONTROL.md` -- live ticket status and current priorities.
 3. Read `AGENTS/RULES.md` -- team rules.
 4. Check your IAP inbox: read `AGENTS/MESSAGES/inbox.json`. Read all unread messages before proceeding.

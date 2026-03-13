@@ -1,15 +1,16 @@
 # AgentFleet Package
 
-This directory contains the open-source core of **AgentFleet** and now ships the `create-agentfleet` scaffolder.
+This directory contains the open-source core of **Flotilla** and now ships the `create-flotilla` scaffolder.
 
 ```bash
-npx create-agentfleet my-fleet
+npx create-flotilla my-fleet
 cd my-fleet
 npm install
 npm start
 ```
 
 Then open `http://localhost:8787/setup/` and complete the rerunnable onboarding wizard.
+For a step-by-step installation walkthrough, see [INSTALL.md](./INSTALL.md).
 
 ---
 
@@ -17,9 +18,9 @@ Then open `http://localhost:8787/setup/` and complete the rerunnable onboarding 
 
 ```
 package/
-  package.json              npm package manifest for create-agentfleet
+  package.json              npm package manifest for create-flotilla
   bin/
-    create-agentfleet.mjs   CLI scaffolder entrypoint
+    create-flotilla.mjs     CLI scaffolder entrypoint
   LICENSE                   MIT
   README.md                 This file
   server/
@@ -53,9 +54,9 @@ package/
 
 ## Quick Start
 
-1. Scaffold a new fleet:
+1. Scaffold a new flotilla:
    ```bash
-   npx create-agentfleet my-fleet
+   npx create-flotilla my-fleet
    cd my-fleet
    npm install
    npm start
@@ -67,8 +68,8 @@ package/
 ## CLI Options
 
 ```bash
-npx create-agentfleet my-fleet --install
-npx create-agentfleet my-fleet --skip-git
+npx create-flotilla my-fleet --install
+npx create-flotilla my-fleet --skip-git
 ```
 
 - `--install`: runs `npm install` in the generated project.
