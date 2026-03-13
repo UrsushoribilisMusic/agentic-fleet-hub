@@ -176,6 +176,27 @@
       flex-wrap: wrap;
       margin-top: 18px;
     }
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      background: #fff;
+      color: var(--ink);
+      font: 12px/1.5 Consolas, "Courier New", monospace;
+      min-height: 220px;
+      resize: vertical;
+    }
+    .status-box {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+      background: var(--soft);
+      white-space: pre-wrap;
+      color: var(--muted);
+      font: 12px/1.5 Consolas, "Courier New", monospace;
+      min-height: 80px;
+    }
     @media (max-width: 900px) {
       .grid, .fields, .agent-list {
         grid-template-columns: 1fr;
@@ -273,6 +294,31 @@
             <button type="button" id="doctor-btn" class="btn btn-secondary">Run Doctor</button>
           </div>
         </section>
+
+        <section class="panel">
+          <h2>Review and Commit</h2>
+          <p class="muted">Run doctor first, inspect the managed-file diff, then explicitly commit and optionally push.</p>
+          <div class="fields">
+            <label class="field-full">
+              <span>Commit message</span>
+              <input id="commit_message" value="chore: update AgentFleet bootstrap" />
+            </label>
+            <label class="field-full inline-check">
+              <input type="checkbox" id="push_after_commit" />
+              Push after commit
+            </label>
+          </div>
+          <div class="footer-actions">
+            <button type="button" id="preview-btn" class="btn btn-secondary">Load Diff Preview</button>
+            <button type="button" id="commit-btn" class="btn btn-primary">Commit Managed Files</button>
+          </div>
+          <p id="git-summary" class="muted" style="margin-top:14px;">No git preview loaded yet.</p>
+          <div id="git-status" class="status-box"></div>
+          <label class="field-full" style="margin-top:14px;">
+            <span>Unified diff</span>
+            <textarea id="git-diff" readonly></textarea>
+          </label>
+        </section>
       </div>
     </section>
   </div>
@@ -369,6 +415,17 @@
         : "<p class='muted'>No issues reported.</p>";
     }
 
+    function renderGitPreview(preview) {
+      const summary = [
+        `Branch: ${preview.branch || "unknown"}`,
+        `Repo: ${preview.repo_path || "unknown"}`,
+        `Doctor: ${preview.doctor && preview.doctor.ok ? "pass" : "fail"}`
+      ].join(" | ");
+      el("git-summary").textContent = summary;
+      el("git-status").textContent = preview.status || "No unstaged managed-file changes.";
+      el("git-diff").value = preview.diff || "No diff for managed files.";
+    }
+
     function currentPayload(writeToRepo) {
       return {
         org_name: el("org_name").value.trim(),
@@ -439,6 +496,44 @@
       const response = await fetch("/fleet/api/setup/doctor", { cache: "no-store" });
       state.doctor = await response.json();
       renderDoctor();
+    });
+
+    el("preview-btn").addEventListener("click", async () => {
+      const response = await fetch("/fleet/api/setup/git-preview", { cache: "no-store" });
+      const preview = await response.json();
+      if (!response.ok || preview.ok === false) {
+        el("git-summary").textContent = `Preview failed: ${preview.error || "unknown_error"}`;
+        el("git-status").textContent = "";
+        el("git-diff").value = "";
+        return;
+      }
+      renderGitPreview(preview);
+      state.doctor = preview.doctor;
+      renderDoctor();
+    });
+
+    el("commit-btn").addEventListener("click", async () => {
+      const response = await fetch("/fleet/api/setup/git-commit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          message: el("commit_message").value.trim(),
+          push: el("push_after_commit").checked
+        })
+      });
+      const result = await response.json();
+      if (!response.ok || result.ok === false) {
+        alert(`Commit failed: ${result.error || "unknown_error"}`);
+        return;
+      }
+      const pushed = result.pushed ? " and pushed" : "";
+      const summary = result.committed
+        ? `Committed${pushed}: ${result.latest_commit}`
+        : result.message;
+      el("git-summary").textContent = summary;
+      el("git-status").textContent = result.latest_commit || result.message || "";
+      el("git-diff").value = "";
+      alert(summary);
     });
 
     loadStatus().catch(() => {

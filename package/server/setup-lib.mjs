@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -549,6 +550,111 @@ export function getSetupStatus(meta) {
     bootstrap_instructions: getBootstrapInstructions(normalized),
     doctor: runDoctor(normalized),
     catalog: getAgentCatalog(),
+  };
+}
+
+function runGit(repoPath, args) {
+  const result = spawnSync("git", args, {
+    cwd: repoPath,
+    encoding: "utf8",
+    windowsHide: true,
+  });
+  if (result.error) throw result.error;
+  if (result.status !== 0) {
+    throw new Error((result.stderr || result.stdout || "git_command_failed").trim());
+  }
+  return (result.stdout || "").trim();
+}
+
+function getManagedFiles(meta) {
+  const bootstrapFiles = meta.meta.installation.bootstrap?.files_written || [];
+  const selected = meta.meta.installation.selected_agents || [];
+  const files = new Set(bootstrapFiles);
+  files.add("MISSION_CONTROL.md");
+  files.add("AGENTS.md");
+  files.add("AGENTS/RULES.md");
+  files.add("AGENTS/KEYVAULT.md");
+  files.add("AGENTS/CONFIG/fleet_meta.json");
+  files.add("AGENTS/CONFIG/demo_meta.json");
+  files.add("AGENTS/CONFIG/growth_meta.json");
+  files.add("AGENTS/MESSAGES/inbox.json");
+  files.add("AGENTS/LESSONS/ledger.json");
+  files.add("standups/index.json");
+  files.add("vault/README.md");
+  files.add("vault/vault.py");
+  files.add("vault/agent-fetch.sh");
+  files.add("vault/agent-fetch.ps1");
+  if (selected.some(agent => agent.id === "claude_code")) files.add("CLAUDE.md");
+  if (selected.some(agent => agent.id === "gemini_cli")) files.add("GEMINI.md");
+  return Array.from(files).sort();
+}
+
+export function getGitPreview(meta) {
+  const normalized = normalizeFleetMeta(meta);
+  const doctor = runDoctor(normalized);
+  const repoPathRaw = normalized.meta.installation.repo_path;
+  if (!repoPathRaw) throw new Error("repo_path_required");
+  const repoPath = path.resolve(repoPathRaw);
+  if (!fileExists(path.join(repoPath, ".git"))) throw new Error("repo_not_git");
+
+  const files = getManagedFiles(normalized);
+  const branch = runGit(repoPath, ["rev-parse", "--abbrev-ref", "HEAD"]);
+  const status = runGit(repoPath, ["status", "--short", "--", ...files]);
+  const diff = runGit(repoPath, ["diff", "--", ...files]);
+  const staged = runGit(repoPath, ["diff", "--cached", "--", ...files]);
+
+  return {
+    ok: true,
+    repo_path: repoPath,
+    branch,
+    doctor,
+    files,
+    status,
+    diff,
+    staged_diff: staged,
+  };
+}
+
+export function commitManagedFiles(meta, options = {}) {
+  const normalized = normalizeFleetMeta(meta);
+  const doctor = runDoctor(normalized);
+  if (!doctor.ok) throw new Error("doctor_failed");
+
+  const repoPathRaw = normalized.meta.installation.repo_path;
+  if (!repoPathRaw) throw new Error("repo_path_required");
+  const repoPath = path.resolve(repoPathRaw);
+  if (!fileExists(path.join(repoPath, ".git"))) throw new Error("repo_not_git");
+
+  const files = getManagedFiles(normalized);
+  const message = normalizeString(options.message, "chore: update AgentFleet bootstrap");
+  const push = options.push === true;
+
+  runGit(repoPath, ["add", "--", ...files]);
+  const statusAfterAdd = runGit(repoPath, ["diff", "--cached", "--name-only", "--", ...files]);
+  if (!statusAfterAdd) {
+    return {
+      ok: true,
+      repo_path: repoPath,
+      committed: false,
+      pushed: false,
+      message: "No managed file changes to commit.",
+    };
+  }
+
+  runGit(repoPath, ["commit", "-m", message, "--", ...files]);
+  let pushOutput = "";
+  if (push) {
+    pushOutput = runGit(repoPath, ["push"]);
+  }
+
+  return {
+    ok: true,
+    repo_path: repoPath,
+    committed: true,
+    pushed: push,
+    push_output: pushOutput,
+    branch: runGit(repoPath, ["rev-parse", "--abbrev-ref", "HEAD"]),
+    latest_commit: runGit(repoPath, ["log", "-1", "--pretty=%H %s"]),
   };
 }
 

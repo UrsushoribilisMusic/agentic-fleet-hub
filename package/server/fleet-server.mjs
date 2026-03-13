@@ -20,9 +20,11 @@ import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
 import {
   buildSetupPayload,
+  commitManagedFiles,
   getDefaultFleetMeta,
   getDemoConfig,
   getGrowthConfig,
+  getGitPreview,
   getSetupStatus,
   normalizeFleetMeta,
   readJson,
@@ -306,6 +308,15 @@ async function handler(req, res) {
       return send(res, 200, runDoctor(fleetMeta), requestId);
     }
 
+    // GET /fleet/api/setup/git-preview
+    if (urlPath === "/fleet/api/setup/git-preview" && req.method === "GET") {
+      try {
+        return send(res, 200, getGitPreview(fleetMeta), requestId);
+      } catch (error) {
+        return send(res, 400, { ok: false, error: error.message }, requestId);
+      }
+    }
+
     // POST /fleet/api/setup
     if (urlPath === "/fleet/api/setup" && req.method === "POST") {
       const body = await readBody(req);
@@ -328,6 +339,16 @@ async function handler(req, res) {
         },
         requestId
       );
+    }
+
+    // POST /fleet/api/setup/git-commit
+    if (urlPath === "/fleet/api/setup/git-commit" && req.method === "POST") {
+      try {
+        const body = await readBody(req);
+        return send(res, 200, commitManagedFiles(fleetMeta, body), requestId);
+      } catch (error) {
+        return send(res, 400, { ok: false, error: error.message }, requestId);
+      }
     }
 
     // GET /fleet/api/lessons

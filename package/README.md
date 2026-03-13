@@ -1,8 +1,15 @@
 # AgentFleet Package
 
-> **Status**: Pre-release. Use `create-agentfleet` (coming soon) for the zero-install scaffolder.
+This directory contains the open-source core of **AgentFleet** and now ships the `create-agentfleet` scaffolder.
 
-This directory contains the open-source core of **AgentFleet** — the multi-agent fleet management framework. It is the source for `npx create-agentfleet`.
+```bash
+npx create-agentfleet my-fleet
+cd my-fleet
+npm install
+npm start
+```
+
+Then open `http://localhost:8787/setup/` and complete the rerunnable onboarding wizard.
 
 ---
 
@@ -10,11 +17,15 @@ This directory contains the open-source core of **AgentFleet** — the multi-age
 
 ```
 package/
+  package.json              npm package manifest for create-agentfleet
+  bin/
+    create-agentfleet.mjs   CLI scaffolder entrypoint
   LICENSE                   MIT
   README.md                 This file
   server/
     fleet-server.mjs        Generic fleet API + static serving (Node 18+)
-    package.json
+    setup-lib.mjs           Shared setup/bootstrap/doctor helpers
+    package.json            Server-only manifest kept for standalone use
   blueprint/                Template files copied into new projects
     MISSION_CONTROL.md      Project HQ (fill in {{PLACEHOLDER}} vars)
     AGENTS/
@@ -40,17 +51,28 @@ package/
 
 ---
 
-## Quick Start (manual)
+## Quick Start
 
-1. Copy `blueprint/` into your project root.
-2. Replace all `{{PLACEHOLDER}}` values in `MISSION_CONTROL.md`, `AGENTS/RULES.md`, and the `CONFIG/*.json` files.
-3. Start the server:
+1. Scaffold a new fleet:
    ```bash
-   cd server
+   npx create-agentfleet my-fleet
+   cd my-fleet
    npm install
-   node fleet-server.mjs
+   npm start
    ```
-4. Open `http://localhost:8787/demo/` — add your dashboard HTML to `dashboard/engineering/` and `dashboard/demo/`.
+2. Open `http://localhost:8787/setup/`.
+3. Use the wizard to set repo path, agent roster, vault provider, and template links.
+4. If you provide a git repo, use `/configure/` to run doctor, review the diff, and explicitly commit the managed bootstrap files.
+
+## CLI Options
+
+```bash
+npx create-agentfleet my-fleet --install
+npx create-agentfleet my-fleet --skip-git
+```
+
+- `--install`: runs `npm install` in the generated project.
+- `--skip-git`: does not initialize a git repository.
 
 ---
 

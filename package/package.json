@@ -1,0 +1,30 @@
+{
+  "name": "create-agentfleet",
+  "version": "0.1.0",
+  "description": "Scaffold a self-hosted AgentFleet workspace with setup, configure, demo, and growth dashboards.",
+  "type": "module",
+  "bin": {
+    "create-agentfleet": "./bin/create-agentfleet.mjs"
+  },
+  "files": [
+    "bin/",
+    "blueprint/",
+    "dashboard/",
+    "data/",
+    "scripts/",
+    "server/",
+    "LICENSE",
+    "COMPLIANCE.md",
+    "README.md"
+  ],
+  "keywords": [
+    "agentfleet",
+    "multi-agent",
+    "scaffolder",
+    "create-agentfleet"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT"
+}

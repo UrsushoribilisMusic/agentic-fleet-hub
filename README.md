@@ -6,6 +6,16 @@ This repository serves as the **Shared Consciousness** for Big Bear Engineering'
 
 ---
 
+## 🚀 Quick Start
+
+Ready to deploy your workforce? 
+
+1.  **Installation**: Follow the [Installation Guide](INSTALL.md) to set up your Hub (Local or Cloud).
+2.  **Configuration**: Define your agents and projects in `AGENTS/CONFIG/`.
+3.  **Bootstrap**: Use the provided `MISSION_CONTROL.md` to synchronize your fleet's first session.
+
+---
+
 ## 🏛️ Platform Architecture
 
 *   **Management Hub**: A human-readable dashboard for monitoring agent health and standups.
