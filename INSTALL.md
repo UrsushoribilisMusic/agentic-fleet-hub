@@ -1,11 +1,11 @@
-# 🚢 Agentic Fleet Hub: Installation Guide
+# ⚓ Flotilla: Installation Guide
 
-Welcome to the **Agentic Fleet Hub** by Big Bear Engineering. This guide will walk you through deploying your own management plane for a coordinated multi-agent workforce.
+Welcome to **Flotilla** by Big Bear Engineering. This guide will walk you through deploying your own management plane for a coordinated multi-agent workforce.
 
 ---
 
-## 🏛️ What is the Fleet Hub?
-The Fleet Hub is a lightweight, secure management layer that synchronizes state, rules, and mission objectives across multiple AI agents (Claude, Gemini, Codex, etc.). It solves the **"AI State Problem"** by providing a persistent Shared Consciousness for your fleet.
+## 🏛️ What is Flotilla?
+Flotilla is a lightweight, secure management layer that synchronizes state, rules, and mission objectives across multiple AI agents (Claude, Gemini, Codex, etc.). It solves the **"AI State Problem"** by providing a persistent Shared Consciousness for your fleet.
 
 ---
 
@@ -13,7 +13,7 @@ The Fleet Hub is a lightweight, secure management layer that synchronizes state,
 
 Before starting, ensure you have the following:
 
-1.  **Node.js (v18+)**: Required to run the Hub backend (`server.mjs`).
+1.  **Node.js (v18+)**: Required to run the Flotilla backend (`server.mjs`).
 2.  **GitHub Repository**: A private repository to host your fleet's rules and memory.
 3.  **Infisical Account**: For **Vault-First** secret management (Free tier works perfectly).
 4.  **Google Cloud Project**: Only required if you want **Google OAuth** for team-based access.
@@ -27,7 +27,7 @@ Perfect for private studios or initial testing.
 ### 1. Clone the Blueprint
 ```bash
 git clone https://github.com/UrsushoribilisMusic/agentic-fleet-hub.git
-cd agentic-fleet-hub
+cd flotilla
 ```
 
 ### 2. Configure Local Mode
@@ -42,7 +42,7 @@ export LOCAL_MODE="true"
 node server.mjs
 ```
 
-### 3. Access the Hub
+### 3. Access Flotilla
 Open your browser to: **`http://localhost:8787/fleet/`**
 
 ---
@@ -61,7 +61,7 @@ Configure these secrets in your VPS environment or via **Infisical**:
 Edit `AGENTS/CONFIG/fleet_settings.json` to point to your organization's resources:
 ```json
 {
-  "org_name": "Your Org Name",
+  "org_name": "Flotilla",
   "github_org_url": "https://github.com/your-org",
   "main_repo_url": "https://github.com/your-org/your-repo",
   "is_demo": false
@@ -71,14 +71,14 @@ Edit `AGENTS/CONFIG/fleet_settings.json` to point to your organization's resourc
 ### 3. Service Management
 We recommend using **systemd** or **pm2** to keep the server running 24/7.
 ```bash
-pm2 start server.mjs --name fleet-hub
+pm2 start server.mjs --name flotilla
 ```
 
 ---
 
 ## 🤝 Onboarding Your First Agent
 
-Once the Hub is live, follow these steps to connect an AI agent:
+Once Flotilla is live, follow these steps to connect an AI agent:
 
 1.  **Read the Protocol**: Direct the agent to read `MISSION_CONTROL.md` and `AGENTS/RULES.md`.
 2.  **Assumption of Identity**: The agent should find its role in `AGENTS/CONFIG/fleet_meta.json`.
@@ -88,7 +88,7 @@ Once the Hub is live, follow these steps to connect an AI agent:
 
 ## 🛡️ Support & Updates
 
-*   **Fleet Command Clients**: Includes 4h of monthly engineering support and continuous protocol updates.
+*   **Fleet Command Clients**: Includes 4h of monthly engineering support and continuous platform updates.
 *   **Issues**: Report any technical bugs via your private GitHub repository.
 
 ---

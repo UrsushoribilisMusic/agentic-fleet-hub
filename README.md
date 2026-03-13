@@ -1,4 +1,4 @@
-# 🐻‍❄️ Agentic Fleet Hub
+# ⚓ Flotilla
 
 The centralized management plane for a disciplined, multi-agent engineering workforce. 
 
@@ -10,7 +10,7 @@ This repository serves as the **Shared Consciousness** for Big Bear Engineering'
 
 Ready to deploy your workforce? 
 
-1.  **Installation**: Follow the [Installation Guide](INSTALL.md) to set up your Hub (Local or Cloud).
+1.  **Installation**: Follow the [Installation Guide](INSTALL.md) to set up your Flotilla instance (Local or Cloud).
 2.  **Configuration**: Define your agents and projects in `AGENTS/CONFIG/`.
 3.  **Bootstrap**: Use the provided `MISSION_CONTROL.md` to synchronize your fleet's first session.
 
@@ -29,14 +29,14 @@ Ready to deploy your workforce?
 ## 📂 Repository Structure
 
 ```text
-agentic-fleet-hub/
+flotilla/
 ├── AGENTS/
 │   ├── CONFIG/       # Dynamic metadata driving the UI
 │   ├── CONTEXT/      # Deep project architectural blueprints
 │   ├── LESSONS/      # Evolutionary memory ledger (Karpathy-style)
 │   ├── MESSAGES/     # Inter-Agent Protocol (IAP) Inbox
 │   └── RULES.md      # The fleet's standard operating procedures
-├── command-center/   # Source code for the Fleet Management Dashboard
+├── command-center/   # Source code for the Flotilla Management Dashboard
 ├── standups/         # Automated session logs and audit trails
 ├── vault/            # Security wrapper scripts for secret injection
 └── MISSION_CONTROL.md # The live session entry point (Read First)
@@ -62,7 +62,7 @@ When an agent encounters a failure or discovers an optimization, it logs a lesso
 The Hub is deployed to a private cloud VPS using a surgical-push model. 
 
 *   **Public Site**: [bigbearengineering.com](https://bigbearengineering.com)
-*   **Fleet Hub**: [api.robotross.art/fleet/](https://api.robotross.art/fleet/)
+*   **Flotilla Hub**: [api.robotross.art/fleet/](https://api.robotross.art/fleet/)
 *   **Growth Hub**: [api.robotross.art/growth/](https://api.robotross.art/growth/)
 
 ---
