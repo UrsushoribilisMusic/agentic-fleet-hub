@@ -1,6 +1,6 @@
 # 🚀 MISSION_CONTROL
 
-Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry point for **Clau**, **Codi**, and **Gem**. Read this first to synchronize state across the multi-agent crew.
+Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry point for **Clau**, **Gem**, **Codi**, and **Misty**. Read this first to synchronize state across the multi-agent crew.
 
 ---
 
@@ -30,19 +30,37 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 
 ## 🔧 Core Infrastructure
 
-*   **Command Center (Dashboard)**: Source: `./command-center/`. Focus: Management, Team, Projects, Rules, Standups.
-*   **Stats Dashboard**: *Coming Soon* at `api.robotross.art/stats`.
-*   **Key Manager**: Standardize on SSH Deploy Keys for GitHub. Use `github-codi` or `github-clau` aliases in `~/.ssh/config`.
-*   **KeyVault**: **Infisical** (Standard for secrets management).
+*   **Fleet Hub**: `api.robotross.art/fleet/` (private, OAuth). Source: `salesman-cloud-infra/opt/salesman-api/`.
+*   **Public Demo**: `api.robotross.art/demo/` — generic Agentic CRM showcase (North Star demo).
+*   **Growth Template**: `api.robotross.art/growth/` — Sales & Marketing fleet demo.
+*   **Stats Dashboard**: `api.robotross.art/stats/` — live content analytics.
+*   **Key Manager**: SSH Deploy Keys per agent (`github-clau`, `github-codi` in `~/.ssh/config`).
+*   **KeyVault**: Infisical EU (`https://eu.infisical.com/api`). Use `vault/agent-fetch.sh` or `vault.py`. **Never commit secrets or `.env` files.**
+*   **IAP Inbox**: `POST/GET /fleet/api/messages` — cross-agent messaging. Check at session start.
 
 ---
 
-## 📍 Current Session Goals (2026-03-11)
-- [x] Initial Hub Consolidation (`agentic-fleet-hub`).
-- [x] Migrate Brains, Logs, and UI to the Hub.
-- [ ] **Ticket #10: KeyVault (Infisical)**: Research and implement the secrets management layer (High Priority).
-- [ ] **Ticket #9: Stats UI Extraction**: Move the Stats tab to `api.robotross.art/stats`.
-- [ ] **Ticket #8**: Finalize `renderHeatmap` status (Verify with Codi).
-- [ ] Clean up GitHub credentials for all agents.
+## 📍 Ticket Status (as of 2026-03-13)
 
-**Status: HUB INITIALIZED. READY FOR SECRETS INTEGRATION.**
+### ✅ Closed
+- **#1–#6**: Sheets migration, tracker API, OAuth wired.
+- **#7–#9**: Stats UI, heatmap, dashboard extraction.
+- **#10**: KeyVault (Infisical EU) — wired into music-video-tool and CRM.
+- **#14–#19**: Growth Fleet, CRM branding, IAP inbox, mobile, BBE site, legal pages, lead intake.
+- **#23**: README + docs overhaul (Gem).
+- **#25**: Demo cleanup — generic agents, Agentic CRM as North Star (Gem). **This was a blocker — now cleared.**
+
+### 🔄 Open
+| Ticket | Description | Owner | Notes |
+| :--- | :--- | :--- | :--- |
+| **#20** | Package structure + MIT license | Clau ✅ | Done — `package/` in this repo |
+| **#21** | Kanban bridge scripts | Clau ✅ | Done — `package/scripts/` |
+| **#22** | `npx create-agentfleet` installer | Codi | Waiting on #24 |
+| **#24** | Onboarding wizard (`/setup`, 7 steps) | Codi | Scope updated: add agent bootstrap step + DACH naming check |
+
+### 🆕 Unassigned
+| Ticket | Description | Suggested Owner |
+| :--- | :--- | :--- |
+| **#26** | Agentegra.com pitch copy refresh (EU angle, self-hosting) | Misty |
+
+**Status: OPEN-SOURCE PACKAGE IN PROGRESS. BLOCKER (#25) CLEARED.**
