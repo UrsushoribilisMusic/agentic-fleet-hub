@@ -3,11 +3,11 @@
     {
       "name": "Scout",
       "avatar": "🔍",
-      "roleTitle": "Lead discovery & Trends",
+      "roleTitle": "Lead Discovery & Trends",
       "roleDesc": "Monitors LinkedIn, industry news, and competitor activity to identify high-value opportunities. The front-line eyes of the fleet.",
       "skills": ["Web Research", "Trend Analysis", "Lead Enrichment"],
       "runtime": "Cloud Runner",
-      "memoryLink": "#"
+      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/RULES.md"
     },
     {
       "name": "Echo",
@@ -16,7 +16,7 @@
       "roleDesc": "Drafts high-engagement posts, suggest content for TikTok/YouTube, and manages the social calendar. Amplifies the brand voice.",
       "skills": ["Content Writing", "Social Strategy", "Viral Loops"],
       "runtime": "Cloud VPS",
-      "memoryLink": "#"
+      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/RULES.md"
     },
     {
       "name": "Closer",
@@ -25,7 +25,7 @@
       "roleDesc": "Inputs leads into the CRM, drafts personalized outreach emails, and coordinates follow-ups with humans-in-the-loop.",
       "skills": ["CRM Automation", "Personalized Outreach", "Pipeline Management"],
       "runtime": "Hybrid (Vault-Backed)",
-      "memoryLink": "#"
+      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/RULES.md"
     }
   ],
   "projects": [
@@ -34,21 +34,14 @@
       "owners": "Closer",
       "summary": "The shared memory for your sales team. Agents discover leads, Closer inputs them, and you take the final action.",
       "crmLink": "https://api.robotross.art/crm-demo/",
-      "docs": ["#"],
-      "kanban": "#"
+      "docs": ["https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/crm_poc_context.md"],
+      "kanban": "https://github.com/users/UrsushoribilisMusic/projects/2/views/2"
     },
     {
       "title": "Content Calendar",
       "owners": "Echo",
       "summary": "Autonomous content planning. Echo suggests the posts, you hit 'Publish'. Complete with AI video generation hooks.",
       "statsLink": "https://api.robotross.art/crm-demo/?tab=calendar",
-      "docs": ["#"],
-      "kanban": "#"
-    },
-    {
-      "title": "Growth Rules & Lessons",
-      "owners": "The Fleet",
-      "summary": "Where you teach your AI fleet. Set the tone of voice, define the outreach style, and log evolutionary lessons.",
       "docs": ["#"],
       "kanban": "#"
     }
