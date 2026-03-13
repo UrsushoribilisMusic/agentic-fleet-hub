@@ -11,6 +11,10 @@
  *   GOOGLE_AUTH_COOKIE_SECRET - Cookie signing secret
  *   GOOGLE_AUTH_ALLOWED_EMAILS - Comma-separated list of allowed emails (private fleet)
  *   PUBLIC_URL             - Base URL for OAuth callbacks (default: http://localhost:8787)
+ *   GITHUB_REPO            - GitHub repo for live standup sync, e.g. "org/repo" (optional)
+ *   GITHUB_BRANCH          - Branch to read from (default: master)
+ *   GITHUB_STANDUPS_PATH   - Path inside repo to standups dir (default: standups)
+ *   GITHUB_CACHE_TTL_MS    - How long to cache GitHub responses in ms (default: 120000)
  */
 
 import http from "node:http";
@@ -48,6 +52,32 @@ const LESSONS_PATH     = path.join(FLEET_DATA_DIR, "lessons", "ledger.json");
 const INBOX_PATH       = path.join(FLEET_DATA_DIR, "messages", "inbox.json");
 const STANDUPS_DIR     = path.join(FLEET_DATA_DIR, "standups");
 const STANDUPS_INDEX   = path.join(STANDUPS_DIR, "index.json");
+
+// GitHub live standup sync (optional)
+const GITHUB_REPO          = process.env.GITHUB_REPO || "";
+const GITHUB_BRANCH        = process.env.GITHUB_BRANCH || "master";
+const GITHUB_STANDUPS_PATH = process.env.GITHUB_STANDUPS_PATH || "standups";
+const GITHUB_CACHE_TTL_MS  = Number(process.env.GITHUB_CACHE_TTL_MS || 120_000);
+
+// Simple in-memory cache for GitHub responses
+const githubCache = new Map(); // key -> { value, expiresAt }
+
+async function fetchFromGitHub(filePath) {
+  if (!GITHUB_REPO) return null;
+  const cacheKey = filePath;
+  const cached = githubCache.get(cacheKey);
+  if (cached && cached.expiresAt > Date.now()) return cached.value;
+  const url = `https://raw.githubusercontent.com/${GITHUB_REPO}/${GITHUB_BRANCH}/${filePath}`;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) return null;
+    const text = await res.text();
+    githubCache.set(cacheKey, { value: text, expiresAt: Date.now() + GITHUB_CACHE_TTL_MS });
+    return text;
+  } catch {
+    return null;
+  }
+}
 
 // OAuth (optional — set env vars to enable)
 const GOOGLE_CLIENT_ID     = process.env.GOOGLE_CLIENT_ID || "";
@@ -426,6 +456,34 @@ async function handler(req, res) {
       inbox[idx] = { ...inbox[idx], ...body };
       writeJson(INBOX_PATH, inbox);
       return send(res, 200, { ok: true, message: inbox[idx] }, requestId);
+    }
+
+    // GET /fleet/api/standups — index (GitHub-first, local fallback)
+    if (urlPath === "/fleet/api/standups" && req.method === "GET") {
+      const raw = await fetchFromGitHub(`${GITHUB_STANDUPS_PATH}/index.json`);
+      if (raw) {
+        try { return send(res, 200, JSON.parse(raw), requestId); } catch { /* fall through */ }
+      }
+      return send(res, 200, readJson(STANDUPS_INDEX, []), requestId);
+    }
+
+    // GET /fleet/api/standups/:date — single standup file (GitHub-first, local fallback)
+    const standupGet = urlPath.match(/^\/fleet\/api\/standups\/(\d{4}-\d{2}-\d{2})$/);
+    if (standupGet && req.method === "GET") {
+      const date = standupGet[1];
+      const raw = await fetchFromGitHub(`${GITHUB_STANDUPS_PATH}/${date}.md`);
+      if (raw) {
+        res.setHeader("Content-Type", "text/plain; charset=utf-8");
+        res.statusCode = 200;
+        return res.end(raw);
+      }
+      const localPath = path.join(STANDUPS_DIR, `${date}.md`);
+      if (fs.existsSync(localPath)) {
+        res.setHeader("Content-Type", "text/plain; charset=utf-8");
+        res.statusCode = 200;
+        return fs.createReadStream(localPath).pipe(res);
+      }
+      return send(res, 404, { ok: false, error: "standup_not_found" }, requestId);
     }
 
     // POST /fleet/api/standup
