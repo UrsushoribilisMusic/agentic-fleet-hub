@@ -5,7 +5,7 @@
 1. `git pull origin master` — get the latest state from the team.
 2. Read `MISSION_CONTROL.md` — live ticket status and current priorities.
 3. Read `AGENTS/RULES.md` — team rules.
-4. **Check your IAP inbox**: `GET https://api.robotross.art/fleet/api/messages` — there may be messages from teammates that change your priorities before you write a single line of code.
+4. **Check your IAP inbox**: Read `AGENTS/MESSAGES/inbox.json` — messages from teammates are committed here. Read ALL unread messages before proceeding. They may change your priorities entirely.
 5. Only then: pick up the first open ticket from the Ticket Status table in `MISSION_CONTROL.md`.
 
 ## 🤝 Team Protocols
