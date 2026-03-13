@@ -1,21 +1,21 @@
-# 🚀 MISSION_CONTROL
+# MISSION_CONTROL
 
 Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry point for **Clau**, **Gem**, **Codi**, and **Misty**. Read this first to synchronize state across the multi-agent crew.
 
 ---
 
-## 🤝 Team Protocols (Shared Memory)
+## Team Protocols (Shared Memory)
 
 1.  **Rules & Guidelines**: Read and follow the [Team Rules](./AGENTS/RULES.md).
     *   **GitHub**: Commit and push all changes immediately.
-    *   **Kanban**: Use ticket IDs in your session reporting. Check the **Ticket Status** section below for what is currently open — do not work on tickets not listed there.
+    *   **Kanban**: Use ticket IDs in your session reporting. Check the **Ticket Status** section below for what is currently open -- do not work on tickets not listed there.
 2.  **Daily Standups**: All logs are in the [standups/](./standups/) directory.
     *   **Action**: Update the standup before closing your session.
 3.  **Core Context (The Source of Truth)**: All project-level architectural documentation is located in [AGENTS/CONTEXT/](./AGENTS/CONTEXT/).
 
 ---
 
-## 📂 Project Manifest
+## Project Manifest
 
 | Project | Local Path | Description | Docs / Reference |
 | :--- | :--- | :--- | :--- |
@@ -28,39 +28,35 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 
 ---
 
-## 🔧 Core Infrastructure
+## Core Infrastructure
 
 *   **Fleet Hub**: `api.robotross.art/fleet/` (private, OAuth). Source: `salesman-cloud-infra/opt/salesman-api/`.
-*   **Public Demo**: `api.robotross.art/demo/` — generic Agentic CRM showcase (North Star demo).
-*   **Growth Template**: `api.robotross.art/growth/` — Sales & Marketing fleet demo.
-*   **Stats Dashboard**: `api.robotross.art/stats/` — live content analytics.
+*   **Public Demo**: `api.robotross.art/demo/` -- generic Agentic CRM showcase (North Star demo).
+*   **Growth Template**: `api.robotross.art/growth/` -- Sales & Marketing fleet demo.
+*   **Stats Dashboard**: `api.robotross.art/stats/` -- live content analytics.
 *   **Key Manager**: SSH Deploy Keys per agent (`github-clau`, `github-codi` in `~/.ssh/config`).
 *   **KeyVault**: Infisical EU (`https://eu.infisical.com/api`). Use `vault/agent-fetch.sh` or `vault.py`. **Never commit secrets or `.env` files.**
-*   **IAP Inbox**: `POST/GET /fleet/api/messages` — cross-agent messaging. Check at session start.
+*   **IAP Inbox**: Read `AGENTS/MESSAGES/inbox.json` at session start. Post messages by committing to the same file.
 
 ---
 
-## 📍 Ticket Status (as of 2026-03-13)
+## Ticket Status (as of 2026-03-13)
 
-### ✅ Closed
-- **#1–#6**: Sheets migration, tracker API, OAuth wired.
-- **#7–#9**: Stats UI, heatmap, dashboard extraction.
-- **#10**: KeyVault (Infisical EU) — wired into music-video-tool and CRM.
-- **#14–#19**: Growth Fleet, CRM branding, IAP inbox, mobile, BBE site, legal pages, lead intake.
+### CLOSED
+- **#1-#6**: Sheets migration, tracker API, OAuth wired.
+- **#7-#9**: Stats UI, heatmap, dashboard extraction.
+- **#10**: KeyVault (Infisical EU) -- wired into music-video-tool and CRM.
+- **#14-#19**: Growth Fleet, CRM branding, IAP inbox, mobile, BBE site, legal pages, lead intake.
 - **#23**: README + docs overhaul (Gem).
-- **#25**: Demo cleanup — generic agents, Agentic CRM as North Star (Gem). **This was a blocker — now cleared.**
+- **#25**: Demo cleanup -- generic agents, Agentic CRM as North Star (Gem).
+- **#26**: EU Compliance Review (AI Act + Cybersecurity Act) -- Misty. COMPLIANCE.md created. NOTE: v2 requested, see inbox.
 
-### 🔄 Open
+### OPEN
 | Ticket | Description | Owner | Notes |
 | :--- | :--- | :--- | :--- |
-| **#20** | Package structure + MIT license | Clau ✅ | Done — `package/` in this repo |
-| **#21** | Kanban bridge scripts | Clau ✅ | Done — `package/scripts/` |
 | **#22** | `npx create-agentfleet` installer | Codi | Waiting on #24 |
-| **#24** | Onboarding wizard (`/setup`, 7 steps) | Codi | Scope updated: add agent bootstrap step + DACH naming check |
+| **#24** | Onboarding wizard (`/setup`, 7 steps) | Codi | Unblocked. Scope: agent bootstrap step, DACH naming check, fleet_config.json generation |
+| **#26v2** | COMPLIANCE.md gap table revision | Misty | Add amber/open items: audit logs, multi-agent transparency, Cybersecurity Act classification |
+| **#27** | Fleet config file (`fleet_config.json`) | Clau | Single generated config for org name, GitHub org, kanban URL, agent names, CRM URL. Read by server + dashboards. Eliminates hardcoded links. |
 
-### ✅ Closed — Misty
-| Ticket | Description | Owner | Notes |
-| :--- | :--- | :--- | :--- |
-| **#26** | EU Compliance Review (AI Act + Cybersecurity Act) for fleet hub package | Misty | ✅ Completed. Created `COMPLIANCE.md` and updated `README.md`. Pre-condition for bigbearengineering.com feature. [GitHub issue](https://github.com/UrsushoribilisMusic/agentic-fleet-hub/issues/8) |
-
-**Status: OPEN-SOURCE PACKAGE IN PROGRESS. BLOCKER (#25) CLEARED. COMPLIANCE REVIEW (#26) COMPLETED.**
+**Status: OPEN-SOURCE PACKAGE IN PROGRESS.**
