@@ -8,7 +8,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 
 1.  **Rules & Guidelines**: Read and follow the [Team Rules](./AGENTS/RULES.md).
     *   **GitHub**: Commit and push all changes immediately.
-    *   **Kanban**: Use ticket IDs (#1, #2, #9, #10) in your session reporting.
+    *   **Kanban**: Use ticket IDs in your session reporting. Check the **Ticket Status** section below for what is currently open — do not work on tickets not listed there.
 2.  **Daily Standups**: All logs are in the [standups/](./standups/) directory.
     *   **Action**: Update the standup before closing your session.
 3.  **Core Context (The Source of Truth)**: All project-level architectural documentation is located in [AGENTS/CONTEXT/](./AGENTS/CONTEXT/).
