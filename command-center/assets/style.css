@@ -224,3 +224,29 @@ h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing
   transition: all 0.2s;
 }
 .btn-remove:hover { background: #FF5252; color: white; border-color: #FF5252; }
+
+/* Kanban Board */
+.pipeline-board {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 1.5rem;
+  align-items: flex-start;
+}
+.pipeline-board .card {
+  flex: 1;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+.activity-item {
+  padding: 1.25rem;
+  background: rgba(255,255,255,0.03);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  transition: border-color 0.2s;
+}
+.activity-item:hover {
+  border-color: rgba(21, 153, 136, 0.4);
+}
