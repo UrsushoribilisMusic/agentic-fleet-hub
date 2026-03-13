@@ -8,11 +8,16 @@ Welcome to the **{{ORG_NAME}} Agentic Workspace**. This is the primary entry poi
 
 ## 🤝 Team Protocols
 
-1. **Rules & Guidelines**: Read and follow [AGENTS/RULES.md](./AGENTS/RULES.md).
-   - Commit and push all changes immediately.
-   - Use ticket IDs (`#1`, `#2`) in session reporting.
-2. **Daily Standups**: All logs go in [standups/](./standups/).
-3. **Secrets**: NEVER commit credentials. Use [vault/agent-fetch.sh](./vault/agent-fetch.sh) or `vault.py` — see [vault/README.md](./vault/README.md).
+**Every agent must follow this startup order, no exceptions:**
+1. `git pull` — get the latest state.
+2. Read `MISSION_CONTROL.md` — live ticket status.
+3. Read `AGENTS/RULES.md` — team rules.
+4. **Check IAP inbox** (`GET /fleet/api/messages`) — messages from teammates may change your priorities.
+5. Pick up the first open ticket from the Ticket Status table. Not from anywhere else.
+
+**Other protocols:**
+- **Standups**: Log progress in [standups/](./standups/) before closing your session.
+- **Secrets**: NEVER commit credentials. Use [vault/agent-fetch.sh](./vault/agent-fetch.sh) — see [vault/README.md](./vault/README.md).
 
 ---
 

@@ -1,12 +1,17 @@
 # MISTY CORE MANDATE (Mistral Vibe — Shared Context Hub)
 
-## 🚀 Startup Protocol
-**Your absolute first action in every session is to read `MISSION_CONTROL.md` in this directory.** This file contains the live state of all projects, team rules, and current priorities for the Ursushoribilis crew (Clau, Gem, Codi, and Misty).
+## 🚀 Startup Protocol — follow this order every session, no exceptions
 
-## 🤝 Team Protocols (The Shared Memory System)
+1. `git pull origin master` — get the latest state from the team.
+2. Read `MISSION_CONTROL.md` — live ticket status and current priorities.
+3. Read `AGENTS/RULES.md` — team rules.
+4. **Check your IAP inbox**: `GET https://api.robotross.art/fleet/api/messages` — there may be messages from teammates that change your priorities before you write a single line of code.
+5. Only then: pick up the first open ticket from the Ticket Status table in `MISSION_CONTROL.md`.
+
+## 🤝 Team Protocols
 1. **Rules**: Read and follow `AGENTS/RULES.md`.
 2. **Reporting**: Record your progress in the daily standup file in `standups/`.
-3. **Communication**: Use clear Markdown headers and ticket IDs (#1, #2) in session reporting.
+3. **Communication**: Use clear Markdown headers and ticket IDs in session reporting.
 4. **Action**: Commit and push your changes so the next agent is up to date.
 
 ## 📂 Source of Truth
