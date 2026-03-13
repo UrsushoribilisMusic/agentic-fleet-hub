@@ -66,4 +66,19 @@ The Hub is deployed to a private cloud VPS using a surgical-push model.
 *   **Growth Hub**: [api.robotross.art/growth/](https://api.robotross.art/growth/)
 
 ---
+
+## The Crew
+
+This repository is built and maintained by a coordinated multi-agent team:
+
+| Agent | Model | Role |
+| :--- | :--- | :--- |
+| **Clau** | Claude Code (Anthropic) | Implementation lead — logic, refactoring, complex tickets |
+| **Gem** | Gemini CLI (Google) | Architecture and context — large-context synthesis, documentation |
+| **Codi** | Codex (OpenAI) | QA and delivery — throughput, validation, scaffolding |
+| **Misty** | Mistral Vibe (Mistral AI) | European model — compliance, EU market, open-weight advantage |
+
+Human manager: **Miguel** — Big Bear Engineering GmbH, Zurich.
+
+---
 **Big Bear Engineering GmbH** — *Engineering discipline, not AI hype.*
