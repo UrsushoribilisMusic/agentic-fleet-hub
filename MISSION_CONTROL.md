@@ -51,13 +51,13 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 - **#25**: Demo cleanup -- generic agents, Agentic CRM as North Star (Gem).
 - **#26**: EU Compliance Review -- Misty. COMPLIANCE.md v2 complete: gap table with amber/open items for audit logs, multi-agent transparency, Cybersecurity Act classification.
 - **#27**: Fleet config -- absorbed into #24. Codi implemented as meta.installation block inside fleet_meta.json.
+- **#24**: Onboarding wizard + Doctor + commit step -- Codi. Complete.
+- **#28**: Fleet Doctor -- absorbed into #24. Complete.
 - **#29**: GEMINI.md template -- Gem. Added to blueprint.
 
 ### OPEN
 | Ticket | Description | Owner | Notes |
 | :--- | :--- | :--- | :--- |
-| **#22** | `npx create-agentfleet` installer | Codi | Waiting on #24 |
-| **#24** | Onboarding wizard (`/setup`) + Doctor | Codi | In progress. Scope: agent bootstrap, DACH naming check, fleet_config generation, doctor validation. |
-| **#28** | Fleet Doctor (`doctor.py --fix`) | Codi | Absorbed into #24 final step. [GitHub issue](https://github.com/UrsushoribilisMusic/agentic-fleet-hub/issues/9) |
+| **#22** | `npx create-agentfleet` installer | Codi | In progress. |
 
 **Status: OPEN-SOURCE PACKAGE IN PROGRESS.**
