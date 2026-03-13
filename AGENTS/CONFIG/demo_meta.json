@@ -41,7 +41,7 @@
     {
       "title": "Agentic CRM Prototype",
       "owners": "Ursus Fleet",
-      "summary": "High-fidelity React/FastAPI prototype for autonomous customer relationship management. Featuring deep Google Calendar integration and agent-driven scheduling.",
+      "summary": "(Sample Project) Our definitive 'Northstar' test case—similar to the Northwind example. A high-fidelity React/FastAPI prototype managed autonomously by the fleet to demonstrate cross-platform coordination and Google Calendar integration.",
       "docs": ["https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/crm_poc_context.md"],
       "kanban": "https://github.com/users/UrsushoribilisMusic/projects/2/views/2",
       "crmLink": "https://api.robotross.art/crm-demo/"

@@ -55,7 +55,7 @@
 
   <footer class="sidebar-footer" style="padding: 1.5rem; border-top: 1px solid var(--border); text-align: center;">
     <p style="font-size: 0.75rem; color: var(--text-muted);">
-      © 2025 <a href="https://bigbearengineering.com" target="_blank" style="color: var(--teal-bright); text-decoration: none;">Big Bear Engineering GmbH</a>
+      © 2026 <a href="https://bigbearengineering.com" target="_blank" style="color: var(--teal-bright); text-decoration: none;">Big Bear Engineering GmbH</a>
     </p>
   </footer>
   </aside>
@@ -187,21 +187,28 @@
         </div>
       </div>
     </section>
+
+    <section id="section-users" class="section">
       <header class="page-header">
         <p class="eyebrow">Access Control</p>
-        <h1>Authorized Users</h1>
-        <p class="lede">Manage who can access the Fleet Hub via Google OAuth.</p>
+        <h1>User Management</h1>
+        <p class="lede">Whitelist email addresses to grant access to the Fleet Hub via Google OAuth.</p>
       </header>
       
-      <div id="users-list" class="tree-list" style="margin-bottom: 2rem;"></div>
-
-      <form id="user-form" class="standup-form" style="padding: 1.5rem;">
-        <h3 style="color: var(--white); font-size: 1.1rem; margin-bottom: 1rem;">Add Authorized Email</h3>
-        <div style="display: flex; gap: 1rem;">
-          <input type="email" name="email" required placeholder="user@example.com" style="flex: 1; background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: 8px; color: var(--white); padding: 0.75rem;">
-          <button type="submit" class="btn-submit" style="width: auto; padding: 0 2rem; align-self: stretch;">ADD USER</button>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Authorized Email Whitelist</h3>
         </div>
-      </form>
+        <div id="users-list" class="tree-list" style="margin-bottom: 2rem;">Loading users...</div>
+        
+        <form id="user-form" class="standup-form" style="padding: 1.5rem;">
+          <h3 style="color: var(--white); font-size: 1.1rem; margin-bottom: 1rem;">Add Authorized Email</h3>
+          <div style="display: flex; gap: 1rem;">
+            <input type="email" name="email" required placeholder="user@example.com" style="flex: 1; background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: 8px; color: var(--white); padding: 0.75rem;">
+            <button type="submit" class="btn-submit" style="width: auto; padding: 0 2rem; align-self: stretch;">WHITELIST USER</button>
+          </div>
+        </form>
+      </div>
     </section>
   </main>
 
