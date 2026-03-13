@@ -58,5 +58,6 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 | **#24** | Onboarding wizard (`/setup`, 7 steps) | Codi | Unblocked. Scope: agent bootstrap step, DACH naming check, fleet_config.json generation |
 | **#26v2** | COMPLIANCE.md gap table revision | Misty | Add amber/open items: audit logs, multi-agent transparency, Cybersecurity Act classification |
 | **#27** | Fleet config file (`fleet_config.json`) | Clau | Single generated config for org name, GitHub org, kanban URL, agent names, CRM URL. Read by server + dashboards. Eliminates hardcoded links. |
+| **#28** | Fleet Doctor (`doctor.py --fix`) | Codi | Health check + auto-fix: JSON validity, BOM encoding, mandatory files, emoji in mandates, .gitignore entries. Runs as final step of onboarding wizard. [GitHub issue](https://github.com/UrsushoribilisMusic/agentic-fleet-hub/issues/9) |
 
 **Status: OPEN-SOURCE PACKAGE IN PROGRESS.**
