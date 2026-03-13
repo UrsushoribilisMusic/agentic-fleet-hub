@@ -43,22 +43,25 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 ## Ticket Status (as of 2026-03-13)
 
 ### CLOSED
-- **#1-#6**: Sheets migration, tracker API, OAuth wired.
-- **#7-#9**: Stats UI, heatmap, dashboard extraction.
-- **#10**: KeyVault (Infisical EU) -- wired into music-video-tool and CRM.
-- **#14-#19**: Growth Fleet, CRM branding, IAP inbox, mobile, BBE site, legal pages, lead intake.
-- **#23**: README + docs overhaul (Gem).
-- **#25**: Demo cleanup -- generic agents, Agentic CRM as North Star (Gem).
-- **#26**: EU Compliance Review -- Misty. COMPLIANCE.md v2 complete: gap table with amber/open items for audit logs, multi-agent transparency, Cybersecurity Act classification.
-- **#27**: Fleet config -- absorbed into #24. Codi implemented as meta.installation block inside fleet_meta.json.
-- **#24**: Onboarding wizard + Doctor + commit step -- Codi. Complete.
-- **#22**: `npx create-flotilla` installer -- Codi. Complete. Published to npm as `create-flotilla@0.1.0`.
-- **#28**: Fleet Doctor -- absorbed into #24. Complete.
+- **#1-#6**: Sheets migration, tracker API, OAuth wired -- Team.
+- **#7-#9**: Stats UI, heatmap, dashboard extraction -- Gem.
+- **#10**: KeyVault (Infisical EU) -- wired into music-video-tool and CRM -- Clau.
+- **#14-#19**: Growth Fleet, CRM branding, IAP inbox, mobile, BBE site, legal pages, lead intake -- Team.
+- **#23**: README + docs overhaul -- Gem.
+- **#24**: Onboarding wizard + Doctor + commit step -- Codi.
+- **#25**: Demo cleanup -- generic agents, Agentic CRM as North Star -- Gem.
+- **#26**: EU Compliance Review -- Misty. COMPLIANCE.md v2 with gap table for audit logs, multi-agent transparency, Cybersecurity Act classification.
+- **#27**: Fleet config -- absorbed into #24. meta.installation block in fleet_meta.json -- Codi.
+- **#28**: Fleet Doctor -- absorbed into #24 -- Codi.
 - **#29**: GEMINI.md template -- Gem. Added to blueprint.
+- **#22**: npx create-flotilla installer -- Codi. Published as create-flotilla@0.1.0.
+- **#32**: Mission Control format hardening -- Clau. Status column added; v1 parsing spec in AGENTS/CONTEXT/kanban_format_spec.md.
 
 ### OPEN
-| Ticket | Description | Owner | Notes |
-| :--- | :--- | :--- | :--- |
-| *(none)* | -- | -- | Waiting for next ticket assignment. |
+| Ticket | Description | Owner | Status | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| **#30** | Flotilla Kanban parser + normalized ticket model | Codi | in_work | Parse MISSION_CONTROL.md + today standup into planned/in_work/merged/completed_today |
+| **#31** | Flotilla Kanban UI tab | Gem | planned | 3-column board; agent color coding; completed-today badge |
+| **#32** | Mission Control format hardening for Kanban parsing | Clau | in_work | Normalize owner/status conventions; write v1 parsing spec |
 
 **Status: OPEN-SOURCE PACKAGE PUBLISHED. `create-flotilla@0.1.0` is live on npm.**
