@@ -29,6 +29,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. These rules are followed by
     *   **Blocked**: Explicitly listed in the Blockers section of the standup.
 3.  **Finalization**: A task is only "Done" when the code is pushed AND the standup is updated.
 4.  **Ticket Authority**: The Ticket Status table in `MISSION_CONTROL.md` is the ONLY source of truth for open tickets. Do NOT pick up a ticket mentioned anywhere else -- examples, old standups, context docs. If it is not in that table, it does not exist for you.
+5.  **Ticket Links**: Every new ticket added to the open ticket table in `MISSION_CONTROL.md` must include its GitHub issue or project URL in the notes/status columns so Flotilla can link the Kanban card back to the source item.
 
 ---
 

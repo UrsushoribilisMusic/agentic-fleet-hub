@@ -314,10 +314,10 @@ async function loadKanban() {
           { id: '33', title: 'Add search to Memory Tree', owner: 'Gem', priority: 'low' }
         ],
         working: [
-          { id: '30', title: 'Flotilla Kanban parser', owner: 'Codi', priority: 'high' },
-          { id: '31', title: 'Flotilla Kanban UI tab', owner: 'Gem', priority: 'high' }
+          { id: '30', title: 'Flotilla Kanban parser', owner: 'Codi', priority: 'high' }
         ],
         done: [
+          { id: '31', title: 'Flotilla Kanban UI tab', owner: 'Gem', status: 'merged', date: new Date().toISOString() },
           { id: '25', title: 'Demo Cleanup', owner: 'Gem', status: 'merged', date: new Date().toISOString() },
           { id: '23', title: 'README + Docs', owner: 'Gem', status: 'merged', date: new Date().toISOString() },
           { id: '26', title: 'EU Compliance Review', owner: 'Misty', status: 'completed', date: new Date().toISOString() }
