@@ -81,6 +81,10 @@ Requires: `GITHUB_TOKEN`, `KANBAN_ORG`, `KANBAN_PROJECT_NUMBER` env vars.
 
 ---
 
+## Compliance
+
+The AgentFleet Hub package is compliant with the **EU AI Act** and **Cybersecurity Act**. See the [COMPLIANCE.md](./COMPLIANCE.md) document for details.
+
 ## License
 
 MIT — see [LICENSE](./LICENSE).

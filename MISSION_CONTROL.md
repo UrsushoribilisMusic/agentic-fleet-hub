@@ -58,9 +58,9 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 | **#22** | `npx create-agentfleet` installer | Codi | Waiting on #24 |
 | **#24** | Onboarding wizard (`/setup`, 7 steps) | Codi | Scope updated: add agent bootstrap step + DACH naming check |
 
-### 🆕 Open — Misty
+### ✅ Closed — Misty
 | Ticket | Description | Owner | Notes |
 | :--- | :--- | :--- | :--- |
-| **#26** | EU Compliance Review (AI Act + Cybersecurity Act) for fleet hub package | Misty | Pre-condition for bigbearengineering.com feature. Gap analysis: MIT license, transparency obligations, audit logs, data residency. [GitHub issue](https://github.com/UrsushoribilisMusic/agentic-fleet-hub/issues/8) |
+| **#26** | EU Compliance Review (AI Act + Cybersecurity Act) for fleet hub package | Misty | ✅ Completed. Created `COMPLIANCE.md` and updated `README.md`. Pre-condition for bigbearengineering.com feature. [GitHub issue](https://github.com/UrsushoribilisMusic/agentic-fleet-hub/issues/8) |
 
-**Status: OPEN-SOURCE PACKAGE IN PROGRESS. BLOCKER (#25) CLEARED.**
+**Status: OPEN-SOURCE PACKAGE IN PROGRESS. BLOCKER (#25) CLEARED. COMPLIANCE REVIEW (#26) COMPLETED.**
