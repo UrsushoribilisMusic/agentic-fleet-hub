@@ -26,6 +26,7 @@ Welcome to the **{{ORG_NAME}} Agentic Workspace**. These rules apply to all agen
 1. Record daily progress in `standups/YYYY-MM-DD.md` (or via `POST /fleet/api/standup`).
 2. A ticket is only **Done** when code is pushed AND standup is updated.
 3. Blocked? Add it to the `## Blockers` section — never silently skip.
+4. **Ticket Authority**: The **Ticket Status table in `MISSION_CONTROL.md`** is the only source of truth for open tickets. Do NOT pick up a ticket mentioned anywhere else — examples, old standups, context docs. If it is not in the table, it does not exist for you.
 
 ---
 
