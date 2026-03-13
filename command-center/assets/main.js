@@ -189,6 +189,14 @@ window.removeProject = function(title) {
   saveFleetData();
 };
 
+let memorySearchQuery = '';
+
+window.handleMemorySearch = function(val) {
+  memorySearchQuery = val.toLowerCase();
+  renderMemoryTree();
+  loadLessons();
+};
+
 function renderMemoryTree() {
   const container = document.getElementById('docs-grid');
   if (!container) return;
@@ -199,17 +207,39 @@ function renderMemoryTree() {
   const base = isGrowth ? '/growth' : (isDemo ? '/demo' : '/fleet');
 
   let html = '';
-  for (let i = 0; i < memoryTree.length; i++) {
-    const group = memoryTree[i];
+  const groups = isGrowth ? [
+    {
+      folder: 'Growth Blueprint',
+      files: [
+        { title: 'CRM Prototype', desc: 'Relational management logic for sales leads.', path: 'AGENTS/CONTEXT/crm_poc_context.md' },
+        { title: 'Growth Strategy', desc: 'Sample project for autonomous lead discovery.', path: 'AGENTS/CONTEXT/agentegra.md' }
+      ]
+    }
+  ] : memoryTree;
+
+  for (let i = 0; i < groups.length; i++) {
+    const group = groups[i];
     let filesHtml = '';
+    let matchCount = 0;
+
     for (let j = 0; j < group.files.length; j++) {
       const file = group.files[j];
-      const fullUrl = file.path ? base + '/' + file.path : '#';
-      filesHtml += '<div class="tree-item"><div class="tree-item-info"><strong>' + file.title + '</strong><span>' + file.desc + '</span></div><a href="' + fullUrl + '" target="_blank">VIEW LOCAL MD →</a></div>';
+      const matches = !memorySearchQuery || 
+                      file.title.toLowerCase().indexOf(memorySearchQuery) !== -1 || 
+                      file.desc.toLowerCase().indexOf(memorySearchQuery) !== -1;
+      
+      if (matches) {
+        matchCount++;
+        const localPath = file.path || (file.url && file.url.indexOf('AGENTS/') !== -1 ? file.url.split('master/')[1] : null);
+        const fullUrl = localPath ? base + '/' + localPath : '#';
+        filesHtml += '<div class="tree-item"><div class="tree-item-info"><strong>' + file.title + '</strong><span>' + file.desc + '</span></div><a href="' + fullUrl + '" target="_blank">VIEW LOCAL MD →</a></div>';
+      }
     }
-    html += '<div class="tree-group"><h4>' + group.folder + '</h4><div class="tree-list">' + filesHtml + '</div></div>';
+    if (matchCount > 0) {
+      html += '<div class="tree-group"><h4>' + group.folder + '</h4><div class="tree-list">' + filesHtml + '</div></div>';
+    }
   }
-  container.innerHTML = html;
+  container.innerHTML = html || '<p class="muted">No matching documentation found.</p>';
 }
 
 async function loadLessons() {
@@ -222,15 +252,23 @@ async function loadLessons() {
     const lessons = await fetchJson('/fleet/api/lessons');
     const filtered = [];
     for (let i = 0; i < lessons.length; i++) {
-      if ((isDemo || isGrowth)) {
-        if (lessons[i].status === 'active') filtered.push(lessons[i]);
-      } else {
-        filtered.push(lessons[i]);
+      const l = lessons[i];
+      const matchesSearch = !memorySearchQuery || 
+                            l.title.toLowerCase().indexOf(memorySearchQuery) !== -1 || 
+                            l.lesson.toLowerCase().indexOf(memorySearchQuery) !== -1 ||
+                            l.category.toLowerCase().indexOf(memorySearchQuery) !== -1;
+
+      if (matchesSearch) {
+        if ((isDemo || isGrowth)) {
+          if (l.status === 'active') filtered.push(l);
+        } else {
+          filtered.push(l);
+        }
       }
     }
     
     if (filtered.length === 0) {
-      container.innerHTML = '<p class="muted">No lessons logged yet.</p>';
+      container.innerHTML = '<p class="muted">' + (memorySearchQuery ? 'No matching lessons found.' : 'No lessons logged yet.') + '</p>';
       return;
     }
 

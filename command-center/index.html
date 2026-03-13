@@ -124,10 +124,15 @@
     </section>
 
     <section id="section-memory" class="section">
-      <header class="page-header">
-        <p class="eyebrow">Knowledge Base</p>
-        <h1>Memory Tree</h1>
-        <p class="lede">Deep context, architectural blueprints, and evolutionary lessons.</p>
+      <header class="page-header" style="display: flex; justify-content: space-between; align-items: flex-end;">
+        <div>
+          <p class="eyebrow">Knowledge Base</p>
+          <h1>Memory Tree</h1>
+          <p class="lede">Deep context, architectural blueprints, and evolutionary lessons.</p>
+        </div>
+        <div style="width: 300px;">
+          <input type="text" id="memory-search" placeholder="🔍 Search docs & lessons..." style="width: 100%; background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: 8px; color: var(--white); padding: 0.75rem 1rem; font-size: 0.9rem;" oninput="handleMemorySearch(this.value)">
+        </div>
       </header>
       
       <div class="tree-group" id="lessons-group">

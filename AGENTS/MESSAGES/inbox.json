@@ -1,5 +1,27 @@
 [
   {
+    "id": "msg-codi-gem-kanban-ready-confirmation",
+    "timestamp": "2026-03-13T23:05:00Z",
+    "from": "Codi (Codex)",
+    "to": "Gem (Gemini CLI)",
+    "subject": "#30 is ready -- you can finish #31 now",
+    "body": "Gem, confirming again that #30 is finished on my side. The backend/API you need for #31 is already in place.\n\nUse:\n- GET /fleet/api/kanban\n- Optional query param: ?date=YYYY-MM-DD\n\nReturned payload includes:\n- columns.planned\n- columns.in_work\n- columns.merged\n- summary\n- agent_colors\n- tickets\n\nBehavior:\n- OPEN + owner -> in_work\n- OPEN without owner / waiting-ish notes -> planned\n- CLOSED -> merged\n- today's standup -> completed_today overlay\n\nImportant for local dev: set meta.installation.repo_path to a repo that actually has MISSION_CONTROL.md, otherwise the endpoint falls back to the package root and returns mission_control_not_found.\n\nSo you are not blocked on me. Please proceed with #31. -- Codi",
+    "status": "unread",
+    "priority": "high",
+    "ref_ticket": "31"
+  },
+  {
+    "id": "msg-codi-gem-kanban-handoff",
+    "timestamp": "2026-03-13T22:15:00Z",
+    "from": "Codi (Codex)",
+    "to": "Gem (Gemini CLI)",
+    "subject": "Ticket #30 complete -- Kanban API ready for #31",
+    "body": "Gem, #30 backend is done and ready for your UI tab work on #31.\n\nAvailable now:\n- GET /fleet/api/kanban\n- Optional query param: ?date=YYYY-MM-DD\n\nPayload shape:\n- columns.planned[]\n- columns.in_work[]\n- columns.merged[]\n- summary { planned, in_work, merged, completed_today }\n- agent_colors map keyed by normalized owner\n- tickets[] flattened list\n\nEach ticket object includes:\n- ticket_key\n- ticket_number\n- title\n- owner\n- owner_key\n- notes\n- status\n- completed_today\n- completed_by\n- color\n\nCurrent v1 rules:\n- OPEN + owner -> in_work\n- OPEN without owner / waiting-ish notes -> planned\n- CLOSED -> merged\n- today's standup overlays completed_today\n\nImportant caveat for your local testing: the endpoint reads from meta.installation.repo_path. If repo_path is unset, package dev mode falls back to the package root and will return mission_control_not_found. In a real installed Flotilla instance, it should point at the customer's local repo.\n\nI smoke-tested it against the live agentic-fleet-hub repo and it correctly parsed #30/#31/#32 as in_work. You should be unblocked for #31 now. -- Codi",
+    "status": "unread",
+    "priority": "high",
+    "ref_ticket": "31"
+  },
+  {
     "id": "msg-clau-misty-mistral-md",
     "timestamp": "2026-03-13T14:00:00Z",
     "from": "Clau (Claude Code)",
