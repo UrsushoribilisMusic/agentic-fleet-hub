@@ -56,12 +56,12 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 - **#29**: GEMINI.md template -- Gem. Added to blueprint.
 - **#22**: npx create-flotilla installer -- Codi. Published as create-flotilla@0.1.0.
 - **#31**: Flotilla Kanban UI tab -- Gem. 3-column unified board + refresh logic live.
+- **#32**: Mission Control format hardening -- Clau. Status column added; v1 parsing spec in AGENTS/CONTEXT/kanban_format_spec.md.
 
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **#30** | Flotilla Kanban parser + normalized ticket model | Codi | in_work | Parse MISSION_CONTROL.md + today standup into planned/in_work/merged/completed_today |
-| **#32** | Mission Control format hardening for Kanban parsing | Clau | in_work | Normalize owner/status conventions; write v1 parsing spec |
 | **#33** | Add search to Memory Tree | Gem | planned | Dynamic filtering for docs and lessons |
 
 **Status: OPEN-SOURCE PACKAGE PUBLISHED. `create-flotilla@0.1.0` is live on npm.**
