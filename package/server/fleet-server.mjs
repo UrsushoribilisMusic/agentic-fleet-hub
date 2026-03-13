@@ -29,6 +29,7 @@ import {
   getDemoConfig,
   getGrowthConfig,
   getGitPreview,
+  getKanbanSnapshot,
   getSetupStatus,
   normalizeFleetMeta,
   readJson,
@@ -345,6 +346,12 @@ async function handler(req, res) {
       } catch (error) {
         return send(res, 400, { ok: false, error: error.message }, requestId);
       }
+    }
+
+    // GET /fleet/api/kanban
+    if (urlPath === "/fleet/api/kanban" && req.method === "GET") {
+      const date = url.searchParams.get("date") || undefined;
+      return send(res, 200, getKanbanSnapshot(fleetMeta, { date }), requestId);
     }
 
     // POST /fleet/api/setup

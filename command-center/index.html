@@ -28,6 +28,9 @@
       <button class="nav-button" data-section-button="section-projects">
         <span>📂</span> Projects
       </button>
+      <button class="nav-button" data-section-button="section-kanban">
+        <span>📋</span> Kanban
+      </button>
       <!-- Growth Specific Links -->
       <a href="/crm-demo/" target="_blank" class="nav-button growth-only" style="display:none; text-decoration:none;">
         <span>📊</span> Lead Pipeline
@@ -83,6 +86,29 @@
         <button class="btn-submit" onclick="openProjectModal()" style="width: auto; padding: 0.75rem 1.5rem; font-size: 0.8rem;">+ ADD PROJECT</button>
       </header>
       <div id="projects-grid" class="projects-grid"></div>
+    </section>
+
+    <section id="section-kanban" class="section">
+      <header class="page-header">
+        <p class="eyebrow">Live Board</p>
+        <h1>Fleet Kanban</h1>
+        <p class="lede">Unified view of tickets across all models and repositories.</p>
+      </header>
+      <div id="kanban-board" class="pipeline-board">
+        <!-- 3 Columns -->
+        <div class="card" style="background: rgba(0,0,0,0.2);">
+          <div class="card-header"><h3 class="card-title">Planned</h3></div>
+          <div id="kanban-planned" class="activity-list"></div>
+        </div>
+        <div class="card" style="background: rgba(45,212,191,0.05); border-color: var(--teal-bright);">
+          <div class="card-header"><h3 class="card-title">In Work</h3></div>
+          <div id="kanban-working" class="activity-list"></div>
+        </div>
+        <div class="card" style="background: rgba(0,0,0,0.2);">
+          <div class="card-header"><h3 class="card-title">Completed Today</h3></div>
+          <div id="kanban-done" class="activity-list"></div>
+        </div>
+      </div>
     </section>
 
     <section id="section-rules" class="section">

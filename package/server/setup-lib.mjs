@@ -7,6 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PACKAGE_ROOT = path.join(__dirname, "..");
 const BLUEPRINT_ROOT = path.join(PACKAGE_ROOT, "blueprint");
 const DEFAULT_GROWTH_META_PATH = path.join(PACKAGE_ROOT, "data", "config", "growth_meta.json");
+const AGENT_COLOR_PALETTE = ["#1d4ed8", "#b45309", "#0f766e", "#9333ea", "#be123c", "#0891b2"];
 
 const TEXT_FILE_EXTENSIONS = new Set([".md", ".json", ".txt", ".py", ".ps1", ".sh", ".yml", ".yaml", ".js", ".mjs"]);
 
@@ -81,6 +82,15 @@ function fileExists(targetPath) {
     return fs.existsSync(targetPath);
   } catch {
     return false;
+  }
+}
+
+function readText(filePath, fallback = "") {
+  try {
+    if (!fileExists(filePath)) return fallback;
+    return fs.readFileSync(filePath, "utf8");
+  } catch {
+    return fallback;
   }
 }
 
@@ -709,4 +719,208 @@ export function getGrowthConfig(meta, fallback) {
 
 export function buildSlug(value) {
   return slugify(value);
+}
+
+function getProjectRoot(meta) {
+  const repoPath = normalizeString(meta?.meta?.installation?.repo_path);
+  return repoPath ? path.resolve(repoPath) : PACKAGE_ROOT;
+}
+
+function normalizeOwner(value) {
+  return normalizeString(value).replace(/\s*\(.*?\)\s*/g, "").trim();
+}
+
+function ownerKey(value) {
+  const owner = normalizeOwner(value);
+  if (!owner) return "unassigned";
+  return slugify(owner.split("/")[0].split(",")[0]);
+}
+
+function buildAgentColors(meta, owners) {
+  const map = {};
+  const ordered = [];
+  const team = Array.isArray(meta.team) ? meta.team : [];
+  for (const member of team) {
+    const key = ownerKey(member.name);
+    if (!key || map[key]) continue;
+    ordered.push({ key, label: normalizeOwner(member.name) || member.name });
+  }
+  for (const owner of owners) {
+    const key = ownerKey(owner);
+    if (!key || map[key]) continue;
+    ordered.push({ key, label: normalizeOwner(owner) });
+  }
+  ordered.forEach((entry, index) => {
+    map[entry.key] = {
+      key: entry.key,
+      label: entry.label,
+      color: AGENT_COLOR_PALETTE[index % AGENT_COLOR_PALETTE.length],
+    };
+  });
+  map.unassigned = map.unassigned || { key: "unassigned", label: "Unassigned", color: "#64748b" };
+  return map;
+}
+
+function getSourcePaths(meta, date) {
+  const projectRoot = getProjectRoot(meta);
+  return {
+    missionControlPath: path.join(projectRoot, "MISSION_CONTROL.md"),
+    standupPath: path.join(projectRoot, "standups", `${date}.md`),
+  };
+}
+
+function parseOpenTickets(markdown) {
+  const lines = markdown.split(/\r?\n/);
+  const tickets = [];
+  let inOpen = false;
+  for (const line of lines) {
+    if (/^### OPEN\b/i.test(line.trim())) {
+      inOpen = true;
+      continue;
+    }
+    if (inOpen && /^###\s+/.test(line.trim())) break;
+    if (!inOpen) continue;
+    if (!line.trim().startsWith("|")) continue;
+    const cells = line.split("|").map(cell => cell.trim()).filter(Boolean);
+    if (cells.length < 4) continue;
+    if (/^Ticket$/i.test(cells[0]) || /^:?-+/.test(cells[0])) continue;
+    const ticketNumber = cells[0].match(/#(\d+)/)?.[1] || null;
+    const owner = normalizeOwner(cells[2]);
+    const notes = cells[3];
+    const status = !owner || /wait|blocked|holding|queued|backlog|todo/i.test(notes) ? "planned" : "in_work";
+    tickets.push({
+      ticket_key: ticketNumber ? `#${ticketNumber}` : cells[0],
+      ticket_number: ticketNumber,
+      title: cells[1].replace(/`/g, ""),
+      owner,
+      owner_key: ownerKey(owner),
+      notes,
+      status,
+      source: "mission_control_open",
+      completed_today: false,
+      completed_by: [],
+    });
+  }
+  return tickets;
+}
+
+function parseClosedTickets(markdown) {
+  const lines = markdown.split(/\r?\n/);
+  const tickets = [];
+  let inClosed = false;
+  for (const line of lines) {
+    if (/^### CLOSED\b/i.test(line.trim())) {
+      inClosed = true;
+      continue;
+    }
+    if (inClosed && /^###\s+/.test(line.trim())) break;
+    if (!inClosed) continue;
+    const match = line.match(/^- \*\*(.+?)\*\*:\s*(.+)$/);
+    if (!match) continue;
+    const ticketRef = match[1];
+    const body = match[2];
+    const ticketNumber = ticketRef.match(/#(\d+)/)?.[1] || null;
+    const owner = normalizeOwner(body.match(/--\s*([A-Za-z][A-Za-z0-9_-]+)/)?.[1] || "");
+    tickets.push({
+      ticket_key: ticketNumber ? `#${ticketNumber}` : ticketRef,
+      ticket_number: ticketNumber,
+      title: body,
+      owner,
+      owner_key: ownerKey(owner),
+      notes: "",
+      status: "merged",
+      source: "mission_control_closed",
+      completed_today: false,
+      completed_by: [],
+    });
+  }
+  return tickets;
+}
+
+function parseStandupCompletions(markdown) {
+  const result = new Map();
+  const sections = markdown.split(/\r?\n## /);
+  for (const rawSection of sections) {
+    const section = rawSection.trim();
+    if (!section) continue;
+    const lines = section.split(/\r?\n/);
+    const agentHeader = lines[0].replace(/^##\s*/, "").trim();
+    const agent = normalizeOwner(agentHeader.replace(/\s*\(.*?\)\s*$/, ""));
+    let inDone = false;
+    for (let i = 1; i < lines.length; i += 1) {
+      const line = lines[i].trim();
+      if (/^### Done$/i.test(line)) {
+        inDone = true;
+        continue;
+      }
+      if (/^### /i.test(line)) {
+        inDone = false;
+        continue;
+      }
+      if (!inDone) continue;
+      const matches = [...line.matchAll(/#(\d+)/g)];
+      for (const match of matches) {
+        const key = `#${match[1]}`;
+        if (!result.has(key)) result.set(key, []);
+        result.get(key).push(agent);
+      }
+    }
+  }
+  return result;
+}
+
+export function getKanbanSnapshot(meta, options = {}) {
+  const normalized = normalizeFleetMeta(meta);
+  const date = options.date || new Date().toISOString().slice(0, 10);
+  const { missionControlPath, standupPath } = getSourcePaths(normalized, date);
+  const missionControl = readText(missionControlPath, "");
+  const standup = readText(standupPath, "");
+  if (!missionControl) {
+    return {
+      date,
+      source: { mission_control_path: missionControlPath, standup_path: standupPath },
+      columns: { planned: [], in_work: [], merged: [] },
+      agent_colors: buildAgentColors(normalized, []),
+      tickets: [],
+      summary: { planned: 0, in_work: 0, merged: 0, completed_today: 0 },
+      error: "mission_control_not_found",
+    };
+  }
+
+  const openTickets = parseOpenTickets(missionControl);
+  const closedTickets = parseClosedTickets(missionControl);
+  const completions = parseStandupCompletions(standup);
+  const tickets = [...openTickets, ...closedTickets].map(ticket => {
+    const completedBy = completions.get(ticket.ticket_key) || [];
+    return {
+      ...ticket,
+      completed_today: completedBy.length > 0,
+      completed_by: completedBy,
+    };
+  });
+  const owners = tickets.map(ticket => ticket.owner).filter(Boolean);
+  const agentColors = buildAgentColors(normalized, owners);
+  const decorate = ticket => ({
+    ...ticket,
+    color: agentColors[ticket.owner_key]?.color || agentColors.unassigned.color,
+  });
+  const columns = {
+    planned: tickets.filter(ticket => ticket.status === "planned").map(decorate),
+    in_work: tickets.filter(ticket => ticket.status === "in_work").map(decorate),
+    merged: tickets.filter(ticket => ticket.status === "merged").map(decorate),
+  };
+
+  return {
+    date,
+    source: { mission_control_path: missionControlPath, standup_path: standupPath },
+    columns,
+    agent_colors: agentColors,
+    tickets: tickets.map(decorate),
+    summary: {
+      planned: columns.planned.length,
+      in_work: columns.in_work.length,
+      merged: columns.merged.length,
+      completed_today: tickets.filter(ticket => ticket.completed_today).length,
+    },
+  };
 }

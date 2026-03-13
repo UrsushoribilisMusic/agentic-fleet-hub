@@ -292,6 +292,66 @@ window.markAsRead = async function(id) {
   } catch (err) { alert('Failed to update message.'); }
 };
 
+async function loadKanban() {
+  const containers = {
+    planned: document.getElementById('kanban-planned'),
+    working: document.getElementById('kanban-working'),
+    done: document.getElementById('kanban-done')
+  };
+  if (!containers.planned) return;
+
+  try {
+    // Try to fetch parsed kanban data (Codi's Ticket #30)
+    // Fallback to mock data for now
+    let data;
+    try {
+      data = await fetchJson('/fleet/api/kanban');
+    } catch (e) {
+      console.warn('Kanban API not ready, using demo data');
+      data = {
+        planned: [
+          { id: '32', title: 'Mission Control format hardening', owner: 'Clau', priority: 'normal' },
+          { id: '33', title: 'Add search to Memory Tree', owner: 'Gem', priority: 'low' }
+        ],
+        working: [
+          { id: '30', title: 'Flotilla Kanban parser', owner: 'Codi', priority: 'high' },
+          { id: '31', title: 'Flotilla Kanban UI tab', owner: 'Gem', priority: 'high' }
+        ],
+        done: [
+          { id: '25', title: 'Demo Cleanup', owner: 'Gem', status: 'merged', date: new Date().toISOString() },
+          { id: '23', title: 'README + Docs', owner: 'Gem', status: 'merged', date: new Date().toISOString() },
+          { id: '26', title: 'EU Compliance Review', owner: 'Misty', status: 'completed', date: new Date().toISOString() }
+        ]
+      };
+    }
+
+    const renderCard = (t) => {
+      const colors = { Clau: '#64B5F6', Gem: '#159988', Codi: '#FFB74D', Misty: '#BA68C8' };
+      const color = colors[t.owner] || 'var(--text-muted)';
+      const isToday = t.date && t.date.split('T')[0] === new Date().toISOString().split('T')[0];
+      const badge = isToday ? '<span class="badge" style="background:var(--teal); color:#fff; font-size:0.6rem; margin-left:0.5rem;">TODAY</span>' : '';
+      const status = t.status ? `<span style="font-size:0.6rem; opacity:0.6; text-transform:uppercase;">[${t.status}]</span>` : '';
+
+      return `
+        <div class="activity-item" style="border-left: 3px solid ${color}; padding: 1rem; margin-bottom: 0.75rem;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+            <strong style="font-size:0.9rem; color:var(--white);">#${t.id}: ${t.title}</strong>
+          </div>
+          <div style="margin-top:0.5rem; display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:0.75rem; color:${color}; font-weight:700;">${t.owner}</span>
+            <div>${status}${badge}</div>
+          </div>
+        </div>
+      `;
+    };
+
+    containers.planned.innerHTML = data.planned.map(renderCard).join('') || '<p class="muted">No planned tasks.</p>';
+    containers.working.innerHTML = data.working.map(renderCard).join('') || '<p class="muted">No active tasks.</p>';
+    containers.done.innerHTML = data.done.map(renderCard).join('') || '<p class="muted">No tasks completed today.</p>';
+
+  } catch (err) { console.error('Kanban load failed:', err); }
+}
+
 async function loadRules() {
   const el = document.getElementById('rules-view');
   if (!el) return;
@@ -328,6 +388,7 @@ function activateSection(targetId) {
   if (targetId === 'section-rules') loadRules();
   if (targetId === 'section-users') loadUsers();
   if (targetId === 'section-inbox') loadInbox();
+  if (targetId === 'section-kanban') loadKanban();
 
   const sidebar = document.getElementById('sidebar');
   const toggle = document.getElementById('mobile-toggle');
