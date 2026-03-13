@@ -89,10 +89,13 @@
     </section>
 
     <section id="section-kanban" class="section">
-      <header class="page-header">
-        <p class="eyebrow">Live Board</p>
-        <h1>Fleet Kanban</h1>
-        <p class="lede">Unified view of tickets across all models and repositories.</p>
+      <header class="page-header" style="display: flex; justify-content: space-between; align-items: flex-end;">
+        <div>
+          <p class="eyebrow">Live Board</p>
+          <h1>Fleet Kanban</h1>
+          <p class="lede">Unified view of tickets across all models and repositories.</p>
+        </div>
+        <button class="btn-submit" onclick="refreshKanban()" style="width: auto; padding: 0.75rem 1.5rem; font-size: 0.8rem;">🔄 REFRESH</button>
       </header>
       <div id="kanban-board" class="pipeline-board">
         <!-- 3 Columns -->

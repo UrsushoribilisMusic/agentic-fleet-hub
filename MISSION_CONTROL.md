@@ -61,7 +61,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **#30** | Flotilla Kanban parser + normalized ticket model | Codi | in_work | Parse MISSION_CONTROL.md + today standup into planned/in_work/merged/completed_today |
-| **#31** | Flotilla Kanban UI tab | Gem | planned | 3-column board; agent color coding; completed-today badge |
+| **#31** | Flotilla Kanban UI tab | Gem | planned | 3-column board; agent color coding; completed-today badge; refresh button; auto-refresh every 5 minutes and on tab open |
 | **#32** | Mission Control format hardening for Kanban parsing | Clau | in_work | Normalize owner/status conventions; write v1 parsing spec |
 
 **Status: OPEN-SOURCE PACKAGE PUBLISHED. `create-flotilla@0.1.0` is live on npm.**

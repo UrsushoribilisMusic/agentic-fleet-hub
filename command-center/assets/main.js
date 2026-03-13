@@ -352,6 +352,10 @@ async function loadKanban() {
   } catch (err) { console.error('Kanban load failed:', err); }
 }
 
+window.refreshKanban = function() {
+  loadKanban();
+};
+
 async function loadRules() {
   const el = document.getElementById('rules-view');
   if (!el) return;
