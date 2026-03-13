@@ -1,0 +1,11 @@
+{
+  "org_name": "Ursushoribilis Fleet",
+  "is_demo": true,
+  "github_org_url": "https://github.com/UrsushoribilisMusic",
+  "main_repo_name": "agentic-fleet-hub",
+  "main_repo_url": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub",
+  "kanban_url": "https://github.com/users/UrsushoribilisMusic/projects/2/views/2",
+  "crm_url": "https://api.robotross.art/crm-demo/",
+  "vault_provider": "infisical",
+  "vault_region": "EU"
+}

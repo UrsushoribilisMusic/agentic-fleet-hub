@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgentFleet Configure</title>
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --panel: #ffffff;
+      --ink: #172033;
+      --muted: #61708a;
+      --line: #d8dfeb;
+      --accent: #1d4ed8;
+      --accent-2: #0f172a;
+      --good: #047857;
+      --bad: #b91c1c;
+      --soft: #eef4ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background:
+        linear-gradient(180deg, rgba(29, 78, 216, 0.06), transparent 240px),
+        var(--bg);
+      color: var(--ink);
+    }
+    .shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 48px;
+    }
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: end;
+      margin-bottom: 22px;
+    }
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1;
+    }
+    .hero p, .muted {
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn, button {
+      border: none;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      color: #fff;
+    }
+    .btn-secondary {
+      background: #fff;
+      color: var(--accent-2);
+      border: 1px solid var(--line);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+    }
+    .panel h2 {
+      margin: 0 0 14px;
+      font-size: 1.1rem;
+    }
+    .fields {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .field, .field-full {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .field-full {
+      grid-column: 1 / -1;
+    }
+    label {
+      font-size: 13px;
+      font-weight: 700;
+    }
+    input, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+    }
+    .agent-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .agent-card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+      background: var(--soft);
+    }
+    .agent-card header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .inline-check {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 14px;
+    }
+    .inline-check input {
+      width: auto;
+    }
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--accent-2);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .doctor-ok {
+      color: var(--good);
+      font-weight: 700;
+    }
+    .doctor-bad {
+      color: var(--bad);
+      font-weight: 700;
+    }
+    ul {
+      margin: 8px 0 0 18px;
+      color: var(--muted);
+    }
+    .footer-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    @media (max-width: 900px) {
+      .grid, .fields, .agent-list {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        flex-direction: column;
+        align-items: start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <section class="hero">
+      <div>
+        <div class="badge">Rerunnable setup and doctor</div>
+        <h1>Configure the fleet without guessing.</h1>
+        <p>Update the grouped installation profile, rewrite bootstrap files into the target repository, and run a doctor pass against the current bootstrap state.</p>
+      </div>
+      <div class="links">
+        <a class="btn btn-secondary" href="/setup/">Open Setup Wizard</a>
+        <a class="btn btn-secondary" href="/demo/">Demo</a>
+        <a class="btn btn-secondary" href="/growth/">Growth</a>
+      </div>
+    </section>
+
+    <section class="grid">
+      <form id="config-form" class="panel">
+        <h2>Installation Profile</h2>
+        <div class="fields">
+          <label class="field-full">
+            <span>Organization name</span>
+            <input id="org_name" />
+          </label>
+          <label class="field-full">
+            <span>Repository path</span>
+            <input id="repo_path" />
+          </label>
+          <label class="field-full">
+            <span>Repository URL</span>
+            <input id="repo_url" />
+          </label>
+          <label class="field">
+            <span>Kanban URL</span>
+            <input id="kanban_url" />
+          </label>
+          <label class="field">
+            <span>CRM URL</span>
+            <input id="crm_url" />
+          </label>
+          <label class="field">
+            <span>Vault provider</span>
+            <select id="vault_provider">
+              <option value="infisical">Infisical</option>
+              <option value="1password">1Password</option>
+              <option value="other">Other</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Vault region</span>
+            <select id="vault_region">
+              <option value="EU">EU</option>
+              <option value="US">US</option>
+              <option value="custom">Custom</option>
+            </select>
+          </label>
+        </div>
+
+        <h2 style="margin-top:22px;">Selected Agents</h2>
+        <div id="agent-list" class="agent-list"></div>
+
+        <div class="footer-actions">
+          <button type="submit" class="btn btn-primary">Save Profile</button>
+          <button type="button" id="bootstrap-btn" class="btn btn-secondary">Write Bootstrap Files</button>
+        </div>
+      </form>
+
+      <div class="stack">
+        <section class="panel">
+          <h2>Bootstrap Status</h2>
+          <p id="bootstrap-status" class="muted">Loading bootstrap metadata.</p>
+          <div id="bootstrap-files"></div>
+        </section>
+
+        <section class="panel">
+          <h2>Agent Bootstrap Instructions</h2>
+          <div id="instructions" class="muted">Loading instructions.</div>
+        </section>
+
+        <section class="panel">
+          <h2>Doctor</h2>
+          <p id="doctor-summary" class="muted">Loading doctor results.</p>
+          <div id="doctor-issues"></div>
+          <div class="footer-actions">
+            <button type="button" id="doctor-btn" class="btn btn-secondary">Run Doctor</button>
+          </div>
+        </section>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const state = {
+      catalog: [],
+      profile: null,
+      bootstrap_instructions: [],
+      doctor: null
+    };
+
+    function el(id) {
+      return document.getElementById(id);
+    }
+
+    function escapeHtml(value) {
+      return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function selectedAgents() {
+      return state.catalog
+        .filter(agent => {
+          const checkbox = document.querySelector(`input[data-agent="${agent.id}"]`);
+          return checkbox && checkbox.checked;
+        })
+        .map(agent => {
+          const input = document.querySelector(`input[data-agent-name="${agent.id}"]`);
+          return {
+            id: agent.id,
+            name: input && input.value.trim() ? input.value.trim() : agent.default_name
+          };
+        });
+    }
+
+    function populateForm() {
+      const profile = state.profile;
+      el("org_name").value = profile.org_name || "";
+      el("repo_path").value = profile.repo_path || "";
+      el("repo_url").value = profile.repo_url || "";
+      el("kanban_url").value = profile.kanban_url || "";
+      el("crm_url").value = profile.crm_url || "";
+      el("vault_provider").value = profile.vault.provider || "infisical";
+      el("vault_region").value = profile.vault.region || "EU";
+
+      el("agent-list").innerHTML = state.catalog.map(agent => {
+        const selected = profile.selected_agents.find(item => item.id === agent.id);
+        return `
+          <article class="agent-card">
+            <header>
+              <strong>${escapeHtml(agent.label)}</strong>
+              <label class="inline-check">
+                <input type="checkbox" data-agent="${escapeHtml(agent.id)}" ${selected ? "checked" : ""} />
+                Include
+              </label>
+            </header>
+            <label>Name</label>
+            <input data-agent-name="${escapeHtml(agent.id)}" value="${escapeHtml(selected ? selected.name : agent.default_name)}" />
+          </article>
+        `;
+      }).join("");
+    }
+
+    function renderBootstrapStatus() {
+      const bootstrap = state.profile.bootstrap || { files_written: [] };
+      if (bootstrap.last_written_at) {
+        el("bootstrap-status").textContent = `Last bootstrap write: ${new Date(bootstrap.last_written_at).toLocaleString()} into ${bootstrap.last_repo_path || "configured repo path"}.`;
+      } else {
+        el("bootstrap-status").textContent = "Bootstrap files have not been written yet from this package instance.";
+      }
+      el("bootstrap-files").innerHTML = bootstrap.files_written && bootstrap.files_written.length
+        ? `<ul>${bootstrap.files_written.map(file => `<li>${escapeHtml(file)}</li>`).join("")}</ul>`
+        : "";
+    }
+
+    function renderInstructions() {
+      el("instructions").innerHTML = state.bootstrap_instructions.length
+        ? `<ul>${state.bootstrap_instructions.map(item => `<li><strong>${escapeHtml(item.label)}</strong>: ${escapeHtml(item.instruction)}</li>`).join("")}</ul>`
+        : "No agent instructions available.";
+    }
+
+    function renderDoctor() {
+      const doctor = state.doctor;
+      if (!doctor) return;
+      el("doctor-summary").innerHTML = doctor.ok
+        ? `<span class="doctor-ok">Doctor passed.</span>`
+        : `<span class="doctor-bad">Doctor found issues.</span>`;
+      el("doctor-issues").innerHTML = doctor.issues && doctor.issues.length
+        ? `<ul>${doctor.issues.map(issue => `<li>${escapeHtml(issue)}</li>`).join("")}</ul>`
+        : "<p class='muted'>No issues reported.</p>";
+    }
+
+    function currentPayload(writeToRepo) {
+      return {
+        org_name: el("org_name").value.trim(),
+        repo_path: el("repo_path").value.trim(),
+        repo_url: el("repo_url").value.trim(),
+        kanban_url: el("kanban_url").value.trim(),
+        crm_url: el("crm_url").value.trim(),
+        vault_provider: el("vault_provider").value,
+        vault_region: el("vault_region").value,
+        selected_agents: selectedAgents(),
+        write_to_repo: writeToRepo
+      };
+    }
+
+    async function postSetup(writeToRepo) {
+      const response = await fetch("/fleet/api/setup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(currentPayload(writeToRepo))
+      });
+      const result = await response.json();
+      if (!response.ok || !result.ok) {
+        throw new Error("setup_failed");
+      }
+      state.profile = result.setup.profile;
+      state.bootstrap_instructions = result.setup.bootstrap_instructions || [];
+      state.doctor = result.setup.doctor;
+      renderBootstrapStatus();
+      renderInstructions();
+      renderDoctor();
+      return result;
+    }
+
+    async function loadStatus() {
+      const response = await fetch("/fleet/api/setup/status", { cache: "no-store" });
+      const status = await response.json();
+      state.catalog = status.catalog || [];
+      state.profile = status.profile;
+      state.bootstrap_instructions = status.bootstrap_instructions || [];
+      state.doctor = status.doctor;
+      populateForm();
+      renderBootstrapStatus();
+      renderInstructions();
+      renderDoctor();
+    }
+
+    el("config-form").addEventListener("submit", async event => {
+      event.preventDefault();
+      try {
+        await postSetup(false);
+        alert("Profile saved.");
+      } catch {
+        alert("Save failed.");
+      }
+    });
+
+    el("bootstrap-btn").addEventListener("click", async () => {
+      try {
+        const result = await postSetup(true);
+        const count = result.bootstrap && result.bootstrap.files_written ? result.bootstrap.files_written.length : 0;
+        alert(`Bootstrap wrote ${count} files.`);
+      } catch {
+        alert("Bootstrap failed.");
+      }
+    });
+
+    el("doctor-btn").addEventListener("click", async () => {
+      const response = await fetch("/fleet/api/setup/doctor", { cache: "no-store" });
+      state.doctor = await response.json();
+      renderDoctor();
+    });
+
+    loadStatus().catch(() => {
+      el("doctor-summary").textContent = "Could not load configure status.";
+    });
+  </script>
+</body>
+</html>

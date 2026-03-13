@@ -25,6 +25,7 @@ async function fetchText(url) {
 }
 
 let fleetData = { team: [], projects: [] };
+let fleetSettings = { org_name: "Fleet Hub", github_org_url: "", main_repo_url: "", is_demo: true };
 let dailyStandupsIndex = [];
 let activeDailyDate = '';
 let MAIN_SECTION_BUTTONS = [];
@@ -35,23 +36,27 @@ const memoryTree = [
   {
     folder: 'Global Rules',
     files: [
-      { title: 'Team Rules', desc: 'Standardized protocols for commits, Kanban, and shared memory.', url: 'https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/RULES.md' },
-      { title: 'KeyVault Strategy', desc: 'Infisical secrets management guide.', url: 'https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/KEYVAULT.md' }
+      { title: 'Team Rules', desc: 'Standardized protocols for commits, Kanban, and shared memory.', path: 'AGENTS/RULES.md' },
+      { title: 'KeyVault Strategy', desc: 'Infisical secrets management guide.', path: 'AGENTS/KEYVAULT.md' }
     ]
   },
   {
     folder: 'Project Context',
     files: [
-      { title: 'Salesman API', desc: 'Commerce and Marketplace logic.', url: 'https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/robot_ross_salesman.md' },
-      { title: 'Artist Architecture', desc: 'Robot control and Huenit integration.', url: 'https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/robot_ross_artist.md' },
-      { title: 'Music Video Automation', desc: 'Video generation heuristics.', url: 'https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/music_video_tool.md' },
-      { title: 'Story Video Tool', desc: 'Narrative video pipeline.', url: 'https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/story_video_tool.md' },
-      { title: 'The Lost Coins Story', desc: 'Story chapter breakdown.', url: 'https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/the_lost_coins_story.md' },
-      { title: 'CRM Prototype', desc: 'Relational management logic.', url: 'https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/crm_poc_context.md' },
-      { title: 'Agentegra Briefing', desc: 'Global project context and business model.', url: 'https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/agentegra.md' }
+      { title: 'CRM Prototype', desc: 'Relational management logic for sales leads.', path: 'AGENTS/CONTEXT/crm_poc_context.md' }
     ]
   }
 ];
+
+function replacePlaceholders(str) {
+  if (!str) return str;
+  let s = str;
+  if (fleetSettings.github_org_url) s = s.replace(/{{GITHUB_ORG}}/g, fleetSettings.github_org_url);
+  if (fleetSettings.main_repo_url) s = s.replace(/{{MAIN_REPO}}/g, fleetSettings.main_repo_url);
+  if (fleetSettings.crm_url) s = s.replace(/{{CRM_URL}}/g, fleetSettings.crm_url);
+  if (fleetSettings.kanban_url) s = s.replace(/{{KANBAN_URL}}/g, fleetSettings.kanban_url);
+  return s;
+}
 
 async function loadFleetMeta() {
   const path = window.location.pathname;
@@ -63,24 +68,37 @@ async function loadFleetMeta() {
   if (isGrowth) endpoint = '/fleet/api/config/growth';
 
   try {
+    try {
+      fleetSettings = await fetchJson('/fleet/api/settings');
+    } catch (e) { console.warn('Settings load failed, using defaults'); }
+
     const data = await fetchJson(endpoint);
     fleetData = data;
+    
     populateTeam();
     populateProjects();
     loadLessons(); 
-    if (isDemo || isGrowth) setupReducedMode(isGrowth);
+    
+    if (fleetSettings.is_demo === true) {
+      setupReducedMode(isGrowth);
+    } else {
+      setupStandaloneMode();
+    }
   } catch (err) { 
     console.error('Core metadata load failed:', err);
   }
+}
+
+function setupStandaloneMode() {
+  // Show standalone-only buttons
+  const standaloneBtns = document.querySelectorAll('.standalone-only');
+  for (let i = 0; i < standaloneBtns.length; i++) standaloneBtns[i].style.display = 'inline-block';
 }
 
 function setupReducedMode(isGrowth) {
   const h1 = document.querySelector('h1');
   const lede = document.querySelector('.lede');
   if (h1) h1.textContent = isGrowth ? 'Growth Fleet Hub' : 'Demo Fleet Hub';
-  if (lede) lede.textContent = isGrowth 
-    ? 'Specialized agentic fleet for Sales, Marketing, and Lead Discovery.' 
-    : 'This is a reduced version of the Fleet Hub management plane.';
   
   if (isGrowth) {
     const growEls = document.querySelectorAll('.growth-only');
@@ -94,7 +112,7 @@ function setupReducedMode(isGrowth) {
   
   const usersSection = document.getElementById('section-users');
   if (usersSection) {
-    usersSection.innerHTML = '<header class="page-header"><p class="eyebrow">' + (isGrowth ? 'Growth Strategy' : 'Production Feature') + '</p><h1>' + (isGrowth ? 'Request Industry Setup' : 'User Access Control') + '</h1><p class="lede">In the full Fleet Hub, you can manage team access dynamically.</p></header><div class="standup-form" style="padding: 3rem; text-align: center; border-style: dashed;"><p style="color: var(--teal-bright); font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem;">"A user would be added after entering the mail."</p><p class="muted">Access is gated via Google OAuth. You simply whitelist an email address, and that agent or team member is instantly granted access to the shared consciousness.</p></div>';
+    usersSection.innerHTML = '<header class="page-header"><p class="eyebrow">Production Feature</p><h1>User Access Control</h1><p class="lede">In the full Fleet Hub, you can manage team access dynamically.</p></header><div class="standup-form" style="padding: 3rem; text-align: center; border-style: dashed;"><p style="color: var(--teal-bright); font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem;">"A user would be added after entering the mail."</p><p class="muted">Access is gated via Google OAuth. You simply whitelist an email address, and that agent or team member is instantly granted access to the shared consciousness.</p></div>';
   }
 }
 
@@ -113,6 +131,8 @@ function populateTeam() {
   const container = document.getElementById('team-grid');
   if (!container || !fleetData.team) return;
   let html = '';
+  const isStandalone = fleetSettings.is_demo === false;
+
   for (let i = 0; i < fleetData.team.length; i++) {
     const m = fleetData.team[i];
     let skillsHtml = '';
@@ -121,7 +141,10 @@ function populateTeam() {
         skillsHtml += '<span class="tag">' + m.skills[j] + '</span>';
       }
     }
-    html += '<article class="agent-card"><div class="agent-avatar">' + m.avatar + '</div><div class="agent-info"><div class="runtime-badge">EXECUTION: ' + m.runtime + '</div><h3>' + m.name + '</h3><div class="role-title">' + m.roleTitle + '</div><p class="role-desc">' + m.roleDesc + '</p><div class="tag-list">' + skillsHtml + '</div><div class="project-links"><a href="' + m.memoryLink + '" target="_blank" class="btn-link">ROLE CARD</a></div></div></article>';
+    const memLink = replacePlaceholders(m.memoryLink);
+    const removeBtn = isStandalone ? '<button class="btn-remove" onclick="removeAgent(\'' + m.name + '\')" style="margin-left:auto; font-size:0.6rem;">REMOVE</button>' : '';
+    
+    html += '<article class="agent-card"><div class="agent-avatar">' + m.avatar + '</div><div class="agent-info"><div style="display:flex; align-items:center;"><div class="runtime-badge">EXECUTION: ' + m.runtime + '</div>' + removeBtn + '</div><h3>' + m.name + '</h3><div class="role-title">' + m.roleTitle + '</div><p class="role-desc">' + m.roleDesc + '</p><div class="tag-list">' + skillsHtml + '</div><div class="project-links"><a href="' + memLink + '" target="_blank" class="btn-link">ROLE CARD</a></div></div></article>';
   }
   container.innerHTML = html;
 }
@@ -130,15 +153,41 @@ function populateProjects() {
   const container = document.getElementById('projects-grid');
   if (!container || !fleetData.projects) return;
   let html = '';
+  const isStandalone = fleetSettings.is_demo === false;
+
   for (let i = 0; i < fleetData.projects.length; i++) {
     const p = fleetData.projects[i];
-    const extra = p.statsLink ? '<a href="' + p.statsLink + '" target="_blank" class="btn-link">📊 VIEW STATS</a>' : '';
-    const crm = p.crmLink ? '<a href="' + p.crmLink + '" target="_blank" class="btn-link">🤝 VIEW CRM</a>' : '';
-    const docUrl = (p.docs && p.docs.length > 0) ? p.docs[0] : '#';
-    html += '<article class="project-card"><h3>' + p.title + '</h3><p class="project-summary">' + p.summary + '</p><div class="project-links"><a href="' + docUrl + '" target="_blank" class="btn-link">DOCUMENTATION</a><a href="' + (p.kanban || '#') + '" target="_blank" class="btn-link">KANBAN BOARD</a>' + extra + ' ' + crm + '</div></article>';
+    const statsLink = replacePlaceholders(p.statsLink);
+    const crmLink = replacePlaceholders(p.crmLink);
+    const extra = statsLink ? '<a href="' + statsLink + '" target="_blank" class="btn-link">📊 VIEW STATS</a>' : '';
+    const crm = crmLink ? '<a href="' + crmLink + '" target="_blank" class="btn-link">🤝 VIEW CRM</a>' : '';
+    const docUrl = (p.docs && p.docs.length > 0) ? replacePlaceholders(p.docs[0]) : '#';
+    const kanban = replacePlaceholders(p.kanban || '#');
+    const removeBtn = isStandalone ? '<button class="btn-remove" onclick="removeProject(\'' + p.title + '\')" style="padding:0.25rem 0.5rem; font-size:0.6rem;">REMOVE</button>' : '';
+
+    html += '<article class="project-card"><div style="display:flex; justify-content:space-between; align-items:flex-start;"><h3>' + p.title + '</h3>' + removeBtn + '</div><p class="project-summary">' + p.summary + '</p><div class="project-links"><a href="' + docUrl + '" target="_blank" class="btn-link">DOCUMENTATION</a><a href="' + kanban + '" target="_blank" class="btn-link">KANBAN BOARD</a>' + extra + ' ' + crm + '</div></article>';
   }
   container.innerHTML = html;
 }
+
+async function saveFleetData() {
+  try {
+    await fetchJson('/fleet/api/config', { method: 'POST', body: JSON.stringify(fleetData) });
+    loadFleetMeta();
+  } catch (err) { alert('Failed to save configuration.'); }
+}
+
+window.removeAgent = function(name) {
+  if (!confirm('Remove agent ' + name + '?')) return;
+  fleetData.team = fleetData.team.filter(function(m) { return m.name !== name; });
+  saveFleetData();
+};
+
+window.removeProject = function(title) {
+  if (!confirm('Remove project ' + title + '?')) return;
+  fleetData.projects = fleetData.projects.filter(function(p) { return p.title !== title; });
+  saveFleetData();
+};
 
 function renderMemoryTree() {
   const container = document.getElementById('docs-grid');
@@ -149,34 +198,9 @@ function renderMemoryTree() {
   const isDemo = path.indexOf('/demo') !== -1;
   const base = isGrowth ? '/growth' : (isDemo ? '/demo' : '/fleet');
 
-  let displayTree = memoryTree;
-  if (isGrowth) {
-    displayTree = [
-      {
-        folder: 'Growth Blueprint',
-        files: [
-          { title: 'CRM Prototype', desc: 'Relational management logic for sales leads.', path: 'AGENTS/CONTEXT/crm_poc_context.md' },
-          { title: 'Growth Strategy', desc: 'Sample project for autonomous lead discovery.', path: 'AGENTS/CONTEXT/agentegra.md' }
-        ]
-      }
-    ];
-  } else {
-    displayTree = [];
-    for (let i = 0; i < memoryTree.length; i++) {
-      const group = memoryTree[i];
-      const newFiles = [];
-      for (let j = 0; j < group.files.length; j++) {
-        const f = group.files[j];
-        const localPath = f.url.indexOf('AGENTS/') !== -1 ? f.url.split('master/')[1] : null;
-        newFiles.push({ title: f.title, desc: f.desc, path: localPath });
-      }
-      displayTree.push({ folder: group.folder, files: newFiles });
-    }
-  }
-
   let html = '';
-  for (let i = 0; i < displayTree.length; i++) {
-    const group = displayTree[i];
+  for (let i = 0; i < memoryTree.length; i++) {
+    const group = memoryTree[i];
     let filesHtml = '';
     for (let j = 0; j < group.files.length; j++) {
       const file = group.files[j];
@@ -305,7 +329,6 @@ function activateSection(targetId) {
   if (targetId === 'section-users') loadUsers();
   if (targetId === 'section-inbox') loadInbox();
 
-  // Close sidebar on mobile after selection
   const sidebar = document.getElementById('sidebar');
   const toggle = document.getElementById('mobile-toggle');
   if (sidebar) {
@@ -322,7 +345,6 @@ function wireNavControls() {
     button.onclick = function() { activateSection(this.getAttribute('data-section-button')); };
   }
 
-  // Mobile Toggle
   const toggle = document.getElementById('mobile-toggle');
   const sidebar = document.getElementById('sidebar');
   if (toggle && sidebar) {
@@ -433,14 +455,29 @@ function setupForms() {
         summary: f.get('summary'),
         docs: [f.get('docs') || f.get('github')],
         kanban: f.get('kanban') || f.get('github'),
-        statsLink: f.get('extra_url') || null
+        crmLink: f.get('extra_url') || null
       };
       fleetData.projects.push(newProject);
-      try {
-        await fetchJson('/fleet/api/config', { method: 'POST', body: JSON.stringify(fleetData) });
-        closeProjectModal();
-        loadFleetMeta();
-      } catch (err) { alert('Failed to save project.'); }
+      saveFleetData().then(closeProjectModal);
+    };
+  }
+
+  const agentForm = document.getElementById('agent-form');
+  if (agentForm) {
+    agentForm.onsubmit = async function(e) {
+      e.preventDefault();
+      const f = new FormData(agentForm);
+      const newAgent = {
+        name: f.get('name'),
+        avatar: f.get('avatar'),
+        roleTitle: f.get('roleTitle'),
+        roleDesc: f.get('roleDesc'),
+        skills: f.get('skills').split(',').map(function(s) { return s.trim(); }),
+        runtime: f.get('runtime'),
+        memoryLink: f.get('memoryLink')
+      };
+      fleetData.team.push(newAgent);
+      saveFleetData().then(closeAgentModal);
     };
   }
 
@@ -498,6 +535,15 @@ window.openProjectModal = function() {
 };
 window.closeProjectModal = function() {
   const modal = document.getElementById('project-modal');
+  if (modal) modal.style.display = 'none';
+};
+
+window.openAgentModal = function() {
+  const modal = document.getElementById('agent-modal');
+  if (modal) modal.style.display = 'flex';
+};
+window.closeAgentModal = function() {
+  const modal = document.getElementById('agent-modal');
   if (modal) modal.style.display = 'none';
 };
 

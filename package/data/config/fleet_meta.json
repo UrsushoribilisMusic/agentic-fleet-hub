@@ -1,38 +1,86 @@
 {
+  "meta": {
+    "installation": {
+      "setup_completed": false,
+      "org_name": "AgentFleet",
+      "repo_path": "",
+      "repo_url": "",
+      "kanban_url": "",
+      "crm_url": "",
+      "vault": {
+        "provider": "infisical",
+        "region": "EU"
+      },
+      "selected_agents": [
+        {
+          "id": "claude_code",
+          "label": "Claude Code",
+          "name": "Clau"
+        },
+        {
+          "id": "gemini_cli",
+          "label": "Gemini CLI",
+          "name": "Gem"
+        },
+        {
+          "id": "codex",
+          "label": "Codex",
+          "name": "Codi"
+        }
+      ],
+      "bootstrap": {
+        "last_written_at": null,
+        "last_repo_path": "",
+        "files_written": []
+      },
+      "completed_at": null,
+      "updated_at": null
+    },
+    "templates": {
+      "demo": {
+        "team": [],
+        "projects": []
+      },
+      "growth": {
+        "team": [],
+        "projects": []
+      }
+    }
+  },
   "team": [
     {
-      "name": "Coordinator",
-      "avatar": "🧠",
-      "roleTitle": "Fleet Coordinator",
-      "roleDesc": "Orchestrates tasks across the fleet, maintains shared memory, and ensures all agents stay aligned with project goals.",
-      "skills": ["Task Routing", "Memory Management", "Cross-Agent Sync"],
+      "name": "Clau",
+      "avatar": "AI",
+      "roleTitle": "Senior Logic and Implementation",
+      "roleDesc": "Owns high-precision implementation work, refactors risky code paths, and closes complex tickets cleanly.",
+      "skills": ["Implementation", "Refactoring", "Debugging"],
+      "runtime": "Hybrid",
+      "memoryLink": "#"
+    },
+    {
+      "name": "Gem",
+      "avatar": "GM",
+      "roleTitle": "Context and Infrastructure Architect",
+      "roleDesc": "Handles large-context synthesis, platform stability, and cross-project documentation flow.",
+      "skills": ["Context Synthesis", "Infrastructure", "Documentation"],
       "runtime": "Cloud",
       "memoryLink": "#"
     },
     {
-      "name": "Builder",
-      "avatar": "🔨",
-      "roleTitle": "Code & Infrastructure",
-      "roleDesc": "Implements features, manages CI/CD, and maintains the technical foundation of the fleet.",
-      "skills": ["Backend", "API Design", "DevOps"],
+      "name": "Codi",
+      "avatar": "CX",
+      "roleTitle": "QA and Delivery Runner",
+      "roleDesc": "Pushes feature throughput, validates changes, and keeps the delivery loop moving.",
+      "skills": ["API Prototyping", "QA Automation", "Delivery"],
       "runtime": "Cloud Runner",
-      "memoryLink": "#"
-    },
-    {
-      "name": "Analyst",
-      "avatar": "📊",
-      "roleTitle": "Data & Insights",
-      "roleDesc": "Monitors metrics, surfaces trends, and generates reports to guide fleet decisions.",
-      "skills": ["Analytics", "Reporting", "Forecasting"],
-      "runtime": "Hybrid",
       "memoryLink": "#"
     }
   ],
   "projects": [
     {
-      "title": "Fleet Hub",
+      "title": "AgentFleet",
       "owners": "Coordinator",
-      "summary": "Centralized management dashboard for the multi-agent crew.",
+      "summary": "Primary coordination workspace for the multi-agent team, including rules, standups, and shared operational memory.",
       "docs": ["#"],
       "kanban": "#"
     }

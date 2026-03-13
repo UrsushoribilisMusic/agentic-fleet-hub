@@ -18,6 +18,19 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
+import {
+  buildSetupPayload,
+  getDefaultFleetMeta,
+  getDemoConfig,
+  getGrowthConfig,
+  getSetupStatus,
+  normalizeFleetMeta,
+  readJson,
+  runDoctor,
+  updateBootstrapMetadata,
+  writeBootstrapFiles,
+  writeJson,
+} from "./setup-lib.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -42,29 +55,17 @@ const ALLOWED_EMAILS_RAW   = (process.env.GOOGLE_AUTH_ALLOWED_EMAILS || "").spli
 
 // Static roots: map URL prefix → local directory
 const STATIC_ROOTS = {
-  "/fleet":    path.join(__dirname, "..", "dashboard", "engineering"),
-  "/demo":     path.join(__dirname, "..", "dashboard", "demo"),
-  "/growth":   path.join(__dirname, "..", "dashboard", "growth"),
+  "/fleet":     path.join(__dirname, "..", "dashboard", "engineering"),
+  "/demo":      path.join(__dirname, "..", "dashboard", "demo"),
+  "/growth":    path.join(__dirname, "..", "dashboard", "growth"),
+  "/setup":     path.join(__dirname, "..", "dashboard", "setup"),
+  "/configure": path.join(__dirname, "..", "dashboard", "configure"),
 };
 
 // ─── Utilities ───────────────────────────────────────────────────────────────
 
 function now()  { return Date.now(); }
 function rid()  { return `req_${now()}_${Math.random().toString(36).slice(2, 8)}`; }
-
-function readJson(filePath, fallback) {
-  try {
-    if (!fs.existsSync(filePath)) return fallback;
-    return JSON.parse(fs.readFileSync(filePath, "utf8"));
-  } catch {
-    return fallback;
-  }
-}
-
-function writeJson(filePath, data) {
-  fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-}
 
 function send(res, code, body, requestId) {
   res.statusCode = code;
@@ -212,6 +213,8 @@ async function handler(req, res) {
 
   const url = new URL(req.url, `http://localhost`);
   const urlPath = url.pathname;
+  const fleetMeta = normalizeFleetMeta(readJson(FLEET_META_PATH, getDefaultFleetMeta()));
+  const setupCompleted = fleetMeta.meta.installation.setup_completed;
 
   // ── Health check ────────────────────────────────────────────────────────
   if (urlPath === "/health") {
@@ -272,17 +275,59 @@ async function handler(req, res) {
 
     // GET /fleet/api/config — full fleet config
     if (urlPath === "/fleet/api/config" && req.method === "GET") {
-      return send(res, 200, readJson(FLEET_META_PATH, { team: [], projects: [] }), requestId);
+      return send(res, 200, fleetMeta, requestId);
+    }
+
+    // POST /fleet/api/config — overwrite full fleet config
+    if (urlPath === "/fleet/api/config" && req.method === "POST") {
+      const body = await readBody(req);
+      const normalized = normalizeFleetMeta(body);
+      writeJson(FLEET_META_PATH, normalized);
+      return send(res, 200, { ok: true, config: normalized }, requestId);
     }
 
     // GET /fleet/api/config/demo — public demo config
     if (urlPath === "/fleet/api/config/demo" && req.method === "GET") {
-      return send(res, 200, readJson(DEMO_META_PATH, readJson(FLEET_META_PATH, { team: [], projects: [] })), requestId);
+      return send(res, 200, getDemoConfig(fleetMeta, readJson(DEMO_META_PATH, { team: [], projects: [] })), requestId);
     }
 
     // GET /fleet/api/config/growth — growth template config
     if (urlPath === "/fleet/api/config/growth" && req.method === "GET") {
-      return send(res, 200, readJson(GROWTH_META_PATH, { team: [], projects: [] }), requestId);
+      return send(res, 200, getGrowthConfig(fleetMeta, readJson(GROWTH_META_PATH, { team: [], projects: [] })), requestId);
+    }
+
+    // GET /fleet/api/setup/status
+    if (urlPath === "/fleet/api/setup/status" && req.method === "GET") {
+      return send(res, 200, getSetupStatus(fleetMeta), requestId);
+    }
+
+    // GET /fleet/api/setup/doctor
+    if (urlPath === "/fleet/api/setup/doctor" && req.method === "GET") {
+      return send(res, 200, runDoctor(fleetMeta), requestId);
+    }
+
+    // POST /fleet/api/setup
+    if (urlPath === "/fleet/api/setup" && req.method === "POST") {
+      const body = await readBody(req);
+      let nextMeta = buildSetupPayload(fleetMeta, body);
+      let bootstrap = null;
+
+      if (body.write_to_repo === true) {
+        bootstrap = writeBootstrapFiles(nextMeta, body.repo_path);
+        nextMeta = updateBootstrapMetadata(nextMeta, bootstrap);
+      }
+
+      writeJson(FLEET_META_PATH, nextMeta);
+      return send(
+        res,
+        200,
+        {
+          ok: true,
+          setup: getSetupStatus(nextMeta),
+          bootstrap,
+        },
+        requestId
+      );
     }
 
     // GET /fleet/api/lessons
@@ -388,7 +433,13 @@ async function handler(req, res) {
   // ── Root redirect ─────────────────────────────────────────────────────────
   if (urlPath === "/" || urlPath === "") {
     res.statusCode = 302;
-    res.setHeader("Location", "/demo/");
+    res.setHeader("Location", setupCompleted ? "/demo/" : "/setup/");
+    return res.end();
+  }
+
+  if ((urlPath === "/fleet" || urlPath === "/fleet/") && !setupCompleted) {
+    res.statusCode = 302;
+    res.setHeader("Location", "/setup/");
     return res.end();
   }
 

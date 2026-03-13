@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fleet Hub</title>
   <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/style.css?v=release_final_v1">
   <script>window.RobotRossAuthConfig = { enabled: true }; document.documentElement.dataset.authLoading = "1";</script>
   <script src="/auth/auth.js" defer></script>
 </head>
@@ -18,7 +18,7 @@
         <img src="assets/icon.svg" alt="Icon" style="width: 32px; height: 32px;">
         <h2 style="font-size: 1.1rem; letter-spacing: -0.02em;">Fleet Hub</h2>
       </div>
-      <p class="eyebrow" style="font-size: 0.65rem; opacity: 0.6;">Ursushoribilis Fleet</p>
+      <p class="eyebrow" style="font-size: 0.65rem; opacity: 0.6;">Fleet Orchestration</p>
     </div>
     
     <nav class="sidebar-nav" id="sidebar-nav">
@@ -62,10 +62,13 @@
 
   <main class="main-content">
     <section id="section-team" class="section is-active">
-      <header class="page-header">
-        <p class="eyebrow">Fleet Crew</p>
-        <h1>Agentic Team</h1>
-        <p class="lede">Manage the roles and deployment status of your multi-agent fleet.</p>
+      <header class="page-header" style="display: flex; justify-content: space-between; align-items: flex-end;">
+        <div>
+          <p class="eyebrow">Fleet Crew</p>
+          <h1>Agentic Team</h1>
+          <p class="lede">Manage the roles and deployment status of your multi-agent fleet.</p>
+        </div>
+        <button class="btn-submit standalone-only" onclick="openAgentModal()" style="width: auto; padding: 0.75rem 1.5rem; font-size: 0.8rem; display: none;">+ ADD AGENT</button>
       </header>
       <div id="team-grid" class="cards-grid"></div>
     </section>
@@ -175,7 +178,7 @@
               <select id="m-priority">
                 <option value="normal">Normal</option>
                 <option value="high">High</option>
-                <option value="urgent">Urgent (Triggers Phase 2)</option>
+                <option value="urgent">Urgent</option>
               </select>
             </div>
             <div class="form-group">
@@ -192,7 +195,7 @@
       <header class="page-header">
         <p class="eyebrow">Access Control</p>
         <h1>User Management</h1>
-        <p class="lede">Whitelist email addresses to grant access to the Fleet Hub via Google OAuth.</p>
+        <p class="lede">Whitelist email addresses to grant access via Google OAuth.</p>
       </header>
       
       <div class="card">
@@ -202,10 +205,10 @@
         <div id="users-list" class="tree-list" style="margin-bottom: 2rem;">Loading users...</div>
         
         <form id="user-form" class="standup-form" style="padding: 1.5rem;">
-          <h3 style="color: var(--white); font-size: 1.1rem; margin-bottom: 1rem;">Add Authorized Email</h3>
+          <h3 style="color: var(--white); font-size: 1.1rem; margin-bottom: 1rem;">Add Email</h3>
           <div style="display: flex; gap: 1rem;">
             <input type="email" name="email" required placeholder="user@example.com" style="flex: 1; background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: 8px; color: var(--white); padding: 0.75rem;">
-            <button type="submit" class="btn-submit" style="width: auto; padding: 0 2rem; align-self: stretch;">WHITELIST USER</button>
+            <button type="submit" class="btn-submit" style="width: auto; padding: 0 2rem; align-self: stretch;">ADD USER</button>
           </div>
         </form>
       </div>
@@ -232,6 +235,25 @@
     </div>
   </div>
 
-  <script src="assets/main.js?v=20260311_v4" defer></script>
+  <div id="agent-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 1.5rem;">
+        <h2 style="font-size: 1.25rem;">Add New Agent</h2>
+        <button onclick="closeAgentModal()" style="background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.5rem;">&times;</button>
+      </div>
+      <form id="agent-form" class="standup-form" style="background: none; padding: 0; border: none; margin: 0;">
+        <label><span>Agent Name</span><input type="text" name="name" required placeholder="e.g. Clau"></label>
+        <label><span>Avatar Emoji</span><input type="text" name="avatar" required placeholder="🤖"></label>
+        <label><span>Role Title</span><input type="text" name="roleTitle" required placeholder="e.g. Logic Engineer"></label>
+        <label><span>Description</span><textarea name="roleDesc" required rows="3"></textarea></label>
+        <label><span>Skills (comma separated)</span><input type="text" name="skills" placeholder="Coding, SQL, QA"></label>
+        <label><span>Runtime Environment</span><input type="text" name="runtime" placeholder="e.g. Cloud VPS"></label>
+        <label><span>Role Card URL</span><input type="url" name="memoryLink" placeholder="{{MAIN_REPO}}/blob/master/AGENTS/RULES.md"></label>
+        <button type="submit" class="btn-submit" style="width: 100%; margin-top: 1rem;">SAVE AGENT</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/main.js?v=release_final_v1" defer></script>
 </body>
 </html>

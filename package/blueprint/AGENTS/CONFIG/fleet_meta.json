@@ -1,30 +1,73 @@
 {
+  "meta": {
+    "installation": {
+      "setup_completed": false,
+      "org_name": "{{ORG_NAME}}",
+      "repo_path": "{{PROJECT_PATH}}",
+      "repo_url": "{{PROJECT_REPO_URL}}",
+      "kanban_url": "{{KANBAN_URL}}",
+      "crm_url": "{{CRM_URL}}",
+      "vault": {
+        "provider": "infisical",
+        "region": "EU"
+      },
+      "selected_agents": [
+        {
+          "id": "claude_code",
+          "label": "Claude Code",
+          "name": "{{AGENT_1_NAME}}"
+        },
+        {
+          "id": "gemini_cli",
+          "label": "Gemini CLI",
+          "name": "{{AGENT_2_NAME}}"
+        }
+      ],
+      "bootstrap": {
+        "last_written_at": null,
+        "last_repo_path": "",
+        "files_written": []
+      },
+      "completed_at": null,
+      "updated_at": null
+    },
+    "templates": {
+      "demo": {
+        "team": [],
+        "projects": []
+      },
+      "growth": {
+        "team": [],
+        "projects": []
+      }
+    }
+  },
   "team": [
     {
       "name": "{{AGENT_1_NAME}}",
-      "avatar": "🤖",
+      "avatar": "AI",
       "roleTitle": "{{AGENT_1_ROLE}}",
-      "roleDesc": "{{AGENT_1_DESC}}",
-      "skills": ["{{SKILL_1}}", "{{SKILL_2}}", "{{SKILL_3}}"],
-      "runtime": "{{AGENT_1_RUNTIME}}",
-      "memoryLink": "{{AGENT_1_MEMORY_LINK}}"
+      "roleDesc": "{{AGENT_1_ROLE}} operator for {{ORG_NAME}}.",
+      "skills": ["Implementation", "Refactoring", "Debugging"],
+      "runtime": "Hybrid",
+      "memoryLink": "{{PROJECT_REPO_URL}}/blob/master/AGENTS/RULES.md"
     },
     {
       "name": "{{AGENT_2_NAME}}",
-      "avatar": "♊",
+      "avatar": "GM",
       "roleTitle": "{{AGENT_2_ROLE}}",
-      "roleDesc": "{{AGENT_2_DESC}}",
-      "skills": ["{{SKILL_4}}", "{{SKILL_5}}", "{{SKILL_6}}"],
-      "runtime": "{{AGENT_2_RUNTIME}}",
-      "memoryLink": "{{AGENT_2_MEMORY_LINK}}"
+      "roleDesc": "{{AGENT_2_ROLE}} operator for {{ORG_NAME}}.",
+      "skills": ["Context Synthesis", "Infrastructure", "Documentation"],
+      "runtime": "Cloud",
+      "memoryLink": "{{PROJECT_REPO_URL}}/blob/master/AGENTS/RULES.md"
     }
   ],
   "projects": [
     {
-      "title": "{{PROJECT_1_TITLE}}",
-      "owners": "{{PROJECT_1_OWNER}}",
-      "summary": "{{PROJECT_1_SUMMARY}}",
-      "docs": ["{{PROJECT_1_DOCS_URL}}"],
+      "title": "{{PROJECT_NAME}}",
+      "owners": "Coordinator",
+      "summary": "{{PROJECT_DESC}}",
+      "docs": ["{{PROJECT_REPO_URL}}/blob/master/MISSION_CONTROL.md"],
       "kanban": "{{KANBAN_URL}}"
     }
   ]

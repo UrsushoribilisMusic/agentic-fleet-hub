@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgentFleet Setup</title>
+  <style>
+    :root {
+      --bg: #f4efe7;
+      --panel: #fffaf3;
+      --ink: #1f2933;
+      --muted: #5c6b73;
+      --line: #d8cec0;
+      --accent: #0f766e;
+      --accent-2: #164e63;
+      --warn: #9a3412;
+      --soft: #efe4d1;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(15, 118, 110, 0.08), transparent 28%),
+        radial-gradient(circle at top right, rgba(22, 78, 99, 0.1), transparent 24%),
+        linear-gradient(180deg, #f8f3ea 0%, var(--bg) 100%);
+      min-height: 100vh;
+    }
+    .shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .hero-card, .panel {
+      background: rgba(255, 250, 243, 0.92);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: 0 24px 70px rgba(31, 41, 51, 0.08);
+    }
+    .hero-card {
+      padding: 28px;
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 12px;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    h1, h2, h3 {
+      margin: 0;
+      font-weight: 600;
+    }
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .hero p, .panel p, .muted {
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .status-card {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      justify-content: space-between;
+    }
+    .status-chip {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--accent-2);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+    .steps {
+      padding: 20px;
+      position: sticky;
+      top: 20px;
+    }
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .step-item {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      background: #fff;
+      font-size: 14px;
+    }
+    .step-item.active {
+      border-color: var(--accent);
+      background: var(--soft);
+    }
+    .step-item.done {
+      border-color: #94a3b8;
+    }
+    .panel {
+      padding: 24px;
+    }
+    .fields {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .field, .agent-card {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .field.full, .note, .review, .doctor, .bootstrap {
+      grid-column: 1 / -1;
+    }
+    label {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+    }
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .agents {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .agent-card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+      background: #fff;
+    }
+    .agent-card header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .inline-check {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 14px;
+    }
+    .inline-check input {
+      width: auto;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    button, .link-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-secondary {
+      background: #fff;
+      color: var(--accent-2);
+      border: 1px solid var(--line);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      color: #fff;
+    }
+    .note, .doctor, .bootstrap, .review {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      background: #fff;
+    }
+    .note.warn {
+      background: #fff3e8;
+      border-color: #f0c7a4;
+      color: var(--warn);
+    }
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .review-grid div {
+      padding: 12px;
+      border-radius: 12px;
+      background: var(--soft);
+    }
+    ul {
+      margin: 8px 0 0 18px;
+      color: var(--muted);
+    }
+    .hidden {
+      display: none;
+    }
+    @media (max-width: 900px) {
+      .hero, .layout, .fields, .agents, .review-grid {
+        grid-template-columns: 1fr;
+      }
+      .steps {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="eyebrow">Ticket #24</div>
+        <h1>Onboard the fleet before the fleet starts talking.</h1>
+        <p>This setup wizard writes the primary install profile into <code>fleet_meta.json</code>, personalizes the demo and growth templates, and can bootstrap the selected markdown files into your repository.</p>
+      </div>
+      <div class="hero-card status-card">
+        <div>
+          <span id="status-chip" class="status-chip">Loading status</span>
+          <p id="status-copy" class="muted">Checking whether this instance already has an installation profile.</p>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="link-btn btn-secondary" href="/configure/">Open Configure</a>
+          <a class="link-btn btn-secondary" href="/demo/">Open Demo</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="layout">
+      <aside class="panel steps">
+        <h2>Setup Flow</h2>
+        <div id="step-list" class="step-list"></div>
+      </aside>
+
+      <main class="panel">
+        <div class="eyebrow" id="step-eyebrow">Step 1</div>
+        <h2 id="step-title">Loading</h2>
+        <p id="step-copy" class="muted"></p>
+
+        <form id="setup-form">
+          <div id="step-content" class="fields"></div>
+          <div class="nav">
+            <button type="button" id="prev-btn" class="btn-secondary">Previous</button>
+            <div style="display:flex; gap:12px;">
+              <button type="button" id="next-btn" class="btn-secondary">Next</button>
+              <button type="submit" id="save-btn" class="btn-primary hidden">Apply Setup</button>
+            </div>
+          </div>
+        </form>
+      </main>
+    </section>
+  </div>
+
+  <script>
+    const state = {
+      step: 0,
+      catalog: [],
+      profile: {
+        org_name: "AgentFleet",
+        repo_path: "",
+        repo_url: "",
+        kanban_url: "",
+        crm_url: "",
+        vault: { provider: "infisical", region: "EU" },
+        selected_agents: [],
+        bootstrap: { files_written: [] }
+      },
+      bootstrap_instructions: [],
+      doctor: { ok: true, checks: [], issues: [] }
+    };
+
+    const steps = [
+      { title: "Workspace", copy: "Set the installation identity that will be shown across the fleet." },
+      { title: "Repository", copy: "Point setup at the repository you want to bootstrap. This can be skipped and added later." },
+      { title: "Agents", copy: "Choose the fixed set of agents this fleet should provision." },
+      { title: "Names", copy: "Set the display names each selected agent will use inside Mission Control and the UI." },
+      { title: "Vault", copy: "Store the key vault provider and region in the grouped installation profile." },
+      { title: "Templates", copy: "Configure shared links used by the demo and growth template views." },
+      { title: "Review", copy: "Review the installation profile, optionally write bootstrap files into the repo, and apply setup." }
+    ];
+
+    function el(id) {
+      return document.getElementById(id);
+    }
+
+    function escapeHtml(value) {
+      return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function selectedAgents() {
+      return state.catalog
+        .filter(agent => {
+          const box = document.querySelector(`input[data-agent="${agent.id}"]`);
+          return box && box.checked;
+        })
+        .map(agent => {
+          const input = document.querySelector(`input[data-agent-name="${agent.id}"]`);
+          return {
+            id: agent.id,
+            name: input && input.value.trim() ? input.value.trim() : agent.default_name
+          };
+        });
+    }
+
+    function syncStateFromForm() {
+      const profile = state.profile;
+      const org = el("org_name");
+      if (org) profile.org_name = org.value.trim();
+      const repoPath = el("repo_path");
+      if (repoPath) profile.repo_path = repoPath.value.trim();
+      const repoUrl = el("repo_url");
+      if (repoUrl) profile.repo_url = repoUrl.value.trim();
+      const kanban = el("kanban_url");
+      if (kanban) profile.kanban_url = kanban.value.trim();
+      const crm = el("crm_url");
+      if (crm) profile.crm_url = crm.value.trim();
+      const provider = el("vault_provider");
+      if (provider) profile.vault.provider = provider.value;
+      const region = el("vault_region");
+      if (region) profile.vault.region = region.value;
+      profile.selected_agents = selectedAgents();
+    }
+
+    function renderSteps() {
+      el("step-list").innerHTML = steps.map((step, index) => {
+        const className = index === state.step ? "step-item active" : index < state.step ? "step-item done" : "step-item";
+        return `<div class="${className}">${index + 1}. ${step.title}</div>`;
+      }).join("");
+    }
+
+    function renderAgentCards() {
+      return `
+        <div class="note warn full">
+          If you are targeting German-speaking markets, double-check your agent names. Some short nicknames do not travel well across DACH slang.
+        </div>
+        <div class="agents full">
+          ${state.catalog.map(agent => {
+            const selected = state.profile.selected_agents.find(item => item.id === agent.id);
+            const checked = selected ? "checked" : "";
+            const name = selected ? selected.name : agent.default_name;
+            return `
+              <article class="agent-card">
+                <header>
+                  <strong>${escapeHtml(agent.label)}</strong>
+                  <label class="inline-check">
+                    <input type="checkbox" data-agent="${escapeHtml(agent.id)}" ${checked} />
+                    Include
+                  </label>
+                </header>
+                <label for="agent-name-${escapeHtml(agent.id)}">Display name</label>
+                <input id="agent-name-${escapeHtml(agent.id)}" data-agent-name="${escapeHtml(agent.id)}" value="${escapeHtml(name)}" />
+                <p class="muted">${escapeHtml(agent.bootstrap_instruction)}</p>
+              </article>
+            `;
+          }).join("")}
+        </div>
+      `;
+    }
+
+    function renderReview() {
+      syncStateFromForm();
+      const profile = state.profile;
+      const agents = profile.selected_agents.map(agent => `${agent.name} (${agent.id})`).join(", ") || "None selected";
+      const doctor = state.doctor || { ok: true, issues: [] };
+      return `
+        <div class="review">
+          <h3>Installation Profile</h3>
+          <div class="review-grid">
+            <div><strong>Organization</strong><br>${escapeHtml(profile.org_name || "Not set")}</div>
+            <div><strong>Repository path</strong><br>${escapeHtml(profile.repo_path || "Skipped")}</div>
+            <div><strong>Vault</strong><br>${escapeHtml(profile.vault.provider)} / ${escapeHtml(profile.vault.region)}</div>
+            <div><strong>Agents</strong><br>${escapeHtml(agents)}</div>
+          </div>
+        </div>
+        <label class="inline-check full">
+          <input type="checkbox" id="write_to_repo" ${profile.repo_path ? "checked" : ""} />
+          Write bootstrap files into the repository during setup
+        </label>
+        <div class="bootstrap">
+          <h3>Bootstrap Instructions</h3>
+          <ul>
+            ${state.bootstrap_instructions.map(item => `<li>${escapeHtml(item.label)}: ${escapeHtml(item.instruction)}</li>`).join("")}
+          </ul>
+        </div>
+        <div class="doctor">
+          <h3>Current Doctor Status</h3>
+          <p>${doctor.ok ? "No blocking issues detected." : "Doctor sees unresolved issues before or after bootstrap."}</p>
+          ${doctor.issues.length ? `<ul>${doctor.issues.map(issue => `<li>${escapeHtml(issue)}</li>`).join("")}</ul>` : ""}
+        </div>
+      `;
+    }
+
+    function renderCurrentStep() {
+      renderSteps();
+      const step = steps[state.step];
+      el("step-eyebrow").textContent = `Step ${state.step + 1} of ${steps.length}`;
+      el("step-title").textContent = step.title;
+      el("step-copy").textContent = step.copy;
+
+      let html = "";
+      if (state.step === 0) {
+        html = `
+          <label class="field full">
+            <span>Organization name</span>
+            <input id="org_name" value="${escapeHtml(state.profile.org_name)}" placeholder="AgentFleet" />
+          </label>
+          <div class="note full">
+            This becomes the top-level installation identity and is reused in generated markdown files.
+          </div>
+        `;
+      } else if (state.step === 1) {
+        html = `
+          <label class="field full">
+            <span>Git repository path</span>
+            <input id="repo_path" value="${escapeHtml(state.profile.repo_path)}" placeholder="C:\\Projects\\my-fleet" />
+          </label>
+          <label class="field full">
+            <span>Primary repository URL</span>
+            <input id="repo_url" value="${escapeHtml(state.profile.repo_url)}" placeholder="https://github.com/acme/agentfleet" />
+          </label>
+          <div class="note full">
+            The repo path is optional. If provided, setup can write the default markdown and vault files into that repository.
+          </div>
+        `;
+      } else if (state.step === 2 || state.step === 3) {
+        html = renderAgentCards();
+      } else if (state.step === 4) {
+        html = `
+          <label class="field">
+            <span>Vault provider</span>
+            <select id="vault_provider">
+              <option value="infisical" ${state.profile.vault.provider === "infisical" ? "selected" : ""}>Infisical</option>
+              <option value="1password" ${state.profile.vault.provider === "1password" ? "selected" : ""}>1Password</option>
+              <option value="other" ${state.profile.vault.provider === "other" ? "selected" : ""}>Other</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Vault region</span>
+            <select id="vault_region">
+              <option value="EU" ${state.profile.vault.region === "EU" ? "selected" : ""}>EU</option>
+              <option value="US" ${state.profile.vault.region === "US" ? "selected" : ""}>US</option>
+              <option value="custom" ${state.profile.vault.region === "custom" ? "selected" : ""}>Custom</option>
+            </select>
+          </label>
+        `;
+      } else if (state.step === 5) {
+        html = `
+          <label class="field">
+            <span>Kanban URL</span>
+            <input id="kanban_url" value="${escapeHtml(state.profile.kanban_url)}" placeholder="https://github.com/users/org/projects/1/views/1" />
+          </label>
+          <label class="field">
+            <span>CRM URL</span>
+            <input id="crm_url" value="${escapeHtml(state.profile.crm_url)}" placeholder="https://example.com/crm-demo/" />
+          </label>
+          <div class="note full">
+            These links are reused by the generated demo and growth metadata inside the grouped template section.
+          </div>
+        `;
+      } else {
+        html = renderReview();
+      }
+
+      el("step-content").innerHTML = html;
+      el("prev-btn").disabled = state.step === 0;
+      el("next-btn").classList.toggle("hidden", state.step === steps.length - 1);
+      el("save-btn").classList.toggle("hidden", state.step !== steps.length - 1);
+    }
+
+    function applyStatus(status) {
+      state.catalog = status.catalog || [];
+      state.profile = status.profile || state.profile;
+      state.bootstrap_instructions = status.bootstrap_instructions || [];
+      state.doctor = status.doctor || state.doctor;
+      el("status-chip").textContent = status.completed ? "Setup already completed" : "Setup not completed";
+      el("status-copy").textContent = status.completed
+        ? "This wizard is rerunnable. Update the installation profile or write bootstrap files again."
+        : "This instance has not been onboarded yet.";
+      renderCurrentStep();
+    }
+
+    async function loadStatus() {
+      const response = await fetch("/fleet/api/setup/status", { cache: "no-store" });
+      const status = await response.json();
+      applyStatus(status);
+    }
+
+    async function saveSetup(event) {
+      event.preventDefault();
+      syncStateFromForm();
+      const payload = {
+        org_name: state.profile.org_name,
+        repo_path: state.profile.repo_path,
+        repo_url: state.profile.repo_url,
+        kanban_url: state.profile.kanban_url,
+        crm_url: state.profile.crm_url,
+        vault_provider: state.profile.vault.provider,
+        vault_region: state.profile.vault.region,
+        selected_agents: state.profile.selected_agents,
+        write_to_repo: Boolean(el("write_to_repo") && el("write_to_repo").checked)
+      };
+
+      const response = await fetch("/fleet/api/setup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+      if (!response.ok || !result.ok) {
+        alert("Setup failed. Check the server log and retry.");
+        return;
+      }
+
+      applyStatus(result.setup);
+      const bootstrap = result.bootstrap;
+      if (bootstrap && bootstrap.files_written) {
+        alert(`Setup saved. Bootstrap wrote ${bootstrap.files_written.length} files into ${bootstrap.repo_path}.`);
+      } else {
+        alert("Setup saved.");
+      }
+    }
+
+    el("prev-btn").addEventListener("click", () => {
+      syncStateFromForm();
+      state.step = Math.max(0, state.step - 1);
+      renderCurrentStep();
+    });
+
+    el("next-btn").addEventListener("click", () => {
+      syncStateFromForm();
+      state.bootstrap_instructions = state.catalog
+        .filter(agent => state.profile.selected_agents.some(selected => selected.id === agent.id))
+        .map(agent => ({
+          label: agent.label,
+          instruction: agent.bootstrap_instruction
+        }));
+      state.step = Math.min(steps.length - 1, state.step + 1);
+      renderCurrentStep();
+    });
+
+    el("setup-form").addEventListener("submit", saveSetup);
+    loadStatus().catch(() => {
+      el("status-chip").textContent = "Status unavailable";
+      el("status-copy").textContent = "Could not load setup status from the server.";
+    });
+  </script>
+</body>
+</html>

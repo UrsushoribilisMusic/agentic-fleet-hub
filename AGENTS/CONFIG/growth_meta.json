@@ -7,7 +7,7 @@
       "roleDesc": "Monitors LinkedIn, industry news, and competitor activity to identify high-value opportunities. The front-line eyes of the fleet.",
       "skills": ["Web Research", "Trend Analysis", "Lead Enrichment"],
       "runtime": "Cloud Runner",
-      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/RULES.md"
+      "memoryLink": "{{MAIN_REPO}}/blob/master/AGENTS/RULES.md"
     },
     {
       "name": "Echo",
@@ -16,7 +16,7 @@
       "roleDesc": "Drafts high-engagement posts, suggest content for TikTok/YouTube, and manages the social calendar. Amplifies the brand voice.",
       "skills": ["Content Writing", "Social Strategy", "Viral Loops"],
       "runtime": "Cloud VPS",
-      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/RULES.md"
+      "memoryLink": "{{MAIN_REPO}}/blob/master/AGENTS/RULES.md"
     },
     {
       "name": "Closer",
@@ -25,7 +25,7 @@
       "roleDesc": "Inputs leads into the CRM, drafts personalized outreach emails, and coordinates follow-ups with humans-in-the-loop.",
       "skills": ["CRM Automation", "Personalized Outreach", "Pipeline Management"],
       "runtime": "Hybrid (Vault-Backed)",
-      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/RULES.md"
+      "memoryLink": "{{MAIN_REPO}}/blob/master/AGENTS/RULES.md"
     }
   ],
   "projects": [
@@ -33,17 +33,17 @@
       "title": "Lead Pipeline (CRM)",
       "owners": "Closer",
       "summary": "(Sample Project) Our definitive 'Northstar' test case—similar to the Northwind example. A high-fidelity React/FastAPI prototype managed autonomously by the fleet to demonstrate autonomous lead discovery and CRM synchronization.",
-      "crmLink": "https://api.robotross.art/crm-demo/",
-      "docs": ["https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/crm_poc_context.md"],
-      "kanban": "https://github.com/users/UrsushoribilisMusic/projects/2/views/2"
+      "crmLink": "{{CRM_URL}}",
+      "docs": ["{{MAIN_REPO}}/blob/master/AGENTS/CONTEXT/crm_poc_context.md"],
+      "kanban": "{{KANBAN_URL}}"
     },
     {
       "title": "Content Calendar",
       "owners": "Echo",
       "summary": "Autonomous content planning. Echo suggests the posts, you hit 'Publish'. Complete with AI video generation hooks.",
-      "statsLink": "https://api.robotross.art/crm-demo/?tab=calendar",
-      "docs": ["#"],
-      "kanban": "#"
+      "statsLink": "{{CRM_URL}}?tab=calendar",
+      "docs": ["{{MAIN_REPO}}/blob/master/AGENTS/RULES.md"],
+      "kanban": "{{KANBAN_URL}}"
     }
   ]
 }
