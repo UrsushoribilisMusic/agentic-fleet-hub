@@ -53,6 +53,7 @@ const LESSONS_PATH     = path.join(FLEET_DATA_DIR, "lessons", "ledger.json");
 const INBOX_PATH       = path.join(FLEET_DATA_DIR, "messages", "inbox.json");
 const STANDUPS_DIR     = path.join(FLEET_DATA_DIR, "standups");
 const STANDUPS_INDEX   = path.join(STANDUPS_DIR, "index.json");
+const WORKSPACE_ROOT   = path.resolve(__dirname, "..", "..");
 
 // GitHub live standup sync (optional)
 const GITHUB_REPO          = process.env.GITHUB_REPO || "";
@@ -133,6 +134,47 @@ function getMimeType(ext) {
     ".woff2":"font/woff2",
   };
   return types[ext] || "application/octet-stream";
+}
+
+function fileExists(targetPath) {
+  try {
+    return fs.existsSync(targetPath);
+  } catch {
+    return false;
+  }
+}
+
+function getRepoRoot(fleetMeta) {
+  const configured = fleetMeta?.meta?.installation?.repo_path;
+  if (typeof configured === "string" && configured.trim()) {
+    const resolved = path.resolve(configured.trim());
+    if (fileExists(path.join(resolved, "MISSION_CONTROL.md"))) return resolved;
+  }
+
+  if (fileExists(path.join(WORKSPACE_ROOT, "MISSION_CONTROL.md"))) {
+    return WORKSPACE_ROOT;
+  }
+
+  return null;
+}
+
+function getContentPaths(fleetMeta) {
+  const repoRoot = getRepoRoot(fleetMeta);
+  if (repoRoot) {
+    return {
+      lessonsPath: path.join(repoRoot, "AGENTS", "LESSONS", "ledger.json"),
+      inboxPath: path.join(repoRoot, "AGENTS", "MESSAGES", "inbox.json"),
+      standupsDir: path.join(repoRoot, "standups"),
+      standupsIndex: path.join(repoRoot, "standups", "index.json"),
+    };
+  }
+
+  return {
+    lessonsPath: LESSONS_PATH,
+    inboxPath: INBOX_PATH,
+    standupsDir: STANDUPS_DIR,
+    standupsIndex: STANDUPS_INDEX,
+  };
 }
 
 // ─── Cookie helpers (simple HMAC-signed value) ───────────────────────────────
@@ -247,6 +289,7 @@ async function handler(req, res) {
   const url = new URL(req.url, `http://localhost`);
   const urlPath = url.pathname;
   const fleetMeta = normalizeFleetMeta(readJson(FLEET_META_PATH, getDefaultFleetMeta()));
+  const contentPaths = getContentPaths(fleetMeta);
   const setupCompleted = fleetMeta.meta.installation.setup_completed;
 
   // ── Health check ────────────────────────────────────────────────────────
@@ -390,13 +433,13 @@ async function handler(req, res) {
 
     // GET /fleet/api/lessons
     if (urlPath === "/fleet/api/lessons" && req.method === "GET") {
-      return send(res, 200, readJson(LESSONS_PATH, []), requestId);
+      return send(res, 200, readJson(contentPaths.lessonsPath, []), requestId);
     }
 
     // POST /fleet/api/lessons
     if (urlPath === "/fleet/api/lessons" && req.method === "POST") {
       const body = await readBody(req);
-      const ledger = readJson(LESSONS_PATH, []);
+      const ledger = readJson(contentPaths.lessonsPath, []);
       const lesson = {
         id:         body.id || `lesson-${now()}`,
         title:      body.title || "Untitled Lesson",
@@ -410,7 +453,7 @@ async function handler(req, res) {
         status:     "pending_review",
       };
       ledger.unshift(lesson);
-      writeJson(LESSONS_PATH, ledger);
+      writeJson(contentPaths.lessonsPath, ledger);
       return send(res, 201, { ok: true, lesson }, requestId);
     }
 
@@ -419,23 +462,23 @@ async function handler(req, res) {
     if (lessonPatch && req.method === "PATCH") {
       const id = lessonPatch[1];
       const body = await readBody(req);
-      const ledger = readJson(LESSONS_PATH, []);
+      const ledger = readJson(contentPaths.lessonsPath, []);
       const idx = ledger.findIndex(l => l.id === id);
       if (idx === -1) return send(res, 404, { ok: false, error: "lesson_not_found" }, requestId);
       ledger[idx] = { ...ledger[idx], ...body };
-      writeJson(LESSONS_PATH, ledger);
+      writeJson(contentPaths.lessonsPath, ledger);
       return send(res, 200, { ok: true, lesson: ledger[idx] }, requestId);
     }
 
     // GET /fleet/api/messages
     if (urlPath === "/fleet/api/messages" && req.method === "GET") {
-      return send(res, 200, readJson(INBOX_PATH, []), requestId);
+      return send(res, 200, readJson(contentPaths.inboxPath, []), requestId);
     }
 
     // POST /fleet/api/messages
     if (urlPath === "/fleet/api/messages" && req.method === "POST") {
       const body = await readBody(req);
-      const inbox = readJson(INBOX_PATH, []);
+      const inbox = readJson(contentPaths.inboxPath, []);
       const msg = {
         id:         `msg-${now()}`,
         timestamp:  new Date().toISOString(),
@@ -448,7 +491,7 @@ async function handler(req, res) {
         ref_ticket: body.ref_ticket || null,
       };
       inbox.unshift(msg);
-      writeJson(INBOX_PATH, inbox);
+      writeJson(contentPaths.inboxPath, inbox);
       return send(res, 201, { ok: true, message: msg }, requestId);
     }
 
@@ -457,11 +500,11 @@ async function handler(req, res) {
     if (msgPatch && req.method === "PATCH") {
       const id = msgPatch[1];
       const body = await readBody(req);
-      const inbox = readJson(INBOX_PATH, []);
+      const inbox = readJson(contentPaths.inboxPath, []);
       const idx = inbox.findIndex(m => m.id === id);
       if (idx === -1) return send(res, 404, { ok: false, error: "message_not_found" }, requestId);
       inbox[idx] = { ...inbox[idx], ...body };
-      writeJson(INBOX_PATH, inbox);
+      writeJson(contentPaths.inboxPath, inbox);
       return send(res, 200, { ok: true, message: inbox[idx] }, requestId);
     }
 
@@ -471,7 +514,7 @@ async function handler(req, res) {
       if (raw) {
         try { return send(res, 200, JSON.parse(raw), requestId); } catch { /* fall through */ }
       }
-      return send(res, 200, readJson(STANDUPS_INDEX, []), requestId);
+      return send(res, 200, readJson(contentPaths.standupsIndex, []), requestId);
     }
 
     // GET /fleet/api/standups/:date — single standup file (GitHub-first, local fallback)
@@ -484,7 +527,7 @@ async function handler(req, res) {
         res.statusCode = 200;
         return res.end(raw);
       }
-      const localPath = path.join(STANDUPS_DIR, `${date}.md`);
+      const localPath = path.join(contentPaths.standupsDir, `${date}.md`);
       if (fs.existsSync(localPath)) {
         res.setHeader("Content-Type", "text/plain; charset=utf-8");
         res.statusCode = 200;
@@ -497,15 +540,15 @@ async function handler(req, res) {
     if (urlPath === "/fleet/api/standup" && req.method === "POST") {
       const body = await readBody(req);
       const date = body.date || new Date().toISOString().slice(0, 10);
-      fs.mkdirSync(STANDUPS_DIR, { recursive: true });
-      const filePath = path.join(STANDUPS_DIR, `${date}.md`);
+      fs.mkdirSync(contentPaths.standupsDir, { recursive: true });
+      const filePath = path.join(contentPaths.standupsDir, `${date}.md`);
       const entry = `\n## ${body.agent || "Unknown"}\n\n- Done: ${body.done || "(none)"}\n- Today: ${body.today || "(none)"}\n- Blockers: ${body.blockers || "None"}\n`;
       fs.appendFileSync(filePath, entry);
       // Update index
-      const index = readJson(STANDUPS_INDEX, []);
+      const index = readJson(contentPaths.standupsIndex, []);
       if (!index.find(i => i.date === date)) {
         index.unshift({ date, file: `${date}.md`, summary: body.summary || entry.slice(0, 80) });
-        writeJson(STANDUPS_INDEX, index);
+        writeJson(contentPaths.standupsIndex, index);
       }
       return send(res, 200, { ok: true }, requestId);
     }

@@ -61,6 +61,7 @@
 <nav class="sidebar">
   <div class="logo">Agent<span>Fleet</span></div>
   <div class="nav-item active" data-tab="team">👥 Team</div>
+  <div class="nav-item" data-tab="tasks">✅ Tasks</div>
   <div class="nav-item" data-tab="projects">📁 Projects</div>
   <div class="nav-item" data-tab="memory">🧠 Memory</div>
   <div class="nav-item" data-tab="inbox">💬 Inbox</div>
@@ -76,7 +77,34 @@
       <h1>Fleet Roster</h1>
       <p>Your active agents and their roles.</p>
     </div>
+    <div id="heartbeat-row" style="display:flex; gap:1rem; margin-bottom:1.5rem;"></div>
     <div class="card-grid" id="team-cards"><div class="loading">Loading agents…</div></div>
+  </div>
+
+  <div id="tab-tasks" style="display:none">
+    <div class="page-header">
+      <h1>Task Board</h1>
+      <p>Live fleet execution state from PocketBase.</p>
+    </div>
+    <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:1.5rem;" id="task-board">
+      <div>
+        <h4 style="margin-bottom:1rem; color:var(--muted); font-size:0.8rem; text-transform:uppercase; letter-spacing:0.05em;">Todo</h4>
+        <div id="tasks-todo" class="inbox-list"></div>
+      </div>
+      <div>
+        <h4 style="margin-bottom:1rem; color:var(--teal); font-size:0.8rem; text-transform:uppercase; letter-spacing:0.05em;">In Progress</h4>
+        <div id="tasks-progress" class="inbox-list"></div>
+      </div>
+      <div>
+        <h4 style="margin-bottom:1rem; color:var(--green); font-size:0.8rem; text-transform:uppercase; letter-spacing:0.05em;">Peer Review</h4>
+        <div id="tasks-review" class="inbox-list"></div>
+      </div>
+    </div>
+    <div class="page-header" style="margin-top:3rem;">
+      <h1>Activity Feed</h1>
+      <p>Latest 20 comments from the fleet.</p>
+    </div>
+    <div class="inbox-list" id="activity-feed"><div class="loading">Loading activity…</div></div>
   </div>
 
   <div id="tab-projects" style="display:none">
@@ -183,6 +211,62 @@
         <span class="badge badge-teal">${m.status}</span>
       </div>`).join("");
   });
+
+  // ── Load PocketBase Data ─────────────────────────────────
+  const PB_API = "http://localhost:8090/api";
+
+  function loadPocketBaseData() {
+    // 1. Heartbeats
+    fetch(`${PB_API}/collections/heartbeats/records`).then(r => r.json()).then(data => {
+      const el = document.getElementById("heartbeat-row");
+      if (!data.items) return;
+      el.innerHTML = data.items.map(h => `
+        <div style="display:flex; align-items:center; gap:0.5rem; background:var(--navy2); padding:0.4rem 0.8rem; border-radius:6px; font-size:0.75rem; border:1px solid var(--border);">
+          <div style="width:8px; height:8px; border-radius:50%; background:${h.status==='working' ? 'var(--green)' : 'var(--muted)'}"></div>
+          <strong>${h.agent}</strong>: ${h.status}
+        </div>
+      `).join("");
+    });
+
+    // 2. Tasks
+    fetch(`${PB_API}/collections/tasks/records?sort=-updated`).then(r => r.json()).then(data => {
+      if (!data.items) return;
+      const todo = data.items.filter(t => t.status === 'todo');
+      const progress = data.items.filter(t => t.status === 'in_progress');
+      const review = data.items.filter(t => t.status === 'peer_review');
+
+      const renderTask = t => `
+        <div class="inbox-item" style="padding:0.75rem;">
+          <div style="width:100%">
+            <div class="subject" style="font-size:0.85rem;">${t.title}</div>
+            <div class="meta" style="font-size:0.7rem;">Agent: ${t.assigned_agent}</div>
+          </div>
+        </div>
+      `;
+
+      document.getElementById("tasks-todo").innerHTML = todo.length ? todo.map(renderTask).join("") : "<div class='loading'>None</div>";
+      document.getElementById("tasks-progress").innerHTML = progress.length ? progress.map(renderTask).join("") : "<div class='loading'>None</div>";
+      document.getElementById("tasks-review").innerHTML = review.length ? review.map(renderTask).join("") : "<div class='loading'>None</div>";
+    });
+
+    // 3. Activity Feed
+    fetch(`${PB_API}/collections/comments/records?sort=-created&perPage=20`).then(r => r.json()).then(data => {
+      const el = document.getElementById("activity-feed");
+      if (!data.items?.length) { el.innerHTML = "<div class='loading'>No activity yet.</div>"; return; }
+      el.innerHTML = data.items.map(c => `
+        <div class="inbox-item">
+          <div>
+            <div class="subject" style="font-size:0.85rem;">${c.agent} posted ${c.type}</div>
+            <p style="margin-top:0.3rem; font-size:0.8rem; color:var(--text)">${c.content}</p>
+            <div class="meta" style="margin-top:0.3rem;">Task ID: ${c.task_id} · ${c.created.slice(0,16)}</div>
+          </div>
+        </div>
+      `).join("");
+    });
+  }
+
+  loadPocketBaseData();
+  setInterval(loadPocketBaseData, 10000); // Refresh every 10s
 </script>
 </body>
 </html>

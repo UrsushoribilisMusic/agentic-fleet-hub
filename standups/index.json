@@ -1,4 +1,9 @@
-﻿[
+[
+    {
+        "date": "2026-03-14",
+        "summary": "Mac Mini migration verified: environment configured, mandates updated, CRM path fixed.",
+        "file": "2026-03-14.md"
+    },
     {
         "date":  "2026-03-13",
         "summary":  "Ticket #25 (Demo Cleanup) and #23 (README overhaul) complete. Fleet is release-ready.",

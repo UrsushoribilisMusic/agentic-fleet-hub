@@ -462,11 +462,7 @@ async function loadDailyStandups() {
   const view = document.getElementById('daily-view');
   if (!view) return;
   try {
-    const path = window.location.pathname;
-    const isDemo = path.indexOf('/demo') !== -1;
-    const isGrowth = path.indexOf('/growth') !== -1;
-    const base = (isDemo || isGrowth) ? (isDemo ? '/demo' : '/growth') : '/fleet';
-    const data = await fetchJson(base + '/standups/index.json');
+    const data = await fetchJson('/fleet/api/standups');
     dailyStandupsIndex = data.sort(function(a, b) { return b.date.localeCompare(a.date); });
     renderDailyButtons();
     if (dailyStandupsIndex.length > 0) selectDaily(dailyStandupsIndex[0]);
@@ -502,11 +498,7 @@ async function selectDaily(day) {
   const view = document.getElementById('daily-view');
   if (!view) return;
   try {
-    const path = window.location.pathname;
-    const isDemo = path.indexOf('/demo') !== -1;
-    const isGrowth = path.indexOf('/growth') !== -1;
-    const base = (isDemo || isGrowth) ? (isDemo ? '/demo' : '/growth') : '/fleet';
-    const raw = await fetchText(base + '/standups/' + day.file);
+    const raw = await fetchText('/fleet/api/standups/' + day.date);
     view.innerHTML = renderSimpleMarkdown(raw);
   } catch (err) { view.innerHTML = '<p class="muted">Error loading file.</p>'; }
 }

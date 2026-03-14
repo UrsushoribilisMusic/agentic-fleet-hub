@@ -68,16 +68,17 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **#32** | Mission Control format hardening | Clau | in_work | Stabilize status/owner conventions and document the v1 Kanban parsing contract |
-| **#34** | Install PocketBase + create DB schema | Gem | pending | Download ARM binary, bootstrap admin UI, create 5 collections: tasks, comments, goals, heartbeats, lessons |
-| **#35** | Create `~/fleet/` directory structure | Clau | pending | Workspace dirs per agent, copy MISSION_CONTROL + mandate files into position |
-| **#36** | Build `dispatcher.py` + Telegram notifications | Gem | pending | Mac Mini paths (`/Users/miguelrodriguez/`), openclaw at `/opt/homebrew/bin/openclaw`, Telegram chat ID 997912895. Blocked by none — write in parallel with #34 |
-| **#37** | Create fleet Python venv | Clau | pending | `~/fleet/.venv` with `requests`. Dispatcher uses this venv, not system Python |
-| **#38** | launchd plists: PocketBase + dispatcher | Clau | pending | Blocked by #34, #36, #37. KeepAlive services, logs to `~/fleet/logs/` |
-| **#39** | launchd heartbeat plists: Gem + Codi | Clau | pending | Staggered: Gem at :00, Codi at :02. Blocked by #35 |
-| **#40** | Gem fleet mandate + heartbeat protocol | Gem | pending | Create `~/fleet/gem/GEMINI.md` with 6-phase heartbeat protocol |
-| **#41** | Codi fleet mandate + heartbeat protocol | Codi | pending | Create `~/fleet/codi/CLAUDE.md` with 6-phase heartbeat protocol |
-| **#42** | Clau fleet mandate + heartbeat protocol | Clau | pending | Create `~/fleet/clau/CLAUDE.md` with 6-phase heartbeat protocol |
-| **#43** | Fleet Hub: Tasks tab + Activity feed + Heartbeat indicators | Gem | pending | Read-only PocketBase views. Blocked by #34 |
+| **34** | Install PocketBase + create DB schema | Gem | closed | PocketBase ARM installed, 5 collections created with API rules |
+| **35** | Create `~/fleet/` directory structure | Clau | pending | Workspace dirs per agent, copy MISSION_CONTROL + mandate files into position |
+| **36** | Build `dispatcher.py` + Telegram notifications | Gem | closed | Dispatcher built with Mac Mini paths, Telegram notify for waiting_human live |
+| **37** | Create fleet Python venv | Clau | pending | `~/fleet/.venv` with `requests`. Dispatcher uses this venv, not system Python |
+| **38** | launchd plists: PocketBase + dispatcher | Clau | pending | Blocked by #34, #36, #37. KeepAlive services, logs to `~/fleet/logs/` |
+| **39** | launchd heartbeat plists: Gem + Codi | Clau | pending | Staggered: Gem at :00, Codi at :02. Blocked by #35 |
+| **40** | Gem fleet mandate + heartbeat protocol | Gem | closed | `~/fleet/gem/GEMINI.md` created with 6-phase heartbeat protocol |
+| **41** | Codi fleet mandate + heartbeat protocol | Codi | pending | Create `~/fleet/codi/CLAUDE.md` with 6-phase heartbeat protocol |
+| **42** | Clau fleet mandate + heartbeat protocol | Clau | pending | Create `~/fleet/clau/CLAUDE.md` with 6-phase heartbeat protocol |
+| **43** | Fleet Hub: Tasks tab + Activity feed + Heartbeat indicators | Gem | closed | Tasks tab added with board, activity feed, and heartbeat dots (PocketBase REST) |
+
 
 **Status: OPEN-SOURCE PACKAGE PUBLISHED. `create-flotilla@0.1.0` is live on npm. Release-ready.**
 
