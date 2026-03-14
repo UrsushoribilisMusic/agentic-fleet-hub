@@ -82,7 +82,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **#47** | Big Bear homepage: Flotilla CTA and social proof refresh | Codi | planned | Feature `npx create-flotilla`, Reddit proof, and always-on build features on `bigbearengineering.com`. Board: https://github.com/users/UrsushoribilisMusic/projects/2/views/2 |
 
 
 **Status: OPEN-SOURCE PACKAGE PUBLISHED. `create-flotilla@0.1.0` is live on npm. Fleet always-on infrastructure live on Mac Mini.**
-
