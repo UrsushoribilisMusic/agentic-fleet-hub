@@ -42,6 +42,12 @@ The local CRM development database should be backed up if you want to keep local
 - Copy `customer-mgmt/data/crm.db` from Windows to the same path on Mac.
 
 ## 🛠️ 5. Agent Setup
+The following hidden folders contain your agent states, history, and local configurations. They should be copied manually if you want to preserve session history:
+- `.gemini/` (State and GEMINI.md)
+- `.claude/` (Claude history and settings)
+- `.codex/` (Codex personality and logs)
+- `.vibe/` (Misty/Mistral state)
+
 Once the repos are cloned:
 1. **Gemini CLI**: Set up your `.gemini` folder and ensure `MISSION_CONTROL.md` is correctly linked.
 2. **Claude Code**: Ensure `CLAUDE.md` is present in the root.
