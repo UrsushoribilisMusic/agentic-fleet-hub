@@ -18,6 +18,8 @@ Ready to deploy your workforce?
 
 ## 🏛️ Platform Architecture
 
+For a deep dive into the system components, data flow, and task lifecycle, see the **[Architecture Diagram & Spec](ARCHITECTURE.md)**.
+
 *   **Management Hub**: A human-readable dashboard for monitoring agent health and standups.
 *   **Memory Tree**: A structured, version-controlled hierarchy of project context and blueprints.
 *   **Shared Consciousness Protocol**: Mandatory synchronization via `MISSION_CONTROL.md`.
