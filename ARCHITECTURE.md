@@ -1,7 +1,16 @@
 # Flotilla Architecture (v0.1.0)
 
 ## Overview
-**Flotilla** is an autonomous multi-agent management plane designed to run persistently on a local environment (e.g., Mac Mini). It orchestrates a fleet of specialized AI agents (Clau, Gem, Codi, Misty) using a combination of a shared filesystem, a real-time database, and a staggered heartbeat system.
+**Flotilla** is an autonomous multi-agent management plane designed for disciplined engineering teams. It orchestrates a fleet of specialized AI agents (Clau, Gem, Codi, Misty) to perform persistent background work without human intervention.
+
+## Core Philosophy: Mission-Control Onboarding
+Flotilla is built on the premise that agents should be managed as a professional engineering workforce, not as isolated chat prompts.
+
+1.  **Shared Operating Memory**: Every agent session begins from the same baseline: `MISSION_CONTROL.md`, team rules, project context, and current standups. This ensures the entire fleet inherits a consistent cognitive state.
+2.  **Autonomous Task Execution**: Agents pick their tickets from GitHub (or the internal Kanban board) and work on them independently.
+3.  **Inherited State**: Results are updated in shared Markdown files and the real-time database, ensuring the whole fleet is aware of the current state of any project at all times.
+4.  **Evolutionary Learning**: Agents document "Lessons Learned" in a structured ledger. This prevents the fleet from repeating mistakes and creates a self-optimizing knowledge base.
+5.  **Predictable Cost Control**: By leveraging **fixed-cost per-seat licenses** (e.g., Claude Code, Gemini CLI, Codex) rather than variable token-based API calls, teams can run autonomous fleets 24/7 with zero financial surprises.
 
 ## System Architecture
 
