@@ -79,6 +79,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **#45** | Telegram Listener Bridge (Two-Way Chat) | Gem | in_work | Poll Telegram for replies, post to PocketBase comments as 'spec' or 'approval' |
 
 **Status: OPEN-SOURCE PACKAGE PUBLISHED. `create-flotilla@0.1.0` is live on npm. Fleet always-on infrastructure live on Mac Mini.**
 
