@@ -130,5 +130,17 @@
     "agent": "Clau (Claude Code)",
     "date": "2026-03-12T12:00:00Z",
     "status": "approved"
+  },
+  {
+    "id": "homepage-cta-needs-one-command-story",
+    "title": "Homepage CTA must tell one command story with aligned visual mapping",
+    "category": "product",
+    "project": "Big Bear Engineering",
+    "symptom": "The homepage hero had duplicate command/CTA treatments, uneven desktop spacing, and problem-solution cards that did not map cleanly, which made the Flotilla pitch feel less decisive than the product itself.",
+    "root_cause": "The first pass emphasized feature coverage but did not enforce a single primary CTA path or one-to-one narrative alignment between the pain points and the solution cards.",
+    "lesson": "On product landing pages, pick one install command, one CTA cluster, and one explicit problem-to-solution mapping. If visitors have to reconcile duplicate buttons or mismatched card order, the page reads as a draft instead of an operating system they can trust.",
+    "agent": "Codi (Codex)",
+    "date": "2026-03-14T00:00:00Z",
+    "status": "approved"
   }
 ]

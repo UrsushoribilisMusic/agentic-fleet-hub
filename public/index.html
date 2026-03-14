@@ -14,7 +14,7 @@
     nav, section, footer, .hero { padding-left:5%; padding-right:5%; }
     nav { position:sticky; top:0; z-index:20; min-height:72px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; padding-top:.9rem; padding-bottom:.9rem; background:rgba(10,12,16,.88); backdrop-filter:blur(14px); border-bottom:1px solid var(--border); }
     .logo { text-decoration:none; font-size:1.15rem; font-weight:800; letter-spacing:-.04em; background:linear-gradient(90deg,var(--accent),var(--accent2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-    nav ul, .nav-actions, .hero-actions, .proof-links, .footer-links, .legal-links, .cookie-actions, .cta-actions { display:flex; flex-wrap:wrap; gap:.8rem; }
+    nav ul, .nav-actions, .hero-actions, .footer-links, .legal-links, .cookie-actions, .cta-actions { display:flex; flex-wrap:wrap; gap:.8rem; }
     nav ul { list-style:none; }
     nav ul a, .footer-links a { text-decoration:none; color:var(--muted); }
     .button, .button-secondary { display:inline-flex; align-items:center; justify-content:center; padding:.8rem 1.25rem; border-radius:10px; text-decoration:none; font-weight:700; border:1px solid transparent; cursor:pointer; }
@@ -22,7 +22,7 @@
     .button-secondary { background:rgba(255,255,255,.02); border-color:var(--border); color:var(--text); }
     .hero { padding-top:5rem; padding-bottom:4.5rem; }
     .hero-grid, .proof-grid, .fit-grid, .pricing-grid, .legal-grid, .footer-wrap { max-width:1180px; margin:0 auto; display:grid; gap:1rem; }
-    .hero-grid { grid-template-columns:1.15fr .85fr; align-items:center; }
+    .hero-grid { max-width:1320px; grid-template-columns:minmax(0,1.45fr) minmax(360px,.95fr); align-items:stretch; }
     .proof-grid, .legal-grid { grid-template-columns:1.1fr .9fr; }
     .fit-grid { grid-template-columns:repeat(2,1fr); }
     .pricing-grid { grid-template-columns:repeat(3,1fr); }
@@ -33,8 +33,8 @@
     .hero-copy p, .section-intro, .panel p, .panel li, .card p, .faq-answer, .legal-note p, .footer-copy, .cookie-copy { color:var(--muted); }
     .hero-copy p, .section-intro { max-width:64ch; font-size:1.04rem; margin-bottom:1.8rem; }
     .metrics, .cards, .faq-list { display:grid; gap:1rem; }
-    .metrics { grid-template-columns:repeat(3,1fr); margin-top:1.6rem; }
-    .cards { grid-template-columns:repeat(4,1fr); }
+    .metrics { grid-template-columns:repeat(4,minmax(0,1fr)); margin-top:1.6rem; }
+    .cards { grid-template-columns:repeat(5,minmax(0,1fr)); }
     .metric, .panel, .card, .proof-card, .fit-card, .pricing-card, .faq-item, .legal-note { background:rgba(17,19,24,.92); border:1px solid var(--border); border-radius:18px; }
     .metric, .panel, .card, .proof-card, .fit-card, .pricing-card, .legal-note { padding:1.35rem; }
     .metric strong { display:block; margin-bottom:.25rem; }
@@ -47,6 +47,7 @@
     .card .icon, .tag { display:inline-flex; align-items:center; justify-content:center; }
     .card .icon { width:2.3rem; height:2.3rem; border-radius:12px; background:rgba(45,212,191,.1); margin-bottom:.9rem; color:var(--accent); font-weight:800; }
     .proof-links, .legal-links, .footer-links { margin-top:.9rem; }
+    .proof-links { display:grid; gap:.8rem; }
     .proof-links a, .legal-links a { text-decoration:none; }
     .proof-links div, .pricing-card li, .fit-card li { padding:.8rem .9rem; border-radius:12px; background:rgba(255,255,255,.02); border:1px solid rgba(255,255,255,.04); }
     .pricing-card.featured { border-color:rgba(45,212,191,.35); }
@@ -55,17 +56,22 @@
     .why-card h3 { font-size:1rem; margin-bottom:.45rem; }
     .why-card p { color:var(--muted); font-size:.92rem; }
     .why-card .badge { display:block; font-size:1.35rem; margin-bottom:.65rem; }
+    .hero-install { display:flex; flex-wrap:wrap; align-items:center; gap:.55rem; margin-bottom:1rem; color:var(--muted); font-size:.96rem; }
+    .hero-install strong { color:var(--text); }
+    .hero-install code { color:var(--accent); font-size:1rem; }
     .cta-shell { margin-top:1.35rem; padding:1.15rem; border-radius:18px; border:1px solid rgba(45,212,191,.18); background:linear-gradient(180deg, rgba(45,212,191,.08), rgba(255,255,255,.02)); }
     .cta-shell h3 { font-size:1.15rem; margin-bottom:.35rem; }
     .cta-shell p { color:var(--muted); margin-bottom:1rem; }
     .command-box { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:1rem 1.1rem; border-radius:14px; background:#0b1016; border:1px solid var(--border); margin-bottom:1rem; }
     .command-box code { font-size:1rem; color:var(--accent); letter-spacing:.02em; }
     .command-box span { color:var(--muted); font-size:.82rem; text-transform:uppercase; letter-spacing:.08em; }
-    .arch-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+    .command-box.install-inline { margin-bottom:0; }
+    .command-box.install-inline .button { min-width:140px; }
+    .arch-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1rem; }
     .arch-card { background:rgba(17,19,24,.92); border:1px solid var(--border); border-radius:18px; padding:1.35rem; }
     .arch-card h3 { font-size:1rem; margin-bottom:.45rem; }
     .arch-card p { color:var(--muted); font-size:.94rem; }
-    .feature-stack { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:1rem; }
+    .feature-stack { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1rem; margin-top:1rem; }
     .feature-stack .fit-card h3 { margin-bottom:.55rem; }
     .browser-frame { background:#0d1117; border:1px solid var(--border); border-radius:18px; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,.45); margin-top:1.25rem; }
     .browser-bar { background:#161b22; padding:.75rem 1rem; display:flex; align-items:center; gap:.5rem; border-bottom:1px solid var(--border); }
@@ -126,8 +132,13 @@
     .cookie-banner.visible { display:block; }
     .cookie-card { max-width:960px; margin:0 auto; padding:1rem 1.1rem; border-radius:18px; border:1px solid var(--border); background:rgba(12,15,21,.96); display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem; }
     .offer-button { margin-top:1.1rem; width:100%; }
-    @media (max-width:980px) { .hero-grid, .proof-grid, .fit-grid, .pricing-grid, .legal-grid, .footer-wrap, .hub-layout, .agent-grid, .arch-grid, .feature-stack { grid-template-columns:1fr; } .cards { grid-template-columns:repeat(2,1fr); } .metrics { grid-template-columns:1fr; } .hero-copy { display:contents; } .hero-copy h1 { order:1; } .hero-grid > .panel { order:2; } .hero-copy > p { order:3; } .hero-copy .hero-actions { order:4; } .hero-copy .cta-shell { order:5; } .hero-copy .eyebrow { order:6; } .hero-copy .metrics { order:7; } .command-box { flex-direction:column; align-items:flex-start; } }
-    @media (max-width:760px) { nav ul { display:none; } nav { min-height:auto; } .cards { grid-template-columns:1fr; } .eyebrow { font-size:.64rem; padding:.24rem .65rem; } }
+    .cta-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.75rem; width:100%; }
+    .cta-grid .button,
+    .cta-grid .button-secondary { min-height:52px; padding:.85rem 1rem; text-align:center; white-space:nowrap; }
+    .cta-grid .button-secondary { background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#06211d; border-color:transparent; }
+    .showcase-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin-top:1rem; }
+    @media (max-width:980px) { .hero-grid, .proof-grid, .fit-grid, .pricing-grid, .legal-grid, .footer-wrap, .hub-layout, .agent-grid, .arch-grid, .feature-stack, .showcase-grid, .cta-grid { grid-template-columns:1fr; } .cards { grid-template-columns:repeat(2,1fr); } .metrics { grid-template-columns:repeat(2,1fr); } .hero-copy { display:contents; } .hero-copy h1 { order:1; } .hero-grid > .panel { order:2; } .hero-copy > p { order:3; } .hero-copy .hero-install { order:4; } .hero-copy .cta-shell { order:5; } .hero-copy .eyebrow { order:6; } .hero-copy .metrics { order:7; } .command-box { flex-direction:column; align-items:flex-start; } }
+    @media (max-width:760px) { nav ul { display:none; } nav { min-height:auto; } .cards, .metrics { grid-template-columns:1fr; } .eyebrow { font-size:.64rem; padding:.24rem .65rem; } }
   </style>
 </head>
 <body>
@@ -187,30 +198,27 @@
       <div class="hero-copy">
         <h1>Flotilla: <em>The Docker of AI Agents.</em></h1>
         <p>Stop duct-taping random chats. Flotilla is the orchestration layer that bootstraps your autonomous fleet with shared memory, vault-first security, and a unified Kanban bridge on your own hardware.</p>
-        <div class="hero-actions">
-          <a class="button" href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub" target="_blank" rel="noopener noreferrer">See the GitHub Repo</a>
-          <button class="button-secondary" type="button" onclick="openModal('Fleet Command')">Talk to Big Bear</button>
+        <div class="hero-install">
+          <strong>Install:</strong>
+          <code>npx create-flotilla</code>
         </div>
         <div class="cta-shell">
           <div class="section-label">Build Your Own Autonomous Flotilla</div>
           <h3>One command to deploy a professional-grade engineering fleet.</h3>
           <p>Bootstrap a multi-model team with shared operating memory, secure secret delivery, and a management layer your humans can actually read.</p>
-          <div class="command-box">
-            <div>
-              <span>Command</span>
-              <code>npx create-flotilla</code>
-            </div>
-            <div class="cta-actions">
-              <a class="button-secondary" href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub#readme" target="_blank" rel="noopener noreferrer">Get the Documentation</a>
-              <a class="button" href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub" target="_blank" rel="noopener noreferrer">See the GitHub Repo</a>
-            </div>
+          <div class="cta-grid">
+            <a class="button-secondary" href="https://api.robotross.art/demo/" target="_blank" rel="noopener noreferrer">Demo</a>
+            <a class="button-secondary" href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="button-secondary" href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/ARCHITECTURE.md" target="_blank" rel="noopener noreferrer">Documentation</a>
+            <button class="button" type="button" onclick="openModal('Fleet Command')">Contact</button>
           </div>
         </div>
         <div class="eyebrow">Zurich | Vault-First | Multi-Model Orchestration</div>
         <div class="metrics">
           <div class="metric"><strong>Persistent State</strong><span>Shared memory, standups, and architectural context survive across sessions and models.</span></div>
           <div class="metric"><strong>Vault-First Security</strong><span>Infisical-based secret delivery with no `.env` files leaking into agent context.</span></div>
-          <div class="metric"><strong>Always-On Operations</strong><span>PocketBase, dispatcher heartbeats, and mobile command pathways for 24/7 fleet discipline.</span></div>
+          <div class="metric"><strong>Shared Learning</strong><span>Lessons learned are retained, reviewed, and propagated so agents stop repeating the same errors.</span></div>
+          <div class="metric"><strong>Always-On Operations</strong><span>PocketBase, dispatcher heartbeats, and Open Claw pathways keep the fleet operational beyond a single chat session.</span></div>
         </div>
       </div>
         <div class="panel">
@@ -219,9 +227,12 @@
           <p>Flotilla standardizes the bootstrap, security, and coordination layer so your agents stop behaving like isolated chat tabs and start working like a professional team.</p>
           <ul>
             <li>`MISSION_CONTROL.md` gives every agent the same cognitive starting point before work begins.</li>
+            <li>Agents keep lessons learned and share them with each other through a persistent memory ledger.</li>
             <li>Vault-first secret delivery keeps credentials out of prompts, markdown, and `.env` sprawl.</li>
-            <li>Claude, Gemini, Mistral, and Codex can run in parallel under one operating contract.</li>
+            <li>Agent diversity improves outcomes because different models can implement, critique, and review each other instead of self-validating the same reasoning path.</li>
+            <li>Claude, Gemini, Mistral, and Codex can run in parallel under one operating contract with cost-aware model diversity.</li>
             <li>The Kanban bridge keeps work anchored to real tickets instead of ad hoc chat memory.</li>
+            <li>Control your flotilla from Telegram over Open Claw when you want an optional fleet-that-never-sleeps layer.</li>
           </ul>
         </div>
     </div>
@@ -326,6 +337,71 @@
           </div>
         </div>
       </div>
+
+      <div class="showcase-grid">
+        <div class="browser-frame">
+          <div class="browser-bar">
+            <div class="browser-dot r"></div>
+            <div class="browser-dot y"></div>
+            <div class="browser-dot g"></div>
+            <div class="browser-url">api.robotross.art/demo/kanban</div>
+          </div>
+          <div class="hub-layout">
+            <div class="hub-sidebar">
+              <div class="hub-sidebar-brand"><div class="sub">Acme Engineering</div><div class="name">Fleet Hub</div></div>
+              <div class="hub-nav-item">Team</div>
+              <div class="hub-nav-item active">Projects</div>
+              <div class="hub-nav-item">Rules</div>
+              <div class="hub-nav-item">Memory</div>
+              <div class="hub-nav-item">Standups</div>
+            </div>
+            <div class="hub-content">
+              <div class="hub-panel-label">Execution Board</div>
+              <div class="hub-title">Kanban Bridge</div>
+              <div class="hub-sub">Tickets stay synchronized across the human board and the agent fleet so work moves without copy-paste relays.</div>
+              <div class="mem-group">
+                <div class="mem-group-label">In Progress</div>
+                <div class="mem-row"><div><strong>#47 Homepage Positioning</strong><span>Hero rewrite, CTA cleanup, architecture messaging.</span></div><div class="mem-link">Active</div></div>
+                <div class="mem-row"><div><strong>#45 Telegram Bridge</strong><span>Two-way mobile command channel with PocketBase comment sync.</span></div><div class="mem-link">Active</div></div>
+              </div>
+              <div class="mem-group">
+                <div class="mem-group-label">Review + Done</div>
+                <div class="mem-row"><div><strong>#44 Fleet Auth Recovery</strong><span>Auth bootstrap, inbox, standups, and dashboard restore.</span></div><div class="mem-link">Done</div></div>
+                <div class="mem-row"><div><strong>#34 PocketBase Schema</strong><span>Heartbeat, tasks, comments, lessons, and operational state collections.</span></div><div class="mem-link">Done</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="browser-frame">
+          <div class="browser-bar">
+            <div class="browser-dot r"></div>
+            <div class="browser-dot y"></div>
+            <div class="browser-dot g"></div>
+            <div class="browser-url">api.robotross.art/demo/lessons</div>
+          </div>
+          <div class="hub-layout">
+            <div class="hub-sidebar">
+              <div class="hub-sidebar-brand"><div class="sub">Acme Engineering</div><div class="name">Fleet Hub</div></div>
+              <div class="hub-nav-item">Team</div>
+              <div class="hub-nav-item">Projects</div>
+              <div class="hub-nav-item">Rules</div>
+              <div class="hub-nav-item active">Memory</div>
+              <div class="hub-nav-item">Standups</div>
+            </div>
+            <div class="hub-content">
+              <div class="hub-panel-label">Evolutionary Memory</div>
+              <div class="hub-title">Lessons Learned Ledger</div>
+              <div class="hub-sub">The fleet keeps a running memory of architectural mistakes, deployment gotchas, and approved operating lessons.</div>
+              <div class="mem-group">
+                <div class="mem-group-label">Approved Lessons</div>
+                <div class="mem-row"><div><strong>Auth Cookie Parsing</strong><span>Use the last period to split signed session data, not every period in the email payload.</span></div><div class="mem-link">Apply</div></div>
+                <div class="mem-row"><div><strong>Trailing Slash Redirect</strong><span>Backend static routing should enforce 301 slash redirects for management subfolders.</span></div><div class="mem-link">Apply</div></div>
+                <div class="mem-row"><div><strong>Regional API Domains</strong><span>Explicit Infisical EU domain avoids silent auth failures in field deployments.</span></div><div class="mem-link">Apply</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -335,10 +411,11 @@
       <h2>Most AI deployments break where engineering teams actually live.</h2>
       <p class="section-intro">Standard AI deployments fail because they lose context, drift across sessions, and create unpredictable operating costs.</p>
       <div class="cards">
-        <article class="card"><div class="icon">M</div><h3>Memory Loss</h3><p>Stateless agents forget architecture and prior decisions once the tab closes, so you have to tell them again how to do things.</p></article>
-        <article class="card"><div class="icon">C</div><h3>Runaway API Token Costs</h3><p>Usage-based token billing can create unexpected large bills and unpredictable economics for engineering teams.</p></article>
-        <article class="card"><div class="icon">L</div><h3>Evolutionary Leak</h3><p>Agents don't learn from mistakes. Without a "Lessons Learned" ledger, your fleet repeats the same errors every session.</p></article>
-        <article class="card"><div class="icon">S</div><h3>Security Trap</h3><p>Hardcoding secrets in .env files is a massive risk. Most setups lack a professional, vault-backed security layer.</p></article>
+        <article class="card"><div class="icon">1</div><h3>Memory Loss</h3><p>Stateless agents forget architecture and prior decisions once the tab closes, so you have to tell them again how to do things.</p></article>
+        <article class="card"><div class="icon">2</div><h3>Runaway API Token Costs</h3><p>Usage-based token billing can create unexpected large bills and unpredictable economics for engineering teams.</p></article>
+        <article class="card"><div class="icon">3</div><h3>Copy-Paste Coordination</h3><p>Teams waste time relaying tasks, answers, and context manually between tabs because the agents have no shared command layer.</p></article>
+        <article class="card"><div class="icon">4</div><h3>Evolutionary Leak</h3><p>Agents don't learn from mistakes. Without a "Lessons Learned" ledger, your fleet repeats the same errors every session.</p></article>
+        <article class="card"><div class="icon">5</div><h3>Security Trap</h3><p>Hardcoding secrets in .env files is a massive risk. Most setups lack a professional, vault-backed security layer.</p></article>
       </div>
     </div>
   </section>
@@ -349,10 +426,11 @@
       <h2>Resilient multi-agent infrastructure with human-readable control.</h2>
       <p class="section-intro">The Fleet Hub is a management layer for coordinated agents: shared memory, vault-backed secret access, role specialization, and explicit reporting.</p>
       <div class="cards">
-        <article class="card"><div class="icon">1</div><h3>Mission-Control Sync</h3><p>Agents start from the same source of truth and synchronize before they act.</p></article>
-        <article class="card"><div class="icon">2</div><h3>Memory Tree</h3><p>Architecture, context, and project decisions stay versioned and accessible across sessions.</p></article>
-        <article class="card"><div class="icon">3</div><h3>Vault-First Secrets</h3><p>Secrets are fetched on demand through Infisical scripts and injected in-memory.</p></article>
+        <article class="card"><div class="icon">1</div><h3>Memory Tree</h3><p>Architecture, context, and project decisions stay versioned and accessible across sessions.</p></article>
+        <article class="card"><div class="icon">2</div><h3>Mission-Control Sync</h3><p>Agents start from the same source of truth and synchronize before they act.</p></article>
+        <article class="card"><div class="icon">3</div><h3>Coordinated Execution</h3><p>Stop copy-pasting and start coordinating through shared tickets, inboxes, standups, and human-readable state.</p></article>
         <article class="card"><div class="icon">4</div><h3>Evolutionary Learning</h3><p>Lessons learned can be reviewed, approved, and pushed back into future agent behavior.</p></article>
+        <article class="card"><div class="icon">5</div><h3>Vault-First Secrets</h3><p>Secrets are fetched on demand through Infisical scripts and injected in-memory.</p></article>
       </div>
     </div>
   </section>
@@ -364,6 +442,8 @@
       <p class="section-intro">Flotilla is strongest when the coordination layer is explicit. The package gives teams a repeatable operating model instead of a loose pile of prompts, tabs, and undocumented rituals.</p>
       <div class="arch-grid">
         <article class="arch-card"><h3>MISSION_CONTROL.md</h3><p>The shared cognitive layer. Every agent re-syncs against the same mission context, rules, ticket state, and architectural source of truth before acting.</p></article>
+        <article class="arch-card"><h3>Lessons Learned</h3><p>Approved memory entries become reusable operating knowledge, so field fixes and architectural constraints survive the next session and the next model.</p></article>
+        <article class="arch-card"><h3>Kanban Bridge</h3><p>GitHub and dashboard work stay aligned. Humans can see ticket state, and agents can move work without relying on fragile copy-paste handoffs.</p></article>
         <article class="arch-card"><h3>Vault-First Security</h3><p>Secrets are fetched on demand through Infisical workflows. No hardcoded `.env` files, no credential sprawl in chat history, and no leaked keys in memory ledgers.</p></article>
         <article class="arch-card"><h3>Multi-Model Orchestration</h3><p>Coordinate Claude, Gemini, Mistral, and Codex in parallel with shared conventions for handoffs, standups, lessons learned, and task routing.</p></article>
       </div>
@@ -393,6 +473,8 @@
         <div class="proof-links">
           <div><a href="https://api.robotross.art/demo/" target="_blank" rel="noopener noreferrer">Development Hub: engineering-focused demo for software development teams and technical leads</a></div>
           <div><a href="https://api.robotross.art/growth/" target="_blank" rel="noopener noreferrer">Growth Hub: sales and marketing demo with lead pipeline and content calendar links</a></div>
+          <div><a href="https://github.com/UrsushoribilisMusic/crm-poc" target="_blank" rel="noopener noreferrer">CRM POC GitHub: see a project built by the fleet in just a few hours</a></div>
+
           <div><a href="https://robotross.art/pages/about-robot-ross" target="_blank" rel="noopener noreferrer">Robot Ross: physical AI project overview and background</a></div>
         </div>
       </div>
@@ -406,11 +488,13 @@
       <p class="section-intro">The platform works best when the operational prerequisites are already in place.</p>
       <div class="fit-grid">
         <div class="fit-card"><h3>Required inputs</h3><ul><li>GitHub projects and repositories where agents can pick tickets and report work.</li><li>Licensed agents or model subscriptions for the roles you want to run.</li><li>A secure secret-management path such as Infisical for production workflows.</li></ul></div>
+        <div class="fit-card"><h3>Optional always-on layer</h3><ul><li>Open Claw if you want a fleet that never sleeps and can be steered remotely.</li><li>Telegram as the mobile control surface for approvals, nudges, and human-in-the-loop events.</li></ul></div>
       </div>
       <div class="feature-stack">
         <div class="fit-card"><h3>PocketBase Integration</h3><ul><li>Task, comment, heartbeat, and lesson collections for always-on coordination.</li><li>Human-readable operational state instead of hidden prompt state.</li></ul></div>
         <div class="fit-card"><h3>The Dispatcher</h3><ul><li>Python heartbeat loop pre-configured for macOS launchd.</li><li>Turns standups, reviews, and waiting-human events into a disciplined workflow.</li></ul></div>
         <div class="fit-card"><h3>Telegram Listener</h3><ul><li>Mobile command-and-control path for the fleet manager.</li><li>Keeps the human operator in the loop without sitting inside the dashboard all day.</li></ul></div>
+        <div class="fit-card"><h3>Shared Learning Loop</h3><ul><li>Lessons learned ledger captures approved fixes and operating constraints.</li><li>Turns hard-won troubleshooting into reusable fleet behavior instead of tribal memory.</li></ul></div>
       </div>
     </div>
   </section>
@@ -434,16 +518,20 @@
       <div class="section-label">FAQ</div>
       <h2>Common questions from technical buyers.</h2>
       <div class="faq-list">
-        <article class="faq-item"><button type="button" onclick="toggleFaq(this)">How does cost control actually work? <span>v</span></button><div class="faq-answer">Instead of API keys with per-token billing, we configure agents to authenticate using <strong>OAuth with standard subscriptions</strong> (e.g. Claude Pro). This turns unpredictable costs into a flat monthly fee (~$20/agent).</div></article>
+        <article class="faq-item"><button type="button" onclick="toggleFaq(this)">How does cost control actually work? <span>v</span></button><div class="faq-answer">Instead of API keys with per-token billing, we configure agents to authenticate using <strong>OAuth with standard subscriptions</strong> (e.g. Claude Pro). This turns unpredictable costs into a flat monthly fee (~$20/agent). If one subscription hits limits or runs out of tokens, the fleet can keep moving with the other available models.</div></article>
         <article class="faq-item"><button type="button" onclick="toggleFaq(this)">Why multiple models instead of one? <span>v</span></button><div class="faq-answer">Engineering workflows are heterogeneous. Claude leads in logic, Gemini in context, Codex in speed. A fleet is more resilient when providers are model-agnostic.</div></article>
         <article class="faq-item"><button type="button" onclick="toggleFaq(this)">How are secrets handled? <span>v</span></button><div class="faq-answer">Through a <strong>Vault-First, Zero-Footprint</strong> architecture using Infisical. Agents fetch secrets when needed directly into memory; no keys are ever stored on disk or in .env files.</div></article>
+        <article class="faq-item"><button type="button" onclick="toggleFaq(this)">What does PocketBase do in the stack? <span>v</span></button><div class="faq-answer">PocketBase stores the live operational state for always-on fleets: tasks, comments, heartbeats, and lesson records. It gives both humans and agents a shared state backend instead of relying on hidden chat history.</div></article>
+        <article class="faq-item"><button type="button" onclick="toggleFaq(this)">What is the Dispatcher? <span>v</span></button><div class="faq-answer">The Dispatcher is the lightweight orchestration loop that watches task state, routes work to the right agent, and escalates waiting-human events. On macOS, it is designed to run continuously under <strong>launchd</strong>.</div></article>
+        <article class="faq-item"><button type="button" onclick="toggleFaq(this)">How does Open Claw fit into Flotilla? <span>v</span></button><div class="faq-answer">Open Claw is an optional always-on control layer for operators who want their fleet reachable outside the dashboard. Paired with Flotilla, it adds a practical path for long-running supervision and command relay.</div></article>
+        <article class="faq-item"><button type="button" onclick="toggleFaq(this)">What is the Telegram listener for? <span>v</span></button><div class="faq-answer">The Telegram listener turns your phone into a command-and-control surface. It can relay alerts, approvals, and replies so you can manage the fleet without being pinned to the browser.</div></article>
         <article class="faq-item"><button type="button" onclick="toggleFaq(this)">What do you need from a client? <span>v</span></button><div class="faq-answer">A GitHub account for orchestration, at least one Pro agent license, and an Infisical account for secure secret management.</div></article>
         <article class="faq-item"><button type="button" onclick="toggleFaq(this)">What about local models? <span>v</span></button><div class="faq-answer">We recommend Mistral and Apertus for teams prioritizing data sovereignty. These run on your own hardware with zero data sent to third parties.</div></article>
-        <article class="faq-item"><button type="button" onclick="toggleFaq(this)">What does the Hub dashboard include? <span>v</span></button><div class="faq-answer">A live view of agent status, project-specific memory trees, evolutionary lessons learned, and automated daily standups for audit trails.</div></article>
+        <article class="faq-item"><button type="button" onclick="toggleFaq(this)">What does the Hub dashboard include? <span>v</span></button><div class="faq-answer">A live view of agent status, a Kanban view of work in progress, project-specific memory trees, evolutionary lessons learned, and automated daily standups for audit trails.</div></article>
         <article class="faq-item"><button type="button" onclick="toggleFaq(this)">How long does the Deployment Intensive take? <span>v</span></button><div class="faq-answer">It is a one-day hands-on engagement. We don't consider it finished until your fleet clears its first real-world production tickets on your own infrastructure.</div></article>
         <article class="faq-item"><button type="button" onclick="toggleFaq(this)">Is there ongoing support? <span>v</span></button><div class="faq-answer">Yes. Commercial plans include monthly support hours and continuous platform updates to keep your fleet running on the latest protocols.</div></article>
         <article class="faq-item"><button type="button" onclick="toggleFaq(this)">Can I manage multiple projects? <span>v</span></button><div class="faq-answer">Yes. The Fleet Hub is designed to manage several engineering projects simultaneously, each with its own context, agents, and Kanban boards.</div></article>
-        <article class="faq-item"><button type="button" onclick="toggleFaq(this)">Why GitHub for orchestration? <span>v</span></button><div class="faq-answer">GitHub is the center of engineering. We leverage it for Kanban ticketing, source control of rules, and Shared Memory storage via MD files.</div></article>
+        <article class="faq-item"><button type="button" onclick="toggleFaq(this)">Why GitHub for orchestration? <span>v</span></button><div class="faq-answer">GitHub is the center of engineering. We leverage it for Kanban ticketing, source control of rules, Shared Memory storage via MD files, and coordination across multiple development teams working in parallel.</div></article>
       </div>
       </div>
     </section>
