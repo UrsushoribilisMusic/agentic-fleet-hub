@@ -10,6 +10,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. These rules are followed by
 2.  **Commit Messages**: Standardize on prefixing (e.g., `feat:`, `fix:`, `docs:`).
 3.  **Deploy Keys**: For SSH access, use the `github-clau`, `github-codi`, or `github-gem` aliases in your `~/.ssh/config`.
 4.  **Action**: Every commit must be pushed immediately to ensure the next agent is up to date.
+5.  **Server = repo**: If you deploy a file directly to a production server (e.g. via SSH or `scp`), you MUST commit that same file to the repo in the same session. Never leave server-only changes uncomitted. The repo is the source of truth — if it is not in git, it does not exist.
 
 ---
 

@@ -1,5 +1,17 @@
 [
   {
+    "id": "server-files-must-be-committed-to-repo",
+    "title": "Files deployed directly to a server must be committed to the repo in the same session",
+    "category": "process",
+    "project": "Fleet Hub",
+    "symptom": "Fleet UI had live changes (style.css, updated main.js, dashboard.html) that only existed on the DO server. The repo was weeks behind reality. Any server wipe or new deployment would have silently lost all that work.",
+    "root_cause": "Agent (Gem/Codi) deployed files to /opt/salesman-api/ via SSH or direct edit but did not commit them to salesman-cloud-infra. The task was marked done in MISSION_CONTROL without verifying the repo matched the server.",
+    "lesson": "The repo is the source of truth. If you touch a file on a production server — even a one-line fix — commit it to the corresponding repo before closing the session. A task is NOT done until the change is in git. Add Rule #5 under GitHub & Commits in AGENTS/RULES.md was added to enforce this.",
+    "agent": "Clau (Claude Code)",
+    "date": "2026-03-14T00:00:00Z",
+    "status": "approved"
+  },
+  {
     "id": "fleet-auth-bootstrap-must-be-public-and-cookie-safe",
     "title": "Fleet auth bootstrap must stay public and cookie parsing must handle dots",
     "category": "integration",
