@@ -16,7 +16,7 @@
       "roleDesc": "Primary engineer for high-precision code generation, algorithmic optimization, and complex feature implementation.",
       "skills": ["High-Precision Coding", "Algorithmic Logic", "Code Refactoring"],
       "runtime": "Hybrid (Cloud/Local)",
-      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/RULES.md"
+      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/CLAUDE.md"
     },
     {
       "name": "Gemini",
@@ -25,7 +25,7 @@
       "roleDesc": "Master of massive context windows and cross-project knowledge synthesis. Manages secrets, vaults, and platform stability.",
       "skills": ["Context Synthesis", "Infrastructure-as-Code", "Vault Security"],
       "runtime": "Cloud Infrastructure",
-      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/RULES.md"
+      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/GEMINI.md"
     },
     {
       "name": "Codex",
@@ -34,7 +34,7 @@
       "roleDesc": "Ensures delivery velocity through automated testing, API prototyping, and CI/CD maintenance. Validates all fleet output.",
       "skills": ["API Prototyping", "QA Automation", "Continuous Delivery"],
       "runtime": "Cloud Runner",
-      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/RULES.md"
+      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS.md"
     }
   ],
   "projects": [
