@@ -63,43 +63,21 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#30**: Flotilla Kanban parser + normalized ticket model -- Codi. GET /fleet/api/kanban live.
 - **#31**: Flotilla Kanban UI tab -- Gem. 3-column unified board + refresh logic live.
 - **#33**: Add search to Memory Tree -- Gem. Dynamic filtering for docs and lessons live.
+- **#34**: Install PocketBase + create DB schema -- Gem. ARM binary installed, 5 collections with API rules live.
+- **#35**: Create `~/fleet/` directory structure -- Clau. All agent workspace dirs created, MISSION_CONTROL in position.
+- **#36**: Build `dispatcher.py` + Telegram notifications -- Gem. Dispatcher live with Mac Mini paths, Telegram notify for waiting_human.
+- **#37**: Create fleet Python venv -- Clau. `~/fleet/.venv` created with `requests`.
+- **#40**: Gem fleet mandate + heartbeat protocol -- Gem. `~/fleet/gem/GEMINI.md` created with 6-phase heartbeat protocol.
+- **#38**: launchd plists: PocketBase + dispatcher -- Clau. Both KeepAlive services running. Dispatcher live via infisical run (TELEGRAM_TOKEN injected from vault).
+- **#39**: launchd heartbeat plists: Gem + Codi -- Clau. Staggered at :00 and :02, node path fixed for launchd limited PATH.
+- **#42**: Clau fleet mandate + heartbeat protocol -- Clau. `~/fleet/clau/CLAUDE.md` created with 6-phase heartbeat protocol.
+- **#43**: Fleet Hub: Tasks tab + Activity feed + Heartbeat indicators -- Gem. Board, activity feed, and heartbeat dots (PocketBase REST) live.
 
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **#32** | Mission Control format hardening | Clau | in_work | Stabilize status/owner conventions and document the v1 Kanban parsing contract |
-| **34** | Install PocketBase + create DB schema | Gem | closed | PocketBase ARM installed, 5 collections created with API rules |
-| **35** | Create `~/fleet/` directory structure | Clau | pending | Workspace dirs per agent, copy MISSION_CONTROL + mandate files into position |
-| **36** | Build `dispatcher.py` + Telegram notifications | Gem | closed | Dispatcher built with Mac Mini paths, Telegram notify for waiting_human live |
-| **37** | Create fleet Python venv | Clau | pending | `~/fleet/.venv` with `requests`. Dispatcher uses this venv, not system Python |
-| **38** | launchd plists: PocketBase + dispatcher | Clau | pending | Blocked by #34, #36, #37. KeepAlive services, logs to `~/fleet/logs/` |
-| **39** | launchd heartbeat plists: Gem + Codi | Clau | pending | Staggered: Gem at :00, Codi at :02. Blocked by #35 |
-| **40** | Gem fleet mandate + heartbeat protocol | Gem | closed | `~/fleet/gem/GEMINI.md` created with 6-phase heartbeat protocol |
-| **41** | Codi fleet mandate + heartbeat protocol | Codi | pending | Create `~/fleet/codi/CLAUDE.md` with 6-phase heartbeat protocol |
-| **42** | Clau fleet mandate + heartbeat protocol | Clau | pending | Create `~/fleet/clau/CLAUDE.md` with 6-phase heartbeat protocol |
-| **43** | Fleet Hub: Tasks tab + Activity feed + Heartbeat indicators | Gem | closed | Tasks tab added with board, activity feed, and heartbeat dots (PocketBase REST) |
+| **#32** | Mission Control format hardening | Clau | in_work | Normalize `**#N**` format, purge `status=closed` rows, document v1 Kanban contract |
+| **#41** | Codi fleet mandate + heartbeat protocol | Codi | in_work | Create `~/fleet/codi/CLAUDE.md` with 6-phase heartbeat protocol |
 
-
-**Status: OPEN-SOURCE PACKAGE PUBLISHED. `create-flotilla@0.1.0` is live on npm. Release-ready.**
-
-### Fleet Always-On Build — Parallelisation Plan
-```
-NOW (parallel):
-  Gem  → #34 (PocketBase schema)
-  Gem  → #36 (dispatcher.py)
-  Gem  → #40 (Gem mandate)
-  Clau → #35 (fleet dirs)
-  Clau → #37 (fleet venv)
-  Clau → #42 (Clau mandate)
-  Codi → #41 (Codi mandate)
-
-AFTER #34, #36, #37 land:
-  Clau → #38 (launchd PocketBase + dispatcher)
-
-AFTER #35 lands:
-  Clau → #39 (launchd heartbeats)
-
-AFTER #34 lands:
-  Gem  → #43 (Fleet Hub views)
-```
+**Status: OPEN-SOURCE PACKAGE PUBLISHED. `create-flotilla@0.1.0` is live on npm. Fleet always-on infrastructure live on Mac Mini.**
 
