@@ -1,50 +1,99 @@
 {
   "team": [
     {
-      "name": "Coordinator",
-      "avatar": "🧭",
-      "roleTitle": "Fleet Orchestrator",
-      "roleDesc": "Manages the Shared Consciousness state and directs work distribution across the fleet. Resolves blockers and enforces team protocols.",
-      "skills": ["State Management", "Work Distribution", "Protocol Enforcement"],
-      "runtime": "Cloud VPS",
-      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/RULES.md"
-    },
-    {
       "name": "Claude Code",
       "avatar": "🤖",
+      "heartbeatKey": "clau",
       "roleTitle": "Senior Logic & Implementation",
       "roleDesc": "Primary engineer for high-precision code generation, algorithmic optimization, and complex feature implementation.",
       "skills": ["High-Precision Coding", "Algorithmic Logic", "Code Refactoring"],
-      "runtime": "Hybrid (Cloud/Local)",
+      "runtime": "Mac Mini (Local)",
       "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/CLAUDE.md"
     },
     {
       "name": "Gemini",
       "avatar": "♊",
+      "heartbeatKey": "gem",
       "roleTitle": "Infrastructure & Context Architect",
       "roleDesc": "Master of massive context windows and cross-project knowledge synthesis. Manages secrets, vaults, and platform stability.",
       "skills": ["Context Synthesis", "Infrastructure-as-Code", "Vault Security"],
-      "runtime": "Cloud Infrastructure",
+      "runtime": "Mac Mini (Local)",
       "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/GEMINI.md"
     },
     {
       "name": "Codex",
       "avatar": "🛠️",
+      "heartbeatKey": "codi",
       "roleTitle": "QA & Velocity Runner",
       "roleDesc": "Ensures delivery velocity through automated testing, API prototyping, and CI/CD maintenance. Validates all fleet output.",
       "skills": ["API Prototyping", "QA Automation", "Continuous Delivery"],
-      "runtime": "Cloud Runner",
+      "runtime": "Mac Mini (Local)",
       "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS.md"
+    },
+    {
+      "name": "Misty",
+      "avatar": "🌫️",
+      "heartbeatKey": "misty",
+      "roleTitle": "EU Compliance & Ethics Lead",
+      "roleDesc": "European model advantage. Handles AI Act compliance, audit logging, multi-agent transparency, and DACH enterprise requirements.",
+      "skills": ["EU AI Act", "Compliance Review", "Ethics & Transparency"],
+      "runtime": "Mac Mini (Local)",
+      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/MISTRAL.md"
+    },
+    {
+      "name": "OpenClaw",
+      "avatar": "🐻",
+      "heartbeatKey": "openclaw",
+      "roleTitle": "Robot Ross Controller",
+      "roleDesc": "Runs the physical robot arm (Huenit), painting pipeline, and Telegram gateway on the Mac Mini. Master control for the Robot Ross skill.",
+      "skills": ["Robot Control", "Skill Execution", "Hardware Interface"],
+      "runtime": "Mac Mini (Always-On)",
+      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/robot_ross_artist.md"
     }
   ],
   "projects": [
     {
+      "title": "Robot Ross",
+      "owners": "Ursus Fleet",
+      "summary": "Physical robot arm (Huenit) controlled by Claude Code / OpenClaw on the Mac Mini. Paints on canvas from AI-generated prompts. Includes Telegram gateway for remote command and photo inbound.",
+      "docs": ["https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/robot_ross_artist.md"],
+      "kanban": "https://github.com/users/UrsushoribilisMusic/projects/1/views/1"
+    },
+    {
+      "title": "Music Video Tool",
+      "owners": "Ursus Fleet",
+      "summary": "Automated pipeline for generating music videos and social content. Python/FFmpeg stack with AI image generation, audio sync, and upload automation.",
+      "docs": ["https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/music_video_tool.md"],
+      "kanban": "https://github.com/users/UrsushoribilisMusic/projects/3/views/1"
+    },
+    {
       "title": "Agentic CRM Prototype",
       "owners": "Ursus Fleet",
-      "summary": "(Sample Project) Our definitive 'Northstar' test case—similar to the Northwind example. A high-fidelity React/FastAPI prototype managed autonomously by the fleet to demonstrate cross-platform coordination and Google Calendar integration.",
+      "summary": "Our North Star demo: a high-fidelity React/FastAPI CRM managed autonomously by the fleet. Demonstrates cross-platform coordination, Google Calendar integration, and lead pipeline automation.",
       "docs": ["https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/crm_poc_context.md"],
       "kanban": "https://github.com/users/UrsushoribilisMusic/projects/2/views/2",
       "crmLink": "https://api.robotross.art/crm-demo/"
+    },
+    {
+      "title": "The Lost Coins",
+      "owners": "Ursus Fleet",
+      "summary": "Narrative/story-driven project. Chapter-based storytelling with AI-generated visuals and audio, managed through the fleet pipeline.",
+      "docs": ["https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/the_lost_coins_story.md"],
+      "kanban": "https://github.com/users/UrsushoribilisMusic/projects/4/views/1"
+    },
+    {
+      "title": "Salesman (OpenClaw Gateway)",
+      "owners": "Ursus Fleet",
+      "summary": "Public OpenClaw gateway and BobRossSkill on DigitalOcean. Handles inbound skill requests, OAuth, and routes to the Mac Mini robot control system.",
+      "docs": ["https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/robot_ross_salesman.md"],
+      "kanban": "https://github.com/users/UrsushoribilisMusic/projects/1/views/1"
+    },
+    {
+      "title": "Agentic Fleet Hub (Flotilla)",
+      "owners": "Ursus Fleet",
+      "summary": "The fleet's own infrastructure: PocketBase, dispatcher, heartbeat protocol, Telegram bridge, and Fleet Hub dashboard. The always-on multi-agent coordination layer.",
+      "docs": ["https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/ARCHITECTURE.md"],
+      "kanban": "https://github.com/users/UrsushoribilisMusic/projects/4/views/1"
     }
   ]
 }
