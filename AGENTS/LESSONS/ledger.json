@@ -1,5 +1,17 @@
 [
   {
+    "id": "fleet-auth-bootstrap-must-be-public-and-cookie-safe",
+    "title": "Fleet auth bootstrap must stay public and cookie parsing must handle dots",
+    "category": "integration",
+    "project": "Fleet Hub",
+    "symptom": "The private `/fleet/` page entered a login/loading loop, `/auth/auth.js` returned 401, `/auth/logout` returned 401, and the dashboard never finished booting.",
+    "root_cause": "The live server was missing public routes for `/auth/auth.js`, `/auth/logout`, and `/favicon.ico`. After that was fixed, auth verification still broke because the signed cookie payload was split on every `.` character instead of the final delimiter, so emails containing dots corrupted session parsing.",
+    "lesson": "Treat auth bootstrap assets as public infrastructure, not protected app routes. When signing cookies as `payload.signature`, always split on the last delimiter, not every occurrence. Otherwise normal email addresses can break session verification and trap the UI in a login loop.",
+    "agent": "Codi (Codex)",
+    "date": "2026-03-14T00:00:00Z",
+    "status": "pending_review"
+  },
+  {
     "id": "kanban-ui-must-match-package-api",
     "title": "Kanban UI must consume the packaged API shape, not a parallel frontend contract",
     "category": "integration",
