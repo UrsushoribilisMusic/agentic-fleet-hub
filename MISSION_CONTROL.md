@@ -72,6 +72,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#39**: launchd heartbeat plists: Gem + Codi -- Clau. Staggered at :00 and :02, node path fixed for launchd limited PATH.
 - **#41**: Codi fleet mandate + heartbeat protocol -- Codi. `~/fleet/codi/CLAUDE.md` created with 6-phase heartbeat protocol, `~/fleet/codi/PROGRESS.md` initialized.
 - **#44**: Live Fleet auth/bootstrap and dashboard recovery -- Codi. Fixed `api.robotross.art/fleet` login loop, restored lessons/inbox/standups/user management, redeployed `salesman-api`, and documented the auth failure in lessons learned.
+- **#47**: Big Bear homepage: Flotilla CTA and positioning refresh -- Codi. Hero repositioned around “The Docker of AI Agents,” stronger `npx create-flotilla` CTA added, Architecture of Independence section added, and always-on fleet features surfaced without temporary Reddit proof.
 - **#42**: Clau fleet mandate + heartbeat protocol -- Clau. `~/fleet/clau/CLAUDE.md` created with 6-phase heartbeat protocol.
 - **#43**: Fleet Hub: Tasks tab + Activity feed + Heartbeat indicators -- Gem. Board, activity feed, and heartbeat dots (PocketBase REST) live.
 - **#32**: Mission Control format hardening -- Clau. `**#N**` format normalized, closed rows purged from OPEN table, status values corrected to spec. v1 Kanban contract documented in `AGENTS/CONTEXT/kanban_format_spec.md`.
@@ -82,7 +83,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **#47** | Big Bear homepage: Flotilla CTA and social proof refresh | Codi | planned | Feature `npx create-flotilla`, Reddit proof, and always-on build features on `bigbearengineering.com`. Board: https://github.com/users/UrsushoribilisMusic/projects/2/views/2 |
 
 
 **Status: OPEN-SOURCE PACKAGE PUBLISHED. `create-flotilla@0.1.0` is live on npm. Fleet always-on infrastructure live on Mac Mini.**

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Big Bear Engineering GmbH | Coordinated Multi-Agent AI for Engineering Teams</title>
-  <meta name="description" content="Big Bear Engineering builds coordinated multi-agent systems for engineering teams: shared memory, vault-first security, and production-focused deployment." />
+  <title>Big Bear Engineering GmbH | Flotilla, The Docker of AI Agents</title>
+  <meta name="description" content="Flotilla is the orchestration layer for autonomous engineering teams: shared memory, vault-first security, Kanban sync, and always-on fleet operations on your own hardware." />
   <style>
     :root { --bg:#0a0c10; --surface:#111318; --border:#1e2230; --accent:#2dd4bf; --accent2:#10b981; --text:#e2e8f0; --muted:#8b9bb0; --danger:#f87171; }
     * { box-sizing:border-box; margin:0; padding:0; }
@@ -14,7 +14,7 @@
     nav, section, footer, .hero { padding-left:5%; padding-right:5%; }
     nav { position:sticky; top:0; z-index:20; min-height:72px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; padding-top:.9rem; padding-bottom:.9rem; background:rgba(10,12,16,.88); backdrop-filter:blur(14px); border-bottom:1px solid var(--border); }
     .logo { text-decoration:none; font-size:1.15rem; font-weight:800; letter-spacing:-.04em; background:linear-gradient(90deg,var(--accent),var(--accent2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-    nav ul, .nav-actions, .hero-actions, .proof-links, .footer-links, .legal-links, .cookie-actions { display:flex; flex-wrap:wrap; gap:.8rem; }
+    nav ul, .nav-actions, .hero-actions, .proof-links, .footer-links, .legal-links, .cookie-actions, .cta-actions { display:flex; flex-wrap:wrap; gap:.8rem; }
     nav ul { list-style:none; }
     nav ul a, .footer-links a { text-decoration:none; color:var(--muted); }
     .button, .button-secondary { display:inline-flex; align-items:center; justify-content:center; padding:.8rem 1.25rem; border-radius:10px; text-decoration:none; font-weight:700; border:1px solid transparent; cursor:pointer; }
@@ -55,6 +55,18 @@
     .why-card h3 { font-size:1rem; margin-bottom:.45rem; }
     .why-card p { color:var(--muted); font-size:.92rem; }
     .why-card .badge { display:block; font-size:1.35rem; margin-bottom:.65rem; }
+    .cta-shell { margin-top:1.35rem; padding:1.15rem; border-radius:18px; border:1px solid rgba(45,212,191,.18); background:linear-gradient(180deg, rgba(45,212,191,.08), rgba(255,255,255,.02)); }
+    .cta-shell h3 { font-size:1.15rem; margin-bottom:.35rem; }
+    .cta-shell p { color:var(--muted); margin-bottom:1rem; }
+    .command-box { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:1rem 1.1rem; border-radius:14px; background:#0b1016; border:1px solid var(--border); margin-bottom:1rem; }
+    .command-box code { font-size:1rem; color:var(--accent); letter-spacing:.02em; }
+    .command-box span { color:var(--muted); font-size:.82rem; text-transform:uppercase; letter-spacing:.08em; }
+    .arch-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+    .arch-card { background:rgba(17,19,24,.92); border:1px solid var(--border); border-radius:18px; padding:1.35rem; }
+    .arch-card h3 { font-size:1rem; margin-bottom:.45rem; }
+    .arch-card p { color:var(--muted); font-size:.94rem; }
+    .feature-stack { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:1rem; }
+    .feature-stack .fit-card h3 { margin-bottom:.55rem; }
     .browser-frame { background:#0d1117; border:1px solid var(--border); border-radius:18px; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,.45); margin-top:1.25rem; }
     .browser-bar { background:#161b22; padding:.75rem 1rem; display:flex; align-items:center; gap:.5rem; border-bottom:1px solid var(--border); }
     .browser-dot { width:10px; height:10px; border-radius:50%; }
@@ -114,7 +126,7 @@
     .cookie-banner.visible { display:block; }
     .cookie-card { max-width:960px; margin:0 auto; padding:1rem 1.1rem; border-radius:18px; border:1px solid var(--border); background:rgba(12,15,21,.96); display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem; }
     .offer-button { margin-top:1.1rem; width:100%; }
-    @media (max-width:980px) { .hero-grid, .proof-grid, .fit-grid, .pricing-grid, .legal-grid, .footer-wrap, .hub-layout, .agent-grid { grid-template-columns:1fr; } .cards { grid-template-columns:repeat(2,1fr); } .metrics { grid-template-columns:1fr; } .hero-copy { display:contents; } .hero-copy h1 { order:1; } .hero-grid > .panel { order:2; } .hero-copy > p { order:3; } .hero-copy .hero-actions { order:4; } .hero-copy .eyebrow { order:5; } .hero-copy .metrics { order:6; } }
+    @media (max-width:980px) { .hero-grid, .proof-grid, .fit-grid, .pricing-grid, .legal-grid, .footer-wrap, .hub-layout, .agent-grid, .arch-grid, .feature-stack { grid-template-columns:1fr; } .cards { grid-template-columns:repeat(2,1fr); } .metrics { grid-template-columns:1fr; } .hero-copy { display:contents; } .hero-copy h1 { order:1; } .hero-grid > .panel { order:2; } .hero-copy > p { order:3; } .hero-copy .hero-actions { order:4; } .hero-copy .cta-shell { order:5; } .hero-copy .eyebrow { order:6; } .hero-copy .metrics { order:7; } .command-box { flex-direction:column; align-items:flex-start; } }
     @media (max-width:760px) { nav ul { display:none; } nav { min-height:auto; } .cards { grid-template-columns:1fr; } .eyebrow { font-size:.64rem; padding:.24rem .65rem; } }
   </style>
 </head>
@@ -173,32 +185,43 @@
   <header class="hero">
     <div class="hero-grid">
       <div class="hero-copy">
-        <h1>Your Engineering Team, <em>Multiplied by AI.</em></h1>
-        <p>Coordinated multi-agent systems with shared memory and evolutionary learning.</p>
+        <h1>Flotilla: <em>The Docker of AI Agents.</em></h1>
+        <p>Stop duct-taping random chats. Flotilla is the orchestration layer that bootstraps your autonomous fleet with shared memory, vault-first security, and a unified Kanban bridge on your own hardware.</p>
         <div class="hero-actions">
-          <a class="button" href="https://api.robotross.art/demo/" target="_blank" rel="noopener noreferrer">Experience the Hub</a>
-          <button class="button-secondary" type="button" onclick="openModal('Exploratory Call')">Book an Intro Call</button>
+          <a class="button" href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub" target="_blank" rel="noopener noreferrer">See the GitHub Repo</a>
+          <button class="button-secondary" type="button" onclick="openModal('Fleet Command')">Talk to Big Bear</button>
         </div>
-        <div style="margin-top:1.2rem;">
-          <code style="display:inline-block;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:8px;padding:.5rem 1rem;font-size:.85rem;color:var(--accent);letter-spacing:.02em;">npx create-flotilla</code>
-          <a href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub" target="_blank" rel="noopener noreferrer" style="margin-left:.75rem;font-size:.8rem;color:var(--muted);text-decoration:none;vertical-align:middle;">GitHub &rarr;</a>
+        <div class="cta-shell">
+          <div class="section-label">Build Your Own Autonomous Flotilla</div>
+          <h3>One command to deploy a professional-grade engineering fleet.</h3>
+          <p>Bootstrap a multi-model team with shared operating memory, secure secret delivery, and a management layer your humans can actually read.</p>
+          <div class="command-box">
+            <div>
+              <span>Command</span>
+              <code>npx create-flotilla</code>
+            </div>
+            <div class="cta-actions">
+              <a class="button-secondary" href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub#readme" target="_blank" rel="noopener noreferrer">Get the Documentation</a>
+              <a class="button" href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub" target="_blank" rel="noopener noreferrer">See the GitHub Repo</a>
+            </div>
+          </div>
         </div>
-        <div class="eyebrow">Zurich | Shared Consciousness | Vault-First</div>
+        <div class="eyebrow">Zurich | Vault-First | Multi-Model Orchestration</div>
         <div class="metrics">
-          <div class="metric"><strong>Persistent State</strong><span>Shared memory, standups, and architectural context across sessions.</span></div>
-          <div class="metric"><strong>Vault-First Security</strong><span>Infisical-based secret delivery with no `.env` files in the workflow.</span></div>
-          <div class="metric"><strong>Production Bias</strong><span>Built for real tickets, handoffs, and infrastructure accountability.</span></div>
+          <div class="metric"><strong>Persistent State</strong><span>Shared memory, standups, and architectural context survive across sessions and models.</span></div>
+          <div class="metric"><strong>Vault-First Security</strong><span>Infisical-based secret delivery with no `.env` files leaking into agent context.</span></div>
+          <div class="metric"><strong>Always-On Operations</strong><span>PocketBase, dispatcher heartbeats, and mobile command pathways for 24/7 fleet discipline.</span></div>
         </div>
       </div>
         <div class="panel">
-          <div class="section-label">Fleet Command Preview</div>
-          <h3>Mission-control onboarding for engineering teams</h3>
-          <p>Every coding agent session begins from the same operating memory: mission control, team rules, context, and current standups.</p>
+          <div class="section-label">Flotilla Control Layer</div>
+          <h3>The operating system for autonomous engineering teams</h3>
+          <p>Flotilla standardizes the bootstrap, security, and coordination layer so your agents stop behaving like isolated chat tabs and start working like a professional team.</p>
           <ul>
-            <li>Agents pick their tickets from GitHub and work on them.</li>
-            <li>They update results in shared markdown files so the whole fleet can inherit the current state.</li>
-            <li>They document lessons learned for other agents to see, avoiding the same mistakes twice.</li>
-            <li>The setup can leverage fixed-cost per-seat licenses instead of expensive token API calls, so there are no cost surprises.</li>
+            <li>`MISSION_CONTROL.md` gives every agent the same cognitive starting point before work begins.</li>
+            <li>Vault-first secret delivery keeps credentials out of prompts, markdown, and `.env` sprawl.</li>
+            <li>Claude, Gemini, Mistral, and Codex can run in parallel under one operating contract.</li>
+            <li>The Kanban bridge keeps work anchored to real tickets instead of ad hoc chat memory.</li>
           </ul>
         </div>
     </div>
@@ -334,6 +357,19 @@
     </div>
   </section>
 
+  <section id="architecture">
+    <div class="section-wrap">
+      <div class="section-label">Architecture of Independence</div>
+      <h2>Standardized agent orchestration, not improvised chat ops.</h2>
+      <p class="section-intro">Flotilla is strongest when the coordination layer is explicit. The package gives teams a repeatable operating model instead of a loose pile of prompts, tabs, and undocumented rituals.</p>
+      <div class="arch-grid">
+        <article class="arch-card"><h3>MISSION_CONTROL.md</h3><p>The shared cognitive layer. Every agent re-syncs against the same mission context, rules, ticket state, and architectural source of truth before acting.</p></article>
+        <article class="arch-card"><h3>Vault-First Security</h3><p>Secrets are fetched on demand through Infisical workflows. No hardcoded `.env` files, no credential sprawl in chat history, and no leaked keys in memory ledgers.</p></article>
+        <article class="arch-card"><h3>Multi-Model Orchestration</h3><p>Coordinate Claude, Gemini, Mistral, and Codex in parallel with shared conventions for handoffs, standups, lessons learned, and task routing.</p></article>
+      </div>
+    </div>
+  </section>
+
   <section id="why">
     <div class="section-wrap">
       <div class="section-label">Why Now</div>
@@ -371,17 +407,22 @@
       <div class="fit-grid">
         <div class="fit-card"><h3>Required inputs</h3><ul><li>GitHub projects and repositories where agents can pick tickets and report work.</li><li>Licensed agents or model subscriptions for the roles you want to run.</li><li>A secure secret-management path such as Infisical for production workflows.</li></ul></div>
       </div>
+      <div class="feature-stack">
+        <div class="fit-card"><h3>PocketBase Integration</h3><ul><li>Task, comment, heartbeat, and lesson collections for always-on coordination.</li><li>Human-readable operational state instead of hidden prompt state.</li></ul></div>
+        <div class="fit-card"><h3>The Dispatcher</h3><ul><li>Python heartbeat loop pre-configured for macOS launchd.</li><li>Turns standups, reviews, and waiting-human events into a disciplined workflow.</li></ul></div>
+        <div class="fit-card"><h3>Telegram Listener</h3><ul><li>Mobile command-and-control path for the fleet manager.</li><li>Keeps the human operator in the loop without sitting inside the dashboard all day.</li></ul></div>
+      </div>
     </div>
   </section>
 
   <section id="offering">
     <div class="section-wrap">
       <div class="section-label">Offerings</div>
-      <h2>Four ways to deploy the fleet.</h2>
-      <p class="section-intro">From open-source starter to fully hands-on deployment, pick the level that fits your team.</p>
+      <h2>Start with the package, scale into deployment.</h2>
+      <p class="section-intro">The open-source Flotilla package is the entry point. Big Bear Engineering is the upgrade path when you want the orchestration layer installed, tuned, and made operational for your team.</p>
       <div class="pricing-grid">
-        <article class="pricing-card"><div class="tag">Open</div><h3>The Multi-Agent Blueprint</h3><p>Open-source starter kit - Free</p><ul><li>Zero-install scaffolder: <code style="font-size:.8rem;color:var(--accent);">npx create-flotilla</code></li><li>Initial MD memory framework with linked templates for agent conventions and hand-offs</li><li>The Kanban Bridge scripts to sync agents with your GitHub project board</li><li>Model-agnostic configs for Claude, Gemini, Codex, and Mistral</li><li>Community support and documentation</li></ul><div style="display:flex;gap:.6rem;margin-top:1.1rem;flex-wrap:wrap;"><button class="button-secondary offer-button" style="margin-top:0;flex:1;" type="button" onclick="openModal('Multi-Agent Blueprint')">More Info</button><a class="button-secondary offer-button" style="margin-top:0;flex:1;text-align:center;" href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a></div></article>
-        <article class="pricing-card featured"><div class="tag">Core Offer</div><h3>Fleet Command</h3><p>Dashboard plus remote setup - Contact us</p><ul><li>Everything in the Blueprint, including all MD memory templates</li><li>Web dashboard to monitor, manage, and direct your agent fleet in real time</li><li>Remote setup session where we configure the fleet live with your team</li><li>Agent health monitoring and task-completion reporting</li><li>Priority email support included</li><li>Additional support hours available separately</li></ul><button class="button offer-button" type="button" onclick="openModal('Fleet Command')">More Info and Order</button></article>
+        <article class="pricing-card"><div class="tag">Open</div><h3>Flotilla Package</h3><p>Open-source starter kit - Free</p><ul><li>Zero-install scaffolder: <code style="font-size:.8rem;color:var(--accent);">npx create-flotilla</code></li><li>Mission control, rules, standups, inbox, and lessons scaffolding</li><li>Kanban bridge and model-agnostic runtime conventions</li><li>PocketBase-ready always-on fleet structure</li><li>Documentation and GitHub source</li></ul><div style="display:flex;gap:.6rem;margin-top:1.1rem;flex-wrap:wrap;"><a class="button-secondary offer-button" style="margin-top:0;flex:1;text-align:center;" href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub#readme" target="_blank" rel="noopener noreferrer">Documentation</a><a class="button-secondary offer-button" style="margin-top:0;flex:1;text-align:center;" href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a></div></article>
+        <article class="pricing-card featured"><div class="tag">Core Offer</div><h3>Fleet Command</h3><p>Dashboard plus remote setup - Contact us</p><ul><li>Everything in the Flotilla package, configured for your environment</li><li>Web dashboard to monitor, manage, and direct your agent fleet in real time</li><li>Remote setup session where we configure the fleet live with your team</li><li>Agent health monitoring, task routing, and operational review loops</li><li>Priority email support included</li><li>Additional support hours available separately</li></ul><button class="button offer-button" type="button" onclick="openModal('Fleet Command')">More Info and Order</button></article>
         <article class="pricing-card"><div class="tag">Premium</div><h3>Fleet Deployment Intensive</h3><p>One-day hands-on engagement - Contact us</p><ul><li>Everything in Fleet Command</li><li>Full stack installation on your local hardware and private cloud</li><li>Workflow mapping that translates your engineering processes into agentic roles</li><li>Live execution until your fleet clears its first real-world tickets</li><li>Post-deployment support and tuning included</li><li>Additional support hours available separately</li></ul><button class="button-secondary offer-button" type="button" onclick="openModal('Deployment Intensive')">More Info and Order</button></article>
         <article class="pricing-card"><div class="tag">Add-On</div><h3>Growth Expansion</h3><p>Commercial extension for sales and marketing workflows.</p><ul><li>Scout and Echo agent roles</li><li>Autonomous CRM lead pipeline</li><li>Content calendar integration</li></ul><button class="button-secondary offer-button" type="button" onclick="openModal('Growth Fleet')">More Info and Order</button></article>
       </div>
