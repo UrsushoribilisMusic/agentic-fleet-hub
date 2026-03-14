@@ -21,7 +21,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 | :--- | :--- | :--- | :--- |
 | **1. Salesman Infra** | `../salesman-cloud-infra/` | Cloud-side scripts, Caddy proxy. | [Infra Docs](../salesman-cloud-infra/README.md) |
 | **2. Music Video Tool** | `../music-video-tool/` | Tooling for creating music videos and content. | [Project MD](./AGENTS/CONTEXT/music_video_tool.md) |
-| **3. CRM-POC** | `../customer-mgmt/` | Customer & Agent relational management system. | [Context MD](./AGENTS/CONTEXT/crm_poc_context.md) |
+| **3. CRM-POC** | `../crm-poc/` | Customer & Agent relational management system. | [Context MD](./AGENTS/CONTEXT/crm_poc_context.md) |
 | **4. The Lost Coins** | `../the-lost-coins/` | Narrative/Story-driven project. | [Story MD](./AGENTS/CONTEXT/the_lost_coins_story.md) |
 | **5. Robot Ross** | *(Mac mini)* | **Master control** for the robot arm & painting. | [Artist MD](./AGENTS/CONTEXT/robot_ross_artist.md) |
 | **6. Salesman (OpenClaw)** | `DigitalOcean` | OpenClaw gateway & **BobRossSkill** (public). | [Salesman MD](./AGENTS/CONTEXT/robot_ross_salesman.md) |
@@ -40,7 +40,12 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 
 ---
 
-## Ticket Status (as of 2026-03-13)
+## Ticket Status (as of 2026-03-14)
+
+### ENVIRONMENT NOTE — Mac Mini migration complete (2026-03-14)
+All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users/miguel/` → `/Users/miguelrodriguez/`. Repos cloned to `~/projects/`. Python 3.12 venv at `~/projects/music-video-tool/.venv312`. OpenClaw at `/opt/homebrew/bin/openclaw`. Fleet always-on infrastructure build in progress — see tickets #34–#43.
+
+---
 
 ### CLOSED
 - **#1-#6**: Sheets migration, tracker API, OAuth wired -- Team.
@@ -63,6 +68,37 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **#32** | Mission Control format hardening | Clau | in_work | Stabilize status/owner conventions and document the v1 Kanban parsing contract |
+| **#34** | Install PocketBase + create DB schema | Gem | pending | Download ARM binary, bootstrap admin UI, create 5 collections: tasks, comments, goals, heartbeats, lessons |
+| **#35** | Create `~/fleet/` directory structure | Clau | pending | Workspace dirs per agent, copy MISSION_CONTROL + mandate files into position |
+| **#36** | Build `dispatcher.py` + Telegram notifications | Gem | pending | Mac Mini paths (`/Users/miguelrodriguez/`), openclaw at `/opt/homebrew/bin/openclaw`, Telegram chat ID 997912895. Blocked by none — write in parallel with #34 |
+| **#37** | Create fleet Python venv | Clau | pending | `~/fleet/.venv` with `requests`. Dispatcher uses this venv, not system Python |
+| **#38** | launchd plists: PocketBase + dispatcher | Clau | pending | Blocked by #34, #36, #37. KeepAlive services, logs to `~/fleet/logs/` |
+| **#39** | launchd heartbeat plists: Gem + Codi | Clau | pending | Staggered: Gem at :00, Codi at :02. Blocked by #35 |
+| **#40** | Gem fleet mandate + heartbeat protocol | Gem | pending | Create `~/fleet/gem/GEMINI.md` with 6-phase heartbeat protocol |
+| **#41** | Codi fleet mandate + heartbeat protocol | Codi | pending | Create `~/fleet/codi/CLAUDE.md` with 6-phase heartbeat protocol |
+| **#42** | Clau fleet mandate + heartbeat protocol | Clau | pending | Create `~/fleet/clau/CLAUDE.md` with 6-phase heartbeat protocol |
+| **#43** | Fleet Hub: Tasks tab + Activity feed + Heartbeat indicators | Gem | pending | Read-only PocketBase views. Blocked by #34 |
 
 **Status: OPEN-SOURCE PACKAGE PUBLISHED. `create-flotilla@0.1.0` is live on npm. Release-ready.**
+
+### Fleet Always-On Build — Parallelisation Plan
+```
+NOW (parallel):
+  Gem  → #34 (PocketBase schema)
+  Gem  → #36 (dispatcher.py)
+  Gem  → #40 (Gem mandate)
+  Clau → #35 (fleet dirs)
+  Clau → #37 (fleet venv)
+  Clau → #42 (Clau mandate)
+  Codi → #41 (Codi mandate)
+
+AFTER #34, #36, #37 land:
+  Clau → #38 (launchd PocketBase + dispatcher)
+
+AFTER #35 lands:
+  Clau → #39 (launchd heartbeats)
+
+AFTER #34 lands:
+  Gem  → #43 (Fleet Hub views)
+```
 
