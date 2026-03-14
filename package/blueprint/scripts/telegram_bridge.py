@@ -14,12 +14,15 @@ PB_URL = "http://127.0.0.1:8090/api"
 FLEET_DIR = "/Users/miguelrodriguez/fleet"
 LOG_FILE = f"{FLEET_DIR}/logs/telegram_bridge.log"
 OFFSET_FILE = f"{FLEET_DIR}/logs/tg_offset.json"
+OUTBOUND_OFFSET_FILE = f"{FLEET_DIR}/logs/tg_outbound_offset.json"
 
 # Telegram settings from environment (Infisical)
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "997912895")
 
 os.makedirs(f"{FLEET_DIR}/logs", exist_ok=True)
+
+TASK_CACHE = {}
 
 def log(msg):
     ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -37,6 +40,31 @@ def save_offset(offset):
     with open(OFFSET_FILE, "w") as f:
         json.dump({"offset": offset}, f)
 
+LAST_OUTBOUND_TS = None
+
+def get_outbound_offset():
+    global LAST_OUTBOUND_TS
+    if LAST_OUTBOUND_TS:
+        return LAST_OUTBOUND_TS
+    
+    if os.path.exists(OUTBOUND_OFFSET_FILE):
+        with open(OUTBOUND_OFFSET_FILE, "r") as f:
+            ts = json.load(f).get("last_timestamp", "")
+            if ts:
+                LAST_OUTBOUND_TS = ts
+                return ts
+    
+    # Initialize with current time if never run and save it
+    ts = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S.000Z")
+    save_outbound_offset(ts)
+    return ts
+
+def save_outbound_offset(ts):
+    global LAST_OUTBOUND_TS
+    LAST_OUTBOUND_TS = ts
+    with open(OUTBOUND_OFFSET_FILE, "w") as f:
+        json.dump({"last_timestamp": ts}, f)
+
 def post_to_pb(collection, data):
     try:
         r = requests.post(f"{PB_URL}/collections/{collection}/records", json=data)
@@ -44,6 +72,74 @@ def post_to_pb(collection, data):
     except Exception as e:
         log(f"PB Error: {e}")
         return None
+
+def get_task_title(task_id):
+    if not task_id or len(task_id) != 15 or "_" in task_id:
+        return None
+    if task_id in TASK_CACHE:
+        return TASK_CACHE[task_id]
+    
+    try:
+        r = requests.get(f"{PB_URL}/collections/tasks/records/{task_id}")
+        if r.status_code == 200:
+            title = r.json().get("title")
+            TASK_CACHE[task_id] = title
+            return title
+    except:
+        pass
+    return None
+
+def send_to_tg(text):
+    if not TELEGRAM_TOKEN: return
+    try:
+        url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
+        if len(text) > 4096:
+            text = text[:4093] + "..."
+        r = requests.post(url, json={"chat_id": TELEGRAM_CHAT_ID, "text": text})
+        if r.status_code != 200:
+            log(f"TG Send Error ({r.status_code}): {r.text[:200]}")
+        return r.status_code == 200
+    except Exception as e:
+        log(f"TG Send Error: {e}")
+        return False
+
+def poll_outbound_comments():
+    last_ts = get_outbound_offset()
+    try:
+        # Fetch comments created after last_ts, excluding miguel's, sorted by creation
+        url = f"{PB_URL}/collections/comments/records"
+        params = {
+            "filter": f"created > '{last_ts}' && agent != 'miguel'",
+            "sort": "created"
+        }
+        r = requests.get(url, params=params)
+        if r.status_code != 200:
+            log(f"PB Fetch Error ({r.status_code}): {r.text}")
+            return
+
+        items = r.json().get("items", [])
+        for item in items:
+            agent = item.get("agent", "unknown")
+            content = item.get("content", "")
+            task_id = item.get("task_id", "")
+            
+            title = get_task_title(task_id)
+            if title:
+                header = f"🤖 {agent} @ {title}"
+            else:
+                header = f"🤖 {agent} ({task_id})" if task_id else f"🤖 {agent}"
+            
+            msg = f"{header}:\n{content}"
+            if send_to_tg(msg):
+                log(f"Sent outbound comment from {agent} to TG")
+                last_ts = item.get("created")
+                save_outbound_offset(last_ts)
+            else:
+                log(f"Failed to send outbound comment {item.get('id')}")
+                break # Stop and retry later if TG fails
+                
+    except Exception as e:
+        log(f"Outbound Poll Error: {e}")
 
 def update_backlog_to_todo():
     """Moves all backlog tasks to todo when a 'GO' signal is received."""
@@ -85,16 +181,26 @@ def process_updates(updates):
             log("GO signal processed")
         
         # 2. Check for spec/idea
-        elif text.startswith("spec:") or text.startswith("idea:"):
+        elif text.lower().startswith("spec:") or text.lower().startswith("idea:"):
             post_to_pb("comments", {
                 "task_id": "ARCHITECT_INBOX",
                 "agent": "miguel",
                 "content": text,
-                "type": "output" # Scout scans for miguel + output to find specs
+                "type": "spec" # Matches Scout mandate
             })
             log("New spec posted for Architect")
         
-        # 3. Generic reply
+        # 3. Check for questions
+        elif text.lower().startswith("ask:") or "?" in text:
+            post_to_pb("comments", {
+                "task_id": "FLEET_QUERY",
+                "agent": "miguel",
+                "content": text,
+                "type": "question"
+            })
+            log("New question posted for Fleet")
+        
+        # 4. Generic reply
         else:
             post_to_pb("comments", {
                 "task_id": "GENERAL_REPLY",
@@ -112,10 +218,14 @@ def main():
     offset = get_offset()
     
     while True:
+        # 1. Handle Outbound (PB -> TG)
+        poll_outbound_comments()
+
+        # 2. Handle Inbound (TG -> PB)
         try:
             url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/getUpdates"
-            params = {"offset": offset + 1, "timeout": 30}
-            r = requests.get(url, params=params, timeout=40)
+            params = {"offset": offset + 1, "timeout": 5}
+            r = requests.get(url, params=params, timeout=10)
             data = r.json()
             
             if data.get("ok"):
