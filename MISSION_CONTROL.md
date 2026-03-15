@@ -85,13 +85,15 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#51**: Fix dispatcher `waiting_human` notification spam -- Gem. Added de-dup cooldown (1h) and verified human-reply-to-todo-flip logic. Dispatcher live in `~/fleet/`.
 - **#54**: Update demo page -- showcase new Agentic CRM fleet features -- Gem. Updated `api.robotross.art/demo/` with Kanban board, live heartbeat indicators, and activity feed.
 - **#55**: Update growth page -- reflect new fleet capabilities in Sales & Marketing demo -- Gem. Updated `api.robotross.art/growth/` with live tracking and coordination highlights.
+- **#56**: Sync /demo and /growth UI assets to match /fleet redesign -- Gem. Copied updated dashboard.html, assets/main.js, assets/style.css from /fleet/ to /demo/ and /growth/ on DO server.
 
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **#53** | Release create-flotilla v0.2.0 -- include new fleet features | Codi | in_work | Consolidates PB tasks #47 and #50. Includes PocketBase schema, Dispatcher, Telegram Bridge, and Kanban UI. |
-| **#56** | Sync /demo and /growth UI assets to match /fleet redesign | Gem | todo | Copy updated dashboard.html, assets/main.js, assets/style.css from /fleet/ to /demo/ and /growth/ on DO server. Changes include: collapsible cards, heartbeat dots, task count badges, lessons/inbox redesign, mobile layout. /fleet/ is the source of truth. |
-| **#57** | GitHub Issues ↔ PocketBase two-way sync | Clau | todo | Outbound: task create/update → open/label/close GitHub Issue (tag `flotilla-managed`). Inbound: poll GH for human-written issues → create PB task. Add gh_issue_id field to tasks collection. Closes gap between product promise and actual behavior. |
+| **#57** | GitHub Issues ↔ PocketBase two-way sync | Clau | planned | Outbound: task create/update → open/label/close GitHub Issue (tag `flotilla-managed`). Inbound: poll GH for human-written issues → create PB task. Add gh_issue_id field to tasks collection. Closes gap between product promise and actual behavior. |
+| **#58** | Dynamic Telegram bot commands from fleet_meta.json | Codi | todo | Generate BOT_COMMANDS at runtime from fleet_meta agent roster (heartbeatKey = command name). Re-register with setMyCommands on each bridge restart. Adding/removing agents auto-updates Telegram command list. |
+| **#59** | Make OpenClaw integration optional in package and bridge | Codi | todo | Bridge: ping gateway at startup, skip /claw if unreachable (silent degradation). Installer: opt-in prompt for OpenClaw. Docs: mark as optional. Corporate environments must work without it. |
 
 
 **Status: OPEN-SOURCE PACKAGE PUBLISHED. `create-flotilla@0.1.0` is live on npm. Fleet always-on infrastructure live on Mac Mini.**
