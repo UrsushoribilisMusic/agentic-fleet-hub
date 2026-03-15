@@ -95,6 +95,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **#58** | Dynamic Telegram bot commands from fleet_meta.json | Codi | todo | Generate BOT_COMMANDS at runtime from fleet_meta agent roster (heartbeatKey = command name). Re-register with setMyCommands on each bridge restart. Adding/removing agents auto-updates Telegram command list. |
 | **#59** | Make OpenClaw integration optional in package and bridge | Codi | todo | Bridge: ping gateway at startup, skip /claw if unreachable (silent degradation). Installer: opt-in prompt for OpenClaw. Docs: mark as optional. Corporate environments must work without it. |
 | **#60** | Populate /demo with realistic mock data (4 agents) | Gem | todo | Create consistent mock data: fleet_meta (4 agents: Aria/Rex/Nova/Sage), inbox messages, lessons, standups (2 days), demo kanban with open+closed tickets. All referencing same fictional project (ShopFlow). Viewers must feel it's a real working team. |
+| **#61** | Fleet Hub UI redesign — tool aesthetic + dark/light mode | Gem | todo | 3 phases: (1) CSS token system + dark/light toggle (system pref default + localStorage override), (2) sidebar nav + layout restructure, (3) component polish (tables, badges, monospace). /fleet first, /demo and /growth keep warmer palette but inherit toggle. |
 
 
 **Status: OPEN-SOURCE PACKAGE PUBLISHED. `create-flotilla@0.1.0` is live on npm. Fleet always-on infrastructure live on Mac Mini.**
