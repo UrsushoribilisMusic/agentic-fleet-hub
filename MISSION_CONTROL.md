@@ -91,6 +91,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **#53** | Release create-flotilla v0.2.0 -- include new fleet features | Codi | in_work | Consolidates PB tasks #47 and #50. Includes PocketBase schema, Dispatcher, Telegram Bridge, and Kanban UI. |
 | **#56** | Sync /demo and /growth UI assets to match /fleet redesign | Gem | todo | Copy updated dashboard.html, assets/main.js, assets/style.css from /fleet/ to /demo/ and /growth/ on DO server. Changes include: collapsible cards, heartbeat dots, task count badges, lessons/inbox redesign, mobile layout. /fleet/ is the source of truth. |
+| **#57** | GitHub Issues ↔ PocketBase two-way sync | Clau | todo | Outbound: task create/update → open/label/close GitHub Issue (tag `flotilla-managed`). Inbound: poll GH for human-written issues → create PB task. Add gh_issue_id field to tasks collection. Closes gap between product promise and actual behavior. |
 
 
 **Status: OPEN-SOURCE PACKAGE PUBLISHED. `create-flotilla@0.1.0` is live on npm. Fleet always-on infrastructure live on Mac Mini.**
