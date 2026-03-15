@@ -65,6 +65,32 @@ package/
 3. Use the wizard to set repo path, agent roster, vault provider, and template links.
 4. If you provide a git repo, use `/configure/` to run doctor, review the diff, and explicitly commit the managed bootstrap files.
 
+## Telegram Control
+
+When the always-on fleet services are enabled, the Telegram bridge can accept slash commands and either:
+- queue real PocketBase tasks for agent lanes such as `/clau`, `/gem`, and `/codi`
+- answer operational queries inline such as `/status`, `/tasks`, and `/help`
+- forward synchronous robot/artist prompts to OpenClaw with `/claw`
+
+Current command surface:
+
+```text
+/clau <task>
+/gem <task>
+/codi <task>
+/claw <message>
+/ask <question>
+/spec <idea>
+/status
+/tasks
+/go
+/help
+```
+
+Security note:
+- `OPENCLAW_GATEWAY_TOKEN` must come from runtime secret injection or the local OpenClaw config.
+- Do not hardcode gateway tokens in `telegram_bridge.py`, launchd plists, or committed docs.
+
 ## CLI Options
 
 ```bash
