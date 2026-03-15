@@ -85,17 +85,16 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#51**: Fix dispatcher `waiting_human` notification spam -- Gem. Added de-dup cooldown (1h) and verified human-reply-to-todo-flip logic. Dispatcher live in `~/fleet/`.
 - **#54**: Update demo page -- showcase new Agentic CRM fleet features -- Gem. Updated `api.robotross.art/demo/` with Kanban board, live heartbeat indicators, and activity feed.
 - **#55**: Update growth page -- reflect new fleet capabilities in Sales & Marketing demo -- Gem. Updated `api.robotross.art/growth/` with live tracking and coordination highlights.
-- **#56**: Sync /demo and /growth UI assets to match /fleet redesign -- Gem. Copied updated dashboard.html, assets/main.js, assets/style.css from /fleet/ to /demo/ and /growth/ on DO server.
+- **#56**: Sync /demo and /growth UI assets to match /fleet redesign -- Gem/Clau. Assets synced and committed to repo. Deployed to DO server.
+- **#61**: Fleet Hub UI redesign — tool aesthetic + dark/light mode -- Gem/Clau. CSS token system, [data-theme="dark"] + prefers-color-scheme, GitHub-style palette. Committed and deployed to /fleet, /demo, /growth.
 
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **#53** | Release create-flotilla v0.2.0 -- include new fleet features | Codi | waiting_human | Blocked: (1) npm publish credentials needed from Miguel. (2) #67 (setup wizard update) must land first. Consolidates PB tasks #47 and #50. Includes PocketBase schema, Dispatcher, Telegram Bridge, and Kanban UI. |
 | **#57** | GitHub Issues ↔ PocketBase two-way sync | Clau | planned | Outbound: task create/update → open/label/close GitHub Issue (tag `flotilla-managed`). Inbound: poll GH for human-written issues → create PB task. Add gh_issue_id field to tasks collection. Closes gap between product promise and actual behavior. |
-| **#56** | Sync /demo and /growth UI assets to match /fleet redesign | Gem | done | ✓ Completed. |
 | **#62** | /demo polish — kanban, memory, standups, user mgmt, modal scroll | Gem | todo | BEFORE #60. A) Fix phantom kanban ticket + 5 demo tickets. B) Memory links raw + emoji mojibake (check server utf-8 + strip emojis from docs). C) Remove duplicate Mar-13 standup. D) /demo+/growth only: mock emails, intercept Add actions with "would've done" modal. E) Modal scroll fix (max-height+overflow) — applies to /fleet too. |
 | **#60** | Populate /demo with realistic mock data (4 agents) | Gem | todo | AFTER #62. Consistent mock data: fleet_meta (Aria/Rex/Nova/Sage), inbox, lessons, standups (2 days), kanban. ShopFlow project. Must feel like a real working team. |
-| **#61** | Fleet Hub UI redesign — tool aesthetic + dark/light mode | Gem | todo | AFTER #60. 3 phases: (1) CSS token system + dark/light toggle, (2) sidebar nav + layout restructure, (3) component polish. /fleet is reference; /fleet UI is also the main install package UI. /demo+/growth keep warmer palette but inherit toggle. |
 | **#63** | Fix hybrid deployment — push connector Mac Mini → DO server | Codi | todo | fleet_push.py posts PB snapshot to DO server every 60s via FLEET_SYNC_TOKEN. server.mjs caches and serves it. Fixes our grey dots. Packaged as optional Scenario 3 setup. |
 | **#64** | Heartbeat dots — mock status in /demo+/growth, tooltip on all | Gem | todo | A) /demo+/growth: generate mock working/idle status when API returns empty. B) All pages: styled tooltip on hover showing agent + status + last seen. Mobile-friendly. |
 | **#65** | Document 3 deployment scenarios in getting-started guide | Gem | todo | Local (default), Cloud VPS (single server), Hybrid (agents local + dashboard remote). Scenario 3 CTA: contact us. Add to README or docs/DEPLOYMENT.md. |
