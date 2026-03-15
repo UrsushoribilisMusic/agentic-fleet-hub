@@ -78,11 +78,16 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#32**: Mission Control format hardening -- Clau. `**#N**` format normalized, closed rows purged from OPEN table, status values corrected to spec. v1 Kanban contract documented in `AGENTS/CONTEXT/kanban_format_spec.md`.
 - **#45**: Telegram Listener Bridge (Two-Way Chat) -- Gem. `telegram_bridge.py` deployed to `~/fleet/`, `fleet.bridge` launchd service running with Infisical secret injection. Two-way: inbound TG→PB, outbound PB comments→TG.
 - **#46**: Telegram Bridge outbound truncation fix -- Clau. Fixed bridge stuck in retry loop on comments >4096 chars (Telegram limit). Truncates to 4096 with `...` suffix. Bridge restarted clean.
+- **#48**: Telegram bot `/commands` + real PocketBase task routing -- Clau. Registered 9 slash commands via setMyCommands. All commands (/clau /gem /codi /ask /spec /go /status /tasks /help) now create real PocketBase tasks or query/reply inline. Bridge restarted.
+- **#49**: Fix Codi launchd invocation — trusted directory error -- Codi+Clau. Codi updated `dispatcher.py` with `-C agentic-fleet-hub --add-dir fleet` flags. Clau applied same fix to `fleet.codi.plist`. Both invocation paths now match; error resolved.
+- **#50**: Add `/claw` Telegram command → OpenClaw gateway -- Clau. Enabled `gateway.http.endpoints.chatCompletions` in `~/.openclaw/openclaw.json`. Added `/claw` to fleet bridge — forwards message to `localhost:18789/v1/chat/completions`, replies inline synchronously.
+- **#52**: Vault-safe OpenClaw bridge token resolution + docs sync -- Codi. Removed hardcoded gateway token from telegram bridge, resolve token from Infisical-injected env or local OpenClaw config, synced live/package/blueprint bridge code, and documented Telegram command routing plus secret-handling rules.
 
 
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **#51** | Fix dispatcher `waiting_human` notification spam | Codi | todo | Dispatcher flips status to `waiting_human_notified` after first alert, but logic needs review — check if that status blocks agent pickup; add de-dup / cooldown so re-notifications only fire after human acknowledges |
 
 
 **Status: OPEN-SOURCE PACKAGE PUBLISHED. `create-flotilla@0.1.0` is live on npm. Fleet always-on infrastructure live on Mac Mini.**

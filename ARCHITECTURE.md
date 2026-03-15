@@ -26,6 +26,7 @@ graph TD
             Gem[Gem / Gemini CLI]
             Codi[Codi / Codex]
             Misty[Misty / Mistral Vibe]
+            OpenClaw[OpenClaw / Dev Groar]
         end
         
         subgraph Filesystem [Shared Filesystem / ~/fleet]
@@ -36,9 +37,12 @@ graph TD
         end
     end
 
+        OCGateway[OpenClaw Gateway / Port 18789]
+    end
+
     subgraph Network [Network & External]
         Hub[Fleet Hub Dashboard / api.robotross.art]
-        TG[Telegram Notifications]
+        TG[Telegram Bot]
         Inf[Infisical / KeyVault]
     end
 
@@ -46,20 +50,28 @@ graph TD
     launchd --> PB
     launchd --> Disp
     launchd -. Heartbeat (Staggered) .-> Agents
+    launchd --> Bridge
 
     %% Data Flow
     Agents -->|Read/Write| MC
     Agents -->|Read/Write| Inbox
     Agents -->|POST/GET| PB
-    
+
     Disp -->|Polls Tasks| PB
     Disp -->|Triggers| Agents
     Disp -->|Alerts| TG
 
+    Bridge[Telegram Bridge] -->|Inbound: creates tasks| PB
+    Bridge -->|Outbound: agent comments| TG
+    TG -->|/clau /gem /codi /ask /spec| Bridge
+    TG -->|/claw| Bridge
+    Bridge -->|Forwards /claw| OCGateway
+    OCGateway -->|Inline reply| Bridge
+
     %% External Connections
     Hub -->|Read-only REST| PB
     Agents -->|Fetch Secrets| Inf
-    
+
     %% Relationships
     MC -. Cognitive Layer .-> Agents
     PB -. Task State & Persistence .-> Hub
@@ -79,10 +91,26 @@ A single-binary database and REST API that handles:
 
 ### 3. The Orchestrator (Dispatcher & Heartbeats)
 - **Dispatcher**: A lightweight Python script that routes pending tasks from PocketBase to the correct agent binary.
-- **Heartbeats**: `launchd` services that wake agents on a staggered schedule (e.g., Gem at :00, Codi at :02) to perform autonomous maintenance and review others' work.
+- **Heartbeats**: `launchd` services that wake agents on a staggered schedule (Gem at :00, Codi at :02, Clau at :04) to perform autonomous maintenance and review others' work.
+
+### 5b. Telegram Two-Way Bridge (`fleet.bridge`)
+A always-on launchd service (`telegram_bridge.py`) providing human↔fleet communication:
+- **Inbound** (Human → Fleet): Slash commands create PocketBase tasks routed to the right agent. `/clau`, `/gem`, `/codi` queue async tasks; `/status` and `/tasks` reply inline immediately.
+- **Outbound** (Fleet → Human): Agent comments posted to PocketBase are forwarded to Telegram in real time.
+- **OpenClaw relay** (`/claw`): Messages forwarded synchronously to the OpenClaw gateway (`localhost:18789/v1/chat/completions`), reply returned inline.
 
 ### 4. Inter-Agent Protocol (IAP)
 A push-messaging layer (`inbox.json`) for high-priority alerts, questions, and handoffs between agents. Complementary to the "pull-based" PocketBase task model.
+
+### 4b. Telegram Command Layer
+The Telegram bridge is the mobile command-and-control surface for the fleet:
+- `/clau`, `/gem`, `/codi` create real PocketBase tasks assigned to the chosen agent lane.
+- `/status`, `/tasks`, and `/help` respond inline without creating execution tasks.
+- `/claw` forwards a synchronous message to the local OpenClaw gateway for direct robot/artist interaction.
+
+Security rule:
+- Gateway secrets such as `OPENCLAW_GATEWAY_TOKEN` must be injected at runtime from vault or resolved from the local OpenClaw config.
+- Never commit gateway auth tokens into the bridge script or repository docs.
 
 ### 5. Fleet Hub Dashboard
 A web-based UI that provides a "God view" of the fleet:

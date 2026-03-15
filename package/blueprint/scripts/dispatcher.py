@@ -13,6 +13,7 @@ from datetime import datetime
 
 PB_URL = "http://127.0.0.1:8090/api"
 FLEET_DIR = "/Users/miguelrodriguez/fleet"
+CODEX_REPO_DIR = "/Users/miguelrodriguez/projects/agentic-fleet-hub"
 LOG_FILE = f"{FLEET_DIR}/logs/dispatcher.log"
 
 # Telegram settings from environment (Infisical)
@@ -29,7 +30,16 @@ AGENT_COMMANDS = {
     # Claude Code, Gemini CLI, Codex commands use their respective CLI binaries
     "clau": ["/Users/miguelrodriguez/.local/bin/claude", "--dangerously-skip-permissions", "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "gem": ["/opt/homebrew/bin/node", "/opt/homebrew/bin/gemini", "--yolo", "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
-    "codi": ["/opt/homebrew/bin/node", "/opt/homebrew/bin/codex", "exec", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
+    "codi": [
+        "/opt/homebrew/bin/node",
+        "/opt/homebrew/bin/codex",
+        "exec",
+        "-C",
+        CODEX_REPO_DIR,
+        "--add-dir",
+        FLEET_DIR,
+        "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+    ],
 }
 
 def log(msg):

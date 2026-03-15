@@ -8,6 +8,7 @@ import time
 import requests
 import json
 import os
+import subprocess
 from datetime import datetime
 
 PB_URL = "http://127.0.0.1:8090/api"
@@ -24,11 +25,16 @@ os.makedirs(f"{FLEET_DIR}/logs", exist_ok=True)
 
 TASK_CACHE = {}
 
+# OpenClaw gateway settings
+OPENCLAW_GATEWAY_URL = os.environ.get("OPENCLAW_GATEWAY_URL", "http://localhost:18789/v1/chat/completions")
+OPENCLAW_GATEWAY_TOKEN = os.environ.get("OPENCLAW_GATEWAY_TOKEN")
+
 # Bot commands registered with Telegram
 BOT_COMMANDS = [
     {"command": "clau",   "description": "Send a task to Clau (Claude Code)"},
     {"command": "gem",    "description": "Send a task to Gem (Gemini)"},
     {"command": "codi",   "description": "Send a task to Codi (Codex)"},
+    {"command": "claw",   "description": "Talk to OpenClaw (Robot Ross artist agent)"},
     {"command": "ask",    "description": "Ask the fleet a question (routes to Clau)"},
     {"command": "spec",   "description": "Post a new spec or idea for the fleet"},
     {"command": "status", "description": "Show fleet heartbeat status"},
@@ -74,6 +80,23 @@ def save_outbound_offset(ts):
     LAST_OUTBOUND_TS = ts
     with open(OUTBOUND_OFFSET_FILE, "w") as f:
         json.dump({"last_timestamp": ts}, f)
+
+def resolve_openclaw_token():
+    if OPENCLAW_GATEWAY_TOKEN:
+        return OPENCLAW_GATEWAY_TOKEN
+    try:
+        result = subprocess.run(
+            ["/opt/homebrew/bin/openclaw", "config", "get", "gateway.auth.token"],
+            capture_output=True,
+            text=True,
+            timeout=10,
+            check=True,
+        )
+        token = result.stdout.strip()
+        return token or None
+    except Exception as e:
+        log(f"OpenClaw token lookup failed: {e}")
+        return None
 
 def send_to_tg(text):
     if not TELEGRAM_TOKEN: return False
@@ -208,6 +231,30 @@ def cmd_tasks():
     except Exception as e:
         send_to_tg(f"Tasks error: {e}")
 
+def cmd_claw(message):
+    """Forward a message to OpenClaw via its gateway chat completions API."""
+    token = resolve_openclaw_token()
+    if not token:
+        send_to_tg("OpenClaw error: gateway token not configured.")
+        return
+    try:
+        r = requests.post(
+            OPENCLAW_GATEWAY_URL,
+            headers={
+                "Authorization": f"Bearer {token}",
+                "Content-Type": "application/json",
+            },
+            json={"model": "openclaw", "messages": [{"role": "user", "content": message}]},
+            timeout=60,
+        )
+        if r.status_code == 200:
+            content = r.json()["choices"][0]["message"]["content"]
+            send_to_tg(f"🤖 OpenClaw:\n{content}")
+        else:
+            send_to_tg(f"OpenClaw error ({r.status_code}): {r.text[:200]}")
+    except Exception as e:
+        send_to_tg(f"OpenClaw error: {e}")
+
 def update_backlog_to_todo():
     try:
         r = requests.get(f"{PB_URL}/collections/tasks/records", params={"filter": 'status = "backlog"'})
@@ -257,6 +304,13 @@ def process_updates(updates):
             for c in BOT_COMMANDS:
                 lines.append(f"/{c['command']} — {c['description']}")
             send_to_tg("\n".join(lines))
+
+        elif cmd == "claw":
+            if not remainder:
+                send_to_tg("Usage: /claw <message>")
+                continue
+            send_to_tg("🦾 Sending to OpenClaw…")
+            cmd_claw(remainder)
 
         elif cmd in ("clau", "gem", "codi"):
             if not remainder:
