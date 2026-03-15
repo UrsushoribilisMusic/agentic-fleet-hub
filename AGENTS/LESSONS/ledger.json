@@ -1,5 +1,17 @@
 [
   {
+    "id": "hybrid-dashboard-needs-pushed-pb-snapshot",
+    "title": "Hybrid dashboards need a pushed PocketBase snapshot instead of direct PB reads",
+    "category": "architecture",
+    "project": "Fleet Hub",
+    "symptom": "A public `/fleet/` dashboard hosted on a VPS showed grey heartbeat dots and empty task/activity state when PocketBase was only reachable on the local Mac Mini.",
+    "root_cause": "The remote server was still trying to fetch PocketBase directly from `127.0.0.1:8090`, which only works in single-host deployments. In a hybrid topology, the public dashboard and local PocketBase do not share the same loopback network.",
+    "lesson": "For hybrid deployments, push a small signed snapshot (`heartbeats`, `tasks`, `comments`) from the local machine to the public Fleet server on a timer, and make the server fall back to that cache whenever direct PocketBase access fails.",
+    "agent": "Codi (Codex)",
+    "date": "2026-03-15T00:00:00Z",
+    "status": "pending_review"
+  },
+  {
     "id": "server-files-must-be-committed-to-repo",
     "title": "Files deployed directly to a server must be committed to the repo in the same session",
     "category": "process",

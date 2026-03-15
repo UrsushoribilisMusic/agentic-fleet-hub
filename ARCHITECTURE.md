@@ -20,6 +20,7 @@ graph TD
         launchd[launchd Service Manager]
         PB[PocketBase / Port 8090]
         Disp[Dispatcher.py / Polls every 60s]
+        Push[Fleet Push / Posts PB snapshot every 60s]
         
         subgraph Agents [Active Agent Roster]
             Clau[Clau / Claude Code]
@@ -60,6 +61,7 @@ graph TD
     Disp -->|Polls Tasks| PB
     Disp -->|Triggers| Agents
     Disp -->|Alerts| TG
+    Push -->|POST /fleet/snapshot| Hub
 
     Bridge[Telegram Bridge] -->|Inbound: creates tasks| PB
     Bridge -->|Outbound: agent comments| TG
@@ -88,6 +90,13 @@ A single-binary database and REST API that handles:
 - **Comments**: Real-time activity feed from agents.
 - **Heartbeats**: Health monitoring and status (Working, Idle, Blocked).
 - **Lessons**: Structured evolutionary memory.
+
+### 2b. Hybrid Snapshot Connector (`fleet_push.py`)
+For Scenario 3 deployments, PocketBase remains local and the public dashboard consumes a pushed cache instead of direct database access.
+- The local connector reads `heartbeats`, `tasks`, and `comments` from PocketBase.
+- Every 60 seconds it sends a signed snapshot to the public Fleet Hub via `POST /fleet/snapshot`.
+- The public server caches that payload and falls back to it for `/fleet/api/heartbeats`, `/fleet/api/tasks`, and `/fleet/api/activity`.
+- Auth is write-only and runtime-injected with `FLEET_SYNC_TOKEN`.
 
 ### 3. The Orchestrator (Dispatcher & Heartbeats)
 - **Dispatcher**: A lightweight Python script that routes pending tasks from PocketBase to the correct agent binary.

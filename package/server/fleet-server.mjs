@@ -11,6 +11,8 @@
  *   GOOGLE_AUTH_COOKIE_SECRET - Cookie signing secret
  *   GOOGLE_AUTH_ALLOWED_EMAILS - Comma-separated list of allowed emails (private fleet)
  *   PUBLIC_URL             - Base URL for OAuth callbacks (default: http://localhost:8787)
+ *   POCKETBASE_URL         - PocketBase base URL for live tasks/heartbeats/activity (default: http://127.0.0.1:8090)
+ *   FLEET_SYNC_TOKEN       - Shared token for hybrid snapshot ingest at POST /fleet/snapshot
  *   GITHUB_REPO            - GitHub repo for live standup sync, e.g. "org/repo" (optional)
  *   GITHUB_BRANCH          - Branch to read from (default: master)
  *   GITHUB_STANDUPS_PATH   - Path inside repo to standups dir (default: standups)
@@ -44,6 +46,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = Number(process.env.PORT || 8787);
 const PUBLIC_URL = process.env.PUBLIC_URL || `http://localhost:${PORT}`;
 const FLEET_DATA_DIR = process.env.FLEET_DATA_DIR || path.join(__dirname, "..", "data");
+const POCKETBASE_URL = process.env.POCKETBASE_URL || "http://127.0.0.1:8090";
+const FLEET_SYNC_TOKEN = process.env.FLEET_SYNC_TOKEN || "";
 
 // Derived data paths
 const FLEET_META_PATH  = path.join(FLEET_DATA_DIR, "config", "fleet_meta.json");
@@ -53,6 +57,7 @@ const LESSONS_PATH     = path.join(FLEET_DATA_DIR, "lessons", "ledger.json");
 const INBOX_PATH       = path.join(FLEET_DATA_DIR, "messages", "inbox.json");
 const STANDUPS_DIR     = path.join(FLEET_DATA_DIR, "standups");
 const STANDUPS_INDEX   = path.join(STANDUPS_DIR, "index.json");
+const FLEET_SNAPSHOT_PATH = path.join(FLEET_DATA_DIR, "cache", "fleet_snapshot.json");
 const WORKSPACE_ROOT   = path.resolve(__dirname, "..", "..");
 
 // GitHub live standup sync (optional)
@@ -177,6 +182,49 @@ function getContentPaths(fleetMeta) {
   };
 }
 
+function normalizeFleetSnapshot(input) {
+  const snapshot = input && typeof input === "object" ? input : {};
+  const collections = snapshot.collections && typeof snapshot.collections === "object" ? snapshot.collections : {};
+  return {
+    source: typeof snapshot.source === "string" ? snapshot.source : "unknown",
+    generated_at: typeof snapshot.generated_at === "string" ? snapshot.generated_at : new Date().toISOString(),
+    received_at: new Date().toISOString(),
+    collections: {
+      heartbeats: Array.isArray(collections.heartbeats) ? collections.heartbeats : [],
+      tasks: Array.isArray(collections.tasks) ? collections.tasks : [],
+      comments: Array.isArray(collections.comments) ? collections.comments : [],
+    },
+  };
+}
+
+function readFleetSnapshot() {
+  try {
+    if (!fileExists(FLEET_SNAPSHOT_PATH)) return null;
+    return normalizeFleetSnapshot(readJson(FLEET_SNAPSHOT_PATH, null));
+  } catch {
+    return null;
+  }
+}
+
+function writeFleetSnapshot(snapshot) {
+  fs.mkdirSync(path.dirname(FLEET_SNAPSHOT_PATH), { recursive: true });
+  writeJson(FLEET_SNAPSHOT_PATH, normalizeFleetSnapshot(snapshot));
+}
+
+function getBearerToken(req) {
+  const auth = req.headers.authorization || "";
+  const match = auth.match(/^Bearer\s+(.+)$/i);
+  return match ? match[1].trim() : "";
+}
+
+async function fetchPocketBaseCollection(collection, query = "") {
+  const suffix = query ? `?${query}` : "";
+  const response = await fetch(`${POCKETBASE_URL}/api/collections/${collection}/records${suffix}`);
+  if (!response.ok) throw new Error(`pb_${collection}_${response.status}`);
+  const data = await response.json();
+  return Array.isArray(data) ? data : (data.items || []);
+}
+
 // ─── Cookie helpers (simple HMAC-signed value) ───────────────────────────────
 
 function signCookie(value) {
@@ -297,6 +345,34 @@ async function handler(req, res) {
     return send(res, 200, { ok: true, ts: now() }, requestId);
   }
 
+  if (urlPath === "/fleet/snapshot" && req.method === "POST") {
+    const token = getBearerToken(req);
+    if (!FLEET_SYNC_TOKEN || token !== FLEET_SYNC_TOKEN) {
+      return send(res, 401, { ok: false, error: "unauthorized" }, requestId);
+    }
+    try {
+      const body = await readBody(req);
+      const snapshot = normalizeFleetSnapshot(body);
+      writeFleetSnapshot(snapshot);
+      return send(
+        res,
+        200,
+        {
+          ok: true,
+          received_at: snapshot.received_at,
+          counts: {
+            heartbeats: snapshot.collections.heartbeats.length,
+            tasks: snapshot.collections.tasks.length,
+            comments: snapshot.collections.comments.length,
+          },
+        },
+        requestId
+      );
+    } catch {
+      return send(res, 400, { ok: false, error: "invalid_snapshot" }, requestId);
+    }
+  }
+
   // ── OAuth endpoints (only if Google OAuth is configured) ─────────────────
   if (GOOGLE_CLIENT_ID && GOOGLE_CLIENT_SECRET) {
     if (urlPath === "/auth/login") {
@@ -395,6 +471,36 @@ async function handler(req, res) {
     if (urlPath === "/fleet/api/kanban" && req.method === "GET") {
       const date = url.searchParams.get("date") || undefined;
       return send(res, 200, getKanbanSnapshot(fleetMeta, { date }), requestId);
+    }
+
+    // GET /fleet/api/tasks
+    if (urlPath === "/fleet/api/tasks" && req.method === "GET") {
+      try {
+        return send(res, 200, await fetchPocketBaseCollection("tasks", "sort=-created&perPage=50"), requestId);
+      } catch {
+        const snapshot = readFleetSnapshot();
+        return send(res, snapshot ? 200 : 500, snapshot ? snapshot.collections.tasks : { ok: false, error: "pb_tasks_error" }, requestId);
+      }
+    }
+
+    // GET /fleet/api/heartbeats
+    if (urlPath === "/fleet/api/heartbeats" && req.method === "GET") {
+      try {
+        return send(res, 200, await fetchPocketBaseCollection("heartbeats", "sort=-updated&perPage=50"), requestId);
+      } catch {
+        const snapshot = readFleetSnapshot();
+        return send(res, snapshot ? 200 : 500, snapshot ? snapshot.collections.heartbeats : { ok: false, error: "pb_heartbeats_error" }, requestId);
+      }
+    }
+
+    // GET /fleet/api/activity
+    if (urlPath === "/fleet/api/activity" && req.method === "GET") {
+      try {
+        return send(res, 200, await fetchPocketBaseCollection("comments", "sort=-created&perPage=50"), requestId);
+      } catch {
+        const snapshot = readFleetSnapshot();
+        return send(res, snapshot ? 200 : 500, snapshot ? snapshot.collections.comments : { ok: false, error: "pb_activity_error" }, requestId);
+      }
     }
 
     // POST /fleet/api/setup
