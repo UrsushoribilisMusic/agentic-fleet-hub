@@ -94,6 +94,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **#57** | GitHub Issues ↔ PocketBase two-way sync | Clau | planned | Outbound: task create/update → open/label/close GitHub Issue (tag `flotilla-managed`). Inbound: poll GH for human-written issues → create PB task. Add gh_issue_id field to tasks collection. Closes gap between product promise and actual behavior. |
 | **#58** | Dynamic Telegram bot commands from fleet_meta.json | Codi | todo | Generate BOT_COMMANDS at runtime from fleet_meta agent roster (heartbeatKey = command name). Re-register with setMyCommands on each bridge restart. Adding/removing agents auto-updates Telegram command list. |
 | **#59** | Make OpenClaw integration optional in package and bridge | Codi | todo | Bridge: ping gateway at startup, skip /claw if unreachable (silent degradation). Installer: opt-in prompt for OpenClaw. Docs: mark as optional. Corporate environments must work without it. |
+| **#60** | Populate /demo with realistic mock data (4 agents) | Gem | todo | Create consistent mock data: fleet_meta (4 agents: Aria/Rex/Nova/Sage), inbox messages, lessons, standups (2 days), demo kanban with open+closed tickets. All referencing same fictional project (ShopFlow). Viewers must feel it's a real working team. |
 
 
 **Status: OPEN-SOURCE PACKAGE PUBLISHED. `create-flotilla@0.1.0` is live on npm. Fleet always-on infrastructure live on Mac Mini.**
