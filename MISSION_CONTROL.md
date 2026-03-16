@@ -97,8 +97,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#64**: Heartbeat dots tooltips & mock status -- Gem/Clau. Mock working/idle in demo, styled tooltips on all dots. Approved.
 - **#65**: Deployment scenarios docs -- Gem. Local/Cloud/Hybrid comparison table added to README. Approved.
 - **#66**: Agent health monitoring -- Codi. Skill-based reassignment on stale heartbeat (>30m). Approved.
-
 - **#68**: Write v0.2.0 release notes -- Clau. Approved.
+- **#s4znd9zm9a2rr0v**: BigBear site fixes: showcase screenshots + vault section copy -- Gem. Approved.
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
