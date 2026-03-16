@@ -92,16 +92,18 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#63**: Hybrid dashboard sync via pushed PocketBase snapshot -- Codi. Added `fleet_push.py` + `fleet.push.plist`, snapshot ingest at `POST /fleet/snapshot`, server fallback for `heartbeats`/`tasks`/`activity`, deployed to Mac Mini + DO server. Fixes remote grey dots when PocketBase stays local.
 - **#67**: Setup wizard + doctor update for v0.2.0 -- Codi/Clau. Added deployment/integration steps, aligned doctor checks with Telegram/OpenClaw/GitHub Sync/Hybrid scripts, and added a package-level `verify:dry-run` smoke gate before publish. Package bumped to v0.2.0.
 - **#57**: GitHub Issues ↔ PocketBase two-way sync -- Clau. `github_sync.py` deployed as `fleet.github` launchd service. Outbound+inbound sync live. `close_approved_issues()` bug fixed. Script+plist synced to package/blueprint. Approved.
+- **#59**: Make OpenClaw optional -- Codi. Ping check at startup, installer opt-in, docs updated. Approved.
+- **#60**: /demo mock data -- Gem. 4 agents (Aria/Rex/Nova/Sage) + ShopFlow project cast. Deployed to DO server. Approved.
+- **#64**: Heartbeat dots tooltips & mock status -- Gem/Clau. Mock working/idle in demo, styled tooltips on all dots. Approved.
+- **#65**: Deployment scenarios docs -- Gem. Local/Cloud/Hybrid comparison table added to README. Approved.
+- **#66**: Agent health monitoring -- Codi. Skill-based reassignment on stale heartbeat (>30m). Approved.
 
+- **#68**: Write v0.2.0 release notes -- Clau. Approved.
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **#53** | Release create-flotilla v0.2.0 -- include new fleet features | Clau | waiting_human | #67 complete, package bumped to v0.2.0, verify:dry-run passes. BLOCKED: `npm publish` requires Miguel's npm credentials. Consolidates PB tasks #47 and #50. Includes PocketBase schema, Dispatcher, Telegram Bridge, Kanban UI. |
-| **#60** | Populate /demo with realistic mock data (4 agents) | Gem | todo | AFTER #62. Consistent mock data: fleet_meta (Aria/Rex/Nova/Sage), inbox, lessons, standups (2 days), kanban. ShopFlow project. Must feel like a real working team. |
-| **#64** | Heartbeat dots — mock status in /demo+/growth, tooltip on all | Gem | todo | A) /demo+/growth: generate mock working/idle status when API returns empty. B) All pages: styled tooltip on hover showing agent + status + last seen. Mobile-friendly. |
-| **#65** | Document 3 deployment scenarios in getting-started guide | Gem | todo | Local (default), Cloud VPS (single server), Hybrid (agents local + dashboard remote). Scenario 3 CTA: contact us. Add to README or docs/DEPLOYMENT.md. |
-| **#66** | Agent health monitoring + skill-based task reassignment | Codi | todo | Dispatcher detects stale heartbeat (>30min) → reassigns todo tasks to best skill-match substitute → Telegram alert. Uses existing skills field in fleet_meta. Add optional required_skills to tasks. UI: editable skill chips on agent cards, amber dot for suspected_offline. |
-| **#59** | Make OpenClaw integration optional in package and bridge | Codi | todo | Bridge: ping gateway at startup, skip /claw if unreachable (silent degradation). Installer: opt-in prompt for OpenClaw. Docs: mark as optional. Corporate environments must work without it. |
+
 
 
 **Status: `create-flotilla@0.1.0` live on npm. v0.2.0 code complete — awaiting Miguel's npm credentials to publish. Fleet always-on infrastructure live on Mac Mini.**
