@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>fleet.misty</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/opt/homebrew/Cellar/mistral-vibe/2.4.2/libexec/bin/python</string>
+    <string>/opt/homebrew/bin/vibe</string>
+    <string>-p</string>
+    <string>Run your heartbeat protocol. Read ~/projects/agentic-fleet-hub/MISTRAL.md first, then MISSION_CONTROL.md, then AGENTS/RULES.md, then AGENTS/MESSAGES/inbox.json. Follow all 6 phases.</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>/Users/miguelrodriguez/projects/agentic-fleet-hub</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    <key>HOME</key>
+    <string>/Users/miguelrodriguez</string>
+  </dict>
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Minute</key><integer>6</integer></dict>
+    <dict><key>Minute</key><integer>16</integer></dict>
+    <dict><key>Minute</key><integer>26</integer></dict>
+    <dict><key>Minute</key><integer>36</integer></dict>
+    <dict><key>Minute</key><integer>46</integer></dict>
+    <dict><key>Minute</key><integer>56</integer></dict>
+  </array>
+  <key>RunAtLoad</key>
+  <false/>
+  <key>StandardOutPath</key>
+  <string>/Users/miguelrodriguez/fleet/logs/misty.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/miguelrodriguez/fleet/logs/misty_err.log</string>
+</dict>
+</plist>
