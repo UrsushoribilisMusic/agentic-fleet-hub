@@ -81,7 +81,7 @@ The connector pushes a read-only PocketBase snapshot (`heartbeats`, `tasks`, `co
 Required runtime secrets:
 - `FLEET_SYNC_TOKEN` on both the local connector and the remote Fleet Hub server
 - `FLEET_SYNC_URL` on the local connector if the public dashboard is not `https://api.robotross.art/fleet/snapshot`
-**Scenario 3 requires additional configuration. Contact us at miguel@bigbearengineering.com for setup assistance.**
+**Scenario 3 requires additional configuration. Contact us at info@flotilla.cc for setup assistance.**
 
 *   **Public Site**: [bigbearengineering.com](https://bigbearengineering.com)
 *   **Flotilla Hub**: [api.robotross.art/fleet/](https://api.robotross.art/fleet/)
