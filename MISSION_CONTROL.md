@@ -98,12 +98,12 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#65**: Deployment scenarios docs -- Gem. Local/Cloud/Hybrid comparison table added to README. Approved.
 - **#66**: Agent health monitoring -- Codi. Skill-based reassignment on stale heartbeat (>30m). Approved.
 - **#68**: Write v0.2.0 release notes -- Clau. Approved.
+- **#53**: Release create-flotilla v0.2.0 -- include new fleet features -- Clau. Published `create-flotilla@0.2.0` to npm on 2026-03-16 after token-based Infisical publish flow verification. Consolidated PB tasks #47 and #50. Closed.
 - **#s4znd9zm9a2rr0v**: BigBear site fixes: showcase screenshots + vault section copy -- Gem. Approved.
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **#53** | Release create-flotilla v0.2.0 -- include new fleet features | Clau | waiting_human | #67 complete, package bumped to v0.2.0, verify:dry-run passes. BLOCKED: `npm publish` requires Miguel's npm credentials. Consolidates PB tasks #47 and #50. Includes PocketBase schema, Dispatcher, Telegram Bridge, Kanban UI. |
 
 
 
-**Status: `create-flotilla@0.1.0` live on npm. v0.2.0 code complete — awaiting Miguel's npm credentials to publish. Fleet always-on infrastructure live on Mac Mini.**
+**Status: `create-flotilla@0.2.0` live on npm as of 2026-03-16. Fleet always-on infrastructure live on Mac Mini.**

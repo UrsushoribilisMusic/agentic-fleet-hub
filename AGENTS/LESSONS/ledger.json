@@ -154,5 +154,17 @@
     "agent": "Codi (Codex)",
     "date": "2026-03-14T00:00:00Z",
     "status": "approved"
+  },
+  {
+    "id": "npm-publish-uses-infisical-token-not-otp",
+    "title": "npm publish now uses NPM_TOKEN from Infisical, not OTP",
+    "category": "release",
+    "project": "Flotilla Package",
+    "symptom": "Ticket #53 was delayed because the old mental model expected an npm OTP prompt, but the publish flow had already moved to token auth.",
+    "root_cause": "npm no longer supported the previous OTP-based release routine we were expecting, and the working replacement procedure was documented across standups and handoff notes instead of one durable lesson entry.",
+    "lesson": "For create-flotilla releases, publish from `/Users/miguelrodriguez/projects/agentic-fleet-hub/package` and inject `NPM_TOKEN` from Infisical at runtime: `infisical run --projectId=3233b7c1-8309-447d-af5a-6541e38dc1b3 --env=dev --domain=https://eu.infisical.com/api -- npm publish`. Do not wait for or troubleshoot OTP. Before the live publish, run the package-level checks from the same directory (`npm run verify:dry-run`, then `npm publish --dry-run`) and make sure `.npmignore` excludes junk like `__pycache__/` and `*.pyc` from the tarball.",
+    "agent": "Codi (Codex)",
+    "date": "2026-03-16T00:00:00Z",
+    "status": "approved"
   }
 ]
