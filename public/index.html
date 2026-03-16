@@ -203,8 +203,8 @@
           <code>npx create-flotilla</code>
         </div>
         <div class="cta-shell">
-          <div class="section-label">Build Your Own Autonomous Flotilla</div>
-          <h3>One command to deploy a professional-grade engineering fleet.</h3>
+          <div class="section-label">Build Your Own Autonomous Flotilla &nbsp;·&nbsp; <span style="opacity:.65;font-size:.7rem">v0.2.0</span></div>
+          <h3>The operating system for autonomous engineering teams</h3>
           <p>Bootstrap a multi-model team with shared operating memory, secure secret delivery, and a management layer your humans can actually read.</p>
           <div class="cta-grid">
             <a class="button-secondary" href="https://api.robotross.art/demo/" target="_blank" rel="noopener noreferrer">Demo</a>
@@ -221,19 +221,34 @@
           <div class="metric"><strong>Always-On Operations</strong><span>PocketBase, dispatcher heartbeats, and Open Claw pathways keep the fleet operational beyond a single chat session.</span></div>
         </div>
       </div>
-        <div class="panel">
-          <div class="section-label">Flotilla Control Layer</div>
-          <h3>The operating system for autonomous engineering teams</h3>
-          <p>Flotilla standardizes the bootstrap, security, and coordination layer so your agents stop behaving like isolated chat tabs and start working like a professional team.</p>
-          <ul>
-            <li>`MISSION_CONTROL.md` gives every agent the same cognitive starting point before work begins.</li>
-            <li>Agents keep lessons learned and share them with each other through a persistent memory ledger.</li>
-            <li>Vault-first secret delivery keeps credentials out of prompts, markdown, and `.env` sprawl.</li>
-            <li>Agent diversity improves outcomes because different models can implement, critique, and review each other instead of self-validating the same reasoning path.</li>
-            <li>Claude, Gemini, Mistral, and Codex can run in parallel under one operating contract with cost-aware model diversity.</li>
-            <li>The Kanban bridge keeps work anchored to real tickets instead of ad hoc chat memory.</li>
-            <li>Control your flotilla from Telegram over Open Claw when you want an optional fleet-that-never-sleeps layer.</li>
-          </ul>
+        <div class="browser-frame" style="align-self:stretch;">
+          <div class="browser-bar">
+            <div class="browser-dot r"></div>
+            <div class="browser-dot y"></div>
+            <div class="browser-dot g"></div>
+            <div class="browser-url">api.robotross.art/fleet/team</div>
+          </div>
+          <div class="hub-layout" style="min-height:420px;">
+            <div class="hub-sidebar">
+              <div class="hub-sidebar-brand"><div class="sub">Acme Engineering</div><div class="name">Fleet Hub</div></div>
+              <div class="hub-nav-item active">Team</div>
+              <div class="hub-nav-item">Projects</div>
+              <div class="hub-nav-item">Kanban</div>
+              <div class="hub-nav-item">Memory</div>
+              <div class="hub-nav-item">Standups</div>
+            </div>
+            <div class="hub-content">
+              <div class="hub-panel-label">Fleet Crew</div>
+              <div class="hub-title">Agentic Team</div>
+              <div class="hub-sub">Role-specific agents working in sync with shared state, lessons, and Kanban.</div>
+              <div class="agent-grid">
+                <div class="agent-card"><div class="agent-env" style="display:flex;align-items:center;gap:.4rem;"><span style="width:6px;height:6px;border-radius:50%;background:#4ade80;display:inline-block;flex-shrink:0;"></span>local workstation</div><div class="agent-name">Clau</div><div class="agent-role">Implementation lead</div><div class="agent-desc">Picks tickets, executes code changes, and updates shared fleet state.</div></div>
+                <div class="agent-card"><div class="agent-env" style="display:flex;align-items:center;gap:.4rem;"><span style="width:6px;height:6px;border-radius:50%;background:#4ade80;display:inline-block;flex-shrink:0;"></span>cloud context</div><div class="agent-name">Gem</div><div class="agent-role">Architecture + UI</div><div class="agent-desc">Designs, reviews architecture, and keeps the UI sharp.</div></div>
+                <div class="agent-card"><div class="agent-env" style="display:flex;align-items:center;gap:.4rem;"><span style="width:6px;height:6px;border-radius:50%;background:#fbbf24;display:inline-block;flex-shrink:0;"></span>platform lane</div><div class="agent-name">Codi</div><div class="agent-role">Platform + packages</div><div class="agent-desc">Builds tooling, scaffolding, and deployment infrastructure.</div></div>
+                <div class="agent-card"><div class="agent-env" style="display:flex;align-items:center;gap:.4rem;"><span style="width:6px;height:6px;border-radius:50%;background:#8b9bb0;display:inline-block;flex-shrink:0;"></span>compliance lane</div><div class="agent-name">Misty</div><div class="agent-role">Compliance + legal</div><div class="agent-desc">Reviews EU AI Act compliance and regulatory requirements.</div></div>
+              </div>
+            </div>
+          </div>
         </div>
     </div>
   </header>
@@ -256,54 +271,19 @@
             <div class="hub-sidebar-brand"><div class="sub">Acme Engineering</div><div class="name">Fleet Hub</div></div>
             <div class="hub-nav-item active">Team</div>
             <div class="hub-nav-item">Projects</div>
-            <div class="hub-nav-item">Rules</div>
+            <div class="hub-nav-item">Kanban</div>
             <div class="hub-nav-item">Memory</div>
             <div class="hub-nav-item">Standups</div>
           </div>
           <div class="hub-content">
             <div class="hub-panel-label">Fleet Crew</div>
             <div class="hub-title">Agentic Team</div>
-            <div class="hub-sub">Role-specific agents working in sync with visible environments, responsibilities, and operating context.</div>
+            <div class="hub-sub">Role-specific agents working in sync — visible environments, responsibilities, and live heartbeat status.</div>
             <div class="agent-grid">
-              <div class="agent-card"><div class="agent-env">Runs on: local workstation</div><div class="agent-name">Logic agent</div><div class="agent-role">Implementation lead</div><div class="agent-desc">Picks tickets from GitHub, executes code changes, and updates shared state for the rest of the fleet.</div></div>
-              <div class="agent-card"><div class="agent-env">Runs on: cloud context</div><div class="agent-name">Architecture agent</div><div class="agent-role">Platform and system design</div><div class="agent-desc">Maintains architectural context, project plans, and deployment constraints.</div></div>
-              <div class="agent-card"><div class="agent-env">Runs on: verification lane</div><div class="agent-name">QA agent</div><div class="agent-role">Review and delivery pressure</div><div class="agent-desc">Checks regressions, validates changes, and keeps delivery moving across tickets.</div></div>
-              <div class="agent-card"><div class="agent-env">Runs on: growth lane</div><div class="agent-name">Commercial agent</div><div class="agent-role">Lead ops and handoff support</div><div class="agent-desc">Captures inbound requests, structures context, and hands off work to the right workflow.</div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="browser-frame">
-        <div class="browser-bar">
-          <div class="browser-dot r"></div>
-          <div class="browser-dot y"></div>
-          <div class="browser-dot g"></div>
-          <div class="browser-url">api.robotross.art/demo/memory</div>
-        </div>
-        <div class="hub-layout">
-          <div class="hub-sidebar">
-            <div class="hub-sidebar-brand"><div class="sub">Acme Engineering</div><div class="name">Fleet Hub</div></div>
-            <div class="hub-nav-item">Team</div>
-            <div class="hub-nav-item">Projects</div>
-            <div class="hub-nav-item">Rules</div>
-            <div class="hub-nav-item active">Memory</div>
-            <div class="hub-nav-item">Standups</div>
-          </div>
-          <div class="hub-content">
-            <div class="hub-panel-label">Knowledge Base</div>
-            <div class="hub-title">Memory Tree</div>
-            <div class="hub-sub">Centralized project context and architectural blueprints, linked directly to the shared markdown memory system.</div>
-            <div class="mem-group">
-              <div class="mem-group-label">Global Rules</div>
-              <div class="mem-row"><div><strong>Team Rules</strong><span>Commit, Kanban, and shared-memory protocols for all agents.</span></div><div class="mem-link">Open</div></div>
-              <div class="mem-row"><div><strong>Mission Control</strong><span>The operational source of truth every coding agent reads at session start.</span></div><div class="mem-link">Open</div></div>
-            </div>
-            <div class="mem-group">
-              <div class="mem-group-label">Project Context</div>
-              <div class="mem-row"><div><strong>Architecture</strong><span>Component maps, deployment constraints, and system boundaries.</span></div><div class="mem-link">Open</div></div>
-              <div class="mem-row"><div><strong>Lessons Learned</strong><span>Shared notes that help the fleet avoid the same mistakes twice.</span></div><div class="mem-link">Open</div></div>
-              <div class="mem-row"><div><strong>Standup History</strong><span>Recent work logs, ticket progress, and blockers.</span></div><div class="mem-link">Open</div></div>
+              <div class="agent-card"><div class="agent-env" style="display:flex;align-items:center;gap:.4rem;"><span style="width:6px;height:6px;border-radius:50%;background:#4ade80;display:inline-block;flex-shrink:0;"></span>local workstation</div><div class="agent-name">Aria</div><div class="agent-role">Implementation lead</div><div class="agent-desc">Picks tickets from GitHub, executes code changes, and updates shared state for the fleet.</div></div>
+              <div class="agent-card"><div class="agent-env" style="display:flex;align-items:center;gap:.4rem;"><span style="width:6px;height:6px;border-radius:50%;background:#4ade80;display:inline-block;flex-shrink:0;"></span>cloud context</div><div class="agent-name">Rex</div><div class="agent-role">Architecture + review</div><div class="agent-desc">Maintains architectural context, reviews PRs, and keeps deployment constraints aligned.</div></div>
+              <div class="agent-card"><div class="agent-env" style="display:flex;align-items:center;gap:.4rem;"><span style="width:6px;height:6px;border-radius:50%;background:#fbbf24;display:inline-block;flex-shrink:0;"></span>platform lane</div><div class="agent-name">Nova</div><div class="agent-role">Platform + packages</div><div class="agent-desc">Builds tooling, scaffolding, and deployment infrastructure for the team.</div></div>
+              <div class="agent-card"><div class="agent-env" style="display:flex;align-items:center;gap:.4rem;"><span style="width:6px;height:6px;border-radius:50%;background:#8b9bb0;display:inline-block;flex-shrink:0;"></span>growth lane</div><div class="agent-name">Sage</div><div class="agent-role">Lead ops + handoff</div><div class="agent-desc">Captures inbound requests, structures context, and routes work to the right workflow.</div></div>
             </div>
           </div>
         </div>
@@ -321,7 +301,7 @@
             <div class="hub-sidebar-brand"><div class="sub">Acme Engineering</div><div class="name">Fleet Hub</div></div>
             <div class="hub-nav-item">Team</div>
             <div class="hub-nav-item">Projects</div>
-            <div class="hub-nav-item">Rules</div>
+            <div class="hub-nav-item">Kanban</div>
             <div class="hub-nav-item">Memory</div>
             <div class="hub-nav-item active">Standups</div>
           </div>
@@ -329,11 +309,11 @@
             <div class="hub-panel-label">Daily Pulse</div>
             <div class="hub-title">Standups</div>
             <div class="hub-sub">Session logs that show what each agent finished, what changed, and what still needs human attention.</div>
-            <div class="standup-tabs"><div class="standup-tab active">2026-03-12</div><div class="standup-tab">2026-03-11</div></div>
-            <div class="standup-agent-name">Current Session</div>
-            <div class="standup-block"><div class="standup-block-label">Done</div><ul><li>Homepage contact form wired into Google Sheets intake.</li><li>Legal pages added for privacy, cookies, and terms.</li><li>Shared markdown notes updated for the next agent.</li></ul></div>
-            <div class="standup-block"><div class="standup-block-label">Today</div><ul><li>Review homepage messaging and proof sections.</li><li>Validate live lead capture from production.</li></ul></div>
-            <div class="standup-block"><div class="standup-block-label">Blockers</div><ul><li>No blocker if the live path is deployed and the webhook stays reachable.</li></ul></div>
+            <div class="standup-tabs"><div class="standup-tab active">2026-03-16</div><div class="standup-tab">2026-03-15</div></div>
+            <div class="standup-agent-name">Aria · Implementation Lead</div>
+            <div class="standup-block"><div class="standup-block-label">Done</div><ul><li>Setup wizard v0.2.0 aligned with doctor checks and Telegram/OpenClaw paths.</li><li>Fleet bridge updated: dynamic commands loaded from fleet_meta.json.</li><li>Hybrid snapshot push connector deployed and verified on Mac Mini.</li></ul></div>
+            <div class="standup-block"><div class="standup-block-label">Today</div><ul><li>Homepage UI fixes — version, messaging, and screenshot above the fold.</li><li>Sync salesman-cloud-infra and redeploy updated BBE page.</li></ul></div>
+            <div class="standup-block"><div class="standup-block-label">Blockers</div><ul><li>npm publish for v0.2.0 requires human credentials — waiting on Miguel.</li></ul></div>
           </div>
         </div>
       </div>
@@ -350,24 +330,24 @@
             <div class="hub-sidebar">
               <div class="hub-sidebar-brand"><div class="sub">Acme Engineering</div><div class="name">Fleet Hub</div></div>
               <div class="hub-nav-item">Team</div>
-              <div class="hub-nav-item active">Projects</div>
-              <div class="hub-nav-item">Rules</div>
+              <div class="hub-nav-item active">Kanban</div>
+              <div class="hub-nav-item">Projects</div>
               <div class="hub-nav-item">Memory</div>
               <div class="hub-nav-item">Standups</div>
             </div>
             <div class="hub-content">
               <div class="hub-panel-label">Execution Board</div>
               <div class="hub-title">Kanban Bridge</div>
-              <div class="hub-sub">Tickets stay synchronized across the human board and the agent fleet so work moves without copy-paste relays.</div>
+              <div class="hub-sub">Tickets stay synchronized across the human board and the agent fleet — no copy-paste relays.</div>
               <div class="mem-group">
                 <div class="mem-group-label">In Progress</div>
-                <div class="mem-row"><div><strong>#47 Homepage Positioning</strong><span>Hero rewrite, CTA cleanup, architecture messaging.</span></div><div class="mem-link">Active</div></div>
-                <div class="mem-row"><div><strong>#45 Telegram Bridge</strong><span>Two-way mobile command channel with PocketBase comment sync.</span></div><div class="mem-link">Active</div></div>
+                <div class="mem-row"><div><strong>#53 Release create-flotilla v0.2.0</strong><span>Package live — awaiting human npm credentials to publish.</span></div><div class="mem-link">Waiting</div></div>
+                <div class="mem-row"><div><strong>UI Fixes · v0.2.0</strong><span>Version badge, hero screenshot, showcase refresh, messaging update.</span></div><div class="mem-link">Active</div></div>
               </div>
               <div class="mem-group">
-                <div class="mem-group-label">Review + Done</div>
-                <div class="mem-row"><div><strong>#44 Fleet Auth Recovery</strong><span>Auth bootstrap, inbox, standups, and dashboard restore.</span></div><div class="mem-link">Done</div></div>
-                <div class="mem-row"><div><strong>#34 PocketBase Schema</strong><span>Heartbeat, tasks, comments, lessons, and operational state collections.</span></div><div class="mem-link">Done</div></div>
+                <div class="mem-group-label">Recently Done</div>
+                <div class="mem-row"><div><strong>#67 Setup Wizard v0.2.0</strong><span>Doctor checks, Telegram/OpenClaw integration steps, smoke gate.</span></div><div class="mem-link">Done</div></div>
+                <div class="mem-row"><div><strong>#66 Agent Health Monitor</strong><span>Skill-based reassignment on stale heartbeat (&gt;30 min).</span></div><div class="mem-link">Done</div></div>
               </div>
             </div>
           </div>
@@ -383,8 +363,8 @@
             <div class="hub-sidebar">
               <div class="hub-sidebar-brand"><div class="sub">Acme Engineering</div><div class="name">Fleet Hub</div></div>
               <div class="hub-nav-item">Team</div>
+              <div class="hub-nav-item">Kanban</div>
               <div class="hub-nav-item">Projects</div>
-              <div class="hub-nav-item">Rules</div>
               <div class="hub-nav-item active">Memory</div>
               <div class="hub-nav-item">Standups</div>
             </div>
@@ -394,8 +374,8 @@
               <div class="hub-sub">The fleet keeps a running memory of architectural mistakes, deployment gotchas, and approved operating lessons.</div>
               <div class="mem-group">
                 <div class="mem-group-label">Approved Lessons</div>
-                <div class="mem-row"><div><strong>Auth Cookie Parsing</strong><span>Use the last period to split signed session data, not every period in the email payload.</span></div><div class="mem-link">Apply</div></div>
-                <div class="mem-row"><div><strong>Trailing Slash Redirect</strong><span>Backend static routing should enforce 301 slash redirects for management subfolders.</span></div><div class="mem-link">Apply</div></div>
+                <div class="mem-row"><div><strong>Telegram Message Limits</strong><span>Truncate outbound comments at 4096 chars to prevent bridge retry loops.</span></div><div class="mem-link">Apply</div></div>
+                <div class="mem-row"><div><strong>Hybrid Snapshot Push</strong><span>PocketBase stays local — push snapshots to DO server for live remote dots.</span></div><div class="mem-link">Apply</div></div>
                 <div class="mem-row"><div><strong>Regional API Domains</strong><span>Explicit Infisical EU domain avoids silent auth failures in field deployments.</span></div><div class="mem-link">Apply</div></div>
               </div>
             </div>
