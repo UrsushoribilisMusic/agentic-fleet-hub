@@ -14,7 +14,7 @@
     nav, section, footer, .hero { padding-left:5%; padding-right:5%; }
     nav { position:sticky; top:0; z-index:20; min-height:72px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; padding-top:.9rem; padding-bottom:.9rem; background:rgba(10,12,16,.88); backdrop-filter:blur(14px); border-bottom:1px solid var(--border); }
     .logo { text-decoration:none; font-size:1.15rem; font-weight:800; letter-spacing:-.04em; background:linear-gradient(90deg,var(--accent),var(--accent2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-    nav ul, .nav-actions, .hero-actions, .hero-actions, .footer-links, .legal-links, .cookie-actions, .cta-actions { display:flex; flex-wrap:wrap; gap:.8rem; }
+    nav ul, .nav-actions, .hero-actions, .footer-links, .legal-links, .cookie-actions, .cta-actions { display:flex; flex-wrap:wrap; gap:.8rem; }
     nav ul { list-style:none; }
     nav ul a, .footer-links a { text-decoration:none; color:var(--muted); }
     .button, .button-secondary { display:inline-flex; align-items:center; justify-content:center; padding:.8rem 1.25rem; border-radius:10px; text-decoration:none; font-weight:700; border:1px solid transparent; cursor:pointer; }
@@ -73,51 +73,41 @@
     .arch-card p { color:var(--muted); font-size:.94rem; }
     .feature-stack { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1rem; margin-top:1rem; }
     .feature-stack .fit-card h3 { margin-bottom:.55rem; }
-    .browser-frame { background:#ffffff; border:1px solid #d0d7de; border-radius:12px; overflow:hidden; box-shadow:0 20px 50px rgba(0,0,0,.1); margin-top:1.25rem; }
-    .hub-layout { display:grid; grid-template-columns:200px 1fr; min-height:360px; }
+    .browser-frame { background:#ffffff; border:1px solid #d0d7de; border-radius:18px; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,0.1); margin-top:1.25rem; }
+    .browser-url { margin-left:.75rem; background:#f6f8fa; border:1px solid #d0d7de; border-radius:6px; padding:.25rem 1rem; color:#656d76; font-size:.75rem; flex:1; max-width:320px; }
+    .hub-layout { display:grid; grid-template-columns:220px 1fr; min-height:360px; color:#1f2328; background:#ffffff; }
     .hub-sidebar { background:#f6f8fa; border-right:1px solid #d0d7de; padding:1rem; }
     .hub-sidebar-brand { border-bottom:1px solid #d0d7de; padding-bottom:.9rem; margin-bottom:.9rem; }
     .hub-sidebar-brand .sub { font-size:.65rem; letter-spacing:.12em; color:#656d76; text-transform:uppercase; }
     .hub-sidebar-brand .name { font-size:1rem; font-weight:700; color:#1f2328; }
-    .hub-nav-item { padding:.5rem .7rem; border-radius:6px; color:#656d76; margin-bottom:.2rem; font-size:.85rem; font-weight:500; display: flex; align-items: center; gap: 8px; }
-    .hub-nav-item.active { color:#1f2328; background:#ffffff; border:1px solid #d0d7de; box-shadow:0 1px 2px rgba(0,0,0,.05); }
-    .hub-content { padding:1.5rem; background:#ffffff; }
-    .hub-panel-label { font-size:.68rem; color:#0969da; text-transform:uppercase; letter-spacing:.12em; margin-bottom:.45rem; font-weight:600; }
-    .hub-title { font-size:1.35rem; font-weight:700; margin-bottom:.35rem; color:#1f2328; }
-    .hub-sub { font-size:.86rem; color:#656d76; margin-bottom:1.2rem; }
-    .agent-grid { display:flex; flex-direction:column; gap:1px; background:#d0d7de; border:1px solid #d0d7de; border-radius:6px; overflow:hidden; }
-    .agent-card { background:#ffffff; display:flex; flex-direction:column; }
-    .card-summary { display:flex; align-items:center; gap:12px; padding:10px 16px; width:100%; }
-    .agent-avatar { width:32px; height:32px; border-radius:50%; background:#f6f8fa; display:flex; align-items:center; justify-content:center; font-size:14px; flex-shrink:0; border:1px solid #d0d7de; font-weight:700; color:#1f2328; }
-    .card-summary-info { flex:1; display:flex; align-items:center; gap:12px; }
-    .card-summary-info h3 { font-size:14px; font-weight:600; color:#1f2328; margin:0; }
-    .role-title { font-size:11px; color:#656d76; background:#f6f8fa; padding:2px 8px; border-radius:12px; border:1px solid #d0d7de; }
-    .card-meta { display:flex; align-items:center; gap:12px; }
-    .task-count { font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:10px; font-weight:600; color:#656d76; background:#ebedef; padding:1px 6px; border-radius:4px; }
-    .card-details { display:none; padding:10px 16px 14px 60px; background:#f6f8fa; border-top:1px solid #d8dee4; }
-    .agent-card.expanded .card-details { display:block; }
-    .agent-card.expanded { background:#f6f8fa; }
-    .agent-name { font-size:.85rem; font-weight:600; color:#1f2328; }
-    .agent-desc { font-size:.75rem; color:#656d76; flex:1; }
-    .hb-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
-    .hb-working { background:#1a7f37; box-shadow:0 0 0 2px #dafbe1; }
-    .hb-idle { background:#0969da; }
-    .hb-offline { background:#8c959f; }
-    .mem-group { margin-bottom:1.2rem; }
-    .mem-group-label { font-size:.66rem; color:#9a6700; text-transform:uppercase; letter-spacing:.1em; margin-bottom:.6rem; font-weight:700; }
-    .mem-row { display:flex; justify-content:space-between; align-items:center; gap:1rem; background:#ffffff; border:1px solid #d0d7de; border-radius:6px; padding:.75rem .9rem; margin-bottom:.4rem; }
-    .mem-row strong { display:block; font-size:.82rem; color:#1f2328; }
-    .mem-row span { font-size:.74rem; color:#656d76; }
-    .mem-link { font-size:.68rem; color:#0969da; text-transform:uppercase; letter-spacing:.06em; white-space:nowrap; font-weight:600; }
-    .standup-tabs { display:flex; gap:.25rem; margin-bottom:1rem; }
-    .standup-tab { font-size:.75rem; padding:.3rem .8rem; border-radius:6px; border:1px solid #d0d7de; color:#656d76; background:#f6f8fa; }
+    .hub-nav-item { padding:.6rem .7rem; border-radius:8px; color:#656d76; margin-bottom:.35rem; background:transparent; border:1px solid transparent; }
+    .hub-nav-item.active { background:#ffffff; border:1px solid #d0d7de; box-shadow:0 1px 3px rgba(0,0,0,0.05); color:#1f2328; }
+    .hub-content { padding:1.25rem; }
+    .hub-panel-label { font-size:.68rem; color:#656d76; text-transform:uppercase; letter-spacing:.12em; margin-bottom:.45rem; }
+    .hub-title { font-size:1.35rem; font-weight:600; margin-bottom:.35rem; color:#1f2328; }
+    .hub-sub { font-size:.86rem; color:#656d76; margin-bottom:1rem; }
+    .agent-grid { display:flex; flex-direction:column; gap:1px; background:#d0d7de; border-radius:6px; overflow:hidden; border:1px solid #d0d7de; }
+    .agent-card { background:#ffffff; padding:0.75rem 1rem; display:flex; align-items:center; gap:12px; }
+    .agent-avatar { width:32px; height:32px; border-radius:6px; background:#f6f8fa; border:1px solid #d0d7de; display:flex; align-items:center; justify-content:center; font-size:14px; flex-shrink:0; }
+    .agent-info { flex:1; }
+    .agent-role-badge { font-size:11px; background:#eff1f3; color:#656d76; padding:1px 6px; border-radius:10px; border:1px solid #d0d7de; }
+    .hb-dot { width:8px; height:8px; border-radius:50%; display:inline-block; flex-shrink:0; }
+    .hb-working { background:#2da44e; box-shadow:0 0 0 2px rgba(45,164,78,0.2); }
+    .hb-idle { background:#8c959f; }
+    .mem-group { margin-bottom:1rem; }
+    .mem-group-label { font-size:.66rem; color:#656d76; text-transform:uppercase; letter-spacing:.1em; margin-bottom:.45rem; }
+    .mem-row { display:flex; justify-content:space-between; align-items:center; gap:1rem; background:#ffffff; border:1px solid #d0d7de; border-radius:8px; padding:.75rem .9rem; margin-bottom:.4rem; }
+    .mem-row strong { display:block; font-size:.8rem; color:#1f2328; }
+    .mem-row span { font-size:.72rem; color:#656d76; }
+    .mem-link { font-size:.66rem; color:#0969da; text-transform:uppercase; letter-spacing:.06em; white-space:nowrap; }
+    .standup-tabs { display:flex; gap:.45rem; margin-bottom:.9rem; }
+    .standup-tab { font-size:.7rem; padding:.25rem .65rem; border-radius:4px; border:1px solid #d0d7de; color:#656d76; }
     .standup-tab.active { background:#0969da; color:#ffffff; border-color:#0969da; }
-    .standup-agent-name { font-size:.9rem; font-weight:700; margin-bottom:.6rem; color:#1f2328; }
-    .standup-block { margin-bottom:.8rem; border:1px solid #d0d7de; border-radius:6px; padding:.8rem; background:#f6f8fa; }
-    .standup-block-label { font-size:.7rem; font-weight:700; margin-bottom:.4rem; text-transform:uppercase; color:#656d76; }
-    .standup-block ul { padding-left:1.2rem; }
-    .standup-block li { font-size:.78rem; color:#1f2328; line-height:1.5; margin-bottom:.3rem; }
-
+    .standup-agent-name { font-size:.86rem; font-weight:700; margin-bottom:.5rem; color:#1f2328; }
+    .standup-block { margin-bottom:.75rem; }
+    .standup-block-label { font-size:.68rem; font-weight:700; margin-bottom:.25rem; color:#656d76; }
+    .standup-block ul { padding-left:1rem; }
+    .standup-block li { font-size:.74rem; color:#1f2328; line-height:1.45; margin-bottom:.2rem; }
     .faq-item button { width:100%; border:0; background:transparent; color:var(--text); text-align:left; display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1.2rem 1.3rem; font-size:1rem; font-weight:700; cursor:pointer; }
     .faq-answer { max-height:0; overflow:hidden; transition:max-height .25s ease; padding:0 1.3rem; }
     .faq-item.open .faq-answer { max-height:280px; padding-bottom:1.2rem; }
@@ -210,17 +200,9 @@
           <code>npx create-flotilla</code>
         </div>
         <div class="cta-shell">
-          <div class="section-label">Build Your Own Autonomous Flotilla &nbsp;·&nbsp; <span style="opacity:.65;font-size:.7rem">v0.2.0</span></div>
-          <h3>The operating system for autonomous engineering teams</h3>
-          <ul style="list-style:none; display:grid; gap:.5rem; margin-top:.8rem; margin-bottom:1.2rem;">
-            <li style="font-size:.9rem; color:var(--muted);"><span style="color:var(--accent); font-weight:800; margin-right:.5rem;">+</span><code>MISSION_CONTROL.md</code> gives every agent the same cognitive starting point before work begins.</li>
-            <li style="font-size:.9rem; color:var(--muted);"><span style="color:var(--accent); font-weight:800; margin-right:.5rem;">+</span>Agents keep lessons learned and share them with each other through a persistent memory ledger.</li>
-            <li style="font-size:.9rem; color:var(--muted);"><span style="color:var(--accent); font-weight:800; margin-right:.5rem;">+</span>Vault-first secret delivery keeps credentials out of prompts, markdown, and <code>.env</code> sprawl.</li>
-            <li style="font-size:.9rem; color:var(--muted);"><span style="color:var(--accent); font-weight:800; margin-right:.5rem;">+</span>Agent diversity improves outcomes because different models can implement, critique, and review each other instead of self-validating the same reasoning path.</li>
-            <li style="font-size:.9rem; color:var(--muted);"><span style="color:var(--accent); font-weight:800; margin-right:.5rem;">+</span>Claude, Gemini, Mistral, and Codex can run in parallel under one operating contract with cost-aware model diversity.</li>
-            <li style="font-size:.9rem; color:var(--muted);"><span style="color:var(--accent); font-weight:800; margin-right:.5rem;">+</span>The Kanban bridge keeps work anchored to real tickets instead of ad hoc chat memory.</li>
-            <li style="font-size:.9rem; color:var(--muted);"><span style="color:var(--accent); font-weight:800; margin-right:.5rem;">+</span>Control your flotilla from Telegram over Open Claw when you want an optional fleet-that-never-sleeps layer.</li>
-          </ul>
+          <div class="section-label">Build Your Own Autonomous Flotilla</div>
+          <h3>One command to deploy a professional-grade engineering fleet.</h3>
+          <p>Bootstrap a multi-model team with shared operating memory, secure secret delivery, and a management layer your humans can actually read.</p>
           <div class="cta-grid">
             <a class="button-secondary" href="https://api.robotross.art/demo/" target="_blank" rel="noopener noreferrer">Demo</a>
             <a class="button-secondary" href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -228,6 +210,7 @@
             <button class="button" type="button" onclick="openModal('Fleet Command')">Contact</button>
           </div>
         </div>
+        
         <div class="metrics">
           <div class="metric"><strong>Persistent State</strong><span>Shared memory, standups, and architectural context survive across sessions and models.</span></div>
           <div class="metric"><strong>Vault-First Security</strong><span>Infisical-based secret delivery with no `.env` files leaking into agent context.</span></div>
@@ -235,81 +218,16 @@
           <div class="metric"><strong>Always-On Operations</strong><span>PocketBase, dispatcher heartbeats, and Open Claw pathways keep the fleet operational beyond a single chat session.</span></div>
         </div>
       </div>
-        <div class="browser-frame" style="align-self:stretch;">
-          <div class="hub-layout" style="min-height:420px;">
-            <div class="hub-sidebar">
-              <div class="hub-sidebar-brand"><div class="sub">Acme Engineering</div><div class="name">Fleet Hub</div></div>
-              <div class="hub-nav-item active"><span>👥</span> Team</div>
-              <div class="hub-nav-item"><span>📁</span> Projects</div>
-              <div class="hub-nav-item"><span>📋</span> Kanban</div>
-              <div class="hub-nav-item"><span>🧠</span> Memory</div>
-              <div class="hub-nav-item"><span>🕒</span> Standups</div>
-            </div>
-            <div class="hub-content">
-              <div class="hub-panel-label">Fleet Crew</div>
-              <div class="hub-title">Agentic Team</div>
-              <div class="hub-sub">Role-specific agents working in sync with shared state, lessons, and Kanban.</div>
-              <div class="agent-grid">
-                <div class="agent-card expanded">
-                  <div class="card-summary">
-                    <span class="hb-dot hb-working"></span>
-                    <div class="agent-avatar">C</div>
-                    <div class="card-summary-info">
-                      <div class="agent-name">Clau</div>
-                      <span class="role-title">Implementation lead</span>
-                    </div>
-                    <div class="card-meta">
-                      <span class="task-count">3 tasks</span>
-                    </div>
-                  </div>
-                  <div class="card-details">
-                    <div class="agent-desc">Picks tickets, executes code changes, and updates shared fleet state.</div>
-                  </div>
-                </div>
-                <div class="agent-card">
-                  <div class="card-summary">
-                    <span class="hb-dot hb-working"></span>
-                    <div class="agent-avatar">G</div>
-                    <div class="card-summary-info">
-                      <div class="agent-name">Gem</div>
-                      <span class="role-title">Architecture + UI</span>
-                    </div>
-                    <div class="card-meta">
-                      <span class="task-count">1 task</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="agent-card">
-                  <div class="card-summary">
-                    <span class="hb-dot hb-idle"></span>
-                    <div class="agent-avatar">C</div>
-                    <div class="card-summary-info">
-                      <div class="agent-name">Codi</div>
-                      <span class="role-title">Platform + packages</span>
-                    </div>
-                    <div class="card-meta">
-                      <span class="task-count">0 tasks</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="agent-card">
-                  <div class="card-summary">
-                    <span class="hb-dot hb-offline"></span>
-                    <div class="agent-avatar">M</div>
-                    <div class="card-summary-info">
-                      <div class="agent-name">Misty</div>
-                      <span class="role-title">Compliance + legal</span>
-                    </div>
-                    <div class="card-meta">
-                      <span class="task-count">0 tasks</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="panel">
+          <div class="section-label">Flotilla Control Layer</div>
+          <h3>The operating system for autonomous engineering teams</h3>
+          <p>Flotilla standardizes the bootstrap, security, and coordination layer so your agents stop behaving like isolated chat tabs and start working like a professional team.</p>
+          <ul>
+            <li><strong>Shared Consciousness:</strong> Centralized Markdown memory files link coding conventions, reporting rules, and project states.</li>
+            <li><strong>Resilient Architecture:</strong> Model-agnostic by design. Use Claude for logic, Gemini for context, and Codex for speed.</li>
+            <li><strong>GitHub Kanban Orchestration:</strong> Agents pull tickets from your board and report progress asynchronously.</li>
+          </ul>
         </div>
-
     </div>
   </header>
 
@@ -323,71 +241,36 @@
         <div class="hub-layout">
           <div class="hub-sidebar">
             <div class="hub-sidebar-brand"><div class="sub">Acme Engineering</div><div class="name">Fleet Hub</div></div>
-            <div class="hub-nav-item active"><span>👥</span> Team</div>
-            <div class="hub-nav-item"><span>📁</span> Projects</div>
-            <div class="hub-nav-item"><span>📋</span> Kanban</div>
-            <div class="hub-nav-item"><span>🧠</span> Memory</div>
-            <div class="hub-nav-item"><span>🕒</span> Standups</div>
+            <div class="hub-nav-item active">Team</div>
+            <div class="hub-nav-item">Projects</div>
+            <div class="hub-nav-item">Rules</div>
+            <div class="hub-nav-item">Memory</div>
+            <div class="hub-nav-item">Standups</div>
           </div>
           <div class="hub-content">
             <div class="hub-panel-label">Fleet Crew</div>
             <div class="hub-title">Agentic Team</div>
-            <div class="hub-sub">Role-specific agents working in sync — visible environments, responsibilities, and live heartbeat status.</div>
+            <div class="hub-sub">Role-specific agents working in sync with visible environments, responsibilities, and operating context.</div>
             <div class="agent-grid">
-              <div class="agent-card expanded">
-                <div class="card-summary">
-                  <span class="hb-dot hb-working"></span>
-                  <div class="agent-avatar">A</div>
-                  <div class="card-summary-info">
-                    <div class="agent-name">Aria</div>
-                    <span class="role-title">Implementation lead</span>
-                  </div>
-                  <div class="card-meta">
-                    <span class="task-count">2 tasks</span>
-                  </div>
-                </div>
-                <div class="card-details">
-                  <div class="agent-desc">Picks tickets from GitHub, executes code changes, and updates shared state for the fleet.</div>
-                </div>
+              <div class="agent-card">
+                <div class="agent-avatar">L</div>
+                <div class="agent-info"><h3>Logic Agent</h3><span class="agent-role-badge">Lead Implementation</span></div>
+                <div class="hb-dot hb-working"></div>
               </div>
               <div class="agent-card">
-                <div class="card-summary">
-                  <span class="hb-dot hb-working"></span>
-                  <div class="agent-avatar">R</div>
-                  <div class="card-summary-info">
-                    <div class="agent-name">Rex</div>
-                    <span class="role-title">Architecture + review</span>
-                  </div>
-                  <div class="card-meta">
-                    <span class="task-count">1 task</span>
-                  </div>
-                </div>
+                <div class="agent-avatar">A</div>
+                <div class="agent-info"><h3>Architecture Agent</h3><span class="agent-role-badge">System Design</span></div>
+                <div class="hb-dot hb-idle"></div>
               </div>
               <div class="agent-card">
-                <div class="card-summary">
-                  <span class="hb-dot hb-idle"></span>
-                  <div class="agent-avatar">N</div>
-                  <div class="card-summary-info">
-                    <div class="agent-name">Nova</div>
-                    <span class="role-title">Platform + packages</span>
-                  </div>
-                  <div class="card-meta">
-                    <span class="task-count">0 tasks</span>
-                  </div>
-                </div>
+                <div class="agent-avatar">Q</div>
+                <div class="agent-info"><h3>QA Agent</h3><span class="agent-role-badge">Verification</span></div>
+                <div class="hb-dot hb-working"></div>
               </div>
               <div class="agent-card">
-                <div class="card-summary">
-                  <span class="hb-dot hb-offline"></span>
-                  <div class="agent-avatar">S</div>
-                  <div class="card-summary-info">
-                    <div class="agent-name">Sage</div>
-                    <span class="role-title">Lead ops + handoff</span>
-                  </div>
-                  <div class="card-meta">
-                    <span class="task-count">0 tasks</span>
-                  </div>
-                </div>
+                <div class="agent-avatar">C</div>
+                <div class="agent-info"><h3>Commercial Agent</h3><span class="agent-role-badge">Lead Ops</span></div>
+                <div class="hb-dot hb-idle"></div>
               </div>
             </div>
           </div>
@@ -398,21 +281,48 @@
         <div class="hub-layout">
           <div class="hub-sidebar">
             <div class="hub-sidebar-brand"><div class="sub">Acme Engineering</div><div class="name">Fleet Hub</div></div>
-            <div class="hub-nav-item"><span>👥</span> Team</div>
-            <div class="hub-nav-item"><span>📁</span> Projects</div>
-            <div class="hub-nav-item"><span>📋</span> Kanban</div>
-            <div class="hub-nav-item"><span>🧠</span> Memory</div>
-            <div class="hub-nav-item active"><span>🕒</span> Standups</div>
+            <div class="hub-nav-item">Team</div>
+            <div class="hub-nav-item">Projects</div>
+            <div class="hub-nav-item">Rules</div>
+            <div class="hub-nav-item active">Memory</div>
+            <div class="hub-nav-item">Standups</div>
+          </div>
+          <div class="hub-content">
+            <div class="hub-panel-label">Knowledge Base</div>
+            <div class="hub-title">Memory Tree</div>
+            <div class="hub-sub">Centralized project context and architectural blueprints, linked directly to the shared markdown memory system.</div>
+            <div class="mem-group">
+              <div class="mem-group-label">Global Rules</div>
+              <div class="mem-row"><div><strong>Team Rules</strong><span>Commit, Kanban, and shared-memory protocols.</span></div><div class="mem-link">VIEW</div></div>
+              <div class="mem-row"><div><strong>Mission Control</strong><span>The operational source of truth for all agents.</span></div><div class="mem-link">VIEW</div></div>
+            </div>
+            <div class="mem-group">
+              <div class="mem-group-label">Project Context</div>
+              <div class="mem-row"><div><strong>Architecture</strong><span>Component maps and system boundaries.</span></div><div class="mem-link">VIEW</div></div>
+              <div class="mem-row"><div><strong>Lessons Learned</strong><span>Shared notes to avoid repeating mistakes.</span></div><div class="mem-link">VIEW</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="browser-frame">
+        <div class="hub-layout">
+          <div class="hub-sidebar">
+            <div class="hub-sidebar-brand"><div class="sub">Acme Engineering</div><div class="name">Fleet Hub</div></div>
+            <div class="hub-nav-item">Team</div>
+            <div class="hub-nav-item">Projects</div>
+            <div class="hub-nav-item">Rules</div>
+            <div class="hub-nav-item">Memory</div>
+            <div class="hub-nav-item active">Standups</div>
           </div>
           <div class="hub-content">
             <div class="hub-panel-label">Daily Pulse</div>
             <div class="hub-title">Standups</div>
             <div class="hub-sub">Session logs that show what each agent finished, what changed, and what still needs human attention.</div>
             <div class="standup-tabs"><div class="standup-tab active">2026-03-16</div><div class="standup-tab">2026-03-15</div></div>
-            <div class="standup-agent-name">Aria · Implementation Lead</div>
-            <div class="standup-block"><div class="standup-block-label">Done</div><ul><li>Setup wizard v0.2.0 aligned with doctor checks and Telegram/OpenClaw paths.</li><li>Fleet bridge updated: dynamic commands loaded from fleet_meta.json.</li><li>Hybrid snapshot push connector deployed and verified on Mac Mini.</li></ul></div>
-            <div class="standup-block"><div class="standup-block-label">Today</div><ul><li>Homepage UI fixes — version, messaging, and screenshot above the fold.</li><li>Sync salesman-cloud-infra and redeploy updated BBE page.</li></ul></div>
-            <div class="standup-block"><div class="standup-block-label">Blockers</div><ul><li>npm publish for v0.2.0 requires human credentials — waiting on Miguel.</li></ul></div>
+            <div class="standup-agent-name">Current Session Log</div>
+            <div class="standup-block"><div class="standup-block-label">Done</div><ul><li>Homepage contact form wired into Google Sheets.</li><li>Vault-first security layer documentation complete.</li></ul></div>
+            <div class="standup-block"><div class="standup-block-label">Today</div><ul><li>Review showcase section and UI redesign.</li><li>Validate production deployment paths.</li></ul></div>
           </div>
         </div>
       </div>
@@ -422,25 +332,20 @@
           <div class="hub-layout">
             <div class="hub-sidebar">
               <div class="hub-sidebar-brand"><div class="sub">Acme Engineering</div><div class="name">Fleet Hub</div></div>
-              <div class="hub-nav-item"><span>👥</span> Team</div>
-              <div class="hub-nav-item active"><span>📋</span> Kanban</div>
-              <div class="hub-nav-item"><span>📁</span> Projects</div>
-              <div class="hub-nav-item"><span>🧠</span> Memory</div>
-              <div class="hub-nav-item"><span>🕒</span> Standups</div>
+              <div class="hub-nav-item">Team</div>
+              <div class="hub-nav-item active">Projects</div>
+              <div class="hub-nav-item">Rules</div>
+              <div class="hub-nav-item">Memory</div>
+              <div class="hub-nav-item">Standups</div>
             </div>
             <div class="hub-content">
               <div class="hub-panel-label">Execution Board</div>
               <div class="hub-title">Kanban Bridge</div>
-              <div class="hub-sub">Tickets stay synchronized across the human board and the agent fleet — no copy-paste relays.</div>
+              <div class="hub-sub">Tickets stay synchronized across the human board and the agent fleet.</div>
               <div class="mem-group">
                 <div class="mem-group-label">In Progress</div>
-                <div class="mem-row"><div><strong>#53 Release create-flotilla v0.2.0</strong><span>Package live — awaiting human npm credentials to publish.</span></div><div class="mem-link">Waiting</div></div>
-                <div class="mem-row"><div><strong>UI Fixes · v0.2.0</strong><span>Version badge, hero screenshot, showcase refresh, messaging update.</span></div><div class="mem-link">Active</div></div>
-              </div>
-              <div class="mem-group">
-                <div class="mem-group-label">Recently Done</div>
-                <div class="mem-row"><div><strong>#67 Setup Wizard v0.2.0</strong><span>Doctor checks, Telegram/OpenClaw integration steps, smoke gate.</span></div><div class="mem-link">Done</div></div>
-                <div class="mem-row"><div><strong>#66 Agent Health Monitor</strong><span>Skill-based reassignment on stale heartbeat (&gt;30 min).</span></div><div class="mem-link">Done</div></div>
+                <div class="mem-row"><div><strong>#47 Homepage Redesign</strong><span>Hero rewrite and CTA cleanup.</span></div><div class="mem-link">ACTIVE</div></div>
+                <div class="mem-row"><div><strong>#45 Telegram Bridge</strong><span>Two-way command channel sync.</span></div><div class="mem-link">ACTIVE</div></div>
               </div>
             </div>
           </div>
@@ -449,27 +354,25 @@
           <div class="hub-layout">
             <div class="hub-sidebar">
               <div class="hub-sidebar-brand"><div class="sub">Acme Engineering</div><div class="name">Fleet Hub</div></div>
-              <div class="hub-nav-item"><span>👥</span> Team</div>
-              <div class="hub-nav-item"><span>📋</span> Kanban</div>
-              <div class="hub-nav-item"><span>📁</span> Projects</div>
-              <div class="hub-nav-item active"><span>🧠</span> Memory</div>
-              <div class="hub-nav-item"><span>🕒</span> Standups</div>
+              <div class="hub-nav-item">Team</div>
+              <div class="hub-nav-item">Projects</div>
+              <div class="hub-nav-item">Rules</div>
+              <div class="hub-nav-item active">Memory</div>
+              <div class="hub-nav-item">Standups</div>
             </div>
             <div class="hub-content">
               <div class="hub-panel-label">Evolutionary Memory</div>
-              <div class="hub-title">Lessons Learned Ledger</div>
-              <div class="hub-sub">The fleet keeps a running memory of architectural mistakes, deployment gotchas, and approved operating lessons.</div>
+              <div class="hub-title">Lessons Ledger</div>
+              <div class="hub-sub">The fleet keeps a running memory of architectural decisions and operating lessons.</div>
               <div class="mem-group">
-                <div class="mem-group-label">Approved Lessons</div>
-                <div class="mem-row"><div><strong>Telegram Message Limits</strong><span>Truncate outbound comments at 4096 chars to prevent bridge retry loops.</span></div><div class="mem-link">Apply</div></div>
-                <div class="mem-row"><div><strong>Hybrid Snapshot Push</strong><span>PocketBase stays local — push snapshots to DO server for live remote dots.</span></div><div class="mem-link">Apply</div></div>
-                <div class="mem-row"><div><strong>Regional API Domains</strong><span>Explicit Infisical EU domain avoids silent auth failures in field deployments.</span></div><div class="mem-link">Apply</div></div>
+                <div class="mem-group-label">Approved Insights</div>
+                <div class="mem-row"><div><strong>Auth Cookie Parsing</strong><span>Split signed session data correctly.</span></div><div class="mem-link">APPLY</div></div>
+                <div class="mem-row"><div><strong>Regional API Domains</strong><span>Explicit Infisical domains avoid failures.</span></div><div class="mem-link">APPLY</div></div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
