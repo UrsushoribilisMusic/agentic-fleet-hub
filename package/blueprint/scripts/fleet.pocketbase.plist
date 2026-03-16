@@ -17,6 +17,8 @@
     <true/>
     <key>KeepAlive</key>
     <true/>
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
     <key>StandardOutPath</key>
     <string>/Users/miguelrodriguez/fleet/logs/pocketbase.log</string>
     <key>StandardErrorPath</key>

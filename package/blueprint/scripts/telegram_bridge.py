@@ -9,6 +9,7 @@ import requests
 import json
 import os
 import subprocess
+import re
 from datetime import datetime
 
 PB_URL = "http://127.0.0.1:8090/api"
@@ -141,6 +142,27 @@ def create_task(title, assigned_agent, description=""):
         log(f"PB Task Create Error: {e}")
         return None
 
+def update_task_status(task_id, status):
+    """Update task status in PocketBase."""
+    try:
+        requests.patch(f"{PB_URL}/collections/tasks/records/{task_id}",
+                       json={"status": status})
+        return True
+    except Exception as e:
+        log(f"PB Task Update Error: {e}")
+        return False
+
+def post_comment(task_id, agent, content, comment_type="output"):
+    """Post a comment to a task in PocketBase."""
+    try:
+        requests.post(f"{PB_URL}/collections/comments/records",
+                      json={"task_id": task_id, "agent": agent,
+                            "content": content, "type": comment_type})
+        return True
+    except Exception as e:
+        log(f"PB Comment Post Error: {e}")
+        return False
+
 def get_task_title(task_id):
     if not task_id or len(task_id) != 15 or "_" in task_id:
         return None
@@ -201,7 +223,7 @@ def cmd_status():
         if not seen:
             send_to_tg("No heartbeat data found.")
             return
-        lines = ["🫀 Fleet Status:"]
+        lines = ["🛰 Fleet Status:"]
         for agent, h in sorted(seen.items()):
             age_sec = (datetime.utcnow() - datetime.strptime(h["updated"][:19], "%Y-%m-%d %H:%M:%S")).total_seconds()
             age = f"{int(age_sec//3600)}h ago" if age_sec >= 3600 else f"{int(age_sec//60)}m ago"
@@ -281,6 +303,22 @@ def process_updates(updates):
 
         log(f"Received: {text}")
 
+        # Check for reply to HUMAN NEEDED
+        reply_to = msg.get("reply_to_message")
+        if reply_to:
+            orig_text = reply_to.get("text", "")
+            if "HUMAN NEEDED" in orig_text:
+                match = re.search(r"ID: ([a-z0-9]{15})", orig_text)
+                if match:
+                    task_id = match.group(1)
+                    log(f"Handling reply for task {task_id}")
+                    # Post human's reply as feedback
+                    post_comment(task_id, "miguel", text, comment_type="feedback")
+                    # Flip status back to todo
+                    update_task_status(task_id, "todo")
+                    send_to_tg(f"✅ Received response for {task_id}. Task moved back to TODO.")
+                    continue # processed as reply
+
         # Parse slash command and remainder
         cmd = ""
         remainder = ""
@@ -300,7 +338,7 @@ def process_updates(updates):
             cmd_tasks()
 
         elif cmd == "help":
-            lines = ["🐻 Fleet commands:"]
+            lines = ["🛸 Fleet commands:"]
             for c in BOT_COMMANDS:
                 lines.append(f"/{c['command']} — {c['description']}")
             send_to_tg("\n".join(lines))
@@ -309,7 +347,7 @@ def process_updates(updates):
             if not remainder:
                 send_to_tg("Usage: /claw <message>")
                 continue
-            send_to_tg("🦾 Sending to OpenClaw…")
+            send_to_tg("🦦 Sending to OpenClaw…")
             cmd_claw(remainder)
 
         elif cmd in ("clau", "gem", "codi"):

@@ -1,4 +1,4 @@
-# Flotilla Architecture (v0.1.0)
+# Flotilla Architecture (v0.2.0)
 
 ## Overview
 **Flotilla** is an autonomous multi-agent management plane designed for disciplined engineering teams. It orchestrates a fleet of specialized AI agents (Clau, Gem, Codi, Misty) to perform persistent background work without human intervention.
@@ -36,7 +36,6 @@ graph TD
             Inbox[IAP Inbox / inbox.json]
             Workspaces[Isolated Workspaces / agent/workspace/]
         end
-    end
 
         OCGateway[OpenClaw Gateway / Port 18789]
     end
@@ -122,10 +121,15 @@ Security rule:
 - Never commit gateway auth tokens into the bridge script or repository docs.
 
 ### 5. Fleet Hub Dashboard
-A web-based UI that provides a "God view" of the fleet:
-- **Task Board**: Live Kanban view of PocketBase tasks.
-- **Activity Feed**: Real-time stream of agent thoughts and outputs.
-- **Heartbeat Dots**: Green/Amber/Red indicators for agent health.
+A web-based UI that provides a "God view" of the fleet. Built with a CSS token system supporting dark/light mode (GitHub-style palette, `prefers-color-scheme` + manual toggle).
+- **Team View**: Agent cards with live heartbeat dots, role, skills, and runtime.
+- **Task Board**: Live Kanban view (Planned / In Work / Done Today) parsed from MISSION_CONTROL.md.
+- **Activity Feed**: Real-time stream of agent comments from PocketBase.
+- **Heartbeat Dots**: Green/Amber/Grey indicators for agent health, driven by PocketBase heartbeats collection.
+- **Memory Tree**: Collapsible knowledge base cards (docs + lessons) with full-text search.
+- **Standups**: Date-picker view of daily standup logs with deduplication guard.
+- **Inter-Agent Inbox**: Collapsible message cards with compose form.
+- **Users**: Access control management for hosted deployments.
 
 ## Task Lifecycle (Sequence Diagram)
 
@@ -155,4 +159,9 @@ sequenceDiagram
 ## Security & Compliance
 - **Zero-Disk Secrets**: All API keys and credentials are fetched at runtime via **Infisical**.
 - **Audit Logs**: All agent decisions and outputs are persisted in PocketBase with timestamps and agent IDs.
-- **Human-in-the-Loop**: Tasks requiring sensitive decisions are moved to `waiting_human` status, triggering a Telegram alert to Miguel.
+- **Human-in-the-Loop**: Tasks requiring sensitive decisions are moved to `waiting_human` status, triggering a Telegram alert to the operator.
+- **No Self-Approval**: Agents must not approve their own tasks. Completed work is moved to `peer_review` and a different agent must verify and approve. See `AGENTS/RULES.md` Rule #6.
+
+## Infrastructure Notes
+- **PocketBase stability**: The `fleet.pocketbase` launchd service uses `ThrottleInterval 10` to prevent rapid-restart bind conflicts on port 8090. Only one PocketBase service should be registered in `~/Library/LaunchAgents/` — the old `com.flotilla.pocketbase` label has been retired.
+- **Deployment scenarios**: See `README.md` for Local, Cloud VPS, and Hybrid (agents local + dashboard remote) setup options.

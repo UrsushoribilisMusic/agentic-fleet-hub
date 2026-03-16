@@ -9,6 +9,7 @@ import requests
 import json
 import os
 import subprocess
+import re
 from datetime import datetime
 
 PB_URL = "http://127.0.0.1:8090/api"
@@ -141,6 +142,27 @@ def create_task(title, assigned_agent, description=""):
         log(f"PB Task Create Error: {e}")
         return None
 
+def update_task_status(task_id, status):
+    """Update task status in PocketBase."""
+    try:
+        requests.patch(f"{PB_URL}/collections/tasks/records/{task_id}",
+                       json={"status": status})
+        return True
+    except Exception as e:
+        log(f"PB Task Update Error: {e}")
+        return False
+
+def post_comment(task_id, agent, content, comment_type="output"):
+    """Post a comment to a task in PocketBase."""
+    try:
+        requests.post(f"{PB_URL}/collections/comments/records",
+                      json={"task_id": task_id, "agent": agent,
+                            "content": content, "type": comment_type})
+        return True
+    except Exception as e:
+        log(f"PB Comment Post Error: {e}")
+        return False
+
 def get_task_title(task_id):
     if not task_id or len(task_id) != 15 or "_" in task_id:
         return None
@@ -201,7 +223,7 @@ def cmd_status():
         if not seen:
             send_to_tg("No heartbeat data found.")
             return
-        lines = ["🫀 Fleet Status:"]
+        lines = ["🛰 Fleet Status:"]
         for agent, h in sorted(seen.items()):
             age_sec = (datetime.utcnow() - datetime.strptime(h["updated"][:19], "%Y-%m-%d %H:%M:%S")).total_seconds()
             age = f"{int(age_sec//3600)}h ago" if age_sec >= 3600 else f"{int(age_sec//60)}m ago"
@@ -255,13 +277,20 @@ def cmd_claw(message):
     except Exception as e:
         send_to_tg(f"OpenClaw error: {e}")
 
-def update_backlog_to_todo():
+def update_backlog_to_todo(ticket_id=None):
     try:
-        r = requests.get(f"{PB_URL}/collections/tasks/records", params={"filter": 'status = "backlog"'})
+        if ticket_id:
+            # Try to find backlog tasks where title contains the number or ID matches
+            r = requests.get(f"{PB_URL}/collections/tasks/records", params={
+                "filter": f'status = "backlog" && (title ~ "{ticket_id}" || id = "{ticket_id}")'
+            })
+        else:
+            r = requests.get(f"{PB_URL}/collections/tasks/records", params={"filter": 'status = "backlog"'})
+        
         tasks = r.json().get("items", [])
         for task in tasks:
             requests.patch(f"{PB_URL}/collections/tasks/records/{task['id']}", json={"status": "todo"})
-            log(f"Task {task['id']} moved to TODO via GO signal")
+            log(f"Task {task['id']} ({task['title']}) moved to TODO via GO signal")
         return len(tasks)
     except Exception as e:
         log(f"Error updating backlog: {e}")
@@ -281,6 +310,22 @@ def process_updates(updates):
 
         log(f"Received: {text}")
 
+        # Check for reply to HUMAN NEEDED
+        reply_to = msg.get("reply_to_message")
+        if reply_to:
+            orig_text = reply_to.get("text", "")
+            if "HUMAN NEEDED" in orig_text:
+                match = re.search(r"ID: ([a-z0-9]{15})", orig_text)
+                if match:
+                    task_id = match.group(1)
+                    log(f"Handling reply for task {task_id}")
+                    # Post human's reply as feedback
+                    post_comment(task_id, "miguel", text, comment_type="feedback")
+                    # Flip status back to todo
+                    update_task_status(task_id, "todo")
+                    send_to_tg(f"✅ Received response for {task_id}. Task moved back to TODO.")
+                    continue # processed as reply
+
         # Parse slash command and remainder
         cmd = ""
         remainder = ""
@@ -289,9 +334,18 @@ def process_updates(updates):
             cmd = parts[0].lower().split("@")[0]  # strip @botname if present
             remainder = parts[1].strip() if len(parts) > 1 else ""
 
-        if cmd == "go" or text.strip().upper() == "GO":
-            count = update_backlog_to_todo()
-            send_to_tg(f"✅ GO: {count} task(s) activated.")
+        if cmd == "go" or text.strip().upper().startswith("GO"):
+            # Check for specific ticket number in the text (e.g. "GO for 46")
+            numbers = re.findall(r'\d+', text)
+            specific_id = numbers[0] if numbers else None
+            
+            count = update_backlog_to_todo(specific_id)
+            if specific_id and count > 0:
+                send_to_tg(f"✅ GO: Ticket #{specific_id} activated.")
+            elif specific_id and count == 0:
+                send_to_tg(f"❌ GO: Could not find backlog ticket #{specific_id}.")
+            else:
+                send_to_tg(f"✅ GO: {count} task(s) activated from backlog.")
 
         elif cmd == "status":
             cmd_status()
@@ -300,7 +354,7 @@ def process_updates(updates):
             cmd_tasks()
 
         elif cmd == "help":
-            lines = ["🐻 Fleet commands:"]
+            lines = ["🛸 Fleet commands:"]
             for c in BOT_COMMANDS:
                 lines.append(f"/{c['command']} — {c['description']}")
             send_to_tg("\n".join(lines))
@@ -309,7 +363,7 @@ def process_updates(updates):
             if not remainder:
                 send_to_tg("Usage: /claw <message>")
                 continue
-            send_to_tg("🦾 Sending to OpenClaw…")
+            send_to_tg("🦦 Sending to OpenClaw…")
             cmd_claw(remainder)
 
         elif cmd in ("clau", "gem", "codi"):

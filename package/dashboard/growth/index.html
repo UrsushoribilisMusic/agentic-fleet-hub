@@ -10,13 +10,17 @@
       --navy:   #0d1b2a;
       --navy2:  #1a2a3d;
       --teal:   #00b4d8;
+      --teal-bright: #2dd4bf;
       --green:  #27ae60;
       --amber:  #f39c12;
       --text:   #e8eaf0;
       --muted:  #8892a4;
       --border: rgba(255,255,255,0.08);
+      --white:  #ffffff;
     }
     body { background: var(--navy); color: var(--text); font-family: system-ui, sans-serif; min-height: 100vh; display: flex; }
+    
+    /* Sidebar */
     .sidebar { width: 220px; background: var(--navy2); border-right: 1px solid var(--border); display: flex; flex-direction: column; padding: 1.5rem 1rem; flex-shrink: 0; }
     .sidebar .logo { font-size: 1.1rem; font-weight: 700; color: var(--teal); margin-bottom: 2rem; }
     .sidebar .logo span { color: var(--text); }
@@ -24,12 +28,16 @@
     .nav-item:hover, .nav-item.active { background: rgba(0,180,216,0.12); color: var(--teal); }
     .sidebar-footer { margin-top: auto; font-size: 0.75rem; color: var(--muted); }
     .sidebar-footer a { color: var(--teal); text-decoration: none; }
+    
+    /* Main */
     .main { flex: 1; overflow-y: auto; padding: 2rem; }
-    .page-header { margin-bottom: 2rem; }
+    .page-header { margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: flex-end; }
     .page-header h1 { font-size: 1.5rem; font-weight: 700; }
     .page-header p  { color: var(--muted); margin-top: 0.3rem; font-size: 0.9rem; }
+    
+    /* Cards */
     .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 2rem; }
-    .card { background: var(--navy2); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+    .card { background: var(--navy2); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; position: relative; }
     .card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
     .card p  { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
     .badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; margin-top: 0.75rem; }
@@ -37,6 +45,21 @@
     .badge-teal  { background: rgba(0,180,216,0.2);  color: var(--teal); }
     .cta-btn { display: inline-block; margin-top: 1rem; padding: 0.6rem 1.2rem; background: var(--teal); color: #fff; border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-decoration: none; }
     .cta-btn:hover { background: #0096b7; }
+    
+    /* Heartbeat Dots */
+    .hb-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+    .hb-working { background: var(--teal-bright); box-shadow: 0 0 8px var(--teal-bright); }
+    .hb-idle    { background: #94a3b8; }
+    .hb-offline { background: #475569; }
+    .card-meta { position: absolute; top: 1.25rem; right: 1.25rem; display: flex; align-items: center; gap: 8px; }
+    .task-count { background: var(--teal); color: white; font-size: 0.65rem; font-weight: 700; padding: 2px 6px; border-radius: 4px; }
+
+    /* Kanban */
+    .pipeline-board { display: flex; gap: 1.25rem; overflow-x: auto; padding-bottom: 1rem; }
+    .pipeline-column { flex: 1; min-width: 300px; background: rgba(0,0,0,0.15); border-radius: 12px; padding: 1rem; display: flex; flex-direction: column; gap: 1rem; border: 1px solid var(--border); }
+    .column-title { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 0.5rem; }
+    .activity-item { background: var(--navy2); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; border-left: 3px solid var(--teal); }
+
     .loading { color: var(--muted); font-size: 0.88rem; padding: 2rem 0; }
   </style>
 </head>
@@ -44,79 +67,189 @@
 
 <nav class="sidebar">
   <div class="logo">Growth<span>Fleet</span></div>
-  <div class="nav-item active" data-tab="team">👥 Your Fleet</div>
+  <div class="nav-item active" data-tab="team">👥 Sales Fleet</div>
+  <div class="nav-item" data-tab="kanban">📋 Live Tracking</div>
   <div class="nav-item" data-tab="playbook">📖 Lead Playbook</div>
-  <div class="nav-item" data-tab="pipeline">🎯 Pipeline</div>
+  <div class="nav-item" data-tab="pipeline">🎯 CRM Pipeline</div>
   <div class="sidebar-footer">
-    <a href="/">Home</a>
+    <a href="/demo/">Home</a> &nbsp;|&nbsp; <a href="/auth/logout">Logout</a>
   </div>
 </nav>
 
 <main class="main">
   <div id="tab-team">
     <div class="page-header">
-      <h1>Your Sales Fleet</h1>
-      <p>AI agents working 24/7 to fill your pipeline.</p>
+      <div>
+        <h1>Autonomous Sales Fleet</h1>
+        <p>AI agents coordinating via Telegram and Dispatcher automation to fill your pipeline.</p>
+      </div>
     </div>
-    <div class="card-grid" id="team-cards"><div class="loading">Loading agents…</div></div>
+    <div class="card-grid" id="team-cards"><div class="loading">Loading fleet…</div></div>
+  </div>
+
+  <div id="tab-kanban" style="display:none">
+    <div class="page-header">
+      <div>
+        <h1>Live Activity Tracking</h1>
+        <p>Real-time view of what your sales agents are doing right now.</p>
+      </div>
+      <button onclick="loadKanban()" style="background:none; border:1px solid var(--border); color:var(--teal); padding:0.5rem 1rem; border-radius:8px; cursor:pointer; font-size:0.8rem;">🔄 REFRESH</button>
+    </div>
+    <div class="pipeline-board">
+      <div class="pipeline-column">
+        <div class="column-title">Planned Strategy</div>
+        <div id="kanban-planned" class="card-grid" style="display:flex; flex-direction:column; gap:0.75rem;"></div>
+      </div>
+      <div class="pipeline-column" style="border-color: var(--teal);">
+        <div class="column-title" style="color:var(--teal);">Execution Phase</div>
+        <div id="kanban-working" class="card-grid" style="display:flex; flex-direction:column; gap:0.75rem;"></div>
+      </div>
+      <div class="pipeline-column">
+        <div class="column-title">Wins & Closures</div>
+        <div id="kanban-done" class="card-grid" style="display:flex; flex-direction:column; gap:0.75rem;"></div>
+      </div>
+    </div>
   </div>
 
   <div id="tab-playbook" style="display:none">
     <div class="page-header">
-      <h1>Lead Discovery Playbook</h1>
-      <p>Rules, tone of voice, and outreach templates for your fleet.</p>
+      <div>
+        <h1>Lead Discovery Playbook</h1>
+        <p>Rules, tone of voice, and outreach templates for your fleet.</p>
+      </div>
     </div>
     <div class="card">
-      <h3>Outreach Tone</h3>
-      <p>Consultative, not pushy. Lead with value. Always reference something specific about the prospect's business before pitching.</p>
+      <h3>Outreach Strategy</h3>
+      <p style="margin-top:0.5rem;">Your fleet uses <strong>Telegram Two-Way Sync</strong> to confirm leads with you before reaching out. Echo handles the first touch, while Closer manages the negotiation.</p>
     </div>
-    <div class="card" style="margin-top:1rem">
-      <h3>Target Profile</h3>
-      <p>{{TARGET_PROFILE_DESC}} — add your ideal customer profile here and your agents will filter leads accordingly.</p>
-    </div>
-    <div class="card" style="margin-top:1rem">
-      <h3>Channels</h3>
-      <p>LinkedIn (primary), email (follow-up), content (awareness). Echo handles scheduling, Closer handles DMs.</p>
+    <div class="card" style="margin-top:1.25rem">
+      <h3>Dispatcher Automation</h3>
+      <p style="margin-top:0.5rem;">Our central dispatcher monitor ensures no lead is left behind. It automatically re-assigns tasks if an agent hits a bottleneck or requires human intervention.</p>
     </div>
   </div>
 
   <div id="tab-pipeline" style="display:none">
     <div class="page-header">
-      <h1>Pipeline</h1>
-      <p>Active leads and conversion status.</p>
+      <div>
+        <h1>CRM Integration</h1>
+        <p>Direct sync between fleet activity and your sales records.</p>
+      </div>
     </div>
     <div class="card">
-      <h3>Connect your CRM</h3>
-      <p>Your fleet's Closer agent feeds directly into your CRM. Link your demo instance below to see live pipeline data.</p>
-      <a class="cta-btn" href="{{CRM_DEMO_URL}}" target="_blank">Open CRM Demo</a>
+      <h3>Unified Sales Pipeline</h3>
+      <p style="margin-top:0.5rem;">Every interaction logged by your agents is instantly visible in the CRM. Multi-agent coordination ensures that context from the initial search (Scout) is preserved all the way to the final sale (Closer).</p>
+      <a class="cta-btn" href="/crm-demo/" target="_blank">Open CRM Live Demo</a>
     </div>
   </div>
 </main>
 
 <script>
   const API = "/fleet/api";
+  let fleetData = { team: [], projects: [] };
+  let agentHeartbeats = {};
+  let agentTaskCounts = {};
 
   document.querySelectorAll(".nav-item").forEach(el => {
     el.addEventListener("click", () => {
       document.querySelectorAll(".nav-item").forEach(n => n.classList.remove("active"));
       document.querySelectorAll(".main > div").forEach(d => d.style.display = "none");
       el.classList.add("active");
-      document.getElementById("tab-" + el.dataset.tab).style.display = "";
+      const tab = el.dataset.tab;
+      document.getElementById("tab-" + tab).style.display = "";
+      if (tab === 'kanban') loadKanban();
     });
   });
 
-  fetch(`${API}/config/growth`).then(r => r.json()).then(data => {
+  async function fetchJson(url) {
+    const res = await fetch(url, { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    return res.json();
+  }
+
+  async function loadTeamWithStatus() {
+    try {
+      const [hbData, taskData] = await Promise.all([
+        fetchJson(`${API}/heartbeats`).catch(() => []),
+        fetchJson(`${API}/tasks`).catch(() => [])
+      ]);
+
+      agentHeartbeats = {};
+      hbData.forEach(h => {
+        const key = (h.agent || '').toLowerCase().split(' ')[0];
+        if (!agentHeartbeats[key] || h.updated > agentHeartbeats[key].updated) {
+          agentHeartbeats[key] = h;
+        }
+      });
+
+      agentTaskCounts = {};
+      taskData.forEach(t => {
+        const active = ['todo', 'in_progress', 'peer_review'].includes(t.status);
+        if (active && t.assigned_agent) {
+          const key = t.assigned_agent.toLowerCase().split(' ')[0];
+          agentTaskCounts[key] = (agentTaskCounts[key] || 0) + 1;
+        }
+      });
+    } catch (e) { console.warn('Status fetch failed:', e); }
+    populateTeam();
+  }
+
+  function populateTeam() {
     const el = document.getElementById("team-cards");
-    if (!data.team?.length) { el.innerHTML = "<div class='loading'>No agents configured.</div>"; return; }
-    el.innerHTML = data.team.map(a => `
-      <div class="card">
-        <h3>${a.avatar || "🤖"} ${a.name}</h3>
-        <p><strong>${a.roleTitle}</strong><br>${a.roleDesc}<br><br><em>${(a.skills||[]).join(" · ")}</em></p>
-        <span class="badge badge-teal">${a.runtime}</span>
-      </div>`).join("");
-  }).catch(() => {
-    document.getElementById("team-cards").innerHTML = "<div class='loading'>Could not load config.</div>";
-  });
+    fetch(`${API}/config/growth`).then(r => r.json()).then(data => {
+      fleetData = data;
+      if (!data.team?.length) { el.innerHTML = "<div class='loading'>No agents.</div>"; return; }
+      el.innerHTML = data.team.map(a => {
+        const key = a.name.toLowerCase().split(' ')[0];
+        const hbKey = (a.heartbeatKey || key).toLowerCase();
+        const hb = agentHeartbeats[hbKey];
+        let hbClass = 'hb-offline', hbTitle = 'Offline';
+        if (hb) {
+          const ageSec = (Date.now() - new Date(hb.updated)) / 1000;
+          if (ageSec < 3600) {
+            hbClass = hb.status === 'working' ? 'hb-working' : 'hb-idle';
+            hbTitle = hb.status.charAt(0).toUpperCase() + hb.status.slice(1);
+          }
+        }
+        const count = agentTaskCounts[key] || 0;
+        const countBadge = count > 0 ? `<span class="task-count">${count}</span>` : '';
+
+        return `<div class="card">
+          <div class="card-meta">
+            <div class="hb-dot ${hbClass}" title="${hbTitle}"></div>
+            ${countBadge}
+          </div>
+          <h3>${a.avatar || "🤖"} ${a.name}</h3>
+          <p><strong>${a.roleTitle}</strong><br>${a.roleDesc}<br><br><em>${(a.skills||[]).join(" · ")}</em></p>
+          <span class="badge badge-teal">${a.runtime}</span>
+        </div>`;
+      }).join("");
+    });
+  }
+
+  async function loadKanban() {
+    const containers = {
+      planned: document.getElementById('kanban-planned'),
+      working: document.getElementById('kanban-working'),
+      done: document.getElementById('kanban-done')
+    };
+    try {
+      const data = await fetchJson(`${API}/kanban`);
+      const renderCard = (t) => {
+        const colors = { clau: '#64B5F6', gem: '#159988', codi: '#FFB74D', misty: '#BA68C8' };
+        const color = colors[(t.owner || '').toLowerCase()] || 'var(--muted)';
+        return `<div class="activity-item" style="border-left-color: ${color}">
+          <div style="font-size:0.8rem; font-weight:700; color:var(--white);">#${t.id}: ${t.title}</div>
+          <div style="margin-top:0.4rem; font-size:0.65rem; color:${color}; font-weight:700;">${t.owner}</div>
+        </div>`;
+      };
+      containers.planned.innerHTML = data.planned.map(renderCard).join('') || '<p class="loading">None</p>';
+      containers.working.innerHTML = data.working.map(renderCard).join('') || '<p class="loading">None</p>';
+      containers.done.innerHTML = data.done.map(renderCard).join('') || '<p class="loading">None</p>';
+    } catch (err) { console.error(err); }
+  }
+
+  loadTeamWithStatus();
+  setInterval(loadTeamWithStatus, 30000);
 </script>
 </body>
 </html>

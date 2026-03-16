@@ -5,23 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fleet Hub — Demo</title>
   <style>
-    /* ── Base ─────────────────────────────────────────────── */
+    /* ── Base ─────────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --navy:   #0d1b2a;
       --navy2:  #1a2a3d;
       --teal:   #00b4d8;
-      --teal2:  #0096b7;
+      --teal-bright: #2dd4bf;
       --green:  #27ae60;
       --amber:  #f39c12;
       --red:    #e74c3c;
       --text:   #e8eaf0;
       --muted:  #8892a4;
       --border: rgba(255,255,255,0.08);
+      --white:  #ffffff;
     }
     body { background: var(--navy); color: var(--text); font-family: system-ui, sans-serif; min-height: 100vh; display: flex; }
 
-    /* ── Sidebar ──────────────────────────────────────────── */
+    /* ── Sidebar ────────────────────────────────────────────────── */
     .sidebar { width: 220px; background: var(--navy2); border-right: 1px solid var(--border); display: flex; flex-direction: column; padding: 1.5rem 1rem; flex-shrink: 0; }
     .sidebar .logo { font-size: 1.1rem; font-weight: 700; color: var(--teal); margin-bottom: 2rem; }
     .sidebar .logo span { color: var(--text); }
@@ -30,15 +31,15 @@
     .sidebar-footer { margin-top: auto; font-size: 0.75rem; color: var(--muted); }
     .sidebar-footer a { color: var(--teal); text-decoration: none; }
 
-    /* ── Main content ─────────────────────────────────────── */
+    /* ── Main content ─────────────────────────────────────────── */
     .main { flex: 1; overflow-y: auto; padding: 2rem; }
-    .page-header { margin-bottom: 2rem; }
+    .page-header { margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: flex-end; }
     .page-header h1 { font-size: 1.5rem; font-weight: 700; }
     .page-header p  { color: var(--muted); margin-top: 0.3rem; font-size: 0.9rem; }
 
-    /* ── Cards ────────────────────────────────────────────── */
+    /* ── Cards ────────────────────────────────────────────────── */
     .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 2rem; }
-    .card { background: var(--navy2); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+    .card { background: var(--navy2); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; position: relative; }
     .card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
     .card p  { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
     .card .badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; margin-top: 0.75rem; }
@@ -46,25 +47,52 @@
     .badge-teal   { background: rgba(0,180,216,0.2);  color: var(--teal); }
     .badge-amber  { background: rgba(243,156,18,0.2); color: var(--amber); }
 
-    /* ── Inbox ────────────────────────────────────────────── */
+    /* ── Heartbeat Dots ── */
+    .hb-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+    .hb-working { background: var(--teal-bright); box-shadow: 0 0 8px var(--teal-bright); }
+    .hb-idle    { background: #94a3b8; }
+    .hb-offline { background: #475569; }
+    .card-meta { position: absolute; top: 1.25rem; right: 1.25rem; display: flex; align-items: center; gap: 8px; }
+    .task-count { background: var(--teal); color: white; font-size: 0.65rem; font-weight: 700; padding: 2px 6px; border-radius: 4px; }
+
+    /* ── Kanban Board ── */
+    .pipeline-board { display: flex; gap: 1.25rem; overflow-x: auto; padding-bottom: 1rem; }
+    .pipeline-column { flex: 1; min-width: 300px; background: rgba(0,0,0,0.15); border-radius: 12px; padding: 1rem; display: flex; flex-direction: column; gap: 1rem; border: 1px solid var(--border); }
+    .column-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+    .column-title { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+    .activity-item { background: var(--navy2); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; border-left: 3px solid var(--teal); transition: transform 0.1s; }
+    .activity-item:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.2); }
+
+    /* ── Inbox ────────────────────────────────────────────────── */
     .inbox-list { display: flex; flex-direction: column; gap: 0.75rem; }
     .inbox-item { background: var(--navy2); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: flex-start; }
     .inbox-item .meta { font-size: 0.78rem; color: var(--muted); }
     .inbox-item .subject { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem; }
 
-    /* ── Loading ──────────────────────────────────────────── */
+    /* ── Search ── */
+    .search-input { background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: 8px; color: var(--white); padding: 0.6rem 1rem; font-size: 0.85rem; width: 250px; }
+    .search-input:focus { outline: none; border-color: var(--teal); }
+
+    /* ── Loading ─────────────────────────────────────────────── */
     .loading { color: var(--muted); font-size: 0.88rem; padding: 2rem 0; }
+    
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.15); }
   </style>
 </head>
 <body>
 
 <nav class="sidebar">
   <div class="logo">Agent<span>Fleet</span></div>
-  <div class="nav-item active" data-tab="team">👥 Team</div>
+  <div class="nav-item active" data-tab="team">👤 Team</div>
+  <div class="nav-item" data-tab="kanban">📋 Kanban</div>
   <div class="nav-item" data-tab="projects">📁 Projects</div>
   <div class="nav-item" data-tab="memory">🧠 Memory</div>
   <div class="nav-item" data-tab="inbox">💬 Inbox</div>
-  <div class="nav-item" data-tab="rules">📋 Rules</div>
+  <div class="nav-item" data-tab="rules">📜 Rules</div>
   <div class="sidebar-footer">
     <a href="/demo/">Public Demo</a> &nbsp;|&nbsp; <a href="/auth/logout">Logout</a>
   </div>
@@ -73,50 +101,92 @@
 <main class="main">
   <div id="tab-team">
     <div class="page-header">
-      <h1>Fleet Roster</h1>
-      <p>Your active agents and their roles.</p>
+      <div>
+        <h1>Fleet Roster</h1>
+        <p>Active agents and live heartbeat status.</p>
+      </div>
     </div>
     <div class="card-grid" id="team-cards"><div class="loading">Loading agents…</div></div>
   </div>
 
+  <div id="tab-kanban" style="display:none">
+    <div class="page-header">
+      <div>
+        <h1>Fleet Kanban</h1>
+        <p>Real-time task synchronization across the crew.</p>
+      </div>
+      <button onclick="loadKanban()" style="background:none; border:1px solid var(--border); color:var(--teal); padding:0.5rem 1rem; border-radius:8px; cursor:pointer; font-size:0.8rem;">🔄 REFRESH</button>
+    </div>
+    <div class="pipeline-board">
+      <div class="pipeline-column">
+        <div class="column-header"><span class="column-title">Planned</span></div>
+        <div id="kanban-planned" class="inbox-list"></div>
+      </div>
+      <div class="pipeline-column" style="border-color: var(--teal);">
+        <div class="column-header"><span class="column-title" style="color:var(--teal);">In Work</span></div>
+        <div id="kanban-working" class="inbox-list"></div>
+      </div>
+      <div class="pipeline-column">
+        <div class="column-header"><span class="column-title">Completed Today</span></div>
+        <div id="kanban-done" class="inbox-list"></div>
+      </div>
+    </div>
+  </div>
+
   <div id="tab-projects" style="display:none">
     <div class="page-header">
-      <h1>Projects</h1>
-      <p>Everything the fleet is working on.</p>
+      <div>
+        <h1>Projects</h1>
+        <p>Everything the fleet is working on.</p>
+      </div>
     </div>
     <div class="card-grid" id="project-cards"><div class="loading">Loading projects…</div></div>
   </div>
 
   <div id="tab-memory" style="display:none">
     <div class="page-header">
-      <h1>Lessons Learned</h1>
-      <p>Evolutionary memory — reviewed and approved by the crew.</p>
+      <div>
+        <h1>Lessons Learned</h1>
+        <p>Evolutionary memory — reviewed and approved by the crew.</p>
+      </div>
+      <input type="text" class="search-input" placeholder="🔍 Search memory..." oninput="handleMemorySearch(this.value)">
     </div>
     <div class="inbox-list" id="lessons-list"><div class="loading">Loading lessons…</div></div>
   </div>
 
   <div id="tab-inbox" style="display:none">
     <div class="page-header">
-      <h1>IAP Inbox</h1>
-      <p>Inter-Agent Protocol messages from the fleet.</p>
+      <div>
+        <h1>IAP Inbox</h1>
+        <p>Inter-Agent Protocol & Telegram bridge messages.</p>
+      </div>
     </div>
     <div class="inbox-list" id="inbox-list"><div class="loading">Loading messages…</div></div>
   </div>
 
   <div id="tab-rules" style="display:none">
     <div class="page-header">
-      <h1>Team Rules</h1>
-      <p>How this fleet operates.</p>
+      <div>
+        <h1>Team Rules</h1>
+        <p>Standardized protocols for autonomous coordination.</p>
+      </div>
     </div>
     <div class="card">
       <h3>Collaboration Principles</h3>
-      <p>Commit → Push immediately. Secrets via vault only. Standup before closing session. Blocked? Say so in Blockers — never silently skip.</p>
+      <p style="margin-top:0.5rem;">1. <strong>Commit & Push</strong>: All changes must be pushed to the hub immediately.<br>
+      2. <strong>Kanban First</strong>: Do not work on tasks not listed in the board.<br>
+      3. <strong>Vault Only</strong>: Never store secrets in code or .env files.<br>
+      4. <strong>Heartbeat</strong>: Agents must run the heartbeat protocol every session.</p>
     </div>
   </div>
 </main>
 
 <script>
   const API = "/fleet/api";
+  let fleetData = { team: [], projects: [] };
+  let agentHeartbeats = {};
+  let agentTaskCounts = {};
+  let memorySearchQuery = '';
 
   // ── Tab routing ──────────────────────────────────────────
   document.querySelectorAll(".nav-item").forEach(el => {
@@ -124,65 +194,172 @@
       document.querySelectorAll(".nav-item").forEach(n => n.classList.remove("active"));
       document.querySelectorAll(".main > div").forEach(d => d.style.display = "none");
       el.classList.add("active");
-      document.getElementById("tab-" + el.dataset.tab).style.display = "";
+      const tab = el.dataset.tab;
+      document.getElementById("tab-" + tab).style.display = "";
+      if (tab === 'kanban') loadKanban();
     });
   });
 
-  // ── Render helpers ───────────────────────────────────────
-  function card(title, body, badge, badgeClass = "badge-teal") {
-    return `<div class="card">
-      <h3>${title}</h3><p>${body}</p>
-      ${badge ? `<span class="badge ${badgeClass}">${badge}</span>` : ""}
-    </div>`;
+  async function fetchJson(url) {
+    const res = await fetch(url, { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    return res.json();
   }
 
-  // ── Load team ────────────────────────────────────────────
-  fetch(`${API}/config`).then(r => r.json()).then(data => {
+  // ── Load Core Data ──────────────────────────────────────
+  async function init() {
+    try {
+      fleetData = await fetchJson(`${API}/config/demo`);
+      await loadTeamWithStatus();
+      populateProjects();
+      loadLessons();
+      loadInbox();
+    } catch (err) { console.error('Init failed:', err); }
+  }
+
+  // ── Heartbeats & Team ───────────────────────────────────
+  async function loadTeamWithStatus() {
+    try {
+      const [hbData, taskData] = await Promise.all([
+        fetchJson(`${API}/heartbeats`).catch(() => []),
+        fetchJson(`${API}/tasks`).catch(() => [])
+      ]);
+
+      agentHeartbeats = {};
+      hbData.forEach(h => {
+        const key = (h.agent || '').toLowerCase().split(' ')[0];
+        if (!agentHeartbeats[key] || h.updated > agentHeartbeats[key].updated) {
+          agentHeartbeats[key] = h;
+        }
+      });
+
+      agentTaskCounts = {};
+      taskData.forEach(t => {
+        const active = ['todo', 'in_progress', 'peer_review'].includes(t.status);
+        if (active && t.assigned_agent) {
+          const key = t.assigned_agent.toLowerCase().split(' ')[0];
+          agentTaskCounts[key] = (agentTaskCounts[key] || 0) + 1;
+        }
+      });
+    } catch (e) { console.warn('Status fetch failed:', e); }
+    populateTeam();
+  }
+
+  function populateTeam() {
     const el = document.getElementById("team-cards");
-    if (!data.team?.length) { el.innerHTML = "<div class='loading'>No agents configured.</div>"; return; }
-    el.innerHTML = data.team.map(a =>
-      card(`${a.avatar || "🤖"} ${a.name}`, `<strong>${a.roleTitle}</strong><br>${a.roleDesc}<br><br><em>${(a.skills || []).join(" · ")}</em>`, a.runtime)
-    ).join("");
-  }).catch(() => { document.getElementById("team-cards").innerHTML = "<div class='loading'>Could not load config.</div>"; });
+    if (!fleetData.team?.length) { el.innerHTML = "<div class='loading'>No agents.</div>"; return; }
+    
+    el.innerHTML = fleetData.team.map(a => {
+      const key = a.name.toLowerCase().split(' ')[0];
+      const hbKey = (a.heartbeatKey || key).toLowerCase();
+      const hb = agentHeartbeats[hbKey];
+      let hbClass = 'hb-offline', hbTitle = 'Offline';
+      
+      if (hb) {
+        const ageSec = (Date.now() - new Date(hb.updated)) / 1000;
+        if (ageSec < 3600) {
+          hbClass = hb.status === 'working' ? 'hb-working' : 'hb-idle';
+          hbTitle = hb.status.charAt(0).toUpperCase() + hb.status.slice(1);
+        }
+      }
 
-  // ── Load projects ────────────────────────────────────────
-  fetch(`${API}/config`).then(r => r.json()).then(data => {
+      const count = agentTaskCounts[key] || 0;
+      const countBadge = count > 0 ? `<span class="task-count" title="Active tasks">${count}</span>` : '';
+
+      return `<div class="card">
+        <div class="card-meta">
+          <div class="hb-dot ${hbClass}" title="${hbTitle}"></div>
+          ${countBadge}
+        </div>
+        <h3>${a.avatar || "🤖"} ${a.name}</h3>
+        <p><strong>${a.roleTitle}</strong><br>${a.roleDesc}</p>
+        <div class="badge badge-teal">${a.runtime}</div>
+      </div>`;
+    }).join("");
+  }
+
+  // ── Kanban ──────────────────────────────────────────────
+  async function loadKanban() {
+    const containers = {
+      planned: document.getElementById('kanban-planned'),
+      working: document.getElementById('kanban-working'),
+      done: document.getElementById('kanban-done')
+    };
+    Object.values(containers).forEach(c => c.innerHTML = "<div class='loading'>Updating...</div>");
+
+    try {
+      const data = await fetchJson(`${API}/kanban`);
+      const renderCard = (t) => {
+        const colors = { clau: '#64B5F6', gem: '#159988', codi: '#FFB74D', misty: '#BA68C8' };
+        const color = colors[(t.owner || '').toLowerCase()] || 'var(--muted)';
+        return `<div class="activity-item" style="border-left-color: ${color}">
+          <div style="font-size:0.85rem; font-weight:700; color:var(--white);">#${t.id}: ${t.title}</div>
+          <div style="margin-top:0.4rem; font-size:0.7rem; color:${color}; font-weight:700; text-transform:uppercase;">${t.owner}</div>
+        </div>`;
+      };
+
+      containers.planned.innerHTML = data.planned.map(renderCard).join('') || '<p class="loading">No planned tasks.</p>';
+      containers.working.innerHTML = data.working.map(renderCard).join('') || '<p class="loading">No active tasks.</p>';
+      containers.done.innerHTML = data.done.map(renderCard).join('') || '<p class="loading">No tasks completed today.</p>';
+    } catch (err) { console.error('Kanban failed:', err); }
+  }
+
+  // ── Search & Memory ─────────────────────────────────────
+  window.handleMemorySearch = function(val) {
+    memorySearchQuery = val.toLowerCase();
+    loadLessons();
+  };
+
+  async function loadLessons() {
+    try {
+      const items = await fetchJson(`${API}/lessons`);
+      const el = document.getElementById("lessons-list");
+      const filtered = items.filter(l => 
+        !memorySearchQuery || 
+        (l.title || '').toLowerCase().includes(memorySearchQuery) || 
+        (l.lesson || '').toLowerCase().includes(memorySearchQuery)
+      );
+      
+      if (!filtered.length) { el.innerHTML = "<div class='loading'>No matches found.</div>"; return; }
+      el.innerHTML = filtered.map(l => `
+        <div class="inbox-item">
+          <div>
+            <div class="subject">${l.title || l.id}</div>
+            <div class="meta">${l.category} · ${l.project} · ${l.agent}</div>
+            <p style="margin-top:0.5rem;font-size:0.85rem">${l.lesson}</p>
+          </div>
+          <span class="badge ${l.status === 'approved' ? 'badge-green' : 'badge-amber'}">${l.status}</span>
+        </div>`).join("");
+    } catch (e) { console.error(e); }
+  }
+
+  // ── Projects & Inbox ────────────────────────────────────
+  function populateProjects() {
     const el = document.getElementById("project-cards");
-    if (!data.projects?.length) { el.innerHTML = "<div class='loading'>No projects configured.</div>"; return; }
-    el.innerHTML = data.projects.map(p =>
-      card(p.title, p.summary, p.owners, "badge-green")
-    ).join("");
-  });
+    if (!fleetData.projects?.length) { el.innerHTML = "<div class='loading'>No projects.</div>"; return; }
+    el.innerHTML = fleetData.projects.map(p => `<div class="card"><h3>${p.title}</h3><p>${p.summary}</p><span class="badge badge-green">${p.owners}</span></div>`).join("");
+  }
 
-  // ── Load lessons ─────────────────────────────────────────
-  fetch(`${API}/lessons`).then(r => r.json()).then(items => {
-    const el = document.getElementById("lessons-list");
-    if (!items.length) { el.innerHTML = "<div class='loading'>No lessons yet.</div>"; return; }
-    el.innerHTML = items.map(l => `
-      <div class="inbox-item">
-        <div>
-          <div class="subject">${l.title || l.id}</div>
-          <div class="meta">${l.category} · ${l.project} · ${l.agent} · ${l.date?.slice(0,10)}</div>
-          <p style="margin-top:0.5rem;font-size:0.85rem">${l.lesson}</p>
-        </div>
-        <span class="badge ${l.status === 'approved' ? 'badge-green' : 'badge-amber'}">${l.status}</span>
-      </div>`).join("");
-  });
+  async function loadInbox() {
+    try {
+      const msgs = await fetchJson(`${API}/messages`);
+      const el = document.getElementById("inbox-list");
+      if (!msgs.length) { el.innerHTML = "<div class='loading'>Inbox empty.</div>"; return; }
+      el.innerHTML = msgs.map(m => `
+        <div class="inbox-item">
+          <div>
+            <div class="subject">${m.subject}</div>
+            <div class="meta">${m.from} ➔ ${m.to} · ${new Date(m.timestamp).toLocaleString()}</div>
+            <p style="margin-top:0.5rem;font-size:0.85rem">${m.body}</p>
+          </div>
+          <span class="badge badge-teal">${m.status}</span>
+        </div>`).join("");
+    } catch (e) { console.error(e); }
+  }
 
-  // ── Load inbox ───────────────────────────────────────────
-  fetch(`${API}/messages`).then(r => r.json()).then(msgs => {
-    const el = document.getElementById("inbox-list");
-    if (!msgs.length) { el.innerHTML = "<div class='loading'>Inbox empty.</div>"; return; }
-    el.innerHTML = msgs.map(m => `
-      <div class="inbox-item">
-        <div>
-          <div class="subject">${m.subject}</div>
-          <div class="meta">From: ${m.from} → ${m.to} · ${m.timestamp?.slice(0,16).replace("T"," ")}</div>
-          <p style="margin-top:0.5rem;font-size:0.85rem">${m.body}</p>
-        </div>
-        <span class="badge badge-teal">${m.status}</span>
-      </div>`).join("");
-  });
+  init();
+  // Refresh heartbeats every 30s
+  setInterval(loadTeamWithStatus, 30000);
 </script>
 </body>
 </html>
