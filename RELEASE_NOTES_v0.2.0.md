@@ -29,6 +29,12 @@ Full CSS token system, `prefers-color-scheme` auto-detection, and a manual toggl
 ### 🔋 Heartbeat mock status in demo dashboards
 Demo/growth dashboards generate simulated `working`/`idle` agent statuses when PocketBase isn't connected. Set `"is_demo": true` in `fleet_meta.json`. Great for showcases and sales demos.
 
+### 🔒 Demo intercept modal
+Write-actions in the `/demo` dashboard (task creation, comments, status changes) are now intercepted before they hit PocketBase. A modal prompts visitors to visit the Big Bear landing page instead of silently mutating shared demo data.
+
+### 📐 ARCHITECTURE.md v0.2.0
+Updated architecture diagram and component descriptions to reflect the hybrid connector, GitHub sync service, and four-agent fleet topology.
+
 ---
 
 ## Bug fixes
@@ -65,13 +71,12 @@ npm start
 
 ---
 
-## What's next (v0.2.x)
+## What's next (v0.3.x)
 
-- Heartbeat dot tooltips: hover overlay showing agent name, status, and last-seen time
-- Realistic mock data for demo dashboards (4 consistent demo agents: Aria, Rex, Nova, Sage)
-- Deployment guide: local, Cloud VPS, and hybrid scenarios
-- Agent health monitoring + skill-based task reassignment
-- Optional OpenClaw integration (graceful degradation when gateway unreachable)
+- Multi-fleet federation: connect multiple Mac Minis under one dashboard
+- Scheduled task triggers: cron-style task creation from `fleet_meta.json`
+- Agent capability registry: declare skills per agent, auto-route tasks by capability
+- Persistent lesson library: lessons survive fleet resets and sync to team members
 
 ---
 
