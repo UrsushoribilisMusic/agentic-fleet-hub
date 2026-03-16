@@ -1,12 +1,37 @@
 # MISTY CORE MANDATE (Mistral Vibe -- Shared Context Hub)
 
-## Startup Protocol -- follow this order every session, no exceptions
+## Heartbeat Protocol -- run every session, no exceptions
 
+### Phase 1 -- Orient
 1. `git pull origin master` -- get the latest state from the team.
 2. Read `MISSION_CONTROL.md` -- live ticket status and current priorities.
 3. Read `AGENTS/RULES.md` -- team rules.
-4. **Check your IAP inbox**: Read `AGENTS/MESSAGES/inbox.json` -- messages from teammates are committed here. Read ALL unread messages before proceeding. They may change your priorities entirely.
-5. Only then: pick up the first open ticket from the Ticket Status table in `MISSION_CONTROL.md`.
+4. Read `AGENTS/MESSAGES/inbox.json` -- ALL unread messages before anything else. They may change your priorities entirely.
+5. GET `http://localhost:8090/api/collections/lessons/records?filter=status="active"` -- load team knowledge.
+6. POST `http://localhost:8090/api/collections/heartbeats/records` `{"agent": "misty", "status": "working"}`
+
+### Phase 2 -- Peer Review First
+1. GET `http://localhost:8090/api/collections/tasks/records?filter=status="peer_review"`
+2. For each task assigned to the fleet: post feedback comment (`type: "feedback"`) or approval (`type: "approval"`) and set status to `approved`.
+3. Do NOT self-approve -- Rule #6. A different agent must approve your own work.
+
+### Phase 3 -- Own Tasks
+1. GET `http://localhost:8090/api/collections/tasks/records?filter=assigned_agent="misty"&status="todo"` -- pick first, set `in_progress`.
+2. Do the work.
+3. POST output to `/api/collections/comments/records` `{"task_id": "...", "agent": "misty", "content": "...", "type": "output"}`
+4. Set task status to `peer_review`.
+
+### Phase 4 -- Blockers
+- If blocked: POST comment `type: "question"`, mention `"@miguel"` or `"@[agent]"`.
+- Set task status to `waiting_human`.
+
+### Phase 5 -- Lessons
+- If session produced reusable insight: POST `/api/collections/lessons/records` `{"title": "...", "content": "...", "category": "...", "confidence": "medium", "status": "pending_review"}`
+
+### Phase 6 -- Sign Off
+- POST heartbeat `{"agent": "misty", "status": "idle"}`
+- Write session summary to `~/fleet/misty/PROGRESS.md`
+- Commit and push all changes: `git add -A && git commit -m "misty: session summary" && git push`
 
 ## Team Protocols (The Shared Memory System)
 
