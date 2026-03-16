@@ -53,6 +53,7 @@ npx create-flotilla my-fleet --skip-git
 npm start
 npm run dev
 npm run doctor
+npm run verify:dry-run
 ```
 
 ## Optional: Hybrid Scenario 3

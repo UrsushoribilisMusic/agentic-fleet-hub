@@ -200,9 +200,22 @@ export function getDefaultFleetMeta() {
         repo_url: "",
         kanban_url: "",
         crm_url: "",
+        deployment_scenario: "local",
         vault: {
           provider: "infisical",
           region: "EU",
+        },
+        telegram: {
+          enabled: false,
+          chat_id: "",
+        },
+        openclaw: {
+          enabled: false,
+          gateway_url: "",
+        },
+        github_sync: {
+          enabled: false,
+          repo: "",
         },
         selected_agents: [
           { id: "claude_code", label: "Claude Code", name: "Clau" },
@@ -245,6 +258,10 @@ export function normalizeFleetMeta(inputMeta) {
   const team = Array.isArray(source.team) && source.team.length ? source.team : buildTeam(selectedAgents, repoUrl);
   const projects = Array.isArray(source.projects) && source.projects.length ? source.projects : buildProjects(orgName, repoUrl, kanbanUrl, crmUrl);
 
+  const VALID_SCENARIOS = ["local", "vps", "hybrid"];
+  const rawScenario = normalizeString(installation.deployment_scenario, "local");
+  const deploymentScenario = VALID_SCENARIOS.includes(rawScenario) ? rawScenario : "local";
+
   return {
     meta: {
       installation: {
@@ -254,9 +271,22 @@ export function normalizeFleetMeta(inputMeta) {
         repo_url: repoUrl,
         kanban_url: kanbanUrl,
         crm_url: crmUrl,
+        deployment_scenario: deploymentScenario,
         vault: {
           provider: normalizeString(installation.vault?.provider, "infisical") || "infisical",
           region: normalizeString(installation.vault?.region, "EU") || "EU",
+        },
+        telegram: {
+          enabled: Boolean(installation.telegram?.enabled),
+          chat_id: normalizeString(installation.telegram?.chat_id),
+        },
+        openclaw: {
+          enabled: Boolean(installation.openclaw?.enabled),
+          gateway_url: normalizeString(installation.openclaw?.gateway_url),
+        },
+        github_sync: {
+          enabled: Boolean(installation.github_sync?.enabled),
+          repo: normalizeString(installation.github_sync?.repo),
         },
         selected_agents: selectedAgents,
         bootstrap: {
@@ -291,6 +321,10 @@ export function buildSetupPayload(existingMeta, body) {
   const team = buildTeam(selectedAgents, repoUrl);
   const projects = buildProjects(orgName, repoUrl, kanbanUrl, crmUrl);
 
+  const VALID_SCENARIOS = ["local", "vps", "hybrid"];
+  const rawScenario = normalizeString(body.deployment_scenario, installation.deployment_scenario);
+  const deploymentScenario = VALID_SCENARIOS.includes(rawScenario) ? rawScenario : "local";
+
   return {
     meta: {
       installation: {
@@ -300,9 +334,22 @@ export function buildSetupPayload(existingMeta, body) {
         repo_url: repoUrl,
         kanban_url: kanbanUrl,
         crm_url: crmUrl,
+        deployment_scenario: deploymentScenario,
         vault: {
           provider: normalizeString(body.vault_provider, installation.vault.provider) || "infisical",
           region: normalizeString(body.vault_region, installation.vault.region) || "EU",
+        },
+        telegram: {
+          enabled: body.telegram_enabled !== undefined ? Boolean(body.telegram_enabled) : installation.telegram.enabled,
+          chat_id: normalizeString(body.telegram_chat_id, installation.telegram.chat_id),
+        },
+        openclaw: {
+          enabled: body.openclaw_enabled !== undefined ? Boolean(body.openclaw_enabled) : installation.openclaw.enabled,
+          gateway_url: normalizeString(body.openclaw_gateway_url, installation.openclaw.gateway_url),
+        },
+        github_sync: {
+          enabled: body.github_sync_enabled !== undefined ? Boolean(body.github_sync_enabled) : installation.github_sync.enabled,
+          repo: normalizeString(body.github_sync_repo, installation.github_sync.repo),
         },
         selected_agents: selectedAgents,
         bootstrap: {
@@ -518,6 +565,7 @@ export function runDoctor(meta) {
   const installation = normalized.meta.installation;
   const issues = [];
   const checks = [];
+  const repoPath = installation.repo_path ? path.resolve(installation.repo_path) : "";
 
   function addCheck(id, ok, detail) {
     checks.push({ id, ok, detail });
@@ -528,8 +576,57 @@ export function runDoctor(meta) {
   addCheck("selected_agents", installation.selected_agents.length > 0, "At least one agent must be selected.");
   addCheck("vault_provider", Boolean(installation.vault.provider), "Vault provider is missing.");
 
+  // Deployment scenario checks
+  const VALID_SCENARIOS = ["local", "vps", "hybrid"];
+  addCheck(
+    "deployment_scenario",
+    VALID_SCENARIOS.includes(installation.deployment_scenario),
+    `Invalid deployment scenario: "${installation.deployment_scenario}". Must be local, vps, or hybrid.`
+  );
+
+  // Telegram integration checks
+  if (installation.telegram?.enabled) {
+    addCheck(
+      "telegram_token",
+      Boolean(process.env.TELEGRAM_TOKEN),
+      "Telegram is enabled but TELEGRAM_TOKEN env var is not set. Add it to your vault and inject via infisical run."
+    );
+    addCheck(
+      "telegram_chat_id",
+      Boolean(installation.telegram.chat_id),
+      "Telegram is enabled but telegram.chat_id is not set in fleet_meta.json."
+    );
+  }
+
+  // OpenClaw integration checks
+  if (installation.openclaw?.enabled) {
+    addCheck(
+      "openclaw_requires_telegram",
+      Boolean(installation.telegram?.enabled),
+      "OpenClaw is enabled but Telegram integration is disabled. The current package routes OpenClaw through the Telegram bridge."
+    );
+    addCheck(
+      "openclaw_gateway_url",
+      Boolean(installation.openclaw.gateway_url),
+      "OpenClaw is enabled but openclaw.gateway_url is not set in fleet_meta.json."
+    );
+  }
+
+  // GitHub sync integration checks
+  if (installation.github_sync?.enabled) {
+    addCheck(
+      "github_sync_token",
+      Boolean(process.env.GITHUB_TOKEN),
+      "GitHub sync is enabled but GITHUB_TOKEN env var is not set. Add it to your vault and inject via infisical run."
+    );
+    addCheck(
+      "github_sync_repo",
+      Boolean(installation.github_sync.repo),
+      "GitHub sync is enabled but github_sync.repo is not set in fleet_meta.json."
+    );
+  }
+
   if (installation.repo_path) {
-    const repoPath = path.resolve(installation.repo_path);
     addCheck("repo_path_exists", fileExists(repoPath), `Repository path does not exist: ${repoPath}`);
     addCheck("repo_git", fileExists(path.join(repoPath, ".git")), `Repository path is not a git repository: ${repoPath}`);
 
@@ -565,6 +662,77 @@ export function runDoctor(meta) {
     }
     if (installation.selected_agents.some(agent => agent.id === "mistral_vibe")) {
       addCheck("file:MISTRAL.md", fileExists(path.join(repoPath, "MISTRAL.md")), "Missing agent bootstrap file: MISTRAL.md");
+    }
+
+    if (installation.deployment_scenario !== "local") {
+      const pocketbasePlist = path.join(repoPath, "scripts", "fleet.pocketbase.plist");
+      addCheck(
+        "file:scripts/fleet.pocketbase.plist",
+        fileExists(pocketbasePlist),
+        `Deployment scenario "${installation.deployment_scenario}" requires scripts/fleet.pocketbase.plist in the repo.`
+      );
+      if (fileExists(pocketbasePlist)) {
+        addCheck(
+          "script:pocketbase_reference",
+          readText(pocketbasePlist).includes("pocketbase"),
+          "scripts/fleet.pocketbase.plist does not appear to reference the PocketBase binary."
+        );
+      }
+    }
+
+    if (installation.deployment_scenario === "hybrid") {
+      addCheck(
+        "fleet_sync_token",
+        Boolean(process.env.FLEET_SYNC_TOKEN),
+        "Hybrid deployment is enabled but FLEET_SYNC_TOKEN is not set. The snapshot push connector requires it."
+      );
+      addCheck(
+        "file:scripts/fleet_push.py",
+        fileExists(path.join(repoPath, "scripts", "fleet_push.py")),
+        "Hybrid deployment is enabled but scripts/fleet_push.py is missing from the repo."
+      );
+      addCheck(
+        "file:scripts/fleet.push.plist",
+        fileExists(path.join(repoPath, "scripts", "fleet.push.plist")),
+        "Hybrid deployment is enabled but scripts/fleet.push.plist is missing from the repo."
+      );
+    }
+
+    // Integration script checks (conditional on integration enabled)
+    if (installation.telegram?.enabled) {
+      addCheck(
+        "file:scripts/dispatcher.py",
+        fileExists(path.join(repoPath, "scripts", "dispatcher.py")),
+        "Telegram is enabled but scripts/dispatcher.py is missing from the repo."
+      );
+      addCheck(
+        "file:scripts/telegram_bridge.py",
+        fileExists(path.join(repoPath, "scripts", "telegram_bridge.py")),
+        "Telegram is enabled but scripts/telegram_bridge.py is missing from the repo."
+      );
+      addCheck(
+        "file:scripts/fleet.dispatcher.plist",
+        fileExists(path.join(repoPath, "scripts", "fleet.dispatcher.plist")),
+        "Telegram is enabled but scripts/fleet.dispatcher.plist is missing from the repo."
+      );
+      addCheck(
+        "file:scripts/fleet.bridge.plist",
+        fileExists(path.join(repoPath, "scripts", "fleet.bridge.plist")),
+        "Telegram is enabled but scripts/fleet.bridge.plist is missing from the repo."
+      );
+    }
+
+    if (installation.github_sync?.enabled) {
+      addCheck(
+        "file:scripts/github_sync.py",
+        fileExists(path.join(repoPath, "scripts", "github_sync.py")),
+        "GitHub sync is enabled but scripts/github_sync.py is missing from the repo."
+      );
+      addCheck(
+        "file:scripts/fleet.github.plist",
+        fileExists(path.join(repoPath, "scripts", "fleet.github.plist")),
+        "GitHub sync is enabled but scripts/fleet.github.plist is missing from the repo."
+      );
     }
   }
 

@@ -67,6 +67,14 @@ package/
 3. Use the wizard to set repo path, agent roster, vault provider, and template links.
 4. If you provide a git repo, use `/configure/` to run doctor, review the diff, and explicitly commit the managed bootstrap files.
 
+Before publishing package changes, run:
+
+```bash
+npm run verify:dry-run
+```
+
+That smoke test scaffolds a temporary fleet, bootstraps the current wizard profile, runs the generated doctor, and verifies the engineering dashboard files expose the expected sections, theme toggle, and Add Agent hooks.
+
 ## Telegram Control
 
 When the always-on fleet services are enabled, the Telegram bridge can accept slash commands and either:
