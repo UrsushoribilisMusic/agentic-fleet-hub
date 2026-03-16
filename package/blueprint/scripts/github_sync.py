@@ -208,10 +208,28 @@ def close_github_issue(issue_number):
     log(f"Closed GitHub issue #{issue_number}")
 
 
+def find_existing_issue_by_title(title):
+    """Return issue number if a flotilla-managed issue with this title already exists (open or closed)."""
+    out, rc = gh("issue", "list",
+                 "--state", "all",
+                 "--label", FLOTILLA_LABEL,
+                 "--json", "number,title",
+                 "--limit", "200")
+    if rc != 0:
+        return None
+    try:
+        for issue in json.loads(out):
+            if issue["title"] == title:
+                return issue["number"]
+    except Exception:
+        pass
+    return None
+
+
 def get_new_human_issues(last_seen_number):
     """Return GitHub issues created by humans (no flotilla-managed label) with number > last_seen."""
     out, rc = gh("issue", "list",
-                 "--state", "open",
+                 "--state", "all",
                  "--json", "number,title,body,labels,assignees",
                  "--limit", "50")
     if rc != 0:
@@ -255,14 +273,22 @@ def sync_outbound(tasks, offset):
         description = task.get("description", "")
 
         if not gh_issue_id:
-            # Create a new GitHub issue for this task
-            body = f"{description}\n\n---\n*PocketBase task ID: `{task_id}`*"
-            number = create_github_issue(title, body)
-            if number:
-                pb_patch(f"collections/tasks/records/{task_id}", {"gh_issue_id": number})
-                set_issue_labels(number, status)
-                log(f"OUTBOUND: Created issue #{number} for task '{title}'")
+            # Check for existing issue with same title before creating to avoid duplicates
+            existing = find_existing_issue_by_title(title)
+            if existing:
+                pb_patch(f"collections/tasks/records/{task_id}", {"gh_issue_id": existing})
+                set_issue_labels(existing, status)
+                log(f"OUTBOUND: Linked existing issue #{existing} to task '{title}' (dedup)")
                 changed = True
+            else:
+                # Create a new GitHub issue for this task
+                body = f"{description}\n\n---\n*PocketBase task ID: `{task_id}`*"
+                number = create_github_issue(title, body)
+                if number:
+                    pb_patch(f"collections/tasks/records/{task_id}", {"gh_issue_id": number})
+                    set_issue_labels(number, status)
+                    log(f"OUTBOUND: Created issue #{number} for task '{title}'")
+                    changed = True
         else:
             # Update labels to reflect current status
             set_issue_labels(gh_issue_id, status)
@@ -299,8 +325,12 @@ def sync_inbound(offset):
         })
         if task:
             # Tag the issue flotilla-managed to prevent re-import
-            gh("issue", "edit", str(number), "--add-label", FLOTILLA_LABEL)
-            log(f"INBOUND: Imported issue #{number} as PB task '{title}' -> {agent}")
+            _, label_rc = gh("issue", "edit", str(number), "--add-label", FLOTILLA_LABEL)
+            if label_rc != 0:
+                log(f"INBOUND: WARNING — issue #{number} imported to PB but GitHub label failed. Manual label needed to prevent re-import.")
+            else:
+                log(f"INBOUND: Imported issue #{number} as PB task '{title}' -> {agent}")
+            # Always advance offset regardless of label result to prevent duplicate PB task creation
             offset["last_gh_issue"] = max(offset.get("last_gh_issue", 0), number)
             changed = True
 
