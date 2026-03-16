@@ -17,6 +17,7 @@ FLEET_DIR = "/Users/miguelrodriguez/fleet"
 LOG_FILE = f"{FLEET_DIR}/logs/telegram_bridge.log"
 OFFSET_FILE = f"{FLEET_DIR}/logs/tg_offset.json"
 OUTBOUND_OFFSET_FILE = f"{FLEET_DIR}/logs/tg_outbound_offset.json"
+FLEET_META_PATH = "/Users/miguelrodriguez/projects/agentic-fleet-hub/AGENTS/CONFIG/fleet_meta.json"
 
 # Telegram settings from environment (Infisical)
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
@@ -30,12 +31,8 @@ TASK_CACHE = {}
 OPENCLAW_GATEWAY_URL = os.environ.get("OPENCLAW_GATEWAY_URL", "http://localhost:18789/v1/chat/completions")
 OPENCLAW_GATEWAY_TOKEN = os.environ.get("OPENCLAW_GATEWAY_TOKEN")
 
-# Bot commands registered with Telegram
-BOT_COMMANDS = [
-    {"command": "clau",   "description": "Send a task to Clau (Claude Code)"},
-    {"command": "gem",    "description": "Send a task to Gem (Gemini)"},
-    {"command": "codi",   "description": "Send a task to Codi (Codex)"},
-    {"command": "claw",   "description": "Talk to OpenClaw (Robot Ross artist agent)"},
+# Static utility commands (always present, not agent-driven)
+_STATIC_COMMANDS = [
     {"command": "ask",    "description": "Ask the fleet a question (routes to Clau)"},
     {"command": "spec",   "description": "Post a new spec or idea for the fleet"},
     {"command": "status", "description": "Show fleet heartbeat status"},
@@ -43,6 +40,49 @@ BOT_COMMANDS = [
     {"command": "go",     "description": "Activate all backlog tasks"},
     {"command": "help",   "description": "Show available commands"},
 ]
+
+# Agent command set and BOT_COMMANDS are populated at startup from fleet_meta.json
+AGENT_COMMANDS = {}   # telegram command → assigned_agent key
+BOT_COMMANDS = []     # populated by build_bot_commands()
+
+
+def load_fleet_meta():
+    """Load fleet_meta.json from disk. Returns parsed dict or None on failure."""
+    try:
+        with open(FLEET_META_PATH, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"[fleet_meta] Could not read {FLEET_META_PATH}: {e}")
+        return None
+
+
+def build_bot_commands(fleet_meta=None):
+    """Build BOT_COMMANDS and AGENT_COMMANDS from fleet_meta. Falls back to
+    hardcoded defaults when fleet_meta is unavailable."""
+    global BOT_COMMANDS, AGENT_COMMANDS
+
+    if fleet_meta:
+        team = fleet_meta.get("team", [])
+        agent_cmds = []
+        for agent in team:
+            key = agent.get("heartbeatKey", "")
+            if not key:
+                continue
+            cmd = "claw" if key == "openclaw" else key
+            desc = agent.get("roleDesc", f"Send a task to {agent.get('name', key)}")
+            if len(desc) > 256:
+                desc = desc[:253] + "..."
+            agent_cmds.append({"command": cmd, "description": desc})
+            AGENT_COMMANDS[cmd] = key
+        BOT_COMMANDS = agent_cmds + _STATIC_COMMANDS
+    else:
+        BOT_COMMANDS = [
+            {"command": "clau",   "description": "Send a task to Clau (Claude Code)"},
+            {"command": "gem",    "description": "Send a task to Gem (Gemini)"},
+            {"command": "codi",   "description": "Send a task to Codi (Codex)"},
+            {"command": "claw",   "description": "Talk to OpenClaw (Robot Ross artist agent)"},
+        ] + _STATIC_COMMANDS
+        AGENT_COMMANDS = {"clau": "clau", "gem": "gem", "codi": "codi", "claw": "openclaw"}
 
 def log(msg):
     ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -350,12 +390,13 @@ def process_updates(updates):
             send_to_tg("🦦 Sending to OpenClaw…")
             cmd_claw(remainder)
 
-        elif cmd in ("clau", "gem", "codi"):
+        elif cmd in AGENT_COMMANDS and cmd != "claw":
+            assigned = AGENT_COMMANDS[cmd]
             if not remainder:
                 send_to_tg(f"Usage: /{cmd} <task description>")
                 continue
-            task_id = create_task(remainder, cmd, description=f"From Telegram: /{cmd} {remainder}")
-            send_to_tg(f"✅ Task queued for {cmd}: {remainder}")
+            task_id = create_task(remainder, assigned, description=f"From Telegram: /{cmd} {remainder}")
+            send_to_tg(f"✅ Task queued for {assigned}: {remainder}")
 
         elif cmd == "ask":
             content = remainder or text
@@ -385,6 +426,10 @@ def main():
         return
 
     log("Telegram Bridge started")
+    fleet_meta = load_fleet_meta()
+    build_bot_commands(fleet_meta)
+    agent_count = len([c for c in BOT_COMMANDS if c["command"] not in {c["command"] for c in _STATIC_COMMANDS}])
+    log(f"Loaded {agent_count} agent command(s) from fleet_meta: {list(AGENT_COMMANDS.keys())}")
     register_bot_commands()
     offset = get_offset()
 
