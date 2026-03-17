@@ -8,6 +8,7 @@ import json
 import os
 import subprocess
 import re
+from fleet_utils import get_cached_mission_control
 
 app = Flask(__name__)
 
@@ -57,8 +58,13 @@ def parse_mission_control(repo_path: str = ".") -> dict:
     if not os.path.exists(mission_control_path):
         return {"error": "MISSION_CONTROL.md not found"}
     
-    with open(mission_control_path, "r") as f:
-        content = f.read()
+    # Use cached content if available
+    cached_content = get_cached_mission_control(repo_path)
+    if cached_content:
+        content = cached_content
+    else:
+        with open(mission_control_path, "r") as f:
+            content = f.read()
     
     # Parse ticket status sections
     open_tickets = []
