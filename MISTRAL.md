@@ -4,7 +4,7 @@
 
 ### Phase 1 -- Orient
 1. `git pull origin master` -- get the latest state from the team.
-2. Read `MISSION_CONTROL.md` -- live ticket status and current priorities.
+2. **OPTIMIZED**: Run `python3 ~/fleet/misty/heartbeat_optimize.py` -- checksum cache for MISSION_CONTROL.md (Ticket #73). Only read MISSION_CONTROL.md if content changed.
 3. Read `AGENTS/RULES.md` -- team rules.
 4. Read `AGENTS/MESSAGES/inbox.json` -- ALL unread messages before anything else. They may change your priorities entirely.
 5. GET `http://localhost:8090/api/collections/lessons/records?filter=status="active"` -- load team knowledge.
