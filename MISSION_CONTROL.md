@@ -103,7 +103,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-
-
+| **#73** | Optimize heartbeat token usage -- checksum caching for MISSION_CONTROL.md | Misty | todo | Top priority. Skip lessons if no tasks, combine API calls. Do not reduce heartbeat frequency. |
+| **#69** | Add project-switching endpoint to the fleet API | Misty | todo | Create `POST /fleet/api/switch-project` endpoint, update `fleet_meta.json`, restart services. |
+| **#70** | UI for project activation (toggle-based) | Misty | todo | List projects, active project at top with badge, inactive projects have "Activate" button with confirmation. |
+| **#71** | Update MISSION_CONTROL.md parser for dynamic project switching | Misty | todo | Make parser dynamic to read from active project, ensure Kanban/ticket views reflect new project. |
+| **#72** | Service restart logic for project switching | Misty | todo | Add logic to restart PocketBase, dispatcher, and other services cleanly. |
 
 **Status: `create-flotilla@0.2.0` live on npm as of 2026-03-16. Fleet always-on infrastructure live on Mac Mini.**
