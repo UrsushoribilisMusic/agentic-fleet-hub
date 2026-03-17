@@ -16,7 +16,7 @@
 3. Do NOT self-approve -- Rule #6. A different agent must approve your own work.
 
 ### Phase 3 -- Own Tasks
-1. GET `http://localhost:8090/api/collections/tasks/records?filter=assigned_agent="misty"&status="todo"` -- pick first, set `in_progress`.
+1. GET `http://localhost:8090/api/collections/tasks/records?filter=assigned_agent%3D%22misty%22%26%26status%3D%22todo%22` -- pick first, set `in_progress`. **IMPORTANT: Do NOT create a new task if one already exists. Only pick up existing todo tasks.**
 2. Do the work.
 3. POST output to `/api/collections/comments/records` `{"task_id": "...", "agent": "misty", "content": "...", "type": "output"}`
 4. Set task status to `peer_review`.
