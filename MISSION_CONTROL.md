@@ -104,7 +104,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **#73** | Optimize heartbeat token usage -- checksum caching for MISSION_CONTROL.md | Misty | peer_review | Implemented checksum caching in `~/fleet/misty/heartbeat_optimize.py`. Updated MISTRAL.md heartbeat protocol. Only reads MISSION_CONTROL.md when content changes. Token savings: ~50-70% on unchanged files. |
-| **#69** | Add project-switching endpoint to the fleet API | Misty | todo | Create `POST /fleet/api/switch-project` endpoint, update `fleet_meta.json`, restart services. |
+| **#69** | Add project-switching endpoint to the fleet API | Misty | peer_review | Completed. Created `fleet_api.py` with `POST /fleet/api/switch-project` endpoint. Updated `fleet_meta.json` logic and added service restart logic in `service_restart.py`. Ready for review. |
 | **#70** | UI for project activation (toggle-based) | Misty | todo | List projects, active project at top with badge, inactive projects have "Activate" button with confirmation. |
 | **#71** | Update MISSION_CONTROL.md parser for dynamic project switching | Misty | todo | Make parser dynamic to read from active project, ensure Kanban/ticket views reflect new project. |
 | **#72** | Service restart logic for project switching | Misty | todo | Add logic to restart PocketBase, dispatcher, and other services cleanly. |
