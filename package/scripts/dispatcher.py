@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Fleet Dispatcher — routes tasks to agents based on status and assigned_agent.
-Runs every 60 seconds via launchd. NOT an LLM — pure routing logic.
+Fleet Dispatcher â€” routes tasks to agents based on status and assigned_agent.
+Runs every 60 seconds via launchd. NOT an LLM â€” pure routing logic.
 """
 
 import subprocess
@@ -28,6 +28,7 @@ AGENT_COMMANDS = {
     "scout": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/scout", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "echo": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/echo", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "closer": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/closer", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
+    "misty": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/misty", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     # Claude Code, Gemini CLI, Codex commands use their respective CLI binaries
     "clau": ["/Users/miguelrodriguez/.local/bin/claude", "--dangerously-skip-permissions", "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "gem": ["/opt/homebrew/bin/node", "/opt/homebrew/bin/gemini", "--yolo", "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
@@ -146,8 +147,8 @@ def check_waiting_human():
             
             # Cooldown: 1 hour (3600 seconds)
             if now - last_sent > 3600:
-                msg = f"🤖 HUMAN NEEDED: {task['title']}\nStatus: {task['status']}\nID: {task['id']}"
-                log(f"HUMAN NEEDED: {task['title']} — sending Telegram")
+                msg = f"ðŸ¤– HUMAN NEEDED: {task['title']}\nStatus: {task['status']}\nID: {task['id']}"
+                log(f"HUMAN NEEDED: {task['title']} â€” sending Telegram")
                 send_telegram(msg)
                 notif_data[task_id] = now
                 changed = True
