@@ -155,8 +155,15 @@ function populateProjects() {
   let html = '';
   const isStandalone = fleetSettings.is_demo === false;
 
-  for (let i = 0; i < fleetData.projects.length; i++) {
-    const p = fleetData.projects[i];
+  // Sort projects: active ones first
+  const sortedProjects = [...fleetData.projects].sort((a, b) => {
+    const aActive = a.is_active !== false; // default to true if not set
+    const bActive = b.is_active !== false; // default to true if not set
+    return bActive - aActive; // active projects first
+  });
+
+  for (let i = 0; i < sortedProjects.length; i++) {
+    const p = sortedProjects[i];
     const statsLink = replacePlaceholders(p.statsLink);
     const crmLink = replacePlaceholders(p.crmLink);
     const extra = statsLink ? '<a href="' + statsLink + '" target="_blank" class="btn-link">📊 VIEW STATS</a>' : '';
@@ -164,8 +171,36 @@ function populateProjects() {
     const docUrl = (p.docs && p.docs.length > 0) ? replacePlaceholders(p.docs[0]) : '#';
     const kanban = replacePlaceholders(p.kanban || '#');
     const removeBtn = isStandalone ? '<button class="btn-remove" onclick="removeProject(\'' + p.title + '\')" style="padding:0.25rem 0.5rem; font-size:0.6rem;">REMOVE</button>' : '';
-
-    html += '<article class="project-card"><div style="display:flex; justify-content:space-between; align-items:flex-start;"><h3>' + p.title + '</h3>' + removeBtn + '</div><p class="project-summary">' + p.summary + '</p><div class="project-links"><a href="' + docUrl + '" target="_blank" class="btn-link">DOCUMENTATION</a><a href="' + kanban + '" target="_blank" class="btn-link">KANBAN BOARD</a>' + extra + ' ' + crm + '</div></article>';
+    
+    // Determine if project is active (default to true if not set)
+    const isActive = p.is_active !== false;
+    const activeBadge = isActive ? '<span class="active-badge">ACTIVE</span>' : '';
+    const toggleChecked = isActive ? 'checked' : '';
+    
+    html += '<article class="project-card">'
+      + '<div style="display:flex; justify-content:space-between; align-items:flex-start;">'
+        + '<div style="flex: 1;">'
+          + '<div style="display: flex; justify-content: space-between; align-items: center;">'
+            + '<h3>' + p.title + '</h3>'
+            + activeBadge
+          + '</div>'
+          + '<p class="project-summary">' + p.summary + '</p>'
+        + '</div>'
+        + removeBtn
+      + '</div>'
+      + '<div class="project-links">'
+        + '<a href="' + docUrl + '" target="_blank" class="btn-link">DOCUMENTATION</a>'
+        + '<a href="' + kanban + '" target="_blank" class="btn-link">KANBAN BOARD</a>'
+        + extra + ' ' + crm
+      + '</div>'
+      + '<div class="project-activation">'
+        + '<label class="toggle-switch">'
+          + '<input type="checkbox" ' + toggleChecked + ' onchange="toggleProjectActivation(\"' + p.title + '\")">'
+          + '<span class="toggle-slider"></span>'
+        + '</label>'
+        + '<span class="project-activation-label">' + (isActive ? 'Active project' : 'Click to activate') + '</span>'
+      + '</div>'
+    + '</article>';
   }
   container.innerHTML = html;
 }
@@ -187,6 +222,25 @@ window.removeProject = function(title) {
   if (!confirm('Remove project ' + title + '?')) return;
   fleetData.projects = fleetData.projects.filter(function(p) { return p.title !== title; });
   saveFleetData();
+};
+
+window.toggleProjectActivation = function(title) {
+  const projectIndex = fleetData.projects.findIndex(function(p) { return p.title === title; });
+  if (projectIndex === -1) return;
+  
+  // Toggle the active status
+  const currentStatus = fleetData.projects[projectIndex].is_active;
+  fleetData.projects[projectIndex].is_active = currentStatus === false ? true : false;
+  
+  // Show confirmation and save
+  const newStatus = fleetData.projects[projectIndex].is_active ? 'activated' : 'deactivated';
+  if (confirm('Project "' + title + '" has been ' + newStatus + '. Save changes?')) {
+    saveFleetData();
+  } else {
+    // Revert if user cancels
+    fleetData.projects[projectIndex].is_active = currentStatus;
+    populateProjects(); // Refresh to show original state
+  }
 };
 
 let memorySearchQuery = '';
@@ -550,7 +604,8 @@ function setupForms() {
         summary: f.get('summary'),
         docs: [f.get('docs') || f.get('github')],
         kanban: f.get('kanban') || f.get('github'),
-        crmLink: f.get('extra_url') || null
+        crmLink: f.get('extra_url') || null,
+        is_active: true // New projects are active by default
       };
       fleetData.projects.push(newProject);
       saveFleetData().then(closeProjectModal);
