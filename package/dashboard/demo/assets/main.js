@@ -165,16 +165,43 @@ function populateProjects() {
   const container = document.getElementById('projects-grid');
   if (!container || !fleetData.projects) return;
   let html = '';
-  for (let i = 0; i < fleetData.projects.length; i++) {
-    const p = fleetData.projects[i];
-    const isActive = p.is_active || false;
-    const badge = isActive ? '<span class="tag" style="background: var(--accent); color: white; font-size: 10px; margin-left: 8px;">ACTIVE</span>' : '';
-    const buttonText = isActive ? 'OPEN' : 'ACTIVATE';
-    const buttonAction = isActive ? 'window.open(\'' + (p.kanban || (p.docs && p.docs[0]) || '#') + '\')' : 'activateProject(\'' + p.github + '\')';
-    html += '<div class="agent-card"><div class="card-summary"><div style="flex:1"><h3 style="font-size:14px">' + p.title + badge + '</h3><p style="font-size:12px;color:var(--text-secondary)">' + p.summary + '</p></div><button class="btn-link" onclick="' + buttonAction + '">' + buttonText + '</button></div></div>';
+  
+  // Separate active and inactive projects
+  const activeProjects = fleetData.projects.filter(p => p.is_active);
+  const inactiveProjects = fleetData.projects.filter(p => !p.is_active);
+  
+  // Display active projects first
+  for (let i = 0; i < activeProjects.length; i++) {
+    const p = activeProjects[i];
+    html += '<div class="agent-card"><div class="card-summary"><div style="flex:1"><h3 style="font-size:14px">' + p.title + '<span class="tag" style="background: var(--accent); color: white; font-size: 10px; margin-left: 8px;">ACTIVE</span></h3><p style="font-size:12px;color:var(--text-secondary)">' + p.summary + '</p></div><button class="btn-link" onclick="window.open(\'' + (p.kanban || (p.docs && p.docs[0]) || '#') + '\')">OPEN</button></div></div>';
   }
+  
+  // Display inactive projects with Activate button
+  for (let i = 0; i < inactiveProjects.length; i++) {
+    const p = inactiveProjects[i];
+    html += '<div class="agent-card"><div class="card-summary"><div style="flex:1"><h3 style="font-size:14px">' + p.title + '</h3><p style="font-size:12px;color:var(--text-secondary)">' + p.summary + '</p></div><button class="btn-link" onclick="confirmActivateProject(\'' + p.github + '\', \'' + p.title + '\')">ACTIVATE</button></div></div>';
+  }
+  
   container.innerHTML = html;
 }
+
+window.confirmActivateProject = async function(githubUrl, projectTitle) {
+  if (!confirm('Activate project \'' + projectTitle + '\'? This will switch the fleet to this project.')) return;
+  try {
+    const response = await fetchJson('/fleet/api/switch-project', {
+      method: 'POST',
+      body: JSON.stringify({ repo_path: githubUrl })
+    });
+    if (response.success) {
+      alert('Project \'' + projectTitle + '\' activated successfully!');
+      populateProjects();
+    } else {
+      alert('Failed to activate project: ' + (response.error || 'Unknown error'));
+    }
+  } catch (err) {
+    alert('Failed to activate project: ' + err.message);
+  }
+};
 
 window.activateProject = async function(githubUrl) {
   if (!confirm('Activate project from ' + githubUrl + '? This will switch the fleet to this project.')) return;

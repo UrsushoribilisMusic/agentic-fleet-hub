@@ -326,3 +326,71 @@ h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing
     align-self: stretch;
   }
 }
+
+/* Project Activation Toggle */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+  background-color: var(--teal-bright);
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(30px);
+}
+
+.project-activation {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.project-activation-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.active-badge {
+  background-color: var(--teal-bright);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  margin-left: auto;
+}
