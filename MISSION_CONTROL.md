@@ -105,8 +105,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **#73** | Optimize heartbeat token usage -- checksum caching for MISSION_CONTROL.md | Misty | approved | Implemented checksum caching in `fleet_utils.py` with SHA-256. Updated MISTRAL.md heartbeat protocol. Only reads MISSION_CONTROL.md when content changes. Token savings: ~50-70% on unchanged files. Cache verified working with proper checksum validation. |
 | **#69** | Add project-switching endpoint to the fleet API | Misty | approved | Completed. Created `fleet_api.py` with `POST /fleet/api/switch-project` endpoint. Updated `fleet_meta.json` logic and added service restart logic in `service_restart.py`. Endpoint tested and working with proper validation and service restart functionality. |
-| **#70** | UI for project activation (toggle-based) | Misty | todo | List projects, active project at top with badge, inactive projects have "Activate" button with confirmation. |
-| **#71** | Update MISSION_CONTROL.md parser for dynamic project switching | Misty | todo | Make parser dynamic to read from active project, ensure Kanban/ticket views reflect new project. |
-| **#72** | Service restart logic for project switching | Misty | todo | Add logic to restart PocketBase, dispatcher, and other services cleanly. |
+| **#70** | UI for project activation (toggle-based) | Misty | approved | List projects, active project at top with badge, inactive projects have "Activate" button with confirmation. |
+| **#71** | Update MISSION_CONTROL.md parser for dynamic project switching | Misty | approved | Make parser dynamic to read from active project, ensure Kanban/ticket views reflect new project. |
+| **#72** | Service restart logic for project switching | Misty | approved | Add logic to restart PocketBase, dispatcher, and other services cleanly. |
 
 **Status: `create-flotilla@0.2.0` live on npm as of 2026-03-16. Fleet always-on infrastructure live on Mac Mini.**
