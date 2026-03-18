@@ -167,10 +167,32 @@ function populateProjects() {
   let html = '';
   for (let i = 0; i < fleetData.projects.length; i++) {
     const p = fleetData.projects[i];
-    html += '<div class="agent-card"><div class="card-summary"><div style="flex:1"><h3 style="font-size:14px">' + p.title + '</h3><p style="font-size:12px;color:var(--text-secondary)">' + p.summary + '</p></div><a href="' + (p.kanban || (p.docs && p.docs[0]) || '#') + '" target="_blank" class="btn-link">OPEN</a></div></div>';
+    const isActive = p.is_active || false;
+    const badge = isActive ? '<span class="tag" style="background: var(--accent); color: white; font-size: 10px; margin-left: 8px;">ACTIVE</span>' : '';
+    const buttonText = isActive ? 'OPEN' : 'ACTIVATE';
+    const buttonAction = isActive ? 'window.open(\'' + (p.kanban || (p.docs && p.docs[0]) || '#') + '\')' : 'activateProject(\'' + p.github + '\')';
+    html += '<div class="agent-card"><div class="card-summary"><div style="flex:1"><h3 style="font-size:14px">' + p.title + badge + '</h3><p style="font-size:12px;color:var(--text-secondary)">' + p.summary + '</p></div><button class="btn-link" onclick="' + buttonAction + '">' + buttonText + '</button></div></div>';
   }
   container.innerHTML = html;
 }
+
+window.activateProject = async function(githubUrl) {
+  if (!confirm('Activate project from ' + githubUrl + '? This will switch the fleet to this project.')) return;
+  try {
+    const response = await fetchJson('/fleet/api/switch-project', {
+      method: 'POST',
+      body: JSON.stringify({ repo_path: githubUrl })
+    });
+    if (response.success) {
+      alert('Project activated successfully!');
+      populateProjects();
+    } else {
+      alert('Failed to activate project: ' + (response.error || 'Unknown error'));
+    }
+  } catch (err) {
+    alert('Failed to activate project: ' + err.message);
+  }
+};
 
 async function loadLessons() {
   const container = document.getElementById('lessons-grid');
@@ -380,6 +402,29 @@ function setupForms() {
     const skills = (fd.get('skills') || '').split(',').map(function(s) { return s.trim(); }).filter(Boolean);
     const newAgent = { name: fd.get('name'), avatar: fd.get('avatar'), roleTitle: fd.get('roleTitle'), roleDesc: fd.get('roleDesc'), runtime: fd.get('runtime') || 'Hybrid', skills: skills, heartbeatKey: fd.get('heartbeatKey') || fd.get('name').toLowerCase(), memoryLink: memoryLink };
     try { const current = await fetchJson('/fleet/api/config'); current.team = current.team || []; current.team.push(newAgent); await fetchJson('/fleet/api/config', { method: 'POST', body: JSON.stringify(current) }); closeAgentModal(); loadTeamWithStatus(); } catch (err) { alert('Failed to save agent.'); }
+  };
+  document.getElementById('project-form').onsubmit = async function(e) {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    const title = fd.get('title').trim();
+    const summary = fd.get('summary').trim();
+    const github = fd.get('github').trim();
+    if (!title || !summary || !github) return;
+    try {
+      const response = await fetchJson('/fleet/api/switch-project', {
+        method: 'POST',
+        body: JSON.stringify({ repo_path: github })
+      });
+      if (response.success) {
+        closeProjectModal();
+        alert('Project activated successfully!');
+        populateProjects();
+      } else {
+        alert('Failed to activate project: ' + (response.error || 'Unknown error'));
+      }
+    } catch (err) {
+      alert('Failed to activate project: ' + err.message);
+    }
   };
 }
 
