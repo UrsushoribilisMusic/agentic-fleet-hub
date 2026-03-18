@@ -54,6 +54,26 @@ def parse_mission_control(repo_path: str = ".") -> dict:
     open_tickets = []
     closed_tickets = []
     
+    # Extract active project from fleet_meta.json
+    active_project = None
+    try:
+        fleet_meta_path = os.path.expanduser("~/fleet/fleet_meta.json")
+        if os.path.exists(fleet_meta_path):
+            with open(fleet_meta_path, "r") as f:
+                fleet_meta = json.load(f)
+                active_project = fleet_meta.get("meta", {}).get("installation", {}).get("repo_path", ".")
+    except Exception as e:
+        app.logger.warning(f"Failed to read fleet_meta.json: {e}")
+    
+    # If active_project is set and different from current repo_path, use it
+    if active_project and active_project != repo_path:
+        mission_control_path = os.path.join(active_project, "MISSION_CONTROL.md")
+        if os.path.exists(mission_control_path):
+            with open(mission_control_path, "r") as f:
+                content = f.read()
+        else:
+            app.logger.warning(f"MISSION_CONTROL.md not found at active project path: {mission_control_path}")
+    
     # Extract OPEN tickets table
     open_section_match = re.search(r"### OPEN\s*\n\|\s*Ticket\s*\|\s*Description\s*\|\s*Owner\s*\|\s*Status\s*\|\s*Notes\s*\|\s*\n\|\s*:---\s*\|\s*:---\s*\|\s*:---\s*\|\s*:---\s*\|\s*:---\s*\|\s*\n((?:\|\s*\*\*#\d+\*\*\s*\|\s*.+?\s*\n)+)", content)
     
