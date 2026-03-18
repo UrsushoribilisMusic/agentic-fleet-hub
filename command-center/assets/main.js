@@ -230,12 +230,69 @@ window.toggleProjectActivation = function(title) {
   
   // Toggle the active status
   const currentStatus = fleetData.projects[projectIndex].is_active;
-  fleetData.projects[projectIndex].is_active = currentStatus === false ? true : false;
+  const newActiveStatus = currentStatus === false ? true : false;
+  fleetData.projects[projectIndex].is_active = newActiveStatus;
   
   // Show confirmation and save
-  const newStatus = fleetData.projects[projectIndex].is_active ? 'activated' : 'deactivated';
+  const newStatus = newActiveStatus ? 'activated' : 'deactivated';
   if (confirm('Project "' + title + '" has been ' + newStatus + '. Save changes?')) {
-    saveFleetData();
+    // Call backend endpoint to activate project
+    fetch('/fleet/api/activate-project', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ project_title: title })
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to activate project');
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (data.success) {
+        // Also update the fleet_meta.json repo_path if this project is being activated
+        if (newActiveStatus) {
+          // Find the project docs URL to determine repo path
+          const docsUrl = fleetData.projects[projectIndex].docs;
+          let repoPath = '.';
+          if (docsUrl && docsUrl.length > 0) {
+            const url = docsUrl[0];
+            if (url.includes('agentic-fleet-hub')) {
+              repoPath = '~/projects/agentic-fleet-hub';
+            } else if (url.includes('music-video-tool')) {
+              repoPath = '~/projects/music-video-tool';
+            } else if (url.includes('crm-poc')) {
+              repoPath = '~/projects/crm-poc';
+            }
+          }
+          
+          // Update fleet meta
+          return fetch('/fleet/api/switch-project', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ repo_path: repoPath })
+          });
+        }
+        return Promise.resolve();
+      } else {
+        throw new Error(data.error || 'Unknown error');
+      }
+    })
+    .then(() => {
+      // Refresh the UI
+      loadFleetMeta();
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('Failed to save project activation: ' + error.message);
+      // Revert if error
+      fleetData.projects[projectIndex].is_active = currentStatus;
+      populateProjects();
+    });
   } else {
     // Revert if user cancels
     fleetData.projects[projectIndex].is_active = currentStatus;

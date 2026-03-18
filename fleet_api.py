@@ -40,13 +40,31 @@ def update_fleet_meta(repo_path: str) -> bool:
         
         # Set is_active to True for the project matching the repo_path
         repo_name = os.path.basename(repo_path)
+        
+        # Map project titles to their expected repository names
+        project_repo_mapping = {
+            "agentic fleet hub (flotilla)": "agentic-fleet-hub",
+            "music video tool": "music-video-tool",
+            "agentic crm prototype": "crm-poc",
+            "the lost coins": "the-lost-coins",
+            "salesman (openclaw gateway)": "salesman-cloud-infra",
+            "robot ross": "agentic-fleet-hub"  # Assuming Robot Ross is in the main repo
+        }
+        
+        repo_name_lower = repo_name.lower()
+        
         for project in agents_fleet_meta.get("projects", []):
-            # Check if the repo_name matches the project's title or is in the docs URL
-            docs_url = project.get("docs", [])
-            if isinstance(docs_url, list) and len(docs_url) > 0:
-                docs_url = docs_url[0]
+            project_title_lower = project.get("title", "").lower()
             
-            if "agentic fleet hub" in project.get("title", "").lower() or "flotilla" in project.get("title", "").lower():
+            # Find the expected repo name for this project
+            expected_repo = None
+            for title_key, mapped_repo in project_repo_mapping.items():
+                if title_key in project_title_lower:
+                    expected_repo = mapped_repo
+                    break
+            
+            # Set active if the repo_path matches the expected repository for this project
+            if expected_repo and expected_repo == repo_name_lower:
                 project["is_active"] = True
             else:
                 project["is_active"] = False
@@ -60,7 +78,9 @@ def update_fleet_meta(repo_path: str) -> bool:
 
 def parse_mission_control(repo_path: str = ".") -> dict:
     """Parse MISSION_CONTROL.md for ticket status."""
-    mission_control_path = os.path.join(repo_path, "MISSION_CONTROL.md")
+    # Expand ~ in the path
+    expanded_repo_path = os.path.expanduser(repo_path)
+    mission_control_path = os.path.join(expanded_repo_path, "MISSION_CONTROL.md")
     
     if not os.path.exists(mission_control_path):
         return {"error": "MISSION_CONTROL.md not found"}
@@ -90,7 +110,9 @@ def parse_mission_control(repo_path: str = ".") -> dict:
     
     # If active_project is set and different from current repo_path, use it
     if active_project and active_project != repo_path:
-        mission_control_path = os.path.join(active_project, "MISSION_CONTROL.md")
+        # Expand ~ in active_project path
+        expanded_active_project = os.path.expanduser(active_project)
+        mission_control_path = os.path.join(expanded_active_project, "MISSION_CONTROL.md")
         if os.path.exists(mission_control_path):
             with open(mission_control_path, "r") as f:
                 content = f.read()
