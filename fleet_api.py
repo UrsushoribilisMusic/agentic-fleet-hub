@@ -9,6 +9,7 @@ import os
 import subprocess
 import re
 from fleet_utils import get_cached_mission_control
+from service_restart import restart_all_services
 
 app = Flask(__name__)
 
@@ -32,23 +33,6 @@ def update_fleet_meta(repo_path: str) -> bool:
         json.dump(fleet_meta, f, indent=2)
     
     return True
-
-
-def restart_services() -> bool:
-    """Restart fleet services."""
-    try:
-        # Restart PocketBase
-        subprocess.run(["launchctl", "stop", "fleet.pocketbase"], check=True)
-        subprocess.run(["launchctl", "start", "fleet.pocketbase"], check=True)
-        
-        # Restart dispatcher
-        subprocess.run(["launchctl", "stop", "fleet.dispatcher"], check=True)
-        subprocess.run(["launchctl", "start", "fleet.dispatcher"], check=True)
-        
-        return True
-    except subprocess.CalledProcessError as e:
-        print(f"Error restarting services: {e}")
-        return False
 
 
 def parse_mission_control(repo_path: str = ".") -> dict:
@@ -132,7 +116,7 @@ def switch_project():
         return jsonify({"error": "Failed to update fleet_meta.json"}), 500
     
     # Restart services
-    if not restart_services():
+    if not restart_all_services():
         return jsonify({"error": "Failed to restart services"}), 500
     
     return jsonify({"success": True, "message": "Project switched successfully"}), 200
