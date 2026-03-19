@@ -3,10 +3,13 @@
 ## Startup Protocol -- follow this order every session, no exceptions
 
 1. `git pull origin master` -- get the latest state from the team.
-2. Read `MISSION_CONTROL.md` -- live ticket status and current priorities.
-3. Read `AGENTS/RULES.md` -- team rules.
-4. Check your IAP inbox: read `AGENTS/MESSAGES/inbox.json`. Read all unread messages before proceeding.
-5. Only then: pick up the first open ticket from the Ticket Status table in `MISSION_CONTROL.md`.
+2. Run: `python fleet/heartbeat_check.py --agent codi`
+   - **Exit 1**: nothing relevant changed -- post idle heartbeat and stop. Do NOT read any further files. Do NOT commit.
+   - **Exit 0**: changes need your attention -- continue with steps 3-5 below.
+3. Read `MISSION_CONTROL.md` -- live ticket status and current priorities.
+4. Read `AGENTS/RULES.md` -- team rules.
+5. Check your IAP inbox: read `AGENTS/MESSAGES/inbox.json`. Read all unread messages before proceeding.
+6. Only then: pick up the first open ticket from the Ticket Status table in `MISSION_CONTROL.md`.
 
 ## Team Protocols
 
