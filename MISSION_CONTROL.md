@@ -40,7 +40,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 
 ---
 
-## Ticket Status (as of 2026-03-15)
+## Ticket Status (as of 2026-03-19)
 
 ### ENVIRONMENT NOTE — Mac Mini migration complete (2026-03-14)
 All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users/miguel/` → `/Users/miguelrodriguez/`. Repos cloned to `~/projects/`. Python 3.12 venv at `~/projects/music-video-tool/.venv312`. OpenClaw at `/opt/homebrew/bin/openclaw`. Fleet always-on infrastructure build in progress — see tickets #34–#43.
@@ -48,6 +48,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ---
 
 ### CLOSED
+- **#66**: Agent health monitoring + skill-based task reassignment -- Gem. Implemented in dispatcher.py and workspace UI. Approved.
 - **#1-#6**: Sheets migration, tracker API, OAuth wired -- Team.
 - **#7-#9**: Stats UI, heatmap, dashboard extraction -- Gem.
 - **#10**: KeyVault (Infisical EU) -- wired into music-video-tool and CRM -- Clau.
@@ -96,17 +97,17 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#60**: /demo mock data -- Gem. 4 agents (Aria/Rex/Nova/Sage) + ShopFlow project cast. Deployed to DO server. Approved.
 - **#64**: Heartbeat dots tooltips & mock status -- Gem/Clau. Mock working/idle in demo, styled tooltips on all dots. Approved.
 - **#65**: Deployment scenarios docs -- Gem. Local/Cloud/Hybrid comparison table added to README. Approved.
-- **#66**: Agent health monitoring -- Codi. Skill-based reassignment on stale heartbeat (>30m). Approved.
 - **#68**: Write v0.2.0 release notes -- Clau. Approved.
 - **#53**: Release create-flotilla v0.2.0 -- include new fleet features -- Clau. Published `create-flotilla@0.2.0` to npm on 2026-03-16 after token-based Infisical publish flow verification. Consolidated PB tasks #47 and #50. Closed.
 - **#s4znd9zm9a2rr0v**: BigBear site fixes: showcase screenshots + vault section copy -- Gem. Approved.
+- **#69**: Add project-switching endpoint to the fleet API -- Misty. Approved.
+- **#70**: UI for project activation (toggle-based) -- Misty. Approved.
+- **#71**: Update MISSION_CONTROL.md parser for dynamic project switching -- Misty. Approved.
+- **#72**: Service restart logic for project switching -- Misty. Approved.
+- **#73**: Optimize heartbeat token usage -- checksum caching for MISSION_CONTROL.md -- Misty. Approved.
+
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **#73** | Optimize heartbeat token usage -- checksum caching for MISSION_CONTROL.md | Misty | approved | Implemented checksum caching in `fleet_utils.py` with SHA-256. Updated MISTRAL.md heartbeat protocol. Only reads MISSION_CONTROL.md when content changes. Token savings: ~50-70% on unchanged files. Cache verified working with proper checksum validation. |
-| **#69** | Add project-switching endpoint to the fleet API | Misty | approved | Completed. Created `fleet_api.py` with `POST /fleet/api/switch-project` endpoint. Updated `fleet_meta.json` logic and added service restart logic in `service_restart.py`. Endpoint tested and working with proper validation and service restart functionality. |
-| **#70** | UI for project activation (toggle-based) | Misty | approved | List projects, active project at top with badge, inactive projects have "Activate" button with confirmation. |
-| **#71** | Update MISSION_CONTROL.md parser for dynamic project switching | Misty | approved | Make parser dynamic to read from active project, ensure Kanban/ticket views reflect new project. |
-| **#72** | Service restart logic for project switching | Misty | approved | Add logic to restart PocketBase, dispatcher, and other services cleanly. |
 
 **Status: `create-flotilla@0.2.0` live on npm as of 2026-03-16. Fleet always-on infrastructure live on Mac Mini.**

@@ -1,5 +1,25 @@
 [
     {
+        "date": "2026-03-19",
+        "summary": "Fleet v0.2.0 fully operational. Project-switching, health-monitoring, and release notes complete.",
+        "file": "2026-03-19.md"
+    },
+    {
+        "date": "2026-03-18",
+        "summary": "UI polish and project activation logic implemented.",
+        "file": "2026-03-18.md"
+    },
+    {
+        "date": "2026-03-17",
+        "summary": "Checksum caching and dynamic parser updates.",
+        "file": "2026-03-17.md"
+    },
+    {
+        "date": "2026-03-16",
+        "summary": "GitHub sync and Telegram bridge truncation fixes.",
+        "file": "2026-03-16.md"
+    },
+    {
         "date": "2026-03-15",
         "summary": "Fleet fully operational on Mac Mini. No open tickets.",
         "file": "2026-03-15.md"
@@ -13,11 +33,6 @@
         "date":  "2026-03-13",
         "summary":  "Ticket #25 (Demo Cleanup) and #23 (README overhaul) complete. Fleet is release-ready.",
         "file":  "2026-03-13.md"
-    },
-    {
-        "date":  "2026-03-13",
-        "file":  "2026-03-13.md",
-        "summary":  "Tickets #20 and #21 complete: open-source package structure (server, dashboards, blueprint) + Kanban bridge scripts."
     },
     {
         "date":  "2026-03-12",
