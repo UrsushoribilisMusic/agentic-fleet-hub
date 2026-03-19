@@ -219,7 +219,7 @@ def switch_project():
     if new_repo_path.startswith("https://github.com/"):
         # Extract the repo name from the URL
         repo_path_parts = new_repo_path.split("/")
-        repo_name = "/".join(repo_path_parts[-2:])
+        repo_name = repo_path_parts[-1]
         new_repo_path = os.path.expanduser(f"~/projects/{repo_name}")
     
     # Check if the path exists
