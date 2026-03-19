@@ -4,10 +4,12 @@
 
 ### Phase 1 -- Orient
 1. `git pull origin master` -- get the latest state from the team.
-2. **OPTIMIZED**: Run `python3 heartbeat_script.py` -- checksum cache for MISSION_CONTROL.md (Ticket #73). Only read MISSION_CONTROL.md if content changed.
-3. Read `AGENTS/RULES.md` -- team rules.
-4. Read `AGENTS/MESSAGES/inbox.json` -- ALL unread messages before anything else. They may change your priorities entirely.
-5. If tasks are assigned, GET `http://localhost:8090/api/collections/lessons/records?filter=status="active"` -- load team knowledge.
+2. Run: `python fleet/heartbeat_check.py --agent misty`
+   - **Exit 1**: nothing relevant changed -- skip to Phase 6 (sign off idle). Do NOT read any further files.
+   - **Exit 0**: changes need your attention -- continue with steps 3-5 below.
+3. Read `MISSION_CONTROL.md` -- live ticket status and current priorities.
+4. Read `AGENTS/RULES.md` -- team rules.
+5. Read `AGENTS/MESSAGES/inbox.json` -- ALL unread messages before anything else. They may change your priorities entirely.
 6. POST `http://localhost:8090/api/collections/heartbeats/records` `{"agent": "misty", "status": "working"}`
 
 ### Phase 2 -- Peer Review First
