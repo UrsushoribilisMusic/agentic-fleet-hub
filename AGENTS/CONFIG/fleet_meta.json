@@ -2,7 +2,7 @@
   "team": [
     {
       "name": "Claude Code",
-      "avatar": "\ud83e\udd16",
+      "avatar": "🤖",
       "heartbeatKey": "clau",
       "roleTitle": "Senior Logic & Implementation",
       "roleDesc": "Primary engineer for high-precision code generation, algorithmic optimization, and complex feature implementation.",
@@ -11,12 +11,13 @@
         "Algorithmic Logic",
         "Code Refactoring"
       ],
+      "fallbackChain": ["gem", "codi"],
       "runtime": "Mac Mini (Local)",
       "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/CLAUDE.md"
     },
     {
       "name": "Gemini",
-      "avatar": "\u264a",
+      "avatar": "♊",
       "heartbeatKey": "gem",
       "roleTitle": "Infrastructure & Context Architect",
       "roleDesc": "Master of massive context windows and cross-project knowledge synthesis. Manages secrets, vaults, and platform stability.",
@@ -25,12 +26,13 @@
         "Infrastructure-as-Code",
         "Vault Security"
       ],
+      "fallbackChain": ["clau", "codi"],
       "runtime": "Mac Mini (Local)",
       "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/GEMINI.md"
     },
     {
       "name": "Codex",
-      "avatar": "\ud83d\udee0\ufe0f",
+      "avatar": "🛠️",
       "heartbeatKey": "codi",
       "roleTitle": "QA & Velocity Runner",
       "roleDesc": "Ensures delivery velocity through automated testing, API prototyping, and CI/CD maintenance. Validates all fleet output.",
@@ -39,12 +41,13 @@
         "QA Automation",
         "Continuous Delivery"
       ],
+      "fallbackChain": ["clau", "gem"],
       "runtime": "Mac Mini (Local)",
       "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS.md"
     },
     {
       "name": "Misty",
-      "avatar": "\u269c\ufe0f",
+      "avatar": "⚜️",
       "heartbeatKey": "misty",
       "roleTitle": "EU Compliance & Ethics Lead",
       "roleDesc": "European model advantage. Handles AI Act compliance, audit logging, multi-agent transparency, and DACH enterprise requirements.",
@@ -53,12 +56,13 @@
         "Compliance Review",
         "Ethics & Transparency"
       ],
+      "fallbackChain": ["clau", "gem"],
       "runtime": "Mac Mini (Local)",
       "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/MISTRAL.md"
     },
     {
       "name": "OpenClaw",
-      "avatar": "\ud83d\udc3b",
+      "avatar": "🐻",
       "heartbeatKey": "openclaw",
       "roleTitle": "Robot Ross Controller",
       "roleDesc": "Runs the physical robot arm (Huenit), painting pipeline, and Telegram gateway on the Mac Mini. Master control for the Robot Ross skill.",
@@ -67,6 +71,7 @@
         "Skill Execution",
         "Hardware Interface"
       ],
+      "fallbackChain": ["clau"],
       "runtime": "Mac Mini (Always-On)",
       "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/robot_ross_artist.md"
     }
