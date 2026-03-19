@@ -156,6 +156,17 @@ sequenceDiagram
     C->>PB: Update Status: Approved
 ```
 
+### 6. Fleet Steering (Project Switching)
+
+The fleet can be steered to work on any project by setting `is_active: true` on the desired project in `AGENTS/CONFIG/fleet_meta.json`. The two runtime scripts that implement this are:
+
+- **`fleet/active_context.py`**: Run by agents after the heartbeat check. Reads `fleet_meta.json`, resolves the active project's `repo_path`, and prints the correct `MISSION_CONTROL.md`, inbox, and lessons paths. Agents read from those paths instead of always defaulting to the hub's files.
+- **`fleet/heartbeat_check.py`** (extended): Also watches the active project's `MISSION_CONTROL.md` if it exists, so agents wake up when project tickets change, not just hub tickets.
+
+**Operator workflow**: flip `is_active`, add a one-liner to hub `MISSION_CONTROL.md`, commit and push. All agents pivot on their next heartbeat.
+
+See [`AGENTS/CONTEXT/fleet_steering_architecture.md`](./AGENTS/CONTEXT/fleet_steering_architecture.md) for full design documentation.
+
 ## Security & Compliance
 - **Zero-Disk Secrets**: All API keys and credentials are fetched at runtime via **Infisical**.
 - **Audit Logs**: All agent decisions and outputs are persisted in PocketBase with timestamps and agent IDs.
