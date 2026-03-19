@@ -18,6 +18,8 @@ Ready to deploy your workforce?
 
 ## 🏛️ Platform Architecture
 
+For a deep dive into the system components, data flow, and task lifecycle, see the **[Architecture Diagram & Spec](ARCHITECTURE.md)**.
+
 *   **Management Hub**: A human-readable dashboard for monitoring agent health and standups.
 *   **Memory Tree**: A structured, version-controlled hierarchy of project context and blueprints.
 *   **Shared Consciousness Protocol**: Mandatory synchronization via `MISSION_CONTROL.md`.
@@ -57,9 +59,29 @@ When an agent encounters a failure or discovers an optimization, it logs a lesso
 
 ---
 
-## 🔧 Deployment
+## 🔧 Deployment Scenarios
 
-The Hub is deployed to a private cloud VPS using a surgical-push model. 
+Flotilla supports three deployment models so customers can self-select the right setup for their security and accessibility needs.
+
+| Scenario | Components | Dashboard Access | Best For |
+| :--- | :--- | :--- | :--- |
+| **1. Local (Default)** | All local | `localhost:8787/fleet/` | Personal use, local teams, strict privacy |
+| **2. Cloud VPS** | All on 1 VPS | `https://your-domain.com/fleet/` | Remote teams, public dashboards |
+| **3. Hybrid** | Split (Local + Cloud) | `https://your-domain.com/fleet/` | Hardware agents, public visibility + local execution |
+
+### Scenario 1 — Local (Default)
+Everything runs on a single local machine (agents + PocketBase + Fleet Hub). You access the dashboard at `localhost:8787/fleet/`. This requires zero extra config and works out-of-the-box with `create-flotilla`. Ideal for personal use, local teams, or privacy-first corporate installs.
+
+### Scenario 2 — Cloud VPS (Single Server)
+Everything runs on a single cloud VPS (like DigitalOcean or AWS EC2). The dashboard is publicly accessible. PocketBase and Fleet Hub are co-located, meaning no connectivity gap for the UI. Best for remote teams and always-on fleets. *(Note: Claude Code, Gemini CLI, and Codex must support headless operation on Linux).*
+
+### Scenario 3 — Hybrid (Agents Local, Dashboard Remote)
+Agents and PocketBase run on a local machine (e.g., Mac Mini, on-prem server), while the Fleet Hub is hosted publicly on a separate cloud server. This requires the push connector (`fleet_push.py`). Best for hardware-connected agents (robot arms, local files) where you need enterprise privacy but public visibility.
+The connector pushes a read-only PocketBase snapshot (`heartbeats`, `tasks`, `comments`) to the remote Fleet Hub every 60 seconds using `FLEET_SYNC_TOKEN`, and the remote `server.mjs` serves that cached snapshot whenever it cannot reach PocketBase directly.
+Required runtime secrets:
+- `FLEET_SYNC_TOKEN` on both the local connector and the remote Fleet Hub server
+- `FLEET_SYNC_URL` on the local connector if the public dashboard is not `https://api.robotross.art/fleet/snapshot`
+**Scenario 3 requires additional configuration. Contact us at info@flotilla.cc for setup assistance.**
 
 *   **Public Site**: [bigbearengineering.com](https://bigbearengineering.com)
 *   **Flotilla Hub**: [api.robotross.art/fleet/](https://api.robotross.art/fleet/)

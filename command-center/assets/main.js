@@ -155,8 +155,15 @@ function populateProjects() {
   let html = '';
   const isStandalone = fleetSettings.is_demo === false;
 
-  for (let i = 0; i < fleetData.projects.length; i++) {
-    const p = fleetData.projects[i];
+  // Sort projects: active ones first
+  const sortedProjects = [...fleetData.projects].sort((a, b) => {
+    const aActive = a.is_active !== false; // default to true if not set
+    const bActive = b.is_active !== false; // default to true if not set
+    return bActive - aActive; // active projects first
+  });
+
+  for (let i = 0; i < sortedProjects.length; i++) {
+    const p = sortedProjects[i];
     const statsLink = replacePlaceholders(p.statsLink);
     const crmLink = replacePlaceholders(p.crmLink);
     const extra = statsLink ? '<a href="' + statsLink + '" target="_blank" class="btn-link">📊 VIEW STATS</a>' : '';
@@ -164,8 +171,36 @@ function populateProjects() {
     const docUrl = (p.docs && p.docs.length > 0) ? replacePlaceholders(p.docs[0]) : '#';
     const kanban = replacePlaceholders(p.kanban || '#');
     const removeBtn = isStandalone ? '<button class="btn-remove" onclick="removeProject(\'' + p.title + '\')" style="padding:0.25rem 0.5rem; font-size:0.6rem;">REMOVE</button>' : '';
-
-    html += '<article class="project-card"><div style="display:flex; justify-content:space-between; align-items:flex-start;"><h3>' + p.title + '</h3>' + removeBtn + '</div><p class="project-summary">' + p.summary + '</p><div class="project-links"><a href="' + docUrl + '" target="_blank" class="btn-link">DOCUMENTATION</a><a href="' + kanban + '" target="_blank" class="btn-link">KANBAN BOARD</a>' + extra + ' ' + crm + '</div></article>';
+    
+    // Determine if project is active (default to true if not set)
+    const isActive = p.is_active !== false;
+    const activeBadge = isActive ? '<span class="active-badge">ACTIVE</span>' : '';
+    const toggleChecked = isActive ? 'checked' : '';
+    
+    html += '<article class="project-card">'
+      + '<div style="display:flex; justify-content:space-between; align-items:flex-start;">'
+        + '<div style="flex: 1;">'
+          + '<div style="display: flex; justify-content: space-between; align-items: center;">'
+            + '<h3>' + p.title + '</h3>'
+            + activeBadge
+          + '</div>'
+          + '<p class="project-summary">' + p.summary + '</p>'
+        + '</div>'
+        + removeBtn
+      + '</div>'
+      + '<div class="project-links">'
+        + '<a href="' + docUrl + '" target="_blank" class="btn-link">DOCUMENTATION</a>'
+        + '<a href="' + kanban + '" target="_blank" class="btn-link">KANBAN BOARD</a>'
+        + extra + ' ' + crm
+      + '</div>'
+      + '<div class="project-activation">'
+        + '<label class="toggle-switch">'
+          + '<input type="checkbox" ' + toggleChecked + ' onchange="toggleProjectActivation(\"' + p.title + '\")">'
+          + '<span class="toggle-slider"></span>'
+        + '</label>'
+        + '<span class="project-activation-label">' + (isActive ? 'Active project' : 'Click to activate') + '</span>'
+      + '</div>'
+    + '</article>';
   }
   container.innerHTML = html;
 }
@@ -187,6 +222,82 @@ window.removeProject = function(title) {
   if (!confirm('Remove project ' + title + '?')) return;
   fleetData.projects = fleetData.projects.filter(function(p) { return p.title !== title; });
   saveFleetData();
+};
+
+window.toggleProjectActivation = function(title) {
+  const projectIndex = fleetData.projects.findIndex(function(p) { return p.title === title; });
+  if (projectIndex === -1) return;
+  
+  // Toggle the active status
+  const currentStatus = fleetData.projects[projectIndex].is_active;
+  const newActiveStatus = currentStatus === false ? true : false;
+  fleetData.projects[projectIndex].is_active = newActiveStatus;
+  
+  // Show confirmation and save
+  const newStatus = newActiveStatus ? 'activated' : 'deactivated';
+  if (confirm('Project "' + title + '" has been ' + newStatus + '. Save changes?')) {
+    // Call backend endpoint to activate project
+    fetch('/fleet/api/activate-project', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ project_title: title })
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to activate project');
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (data.success) {
+        // Also update the fleet_meta.json repo_path if this project is being activated
+        if (newActiveStatus) {
+          // Find the project docs URL to determine repo path
+          const docsUrl = fleetData.projects[projectIndex].docs;
+          let repoPath = '.';
+          if (docsUrl && docsUrl.length > 0) {
+            const url = docsUrl[0];
+            if (url.includes('agentic-fleet-hub')) {
+              repoPath = '~/projects/agentic-fleet-hub';
+            } else if (url.includes('music-video-tool')) {
+              repoPath = '~/projects/music-video-tool';
+            } else if (url.includes('crm-poc')) {
+              repoPath = '~/projects/crm-poc';
+            }
+          }
+          
+          // Update fleet meta
+          return fetch('/fleet/api/switch-project', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ repo_path: repoPath })
+          });
+        }
+        return Promise.resolve();
+      } else {
+        throw new Error(data.error || 'Unknown error');
+      }
+    })
+    .then(() => {
+      // Refresh the UI
+      loadFleetMeta();
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('Failed to save project activation: ' + error.message);
+      // Revert if error
+      fleetData.projects[projectIndex].is_active = currentStatus;
+      populateProjects();
+    });
+  } else {
+    // Revert if user cancels
+    fleetData.projects[projectIndex].is_active = currentStatus;
+    populateProjects(); // Refresh to show original state
+  }
 };
 
 let memorySearchQuery = '';
@@ -462,11 +573,7 @@ async function loadDailyStandups() {
   const view = document.getElementById('daily-view');
   if (!view) return;
   try {
-    const path = window.location.pathname;
-    const isDemo = path.indexOf('/demo') !== -1;
-    const isGrowth = path.indexOf('/growth') !== -1;
-    const base = (isDemo || isGrowth) ? (isDemo ? '/demo' : '/growth') : '/fleet';
-    const data = await fetchJson(base + '/standups/index.json');
+    const data = await fetchJson('/fleet/api/standups');
     dailyStandupsIndex = data.sort(function(a, b) { return b.date.localeCompare(a.date); });
     renderDailyButtons();
     if (dailyStandupsIndex.length > 0) selectDaily(dailyStandupsIndex[0]);
@@ -502,11 +609,7 @@ async function selectDaily(day) {
   const view = document.getElementById('daily-view');
   if (!view) return;
   try {
-    const path = window.location.pathname;
-    const isDemo = path.indexOf('/demo') !== -1;
-    const isGrowth = path.indexOf('/growth') !== -1;
-    const base = (isDemo || isGrowth) ? (isDemo ? '/demo' : '/growth') : '/fleet';
-    const raw = await fetchText(base + '/standups/' + day.file);
+    const raw = await fetchText('/fleet/api/standups/' + day.date);
     view.innerHTML = renderSimpleMarkdown(raw);
   } catch (err) { view.innerHTML = '<p class="muted">Error loading file.</p>'; }
 }
@@ -558,7 +661,8 @@ function setupForms() {
         summary: f.get('summary'),
         docs: [f.get('docs') || f.get('github')],
         kanban: f.get('kanban') || f.get('github'),
-        crmLink: f.get('extra_url') || null
+        crmLink: f.get('extra_url') || null,
+        is_active: true // New projects are active by default
       };
       fleetData.projects.push(newProject);
       saveFleetData().then(closeProjectModal);

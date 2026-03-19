@@ -53,4 +53,16 @@ npx create-flotilla my-fleet --skip-git
 npm start
 npm run dev
 npm run doctor
+npm run verify:dry-run
 ```
+
+## Optional: Hybrid Scenario 3
+
+If your agents and PocketBase stay on a local machine but the Fleet Hub is public on a VPS, enable the snapshot connector:
+
+1. Ensure the remote server accepts `POST /fleet/snapshot` with `FLEET_SYNC_TOKEN`.
+2. Place `scripts/fleet_push.py` in the live fleet workspace.
+3. Load `scripts/fleet.push.plist` under `~/Library/LaunchAgents/`.
+4. Inject `FLEET_SYNC_TOKEN` at runtime with your vault provider.
+
+The connector pushes `heartbeats`, `tasks`, and `comments` every 60 seconds. The remote Fleet Hub then serves the cached snapshot when it cannot reach PocketBase directly.

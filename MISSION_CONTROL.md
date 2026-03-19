@@ -21,7 +21,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 | :--- | :--- | :--- | :--- |
 | **1. Salesman Infra** | `../salesman-cloud-infra/` | Cloud-side scripts, Caddy proxy. | [Infra Docs](../salesman-cloud-infra/README.md) |
 | **2. Music Video Tool** | `../music-video-tool/` | Tooling for creating music videos and content. | [Project MD](./AGENTS/CONTEXT/music_video_tool.md) |
-| **3. CRM-POC** | `../customer-mgmt/` | Customer & Agent relational management system. | [Context MD](./AGENTS/CONTEXT/crm_poc_context.md) |
+| **3. CRM-POC** | `../crm-poc/` | Customer & Agent relational management system. | [Context MD](./AGENTS/CONTEXT/crm_poc_context.md) |
 | **4. The Lost Coins** | `../the-lost-coins/` | Narrative/Story-driven project. | [Story MD](./AGENTS/CONTEXT/the_lost_coins_story.md) |
 | **5. Robot Ross** | *(Mac mini)* | **Master control** for the robot arm & painting. | [Artist MD](./AGENTS/CONTEXT/robot_ross_artist.md) |
 | **6. Salesman (OpenClaw)** | `DigitalOcean` | OpenClaw gateway & **BobRossSkill** (public). | [Salesman MD](./AGENTS/CONTEXT/robot_ross_salesman.md) |
@@ -40,9 +40,15 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 
 ---
 
-## Ticket Status (as of 2026-03-13)
+## Ticket Status (as of 2026-03-19)
+
+### ENVIRONMENT NOTE — Mac Mini migration complete (2026-03-14)
+All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users/miguel/` → `/Users/miguelrodriguez/`. Repos cloned to `~/projects/`. Python 3.12 venv at `~/projects/music-video-tool/.venv312`. OpenClaw at `/opt/homebrew/bin/openclaw`. Fleet always-on infrastructure build in progress — see tickets #34–#43.
+
+---
 
 ### CLOSED
+- **#66**: Agent health monitoring + skill-based task reassignment -- Gem. Implemented in dispatcher.py and workspace UI. Approved.
 - **#1-#6**: Sheets migration, tracker API, OAuth wired -- Team.
 - **#7-#9**: Stats UI, heatmap, dashboard extraction -- Gem.
 - **#10**: KeyVault (Infisical EU) -- wired into music-video-tool and CRM -- Clau.
@@ -58,11 +64,50 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 - **#30**: Flotilla Kanban parser + normalized ticket model -- Codi. GET /fleet/api/kanban live.
 - **#31**: Flotilla Kanban UI tab -- Gem. 3-column unified board + refresh logic live.
 - **#33**: Add search to Memory Tree -- Gem. Dynamic filtering for docs and lessons live.
+- **#34**: Install PocketBase + create DB schema -- Gem. ARM binary installed, 5 collections with API rules live.
+- **#35**: Create `~/fleet/` directory structure -- Clau. All agent workspace dirs created, MISSION_CONTROL in position.
+- **#36**: Build `dispatcher.py` + Telegram notifications -- Gem. Dispatcher live with Mac Mini paths, Telegram notify for waiting_human.
+- **#37**: Create fleet Python venv -- Clau. `~/fleet/.venv` created with `requests`.
+- **#40**: Gem fleet mandate + heartbeat protocol -- Gem. `~/fleet/gem/GEMINI.md` created with 6-phase heartbeat protocol.
+- **#38**: launchd plists: PocketBase + dispatcher -- Clau. Both KeepAlive services running. Dispatcher live via infisical run (TELEGRAM_TOKEN injected from vault).
+- **#39**: launchd heartbeat plists: Gem + Codi -- Clau. Staggered at :00 and :02, node path fixed for launchd limited PATH.
+- **#41**: Codi fleet mandate + heartbeat protocol -- Codi. `~/fleet/codi/CLAUDE.md` created with 6-phase heartbeat protocol, `~/fleet/codi/PROGRESS.md` initialized.
+- **#44**: Live Fleet auth/bootstrap and dashboard recovery -- Codi. Fixed `api.robotross.art/fleet` login loop, restored lessons/inbox/standups/user management, redeployed `salesman-api`, and documented the auth failure in lessons learned.
+- **#42**: Clau fleet mandate + heartbeat protocol -- Clau. `~/fleet/clau/CLAUDE.md` created with 6-phase heartbeat protocol.
+- **#43**: Fleet Hub: Tasks tab + Activity feed + Heartbeat indicators -- Gem. Board, activity feed, and heartbeat dots (PocketBase REST) live.
+- **#32**: Mission Control format hardening -- Clau. `**#N**` format normalized, closed rows purged from OPEN table, status values corrected to spec. v1 Kanban contract documented in `AGENTS/CONTEXT/kanban_format_spec.md`.
+- **#45**: Telegram Listener Bridge (Two-Way Chat) -- Gem. `telegram_bridge.py` deployed to `~/fleet/`, `fleet.bridge` launchd service running with Infisical secret injection. Two-way: inbound TG→PB, outbound PB comments→TG.
+- **#46**: Telegram Bridge outbound truncation fix -- Clau. Fixed bridge stuck in retry loop on comments >4096 chars (Telegram limit). Truncates to 4096 with `...` suffix. Bridge restarted clean.
+- **#47**: Big Bear homepage: Flotilla CTA and positioning refresh -- Codi. Hero repositioned around “The Docker of AI Agents,”
+- **#48**: Telegram bot `/commands` + real PocketBase task routing -- Clau. Registered 9 slash commands via setMyCommands. All commands (/clau /gem /codi /ask /spec /go /status /tasks /help) now create real PocketBase tasks or query/reply inline. Bridge restarted.
+- **#49**: Fix Codi launchd invocation — trusted directory error -- Codi+Clau. Codi updated `dispatcher.py` with `-C agentic-fleet-hub --add-dir fleet` flags. Clau applied same fix to `fleet.codi.plist`. Both invocation paths now match; error resolved.
+- **#50**: Add `/claw` Telegram command → OpenClaw gateway -- Clau. Enabled `gateway.http.endpoints.chatCompletions` in `~/.openclaw/openclaw.json`. Added `/claw` to fleet bridge — forwards message to `localhost:18789/v1/chat/completions`, replies inline synchronously.
+- **#52**: Vault-safe OpenClaw bridge token resolution + docs sync -- Codi. Removed hardcoded gateway token from telegram bridge, resolve token from Infisical-injected env or local OpenClaw config, synced live/package/blueprint bridge code, and documented Telegram command routing plus secret-handling rules.
+- **#51**: Fix dispatcher `waiting_human` notification spam -- Gem. Added de-dup cooldown (1h) and verified human-reply-to-todo-flip logic. Dispatcher live in `~/fleet/`.
+- **#54**: Update demo page -- showcase new Agentic CRM fleet features -- Gem. Updated `api.robotross.art/demo/` with Kanban board, live heartbeat indicators, and activity feed.
+- **#55**: Update growth page -- reflect new fleet capabilities in Sales & Marketing demo -- Gem. Updated `api.robotross.art/growth/` with live tracking and coordination highlights.
+- **#58**: Dynamic Telegram bot commands from fleet_meta.json -- Clau (took over from stuck Codi). `load_fleet_meta()` + `build_bot_commands()` added to bridge. 5 agent commands loaded dynamically at startup. Bridge restarted clean.
+- **#62**: /demo polish — kanban, memory, standups, user mgmt, modal scroll -- Clau (took over from Gem quota-blocked). All 5 sections (A-E) implemented and pushed to salesman-cloud-infra master.
+- **#56**: Sync /demo and /growth UI assets to match /fleet redesign -- Gem/Clau. Assets synced and committed to repo. Deployed to DO server.
+- **#61**: Fleet Hub UI redesign — tool aesthetic + dark/light mode -- Gem/Clau. CSS token system, [data-theme="dark"] + prefers-color-scheme, GitHub-style palette. Committed and deployed to /fleet, /demo, /growth.
+- **#63**: Hybrid dashboard sync via pushed PocketBase snapshot -- Codi. Added `fleet_push.py` + `fleet.push.plist`, snapshot ingest at `POST /fleet/snapshot`, server fallback for `heartbeats`/`tasks`/`activity`, deployed to Mac Mini + DO server. Fixes remote grey dots when PocketBase stays local.
+- **#67**: Setup wizard + doctor update for v0.2.0 -- Codi/Clau. Added deployment/integration steps, aligned doctor checks with Telegram/OpenClaw/GitHub Sync/Hybrid scripts, and added a package-level `verify:dry-run` smoke gate before publish. Package bumped to v0.2.0.
+- **#57**: GitHub Issues ↔ PocketBase two-way sync -- Clau. `github_sync.py` deployed as `fleet.github` launchd service. Outbound+inbound sync live. `close_approved_issues()` bug fixed. Script+plist synced to package/blueprint. Approved.
+- **#59**: Make OpenClaw optional -- Codi. Ping check at startup, installer opt-in, docs updated. Approved.
+- **#60**: /demo mock data -- Gem. 4 agents (Aria/Rex/Nova/Sage) + ShopFlow project cast. Deployed to DO server. Approved.
+- **#64**: Heartbeat dots tooltips & mock status -- Gem/Clau. Mock working/idle in demo, styled tooltips on all dots. Approved.
+- **#65**: Deployment scenarios docs -- Gem. Local/Cloud/Hybrid comparison table added to README. Approved.
+- **#68**: Write v0.2.0 release notes -- Clau. Approved.
+- **#53**: Release create-flotilla v0.2.0 -- include new fleet features -- Clau. Published `create-flotilla@0.2.0` to npm on 2026-03-16 after token-based Infisical publish flow verification. Consolidated PB tasks #47 and #50. Closed.
+- **#s4znd9zm9a2rr0v**: BigBear site fixes: showcase screenshots + vault section copy -- Gem. Approved.
+- **#69**: Add project-switching endpoint to the fleet API -- Misty. Approved.
+- **#70**: UI for project activation (toggle-based) -- Misty. Approved.
+- **#71**: Update MISSION_CONTROL.md parser for dynamic project switching -- Misty. Approved.
+- **#72**: Service restart logic for project switching -- Misty. Approved.
+- **#73**: Optimize heartbeat token usage -- checksum caching for MISSION_CONTROL.md -- Misty. Approved.
 
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **#32** | Mission Control format hardening | Clau | in_work | Stabilize status/owner conventions and document the v1 Kanban parsing contract |
 
-**Status: OPEN-SOURCE PACKAGE PUBLISHED. `create-flotilla@0.1.0` is live on npm. Release-ready.**
-
+**Status: `create-flotilla@0.2.0` live on npm as of 2026-03-16. Fleet always-on infrastructure live on Mac Mini.**

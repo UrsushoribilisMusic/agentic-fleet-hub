@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>fleet.pocketbase</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/miguelrodriguez/fleet/pocketbase/pocketbase</string>
+        <string>serve</string>
+        <string>--dir</string>
+        <string>/Users/miguelrodriguez/fleet/pocketbase/pb_data</string>
+        <string>--http</string>
+        <string>127.0.0.1:8090</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
+    <key>StandardOutPath</key>
+    <string>/Users/miguelrodriguez/fleet/logs/pocketbase.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/miguelrodriguez/fleet/logs/pocketbase_err.log</string>
+</dict>
+</plist>

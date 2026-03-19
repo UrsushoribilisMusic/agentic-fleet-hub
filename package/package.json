@@ -1,8 +1,12 @@
 {
   "name": "create-flotilla",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Scaffold a self-hosted AgentFleet workspace with setup, configure, demo, and growth dashboards.",
   "type": "module",
+  "scripts": {
+    "verify:dry-run": "node ./tools/verify-dry-run.mjs",
+    "prepublishOnly": "npm run verify:dry-run"
+  },
   "bin": {
     "create-flotilla": "bin/create-flotilla.mjs"
   },
@@ -13,6 +17,7 @@
     "data/",
     "scripts/",
     "server/",
+    "tools/",
     "INSTALL.md",
     "LICENSE",
     "COMPLIANCE.md",

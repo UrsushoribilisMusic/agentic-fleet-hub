@@ -10,6 +10,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. These rules are followed by
 2.  **Commit Messages**: Standardize on prefixing (e.g., `feat:`, `fix:`, `docs:`).
 3.  **Deploy Keys**: For SSH access, use the `github-clau`, `github-codi`, or `github-gem` aliases in your `~/.ssh/config`.
 4.  **Action**: Every commit must be pushed immediately to ensure the next agent is up to date.
+5.  **Server = repo**: If you deploy a file directly to a production server (e.g. via SSH or `scp`), you MUST commit that same file to the repo in the same session. Never leave server-only changes uncomitted. The repo is the source of truth — if it is not in git, it does not exist.
 
 ---
 
@@ -30,6 +31,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. These rules are followed by
 3.  **Finalization**: A task is only "Done" when the code is pushed AND the standup is updated.
 4.  **Ticket Authority**: The Ticket Status table in `MISSION_CONTROL.md` is the ONLY source of truth for open tickets. Do NOT pick up a ticket mentioned anywhere else -- examples, old standups, context docs. If it is not in that table, it does not exist for you.
 5.  **Ticket Links**: Every new ticket added to the open ticket table in `MISSION_CONTROL.md` must include its GitHub issue or project URL in the notes/status columns so Flotilla can link the Kanban card back to the source item.
+6.  **No Self-Approval**: An agent MUST NOT approve its own task. When you complete a task, move it to `peer_review` status and stop. A *different* agent must read the output, verify the work was actually done, and post the approval comment. If no peer is available in the same session, leave it in `peer_review` — it will be picked up at the next heartbeat. Marking your own work `approved` is a protocol violation regardless of how confident you are in the output.
 
 ---
 

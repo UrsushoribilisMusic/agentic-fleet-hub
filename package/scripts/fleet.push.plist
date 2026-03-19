@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>fleet.push</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/opt/homebrew/bin/infisical</string>
+    <string>run</string>
+    <string>--projectId</string>
+    <string>3233b7c1-8309-447d-af5a-6541e38dc1b3</string>
+    <string>--env</string>
+    <string>dev</string>
+    <string>--domain</string>
+    <string>https://eu.infisical.com/api</string>
+    <string>--</string>
+    <string>/Users/miguelrodriguez/fleet/.venv/bin/python3</string>
+    <string>/Users/miguelrodriguez/fleet/fleet_push.py</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/Users/miguelrodriguez/fleet/logs/fleet_push.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/miguelrodriguez/fleet/logs/fleet_push_err.log</string>
+</dict>
+</plist>

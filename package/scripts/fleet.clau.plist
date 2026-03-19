@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>fleet.clau</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/miguelrodriguez/.local/bin/claude</string>
+    <string>--dangerously-skip-permissions</string>
+    <string>-p</string>
+    <string>Run your heartbeat protocol. Read ~/fleet/MISSION_CONTROL.md first.</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>/Users/miguelrodriguez/fleet/clau</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/Users/miguelrodriguez/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+  </dict>
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Minute</key><integer>4</integer></dict>
+    <dict><key>Minute</key><integer>14</integer></dict>
+    <dict><key>Minute</key><integer>24</integer></dict>
+    <dict><key>Minute</key><integer>34</integer></dict>
+    <dict><key>Minute</key><integer>44</integer></dict>
+    <dict><key>Minute</key><integer>54</integer></dict>
+  </array>
+  <key>RunAtLoad</key>
+  <false/>
+  <key>StandardOutPath</key>
+  <string>/Users/miguelrodriguez/fleet/logs/clau.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/miguelrodriguez/fleet/logs/clau_err.log</string>
+</dict>
+</plist>

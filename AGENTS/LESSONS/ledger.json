@@ -1,5 +1,41 @@
 [
   {
+    "id": "hybrid-dashboard-needs-pushed-pb-snapshot",
+    "title": "Hybrid dashboards need a pushed PocketBase snapshot instead of direct PB reads",
+    "category": "architecture",
+    "project": "Fleet Hub",
+    "symptom": "A public `/fleet/` dashboard hosted on a VPS showed grey heartbeat dots and empty task/activity state when PocketBase was only reachable on the local Mac Mini.",
+    "root_cause": "The remote server was still trying to fetch PocketBase directly from `127.0.0.1:8090`, which only works in single-host deployments. In a hybrid topology, the public dashboard and local PocketBase do not share the same loopback network.",
+    "lesson": "For hybrid deployments, push a small signed snapshot (`heartbeats`, `tasks`, `comments`) from the local machine to the public Fleet server on a timer, and make the server fall back to that cache whenever direct PocketBase access fails.",
+    "agent": "Codi (Codex)",
+    "date": "2026-03-15T00:00:00Z",
+    "status": "pending_review"
+  },
+  {
+    "id": "server-files-must-be-committed-to-repo",
+    "title": "Files deployed directly to a server must be committed to the repo in the same session",
+    "category": "process",
+    "project": "Fleet Hub",
+    "symptom": "Fleet UI had live changes (style.css, updated main.js, dashboard.html) that only existed on the DO server. The repo was weeks behind reality. Any server wipe or new deployment would have silently lost all that work.",
+    "root_cause": "Agent (Gem/Codi) deployed files to /opt/salesman-api/ via SSH or direct edit but did not commit them to salesman-cloud-infra. The task was marked done in MISSION_CONTROL without verifying the repo matched the server.",
+    "lesson": "The repo is the source of truth. If you touch a file on a production server — even a one-line fix — commit it to the corresponding repo before closing the session. A task is NOT done until the change is in git. Add Rule #5 under GitHub & Commits in AGENTS/RULES.md was added to enforce this.",
+    "agent": "Clau (Claude Code)",
+    "date": "2026-03-14T00:00:00Z",
+    "status": "approved"
+  },
+  {
+    "id": "fleet-auth-bootstrap-must-be-public-and-cookie-safe",
+    "title": "Fleet auth bootstrap must stay public and cookie parsing must handle dots",
+    "category": "integration",
+    "project": "Fleet Hub",
+    "symptom": "The private `/fleet/` page entered a login/loading loop, `/auth/auth.js` returned 401, `/auth/logout` returned 401, and the dashboard never finished booting.",
+    "root_cause": "The live server was missing public routes for `/auth/auth.js`, `/auth/logout`, and `/favicon.ico`. After that was fixed, auth verification still broke because the signed cookie payload was split on every `.` character instead of the final delimiter, so emails containing dots corrupted session parsing.",
+    "lesson": "Treat auth bootstrap assets as public infrastructure, not protected app routes. When signing cookies as `payload.signature`, always split on the last delimiter, not every occurrence. Otherwise normal email addresses can break session verification and trap the UI in a login loop.",
+    "agent": "Codi (Codex)",
+    "date": "2026-03-14T00:00:00Z",
+    "status": "pending_review"
+  },
+  {
     "id": "kanban-ui-must-match-package-api",
     "title": "Kanban UI must consume the packaged API shape, not a parallel frontend contract",
     "category": "integration",
@@ -105,6 +141,30 @@
     "lesson": "Always pass --domain https://eu.infisical.com/api to infisical CLI, or set INFISICAL_API_URL env var. Bake into agent-fetch.sh and vault.py.",
     "agent": "Clau (Claude Code)",
     "date": "2026-03-12T12:00:00Z",
+    "status": "approved"
+  },
+  {
+    "id": "homepage-cta-needs-one-command-story",
+    "title": "Homepage CTA must tell one command story with aligned visual mapping",
+    "category": "product",
+    "project": "Big Bear Engineering",
+    "symptom": "The homepage hero had duplicate command/CTA treatments, uneven desktop spacing, and problem-solution cards that did not map cleanly, which made the Flotilla pitch feel less decisive than the product itself.",
+    "root_cause": "The first pass emphasized feature coverage but did not enforce a single primary CTA path or one-to-one narrative alignment between the pain points and the solution cards.",
+    "lesson": "On product landing pages, pick one install command, one CTA cluster, and one explicit problem-to-solution mapping. If visitors have to reconcile duplicate buttons or mismatched card order, the page reads as a draft instead of an operating system they can trust.",
+    "agent": "Codi (Codex)",
+    "date": "2026-03-14T00:00:00Z",
+    "status": "approved"
+  },
+  {
+    "id": "npm-publish-uses-infisical-token-not-otp",
+    "title": "npm publish now uses NPM_TOKEN from Infisical, not OTP",
+    "category": "release",
+    "project": "Flotilla Package",
+    "symptom": "Ticket #53 was delayed because the old mental model expected an npm OTP prompt, but the publish flow had already moved to token auth.",
+    "root_cause": "npm no longer supported the previous OTP-based release routine we were expecting, and the working replacement procedure was documented across standups and handoff notes instead of one durable lesson entry.",
+    "lesson": "For create-flotilla releases, publish from `/Users/miguelrodriguez/projects/agentic-fleet-hub/package` and inject `NPM_TOKEN` from Infisical at runtime: `infisical run --projectId=3233b7c1-8309-447d-af5a-6541e38dc1b3 --env=dev --domain=https://eu.infisical.com/api -- npm publish`. Do not wait for or troubleshoot OTP. Before the live publish, run the package-level checks from the same directory (`npm run verify:dry-run`, then `npm publish --dry-run`) and make sure `.npmignore` excludes junk like `__pycache__/` and `*.pyc` from the tarball.",
+    "agent": "Codi (Codex)",
+    "date": "2026-03-16T00:00:00Z",
     "status": "approved"
   }
 ]

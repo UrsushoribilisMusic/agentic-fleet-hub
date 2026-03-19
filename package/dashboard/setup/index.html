@@ -298,7 +298,11 @@
         repo_url: "",
         kanban_url: "",
         crm_url: "",
+        deployment_scenario: "local",
         vault: { provider: "infisical", region: "EU" },
+        telegram: { enabled: false, chat_id: "" },
+        openclaw: { enabled: false, gateway_url: "" },
+        github_sync: { enabled: false, repo: "" },
         selected_agents: [],
         bootstrap: { files_written: [] }
       },
@@ -308,11 +312,15 @@
 
     const steps = [
       { title: "Workspace", copy: "Set the installation identity that will be shown across the fleet." },
+      { title: "Deployment", copy: "Choose where your fleet runs: local Mac/PC, a cloud VPS, or a hybrid setup with agents local and the dashboard remote." },
       { title: "Repository", copy: "Point setup at the repository you want to bootstrap. This can be skipped and added later." },
       { title: "Agents", copy: "Choose the fixed set of agents this fleet should provision." },
       { title: "Names", copy: "Set the display names each selected agent will use inside Mission Control and the UI." },
       { title: "Vault", copy: "Store the key vault provider and region in the grouped installation profile." },
       { title: "Templates", copy: "Configure shared links used by the demo and growth template views." },
+      { title: "Telegram", copy: "Optional: connect a Telegram bot for human-in-the-loop notifications and task routing. Skip if not needed." },
+      { title: "OpenClaw", copy: "Optional: connect an OpenClaw gateway to route /claw Telegram commands to a local LLM. Skip if not needed." },
+      { title: "GitHub Sync", copy: "Optional: enable two-way sync between PocketBase tasks and GitHub Issues. Skip if not needed." },
       { title: "Review", copy: "Review the installation profile, optionally write bootstrap files into the repo, and apply setup." }
     ];
 
@@ -347,6 +355,8 @@
       const profile = state.profile;
       const org = el("org_name");
       if (org) profile.org_name = org.value.trim();
+      const scenario = el("deployment_scenario");
+      if (scenario) profile.deployment_scenario = scenario.value;
       const repoPath = el("repo_path");
       if (repoPath) profile.repo_path = repoPath.value.trim();
       const repoUrl = el("repo_url");
@@ -359,6 +369,18 @@
       if (provider) profile.vault.provider = provider.value;
       const region = el("vault_region");
       if (region) profile.vault.region = region.value;
+      const tgEnabled = el("telegram_enabled");
+      if (tgEnabled) profile.telegram.enabled = tgEnabled.checked;
+      const tgChat = el("telegram_chat_id");
+      if (tgChat) profile.telegram.chat_id = tgChat.value.trim();
+      const ocEnabled = el("openclaw_enabled");
+      if (ocEnabled) profile.openclaw.enabled = ocEnabled.checked;
+      const ocUrl = el("openclaw_gateway_url");
+      if (ocUrl) profile.openclaw.gateway_url = ocUrl.value.trim();
+      const ghEnabled = el("github_sync_enabled");
+      if (ghEnabled) profile.github_sync.enabled = ghEnabled.checked;
+      const ghRepo = el("github_sync_repo");
+      if (ghRepo) profile.github_sync.repo = ghRepo.value.trim();
       profile.selected_agents = selectedAgents();
     }
 
@@ -403,14 +425,21 @@
       const profile = state.profile;
       const agents = profile.selected_agents.map(agent => `${agent.name} (${agent.id})`).join(", ") || "None selected";
       const doctor = state.doctor || { ok: true, issues: [] };
+      const integrations = [
+        profile.telegram.enabled ? `Telegram (chat: ${profile.telegram.chat_id || "not set"})` : null,
+        profile.openclaw.enabled ? `OpenClaw (${profile.openclaw.gateway_url || "no URL"})` : null,
+        profile.github_sync.enabled ? `GitHub sync (${profile.github_sync.repo || "no repo"})` : null,
+      ].filter(Boolean).join(", ") || "None";
       return `
         <div class="review">
           <h3>Installation Profile</h3>
           <div class="review-grid">
             <div><strong>Organization</strong><br>${escapeHtml(profile.org_name || "Not set")}</div>
+            <div><strong>Deployment</strong><br>${escapeHtml(profile.deployment_scenario || "local")}</div>
             <div><strong>Repository path</strong><br>${escapeHtml(profile.repo_path || "Skipped")}</div>
             <div><strong>Vault</strong><br>${escapeHtml(profile.vault.provider)} / ${escapeHtml(profile.vault.region)}</div>
             <div><strong>Agents</strong><br>${escapeHtml(agents)}</div>
+            <div><strong>Integrations</strong><br>${escapeHtml(integrations)}</div>
           </div>
         </div>
         <label class="inline-check full">
@@ -440,6 +469,7 @@
 
       let html = "";
       if (state.step === 0) {
+        // Workspace
         html = `
           <label class="field full">
             <span>Organization name</span>
@@ -450,6 +480,24 @@
           </div>
         `;
       } else if (state.step === 1) {
+        // Deployment scenario
+        html = `
+          <label class="field full">
+            <span>Deployment scenario</span>
+            <select id="deployment_scenario">
+              <option value="local" ${state.profile.deployment_scenario === "local" ? "selected" : ""}>Local — agents and dashboard on the same machine</option>
+              <option value="vps" ${state.profile.deployment_scenario === "vps" ? "selected" : ""}>VPS — all components deployed to a cloud server</option>
+              <option value="hybrid" ${state.profile.deployment_scenario === "hybrid" ? "selected" : ""}>Hybrid — agents run locally, dashboard hosted remotely</option>
+            </select>
+          </label>
+          <div class="note full">
+            <strong>Local</strong>: PocketBase runs on localhost:8090. Easiest for solo devs and teams on a single workstation.<br>
+            <strong>VPS</strong>: Everything runs on one cloud server (e.g. DigitalOcean), including PocketBase and the Fleet dashboard.<br>
+            <strong>Hybrid</strong>: Agents and PocketBase run on your machine, the dashboard is deployed remotely. Requires the snapshot push connector and <code>FLEET_SYNC_TOKEN</code>.
+          </div>
+        `;
+      } else if (state.step === 2) {
+        // Repository
         html = `
           <label class="field full">
             <span>Git repository path</span>
@@ -463,9 +511,11 @@
             The repo path is optional. If provided, setup can write the default markdown and vault files into that repository.
           </div>
         `;
-      } else if (state.step === 2 || state.step === 3) {
+      } else if (state.step === 3 || state.step === 4) {
+        // Agents + Names
         html = renderAgentCards();
-      } else if (state.step === 4) {
+      } else if (state.step === 5) {
+        // Vault
         html = `
           <label class="field">
             <span>Vault provider</span>
@@ -484,7 +534,8 @@
             </select>
           </label>
         `;
-      } else if (state.step === 5) {
+      } else if (state.step === 6) {
+        // Templates
         html = `
           <label class="field">
             <span>Kanban URL</span>
@@ -496,6 +547,60 @@
           </label>
           <div class="note full">
             These links are reused by the generated demo and growth metadata inside the grouped template section.
+          </div>
+        `;
+      } else if (state.step === 7) {
+        // Telegram (optional)
+        html = `
+          <label class="inline-check full" style="margin-bottom:8px;">
+            <input type="checkbox" id="telegram_enabled" ${state.profile.telegram.enabled ? "checked" : ""} />
+            Enable Telegram integration
+          </label>
+          <label class="field full">
+            <span>Telegram Chat ID</span>
+            <input id="telegram_chat_id" value="${escapeHtml(state.profile.telegram.chat_id)}" placeholder="-100123456789" />
+          </label>
+          <div class="note full">
+            <strong>Token security:</strong> Do not enter your <code>TELEGRAM_TOKEN</code> here. Add it to your vault instead:<br>
+            <code>infisical secrets set TELEGRAM_TOKEN=&lt;your-token&gt;</code><br><br>
+            The Chat ID is non-sensitive and stored in <code>fleet_meta.json</code>.
+            Leave unchecked to skip Telegram — you can enable it later.
+          </div>
+        `;
+      } else if (state.step === 8) {
+        // OpenClaw (optional)
+        html = `
+          <label class="inline-check full" style="margin-bottom:8px;">
+            <input type="checkbox" id="openclaw_enabled" ${state.profile.openclaw.enabled ? "checked" : ""} />
+            Enable OpenClaw gateway
+          </label>
+          <label class="field full">
+            <span>Gateway URL</span>
+            <input id="openclaw_gateway_url" value="${escapeHtml(state.profile.openclaw.gateway_url)}" placeholder="http://localhost:18789" />
+          </label>
+          <div class="note full">
+            OpenClaw routes <code>/claw</code> Telegram commands to a local LLM via an OpenAI-compatible endpoint.
+            It currently depends on the Telegram bridge, so leave this off unless Telegram integration is also enabled.
+            Corporate environments can safely skip it — the bridge should degrade gracefully if the gateway is unreachable.
+            Leave unchecked to skip.
+          </div>
+        `;
+      } else if (state.step === 9) {
+        // GitHub Sync (optional)
+        html = `
+          <label class="inline-check full" style="margin-bottom:8px;">
+            <input type="checkbox" id="github_sync_enabled" ${state.profile.github_sync.enabled ? "checked" : ""} />
+            Enable GitHub Issues sync
+          </label>
+          <label class="field full">
+            <span>GitHub repository (org/repo)</span>
+            <input id="github_sync_repo" value="${escapeHtml(state.profile.github_sync.repo)}" placeholder="acme/agentfleet" />
+          </label>
+          <div class="note full">
+            <strong>Token security:</strong> Do not enter your <code>GITHUB_TOKEN</code> here. Add it to your vault instead:<br>
+            <code>infisical secrets set GITHUB_TOKEN=&lt;your-token&gt;</code><br><br>
+            When enabled, PocketBase tasks are synced two-way with GitHub Issues (tag: <code>flotilla-managed</code>).
+            Leave unchecked to skip.
           </div>
         `;
       } else {
@@ -510,7 +615,27 @@
 
     function applyStatus(status) {
       state.catalog = status.catalog || [];
-      state.profile = status.profile || state.profile;
+      const incoming = status.profile || {};
+      // Merge incoming profile, preserving new fields with defaults if absent
+      state.profile = Object.assign({
+        org_name: "AgentFleet",
+        repo_path: "",
+        repo_url: "",
+        kanban_url: "",
+        crm_url: "",
+        deployment_scenario: "local",
+        vault: { provider: "infisical", region: "EU" },
+        telegram: { enabled: false, chat_id: "" },
+        openclaw: { enabled: false, gateway_url: "" },
+        github_sync: { enabled: false, repo: "" },
+        selected_agents: [],
+        bootstrap: { files_written: [] }
+      }, incoming, {
+        vault: Object.assign({ provider: "infisical", region: "EU" }, incoming.vault),
+        telegram: Object.assign({ enabled: false, chat_id: "" }, incoming.telegram),
+        openclaw: Object.assign({ enabled: false, gateway_url: "" }, incoming.openclaw),
+        github_sync: Object.assign({ enabled: false, repo: "" }, incoming.github_sync),
+      });
       state.bootstrap_instructions = status.bootstrap_instructions || [];
       state.doctor = status.doctor || state.doctor;
       el("status-chip").textContent = status.completed ? "Setup already completed" : "Setup not completed";
@@ -531,12 +656,19 @@
       syncStateFromForm();
       const payload = {
         org_name: state.profile.org_name,
+        deployment_scenario: state.profile.deployment_scenario,
         repo_path: state.profile.repo_path,
         repo_url: state.profile.repo_url,
         kanban_url: state.profile.kanban_url,
         crm_url: state.profile.crm_url,
         vault_provider: state.profile.vault.provider,
         vault_region: state.profile.vault.region,
+        telegram_enabled: state.profile.telegram.enabled,
+        telegram_chat_id: state.profile.telegram.chat_id,
+        openclaw_enabled: state.profile.openclaw.enabled,
+        openclaw_gateway_url: state.profile.openclaw.gateway_url,
+        github_sync_enabled: state.profile.github_sync.enabled,
+        github_sync_repo: state.profile.github_sync.repo,
         selected_agents: state.profile.selected_agents,
         write_to_repo: Boolean(el("write_to_repo") && el("write_to_repo").checked)
       };

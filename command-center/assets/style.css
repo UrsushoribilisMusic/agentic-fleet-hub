@@ -203,6 +203,61 @@ h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing
 
 .daily-view { background: var(--navy); padding: 3rem; border-radius: 16px; border: 1px solid var(--border); }
 
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(320px, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.card-header {
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-size: 1.05rem;
+  color: var(--white);
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  min-width: 0;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.form-group label {
+  color: var(--teal-bright);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.standup-form select,
+.standup-form textarea,
+.standup-form input {
+  width: 100%;
+  min-width: 0;
+}
+
+#message-form {
+  margin-top: 0;
+  gap: 1.15rem;
+}
+
+#message-form .btn-submit {
+  width: 100%;
+  align-self: stretch;
+}
+
 /* Modal Styles */
 .modal-overlay {
   position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85);
@@ -249,4 +304,93 @@ h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing
 }
 .activity-item:hover {
   border-color: rgba(21, 153, 136, 0.4);
+}
+
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tree-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .project-links {
+    flex-wrap: wrap;
+  }
+
+  .btn-submit {
+    width: 100%;
+    align-self: stretch;
+  }
+}
+
+/* Project Activation Toggle */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+  background-color: var(--teal-bright);
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(30px);
+}
+
+.project-activation {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.project-activation-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.active-badge {
+  background-color: var(--teal-bright);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  margin-left: auto;
 }

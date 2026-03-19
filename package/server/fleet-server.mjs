@@ -11,6 +11,8 @@
  *   GOOGLE_AUTH_COOKIE_SECRET - Cookie signing secret
  *   GOOGLE_AUTH_ALLOWED_EMAILS - Comma-separated list of allowed emails (private fleet)
  *   PUBLIC_URL             - Base URL for OAuth callbacks (default: http://localhost:8787)
+ *   POCKETBASE_URL         - PocketBase base URL for live tasks/heartbeats/activity (default: http://127.0.0.1:8090)
+ *   FLEET_SYNC_TOKEN       - Shared token for hybrid snapshot ingest at POST /fleet/snapshot
  *   GITHUB_REPO            - GitHub repo for live standup sync, e.g. "org/repo" (optional)
  *   GITHUB_BRANCH          - Branch to read from (default: master)
  *   GITHUB_STANDUPS_PATH   - Path inside repo to standups dir (default: standups)
@@ -44,6 +46,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = Number(process.env.PORT || 8787);
 const PUBLIC_URL = process.env.PUBLIC_URL || `http://localhost:${PORT}`;
 const FLEET_DATA_DIR = process.env.FLEET_DATA_DIR || path.join(__dirname, "..", "data");
+const POCKETBASE_URL = process.env.POCKETBASE_URL || "http://127.0.0.1:8090";
+const FLEET_SYNC_TOKEN = process.env.FLEET_SYNC_TOKEN || "";
 
 // Derived data paths
 const FLEET_META_PATH  = path.join(FLEET_DATA_DIR, "config", "fleet_meta.json");
@@ -53,6 +57,8 @@ const LESSONS_PATH     = path.join(FLEET_DATA_DIR, "lessons", "ledger.json");
 const INBOX_PATH       = path.join(FLEET_DATA_DIR, "messages", "inbox.json");
 const STANDUPS_DIR     = path.join(FLEET_DATA_DIR, "standups");
 const STANDUPS_INDEX   = path.join(STANDUPS_DIR, "index.json");
+const FLEET_SNAPSHOT_PATH = path.join(FLEET_DATA_DIR, "cache", "fleet_snapshot.json");
+const WORKSPACE_ROOT   = path.resolve(__dirname, "..", "..");
 
 // GitHub live standup sync (optional)
 const GITHUB_REPO          = process.env.GITHUB_REPO || "";
@@ -133,6 +139,90 @@ function getMimeType(ext) {
     ".woff2":"font/woff2",
   };
   return types[ext] || "application/octet-stream";
+}
+
+function fileExists(targetPath) {
+  try {
+    return fs.existsSync(targetPath);
+  } catch {
+    return false;
+  }
+}
+
+function getRepoRoot(fleetMeta) {
+  const configured = fleetMeta?.meta?.installation?.repo_path;
+  if (typeof configured === "string" && configured.trim()) {
+    const resolved = path.resolve(configured.trim());
+    if (fileExists(path.join(resolved, "MISSION_CONTROL.md"))) return resolved;
+  }
+
+  if (fileExists(path.join(WORKSPACE_ROOT, "MISSION_CONTROL.md"))) {
+    return WORKSPACE_ROOT;
+  }
+
+  return null;
+}
+
+function getContentPaths(fleetMeta) {
+  const repoRoot = getRepoRoot(fleetMeta);
+  if (repoRoot) {
+    return {
+      lessonsPath: path.join(repoRoot, "AGENTS", "LESSONS", "ledger.json"),
+      inboxPath: path.join(repoRoot, "AGENTS", "MESSAGES", "inbox.json"),
+      standupsDir: path.join(repoRoot, "standups"),
+      standupsIndex: path.join(repoRoot, "standups", "index.json"),
+    };
+  }
+
+  return {
+    lessonsPath: LESSONS_PATH,
+    inboxPath: INBOX_PATH,
+    standupsDir: STANDUPS_DIR,
+    standupsIndex: STANDUPS_INDEX,
+  };
+}
+
+function normalizeFleetSnapshot(input) {
+  const snapshot = input && typeof input === "object" ? input : {};
+  const collections = snapshot.collections && typeof snapshot.collections === "object" ? snapshot.collections : {};
+  return {
+    source: typeof snapshot.source === "string" ? snapshot.source : "unknown",
+    generated_at: typeof snapshot.generated_at === "string" ? snapshot.generated_at : new Date().toISOString(),
+    received_at: new Date().toISOString(),
+    collections: {
+      heartbeats: Array.isArray(collections.heartbeats) ? collections.heartbeats : [],
+      tasks: Array.isArray(collections.tasks) ? collections.tasks : [],
+      comments: Array.isArray(collections.comments) ? collections.comments : [],
+    },
+  };
+}
+
+function readFleetSnapshot() {
+  try {
+    if (!fileExists(FLEET_SNAPSHOT_PATH)) return null;
+    return normalizeFleetSnapshot(readJson(FLEET_SNAPSHOT_PATH, null));
+  } catch {
+    return null;
+  }
+}
+
+function writeFleetSnapshot(snapshot) {
+  fs.mkdirSync(path.dirname(FLEET_SNAPSHOT_PATH), { recursive: true });
+  writeJson(FLEET_SNAPSHOT_PATH, normalizeFleetSnapshot(snapshot));
+}
+
+function getBearerToken(req) {
+  const auth = req.headers.authorization || "";
+  const match = auth.match(/^Bearer\s+(.+)$/i);
+  return match ? match[1].trim() : "";
+}
+
+async function fetchPocketBaseCollection(collection, query = "") {
+  const suffix = query ? `?${query}` : "";
+  const response = await fetch(`${POCKETBASE_URL}/api/collections/${collection}/records${suffix}`);
+  if (!response.ok) throw new Error(`pb_${collection}_${response.status}`);
+  const data = await response.json();
+  return Array.isArray(data) ? data : (data.items || []);
 }
 
 // ─── Cookie helpers (simple HMAC-signed value) ───────────────────────────────
@@ -247,11 +337,40 @@ async function handler(req, res) {
   const url = new URL(req.url, `http://localhost`);
   const urlPath = url.pathname;
   const fleetMeta = normalizeFleetMeta(readJson(FLEET_META_PATH, getDefaultFleetMeta()));
+  const contentPaths = getContentPaths(fleetMeta);
   const setupCompleted = fleetMeta.meta.installation.setup_completed;
 
   // ── Health check ────────────────────────────────────────────────────────
   if (urlPath === "/health") {
     return send(res, 200, { ok: true, ts: now() }, requestId);
+  }
+
+  if (urlPath === "/fleet/snapshot" && req.method === "POST") {
+    const token = getBearerToken(req);
+    if (!FLEET_SYNC_TOKEN || token !== FLEET_SYNC_TOKEN) {
+      return send(res, 401, { ok: false, error: "unauthorized" }, requestId);
+    }
+    try {
+      const body = await readBody(req);
+      const snapshot = normalizeFleetSnapshot(body);
+      writeFleetSnapshot(snapshot);
+      return send(
+        res,
+        200,
+        {
+          ok: true,
+          received_at: snapshot.received_at,
+          counts: {
+            heartbeats: snapshot.collections.heartbeats.length,
+            tasks: snapshot.collections.tasks.length,
+            comments: snapshot.collections.comments.length,
+          },
+        },
+        requestId
+      );
+    } catch {
+      return send(res, 400, { ok: false, error: "invalid_snapshot" }, requestId);
+    }
   }
 
   // ── OAuth endpoints (only if Google OAuth is configured) ─────────────────
@@ -354,6 +473,36 @@ async function handler(req, res) {
       return send(res, 200, getKanbanSnapshot(fleetMeta, { date }), requestId);
     }
 
+    // GET /fleet/api/tasks
+    if (urlPath === "/fleet/api/tasks" && req.method === "GET") {
+      try {
+        return send(res, 200, await fetchPocketBaseCollection("tasks", "sort=-created&perPage=50"), requestId);
+      } catch {
+        const snapshot = readFleetSnapshot();
+        return send(res, snapshot ? 200 : 500, snapshot ? snapshot.collections.tasks : { ok: false, error: "pb_tasks_error" }, requestId);
+      }
+    }
+
+    // GET /fleet/api/heartbeats
+    if (urlPath === "/fleet/api/heartbeats" && req.method === "GET") {
+      try {
+        return send(res, 200, await fetchPocketBaseCollection("heartbeats", "sort=-updated&perPage=50"), requestId);
+      } catch {
+        const snapshot = readFleetSnapshot();
+        return send(res, snapshot ? 200 : 500, snapshot ? snapshot.collections.heartbeats : { ok: false, error: "pb_heartbeats_error" }, requestId);
+      }
+    }
+
+    // GET /fleet/api/activity
+    if (urlPath === "/fleet/api/activity" && req.method === "GET") {
+      try {
+        return send(res, 200, await fetchPocketBaseCollection("comments", "sort=-created&perPage=50"), requestId);
+      } catch {
+        const snapshot = readFleetSnapshot();
+        return send(res, snapshot ? 200 : 500, snapshot ? snapshot.collections.comments : { ok: false, error: "pb_activity_error" }, requestId);
+      }
+    }
+
     // POST /fleet/api/setup
     if (urlPath === "/fleet/api/setup" && req.method === "POST") {
       const body = await readBody(req);
@@ -390,13 +539,13 @@ async function handler(req, res) {
 
     // GET /fleet/api/lessons
     if (urlPath === "/fleet/api/lessons" && req.method === "GET") {
-      return send(res, 200, readJson(LESSONS_PATH, []), requestId);
+      return send(res, 200, readJson(contentPaths.lessonsPath, []), requestId);
     }
 
     // POST /fleet/api/lessons
     if (urlPath === "/fleet/api/lessons" && req.method === "POST") {
       const body = await readBody(req);
-      const ledger = readJson(LESSONS_PATH, []);
+      const ledger = readJson(contentPaths.lessonsPath, []);
       const lesson = {
         id:         body.id || `lesson-${now()}`,
         title:      body.title || "Untitled Lesson",
@@ -410,7 +559,7 @@ async function handler(req, res) {
         status:     "pending_review",
       };
       ledger.unshift(lesson);
-      writeJson(LESSONS_PATH, ledger);
+      writeJson(contentPaths.lessonsPath, ledger);
       return send(res, 201, { ok: true, lesson }, requestId);
     }
 
@@ -419,23 +568,23 @@ async function handler(req, res) {
     if (lessonPatch && req.method === "PATCH") {
       const id = lessonPatch[1];
       const body = await readBody(req);
-      const ledger = readJson(LESSONS_PATH, []);
+      const ledger = readJson(contentPaths.lessonsPath, []);
       const idx = ledger.findIndex(l => l.id === id);
       if (idx === -1) return send(res, 404, { ok: false, error: "lesson_not_found" }, requestId);
       ledger[idx] = { ...ledger[idx], ...body };
-      writeJson(LESSONS_PATH, ledger);
+      writeJson(contentPaths.lessonsPath, ledger);
       return send(res, 200, { ok: true, lesson: ledger[idx] }, requestId);
     }
 
     // GET /fleet/api/messages
     if (urlPath === "/fleet/api/messages" && req.method === "GET") {
-      return send(res, 200, readJson(INBOX_PATH, []), requestId);
+      return send(res, 200, readJson(contentPaths.inboxPath, []), requestId);
     }
 
     // POST /fleet/api/messages
     if (urlPath === "/fleet/api/messages" && req.method === "POST") {
       const body = await readBody(req);
-      const inbox = readJson(INBOX_PATH, []);
+      const inbox = readJson(contentPaths.inboxPath, []);
       const msg = {
         id:         `msg-${now()}`,
         timestamp:  new Date().toISOString(),
@@ -448,7 +597,7 @@ async function handler(req, res) {
         ref_ticket: body.ref_ticket || null,
       };
       inbox.unshift(msg);
-      writeJson(INBOX_PATH, inbox);
+      writeJson(contentPaths.inboxPath, inbox);
       return send(res, 201, { ok: true, message: msg }, requestId);
     }
 
@@ -457,11 +606,11 @@ async function handler(req, res) {
     if (msgPatch && req.method === "PATCH") {
       const id = msgPatch[1];
       const body = await readBody(req);
-      const inbox = readJson(INBOX_PATH, []);
+      const inbox = readJson(contentPaths.inboxPath, []);
       const idx = inbox.findIndex(m => m.id === id);
       if (idx === -1) return send(res, 404, { ok: false, error: "message_not_found" }, requestId);
       inbox[idx] = { ...inbox[idx], ...body };
-      writeJson(INBOX_PATH, inbox);
+      writeJson(contentPaths.inboxPath, inbox);
       return send(res, 200, { ok: true, message: inbox[idx] }, requestId);
     }
 
@@ -471,7 +620,7 @@ async function handler(req, res) {
       if (raw) {
         try { return send(res, 200, JSON.parse(raw), requestId); } catch { /* fall through */ }
       }
-      return send(res, 200, readJson(STANDUPS_INDEX, []), requestId);
+      return send(res, 200, readJson(contentPaths.standupsIndex, []), requestId);
     }
 
     // GET /fleet/api/standups/:date — single standup file (GitHub-first, local fallback)
@@ -484,7 +633,7 @@ async function handler(req, res) {
         res.statusCode = 200;
         return res.end(raw);
       }
-      const localPath = path.join(STANDUPS_DIR, `${date}.md`);
+      const localPath = path.join(contentPaths.standupsDir, `${date}.md`);
       if (fs.existsSync(localPath)) {
         res.setHeader("Content-Type", "text/plain; charset=utf-8");
         res.statusCode = 200;
@@ -497,15 +646,15 @@ async function handler(req, res) {
     if (urlPath === "/fleet/api/standup" && req.method === "POST") {
       const body = await readBody(req);
       const date = body.date || new Date().toISOString().slice(0, 10);
-      fs.mkdirSync(STANDUPS_DIR, { recursive: true });
-      const filePath = path.join(STANDUPS_DIR, `${date}.md`);
+      fs.mkdirSync(contentPaths.standupsDir, { recursive: true });
+      const filePath = path.join(contentPaths.standupsDir, `${date}.md`);
       const entry = `\n## ${body.agent || "Unknown"}\n\n- Done: ${body.done || "(none)"}\n- Today: ${body.today || "(none)"}\n- Blockers: ${body.blockers || "None"}\n`;
       fs.appendFileSync(filePath, entry);
       // Update index
-      const index = readJson(STANDUPS_INDEX, []);
+      const index = readJson(contentPaths.standupsIndex, []);
       if (!index.find(i => i.date === date)) {
         index.unshift({ date, file: `${date}.md`, summary: body.summary || entry.slice(0, 80) });
-        writeJson(STANDUPS_INDEX, index);
+        writeJson(contentPaths.standupsIndex, index);
       }
       return send(res, 200, { ok: true }, requestId);
     }
