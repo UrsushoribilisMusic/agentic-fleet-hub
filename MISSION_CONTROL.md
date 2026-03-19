@@ -104,7 +104,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#70**: UI for project activation (toggle-based) -- Misty. Approved.
 - **#71**: Update MISSION_CONTROL.md parser for dynamic project switching -- Misty. Approved.
 - **#72**: Service restart logic for project switching -- Misty. Approved.
-- **#73**: Optimize heartbeat token usage -- checksum caching for MISSION_CONTROL.md -- Misty. Approved.
+- **#73**: Optimize heartbeat token usage -- checksum caching for MISSION_CONTROL.md -- Misty. Approved. (Superseded by #74 — partial, single-file, hard-coded paths)
+- **#74**: Proper heartbeat gate -- `fleet/heartbeat_check.py` watches MISSION_CONTROL.md + inbox.json, checks agent relevance, exits 0/1. Wired into CLAUDE.md, GEMINI.md, MISTRAL.md startup protocols. Clutter scripts removed. .fleet_cache/ gitignored. -- Clau. Approved.
 
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |

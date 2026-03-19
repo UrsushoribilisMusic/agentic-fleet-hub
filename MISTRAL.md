@@ -4,10 +4,12 @@
 
 ### Phase 1 -- Orient
 1. `git pull origin master` -- get the latest state from the team.
-2. **OPTIMIZED**: Run `python3 heartbeat_script.py` -- checksum cache for MISSION_CONTROL.md (Ticket #73). Only read MISSION_CONTROL.md if content changed.
-3. Read `AGENTS/RULES.md` -- team rules.
-4. Read `AGENTS/MESSAGES/inbox.json` -- ALL unread messages before anything else. They may change your priorities entirely.
-5. If tasks are assigned, GET `http://localhost:8090/api/collections/lessons/records?filter=status="active"` -- load team knowledge.
+2. Run: `python fleet/heartbeat_check.py --agent misty`
+   - **Exit 1**: nothing relevant changed -- POST heartbeat idle and stop. Do NOT read any further files. Do NOT commit.
+   - **Exit 0**: changes need your attention -- continue with steps 3-5 below.
+3. Read `MISSION_CONTROL.md` -- live ticket status and current priorities.
+4. Read `AGENTS/RULES.md` -- team rules.
+5. Read `AGENTS/MESSAGES/inbox.json` -- ALL unread messages before anything else. They may change your priorities entirely.
 6. POST `http://localhost:8090/api/collections/heartbeats/records` `{"agent": "misty", "status": "working"}`
 
 ### Phase 2 -- Peer Review First
@@ -30,8 +32,9 @@
 
 ### Phase 6 -- Sign Off
 - POST heartbeat `{"agent": "misty", "status": "idle"}`
-- Write session summary to `~/fleet/misty/PROGRESS.md`
-- Commit and push all changes: `git add -A && git commit -m "misty: session summary" && git push`
+- Only if you did actual work this session: write summary to `~/fleet/misty/PROGRESS.md`
+- Only commit if there are real changes: run `git status --short` first.
+  If output is empty, do NOT commit. If there are staged changes, commit with a descriptive message (not "session summary") and push.
 
 ## Team Protocols (The Shared Memory System)
 
