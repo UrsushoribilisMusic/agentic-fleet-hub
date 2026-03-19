@@ -106,9 +106,13 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#72**: Service restart logic for project switching -- Misty. Approved.
 - **#73**: Optimize heartbeat token usage -- checksum caching for MISSION_CONTROL.md -- Misty. Approved. (Superseded by #74 — partial, single-file, hard-coded paths)
 - **#74**: Proper heartbeat gate -- `fleet/heartbeat_check.py` watches MISSION_CONTROL.md + inbox.json, checks agent relevance, exits 0/1. Wired into CLAUDE.md, GEMINI.md, MISTRAL.md startup protocols. Clutter scripts removed. .fleet_cache/ gitignored. -- Clau. Approved.
+- **#69**: Add project-switching endpoint to the fleet API -- Misty. Partial: `POST /fleet/api/activate-project` sets `is_active` in fleet_meta.json. Superseded by #75. Approved.
+- **#70**: UI for project activation (toggle-based) -- Misty. Partial: server-side only, dashboard reads active project MC. Full UI deferred to #75. Approved.
+- **#75**: Fleet Steering -- proper project switching. `fleet/active_context.py` resolves active project paths at runtime. `heartbeat_check.py` extended to watch active project MC. `repo_path` added to all projects in fleet_meta.json. All 4 mandate files updated. ARCHITECTURE.md + fleet_steering_architecture.md written. -- Clau. Approved.
 
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **#76** | Fleet Hub UI: project-switch toggle in Projects tab -- one-click activation that flips `is_active` in fleet_meta.json, commits+pushes, and updates hub MC automatically. Completes the operator UX for Fleet Steering. See `AGENTS/CONTEXT/fleet_steering_architecture.md` "Future Enhancements". | gem | todo | Requires fleet API `POST /fleet/api/activate-project` (already exists from #69) + a frontend radio/toggle in the Projects section. |
 
 **Status: `create-flotilla@0.2.0` live on npm as of 2026-03-16. Fleet always-on infrastructure live on Mac Mini.**

@@ -80,16 +80,18 @@
     {
       "title": "Robot Ross",
       "owners": "Ursus Fleet",
+      "repo_path": "../robot-ross",
       "summary": "Physical robot arm (Huenit) controlled by Claude Code / OpenClaw on the Mac Mini. Paints on canvas from AI-generated prompts. Includes Telegram gateway for remote command and photo inbound.",
       "docs": [
         "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/robot_ross_artist.md"
       ],
       "kanban": "https://github.com/users/UrsushoribilisMusic/projects/1/views/1",
-      "is_active": true
+      "is_active": false
     },
     {
       "title": "Music Video Tool",
       "owners": "Ursus Fleet",
+      "repo_path": "../music-video-tool",
       "summary": "Automated pipeline for generating music videos and social content. Python/FFmpeg stack with AI image generation, audio sync, and upload automation.",
       "docs": [
         "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/music_video_tool.md"
@@ -100,6 +102,7 @@
     {
       "title": "Agentic CRM Prototype",
       "owners": "Ursus Fleet",
+      "repo_path": "../crm-poc",
       "summary": "Our North Star demo: a high-fidelity React/FastAPI CRM managed autonomously by the fleet. Demonstrates cross-platform coordination, Google Calendar integration, and lead pipeline automation.",
       "docs": [
         "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/crm_poc_context.md"
@@ -111,6 +114,7 @@
     {
       "title": "The Lost Coins",
       "owners": "Ursus Fleet",
+      "repo_path": "../the-lost-coins",
       "summary": "Narrative/story-driven project. Chapter-based storytelling with AI-generated visuals and audio, managed through the fleet pipeline.",
       "docs": [
         "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/the_lost_coins_story.md"
@@ -121,6 +125,7 @@
     {
       "title": "Salesman (OpenClaw Gateway)",
       "owners": "Ursus Fleet",
+      "repo_path": "../salesman-cloud-infra",
       "summary": "Public OpenClaw gateway and BobRossSkill on DigitalOcean. Handles inbound skill requests, OAuth, and routes to the Mac Mini robot control system.",
       "docs": [
         "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/robot_ross_salesman.md"
@@ -131,6 +136,7 @@
     {
       "title": "Agentic Fleet Hub (Flotilla)",
       "owners": "Ursus Fleet",
+      "repo_path": ".",
       "summary": "The fleet's own infrastructure: PocketBase, dispatcher, heartbeat protocol, Telegram bridge, and Fleet Hub dashboard. The always-on multi-agent coordination layer.",
       "docs": [
         "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/ARCHITECTURE.md"
