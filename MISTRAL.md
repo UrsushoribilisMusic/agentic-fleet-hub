@@ -5,7 +5,7 @@
 ### Phase 1 -- Orient
 1. `git pull origin master` -- get the latest state from the team.
 2. Run: `python fleet/heartbeat_check.py --agent misty`
-   - **Exit 1**: nothing relevant changed -- skip to Phase 6 (sign off idle). Do NOT read any further files.
+   - **Exit 1**: nothing relevant changed -- POST heartbeat idle and stop. Do NOT read any further files. Do NOT commit.
    - **Exit 0**: changes need your attention -- continue with steps 3-5 below.
 3. Read `MISSION_CONTROL.md` -- live ticket status and current priorities.
 4. Read `AGENTS/RULES.md` -- team rules.
@@ -32,8 +32,9 @@
 
 ### Phase 6 -- Sign Off
 - POST heartbeat `{"agent": "misty", "status": "idle"}`
-- Write session summary to `~/fleet/misty/PROGRESS.md`
-- Commit and push all changes: `git add -A && git commit -m "misty: session summary" && git push`
+- Only if you did actual work this session: write summary to `~/fleet/misty/PROGRESS.md`
+- Only commit if there are real changes: run `git status --short` first.
+  If output is empty, do NOT commit. If there are staged changes, commit with a descriptive message (not "session summary") and push.
 
 ## Team Protocols (The Shared Memory System)
 
