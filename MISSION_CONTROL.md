@@ -109,10 +109,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#69**: Add project-switching endpoint to the fleet API -- Misty. Partial: `POST /fleet/api/activate-project` sets `is_active` in fleet_meta.json. Superseded by #75. Approved.
 - **#70**: UI for project activation (toggle-based) -- Misty. Partial: server-side only, dashboard reads active project MC. Full UI deferred to #75. Approved.
 - **#75**: Fleet Steering -- proper project switching. `fleet/active_context.py` resolves active project paths at runtime. `heartbeat_check.py` extended to watch active project MC. `repo_path` added to all projects in fleet_meta.json. All 4 mandate files updated. ARCHITECTURE.md + fleet_steering_architecture.md written. -- Clau. Approved.
+- **#76**: Fleet Hub UI: project-switch toggle. `POST /fleet/api/activate-project` added to server.mjs. Projects grid shows ACTIVE badge + SET ACTIVE button. Git sync attempted on activate (graceful fail if no deploy key). Package engineering dashboard updated. -- Clau. Approved.
 
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **#76** | Fleet Hub UI: project-switch toggle in Projects tab -- one-click activation that flips `is_active` in fleet_meta.json, commits+pushes, and updates hub MC automatically. Completes the operator UX for Fleet Steering. See `AGENTS/CONTEXT/fleet_steering_architecture.md` "Future Enhancements". | gem | todo | Requires fleet API `POST /fleet/api/activate-project` (already exists from #69) + a frontend radio/toggle in the Projects section. |
 
 **Status: `create-flotilla@0.2.0` live on npm as of 2026-03-16. Fleet always-on infrastructure live on Mac Mini.**

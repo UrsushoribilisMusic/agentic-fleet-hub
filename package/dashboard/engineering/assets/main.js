@@ -167,10 +167,45 @@ function populateProjects() {
   let html = '';
   for (let i = 0; i < fleetData.projects.length; i++) {
     const p = fleetData.projects[i];
-    html += '<div class="agent-card"><div class="card-summary"><div style="flex:1"><h3 style="font-size:14px">' + p.title + '</h3><p style="font-size:12px;color:var(--text-secondary)">' + p.summary + '</p></div><a href="' + (p.kanban || (p.docs && p.docs[0]) || '#') + '" target="_blank" class="btn-link">OPEN</a></div></div>';
+    const isActive = p.is_active === true;
+    const badge = isActive
+      ? '<span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--teal,#159988);background:rgba(21,153,136,0.12);border:1px solid rgba(21,153,136,0.3);border-radius:4px;padding:2px 8px;">ACTIVE</span>'
+      : '<button class="btn-link" style="cursor:pointer;background:none;font-size:10px;padding:2px 8px;color:var(--text-muted);border-color:rgba(255,255,255,0.12);" onclick="activateProject(\'' + p.title.replace(/'/g, "\\'") + '\', this)">SET ACTIVE</button>';
+    html += '<div class="agent-card" style="' + (isActive ? 'border-color:rgba(21,153,136,0.5);' : '') + '">' +
+      '<div class="card-summary">' +
+        '<div style="flex:1">' +
+          '<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;"><h3 style="font-size:14px;margin:0">' + p.title + '</h3>' + badge + '</div>' +
+          '<p style="font-size:12px;color:var(--text-secondary)">' + p.summary + '</p>' +
+        '</div>' +
+        '<a href="' + (p.kanban || (p.docs && p.docs[0]) || '#') + '" target="_blank" class="btn-link">OPEN</a>' +
+      '</div></div>';
   }
   container.innerHTML = html;
 }
+
+window.activateProject = async function(title, btn) {
+  btn.disabled = true;
+  btn.textContent = '...';
+  try {
+    const result = await fetchJson('/fleet/api/activate-project', {
+      method: 'POST',
+      body: JSON.stringify({ title }),
+    });
+    if (result.ok) {
+      if (!result.synced_to_git) {
+        alert('Dashboard updated to "' + title + '".\nCommit AGENTS/CONFIG/fleet_meta.json to sync agents.');
+      }
+      const data = await fetchJson('/fleet/api/config');
+      if (data) { fleetData = data; populateProjects(); }
+    } else {
+      alert('Failed: ' + (result.error || 'unknown'));
+      btn.disabled = false; btn.textContent = 'SET ACTIVE';
+    }
+  } catch (e) {
+    alert('Error: ' + e.message);
+    btn.disabled = false; btn.textContent = 'SET ACTIVE';
+  }
+};
 
 async function loadLessons() {
   const container = document.getElementById('lessons-grid');
