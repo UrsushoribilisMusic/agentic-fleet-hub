@@ -32,6 +32,7 @@ import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Optional, List, Dict
 
 # Hub files always watched
 HUB_WATCHED = [
@@ -42,7 +43,8 @@ HUB_WATCHED = [
 FLEET_META = os.path.join("AGENTS", "CONFIG", "fleet_meta.json")
 
 # Aliases used to match this agent in ticket tables and inbox messages
-AGENT_ALIASES = {
+# (Fallback if fleet_meta.json is missing or doesn't list the agent)
+AGENT_ALIASES_DEFAULT = {
     "clau":  ["clau", "claude"],
     "misty": ["misty", "mistral"],
     "gem":   ["gem", "gemini"],
@@ -52,7 +54,29 @@ AGENT_ALIASES = {
 
 # ── Helpers ────────────────────────────────────────────────────────────────────
 
-def _checksum(path: str):
+def _load_meta(repo: str) -> Optional[dict]:
+    meta_path = os.path.join(repo, FLEET_META)
+    try:
+        with open(meta_path) as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return None
+
+
+def _get_agent_aliases(agent_key: str, meta: Optional[dict]) -> List[str]:
+    """Derive aliases from fleet_meta.json or fall back to defaults."""
+    if meta and "team" in meta:
+        for member in meta["team"]:
+            if member.get("heartbeatKey") == agent_key:
+                aliases = [agent_key]
+                name = member.get("name", "")
+                if name and name.lower() != agent_key.lower():
+                    aliases.append(name.lower())
+                return aliases
+    return AGENT_ALIASES_DEFAULT.get(agent_key, [agent_key])
+
+
+def _checksum(path: str) -> Optional[str]:
     """SHA-256 of a file, or None if the file does not exist."""
     try:
         h = hashlib.sha256()
@@ -64,16 +88,12 @@ def _checksum(path: str):
         return None
 
 
-def _active_project_mc(repo: str) -> str | None:
+def _active_project_mc(repo: str, meta: Optional[dict]) -> Optional[str]:
     """
     Return the active project's MISSION_CONTROL.md path (relative to repo),
     or None if the hub itself is the active project or the file doesn't exist.
     """
-    meta_path = os.path.join(repo, FLEET_META)
-    try:
-        with open(meta_path) as f:
-            meta = json.load(f)
-    except (FileNotFoundError, json.JSONDecodeError):
+    if not meta:
         return None
 
     for p in meta.get("projects", []):
@@ -142,20 +162,21 @@ def _inbox_for_agent(inbox_path: str, aliases: list) -> bool:
 
 def main():
     parser = argparse.ArgumentParser(description="Fleet heartbeat startup gate")
-    parser.add_argument("--agent", required=True, choices=AGENT_ALIASES,
+    parser.add_argument("--agent", required=True, choices=AGENT_ALIASES_DEFAULT.keys(),
                         help="Agent identity (clau / misty / gem / codi)")
     parser.add_argument("--repo", default=".",
                         help="Repo root path (default: current directory)")
     args = parser.parse_args()
 
     repo    = os.path.abspath(args.repo)
-    aliases = AGENT_ALIASES[args.agent]
+    meta    = _load_meta(repo)
+    aliases = _get_agent_aliases(args.agent, meta)
     cache_path = os.path.join(repo, ".fleet_cache", f"heartbeat_{args.agent}.json")
 
     # ── Build watched file list ────────────────────────────────────────────────
     # Always watch hub files; also watch active project's MC if different
     watched = list(HUB_WATCHED)  # relative paths for hub files
-    proj_mc_abs = _active_project_mc(repo)
+    proj_mc_abs = _active_project_mc(repo, meta)
     if proj_mc_abs:
         watched.append(proj_mc_abs)  # absolute path for external project
 
@@ -176,6 +197,7 @@ def main():
             "checksums": current,
             "last_checked": datetime.now(timezone.utc).isoformat(),
             "last_result": "idle",
+            "aliases": aliases,
         })
         sys.exit(1)
 
@@ -207,13 +229,14 @@ def main():
         "changed_files": changed,
         "reasons": reasons,
         "active_project_mc": proj_mc_abs,
+        "aliases": aliases,
     })
 
     if reasons:
-        print(f"[heartbeat:{args.agent}] Action needed: {'; '.join(reasons)}")
+        print(f"[heartbeat:{args.agent}] Action needed (aliases: {', '.join(aliases)}): {'; '.join(reasons)}")
         sys.exit(0)
     else:
-        print(f"[heartbeat:{args.agent}] Changes detected but nothing for {args.agent}. Going idle.")
+        print(f"[heartbeat:{args.agent}] Changes detected but nothing for {args.agent} (aliases: {', '.join(aliases)}). Going idle.")
         sys.exit(1)
 
 

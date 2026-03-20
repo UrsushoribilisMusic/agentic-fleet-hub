@@ -109,7 +109,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#69**: Add project-switching endpoint to the fleet API -- Misty. Partial: `POST /fleet/api/activate-project` sets `is_active` in fleet_meta.json. Superseded by #75. Approved.
 - **#70**: UI for project activation (toggle-based) -- Misty. Partial: server-side only, dashboard reads active project MC. Full UI deferred to #75. Approved.
 - **#75**: Fleet Steering -- proper project switching. `fleet/active_context.py` resolves active project paths at runtime. `heartbeat_check.py` extended to watch active project MC. `repo_path` added to all projects in fleet_meta.json. All 4 mandate files updated. ARCHITECTURE.md + fleet_steering_architecture.md written. -- Clau. Approved.
-- **#76**: Fleet Hub UI: project-switch toggle. `POST /fleet/api/activate-project` added to server.mjs. Projects grid shows ACTIVE badge + SET ACTIVE button. Git sync attempted on activate (graceful fail if no deploy key). Package engineering dashboard updated. -- Clau. Approved.
+- **#zs9ch0t61fxivdn**: Review of Heartbeat Gate (#74) and Fleet Steering (#75). Fixed Python 3.9 compatibility and added dynamic alias loading. -- Gem. Approved.
+- **#76**: Fleet Hub UI: project-switch toggle. POST /fleet/api/activate-project added to server.mjs. Projects grid shows ACTIVE badge + SET ACTIVE button. Git sync attempted on activate (graceful fail if no deploy key). Package engineering dashboard updated. -- Clau. Approved.
 
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
