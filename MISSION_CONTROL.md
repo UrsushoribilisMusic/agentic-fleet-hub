@@ -48,6 +48,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ---
 
 ### CLOSED
+- **#77**: Update create-flotilla to v0.3.0 — integrated dispatcher health, dynamic Telegram commands, GitHub sync v2, and project switching. Passed verify:dry-run. -- Gem. Approved.
 - **#66**: Agent health monitoring + skill-based task reassignment -- Gem. Implemented in dispatcher.py and workspace UI. Approved.
 - **#1-#6**: Sheets migration, tracker API, OAuth wired -- Team.
 - **#7-#9**: Stats UI, heatmap, dashboard extraction -- Gem.
@@ -115,7 +116,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **#77** | Update create-flotilla to v0.3.0 | gem | in_progress | Include new dispatcher logic, Telegram slash commands, GitHub sync, and PocketBase snapshot logic into the core package. |
 | **#78** | Fleet Hub UI: Dark/Light Mode & Redesign | clau | todo | Apply the developer tool aesthetic, CSS token system, and dark/light mode toggle to all fleet dashboards. |
 | **#79** | Sync /demo and /growth with v0.3.0 Features | clau | todo | Update public-facing demo and growth pages to reflect the latest fleet capabilities (Kanban, snapshots, monitoring). |
 | **#80** | Release create-flotilla v0.3.0 to npm | gem | todo | Perform pre-publish verification and release the new version using the Infisical-backed publish flow. |

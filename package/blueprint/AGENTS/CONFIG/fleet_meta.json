@@ -66,9 +66,11 @@
     {
       "title": "{{PROJECT_NAME}}",
       "owners": "Coordinator",
+      "repo_path": ".",
       "summary": "{{PROJECT_DESC}}",
       "docs": ["{{PROJECT_REPO_URL}}/blob/master/MISSION_CONTROL.md"],
-      "kanban": "{{KANBAN_URL}}"
+      "kanban": "{{KANBAN_URL}}",
+      "is_active": true
     }
   ]
 }

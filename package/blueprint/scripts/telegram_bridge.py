@@ -42,7 +42,7 @@ _STATIC_COMMANDS = [
 ]
 
 # Agent command set and BOT_COMMANDS are populated at startup from fleet_meta.json
-AGENT_COMMANDS = {}   # telegram command → assigned_agent key
+AGENT_COMMANDS = {}   # heartbeatKey → assigned_agent (e.g. "clau" → "clau", "claw" → "openclaw")
 BOT_COMMANDS = []     # populated by build_bot_commands()
 
 
@@ -68,14 +68,16 @@ def build_bot_commands(fleet_meta=None):
             key = agent.get("heartbeatKey", "")
             if not key:
                 continue
+            # OpenClaw uses /claw as the command (shorter, legacy compat)
             cmd = "claw" if key == "openclaw" else key
             desc = agent.get("roleDesc", f"Send a task to {agent.get('name', key)}")
             if len(desc) > 256:
                 desc = desc[:253] + "..."
             agent_cmds.append({"command": cmd, "description": desc})
-            AGENT_COMMANDS[cmd] = key
+            AGENT_COMMANDS[cmd] = key  # map telegram command → heartbeatKey/agent name
         BOT_COMMANDS = agent_cmds + _STATIC_COMMANDS
     else:
+        # Fallback: hardcoded defaults
         BOT_COMMANDS = [
             {"command": "clau",   "description": "Send a task to Clau (Claude Code)"},
             {"command": "gem",    "description": "Send a task to Gem (Gemini)"},
@@ -317,13 +319,20 @@ def cmd_claw(message):
     except Exception as e:
         send_to_tg(f"OpenClaw error: {e}")
 
-def update_backlog_to_todo():
+def update_backlog_to_todo(ticket_id=None):
     try:
-        r = requests.get(f"{PB_URL}/collections/tasks/records", params={"filter": 'status = "backlog"'})
+        if ticket_id:
+            # Try to find backlog tasks where title contains the number or ID matches
+            r = requests.get(f"{PB_URL}/collections/tasks/records", params={
+                "filter": f'status = "backlog" && (title ~ "{ticket_id}" || id = "{ticket_id}")'
+            })
+        else:
+            r = requests.get(f"{PB_URL}/collections/tasks/records", params={"filter": 'status = "backlog"'})
+        
         tasks = r.json().get("items", [])
         for task in tasks:
             requests.patch(f"{PB_URL}/collections/tasks/records/{task['id']}", json={"status": "todo"})
-            log(f"Task {task['id']} moved to TODO via GO signal")
+            log(f"Task {task['id']} ({task['title']}) moved to TODO via GO signal")
         return len(tasks)
     except Exception as e:
         log(f"Error updating backlog: {e}")
@@ -367,9 +376,18 @@ def process_updates(updates):
             cmd = parts[0].lower().split("@")[0]  # strip @botname if present
             remainder = parts[1].strip() if len(parts) > 1 else ""
 
-        if cmd == "go" or text.strip().upper() == "GO":
-            count = update_backlog_to_todo()
-            send_to_tg(f"✅ GO: {count} task(s) activated.")
+        if cmd == "go" or text.strip().upper().startswith("GO"):
+            # Check for specific ticket number in the text (e.g. "GO for 46")
+            numbers = re.findall(r'\d+', text)
+            specific_id = numbers[0] if numbers else None
+            
+            count = update_backlog_to_todo(specific_id)
+            if specific_id and count > 0:
+                send_to_tg(f"✅ GO: Ticket #{specific_id} activated.")
+            elif specific_id and count == 0:
+                send_to_tg(f"❌ GO: Could not find backlog ticket #{specific_id}.")
+            else:
+                send_to_tg(f"✅ GO: {count} task(s) activated from backlog.")
 
         elif cmd == "status":
             cmd_status()

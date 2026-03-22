@@ -1,6 +1,6 @@
-# AgentFleet Package
+# AgentFleet Package (v0.3.0)
 
-This directory contains the open-source core of **Flotilla** and now ships the `create-flotilla` scaffolder.
+This directory contains the open-source core of **Flotilla** and the `create-flotilla` scaffolder.
 
 ```bash
 npx create-flotilla my-fleet
@@ -11,6 +11,16 @@ npm start
 
 Then open `http://localhost:8787/setup/` and complete the rerunnable onboarding wizard.
 For a step-by-step installation walkthrough, see [INSTALL.md](./INSTALL.md).
+
+---
+
+## What's New in v0.3.0
+
+- **Fleet Steering**: Proper project switching via `active_context.py` and the Engineering Dashboard.
+- **Enhanced Dispatcher**: Health monitoring and skill-based task reassignment when agents go offline.
+- **Dynamic Telegram Control**: Bot commands are now loaded dynamically from `fleet_meta.json`.
+- **GitHub Sync v2**: Improved two-way sync with duplicate prevention and atomic imports.
+- **Heartbeat Gate**: `heartbeat_check.py` now enforces project relevance and mission control checksums.
 
 ---
 
@@ -43,13 +53,18 @@ package/
       agent-fetch.sh        Shell secrets fetcher
       agent-fetch.ps1       PowerShell secrets fetcher
       README.md             Vault setup guide
-  scripts/                  Kanban bridge (Ticket #21)
+  scripts/                  Fleet automation scripts
+    dispatcher.py           Task router with health monitoring
+    telegram_bridge.py      Two-way Telegram bridge with dynamic commands
+    github_sync.py          GitHub Issues <-> PocketBase two-way sync
     fleet_push.py           Hybrid connector: local PocketBase -> remote Fleet snapshot
-    fleet.push.plist        launchd wrapper for the hybrid connector
+    active_context.py       Resolves active project paths at runtime
+    heartbeat_check.py      Startup gate for agent heartbeats
+    setup_check.py          Post-install doctor checks
     kanban_fetch.py         List project items by status
     kanban_update.py        Update item status
     kanban_standup.py       Generate standup from project board
-    kanban.sh               Shell wrapper for all three
+    kanban.sh               Shell wrapper for kanban tools
 ```
 
 ---

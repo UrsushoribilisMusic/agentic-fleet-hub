@@ -42,7 +42,7 @@ _STATIC_COMMANDS = [
 ]
 
 # Agent command set and BOT_COMMANDS are populated at startup from fleet_meta.json
-AGENT_COMMANDS = {}   # telegram command → assigned_agent key
+AGENT_COMMANDS = {}   # heartbeatKey → assigned_agent (e.g. "clau" → "clau", "claw" → "openclaw")
 BOT_COMMANDS = []     # populated by build_bot_commands()
 
 
@@ -68,14 +68,16 @@ def build_bot_commands(fleet_meta=None):
             key = agent.get("heartbeatKey", "")
             if not key:
                 continue
+            # OpenClaw uses /claw as the command (shorter, legacy compat)
             cmd = "claw" if key == "openclaw" else key
             desc = agent.get("roleDesc", f"Send a task to {agent.get('name', key)}")
             if len(desc) > 256:
                 desc = desc[:253] + "..."
             agent_cmds.append({"command": cmd, "description": desc})
-            AGENT_COMMANDS[cmd] = key
+            AGENT_COMMANDS[cmd] = key  # map telegram command → heartbeatKey/agent name
         BOT_COMMANDS = agent_cmds + _STATIC_COMMANDS
     else:
+        # Fallback: hardcoded defaults
         BOT_COMMANDS = [
             {"command": "clau",   "description": "Send a task to Clau (Claude Code)"},
             {"command": "gem",    "description": "Send a task to Gem (Gemini)"},
