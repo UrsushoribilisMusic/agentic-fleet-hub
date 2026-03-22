@@ -438,6 +438,35 @@ async function handler(req, res) {
       return send(res, 200, { ok: true, config: normalized }, requestId);
     }
 
+    // POST /fleet/api/activate-project — activate a project by title
+    if (urlPath === "/fleet/api/activate-project" && req.method === "POST") {
+      const body = await readBody(req);
+      const title = body.title;
+      if (!title) return send(res, 400, { ok: false, error: "title_required" }, requestId);
+
+      let activatedRepoPath = null;
+      const projects = fleetMeta.projects || [];
+      for (const p of projects) {
+        if (p.title === title) {
+          p.is_active = true;
+          activatedRepoPath = p.repo_path;
+        } else {
+          p.is_active = false;
+        }
+      }
+
+      if (!activatedRepoPath && activatedRepoPath !== "") {
+        return send(res, 404, { ok: false, error: "project_not_found" }, requestId);
+      }
+
+      // Update the global installation repo_path too
+      fleetMeta.meta.installation.repo_path = activatedRepoPath;
+      fleetMeta.meta.installation.updated_at = new Date().toISOString();
+
+      writeJson(FLEET_META_PATH, fleetMeta);
+      return send(res, 200, { ok: true, title, repo_path: activatedRepoPath }, requestId);
+    }
+
     // GET /fleet/api/config/demo — public demo config
     if (urlPath === "/fleet/api/config/demo" && req.method === "GET") {
       return send(res, 200, getDemoConfig(fleetMeta, readJson(DEMO_META_PATH, { team: [], projects: [] })), requestId);

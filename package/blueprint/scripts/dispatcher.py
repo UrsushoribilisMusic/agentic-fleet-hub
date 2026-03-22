@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Fleet Dispatcher â€” routes tasks to agents based on status and assigned_agent.
-Runs every 60 seconds via launchd. NOT an LLM â€” pure routing logic.
+Fleet Dispatcher — routes tasks to agents based on status and assigned_agent.
+Runs every 60 seconds via launchd. NOT an LLM — pure routing logic.
 """
 
 import subprocess
@@ -16,6 +16,7 @@ FLEET_DIR = "/Users/miguelrodriguez/fleet"
 CODEX_REPO_DIR = "/Users/miguelrodriguez/projects/agentic-fleet-hub"
 LOG_FILE = f"{FLEET_DIR}/logs/dispatcher.log"
 NOTIF_FILE = f"{FLEET_DIR}/logs/notifications.json"
+OFFLINE_AGENTS_FILE = f"{FLEET_DIR}/logs/offline_agents.json"
 
 # Telegram settings from environment (Infisical)
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
@@ -28,7 +29,6 @@ AGENT_COMMANDS = {
     "scout": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/scout", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "echo": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/echo", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "closer": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/closer", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
-    "misty": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/misty", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     # Claude Code, Gemini CLI, Codex commands use their respective CLI binaries
     "clau": ["/Users/miguelrodriguez/.local/bin/claude", "--dangerously-skip-permissions", "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "gem": ["/opt/homebrew/bin/node", "/opt/homebrew/bin/gemini", "--yolo", "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
@@ -86,6 +86,141 @@ def post_comment(task_id, agent, content, comment_type="output"):
     except Exception as e:
         log(f"ERROR posting comment: {e}")
 
+def find_best_substitute(task, offline_agent_key, all_agents_meta, offline_skills):
+    # task might have required_skills (list)
+    required_skills = task.get("required_skills", [])
+    if not required_skills:
+        required_skills = list(offline_skills)
+    
+    required_skills_set = set(required_skills)
+    
+    best_agent = None
+    max_score = -1
+    
+    offline_agent_meta = next((a for a in all_agents_meta if a["heartbeatKey"] == offline_agent_key), {})
+    fallback_chain = offline_agent_meta.get("fallbackChain", [])
+
+    for agent in all_agents_meta:
+        if agent["heartbeatKey"] == offline_agent_key: continue
+        
+        agent_skills = set(agent.get("skills", []))
+        score = len(required_skills_set.intersection(agent_skills))
+        
+        if score > max_score:
+            max_score = score
+            best_agent = agent
+        elif score == max_score and best_agent:
+            # Tie breaker: fallbackChain
+            if agent["heartbeatKey"] in fallback_chain:
+                if best_agent["heartbeatKey"] not in fallback_chain or \
+                   fallback_chain.index(agent["heartbeatKey"]) < fallback_chain.index(best_agent["heartbeatKey"]):
+                    best_agent = agent
+                    
+    return best_agent
+
+def reassign_tasks(offline_agent_key, all_agents_meta):
+    try:
+        r = requests.get(f"{PB_URL}/collections/tasks/records",
+                         params={"filter": f'assigned_agent = "{offline_agent_key}" && status = "todo"'})
+        tasks = r.json().get("items", [])
+        if not tasks:
+            return
+
+        log(f"Reassigning {len(tasks)} tasks from offline agent {offline_agent_key}")
+        
+        offline_agent_meta = next((a for a in all_agents_meta if a["heartbeatKey"] == offline_agent_key), None)
+        offline_skills = set(offline_agent_meta.get("skills", [])) if offline_agent_meta else set()
+
+        for task in tasks:
+            best_agent = find_best_substitute(task, offline_agent_key, all_agents_meta, offline_skills)
+            if best_agent:
+                new_agent_key = best_agent["heartbeatKey"]
+                log(f"Reassigning task '{task['title']}' to {new_agent_key}")
+                
+                requests.patch(f"{PB_URL}/collections/tasks/records/{task['id']}",
+                               json={"assigned_agent": new_agent_key})
+                
+                msg = f"Reassigned from {offline_agent_key} to {new_agent_key} ({offline_agent_key} offline)"
+                post_comment(task["id"], "dispatcher", msg, "comment")
+                
+                send_telegram(f"⚠️ Task '{task['title']}' reassigned from {offline_agent_key} to {new_agent_key} (offline for >30m).")
+
+    except Exception as e:
+        log(f"ERROR reassigning tasks for {offline_agent_key}: {e}")
+
+def get_offline_agents():
+    if os.path.exists(OFFLINE_AGENTS_FILE):
+        try:
+            with open(OFFLINE_AGENTS_FILE, "r") as f:
+                return json.load(f)
+        except:
+            return {}
+    return {}
+
+def save_offline_agents(data):
+    try:
+        with open(OFFLINE_AGENTS_FILE, "w") as f:
+            json.dump(data, f)
+    except Exception as e:
+        log(f"ERROR saving offline_agents: {e}")
+
+def check_agent_health():
+    try:
+        meta_path = os.path.join(CODEX_REPO_DIR, "AGENTS/CONFIG/fleet_meta.json")
+        with open(meta_path, "r") as f:
+            fleet_meta = json.load(f)
+        
+        agents = fleet_meta.get("team", [])
+        offline_data = get_offline_agents()
+        changed = False
+        
+        for agent_meta in agents:
+            agent_key = agent_meta["heartbeatKey"]
+            if agent_key == "openclaw": continue
+            
+            r = requests.get(f"{PB_URL}/collections/heartbeats/records",
+                             params={
+                                 "filter": f'agent = "{agent_key}"',
+                                 "sort": "-updated",
+                                 "perPage": 1
+                             })
+            items = r.json().get("items", [])
+            
+            now = datetime.utcnow()
+            is_currently_offline = False
+            last_seen_str = "Never"
+            
+            if not items:
+                is_currently_offline = True
+            else:
+                hb = items[0]
+                # PB updated time is like "2026-03-19 09:10:42.368Z"
+                ts_part = hb["updated"].split('.')[0].replace('Z', '')
+                dt = datetime.strptime(ts_part, "%Y-%m-%d %H:%M:%S")
+                age_seconds = (now - dt).total_seconds()
+                last_seen_str = f"{int(age_seconds // 60)}m ago"
+                if age_seconds > 1800: # 30 min
+                    is_currently_offline = True
+            
+            previously_offline = agent_key in offline_data
+            
+            if is_currently_offline and not previously_offline:
+                log(f"Agent {agent_key} detected OFFLINE (last seen {last_seen_str})")
+                offline_data[agent_key] = {"offline_since": now.isoformat(), "last_seen": last_seen_str}
+                changed = True
+                reassign_tasks(agent_key, agents)
+            elif not is_currently_offline and previously_offline:
+                log(f"Agent {agent_key} RECOVERED (was offline since {offline_data[agent_key]['offline_since']})")
+                send_telegram(f"✅ {agent_key.capitalize()} is back online (was offline {last_seen_str}).")
+                del offline_data[agent_key]
+                changed = True
+                
+        if changed:
+            save_offline_agents(offline_data)
+                
+    except Exception as e:
+        log(f"ERROR in check_agent_health: {e}")
+
 def run_agent(agent_name, task):
     if agent_name not in AGENT_COMMANDS:
         log(f"No command configured for agent: {agent_name}")
@@ -100,9 +235,15 @@ def run_agent(agent_name, task):
         result = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
         output = result.stdout or result.stderr or "No output"
         
-        post_comment(task["id"], agent_name, output[:5000]) # cap at 5000 chars
-        update_task_status(task["id"], "peer_review")
-        log(f"Task '{task['title']}' completed by {agent_name} -> peer_review")
+        if result.returncode == 0:
+            post_comment(task["id"], agent_name, output[:5000]) # cap at 5000 chars
+            update_task_status(task["id"], "peer_review")
+            log(f"Task '{task['title']}' completed by {agent_name} -> peer_review")
+        else:
+            log(f"ERROR: Agent {agent_name} failed with return code {result.returncode}")
+            post_comment(task["id"], agent_name, f"FAILED with return code {result.returncode}:\n{output[:1000]}", "feedback")
+            update_task_status(task["id"], "todo")
+            
     except subprocess.TimeoutExpired:
         update_task_status(task["id"], "todo") # put back in queue
         log(f"TIMEOUT: task '{task['title']}' returned to queue")
@@ -147,8 +288,8 @@ def check_waiting_human():
             
             # Cooldown: 1 hour (3600 seconds)
             if now - last_sent > 3600:
-                msg = f"ðŸ¤– HUMAN NEEDED: {task['title']}\nStatus: {task['status']}\nID: {task['id']}"
-                log(f"HUMAN NEEDED: {task['title']} â€” sending Telegram")
+                msg = f"🤖 HUMAN NEEDED: {task['title']}\nStatus: {task['status']}\nID: {task['id']}"
+                log(f"HUMAN NEEDED: {task['title']} — sending Telegram")
                 send_telegram(msg)
                 notif_data[task_id] = now
                 changed = True
@@ -167,10 +308,16 @@ def check_waiting_human():
 def main():
     log("Dispatcher started")
     while True:
+        check_agent_health()
+        offline_agents = get_offline_agents()
+        
         tasks = get_pending_tasks()
         for task in tasks:
             agent = task.get("assigned_agent")
             if agent:
+                if agent in offline_agents:
+                    log(f"Skipping task '{task['title']}' (assigned agent {agent} is OFFLINE)")
+                    continue
                 run_agent(agent, task)
         
         check_waiting_human()
