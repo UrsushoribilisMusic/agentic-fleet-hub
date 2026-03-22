@@ -40,7 +40,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 
 ---
 
-## Ticket Status (as of 2026-03-19)
+## Ticket Status (as of 2026-03-22)
 
 ### ENVIRONMENT NOTE — Mac Mini migration complete (2026-03-14)
 All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users/miguel/` → `/Users/miguelrodriguez/`. Repos cloned to `~/projects/`. Python 3.12 venv at `~/projects/music-video-tool/.venv312`. OpenClaw at `/opt/homebrew/bin/openclaw`. Fleet always-on infrastructure build in progress — see tickets #34–#43.
@@ -115,5 +115,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **#77** | Update create-flotilla to v0.3.0 | gem | in_progress | Include new dispatcher logic, Telegram slash commands, GitHub sync, and PocketBase snapshot logic into the core package. |
+| **#78** | Fleet Hub UI: Dark/Light Mode & Redesign | clau | todo | Apply the developer tool aesthetic, CSS token system, and dark/light mode toggle to all fleet dashboards. |
+| **#79** | Sync /demo and /growth with v0.3.0 Features | clau | todo | Update public-facing demo and growth pages to reflect the latest fleet capabilities (Kanban, snapshots, monitoring). |
+| **#80** | Release create-flotilla v0.3.0 to npm | gem | todo | Perform pre-publish verification and release the new version using the Infisical-backed publish flow. |
 
-**Status: `create-flotilla@0.2.0` live on npm as of 2026-03-16. Fleet always-on infrastructure live on Mac Mini.**
+**Status: `create-flotilla@0.2.0` live on npm as of 2026-03-16. Planning for v0.3.0 in progress.**
+
