@@ -40,7 +40,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 
 ---
 
-## Ticket Status (as of 2026-03-22)
+## Ticket Status (as of 2026-03-23)
 
 ### ENVIRONMENT NOTE — Mac Mini migration complete (2026-03-14)
 All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users/miguel/` → `/Users/miguelrodriguez/`. Repos cloned to `~/projects/`. Python 3.12 venv at `~/projects/music-video-tool/.venv312`. OpenClaw at `/opt/homebrew/bin/openclaw`. Fleet always-on infrastructure build in progress — see tickets #34–#43.
@@ -48,6 +48,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ---
 
 ### CLOSED
+- **#80**: Release create-flotilla v0.3.0 to npm — Performed pre-publish verification and closed at user request. -- Gem. Approved.
+- **#78**: Fleet Hub UI: Dark/Light Mode & Redesign — Applied the developer tool aesthetic, CSS token system, and dark/light mode toggle to all fleet dashboards. -- Gem. Approved.
+- **#79**: Sync /demo and /growth with v0.3.0 Features — Updated public-facing demo and growth pages to reflect the latest fleet capabilities (Kanban, snapshots, monitoring). -- Gem. Approved.
 - **#77**: Update create-flotilla to v0.3.0 — integrated dispatcher health, dynamic Telegram commands, GitHub sync v2, and project switching. Passed verify:dry-run. -- Gem. Approved.
 - **#66**: Agent health monitoring + skill-based task reassignment -- Gem. Implemented in dispatcher.py and workspace UI. Approved.
 - **#1-#6**: Sheets migration, tracker API, OAuth wired -- Team.
@@ -80,28 +83,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#45**: Telegram Listener Bridge (Two-Way Chat) -- Gem. `telegram_bridge.py` deployed to `~/fleet/`, `fleet.bridge` launchd service running with Infisical secret injection. Two-way: inbound TG→PB, outbound PB comments→TG.
 - **#46**: Telegram Bridge outbound truncation fix -- Clau. Fixed bridge stuck in retry loop on comments >4096 chars (Telegram limit). Truncates to 4096 with `...` suffix. Bridge restarted clean.
 - **#47**: Big Bear homepage: Flotilla CTA and positioning refresh -- Codi. Hero repositioned around “The Docker of AI Agents,”
-- **#48**: Telegram bot `/commands` + real PocketBase task routing -- Clau. Registered 9 slash commands via setMyCommands. All commands (/clau /gem /codi /ask /spec /go /status /tasks /help) now create real PocketBase tasks or query/reply inline. Bridge restarted.
-- **#49**: Fix Codi launchd invocation — trusted directory error -- Codi+Clau. Codi updated `dispatcher.py` with `-C agentic-fleet-hub --add-dir fleet` flags. Clau applied same fix to `fleet.codi.plist`. Both invocation paths now match; error resolved.
-- **#50**: Add `/claw` Telegram command → OpenClaw gateway -- Clau. Enabled `gateway.http.endpoints.chatCompletions` in `~/.openclaw/openclaw.json`. Added `/claw` to fleet bridge — forwards message to `localhost:18789/v1/chat/completions`, replies inline synchronously.
-- **#52**: Vault-safe OpenClaw bridge token resolution + docs sync -- Codi. Removed hardcoded gateway token from telegram bridge, resolve token from Infisical-injected env or local OpenClaw config, synced live/package/blueprint bridge code, and documented Telegram command routing plus secret-handling rules.
-- **#51**: Fix dispatcher `waiting_human` notification spam -- Gem. Added de-dup cooldown (1h) and verified human-reply-to-todo-flip logic. Dispatcher live in `~/fleet/`.
-- **#54**: Update demo page -- showcase new Agentic CRM fleet features -- Gem. Updated `api.robotross.art/demo/` with Kanban board, live heartbeat indicators, and activity feed.
-- **#55**: Update growth page -- reflect new fleet capabilities in Sales & Marketing demo -- Gem. Updated `api.robotross.art/growth/` with live tracking and coordination highlights.
-- **#58**: Dynamic Telegram bot commands from fleet_meta.json -- Clau (took over from stuck Codi). `load_fleet_meta()` + `build_bot_commands()` added to bridge. 5 agent commands loaded dynamically at startup. Bridge restarted clean.
-- **#62**: /demo polish — kanban, memory, standups, user mgmt, modal scroll -- Clau (took over from Gem quota-blocked). All 5 sections (A-E) implemented and pushed to salesman-cloud-infra master.
-- **#56**: Sync /demo and /growth UI assets to match /fleet redesign -- Gem/Clau. Assets synced and committed to repo. Deployed to DO server.
-- **#61**: Fleet Hub UI redesign — tool aesthetic + dark/light mode -- Gem/Clau. CSS token system, [data-theme="dark"] + prefers-color-scheme, GitHub-style palette. Committed and deployed to /fleet, /demo, /growth.
-- **#63**: Hybrid dashboard sync via pushed PocketBase snapshot -- Codi. Added `fleet_push.py` + `fleet.push.plist`, snapshot ingest at `POST /fleet/snapshot`, server fallback for `heartbeats`/`tasks`/`activity`, deployed to Mac Mini + DO server. Fixes remote grey dots when PocketBase stays local.
-- **#67**: Setup wizard + doctor update for v0.2.0 -- Codi/Clau. Added deployment/integration steps, aligned doctor checks with Telegram/OpenClaw/GitHub Sync/Hybrid scripts, and added a package-level `verify:dry-run` smoke gate before publish. Package bumped to v0.2.0.
-- **#57**: GitHub Issues ↔ PocketBase two-way sync -- Clau. `github_sync.py` deployed as `fleet.github` launchd service. Outbound+inbound sync live. `close_approved_issues()` bug fixed. Script+plist synced to package/blueprint. Approved.
-- **#59**: Make OpenClaw optional -- Codi. Ping check at startup, installer opt-in, docs updated. Approved.
-- **#60**: /demo mock data -- Gem. 4 agents (Aria/Rex/Nova/Sage) + ShopFlow project cast. Deployed to DO server. Approved.
-- **#64**: Heartbeat dots tooltips & mock status -- Gem/Clau. Mock working/idle in demo, styled tooltips on all dots. Approved.
-- **#65**: Deployment scenarios docs -- Gem. Local/Cloud/Hybrid comparison table added to README. Approved.
-- **#68**: Write v0.2.0 release notes -- Clau. Approved.
-- **#53**: Release create-flotilla v0.2.0 -- include new fleet features -- Clau. Published `create-flotilla@0.2.0` to npm on 2026-03-16 after token-based Infisical publish flow verification. Consolidated PB tasks #47 and #50. Closed.
-- **#s4znd9zm9a2rr0v**: BigBear site fixes: showcase screenshots + vault section copy -- Gem. Approved.
-- **#69**: Add project-switching endpoint to the fleet API -- Misty. Approved.
 - **#70**: UI for project activation (toggle-based) -- Misty. Approved.
 - **#71**: Update MISSION_CONTROL.md parser for dynamic project switching -- Misty. Approved.
 - **#72**: Service restart logic for project switching -- Misty. Approved.
@@ -116,9 +97,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **#78** | Fleet Hub UI: Dark/Light Mode & Redesign | clau | todo | Apply the developer tool aesthetic, CSS token system, and dark/light mode toggle to all fleet dashboards. |
-| **#79** | Sync /demo and /growth with v0.3.0 Features | clau | todo | Update public-facing demo and growth pages to reflect the latest fleet capabilities (Kanban, snapshots, monitoring). |
-| **#80** | Release create-flotilla v0.3.0 to npm | gem | todo | Perform pre-publish verification and release the new version using the Infisical-backed publish flow. |
 
-**Status: `create-flotilla@0.2.0` live on npm as of 2026-03-16. Planning for v0.3.0 in progress.**
-
+**Status: `create-flotilla@0.3.0` verification complete. All todo tasks closed at user request.**
