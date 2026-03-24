@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-auth-loading="1">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flotilla</title>
   <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/style.css?v=20260315">
+  <script>window.RobotRossAuthConfig = { enabled: true }; document.documentElement.dataset.authLoading = "1";</script>
+  <script src="/auth/auth.js" defer></script>
 </head>
 <body>
-  <button class="mobile-menu-btn" id="mobile-toggle">&#9776;</button>
+  <button class="mobile-menu-btn" id="mobile-toggle">â˜°</button>
 
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-header">
@@ -17,27 +19,44 @@
         <h2 style="font-size: 16px; font-weight: 600;">Flotilla</h2>
       </div>
     </div>
-
+    
     <nav class="sidebar-nav" id="sidebar-nav">
-      <button class="nav-button is-active" data-section-button="section-team">Team</button>
-      <button class="nav-button" data-section-button="section-projects">Projects</button>
-      <button class="nav-button" data-section-button="section-kanban">Kanban</button>
-      <button class="nav-button" data-section-button="section-rules">Rules</button>
-      <button class="nav-button" data-section-button="section-memory">Memory</button>
-      <button class="nav-button" data-section-button="section-standups">Standups</button>
-      <button class="nav-button" data-section-button="section-inbox">Inbox</button>
-      <button class="nav-button" data-section-button="section-users">Users</button>
+      <button class="nav-button is-active" data-section-button="section-team">
+        <span>ðŸ‘¥</span> Team
+      </button>
+      <button class="nav-button" data-section-button="section-projects">
+        <span>ðŸ“‚</span> Projects
+      </button>
+      <button class="nav-button" data-section-button="section-switch-project">
+        <span>ðŸ”„</span> Switch Project
+      </button>
+      <button class="nav-button" data-section-button="section-kanban">
+        <span>ðŸ“‹</span> Kanban
+      </button>
+      <button class="nav-button" data-section-button="section-rules">
+        <span>ðŸ“œ</span> Rules
+      </button>
+      <button class="nav-button" data-section-button="section-memory">
+        <span>ðŸ§ </span> Memory
+      </button>
+      <button class="nav-button" data-section-button="section-standups">
+        <span>â±ï¸</span> Standups
+      </button>
+      <button class="nav-button" data-section-button="section-inbox">
+        <span>ðŸ’¬</span> Inbox
+      </button>
+      <button class="nav-button" data-section-button="section-users">
+        <span>ðŸ‘¤</span> Users
+      </button>
     </nav>
 
     <div class="theme-toggle">
-      <button class="theme-btn" id="theme-toggle-btn" title="Toggle Dark/Light Mode">Theme</button>
+      <button class="theme-btn" id="theme-toggle-btn" title="Toggle Dark/Light Mode">â˜®</button>
+      <span style="font-size: 12px; color: var(--text-secondary);">Theme</span>
     </div>
 
-    <footer style="padding: 12px 16px; font-size: 11px; color: var(--text-muted); line-height: 1.8;">
-      <a href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 11px;">GitHub</a>
-      &nbsp;&middot;&nbsp;
-      <a href="https://bigbearengineering.com" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 11px;">Big Bear</a>
-      <br>&copy; 2026 Big Bear Engineering
+    <footer style="padding: 16px; font-size: 11px; color: var(--text-muted);">
+      Â© 2026 Big Bear Engineering
     </footer>
   </aside>
 
@@ -63,6 +82,14 @@
       </header>
       <div id="projects-grid" class="cards-grid"></div>
     </section>
+    
+    <section id="section-switch-project" class="section">
+      <header class="page-header">
+        <p class="eyebrow">Switch Project</p>
+        <h1>Activate Project</h1>
+      </header>
+      <div id="project-list" class="project-list"></div>
+    </section>
 
     <section id="section-kanban" class="section">
       <header class="page-header" style="display: flex; justify-content: space-between; align-items: center;">
@@ -70,7 +97,10 @@
           <p class="eyebrow">Live Board</p>
           <h1>Fleet Kanban</h1>
         </div>
-        <button class="btn-submit" onclick="refreshKanban()">Refresh</button>
+        <div style="display: flex; gap: 8px;">
+          <button class="btn-submit" onclick="openTaskModal()">+ Add Task</button>
+          <button class="btn-submit" onclick="refreshKanban()">Refresh</button>
+        </div>
       </header>
       <div id="kanban-board" class="pipeline-board">
         <div class="card">
@@ -82,7 +112,7 @@
           <div id="kanban-working" class="activity-list"></div>
         </div>
         <div class="card">
-          <div class="card-header"><h3 class="card-title">Done Today</h3></div>
+          <div class="card-header"><h3 class="card-title">Done</h3></div>
           <div id="kanban-done" class="activity-list"></div>
         </div>
       </div>
@@ -135,13 +165,13 @@
         <h1>Inter-Agent Inbox</h1>
       </header>
       <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 24px;">
-        <div id="inbox-feed">Loading messages...</div>
+        <div id="inbox-feed">Loading...</div>
         <form id="message-form" class="standup-form card" style="padding: 16px; border: 1px solid var(--border); background: var(--bg-secondary);">
           <h3 style="font-size: 14px; font-weight: 600;">Send Message</h3>
           <label><span>To</span><select id="m-to"><option value="All">Everyone</option><option value="Clau">Clau</option><option value="Gem">Gem</option><option value="Codi">Codi</option></select></label>
           <label><span>Subject</span><input type="text" id="m-subject" required></label>
           <label><span>Body</span><textarea id="m-body" required rows="4"></textarea></label>
-          <button type="submit" class="btn-submit">Send &rarr;</button>
+          <button type="submit" class="btn-submit">Send Message â†’</button>
         </form>
       </div>
     </section>
@@ -176,33 +206,13 @@
   </div>
 
   <div id="agent-modal" class="modal-overlay" style="display: none;">
-    <div class="modal-content" style="max-height: 90vh; overflow-y: auto;">
+    <div class="modal-content">
       <h2 style="font-size: 18px; margin-bottom: 16px;">Add Agent</h2>
       <form id="agent-form" class="standup-form">
-        <label><span>Name</span><input type="text" name="name" required placeholder="e.g. Clau"></label>
-        <label><span>Avatar (initials or short label)</span><input type="text" name="avatar" required placeholder="e.g. AI"></label>
-        <label><span>Role Title</span><input type="text" name="roleTitle" required placeholder="e.g. Senior Logic and Implementation"></label>
-        <label><span>Description</span><textarea name="roleDesc" required rows="3" placeholder="What this agent owns and handles."></textarea></label>
-        <label><span>Runtime</span>
-          <select name="runtime">
-            <option value="Hybrid">Hybrid</option>
-            <option value="Cloud">Cloud</option>
-            <option value="Cloud Runner">Cloud Runner</option>
-            <option value="Local">Local</option>
-          </select>
-        </label>
-        <label><span>Skills (comma-separated)</span><input type="text" name="skills" placeholder="e.g. Implementation, Refactoring, Debugging"></label>
-        <label><span>Heartbeat Key (command name, no spaces)</span><input type="text" name="heartbeatKey" placeholder="e.g. clau"></label>
-        <label><span>Mandate File</span>
-          <select name="mandateFile">
-            <option value="CLAUDE.md">CLAUDE.md (Claude Code)</option>
-            <option value="GEMINI.md">GEMINI.md (Gemini CLI)</option>
-            <option value="AGENTS.md">AGENTS.md (Generic)</option>
-            <option value="MISTRAL.md">MISTRAL.md (Mistral Vibe)</option>
-            <option value="other">Other (enter URL below)</option>
-          </select>
-        </label>
-        <label id="mandate-url-row" style="display:none;"><span>Mandate URL</span><input type="url" name="mandateUrl" placeholder="https://github.com/.../MANDATE.md"></label>
+        <label><span>Name</span><input type="text" name="name" required></label>
+        <label><span>Emoji</span><input type="text" name="avatar" required></label>
+        <label><span>Role Title</span><input type="text" name="roleTitle" required></label>
+        <label><span>Description</span><textarea name="roleDesc" required rows="3"></textarea></label>
         <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 8px;">
           <button type="button" class="btn-link" onclick="closeAgentModal()">Cancel</button>
           <button type="submit" class="btn-submit">Save Agent</button>
@@ -211,6 +221,32 @@
     </div>
   </div>
 
-  <script src="assets/main.js" defer></script>
+  <div id="task-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <h2 style="font-size: 18px; margin-bottom: 16px;">Add Task</h2>
+      <form id="task-form" class="standup-form">
+        <label><span>Title</span><input type="text" name="title" required></label>
+        <label><span>Description</span><textarea name="description" required rows="3"></textarea></label>
+        <label><span>Assigned Agent</span>
+          <select name="assigned_agent" id="task-assigned-agent">
+            <option value="scout">Scout</option>
+            <option value="echo">Echo</option>
+            <option value="closer">Closer</option>
+            <option value="clau">Clau</option>
+            <option value="gem">Gem</option>
+            <option value="codi">Codi</option>
+            <option value="misty">Misty</option>
+          </select>
+        </label>
+        <label><span>Required Skills (comma separated)</span><input type="text" name="required_skills" placeholder="e.g. Python, Docker"></label>
+        <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 8px;">
+          <button type="button" class="btn-link" onclick="closeTaskModal()">Cancel</button>
+          <button type="submit" class="btn-submit">Save Task</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/main.js?v=20260315" defer></script>
 </body>
 </html>

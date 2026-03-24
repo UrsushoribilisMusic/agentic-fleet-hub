@@ -1,5 +1,10 @@
 [
     {
+        "date": "2026-03-23",
+        "summary": "Kanban sync complete. #78/#79 closed. #80 blocked on npm 2FA.",
+        "file": "2026-03-23.md"
+    },
+    {
         "date": "2026-03-22",
         "summary": "Heartbeat verified: 0 tasks. Fleet stable.",
         "file": "2026-03-22.md"

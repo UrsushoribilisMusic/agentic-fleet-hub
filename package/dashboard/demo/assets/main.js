@@ -165,61 +165,24 @@ function populateProjects() {
   const container = document.getElementById('projects-grid');
   if (!container || !fleetData.projects) return;
   let html = '';
-  
-  // Separate active and inactive projects
-  const activeProjects = fleetData.projects.filter(p => p.is_active);
-  const inactiveProjects = fleetData.projects.filter(p => !p.is_active);
-  
-  // Display active projects first
-  for (let i = 0; i < activeProjects.length; i++) {
-    const p = activeProjects[i];
-    html += '<div class="agent-card"><div class="card-summary"><div style="flex:1"><h3 style="font-size:14px">' + p.title + '<span class="tag" style="background: var(--accent); color: white; font-size: 10px; margin-left: 8px;">ACTIVE</span></h3><p style="font-size:12px;color:var(--text-secondary)">' + p.summary + '</p></div><button class="btn-link" onclick="window.open(\'' + (p.kanban || (p.docs && p.docs[0]) || '#') + '\')">OPEN</button></div></div>';
+  for (let i = 0; i < fleetData.projects.length; i++) {
+    const p = fleetData.projects[i];
+    const primaryLink = p.demoUrl || p.kanban || '#';
+    const githubLink = p.githubUrl || (p.docs && p.docs[0]) || '#';
+    html += '<article class="agent-card">' +
+      '<div class="card-summary">' +
+        '<div style="flex:1"><h3 style="font-size:14px">' + p.title + '</h3><p style="font-size:12px;color:var(--text-secondary)">' + p.summary + '</p></div>' +
+      '</div>' +
+      '<div class="card-details" style="display:block">' +
+        '<div style="display:flex;gap:8px;flex-wrap:wrap">' +
+          '<a href="' + primaryLink + '" target="_blank" class="btn-link">OPEN DEMO</a>' +
+          '<a href="' + githubLink + '" target="_blank" class="btn-link">GITHUB</a>' +
+        '</div>' +
+      '</div>' +
+    '</article>';
   }
-  
-  // Display inactive projects with Activate button
-  for (let i = 0; i < inactiveProjects.length; i++) {
-    const p = inactiveProjects[i];
-    html += '<div class="agent-card"><div class="card-summary"><div style="flex:1"><h3 style="font-size:14px">' + p.title + '</h3><p style="font-size:12px;color:var(--text-secondary)">' + p.summary + '</p></div><button class="btn-link" onclick="confirmActivateProject(\'' + p.github + '\', \'' + p.title + '\')">ACTIVATE</button></div></div>';
-  }
-  
   container.innerHTML = html;
 }
-
-window.confirmActivateProject = async function(githubUrl, projectTitle) {
-  if (!confirm('Activate project \'' + projectTitle + '\'? This will switch the fleet to this project.')) return;
-  try {
-    const response = await fetchJson('/fleet/api/switch-project', {
-      method: 'POST',
-      body: JSON.stringify({ repo_path: githubUrl })
-    });
-    if (response.success) {
-      alert('Project \'' + projectTitle + '\' activated successfully!');
-      populateProjects();
-    } else {
-      alert('Failed to activate project: ' + (response.error || 'Unknown error'));
-    }
-  } catch (err) {
-    alert('Failed to activate project: ' + err.message);
-  }
-};
-
-window.activateProject = async function(githubUrl) {
-  if (!confirm('Activate project from ' + githubUrl + '? This will switch the fleet to this project.')) return;
-  try {
-    const response = await fetchJson('/fleet/api/switch-project', {
-      method: 'POST',
-      body: JSON.stringify({ repo_path: githubUrl })
-    });
-    if (response.success) {
-      alert('Project activated successfully!');
-      populateProjects();
-    } else {
-      alert('Failed to activate project: ' + (response.error || 'Unknown error'));
-    }
-  } catch (err) {
-    alert('Failed to activate project: ' + err.message);
-  }
-};
 
 async function loadLessons() {
   const container = document.getElementById('lessons-grid');
@@ -230,13 +193,17 @@ async function loadLessons() {
     let html = '';
     for (let i = 0; i < items.length; i++) {
       const l = items[i];
+      const body = l.body || l.lesson || l.content || '';
+      const author = l.agent || l.author || '';
+      const category = l.category || 'Insight';
+      const preview = body.length > 120 ? body.slice(0, 117) + '...' : body;
       html += '<article class="agent-card" id="lesson-card-' + i + '">' +
         '<div class="card-summary" onclick="toggleLessonCard(' + i + ')">' +
-          '<div style="flex:1"><h3 style="font-size:13px">' + (l.title || 'Lesson') + '</h3><span class="tag" style="font-size:10px">' + (l.category || 'Insight') + '</span></div>' +
-          '<span style="font-size:11px;color:var(--text-muted);margin-right:8px">' + (l.agent || '') + '</span>' +
+          '<div style="flex:1"><h3 style="font-size:13px">' + (l.title || 'Lesson') + '</h3><p style="font-size:12px;color:var(--text-secondary);margin-top:4px">' + preview + '</p><span class="tag" style="font-size:10px">' + category + '</span></div>' +
+          '<span style="font-size:11px;color:var(--text-muted);margin-right:8px">' + author + '</span>' +
           '<span style="font-size:10px;color:var(--text-muted)">&#9660;</span>' +
         '</div>' +
-        '<div class="card-details"><p style="font-size:13px;color:var(--text-secondary);white-space:pre-wrap">' + (l.body || l.lesson || '') + '</p></div>' +
+        '<div class="card-details"><p style="font-size:13px;color:var(--text-secondary);white-space:pre-wrap">' + body + '</p></div>' +
       '</article>';
     }
     container.innerHTML = html || '<p style="padding:16px;font-size:13px;color:var(--text-muted)">No lessons yet.</p>';
@@ -262,7 +229,7 @@ function renderMemoryTree(query) {
           '<span style="font-size:10px;color:var(--text-muted)">&#9660;</span>' +
         '</div>' +
         '<div class="card-details"><p style="font-size:13px;color:var(--text-secondary);margin-bottom:12px">' + f.desc + '</p>' +
-          '<a href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/' + f.path + '" target="_blank" class="btn-link">VIEW ON GITHUB</a>' +
+          '<button class="btn-link" onclick="viewDoc(\'' + f.path.replace(/'/g, "\\'") + '\', \'' + f.title.replace(/'/g, "\\'") + '\')">VIEW DOC</button>' +
         '</div>' +
       '</article>';
     }
@@ -271,6 +238,21 @@ function renderMemoryTree(query) {
 }
 window.toggleDocCard = function(i) { const c = document.getElementById('doc-card-' + i); if (c) c.classList.toggle('expanded'); };
 window.handleMemorySearch = function(value) { memorySearchQuery = value; renderMemoryTree(value); };
+
+window.viewDoc = async function(path, title) {
+  var modal = document.getElementById('doc-viewer-modal');
+  if (!modal) return;
+  document.getElementById('doc-viewer-title').textContent = title || path;
+  document.getElementById('doc-viewer-body').innerHTML = '<p style="color:var(--text-muted);font-size:13px">Loading...</p>';
+  modal.style.display = 'flex';
+  try {
+    var text = await fetchText('/fleet/' + path);
+    document.getElementById('doc-viewer-body').innerHTML = renderSimpleMarkdown(text);
+  } catch (e) {
+    document.getElementById('doc-viewer-body').innerHTML = '<p style="color:var(--text-muted);font-size:13px">Could not load document.</p>';
+  }
+};
+window.closeDocViewer = function() { var m = document.getElementById('doc-viewer-modal'); if (m) m.style.display = 'none'; };
 
 async function loadInbox() {
   const container = document.getElementById('inbox-feed');
@@ -281,8 +263,9 @@ async function loadInbox() {
     let html = '';
     for (let i = 0; i < messages.length; i++) {
       const m = messages[i];
-      const isUnread = m.status === 'unread';
+      const isUnread = m.status === 'unread' || m.read === false;
       const ts = m.timestamp ? new Date(m.timestamp).toLocaleString() : '';
+      const body = m.body || m.message || '';
       html += '<article class="agent-card' + (isUnread ? ' inbox-unread' : '') + '" id="inbox-card-' + i + '">' +
         '<div class="card-summary" onclick="toggleInboxCard(' + i + ')">' +
           '<div style="flex:1"><strong style="font-size:13px">' + (m.subject || '(no subject)') + '</strong>' +
@@ -290,7 +273,7 @@ async function loadInbox() {
           (isUnread ? '<span class="tag" style="font-size:10px;background:var(--accent-muted);color:var(--accent);margin-right:6px">NEW</span>' : '') +
           '<span style="font-size:10px;color:var(--text-muted)">&#9660;</span>' +
         '</div>' +
-        '<div class="card-details"><p style="font-size:13px;color:var(--text-secondary);white-space:pre-wrap;margin-bottom:8px">' + (m.body || '') + '</p>' +
+        '<div class="card-details"><p style="font-size:13px;color:var(--text-secondary);white-space:pre-wrap;margin-bottom:8px">' + body + '</p>' +
           '<div style="font-size:11px;color:var(--text-muted)">' + ts + '</div></div>' +
       '</article>';
     }
@@ -304,7 +287,7 @@ function statusLabel(s) {
 }
 
 async function loadKanban() {
-  const cP = document.getElementById('kanban-planned'), cW = document.getElementById('kanban-working'), cD = document.getElementById('kanban-done');
+  const cP = document.getElementById('kanban-planned'), cW = document.getElementById('kanban-working'), cR = document.getElementById('kanban-review'), cD = document.getElementById('kanban-done');
   if (!cP) return;
   try {
     const data = await fetchJson('/fleet/api/kanban');
@@ -318,6 +301,7 @@ async function loadKanban() {
     };
     cP.innerHTML = (data.planned || []).length ? (data.planned || []).map(renderCard).join('') : empty;
     cW.innerHTML = (data.working || []).length ? (data.working || []).map(renderCard).join('') : empty;
+    if (cR) cR.innerHTML = (data.peer_review || []).length ? (data.peer_review || []).map(renderCard).join('') : empty;
     cD.innerHTML = (data.done || []).length ? (data.done || []).map(renderCard).join('') : empty;
   } catch (err) { console.error(err); }
 }
@@ -406,6 +390,18 @@ async function selectDaily(day) {
 }
 
 function setupForms() {
+  var isDemoPage = window.location.pathname.indexOf('/demo') !== -1 || window.location.pathname.indexOf('/growth') !== -1;
+  if (isDemoPage) {
+    window.openProjectModal = function() { showDemoIntercept('Add Project', 'In a live Flotilla setup, this would save a new project to your fleet config and display it in the portfolio immediately.'); };
+    window.openAgentModal  = function() { showDemoIntercept('Add Agent', 'In a live Flotilla setup, this would register a new AI agent — name, role, skills, heartbeat key, and mandate file — and wire it into the fleet.'); };
+    var sf = document.getElementById('standup-form');
+    if (sf) sf.onsubmit = function(e) { e.preventDefault(); showDemoIntercept('Submit Standup', 'In a live Flotilla setup, this would log your daily progress and make it visible to all agents at their next heartbeat.'); };
+    var mf = document.getElementById('message-form');
+    if (mf) mf.onsubmit = function(e) { e.preventDefault(); showDemoIntercept('Send Message', 'In a live Flotilla setup, this would deliver your message to the agent\'s IAP inbox via a git commit, triggering a response on their next heartbeat.'); };
+    var uf = document.getElementById('user-form');
+    if (uf) uf.onsubmit = function(e) { e.preventDefault(); showDemoIntercept('Add User', 'In a live Flotilla setup, this would grant dashboard access to the email address provided.'); };
+    return;
+  }
   document.getElementById('standup-form').onsubmit = async function(e) {
     e.preventDefault();
     const fd = new FormData(e.target);
@@ -430,29 +426,6 @@ function setupForms() {
     const newAgent = { name: fd.get('name'), avatar: fd.get('avatar'), roleTitle: fd.get('roleTitle'), roleDesc: fd.get('roleDesc'), runtime: fd.get('runtime') || 'Hybrid', skills: skills, heartbeatKey: fd.get('heartbeatKey') || fd.get('name').toLowerCase(), memoryLink: memoryLink };
     try { const current = await fetchJson('/fleet/api/config'); current.team = current.team || []; current.team.push(newAgent); await fetchJson('/fleet/api/config', { method: 'POST', body: JSON.stringify(current) }); closeAgentModal(); loadTeamWithStatus(); } catch (err) { alert('Failed to save agent.'); }
   };
-  document.getElementById('project-form').onsubmit = async function(e) {
-    e.preventDefault();
-    const fd = new FormData(e.target);
-    const title = fd.get('title').trim();
-    const summary = fd.get('summary').trim();
-    const github = fd.get('github').trim();
-    if (!title || !summary || !github) return;
-    try {
-      const response = await fetchJson('/fleet/api/switch-project', {
-        method: 'POST',
-        body: JSON.stringify({ repo_path: github })
-      });
-      if (response.success) {
-        closeProjectModal();
-        alert('Project activated successfully!');
-        populateProjects();
-      } else {
-        alert('Failed to activate project: ' + (response.error || 'Unknown error'));
-      }
-    } catch (err) {
-      alert('Failed to activate project: ' + err.message);
-    }
-  };
 }
 
 async function loadUsers() {
@@ -462,14 +435,33 @@ async function loadUsers() {
 }
 
 window.removeUser = async function(email) { if (!confirm('Remove ' + email + '?')) return; try { const data = await fetchJson('/fleet/api/users'); const users = (data.users || []).filter(function(u) { return u !== email; }); await fetchJson('/fleet/api/users', { method: 'POST', body: JSON.stringify({ users }) }); loadUsers(); } catch (err) {} };
-window.removeAgent = async function(name) { if (!confirm('Remove agent ' + name + '?')) return; try { const current = await fetchJson('/fleet/api/config'); current.team = (current.team || []).filter(function(a) { return a.name !== name; }); await fetchJson('/fleet/api/config', { method: 'POST', body: JSON.stringify(current) }); loadTeamWithStatus(); } catch (err) {} };
+window.removeAgent = async function(name) {
+  var isDemoPage = window.location.pathname.indexOf('/demo') !== -1 || window.location.pathname.indexOf('/growth') !== -1;
+  if (isDemoPage) {
+    showDemoIntercept('Remove Agent', 'In a live Flotilla setup, this would remove the selected agent from the fleet roster and update the shared config. Demo mode keeps the sample crew fixed.');
+    return;
+  }
+  if (!confirm('Remove agent ' + name + '?')) return;
+  try {
+    const current = await fetchJson('/fleet/api/config');
+    current.team = (current.team || []).filter(function(a) { return a.name !== name; });
+    await fetchJson('/fleet/api/config', { method: 'POST', body: JSON.stringify(current) });
+    loadTeamWithStatus();
+  } catch (err) {}
+};
 
 window.openProjectModal = function() { document.getElementById('project-modal').style.display = 'flex'; };
 window.closeProjectModal = function() { document.getElementById('project-modal').style.display = 'none'; };
 window.openAgentModal = function() { document.getElementById('agent-modal').style.display = 'flex'; };
 window.closeAgentModal = function() { document.getElementById('agent-modal').style.display = 'none'; };
 
+window.showDemoIntercept = function(action, description) {
+  document.getElementById('demo-intercept-title').textContent = action;
+  document.getElementById('demo-intercept-body').textContent = description;
+  document.getElementById('demo-intercept-modal').style.display = 'flex';
+};
+window.closeDemoIntercept = function() { var m = document.getElementById("demo-intercept-modal"); if (m) m.style.display = "none"; };
 
 document.addEventListener('DOMContentLoaded', function() { initTheme(); verifyAuth(); wireNavControls(); loadFleetMeta(); renderMemoryTree(''); loadDailyStandups(); setupForms(); });
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeProjectModal(); closeAgentModal(); } });
-document.addEventListener('click', function(e) { if (e.target && e.target.classList && e.target.classList.contains('modal-overlay')) { closeProjectModal(); closeAgentModal(); } });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeProjectModal(); closeAgentModal(); closeDemoIntercept(); closeDocViewer(); } });
+document.addEventListener('click', function(e) { if (e.target && e.target.classList && e.target.classList.contains('modal-overlay')) { closeProjectModal(); closeAgentModal(); closeDemoIntercept(); closeDocViewer(); } });

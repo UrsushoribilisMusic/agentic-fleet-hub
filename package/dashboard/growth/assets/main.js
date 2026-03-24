@@ -213,7 +213,7 @@ function renderMemoryTree(query) {
           '<span style="font-size:10px;color:var(--text-muted)">&#9660;</span>' +
         '</div>' +
         '<div class="card-details"><p style="font-size:13px;color:var(--text-secondary);margin-bottom:12px">' + f.desc + '</p>' +
-          '<a href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/' + f.path + '" target="_blank" class="btn-link">VIEW ON GITHUB</a>' +
+          '<button class="btn-link" onclick="viewDoc(\'' + f.path.replace(/'/g, "\\'") + '\', \'' + f.title.replace(/'/g, "\\'") + '\')">VIEW DOC</button>' +
         '</div>' +
       '</article>';
     }
@@ -222,6 +222,21 @@ function renderMemoryTree(query) {
 }
 window.toggleDocCard = function(i) { const c = document.getElementById('doc-card-' + i); if (c) c.classList.toggle('expanded'); };
 window.handleMemorySearch = function(value) { memorySearchQuery = value; renderMemoryTree(value); };
+
+window.viewDoc = async function(path, title) {
+  var modal = document.getElementById('doc-viewer-modal');
+  if (!modal) return;
+  document.getElementById('doc-viewer-title').textContent = title || path;
+  document.getElementById('doc-viewer-body').innerHTML = '<p style="color:var(--text-muted);font-size:13px">Loading...</p>';
+  modal.style.display = 'flex';
+  try {
+    var text = await fetchText('/fleet/' + path);
+    document.getElementById('doc-viewer-body').innerHTML = renderSimpleMarkdown(text);
+  } catch (e) {
+    document.getElementById('doc-viewer-body').innerHTML = '<p style="color:var(--text-muted);font-size:13px">Could not load document.</p>';
+  }
+};
+window.closeDocViewer = function() { var m = document.getElementById('doc-viewer-modal'); if (m) m.style.display = 'none'; };
 
 async function loadInbox() {
   const container = document.getElementById('inbox-feed');
@@ -255,7 +270,7 @@ function statusLabel(s) {
 }
 
 async function loadKanban() {
-  const cP = document.getElementById('kanban-planned'), cW = document.getElementById('kanban-working'), cD = document.getElementById('kanban-done');
+  const cP = document.getElementById('kanban-planned'), cW = document.getElementById('kanban-working'), cR = document.getElementById('kanban-review'), cD = document.getElementById('kanban-done');
   if (!cP) return;
   try {
     const data = await fetchJson('/fleet/api/kanban');
@@ -269,6 +284,7 @@ async function loadKanban() {
     };
     cP.innerHTML = (data.planned || []).length ? (data.planned || []).map(renderCard).join('') : empty;
     cW.innerHTML = (data.working || []).length ? (data.working || []).map(renderCard).join('') : empty;
+    if (cR) cR.innerHTML = (data.peer_review || []).length ? (data.peer_review || []).map(renderCard).join('') : empty;
     cD.innerHTML = (data.done || []).length ? (data.done || []).map(renderCard).join('') : empty;
   } catch (err) { console.error(err); }
 }
@@ -357,6 +373,18 @@ async function selectDaily(day) {
 }
 
 function setupForms() {
+  var isDemoPage = window.location.pathname.indexOf('/demo') !== -1 || window.location.pathname.indexOf('/growth') !== -1;
+  if (isDemoPage) {
+    window.openProjectModal = function() { showDemoIntercept('Add Project', 'In a live Flotilla setup, this would save a new project to your fleet config and display it in the portfolio immediately.'); };
+    window.openAgentModal  = function() { showDemoIntercept('Add Agent', 'In a live Flotilla setup, this would register a new AI agent — name, role, skills, heartbeat key, and mandate file — and wire it into the fleet.'); };
+    var sf = document.getElementById('standup-form');
+    if (sf) sf.onsubmit = function(e) { e.preventDefault(); showDemoIntercept('Submit Standup', 'In a live Flotilla setup, this would log your daily progress and make it visible to all agents at their next heartbeat.'); };
+    var mf = document.getElementById('message-form');
+    if (mf) mf.onsubmit = function(e) { e.preventDefault(); showDemoIntercept('Send Message', 'In a live Flotilla setup, this would deliver your message to the agent\'s IAP inbox via a git commit, triggering a response on their next heartbeat.'); };
+    var uf = document.getElementById('user-form');
+    if (uf) uf.onsubmit = function(e) { e.preventDefault(); showDemoIntercept('Add User', 'In a live Flotilla setup, this would grant dashboard access to the email address provided.'); };
+    return;
+  }
   document.getElementById('standup-form').onsubmit = async function(e) {
     e.preventDefault();
     const fd = new FormData(e.target);
@@ -397,7 +425,13 @@ window.closeProjectModal = function() { document.getElementById('project-modal')
 window.openAgentModal = function() { document.getElementById('agent-modal').style.display = 'flex'; };
 window.closeAgentModal = function() { document.getElementById('agent-modal').style.display = 'none'; };
 
+window.showDemoIntercept = function(action, description) {
+  document.getElementById('demo-intercept-title').textContent = action;
+  document.getElementById('demo-intercept-body').textContent = description;
+  document.getElementById('demo-intercept-modal').style.display = 'flex';
+};
+window.closeDemoIntercept = function() { var m = document.getElementById("demo-intercept-modal"); if (m) m.style.display = "none"; };
 
 document.addEventListener('DOMContentLoaded', function() { initTheme(); verifyAuth(); wireNavControls(); loadFleetMeta(); renderMemoryTree(''); loadDailyStandups(); setupForms(); });
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeProjectModal(); closeAgentModal(); } });
-document.addEventListener('click', function(e) { if (e.target && e.target.classList && e.target.classList.contains('modal-overlay')) { closeProjectModal(); closeAgentModal(); } });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeProjectModal(); closeAgentModal(); closeDemoIntercept(); closeDocViewer(); } });
+document.addEventListener('click', function(e) { if (e.target && e.target.classList && e.target.classList.contains('modal-overlay')) { closeProjectModal(); closeAgentModal(); closeDemoIntercept(); closeDocViewer(); } });
