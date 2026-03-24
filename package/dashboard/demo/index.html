@@ -144,7 +144,7 @@
         <div id="inbox-feed">Loading messages...</div>
         <form id="message-form" class="standup-form card" style="padding: 16px; border: 1px solid var(--border); background: var(--bg-secondary);">
           <h3 style="font-size: 14px; font-weight: 600;">Send Message</h3>
-          <label><span>To</span><select id="m-to"><option value="All">Everyone</option><option value="Clau">Clau</option><option value="Gem">Gem</option><option value="Codi">Codi</option></select></label>
+          <label><span>To</span><select id="m-to"><option value="All">Everyone</option><option value="Codi">Codi</option><option value="Clau">Clau</option><option value="Gem">Gem</option><option value="Misty">Misty</option></select></label>
           <label><span>Subject</span><input type="text" id="m-subject" required></label>
           <label><span>Body</span><textarea id="m-body" required rows="4"></textarea></label>
           <button type="submit" class="btn-submit">Send &rarr;</button>
@@ -175,7 +175,7 @@
         <label><span>GitHub URL</span><input type="url" name="github" required></label>
         <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 8px;">
           <button type="button" class="btn-link" onclick="closeProjectModal()">Cancel</button>
-          <button type="submit" class="btn-submit">Activate Project</button>
+          <button type="submit" class="btn-submit">Save Project</button>
         </div>
       </form>
     </div>
@@ -203,7 +203,7 @@
           <select name="mandateFile">
             <option value="CLAUDE.md">CLAUDE.md (Claude Code)</option>
             <option value="GEMINI.md">GEMINI.md (Gemini CLI)</option>
-            <option value="AGENTS.md">AGENTS.md (Generic)</option>
+            <option value="AGENTS.md">AGENTS.md (Codex / Shared)</option>
             <option value="MISTRAL.md">MISTRAL.md (Mistral Vibe)</option>
             <option value="other">Other (enter URL below)</option>
           </select>
@@ -227,6 +227,15 @@
     </div>
   </div>
 
-  <script src="assets/main.js" defer></script>
+  <div id="demo-intercept-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content" style="max-width: 400px; text-align: center;">
+      <h2 style="font-size: 18px; margin-bottom: 8px;" id="demo-intercept-title"></h2>
+      <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;" id="demo-intercept-body"></p>
+      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 20px;">This is a live demo. <a href="https://bigbearengineering.com" target="_blank" style="color: var(--accent);">Get your own fleet &rarr;</a></p>
+      <button class="btn-submit" onclick="closeDemoIntercept()">Got it</button>
+    </div>
+  </div>
+
+  <script src="assets/main.js?v=20260315b" defer></script>
 </body>
 </html>

@@ -166,5 +166,17 @@
     "agent": "Codi (Codex)",
     "date": "2026-03-16T00:00:00Z",
     "status": "approved"
+  },
+  {
+    "id": "reassignment-loop-offline-agents",
+    "title": "Task reassignment must check if the substitute agent is also offline",
+    "category": "architecture",
+    "project": "Fleet Hub",
+    "symptom": "Tasks bounced back and forth between two offline agents (Clau and Gem) every 60 seconds, creating high notification noise in Telegram and preventing the tasks from ever being executed.",
+    "root_cause": "The dispatcher's `find_best_substitute` logic only excluded the *current* offline agent from the search, but did not check if the proposed substitute was also in the offline list. Since agents are often each other's primary fallbacks, they formed a 2-node cycle when both heartbeats were stale.",
+    "lesson": "When reassigning tasks from an offline agent, always cross-reference the candidate list against the *full* current offline registry. If no online substitute is available, flip the task back to `todo` and wait for any agent to recover rather than reassigning to another dead node.",
+    "agent": "Gem (Gemini CLI)",
+    "date": "2026-03-24T00:00:00Z",
+    "status": "approved"
   }
 ]

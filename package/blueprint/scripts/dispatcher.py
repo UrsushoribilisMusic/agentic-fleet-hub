@@ -204,16 +204,16 @@ def check_agent_health():
             
             previously_offline = agent_key in offline_data
             
-            if is_currently_offline and not previously_offline:
-                log(f"Agent {agent_key} detected OFFLINE (last seen {last_seen_str})")
-                offline_data[agent_key] = {"offline_since": now.isoformat(), "last_seen": last_seen_str}
-                changed = True
+            if is_currently_offline:
+                if not previously_offline: log(f"Agent {agent_key} detected OFFLINE (last seen {last_seen_str})")
+                if not previously_offline: offline_data[agent_key] = {"offline_since": now.isoformat(), "last_seen": last_seen_str}
+                if not previously_offline: changed = True
                 reassign_tasks(agent_key, agents)
             elif not is_currently_offline and previously_offline:
                 log(f"Agent {agent_key} RECOVERED (was offline since {offline_data[agent_key]['offline_since']})")
                 send_telegram(f"✅ {agent_key.capitalize()} is back online (was offline {last_seen_str}).")
                 del offline_data[agent_key]
-                changed = True
+                if not previously_offline: changed = True
                 
         if changed:
             save_offline_agents(offline_data)
@@ -292,7 +292,7 @@ def check_waiting_human():
                 log(f"HUMAN NEEDED: {task['title']} — sending Telegram")
                 send_telegram(msg)
                 notif_data[task_id] = now
-                changed = True
+                if not previously_offline: changed = True
                 
                 # If it was 'waiting_human', we can set it to 'waiting_human_notified'
                 # but now it's mostly for informational purposes since we use the cooldown.

@@ -227,6 +227,15 @@
     </div>
   </div>
 
-  <script src="assets/main.js" defer></script>
+  <div id="demo-intercept-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content" style="max-width: 400px; text-align: center;">
+      <h2 style="font-size: 18px; margin-bottom: 8px;" id="demo-intercept-title"></h2>
+      <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;" id="demo-intercept-body"></p>
+      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 20px;">This is a live demo. <a href="https://bigbearengineering.com" target="_blank" style="color: var(--accent);">Get your own fleet &rarr;</a></p>
+      <button class="btn-submit" onclick="closeDemoIntercept()">Got it</button>
+    </div>
+  </div>
+
+  <script src="assets/main.js?v=20260315b" defer></script>
 </body>
 </html>
