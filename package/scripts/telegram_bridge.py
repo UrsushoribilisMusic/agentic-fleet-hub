@@ -14,10 +14,10 @@ from datetime import datetime
 
 PB_URL = "http://127.0.0.1:8090/api"
 FLEET_DIR = "/Users/miguelrodriguez/fleet"
+CODEX_REPO_DIR = "/Users/miguelrodriguez/projects/agentic-fleet-hub"
 LOG_FILE = f"{FLEET_DIR}/logs/telegram_bridge.log"
 OFFSET_FILE = f"{FLEET_DIR}/logs/tg_offset.json"
 OUTBOUND_OFFSET_FILE = f"{FLEET_DIR}/logs/tg_outbound_offset.json"
-FLEET_META_PATH = "/Users/miguelrodriguez/projects/agentic-fleet-hub/AGENTS/CONFIG/fleet_meta.json"
 
 # Telegram settings from environment (Infisical)
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
@@ -31,60 +31,22 @@ TASK_CACHE = {}
 OPENCLAW_GATEWAY_URL = os.environ.get("OPENCLAW_GATEWAY_URL", "http://localhost:18789/v1/chat/completions")
 OPENCLAW_GATEWAY_TOKEN = os.environ.get("OPENCLAW_GATEWAY_TOKEN")
 
-# Static utility commands (always present, not agent-driven)
-_STATIC_COMMANDS = [
-    {"command": "ask",    "description": "Ask the fleet a question (routes to Clau)"},
-    {"command": "spec",   "description": "Post a new spec or idea for the fleet"},
+# Bot commands registered with Telegram
+BOT_COMMANDS = [
+    {"command": "clau",   "description": "Message Clau (Claude Code)"},
+    {"command": "gem",    "description": "Message Gem (Gemini)"},
+    {"command": "codi",   "description": "Message Codi (Codex)"},
+    {"command": "misty",  "description": "Message Misty (Mistral Vibe)"},
+    {"command": "claw",   "description": "Talk to OpenClaw (Robot Ross artist agent)"},
+    {"command": "ask",    "description": "Ask the fleet a question (routes to Clau inbox)"},
+    {"command": "spec",   "description": "Post a new spec or idea (routes to Clau inbox)"},
     {"command": "status", "description": "Show fleet heartbeat status"},
     {"command": "tasks",  "description": "List active tasks"},
     {"command": "go",     "description": "Activate all backlog tasks"},
     {"command": "help",   "description": "Show available commands"},
 ]
 
-# Agent command set and BOT_COMMANDS are populated at startup from fleet_meta.json
-AGENT_COMMANDS = {}   # heartbeatKey → assigned_agent (e.g. "clau" → "clau", "claw" → "openclaw")
-BOT_COMMANDS = []     # populated by build_bot_commands()
-
-
-def load_fleet_meta():
-    """Load fleet_meta.json from disk. Returns parsed dict or None on failure."""
-    try:
-        with open(FLEET_META_PATH, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except Exception as e:
-        print(f"[fleet_meta] Could not read {FLEET_META_PATH}: {e}")
-        return None
-
-
-def build_bot_commands(fleet_meta=None):
-    """Build BOT_COMMANDS and AGENT_COMMANDS from fleet_meta. Falls back to
-    hardcoded defaults when fleet_meta is unavailable."""
-    global BOT_COMMANDS, AGENT_COMMANDS
-
-    if fleet_meta:
-        team = fleet_meta.get("team", [])
-        agent_cmds = []
-        for agent in team:
-            key = agent.get("heartbeatKey", "")
-            if not key:
-                continue
-            # OpenClaw uses /claw as the command (shorter, legacy compat)
-            cmd = "claw" if key == "openclaw" else key
-            desc = agent.get("roleDesc", f"Send a task to {agent.get('name', key)}")
-            if len(desc) > 256:
-                desc = desc[:253] + "..."
-            agent_cmds.append({"command": cmd, "description": desc})
-            AGENT_COMMANDS[cmd] = key  # map telegram command → heartbeatKey/agent name
-        BOT_COMMANDS = agent_cmds + _STATIC_COMMANDS
-    else:
-        # Fallback: hardcoded defaults
-        BOT_COMMANDS = [
-            {"command": "clau",   "description": "Send a task to Clau (Claude Code)"},
-            {"command": "gem",    "description": "Send a task to Gem (Gemini)"},
-            {"command": "codi",   "description": "Send a task to Codi (Codex)"},
-            {"command": "claw",   "description": "Talk to OpenClaw (Robot Ross artist agent)"},
-        ] + _STATIC_COMMANDS
-        AGENT_COMMANDS = {"clau": "clau", "gem": "gem", "codi": "codi", "claw": "openclaw"}
+AGENT_LIST = ["clau", "gem", "codi", "misty", "openclaw"]
 
 def log(msg):
     ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -183,6 +145,37 @@ def create_task(title, assigned_agent, description=""):
     except Exception as e:
         log(f"PB Task Create Error: {e}")
         return None
+
+def post_to_inbox(from_user, to_agent, subject, body):
+    """Route a message directly to the agent's inbox.json instead of creating a task."""
+    inbox_path = os.path.join(CODEX_REPO_DIR, "AGENTS/MESSAGES/inbox.json")
+    try:
+        inbox = []
+        if os.path.exists(inbox_path):
+            with open(inbox_path, "r") as f:
+                inbox = json.load(f)
+        
+        msg_id = f"msg-tg-{int(time.time())}"
+        new_msg = {
+            "id": msg_id,
+            "timestamp": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "from": from_user,
+            "to": to_agent,
+            "subject": subject,
+            "body": body,
+            "status": "unread",
+            "priority": "normal",
+            "ref_ticket": None
+        }
+        inbox.append(new_msg)
+        
+        with open(inbox_path, "w") as f:
+            json.dump(inbox, f, indent=2)
+        log(f"Routed message to {to_agent} inbox: {subject}")
+        return True
+    except Exception as e:
+        log(f"Error posting to inbox: {e}")
+        return False
 
 def update_task_status(task_id, status):
     """Update task status in PocketBase."""
@@ -319,20 +312,13 @@ def cmd_claw(message):
     except Exception as e:
         send_to_tg(f"OpenClaw error: {e}")
 
-def update_backlog_to_todo(ticket_id=None):
+def update_backlog_to_todo():
     try:
-        if ticket_id:
-            # Try to find backlog tasks where title contains the number or ID matches
-            r = requests.get(f"{PB_URL}/collections/tasks/records", params={
-                "filter": f'status = "backlog" && (title ~ "{ticket_id}" || id = "{ticket_id}")'
-            })
-        else:
-            r = requests.get(f"{PB_URL}/collections/tasks/records", params={"filter": 'status = "backlog"'})
-        
+        r = requests.get(f"{PB_URL}/collections/tasks/records", params={"filter": 'status = "backlog"'})
         tasks = r.json().get("items", [])
         for task in tasks:
             requests.patch(f"{PB_URL}/collections/tasks/records/{task['id']}", json={"status": "todo"})
-            log(f"Task {task['id']} ({task['title']}) moved to TODO via GO signal")
+            log(f"Task {task['id']} moved to TODO via GO signal")
         return len(tasks)
     except Exception as e:
         log(f"Error updating backlog: {e}")
@@ -344,13 +330,14 @@ def process_updates(updates):
         if not msg: continue
 
         chat_id = str(msg.get("chat", {}).get("id"))
+        from_user = msg.get("from", {}).get("username") or msg.get("from", {}).get("first_name", "miguel")
         text = (msg.get("text") or "").strip()
 
         if chat_id != TELEGRAM_CHAT_ID:
             log(f"Ignored message from unauthorized chat: {chat_id}")
             continue
 
-        log(f"Received: {text}")
+        log(f"Received from {from_user}: {text}")
 
         # Check for reply to HUMAN NEEDED
         reply_to = msg.get("reply_to_message")
@@ -376,18 +363,9 @@ def process_updates(updates):
             cmd = parts[0].lower().split("@")[0]  # strip @botname if present
             remainder = parts[1].strip() if len(parts) > 1 else ""
 
-        if cmd == "go" or text.strip().upper().startswith("GO"):
-            # Check for specific ticket number in the text (e.g. "GO for 46")
-            numbers = re.findall(r'\d+', text)
-            specific_id = numbers[0] if numbers else None
-            
-            count = update_backlog_to_todo(specific_id)
-            if specific_id and count > 0:
-                send_to_tg(f"✅ GO: Ticket #{specific_id} activated.")
-            elif specific_id and count == 0:
-                send_to_tg(f"❌ GO: Could not find backlog ticket #{specific_id}.")
-            else:
-                send_to_tg(f"✅ GO: {count} task(s) activated from backlog.")
+        if cmd == "go" or text.strip().upper() == "GO":
+            count = update_backlog_to_todo()
+            send_to_tg(f"✅ GO: {count} task(s) activated.")
 
         elif cmd == "status":
             cmd_status()
@@ -408,31 +386,38 @@ def process_updates(updates):
             send_to_tg("🦦 Sending to OpenClaw…")
             cmd_claw(remainder)
 
-        elif cmd in AGENT_COMMANDS and cmd != "claw":
-            assigned = AGENT_COMMANDS[cmd]
+        elif cmd in AGENT_LIST:
             if not remainder:
-                send_to_tg(f"Usage: /{cmd} <task description>")
+                send_to_tg(f"Usage: /{cmd} <message>")
                 continue
-            task_id = create_task(remainder, assigned, description=f"From Telegram: /{cmd} {remainder}")
-            send_to_tg(f"✅ Task queued for {assigned}: {remainder}")
+            if post_to_inbox(from_user, cmd, f"Telegram: {remainder[:30]}...", remainder):
+                send_to_tg(f"✅ Message routed to {cmd} inbox.")
+            else:
+                send_to_tg(f"❌ Failed to route message to {cmd}.")
 
         elif cmd == "ask":
             content = remainder or text
             if not content:
                 send_to_tg("Usage: /ask <question>")
                 continue
-            task_id = create_task(f"Q: {content}", "clau", description=f"Question from Telegram: {content}")
-            send_to_tg(f"✅ Question queued for Clau. She'll respond at next heartbeat (:04, :14, …).")
+            if post_to_inbox(from_user, "clau", "Question via Telegram", content):
+                send_to_tg(f"✅ Question routed to Clau inbox.")
+            else:
+                send_to_tg(f"❌ Failed to route question.")
 
         elif cmd == "spec" or text.lower().startswith("spec:") or text.lower().startswith("idea:"):
             content = remainder or text
-            task_id = create_task(f"Spec: {content[:80]}", "clau", description=content)
-            send_to_tg(f"✅ Spec queued.")
+            if post_to_inbox(from_user, "clau", "New Spec/Idea", content):
+                send_to_tg(f"✅ Spec routed to Clau inbox.")
+            else:
+                send_to_tg(f"❌ Failed to route spec.")
 
         elif "?" in text:
             # Free-form question without /ask
-            task_id = create_task(f"Q: {text[:80]}", "clau", description=f"Question from Telegram: {text}")
-            send_to_tg(f"✅ Question queued for Clau.")
+            if post_to_inbox(from_user, "clau", "Question via Telegram", text):
+                send_to_tg(f"✅ Question routed to Clau inbox.")
+            else:
+                send_to_tg(f"❌ Failed to route question.")
 
         else:
             # Generic message — log it but don't create noise tasks
@@ -440,14 +425,10 @@ def process_updates(updates):
 
 def main():
     if not TELEGRAM_TOKEN:
-        log("ERROR: TELEGRAM_TOKEN not set")
+        log("ERROR: TELEGRAM_TOKEN not BlueBearEngineering GmbH")
         return
 
     log("Telegram Bridge started")
-    fleet_meta = load_fleet_meta()
-    build_bot_commands(fleet_meta)
-    agent_count = len([c for c in BOT_COMMANDS if c["command"] not in {c["command"] for c in _STATIC_COMMANDS}])
-    log(f"Loaded {agent_count} agent command(s) from fleet_meta: {list(AGENT_COMMANDS.keys())}")
     register_bot_commands()
     offset = get_offset()
 
@@ -455,7 +436,7 @@ def main():
         # 1. Outbound: PocketBase comments -> Telegram
         poll_outbound_comments()
 
-        # 2. Inbound: Telegram -> PocketBase tasks
+        # 2. Inbound: Telegram -> PocketBase tasks (or inbox)
         try:
             url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/getUpdates"
             params = {"offset": offset + 1, "timeout": 5}
