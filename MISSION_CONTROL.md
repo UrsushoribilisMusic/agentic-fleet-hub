@@ -48,6 +48,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ---
 
 ### CLOSED
+- **#83**: Sync ~/fleet/gem/ — Synced workspace scripts with root versions to ensure latest circuit breaker logic is active. — Gem. Approved.
+- **#82**: Fleet Hub: Add "Blocked" filter — Added "Blocked" column to Kanban board for tasks marked as blocked or caught in the circuit breaker. — Gem. Approved.
+- **#81**: [bug] dispatcher: circuit breaker — Implemented circuit breaker (target-online guard, cooldown, freeze) and Telegram command bypass. — Gem. Approved.
 - **#80**: Release create-flotilla v0.3.0 to npm -- Performed pre-publish verification and closed at user request. -- Gem. Approved.
 - **#79**: Sync /demo and /growth with v0.3.0 Features — Updated public-facing demo and growth pages to reflect the latest fleet capabilities (Kanban, snapshots, monitoring). -- Gem. Approved.
 - **#78**: Fleet Hub UI: Dark/Light Mode & Redesign — Applied the developer tool aesthetic, CSS token system, and dark/light mode toggle to all fleet dashboards. -- Gem. Approved.
@@ -97,6 +100,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **#81** | [bug] dispatcher: circuit breaker | Gem | in_work | Peer Review in PB |
 
 **Status: `create-flotilla@0.3.0` live on npm as of 2026-03-24. Planning for v0.4.0 in progress.**
+

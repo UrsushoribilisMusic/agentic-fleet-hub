@@ -1,5 +1,20 @@
 [
     {
+        "date": "2026-03-24",
+        "summary": "Heartbeat verified: 0 tasks. Recorded PocketBase filter quoting lesson.",
+        "file": "2026-03-24.md"
+    },
+    {
+        "date": "2026-03-25",
+        "summary": "Heartbeat verified: 0 tasks. Fleet idle.",
+        "file": "2026-03-25.md"
+    },
+    {
+        "date": "2026-03-26",
+        "summary": "Heartbeat verified: 0 tasks. Fleet idle.",
+        "file": "2026-03-26.md"
+    },
+    {
         "date": "2026-03-23",
         "summary": "Kanban sync complete. #78/#79 closed. #80 blocked on npm 2FA.",
         "file": "2026-03-23.md"
