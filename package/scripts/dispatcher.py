@@ -22,6 +22,9 @@ OFFLINE_AGENTS_FILE = f"{FLEET_DIR}/logs/offline_agents.json"
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "997912895")
 
+# Configurable Cooldown (default 5 minutes)
+COOLDOWN_SECONDS = int(os.environ.get("DISPATCHER_COOLDOWN", "300"))
+
 # Ensure logs directory exists
 os.makedirs(f"{FLEET_DIR}/logs", exist_ok=True)
 
@@ -86,6 +89,32 @@ def post_comment(task_id, agent, content, comment_type="output"):
     except Exception as e:
         log(f"ERROR posting comment: {e}")
 
+def is_agent_offline(agent_key):
+    """Checks if an agent has been offline for more than 30 minutes."""
+    try:
+        r = requests.get(f"{PB_URL}/collections/heartbeats/records",
+                         params={
+                             "filter": f'agent = "{agent_key}"',
+                             "sort": "-updated",
+                             "perPage": 1
+                         })
+        items = r.json().get("items", [])
+        
+        now = datetime.utcnow()
+        if not items:
+            return True, "Never"
+        
+        hb = items[0]
+        # PB updated time is like "2026-03-19 09:10:42.368Z"
+        ts_part = hb["updated"].split('.')[0].replace('Z', '')
+        dt = datetime.strptime(ts_part, "%Y-%m-%d %H:%M:%S")
+        age_seconds = (now - dt).total_seconds()
+        last_seen_str = f"{int(age_seconds // 60)}m ago"
+        return (age_seconds > 1800), last_seen_str # 30 min threshold
+    except Exception as e:
+        log(f"Error checking health for {agent_key}: {e}")
+        return True, "Error"
+
 def find_best_substitute(task, offline_agent_key, all_agents_meta, offline_skills):
     # task might have required_skills (list)
     required_skills = task.get("required_skills", [])
@@ -126,19 +155,59 @@ def reassign_tasks(offline_agent_key, all_agents_meta):
         if not tasks:
             return
 
-        log(f"Reassigning {len(tasks)} tasks from offline agent {offline_agent_key}")
+        log(f"Evaluating {len(tasks)} tasks from offline agent {offline_agent_key} for reassignment")
         
         offline_agent_meta = next((a for a in all_agents_meta if a["heartbeatKey"] == offline_agent_key), None)
         offline_skills = set(offline_agent_meta.get("skills", [])) if offline_agent_meta else set()
 
         for task in tasks:
+            # 3. Cooldown between bounces
+            last_reassign_str = task.get("last_reassignment_at")
+            if last_reassign_str:
+                ts_part = last_reassign_str.split('.')[0].replace('Z', '')
+                last_dt = datetime.strptime(ts_part, "%Y-%m-%d %H:%M:%S")
+                age_seconds = (datetime.utcnow() - last_dt).total_seconds()
+                if age_seconds < COOLDOWN_SECONDS:
+                    log(f"Skipping reassignment for task '{task['title']}' (cooldown: {int(age_seconds)}s < {COOLDOWN_SECONDS}s)")
+                    continue
+
             best_agent = find_best_substitute(task, offline_agent_key, all_agents_meta, offline_skills)
             if best_agent:
                 new_agent_key = best_agent["heartbeatKey"]
-                log(f"Reassigning task '{task['title']}' to {new_agent_key}")
                 
+                # 1. Target-online guard
+                is_offline, last_seen = is_agent_offline(new_agent_key)
+                if is_offline:
+                    log(f"Skipping reassignment for task '{task['title']}' to {new_agent_key} (substitute also offline: last seen {last_seen})")
+                    continue
+                
+                # 2. Reassignment counter + freeze (rolling 10m window)
+                count = task.get("reassignment_count", 0)
+                if last_reassign_str:
+                    ts_part = last_reassign_str.split('.')[0].replace('Z', '')
+                    last_dt = datetime.strptime(ts_part, "%Y-%m-%d %H:%M:%S")
+                    if (datetime.utcnow() - last_dt).total_seconds() < 600: # 10m
+                        count += 1
+                    else:
+                        count = 1
+                else:
+                    count = 1
+                
+                now_iso = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S.000Z")
+                
+                if count >= 3:
+                    log(f"🚨 BLOCKING task '{task['title']}' (too many reassignments: {count} in 10m)")
+                    requests.patch(f"{PB_URL}/collections/tasks/records/{task['id']}",
+                                   json={"status": "blocked", "reassignment_count": count, "last_reassignment_at": now_iso})
+                    send_telegram(f"🚨 TASK BLOCKED: '{task['title']}' (too many reassignments). MANUAL INTERVENTION NEEDED.")
+                    post_comment(task["id"], "dispatcher", f"Task blocked after {count} reassignments in 10m.", "comment")
+                    continue
+
+                log(f"Reassigning task '{task['title']}' to {new_agent_key}")
                 requests.patch(f"{PB_URL}/collections/tasks/records/{task['id']}",
-                               json={"assigned_agent": new_agent_key})
+                               json={"assigned_agent": new_agent_key, 
+                                     "reassignment_count": count, 
+                                     "last_reassignment_at": now_iso})
                 
                 msg = f"Reassigned from {offline_agent_key} to {new_agent_key} ({offline_agent_key} offline)"
                 post_comment(task["id"], "dispatcher", msg, "comment")
@@ -178,42 +247,23 @@ def check_agent_health():
             agent_key = agent_meta["heartbeatKey"]
             if agent_key == "openclaw": continue
             
-            r = requests.get(f"{PB_URL}/collections/heartbeats/records",
-                             params={
-                                 "filter": f'agent = "{agent_key}"',
-                                 "sort": "-updated",
-                                 "perPage": 1
-                             })
-            items = r.json().get("items", [])
-            
-            now = datetime.utcnow()
-            is_currently_offline = False
-            last_seen_str = "Never"
-            
-            if not items:
-                is_currently_offline = True
-            else:
-                hb = items[0]
-                # PB updated time is like "2026-03-19 09:10:42.368Z"
-                ts_part = hb["updated"].split('.')[0].replace('Z', '')
-                dt = datetime.strptime(ts_part, "%Y-%m-%d %H:%M:%S")
-                age_seconds = (now - dt).total_seconds()
-                last_seen_str = f"{int(age_seconds // 60)}m ago"
-                if age_seconds > 1800: # 30 min
-                    is_currently_offline = True
-            
+            is_currently_offline, last_seen_str = is_agent_offline(agent_key)
             previously_offline = agent_key in offline_data
             
-            if is_currently_offline:
-                if not previously_offline: log(f"Agent {agent_key} detected OFFLINE (last seen {last_seen_str})")
-                if not previously_offline: offline_data[agent_key] = {"offline_since": now.isoformat(), "last_seen": last_seen_str}
-                if not previously_offline: changed = True
+            if is_currently_offline and not previously_offline:
+                log(f"Agent {agent_key} detected OFFLINE (last seen {last_seen_str})")
+                offline_data[agent_key] = {"offline_since": datetime.utcnow().isoformat(), "last_seen": last_seen_str}
+                changed = True
                 reassign_tasks(agent_key, agents)
             elif not is_currently_offline and previously_offline:
                 log(f"Agent {agent_key} RECOVERED (was offline since {offline_data[agent_key]['offline_since']})")
                 send_telegram(f"✅ {agent_key.capitalize()} is back online (was offline {last_seen_str}).")
                 del offline_data[agent_key]
-                if not previously_offline: changed = True
+                changed = True
+            elif is_currently_offline and previously_offline:
+                # Still offline, but we should periodically check for reassignment of tasks that 
+                # might have been skipped previously (e.g. because of target-offline guard)
+                reassign_tasks(agent_key, agents)
                 
         if changed:
             save_offline_agents(offline_data)
@@ -292,10 +342,9 @@ def check_waiting_human():
                 log(f"HUMAN NEEDED: {task['title']} — sending Telegram")
                 send_telegram(msg)
                 notif_data[task_id] = now
-                if not previously_offline: changed = True
+                changed = True
                 
                 # If it was 'waiting_human', we can set it to 'waiting_human_notified'
-                # but now it's mostly for informational purposes since we use the cooldown.
                 if task["status"] == "waiting_human":
                     update_task_status(task_id, "waiting_human_notified")
 
@@ -316,7 +365,8 @@ def main():
             agent = task.get("assigned_agent")
             if agent:
                 if agent in offline_agents:
-                    log(f"Skipping task '{task['title']}' (assigned agent {agent} is OFFLINE)")
+                    # We already tried reassigning in check_agent_health
+                    # If it's still assigned to an offline agent, it was likely skipped due to target-offline
                     continue
                 run_agent(agent, task)
         
