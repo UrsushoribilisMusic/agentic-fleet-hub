@@ -40,7 +40,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 
 ---
 
-## Ticket Status (as of 2026-03-23)
+## Ticket Status (as of 2026-03-27)
 
 ### ENVIRONMENT NOTE — Mac Mini migration complete (2026-03-14)
 All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users/miguel/` → `/Users/miguelrodriguez/`. Repos cloned to `~/projects/`. Python 3.12 venv at `~/projects/music-video-tool/.venv312`. OpenClaw at `/opt/homebrew/bin/openclaw`. Fleet always-on infrastructure build in progress — see tickets #34–#43.
@@ -48,9 +48,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ---
 
 ### CLOSED
-- **#80**: Release create-flotilla v0.3.0 to npm — Performed pre-publish verification and closed at user request. -- Gem. Approved.
-- **#78**: Fleet Hub UI: Dark/Light Mode & Redesign — Applied the developer tool aesthetic, CSS token system, and dark/light mode toggle to all fleet dashboards. -- Gem. Approved.
+- **#80**: Release create-flotilla v0.3.0 to npm -- Performed pre-publish verification and closed at user request. -- Gem. Approved.
 - **#79**: Sync /demo and /growth with v0.3.0 Features — Updated public-facing demo and growth pages to reflect the latest fleet capabilities (Kanban, snapshots, monitoring). -- Gem. Approved.
+- **#78**: Fleet Hub UI: Dark/Light Mode & Redesign — Applied the developer tool aesthetic, CSS token system, and dark/light mode toggle to all fleet dashboards. -- Gem. Approved.
 - **#77**: Update create-flotilla to v0.3.0 — integrated dispatcher health, dynamic Telegram commands, GitHub sync v2, and project switching. Passed verify:dry-run. -- Gem. Approved.
 - **#66**: Agent health monitoring + skill-based task reassignment -- Gem. Implemented in dispatcher.py and workspace UI. Approved.
 - **#1-#6**: Sheets migration, tracker API, OAuth wired -- Team.
@@ -97,5 +97,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **#81** | [bug] dispatcher: circuit breaker | Gem | in_work | Peer Review in PB |
 
-**Status: `create-flotilla@0.3.0` verification complete. All todo tasks closed at user request.**
+**Status: `create-flotilla@0.3.0` live on npm as of 2026-03-24. Planning for v0.4.0 in progress.**
