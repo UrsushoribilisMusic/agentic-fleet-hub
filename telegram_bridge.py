@@ -37,6 +37,7 @@ BOT_COMMANDS = [
     {"command": "gem",    "description": "Message Gem (Gemini)"},
     {"command": "codi",   "description": "Message Codi (Codex)"},
     {"command": "misty",  "description": "Message Misty (Mistral Vibe)"},
+    {"command": "gemma",  "description": "Message Gemma (local Gemma4 via aichat)"},
     {"command": "claw",   "description": "Talk to OpenClaw (Robot Ross artist agent)"},
     {"command": "ask",    "description": "Ask the fleet a question (routes to Clau inbox)"},
     {"command": "spec",   "description": "Post a new spec or idea (routes to Clau inbox)"},
@@ -46,7 +47,7 @@ BOT_COMMANDS = [
     {"command": "help",   "description": "Show available commands"},
 ]
 
-AGENT_LIST = ["clau", "gem", "codi", "misty", "openclaw"]
+AGENT_LIST = ["clau", "gem", "codi", "misty", "gemma", "openclaw"]
 
 def log(msg):
     ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -130,7 +131,7 @@ def register_bot_commands():
     except Exception as e:
         log(f"Bot command registration error: {e}")
 
-def create_task(title, assigned_agent, description=""):
+def create_task(title, assigned_agent, description="", source="telegram"):
     """Create a todo task in PocketBase assigned to an agent."""
     try:
         r = requests.post(f"{PB_URL}/collections/tasks/records", json={
@@ -138,9 +139,11 @@ def create_task(title, assigned_agent, description=""):
             "assigned_agent": assigned_agent,
             "status": "todo",
             "description": description,
+            "source": source,
+            "is_github_sync": source != "telegram"  # Exclude Telegram messages from GitHub sync
         })
         task_id = r.json().get("id")
-        log(f"Created task '{title}' -> {assigned_agent} (id: {task_id})")
+        log(f"Created task '{title}' -> {assigned_agent} (id: {task_id}, source: {source})")
         return task_id
     except Exception as e:
         log(f"PB Task Create Error: {e}")
@@ -165,16 +168,18 @@ def post_to_inbox(from_user, to_agent, subject, body):
             "body": body,
             "status": "unread",
             "priority": "normal",
-            "ref_ticket": None
+            "ref_ticket": None,
+            "source": "telegram"
         }
         inbox.append(new_msg)
         
         with open(inbox_path, "w") as f:
             json.dump(inbox, f, indent=2)
-        log(f"Routed message to {to_agent} inbox: {subject}")
+        log(f"✅ INBOX: {from_user} -> {to_agent}: {subject}")
         return True
     except Exception as e:
-        log(f"Error posting to inbox: {e}")
+        log(f"❌ INBOX ERROR: Failed to post to {to_agent} inbox: {e}")
+        log(f"    Message: {body[:100]}")
         return False
 
 def update_task_status(task_id, status):
@@ -390,10 +395,15 @@ def process_updates(updates):
             if not remainder:
                 send_to_tg(f"Usage: /{cmd} <message>")
                 continue
-            if post_to_inbox(from_user, cmd, f"Telegram: {remainder[:30]}...", remainder):
+            # Always route direct agent messages to inbox, never create tasks
+            success = post_to_inbox(from_user, cmd, f"Telegram: {remainder[:30]}...", remainder)
+            if success:
                 send_to_tg(f"✅ Message routed to {cmd} inbox.")
+                log(f"DIRECT MESSAGE: {from_user} -> {cmd}: {remainder[:100]}")
             else:
-                send_to_tg(f"❌ Failed to route message to {cmd}.")
+                send_to_tg(f"❌ Failed to route message to {cmd} inbox. Check logs for details.")
+                log(f"ERROR: Failed to route message to {cmd} inbox: {remainder[:100]}")
+                # Do NOT create task as fallback - this causes GitHub issues
 
         elif cmd == "ask":
             content = remainder or text

@@ -9,6 +9,7 @@ import time
 import requests
 import json
 import os
+import hashlib
 from datetime import datetime
 
 PB_URL = "http://127.0.0.1:8090/api"
@@ -17,6 +18,7 @@ CODEX_REPO_DIR = "/Users/miguelrodriguez/projects/agentic-fleet-hub"
 LOG_FILE = f"{FLEET_DIR}/logs/dispatcher.log"
 NOTIF_FILE = f"{FLEET_DIR}/logs/notifications.json"
 OFFLINE_AGENTS_FILE = f"{FLEET_DIR}/logs/offline_agents.json"
+DISPATCHER_CACHE_FILE = f"{FLEET_DIR}/logs/dispatcher_cache.json"
 
 # Telegram settings from environment (Infisical)
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
@@ -27,6 +29,12 @@ COOLDOWN_SECONDS = int(os.environ.get("DISPATCHER_COOLDOWN", "300"))
 
 # Ensure logs directory exists
 os.makedirs(f"{FLEET_DIR}/logs", exist_ok=True)
+
+# Files to watch for changes
+WATCHED_FILES = [
+    "/Users/miguelrodriguez/fleet/MISSION_CONTROL.md",
+    "/Users/miguelrodriguez/projects/agentic-fleet-hub/AGENTS/MESSAGES/inbox.json"
+]
 
 AGENT_COMMANDS = {
     "scout": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/scout", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
@@ -45,6 +53,7 @@ AGENT_COMMANDS = {
         FLEET_DIR,
         "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
     ],
+    "gemma": ["/opt/homebrew/bin/aichat", "--rag", ".", "Run your heartbeat protocol. Read GEMMA.md first."],
 }
 
 def log(msg):
@@ -52,6 +61,64 @@ def log(msg):
     with open(LOG_FILE, "a") as f:
         f.write(f"[{ts}] {msg}\n")
     print(f"[{ts}] {msg}")
+
+def _file_checksum(file_path):
+    """Calculate SHA-256 checksum of a file."""
+    try:
+        h = hashlib.sha256()
+        with open(file_path, "rb") as f:
+            for chunk in iter(lambda: f.read(8192), b""):
+                h.update(chunk)
+        return h.hexdigest()
+    except FileNotFoundError:
+        return None
+    except Exception as e:
+        log(f"Error calculating checksum for {file_path}: {e}")
+        return None
+
+def _load_dispatcher_cache():
+    """Load dispatcher cache from file."""
+    try:
+        if os.path.exists(DISPATCHER_CACHE_FILE):
+            with open(DISPATCHER_CACHE_FILE, "r") as f:
+                return json.load(f)
+    except Exception as e:
+        log(f"Error loading dispatcher cache: {e}")
+    return {"checksums": {}}
+
+def _save_dispatcher_cache(cache):
+    """Save dispatcher cache to file."""
+    try:
+        with open(DISPATCHER_CACHE_FILE, "w") as f:
+            json.dump(cache, f, indent=2)
+    except Exception as e:
+        log(f"Error saving dispatcher cache: {e}")
+
+def _files_changed():
+    """Check if any watched files have changed since last run."""
+    cache = _load_dispatcher_cache()
+    current_checksums = {}
+    changed = False
+    
+    for file_path in WATCHED_FILES:
+        current_checksum = _file_checksum(file_path)
+        current_checksums[file_path] = current_checksum
+        
+        # Check if file exists
+        if current_checksum is None:
+            log(f"Watched file not found: {file_path}")
+            continue
+            
+        # Compare with cached checksum
+        if file_path not in cache["checksums"] or cache["checksums"][file_path] != current_checksum:
+            log(f"Detected change in: {file_path}")
+            changed = True
+    
+    # Update cache
+    cache["checksums"] = current_checksums
+    _save_dispatcher_cache(cache)
+    
+    return changed
 
 def send_telegram(message):
     if not TELEGRAM_TOKEN:
@@ -354,24 +421,73 @@ def check_waiting_human():
     except Exception as e:
         log(f"ERROR checking waiting_human: {e}")
 
+def create_daily_standup():
+    """Create daily standup file with activity summary."""
+    from datetime import datetime
+    import os
+    
+    try:
+        today = datetime.now().strftime("%Y-%m-%d")
+        standup_dir = "/opt/salesman-api/live-repo/standups"
+        os.makedirs(standup_dir, exist_ok=True)
+        file_path = f"{standup_dir}/{today}.md"
+        
+        # Check if file already exists (don't overwrite)
+        if os.path.exists(file_path):
+            return
+        
+        # Get basic metrics (simplified for now)
+        # In production, these would come from actual tracking
+        agents_called = 0  # Would track actual agent calls
+        sessions = 0       # Would track actual sessions
+        tasks_completed = 0 # Would track actual tasks
+        
+        with open(file_path, "w") as f:
+            f.write(f"""# Standup: {today}
+\n## Activity Summary
+- Agents called: {agents_called}
+- Sessions: {sessions}
+- Tasks completed: {tasks_completed}
+\n## Notes
+{'No activity today - all agents idle' if tasks_completed == 0 else 'Normal activity'}
+""")
+        
+        log(f"Created daily standup file: {file_path}")
+        return True
+    except Exception as e:
+        log(f"ERROR creating daily standup: {e}")
+        return False
+
 def main():
     log("Dispatcher started")
+=======
     while True:
-        check_agent_health()
-        offline_agents = get_offline_agents()
+        # Create daily standup file (even if no activity)
+        create_daily_standup()
         
-        tasks = get_pending_tasks()
-        for task in tasks:
-            agent = task.get("assigned_agent")
-            if agent:
-                if agent in offline_agents:
-                    # We already tried reassigning in check_agent_health
-                    # If it's still assigned to an offline agent, it was likely skipped due to target-offline
-                    continue
-                run_agent(agent, task)
+        # Check if any watched files have changed
+        if _files_changed():
+            log("Files changed detected, running full dispatch cycle")
+            check_agent_health()
+            offline_agents = get_offline_agents()
+            
+            tasks = get_pending_tasks()
+            for task in tasks:
+                agent = task.get("assigned_agent")
+                if agent:
+                    if agent in offline_agents:
+                        # We already tried reassigning in check_agent_health
+                        # If it's still assigned to an offline agent, it was likely skipped due to target-offline
+                        continue
+                    run_agent(agent, task)
+            
+            check_waiting_human()
+        else:
+            log("No file changes detected, skipping dispatch cycle")
+            check_waiting_human()  # Still check for human intervention needs
         
-        check_waiting_human()
         time.sleep(60)
 
 if __name__ == "__main__":
     main()
+    
