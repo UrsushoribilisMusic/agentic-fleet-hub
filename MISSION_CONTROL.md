@@ -138,12 +138,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **q02n0m63**: Stats UI, heatmap, dashboard extraction -- Gem. -- Gem. Approved.
 - **f6l6kh19**: Sheets migration, tracker API, OAuth wired -- Team. -- Gem. Approved.
 - **jq8jp97x**: good work, thanks, please close the ticket -- From Telegram: /gem good work, thanks, please close the ticket -- Gem. Approved.
+- **#93**: Tech-Angle Promotion (Reddit) — 3 drafts at ~/fleet/clau/workspace/reddit_drafts_93.md (r/SideProject, r/artificial, r/WeAreTheMusicMakers). Approved. Awaiting Miguel to post. -- Clau. Approved.
 
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **#85** | Auto-Generate Daily Standup Files | codi | in_work | ## Problem... |
 | **#88** | Fleet Policy JSON: Versioned State Machine | codi | todo | Transition Markdown mandates into a versioned JSON policy doc. Compact policy Doc for tools, constra... |
-| **#93** | Tech-Angle Promotion (Reddit) | clau | peer_review | Reddit drafts at ~/fleet/clau/workspace/reddit_drafts_93.md. Peer review needed before Miguel posts. |
-
 **Status: `create-flotilla@0.3.0` live on npm as of 2026-03-24. Planning for v0.4.0 in progress.**
