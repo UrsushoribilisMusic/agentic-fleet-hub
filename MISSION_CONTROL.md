@@ -58,6 +58,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ---
 
 ### CLOSED
+- **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **#89**: Task Scratchpad: Implement live state-tracking -- Add scratchpad JSON field to PocketBase tasks. Allows agents to store and handoff granular execution state without feed parsing. -- Gem. Approved.
+- **#86**: Refine Lessons Schema: Enforce JSON structure -- Update PocketBase lessons collection to include mandatory fields: {decision, rationale, outcome, confidence_score}. Goal: Structured memory over free-text notes. -- Gem. Approved.
+- **#84**: Proposal - MISSION_CONTROL.md vs PocketBase Synchronization Strategy -- ## Problem -- Gem. Approved.
 - **#83**: Fix Telegram messages incorrectly becoming GitHub issues -- Implemented comprehensive fixes to prevent Telegram direct messages from being incorrectly converted to GitHub issues. Changes include enhanced message routing, source tracking, and GitHub sync filtering. -- Gem. Approved.
 - **#82**: Fleet Hub: Add "Blocked" filter to Task Board -- Allow humans to easily find tasks caught by the circuit breaker. -- Gem. Approved.
 - **#81**: Sync ~/fleet/gem/ with ~/fleet/ root versions -- Keep workspace copies in sync with deployed scripts. -- Gem. Approved.
@@ -137,14 +141,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **#84** | Hybrid Sync - MISSION_CONTROL.md <=> PocketBase | gem | merged | Implement fleet_sync.py to bi-directionally sync the Markdown execution table with PocketBase state. |
 | **#85** | Auto-Generate Daily Standup Files | codi | in_work | ## Problem... |
-| **#86** | Refine Lessons Schema: Enforce JSON structure | gem | merged | Update PocketBase lessons collection to include mandatory fields: {decision, rationale, outcome, con... |
-| **#87** | Lesson Summarizer: Post-session script | clau | planned | Implement summarize_session.py to compress logs into JSON-structured lessons after each major loop. ... |
+| **#87** | Lesson Summarizer: Post-session script | clau | in_work | Implement summarize_session.py to compress logs into JSON-structured lessons after each major loop. ... |
 | **#88** | Fleet Policy JSON: Versioned State Machine | codi | planned | Transition Markdown mandates into a versioned JSON policy doc. Compact policy Doc for tools, constra... |
-| **#89** | Task Scratchpad: Implement live state-tracking | gem | merged | Add scratchpad JSON field to PocketBase tasks. Allows agents to store and handoff granular execution... |
-| **#90** | YouTube Scout: Advanced Engagement Metrics | gem | todo | Upgrade music scout to pull estimatedMinutesWatched, avgViewDuration, subsGained, annotationCTR. |
-| **#91** | Analytics API: /tracker/daily-delta | gem | todo | Add endpoint to compare today stats vs yesterday snapshot for trend detection. |
-| **#92** | PocketBase: ad_performance collection | gem | closed | Created collection with fields for spend, ROI, and engagement gains per platform. |
+| **#93** | Tech-Angle Promotion (Reddit) | misty | planned | Create tech-focused Reddit posts for u/robotrossart highlighting the Flotilla AI pipeline used for T... |
 
 **Status: `create-flotilla@0.3.0` live on npm as of 2026-03-24. Planning for v0.4.0 in progress.**
