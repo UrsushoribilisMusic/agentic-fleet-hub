@@ -58,6 +58,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ---
 
 ### CLOSED
+- **#87**: Lesson Summarizer: Post-session script -- Implemented summarize_session.py to extract structured lessons from PocketBase tasks and write TOP_LESSONS.md for prompt injection. -- Clau. Approved.
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
 - **#89**: Task Scratchpad: Implement live state-tracking -- Add scratchpad JSON field to PocketBase tasks. Allows agents to store and handoff granular execution state without feed parsing. -- Gem. Approved.
 - **#86**: Refine Lessons Schema: Enforce JSON structure -- Update PocketBase lessons collection to include mandatory fields: {decision, rationale, outcome, confidence_score}. Goal: Structured memory over free-text notes. -- Gem. Approved.
@@ -142,8 +143,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **#85** | Auto-Generate Daily Standup Files | codi | in_work | ## Problem... |
-| **#87** | Lesson Summarizer: Post-session script | clau | in_work | Implement summarize_session.py to compress logs into JSON-structured lessons after each major loop. ... |
-| **#88** | Fleet Policy JSON: Versioned State Machine | codi | planned | Transition Markdown mandates into a versioned JSON policy doc. Compact policy Doc for tools, constra... |
-| **#93** | Tech-Angle Promotion (Reddit) | misty | planned | Create tech-focused Reddit posts for u/robotrossart highlighting the Flotilla AI pipeline used for T... |
+| **#88** | Fleet Policy JSON: Versioned State Machine | codi | todo | Transition Markdown mandates into a versioned JSON policy doc. Compact policy Doc for tools, constra... |
+| **#93** | Tech-Angle Promotion (Reddit) | clau | peer_review | Reddit drafts at ~/fleet/clau/workspace/reddit_drafts_93.md. Peer review needed before Miguel posts. |
 
 **Status: `create-flotilla@0.3.0` live on npm as of 2026-03-24. Planning for v0.4.0 in progress.**
