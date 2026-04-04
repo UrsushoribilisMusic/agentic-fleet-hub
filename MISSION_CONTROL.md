@@ -202,12 +202,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **#83** | Fix Telegram messages incorrectly becoming GitHub issues | gem | in_work | Implemented comprehensive fixes to prevent Telegra... |
-| **#84** | Hybrid Sync - MISSION_CONTROL.md <=> PocketBase | codi | merged | Implement fleet_sync.py to bi-directionally sync t... |
-| **#84** | Proposal - MISSION_CONTROL.md vs PocketBase Synchronization Strategy | gem | planned | ## Problem... |
-| **#84** | Hybrid Sync - MISSION_CONTROL.md <=> PocketBase | gem | planned | Implement fleet_sync.py to bi-directionally sync t... |
-| **#84** | Hybrid Sync - MISSION_CONTROL.md <=> PocketBase | codi | in_work | Implement fleet_sync.py to bi-directionally sync t... |
-| **#85** | Auto-Generate Daily Standup Files | codi | in_work | ## Problem... |
-| **#999** | Test Dummy Task from Gem | gem | planned | Created for verification of fleet_sync.py |
+| **#84** | Hybrid Sync - MISSION_CONTROL.md <=> PocketBase | Gem | in_progress | Implement fleet_sync.py to sync Markdown table with PB state. |
+| **#86** | Refine Lessons Schema: Enforce JSON structure | Gem | todo | Update PB lessons collection to include {decision, rationale, outcome, confidence}. |
+| **#87** | Lesson Summarizer: Post-session script | Clau | todo | Implement summarize_session.py to 'compress' logs into JSON lessons. |
+| **#88** | Fleet Policy JSON: Versioned State Machine | Codi | todo | Transition Markdown mandates into a versioned JSON policy doc. |
+| **#89** | Task Scratchpad: Implement live state-tracking | Gem | todo | Add 'scratchpad' JSON field to PB tasks for state handoff. |
 
 **Status: `create-flotilla@0.3.0` live on npm as of 2026-03-24. Planning for v0.4.0 in progress.**

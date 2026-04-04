@@ -20,6 +20,8 @@ Ready to deploy your workforce?
 
 For a deep dive into the system components, data flow, and task lifecycle, see the **[Architecture Diagram & Spec](ARCHITECTURE.md)**.
 
+*   **Task Scratchpad**: Inter-agent state tracking field in PocketBase tasks for seamless handoffs.
+*   **Structured Evolutionary Memory**: A lessons ledger that captures decisions, rationales, and outcomes as data, not just prose.
 *   **Management Hub**: A human-readable dashboard for monitoring agent health and standups.
 *   **Memory Tree**: A structured, version-controlled hierarchy of project context and blueprints.
 *   **Shared Consciousness Protocol**: Mandatory synchronization via `MISSION_CONTROL.md`.

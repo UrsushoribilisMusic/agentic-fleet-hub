@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>fleet.standup</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/bin/infisical</string>
+        <string>run</string>
+        <string>--env=dev</string>
+        <string>--projectId=3233b7c1-8309-447d-af5a-6541e38dc1b3</string>
+        <string>--</string>
+        <string>/Users/miguelrodriguez/fleet/.venv/bin/python3</string>
+        <string>/Users/miguelrodriguez/fleet/kanban_standup.py</string>
+        <string>--repo</string>
+        <string>UrsushoribilisMusic/agentic-fleet-hub</string>
+        <string>--agent</string>
+        <string>Flotilla Fleet</string>
+        <string>--output</string>
+        <string>/Users/miguelrodriguez/projects/agentic-fleet-hub/standups/</string>
+    </array>
+    <key>StartInterval</key>
+    <integer>14400</integer>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/Users/miguelrodriguez/fleet/logs/standup.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/miguelrodriguez/fleet/logs/standup_err.log</string>
+</dict>
+</plist>
