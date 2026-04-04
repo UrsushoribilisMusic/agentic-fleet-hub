@@ -217,7 +217,7 @@ def poll_outbound_comments():
     last_ts = get_outbound_offset()
     try:
         r = requests.get(f"{PB_URL}/collections/comments/records", params={
-            "filter": f"created > '{last_ts}' && agent != 'miguel'",
+            "filter": f"created > '{last_ts}' && agent != 'miguel' && type != 'feedback'",
             "sort": "created"
         })
         if r.status_code != 200:
