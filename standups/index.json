@@ -1,5 +1,15 @@
 [
     {
+        "date": "2026-04-04",
+        "summary": "Heartbeat verified: 0 open tickets, 0 active Codi tasks, fleet idle.",
+        "file": "2026-04-04.md"
+    },
+    {
+        "date": "2026-04-03",
+        "summary": "Heartbeat verified: 0 open tickets, 0 peer-review tasks, fleet idle.",
+        "file": "2026-04-03.md"
+    },
+    {
         "date": "2026-04-01",
         "summary": "Heartbeat verified: 0 tasks. Codi recovered. Clau/Misty still offline.",
         "file": "2026-04-01.md"

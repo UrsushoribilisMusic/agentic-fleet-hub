@@ -100,6 +100,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **#84** | Hybrid Sync - MISSION_CONTROL.md <=> PocketBase | Gem | todo | Implement fleet_sync.py to bi-directionally sync the Markdown execution table with PocketBase state. |
 
 **Status: `create-flotilla@0.3.0` live on npm as of 2026-03-24. Planning for v0.4.0 in progress.**
 
