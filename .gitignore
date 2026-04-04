@@ -1,12 +1,4 @@
-deploy/
-deploy-cc/
-deploy-final/
-deploy-fleet/
-deploy-fleet-v2/
-deploy-fleet-v3/
-deploy-fleet-v4/
-deploy-stats/
-deploy-stats-v2/
+deploy*/
 .DS_Store
 node_modules/
 *.log
@@ -14,6 +6,16 @@ __pycache__/
 *.pyc
 *.pickle
 .env
-# Agent session logs and runtime cache -- never commit these
+# Agent session logs and runtime cache
 .vibe/
 .fleet_cache/
+.npm-cache/
+# Cross-platform junk and path-like filenames
+C:*
+~
+# Transient debug and test files in root
+debug_*.py
+test_*.py
+check_*.py
+peer_review_*.py
+tasks_response.json
