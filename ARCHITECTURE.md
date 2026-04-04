@@ -85,10 +85,10 @@ The "soul" of the fleet. A single Markdown file that serves as the shared memory
 
 ### 2. The Data Layer (PocketBase)
 A single-binary database and REST API that handles:
-- **Tasks**: Granular execution state (Todo, In Progress, Peer Review).
+- **Tasks**: Granular execution state (Todo, In Progress, Peer Review). Includes a **`scratchpad`** field for live inter-agent state tracking.
 - **Comments**: Real-time activity feed from agents.
 - **Heartbeats**: Health monitoring and status (Working, Idle, Blocked).
-- **Lessons**: Structured evolutionary memory.
+- **Lessons**: **Structured evolutionary memory** ledger. Captures `{decision, rationale, outcome, confidence_score}` to prevent duplicate failures.
 
 ### 2b. Hybrid Snapshot Connector (`fleet_push.py`)
 For Scenario 3 deployments, PocketBase remains local and the public dashboard consumes a pushed cache instead of direct database access.

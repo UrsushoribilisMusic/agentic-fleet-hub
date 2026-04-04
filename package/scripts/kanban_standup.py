@@ -70,7 +70,7 @@ def gh_rest(path: str) -> list | dict:
 
 PROJECT_QUERY = """
 query($org: String!, $number: Int!) {
-  organization(login: $org) {
+  user(login: $org) {
     projectV2(number: $number) {
       title
       items(first: 100) {
@@ -95,7 +95,13 @@ query($org: String!, $number: Int!) {
 
 def fetch_project_items(org: str, number: int) -> tuple[str, list[dict]]:
     data = gh_graphql(PROJECT_QUERY, {"org": org, "number": number})
-    project = data.get("data", {}).get("organization", {}).get("projectV2", {})
+    project = data.get("data", {}).get("user", {}).get("projectV2", {})
+    if not project:
+        # Fallback to organization if user fails
+        PROJECT_ORG_QUERY = PROJECT_QUERY.replace("user(login", "organization(login")
+        data = gh_graphql(PROJECT_ORG_QUERY, {"org": org, "number": number})
+        project = data.get("data", {}).get("organization", {}).get("projectV2", {})
+    
     title = project.get("title", "Project")
     items = []
     for node in project.get("items", {}).get("nodes", []):
@@ -182,10 +188,14 @@ def main():
     md = generate_standup(title, items, commits, args.agent, args.days)
 
     if args.output:
-        os.makedirs(os.path.dirname(args.output), exist_ok=True) if os.path.dirname(args.output) else None
-        with open(args.output, "w") as f:
+        out_path = args.output
+        if os.path.isdir(out_path):
+            out_path = os.path.join(out_path, f"{datetime.date.today().isoformat()}.md")
+        
+        os.makedirs(os.path.dirname(out_path), exist_ok=True) if os.path.dirname(out_path) else None
+        with open(out_path, "w") as f:
             f.write(md)
-        print(f"[kanban_standup] Written to {args.output}")
+        print(f"[kanban_standup] Written to {out_path}")
     else:
         print(md)
 
