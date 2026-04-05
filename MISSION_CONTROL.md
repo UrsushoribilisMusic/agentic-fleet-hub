@@ -6,7 +6,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 
 ## Team Protocols (Shared Memory)
 
-1.  **Rules & Guidelines**: Read and follow the [Team Rules](./AGENTS/RULES.md).
+1.  **Rules & Guidelines**: Read and follow the [Team Rules](./AGENTS/RULES.md) and the [Dual Sync Strategy](./DUAL_SYSTEM.md).
     *   **GitHub**: Commit and push all changes immediately.
     *   **Kanban**: Use ticket IDs in your session reporting. Check the **Ticket Status** section below for what is currently open -- do not work on tickets not listed there.
 2.  **Daily Standups**: All logs are in the [standups/](./standups/) directory.
@@ -50,7 +50,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 
 ---
 
-## Ticket Status (as of 2026-04-04)
+## Ticket Status (as of 2026-04-05)
 
 ### ENVIRONMENT NOTE — Mac Mini migration complete (2026-03-14)
 All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users/miguel/` → `/Users/miguelrodriguez/`. Repos cloned to `~/projects/`. Python 3.12 venv at `~/projects/music-video-tool/.venv312`. OpenClaw at `/opt/homebrew/bin/openclaw`. Fleet always-on infrastructure build in progress — see tickets #34–#43.
@@ -58,11 +58,16 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ---
 
 ### CLOSED
-- **#87**: Lesson Summarizer: Post-session script -- Implemented summarize_session.py to extract structured lessons from PocketBase tasks and write TOP_LESSONS.md for prompt injection. -- Clau. Approved.
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **#93**: Tech-Angle Promotion (Reddit) -- Create tech-focused Reddit posts for u/robotrossart highlighting the Flotilla AI pipeline used for The Classical Remix. Goal: Cross-promotion and engineering credibility. -- Clau. Approved.
+- **myhluvej**: Fix Gemma agent: add aichat function tools + update plist invocation -- Gemma is not executing her heartbeat protocol. Root causes: 1) plist uses --rag mode (Q&A only, not agentic), 2) no aichat function tools defined so the model cannot call curl/file ops. Fix: create aichat functions (execute_command, read_file, write_file) and update plist invocation. -- Clau. Approved.
+- **3xzo9sva**: Fleet Documentation Audit - Gemma's First Task -- Create a comprehensive DOCUMENTATION_MAP.md file. Task details: 1) Explore repository structure using find/ls commands, 2) Analyze all *.md files, 3) Create DOCUMENTATION_MAP.md with categorized file list, 4) Identify documentation gaps, 5) Commit and push changes. Expected output: DOCUMENTATION_MAP.md at repo root with clear structure and health assessment. -- Gemma. Approved.
+- **#90**: YouTube Scout: Advanced Engagement Metrics -- Upgrade music scout to pull estimatedMinutesWatched, avgViewDuration, subsGained, annotationCTR. -- Gem. Approved.
 - **#89**: Task Scratchpad: Implement live state-tracking -- Add scratchpad JSON field to PocketBase tasks. Allows agents to store and handoff granular execution state without feed parsing. -- Gem. Approved.
+- **#88**: Fleet Policy JSON: Versioned State Machine -- Transition Markdown mandates into a versioned JSON policy doc. Compact policy Doc for tools, constraints, escalation, and handoff rules. -- Codi. Approved.
+- **#87**: Lesson Summarizer: Post-session script -- Implement summarize_session.py to compress logs into JSON-structured lessons after each major loop. Inject top lessons into system prompts. -- Clau. Approved.
 - **#86**: Refine Lessons Schema: Enforce JSON structure -- Update PocketBase lessons collection to include mandatory fields: {decision, rationale, outcome, confidence_score}. Goal: Structured memory over free-text notes. -- Gem. Approved.
-- **#84**: Proposal - MISSION_CONTROL.md vs PocketBase Synchronization Strategy -- ## Problem -- Gem. Approved.
+- **#84**: Implement Option 1 - Dual Sync Strategy -- Implement Option 1 as requested by Miguel: Document Dual System, Keep both systems separate, Document that MC is for goals, PB for execution, Checksum system checks both sources. Includes updating dispatcher.py with PocketBase checksum logic. -- Gem. Approved.
 - **#83**: Fix Telegram messages incorrectly becoming GitHub issues -- Implemented comprehensive fixes to prevent Telegram direct messages from being incorrectly converted to GitHub issues. Changes include enhanced message routing, source tracking, and GitHub sync filtering. -- Gem. Approved.
 - **#82**: Fleet Hub: Add "Blocked" filter to Task Board -- Allow humans to easily find tasks caught by the circuit breaker. -- Gem. Approved.
 - **#81**: Sync ~/fleet/gem/ with ~/fleet/ root versions -- Keep workspace copies in sync with deployed scripts. -- Gem. Approved.
@@ -138,11 +143,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **q02n0m63**: Stats UI, heatmap, dashboard extraction -- Gem. -- Gem. Approved.
 - **f6l6kh19**: Sheets migration, tracker API, OAuth wired -- Team. -- Gem. Approved.
 - **jq8jp97x**: good work, thanks, please close the ticket -- From Telegram: /gem good work, thanks, please close the ticket -- Gem. Approved.
-- **#93**: Tech-Angle Promotion (Reddit) — 3 drafts at ~/fleet/clau/workspace/reddit_drafts_93.md (r/SideProject, r/artificial, r/WeAreTheMusicMakers). Approved. Awaiting Miguel to post. -- Clau. Approved.
 
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **#85** | Auto-Generate Daily Standup Files | codi | in_work | ## Problem... |
-| **#88** | Fleet Policy JSON: Versioned State Machine | codi | todo | Transition Markdown mandates into a versioned JSON policy doc. Compact policy Doc for tools, constra... |
+
 **Status: `create-flotilla@0.3.0` live on npm as of 2026-03-24. Planning for v0.4.0 in progress.**
