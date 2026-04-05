@@ -61,6 +61,26 @@ def log(msg):
         f.write(f"[{ts}] {msg}\n")
     print(f"[{ts}] {msg}")
 
+def log_task_event(event_type, task_id, agent=None, from_status=None, to_status=None, meta=None):
+    """Write a structured event record to the task_events PocketBase collection."""
+    try:
+        payload = {
+            "task_id": task_id,
+            "event_type": event_type,
+            "timestamp": datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S.000Z"),
+        }
+        if agent is not None:
+            payload["agent"] = agent
+        if from_status is not None:
+            payload["from_status"] = from_status
+        if to_status is not None:
+            payload["to_status"] = to_status
+        if meta is not None:
+            payload["meta"] = meta
+        requests.post(f"{PB_URL}/collections/task_events/records", json=payload, timeout=5)
+    except Exception as e:
+        log(f"WARN log_task_event({event_type}, {task_id}): {e}")
+
 def _file_checksum(file_path):
     """Calculate SHA-256 checksum of a file."""
     try:
@@ -145,23 +165,27 @@ def send_telegram(message):
 def get_pending_tasks():
     try:
         r = requests.get(f"{PB_URL}/collections/tasks/records",
-                         params={"filter": 'status = "todo"', "perPage": 50})
+                         params={"filter": 'status = "todo"', "perPage": 50}, timeout=10)
         return r.json().get("items", [])
     except Exception as e:
         log(f"ERROR fetching tasks: {e}")
         return []
 
-def update_task_status(task_id, status):
+def update_task_status(task_id, status, from_status=None, agent=None):
     try:
         requests.patch(f"{PB_URL}/collections/tasks/records/{task_id}",
-                       json={"status": status})
+                       json={"status": status}, timeout=10)
+        log_task_event("status_transition", task_id,
+                       agent=agent or "dispatcher",
+                       from_status=from_status,
+                       to_status=status)
     except Exception as e:
         log(f"ERROR updating task {task_id}: {e}")
 
 def update_task_agent(task_id, agent):
     try:
         requests.patch(f"{PB_URL}/collections/tasks/records/{task_id}",
-                       json={"assigned_agent": agent})
+                       json={"assigned_agent": agent}, timeout=10)
     except Exception as e:
         log(f"ERROR updating task {task_id} agent: {e}")
 
@@ -169,7 +193,7 @@ def post_comment(task_id, agent, content, comment_type="output"):
     try:
         requests.post(f"{PB_URL}/collections/comments/records",
                       json={"task_id": task_id, "agent": agent,
-                            "content": content, "type": comment_type})
+                            "content": content, "type": comment_type}, timeout=10)
     except Exception as e:
         log(f"ERROR posting comment: {e}")
 
@@ -181,7 +205,7 @@ def is_agent_offline(agent_key):
                              "filter": f'agent = "{agent_key}"',
                              "sort": "-updated",
                              "perPage": 1
-                         })
+                         }, timeout=10)
         items = r.json().get("items", [])
         
         now = datetime.utcnow()
@@ -273,16 +297,28 @@ def reassign_tasks(offline_agent_key, all_agents_meta):
                     log(f"BLOCKING task '{task['title']}' (too many reassignments)")
                     requests.patch(f"{PB_URL}/collections/tasks/records/{task['id']}",
                                    json={"status": "blocked", "reassignment_count": count, "last_reassignment_at": now_iso})
+                    log_task_event("circuit_breaker", task["id"],
+                                   agent="dispatcher",
+                                   from_status=task.get("status"),
+                                   to_status="blocked",
+                                   meta={"reassignment_count": count,
+                                         "last_agent": offline_agent_key,
+                                         "reason": f"blocked after {count} reassignments in 10m"})
                     send_telegram(f"🚨 TASK BLOCKED: '{task['title']}' (too many reassignments).")
                     post_comment(task["id"], "dispatcher", f"Task blocked after {count} reassignments in 10m.", "comment")
                     continue
 
                 log(f"Reassigning task '{task['title']}' to {new_agent_key}")
                 requests.patch(f"{PB_URL}/collections/tasks/records/{task['id']}",
-                               json={"assigned_agent": new_agent_key, 
-                                     "reassignment_count": count, 
+                               json={"assigned_agent": new_agent_key,
+                                     "reassignment_count": count,
                                      "last_reassignment_at": now_iso})
-                
+                log_task_event("reassignment", task["id"],
+                               agent="dispatcher",
+                               meta={"from_agent": offline_agent_key,
+                                     "to_agent": new_agent_key,
+                                     "reassignment_count": count,
+                                     "reason": "agent offline"})
                 post_comment(task["id"], "dispatcher", f"Reassigned from {offline_agent_key} to {new_agent_key}", "comment")
     except Exception as e:
         log(f"ERROR in reassign_tasks: {e}")
@@ -342,10 +378,10 @@ def run_agent(agent_name, task):
         return
 
     log(f"Dispatching task '{task['title']}' to {agent_name}")
-    update_task_status(task["id"], "in_progress")
+    update_task_status(task["id"], "in_progress", from_status=task.get("status"), agent=agent_name)
 
     cmd = list(AGENT_COMMANDS[agent_name])
-    
+
     # Enrich prompt for LLM agents
     if agent_name in ["clau", "gem", "codi"]:
         task_prompt = f"\n\nYOUR TASK: {task['title']}\nDescription: {task.get('description', '')}"
@@ -354,17 +390,17 @@ def run_agent(agent_name, task):
     try:
         result = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
         output = result.stdout or result.stderr or "No output"
-        
+
         if result.returncode == 0:
             post_comment(task["id"], agent_name, output[:5000])
-            update_task_status(task["id"], "peer_review")
+            update_task_status(task["id"], "peer_review", from_status="in_progress", agent=agent_name)
         else:
             log(f"ERROR: Agent {agent_name} failed")
             post_comment(task["id"], agent_name, f"FAILED with return code {result.returncode}:\n{output[:1000]}", "feedback")
-            update_task_status(task["id"], "todo")
+            update_task_status(task["id"], "todo", from_status="in_progress", agent=agent_name)
     except Exception as e:
         log(f"ERROR running {agent_name}: {e}")
-        update_task_status(task["id"], "todo")
+        update_task_status(task["id"], "todo", from_status="in_progress", agent=agent_name)
 
 def get_notif_data():
     if os.path.exists(NOTIF_FILE):
@@ -385,7 +421,8 @@ def save_notif_data(data):
 def check_waiting_human():
     try:
         r = requests.get(f"{PB_URL}/collections/tasks/records",
-                         params={"filter": 'status = "waiting_human" || status = "waiting_human_notified"'})
+                         params={"filter": 'status = "waiting_human" || status = "waiting_human_notified"'},
+                         timeout=10)
         tasks = r.json().get("items", [])
         if not tasks:
             return
@@ -415,14 +452,16 @@ def get_today_stats():
     try:
         # 1. Sessions (working heartbeats today)
         r_hb = requests.get(f"{PB_URL}/collections/heartbeats/records",
-                            params={"filter": f'updated >= "{today}" && status = "working"', "perPage": 100})
+                            params={"filter": f'updated >= "{today}" && status = "working"', "perPage": 100},
+                            timeout=10)
         hb_items = r_hb.json().get("items", [])
         sessions = len(hb_items)
         agents = sorted(list(set(item["agent"] for item in hb_items)))
         
         # 2. Tasks completed (approved today)
         r_tasks = requests.get(f"{PB_URL}/collections/tasks/records",
-                               params={"filter": f'updated >= "{today}" && status = "approved"', "perPage": 100})
+                               params={"filter": f'updated >= "{today}" && status = "approved"', "perPage": 100},
+                               timeout=10)
         tasks_completed = r_tasks.json().get("totalItems", 0)
         
         return {
@@ -444,9 +483,8 @@ def create_daily_standup():
         stats = get_today_stats()
         agents_list = ", ".join(stats["agents"]) if stats["agents"] else "None"
         
+        summary_header = "## Activity Summary\n"
         summary_content = (
-            f"# Standup: {today_date}\n\n"
-            f"## Activity Summary\n"
             f"- Agents called: {len(stats['agents'])} ({agents_list})\n"
             f"- Sessions: {stats['sessions']}\n"
             f"- Tasks completed: {stats['tasks_completed']}\n"
@@ -456,32 +494,55 @@ def create_daily_standup():
             with open(file_path, "r") as f:
                 content = f.read()
             
-            # Update only the Activity Summary section
-            import re
-            pattern = r"# Standup:.*?\n\n## Activity Summary\n.*?\n\n"
-            new_content = re.sub(pattern, summary_content + "\n", content, flags=re.DOTALL)
+            # Check if Activity Summary section exists
+            if "## Activity Summary" in content:
+                # Update only the list items under Activity Summary
+                import re
+                # Pattern matches from ## Activity Summary until the next header or end of file
+                pattern = r"(## Activity Summary\n)(.*?)(\n##|$)"
+                replacement = f"\\1{summary_content}\\3"
+                new_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
+            else:
+                # Prepend the Activity Summary after the first H1 header
+                lines = content.split("\n")
+                if lines and lines[0].startswith("# "):
+                    new_content = lines[0] + "\n\n" + summary_header + summary_content + "\n" + "\n".join(lines[1:])
+                else:
+                    new_content = summary_header + summary_content + "\n" + content
             
-            # If pattern didn't match (old format?), just prepend or overwrite
-            if new_content == content:
-                # Prepend stats but keep manual notes if possible? 
-                # Let's just overwrite for now to enforce the new format
-                new_content = summary_content + "\n## Notes\nNo activity today - all agents idle\n"
-            
+            if new_content != content:
+                with open(file_path, "w") as f:
+                    f.write(new_content)
+                log(f"Updated daily standup metrics: {file_path}")
+        else:
+            new_content = f"# Standup: {today_date}\n\n" + summary_header + summary_content + "\n## Notes\nNo activity today - all agents idle\n"
             with open(file_path, "w") as f:
                 f.write(new_content)
-        else:
-            with open(file_path, "w") as f:
-                f.write(summary_content + "\n## Notes\nNo activity today - all agents idle\n")
-        
-        log(f"Updated daily standup: {file_path}")
+            log(f"Created new daily standup: {file_path}")
+            
     except Exception as e:
         log(f"ERROR updating standup: {e}")
+
+def log_queue_snapshot():
+    """Write a queue_snapshot event with pending task count and cycle timestamp."""
+    try:
+        r = requests.get(f"{PB_URL}/collections/tasks/records",
+                         params={"filter": 'status = "todo"', "perPage": 1, "fields": "id"},
+                         timeout=10)
+        queue_depth = r.json().get("totalItems", 0)
+        log_task_event("queue_snapshot", "dispatcher",
+                       agent="dispatcher",
+                       meta={"queue_depth": queue_depth,
+                             "cycle_ts": datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")})
+    except Exception as e:
+        log(f"WARN log_queue_snapshot: {e}")
 
 def main():
     log("Dispatcher v4 started")
     while True:
         create_daily_standup()
         check_agent_health()
+        log_queue_snapshot()
         
         if _state_changed():
             log("State change detected (Files or PB)")
