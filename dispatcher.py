@@ -230,7 +230,7 @@ def find_best_substitute(task, offline_agent_key, all_agents_meta, offline_skill
 def reassign_tasks(offline_agent_key, all_agents_meta):
     try:
         r = requests.get(f"{PB_URL}/collections/tasks/records",
-                         params={"filter": f'assigned_agent = "{offline_agent_key}" && status = "todo"'})
+                         params={"filter": f'assigned_agent = "{offline_agent_key}" && (status = "todo" || status = "in_progress")'})
         tasks = r.json().get("items", [])
         if not tasks:
             return
@@ -366,6 +366,22 @@ def run_agent(agent_name, task):
         log(f"ERROR running {agent_name}: {e}")
         update_task_status(task["id"], "todo")
 
+def get_notif_data():
+    if os.path.exists(NOTIF_FILE):
+        try:
+            with open(NOTIF_FILE, "r") as f:
+                return json.load(f)
+        except:
+            return {}
+    return {}
+
+def save_notif_data(data):
+    try:
+        with open(NOTIF_FILE, "w") as f:
+            json.dump(data, f)
+    except Exception as e:
+        log(f"ERROR saving notif_data: {e}")
+
 def check_waiting_human():
     try:
         r = requests.get(f"{PB_URL}/collections/tasks/records",
@@ -393,30 +409,82 @@ def check_waiting_human():
     except Exception as e:
         log(f"ERROR checking waiting_human: {e}")
 
+def get_today_stats():
+    """Fetch today's metrics from PocketBase."""
+    today = datetime.now().strftime("%Y-%m-%d 00:00:00")
+    try:
+        # 1. Sessions (working heartbeats today)
+        r_hb = requests.get(f"{PB_URL}/collections/heartbeats/records",
+                            params={"filter": f'updated >= "{today}" && status = "working"', "perPage": 100})
+        hb_items = r_hb.json().get("items", [])
+        sessions = len(hb_items)
+        agents = sorted(list(set(item["agent"] for item in hb_items)))
+        
+        # 2. Tasks completed (approved today)
+        r_tasks = requests.get(f"{PB_URL}/collections/tasks/records",
+                               params={"filter": f'updated >= "{today}" && status = "approved"', "perPage": 100})
+        tasks_completed = r_tasks.json().get("totalItems", 0)
+        
+        return {
+            "sessions": sessions,
+            "agents": agents,
+            "tasks_completed": tasks_completed
+        }
+    except Exception as e:
+        log(f"ERROR fetching today stats: {e}")
+        return {"sessions": 0, "agents": [], "tasks_completed": 0}
+
 def create_daily_standup():
     try:
-        today = datetime.now().strftime("%Y-%m-%d")
+        today_date = datetime.now().strftime("%Y-%m-%d")
         standup_dir = f"{CODEX_REPO_DIR}/standups"
         os.makedirs(standup_dir, exist_ok=True)
-        file_path = f"{standup_dir}/{today}.md"
+        file_path = f"{standup_dir}/{today_date}.md"
+        
+        stats = get_today_stats()
+        agents_list = ", ".join(stats["agents"]) if stats["agents"] else "None"
+        
+        summary_content = (
+            f"# Standup: {today_date}\n\n"
+            f"## Activity Summary\n"
+            f"- Agents called: {len(stats['agents'])} ({agents_list})\n"
+            f"- Sessions: {stats['sessions']}\n"
+            f"- Tasks completed: {stats['tasks_completed']}\n"
+        )
         
         if os.path.exists(file_path):
-            return
+            with open(file_path, "r") as f:
+                content = f.read()
+            
+            # Update only the Activity Summary section
+            import re
+            pattern = r"# Standup:.*?\n\n## Activity Summary\n.*?\n\n"
+            new_content = re.sub(pattern, summary_content + "\n", content, flags=re.DOTALL)
+            
+            # If pattern didn't match (old format?), just prepend or overwrite
+            if new_content == content:
+                # Prepend stats but keep manual notes if possible? 
+                # Let's just overwrite for now to enforce the new format
+                new_content = summary_content + "\n## Notes\nNo activity today - all agents idle\n"
+            
+            with open(file_path, "w") as f:
+                f.write(new_content)
+        else:
+            with open(file_path, "w") as f:
+                f.write(summary_content + "\n## Notes\nNo activity today - all agents idle\n")
         
-        with open(file_path, "w") as f:
-            f.write(f"# Standup: {today}\n\n## Activity Summary\n- Agents called: 0\n- Sessions: 0\n- Tasks completed: 0\n\n## Notes\nNo activity today - all agents idle\n")
-        log(f"Created daily standup: {file_path}")
+        log(f"Updated daily standup: {file_path}")
     except Exception as e:
-        log(f"ERROR creating standup: {e}")
+        log(f"ERROR updating standup: {e}")
 
 def main():
     log("Dispatcher v4 started")
     while True:
         create_daily_standup()
+        check_agent_health()
         
         if _state_changed():
             log("State change detected (Files or PB)")
-            check_agent_health()
             offline_agents = get_offline_agents()
             
             try:
