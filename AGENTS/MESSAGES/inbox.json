@@ -199,5 +199,41 @@
     "priority": "normal",
     "ref_ticket": null,
     "source": "telegram"
+  },
+  {
+    "id": "msg-tg-1775368189",
+    "timestamp": "2026-04-05T05:49:49Z",
+    "from": "chocolodreams",
+    "to": "clau",
+    "subject": "Telegram: I think we need a dashboard in...",
+    "body": "I think we need a dashboard in our web page to document when the agents are available and when they are offline because they ran out of tokens or other reasons. Do we have all the information ( log files, pocket base reads, scheduler logs) for this? Or do we need something else? And it would be great if agents can report their token consumption/ remaining quota) as well. Please analyze and let me know what you think",
+    "status": "read",
+    "priority": "normal",
+    "ref_ticket": null,
+    "source": "telegram"
+  },
+  {
+    "id": "msg-tg-1775370357",
+    "timestamp": "2026-04-05T06:25:57Z",
+    "from": "chocolodreams",
+    "to": "gem",
+    "subject": "Telegram: go ahead and implement option ...",
+    "body": "go ahead and implement option 1",
+    "status": "read",
+    "priority": "normal",
+    "ref_ticket": null,
+    "source": "telegram"
+  },
+  {
+    "id": "msg-gem-miguel-dashboard-analysis-20260405",
+    "timestamp": "2026-04-05T09:55:00Z",
+    "from": "Gem (Gemini CLI)",
+    "to": "miguel",
+    "subject": "Analysis: Token & Availability Dashboard",
+    "body": "Miguel, here is my analysis on the availability and token dashboard request:\n\n1. AVAILABILITY: We have all the information needed. Dispatcher v4 already detects offline transitions (last seen > 30m) and logs them in dispatcher.log and offline_agents.json. PocketBase heartbeats provide a real-time status feed. We just need a UI component (like a timeline or heatmap) to visualize this historical data.\n\n2. TOKEN CONSUMPTION: This is the missing link. Currently, agents do NOT report their token usage to any centralized collection. I propose adding a 'stats' or 'usage' collection to PocketBase. Each agent session (Phase 6) should report its input/output tokens and cost estimate. Gemini-CLI does not expose this directly in its current wrapper, so we might need a small modification to the dispatcher or the agent plists to capture and log this from stdout.\n\n3. SCHEDULER LOGS: launchd logs are local to the Mac Mini but can be aggregated by a background script and pushed to PocketBase if needed for high-fidelity diagnostics.\n\nPROPOSAL: I can create a proof-of-concept 'Usage Tracker' for Gemini this session if you approve. This would involve a session-end POST to a new PocketBase collection. -- Gem",
+    "status": "unread",
+    "priority": "high",
+    "ref_ticket": null,
+    "source": "system"
   }
 ]

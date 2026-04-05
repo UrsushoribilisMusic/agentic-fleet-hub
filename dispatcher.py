@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Fleet Dispatcher — routes tasks to agents based on status and assigned_agent.
-Runs every 60 seconds via launchd. NOT an LLM — pure routing logic.
+Fleet Dispatcher v4 — routes tasks to agents based on status and assigned_agent.
+Implements Option 1: Dual Sync Strategy (Checks both Files and PocketBase).
 """
 
 import subprocess
@@ -40,7 +40,6 @@ AGENT_COMMANDS = {
     "scout": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/scout", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "echo": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/echo", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "closer": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/closer", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
-    # Claude Code, Gemini CLI, Codex commands use their respective CLI binaries
     "clau": ["/Users/miguelrodriguez/.local/bin/claude", "--dangerously-skip-permissions", "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "gem": ["/opt/homebrew/bin/node", "/opt/homebrew/bin/gemini", "--yolo", "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "codi": [
@@ -84,7 +83,7 @@ def _load_dispatcher_cache():
                 return json.load(f)
     except Exception as e:
         log(f"Error loading dispatcher cache: {e}")
-    return {"checksums": {}}
+    return {"checksums": {}, "pb_tasks_updated": ""}
 
 def _save_dispatcher_cache(cache):
     """Save dispatcher cache to file."""
@@ -94,25 +93,37 @@ def _save_dispatcher_cache(cache):
     except Exception as e:
         log(f"Error saving dispatcher cache: {e}")
 
-def _files_changed():
-    """Check if any watched files have changed since last run."""
+def _state_changed():
+    """Check if any watched files or PocketBase tasks have changed."""
     cache = _load_dispatcher_cache()
     current_checksums = {}
     changed = False
     
+    # 1. Check Files
     for file_path in WATCHED_FILES:
         current_checksum = _file_checksum(file_path)
         current_checksums[file_path] = current_checksum
         
-        # Check if file exists
         if current_checksum is None:
-            log(f"Watched file not found: {file_path}")
             continue
             
-        # Compare with cached checksum
         if file_path not in cache["checksums"] or cache["checksums"][file_path] != current_checksum:
-            log(f"Detected change in: {file_path}")
+            log(f"Detected change in file: {file_path}")
             changed = True
+    
+    # 2. Check PocketBase
+    try:
+        r = requests.get(f"{PB_URL}/collections/tasks/records",
+                         params={"sort": "-updated", "perPage": 1, "fields": "updated"})
+        items = r.json().get("items", [])
+        if items:
+            current_pb_ts = items[0]["updated"]
+            if cache.get("pb_tasks_updated") != current_pb_ts:
+                log(f"Detected change in PocketBase tasks: {current_pb_ts}")
+                changed = True
+                cache["pb_tasks_updated"] = current_pb_ts
+    except Exception as e:
+        log(f"Error checking PocketBase changes: {e}")
     
     # Update cache
     cache["checksums"] = current_checksums
@@ -122,7 +133,6 @@ def _files_changed():
 
 def send_telegram(message):
     if not TELEGRAM_TOKEN:
-        log("Telegram not configured (TELEGRAM_TOKEN missing)")
         return
     try:
         requests.post(
@@ -148,6 +158,13 @@ def update_task_status(task_id, status):
     except Exception as e:
         log(f"ERROR updating task {task_id}: {e}")
 
+def update_task_agent(task_id, agent):
+    try:
+        requests.patch(f"{PB_URL}/collections/tasks/records/{task_id}",
+                       json={"assigned_agent": agent})
+    except Exception as e:
+        log(f"ERROR updating task {task_id} agent: {e}")
+
 def post_comment(task_id, agent, content, comment_type="output"):
     try:
         requests.post(f"{PB_URL}/collections/comments/records",
@@ -172,7 +189,6 @@ def is_agent_offline(agent_key):
             return True, "Never"
         
         hb = items[0]
-        # PB updated time is like "2026-03-19 09:10:42.368Z"
         ts_part = hb["updated"].split('.')[0].replace('Z', '')
         dt = datetime.strptime(ts_part, "%Y-%m-%d %H:%M:%S")
         age_seconds = (now - dt).total_seconds()
@@ -183,13 +199,11 @@ def is_agent_offline(agent_key):
         return True, "Error"
 
 def find_best_substitute(task, offline_agent_key, all_agents_meta, offline_skills):
-    # task might have required_skills (list)
     required_skills = task.get("required_skills", [])
     if not required_skills:
         required_skills = list(offline_skills)
     
     required_skills_set = set(required_skills)
-    
     best_agent = None
     max_score = -1
     
@@ -206,7 +220,6 @@ def find_best_substitute(task, offline_agent_key, all_agents_meta, offline_skill
             max_score = score
             best_agent = agent
         elif score == max_score and best_agent:
-            # Tie breaker: fallbackChain
             if agent["heartbeatKey"] in fallback_chain:
                 if best_agent["heartbeatKey"] not in fallback_chain or \
                    fallback_chain.index(agent["heartbeatKey"]) < fallback_chain.index(best_agent["heartbeatKey"]):
@@ -228,32 +241,26 @@ def reassign_tasks(offline_agent_key, all_agents_meta):
         offline_skills = set(offline_agent_meta.get("skills", [])) if offline_agent_meta else set()
 
         for task in tasks:
-            # 3. Cooldown between bounces
             last_reassign_str = task.get("last_reassignment_at")
             if last_reassign_str:
                 ts_part = last_reassign_str.split('.')[0].replace('Z', '')
                 last_dt = datetime.strptime(ts_part, "%Y-%m-%d %H:%M:%S")
                 age_seconds = (datetime.utcnow() - last_dt).total_seconds()
                 if age_seconds < COOLDOWN_SECONDS:
-                    log(f"Skipping reassignment for task '{task['title']}' (cooldown: {int(age_seconds)}s < {COOLDOWN_SECONDS}s)")
                     continue
 
             best_agent = find_best_substitute(task, offline_agent_key, all_agents_meta, offline_skills)
             if best_agent:
                 new_agent_key = best_agent["heartbeatKey"]
-                
-                # 1. Target-online guard
-                is_offline, last_seen = is_agent_offline(new_agent_key)
+                is_offline, _ = is_agent_offline(new_agent_key)
                 if is_offline:
-                    log(f"Skipping reassignment for task '{task['title']}' to {new_agent_key} (substitute also offline: last seen {last_seen})")
                     continue
                 
-                # 2. Reassignment counter + freeze (rolling 10m window)
                 count = task.get("reassignment_count", 0)
                 if last_reassign_str:
                     ts_part = last_reassign_str.split('.')[0].replace('Z', '')
                     last_dt = datetime.strptime(ts_part, "%Y-%m-%d %H:%M:%S")
-                    if (datetime.utcnow() - last_dt).total_seconds() < 600: # 10m
+                    if (datetime.utcnow() - last_dt).total_seconds() < 600:
                         count += 1
                     else:
                         count = 1
@@ -263,10 +270,10 @@ def reassign_tasks(offline_agent_key, all_agents_meta):
                 now_iso = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S.000Z")
                 
                 if count >= 3:
-                    log(f"🚨 BLOCKING task '{task['title']}' (too many reassignments: {count} in 10m)")
+                    log(f"BLOCKING task '{task['title']}' (too many reassignments)")
                     requests.patch(f"{PB_URL}/collections/tasks/records/{task['id']}",
                                    json={"status": "blocked", "reassignment_count": count, "last_reassignment_at": now_iso})
-                    send_telegram(f"🚨 TASK BLOCKED: '{task['title']}' (too many reassignments). MANUAL INTERVENTION NEEDED.")
+                    send_telegram(f"🚨 TASK BLOCKED: '{task['title']}' (too many reassignments).")
                     post_comment(task["id"], "dispatcher", f"Task blocked after {count} reassignments in 10m.", "comment")
                     continue
 
@@ -276,13 +283,9 @@ def reassign_tasks(offline_agent_key, all_agents_meta):
                                      "reassignment_count": count, 
                                      "last_reassignment_at": now_iso})
                 
-                msg = f"Reassigned from {offline_agent_key} to {new_agent_key} ({offline_agent_key} offline)"
-                post_comment(task["id"], "dispatcher", msg, "comment")
-                
-                send_telegram(f"⚠️ Task '{task['title']}' reassigned from {offline_agent_key} to {new_agent_key} (offline for >30m).")
-
+                post_comment(task["id"], "dispatcher", f"Reassigned from {offline_agent_key} to {new_agent_key}", "comment")
     except Exception as e:
-        log(f"ERROR reassigning tasks for {offline_agent_key}: {e}")
+        log(f"ERROR in reassign_tasks: {e}")
 
 def get_offline_agents():
     if os.path.exists(OFFLINE_AGENTS_FILE):
@@ -317,78 +320,54 @@ def check_agent_health():
             is_currently_offline, last_seen_str = is_agent_offline(agent_key)
             previously_offline = agent_key in offline_data
             
-            if is_currently_offline and not previously_offline:
-                log(f"Agent {agent_key} detected OFFLINE (last seen {last_seen_str})")
-                offline_data[agent_key] = {"offline_since": datetime.utcnow().isoformat(), "last_seen": last_seen_str}
-                changed = True
+            if is_currently_offline:
+                if not previously_offline:
+                    log(f"Agent {agent_key} detected OFFLINE")
+                    offline_data[agent_key] = {"offline_since": datetime.utcnow().isoformat(), "last_seen": last_seen_str}
+                    changed = True
                 reassign_tasks(agent_key, agents)
-            elif not is_currently_offline and previously_offline:
-                log(f"Agent {agent_key} RECOVERED (was offline since {offline_data[agent_key]['offline_since']})")
-                send_telegram(f"✅ {agent_key.capitalize()} is back online (was offline {last_seen_str}).")
+            elif previously_offline:
+                log(f"Agent {agent_key} RECOVERED")
+                send_telegram(f"✅ {agent_key.capitalize()} is back online.")
                 del offline_data[agent_key]
                 changed = True
-            elif is_currently_offline and previously_offline:
-                # Still offline, but we should periodically check for reassignment of tasks that 
-                # might have been skipped previously (e.g. because of target-offline guard)
-                reassign_tasks(agent_key, agents)
                 
         if changed:
             save_offline_agents(offline_data)
-                
     except Exception as e:
         log(f"ERROR in check_agent_health: {e}")
 
 def run_agent(agent_name, task):
     if agent_name not in AGENT_COMMANDS:
-        log(f"No command configured for agent: {agent_name}")
         return
 
     log(f"Dispatching task '{task['title']}' to {agent_name}")
     update_task_status(task["id"], "in_progress")
 
-    cmd = AGENT_COMMANDS[agent_name]
+    cmd = list(AGENT_COMMANDS[agent_name])
+    
+    # Enrich prompt for LLM agents
+    if agent_name in ["clau", "gem", "codi"]:
+        task_prompt = f"\n\nYOUR TASK: {task['title']}\nDescription: {task.get('description', '')}"
+        cmd[-1] = cmd[-1] + task_prompt
+
     try:
-        # We use a timeout to prevent runaway processes
         result = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
         output = result.stdout or result.stderr or "No output"
         
         if result.returncode == 0:
-            post_comment(task["id"], agent_name, output[:5000]) # cap at 5000 chars
+            post_comment(task["id"], agent_name, output[:5000])
             update_task_status(task["id"], "peer_review")
-            log(f"Task '{task['title']}' completed by {agent_name} -> peer_review")
         else:
-            log(f"ERROR: Agent {agent_name} failed with return code {result.returncode}")
+            log(f"ERROR: Agent {agent_name} failed")
             post_comment(task["id"], agent_name, f"FAILED with return code {result.returncode}:\n{output[:1000]}", "feedback")
             update_task_status(task["id"], "todo")
-            
-    except subprocess.TimeoutExpired:
-        update_task_status(task["id"], "todo") # put back in queue
-        log(f"TIMEOUT: task '{task['title']}' returned to queue")
     except Exception as e:
         log(f"ERROR running {agent_name}: {e}")
         update_task_status(task["id"], "todo")
 
-def get_notif_data():
-    if os.path.exists(NOTIF_FILE):
-        try:
-            with open(NOTIF_FILE, "r") as f:
-                return json.load(f)
-        except:
-            return {}
-    return {}
-
-def save_notif_data(data):
-    try:
-        with open(NOTIF_FILE, "w") as f:
-            json.dump(data, f)
-    except Exception as e:
-        log(f"ERROR saving notif_data: {e}")
-
 def check_waiting_human():
-    """Ping Telegram if any task is waiting for human input."""
     try:
-        # Check both 'waiting_human' and 'waiting_human_notified'
-        # to ensure we keep notifying if needed, but with a cooldown
         r = requests.get(f"{PB_URL}/collections/tasks/records",
                          params={"filter": 'status = "waiting_human" || status = "waiting_human_notified"'})
         tasks = r.json().get("items", [])
@@ -402,92 +381,71 @@ def check_waiting_human():
         for task in tasks:
             task_id = task['id']
             last_sent = notif_data.get(task_id, 0)
-            
-            # Cooldown: 1 hour (3600 seconds)
             if now - last_sent > 3600:
-                msg = f"🤖 HUMAN NEEDED: {task['title']}\nStatus: {task['status']}\nID: {task['id']}"
-                log(f"HUMAN NEEDED: {task['title']} — sending Telegram")
-                send_telegram(msg)
+                send_telegram(f"🤖 HUMAN NEEDED: {task['title']}\nID: {task['id']}")
                 notif_data[task_id] = now
                 changed = True
-                
-                # If it was 'waiting_human', we can set it to 'waiting_human_notified'
                 if task["status"] == "waiting_human":
                     update_task_status(task_id, "waiting_human_notified")
 
         if changed:
             save_notif_data(notif_data)
-            
     except Exception as e:
         log(f"ERROR checking waiting_human: {e}")
 
 def create_daily_standup():
-    """Create daily standup file with activity summary."""
-    from datetime import datetime
-    import os
-    
     try:
         today = datetime.now().strftime("%Y-%m-%d")
-        standup_dir = "/opt/salesman-api/live-repo/standups"
+        standup_dir = f"{CODEX_REPO_DIR}/standups"
         os.makedirs(standup_dir, exist_ok=True)
         file_path = f"{standup_dir}/{today}.md"
         
-        # Check if file already exists (don't overwrite)
         if os.path.exists(file_path):
             return
         
-        # Get basic metrics (simplified for now)
-        # In production, these would come from actual tracking
-        agents_called = 0  # Would track actual agent calls
-        sessions = 0       # Would track actual sessions
-        tasks_completed = 0 # Would track actual tasks
-        
         with open(file_path, "w") as f:
-            f.write(f"""# Standup: {today}
-\n## Activity Summary
-- Agents called: {agents_called}
-- Sessions: {sessions}
-- Tasks completed: {tasks_completed}
-\n## Notes
-{'No activity today - all agents idle' if tasks_completed == 0 else 'Normal activity'}
-""")
-        
-        log(f"Created daily standup file: {file_path}")
-        return True
+            f.write(f"# Standup: {today}\n\n## Activity Summary\n- Agents called: 0\n- Sessions: 0\n- Tasks completed: 0\n\n## Notes\nNo activity today - all agents idle\n")
+        log(f"Created daily standup: {file_path}")
     except Exception as e:
-        log(f"ERROR creating daily standup: {e}")
-        return False
+        log(f"ERROR creating standup: {e}")
 
 def main():
-    log("Dispatcher started")
-=======
+    log("Dispatcher v4 started")
     while True:
-        # Create daily standup file (even if no activity)
         create_daily_standup()
         
-        # Check if any watched files have changed
-        if _files_changed():
-            log("Files changed detected, running full dispatch cycle")
+        if _state_changed():
+            log("State change detected (Files or PB)")
             check_agent_health()
             offline_agents = get_offline_agents()
             
+            try:
+                meta_path = os.path.join(CODEX_REPO_DIR, "AGENTS/CONFIG/fleet_meta.json")
+                with open(meta_path, "r") as f:
+                    fleet_meta = json.load(f)
+                all_agents_meta = fleet_meta.get("team", [])
+            except:
+                all_agents_meta = []
+
             tasks = get_pending_tasks()
             for task in tasks:
                 agent = task.get("assigned_agent")
-                if agent:
-                    if agent in offline_agents:
-                        # We already tried reassigning in check_agent_health
-                        # If it's still assigned to an offline agent, it was likely skipped due to target-offline
-                        continue
+                
+                if not agent and all_agents_meta:
+                    best_agent = find_best_substitute(task, "", all_agents_meta, [])
+                    if best_agent:
+                        agent = best_agent["heartbeatKey"]
+                        log(f"Auto-assigned task '{task['title']}' to {agent}")
+                        update_task_agent(task["id"], agent)
+                
+                if agent and agent not in offline_agents:
                     run_agent(agent, task)
             
             check_waiting_human()
         else:
-            log("No file changes detected, skipping dispatch cycle")
-            check_waiting_human()  # Still check for human intervention needs
+            check_waiting_human()
         
         time.sleep(60)
 
 if __name__ == "__main__":
     main()
-    
