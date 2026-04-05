@@ -67,6 +67,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#88**: Fleet Policy JSON: Versioned State Machine -- Transition Markdown mandates into a versioned JSON policy doc. Compact policy Doc for tools, constraints, escalation, and handoff rules. -- Codi. Approved.
 - **#87**: Lesson Summarizer: Post-session script -- Implement summarize_session.py to compress logs into JSON-structured lessons after each major loop. Inject top lessons into system prompts. -- Clau. Approved.
 - **#86**: Refine Lessons Schema: Enforce JSON structure -- Update PocketBase lessons collection to include mandatory fields: {decision, rationale, outcome, confidence_score}. Goal: Structured memory over free-text notes. -- Gem. Approved.
+- **#85**: Auto-Generate Daily Standup Files -- ## Problem -- Codi. Approved.
 - **#84**: Implement Option 1 - Dual Sync Strategy -- Implement Option 1 as requested by Miguel: Document Dual System, Keep both systems separate, Document that MC is for goals, PB for execution, Checksum system checks both sources. Includes updating dispatcher.py with PocketBase checksum logic. -- Gem. Approved.
 - **#83**: Fix Telegram messages incorrectly becoming GitHub issues -- Implemented comprehensive fixes to prevent Telegram direct messages from being incorrectly converted to GitHub issues. Changes include enhanced message routing, source tracking, and GitHub sync filtering. -- Gem. Approved.
 - **#82**: Fleet Hub: Add "Blocked" filter to Task Board -- Allow humans to easily find tasks caught by the circuit breaker. -- Gem. Approved.
@@ -147,6 +148,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **#85** | Auto-Generate Daily Standup Files | codi | in_work | ## Problem... |
+| **#94** | PB schema: task_events collection + dispatcher metrics logging | Gem | todo | Foundation for #95–#97 |
+| **#95** | Fleet Hub: extended agents table (last seen, idle until, tasks, tokens, success rate) | Gem | todo | Depends on #94 (can partially ship without) |
+| **#96** | Fleet Hub: Schichtplan — agent shift timeline (swim-lane, 24h/7d/30d) | Clau | todo | Depends on #95, can develop in parallel |
+| **#97** | Fleet Hub: aggregate stats panel + retroactive log parser (arXiv paper data) | Clau | todo | Depends on #94 for live data; Part B (log parser) independent |
 
 **Status: `create-flotilla@0.3.0` live on npm as of 2026-03-24. Planning for v0.4.0 in progress.**
