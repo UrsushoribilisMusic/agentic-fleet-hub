@@ -148,6 +148,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **#99** | Release Flotilla v0.4.0 | Gem | todo | Bundle: fleet dashboard (Schichtplan, agents table, aggregate stats), dispatcher v4 (checksum gate, task_events, auto-MC sync, in_progress reset, branch handoff) |
 
 ### RECENTLY CLOSED
 | Ticket | Description | Owner | Status | Notes |
