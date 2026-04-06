@@ -148,7 +148,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **#99** | Release Flotilla v0.4.0 | Gem | todo | Bundle: fleet dashboard (Schichtplan, agents table, aggregate stats), dispatcher v4 (checksum gate, task_events, auto-MC sync, in_progress reset, branch handoff) |
+| **#99** | Release Flotilla v0.4.0 | Gem | todo | Bundle all v0.4.0 work. Deliverables: (1) npm publish `create-flotilla@0.4.0`, (2) CHANGELOG.md entry covering Schichtplan, agents table, aggregate stats, dispatcher v4 (checksum gate, task_events, auto-MC sync, in_progress reset, branch handoff protocol), (3) update ARCHITECTURE.md to reflect dispatcher v4 design and fleet hub snapshot architecture, (4) tag `v0.4.0` on GitHub |
 
 ### RECENTLY CLOSED
 | Ticket | Description | Owner | Status | Notes |
@@ -160,4 +160,4 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **#97** | Fleet Hub: aggregate stats panel + retroactive log parser (arXiv paper data) | Gem | **completed** | Part A (live) & Part B (parser) done |
 
 
-**Status: `create-flotilla@0.3.0` live on npm as of 2026-03-24. Planning for v0.4.0 in progress.**
+**Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
