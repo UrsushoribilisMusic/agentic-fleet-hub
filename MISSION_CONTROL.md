@@ -148,11 +148,12 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **#98** | Task branch + WORKLOG handoff protocol | Clau | todo | Dispatcher: check `task/{id}` branch on reassign, include in handoff comment. Rule already added to AGENTS/RULES.md. |
+| **#99** | Release Flotilla v0.4.0 | Gem | todo | Bundle: fleet dashboard (Schichtplan, agents table, aggregate stats), dispatcher v4 (checksum gate, task_events, auto-MC sync, in_progress reset, branch handoff) |
 
 ### RECENTLY CLOSED
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **#98** | Task branch + WORKLOG handoff protocol | Clau | **completed** | Rule in AGENTS/RULES.md; dispatcher checks branch on reassign and includes URL in handoff comment |
 | **#94** | PB schema: task_events collection + dispatcher metrics logging | Clau | **completed** | Migration + dispatcher wiring done 2026-04-05; PB restarted + meta field fix 2026-04-06 |
 | **#95** | Fleet Hub: extended agents table (last seen, idle until, tasks, tokens, success rate) | Gem | **completed** | Shipped 2026-04-05 |
 | **#96** | Fleet Hub: Schichtplan — agent shift timeline (swim-lane, 24h/7d/30d) | Clau | **completed** | Shipped 2026-04-05 |

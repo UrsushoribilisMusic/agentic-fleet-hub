@@ -313,6 +313,19 @@ def reassign_tasks(offline_agent_key, all_agents_meta):
                 new_status = "todo" if prev_status == "in_progress" else prev_status
                 reason = "agent offline / likely context limit hit" if prev_status == "in_progress" else "agent offline"
 
+                # Check if a task branch exists on GitHub
+                branch_name = f"task/{task['id']}"
+                branch_url = None
+                try:
+                    result = subprocess.run(
+                        ["git", "ls-remote", "--heads", "origin", branch_name],
+                        cwd=CODEX_REPO_DIR, capture_output=True, text=True, timeout=10
+                    )
+                    if result.stdout.strip():
+                        branch_url = f"https://github.com/UrsushoribilisMusic/agentic-fleet-hub/tree/{branch_name}"
+                except Exception as e:
+                    log(f"WARN branch check failed for {branch_name}: {e}")
+
                 log(f"Reassigning task '{task['title']}' ({prev_status} → {new_status}) to {new_agent_key}")
                 requests.patch(f"{PB_URL}/collections/tasks/records/{task['id']}",
                                json={"assigned_agent": new_agent_key,
@@ -324,10 +337,14 @@ def reassign_tasks(offline_agent_key, all_agents_meta):
                                meta={"from_agent": offline_agent_key,
                                      "to_agent": new_agent_key,
                                      "reassignment_count": count,
-                                     "reason": reason})
+                                     "reason": reason,
+                                     "branch": branch_url})
                 comment = f"Reassigned from {offline_agent_key} to {new_agent_key} ({reason})."
                 if prev_status == "in_progress":
-                    comment += f" Task reset to todo — previous agent likely hit context limit mid-work. Start fresh."
+                    if branch_url:
+                        comment += f" Branch with partial work: {branch_url} — check out branch, read WORKLOG.md and git log, then continue."
+                    else:
+                        comment += f" No branch found — start fresh on task/{task['id']}."
                 post_comment(task["id"], "dispatcher", comment, "comment")
     except Exception as e:
         log(f"ERROR in reassign_tasks: {e}")
