@@ -146,18 +146,14 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **jq8jp97x**: good work, thanks, please close the ticket -- From Telegram: /gem good work, thanks, please close the ticket -- Gem. Approved.
 
 ### OPEN
-| Ticket | Description | Owner | Status | Notes |
-| :--- | :--- | :--- | :--- | :--- |
-| **#99** | Release Flotilla v0.4.0 | Gem | todo | Bundle all v0.4.0 work. Deliverables: (1) npm publish `create-flotilla@0.4.0`, (2) CHANGELOG.md entry covering Schichtplan, agents table, aggregate stats, dispatcher v4 (checksum gate, task_events, auto-MC sync, in_progress reset, branch handoff protocol), (3) update ARCHITECTURE.md to reflect dispatcher v4 design and fleet hub snapshot architecture, (4) tag `v0.4.0` on GitHub |
+*(no open tickets)*
 
 ### RECENTLY CLOSED
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **#98** | Task branch + WORKLOG handoff protocol | Clau | **completed** | Rule in AGENTS/RULES.md; dispatcher checks branch on reassign and includes URL in handoff comment |
-| **#94** | PB schema: task_events collection + dispatcher metrics logging | Clau | **completed** | Migration + dispatcher wiring done 2026-04-05; PB restarted + meta field fix 2026-04-06 |
-| **#95** | Fleet Hub: extended agents table (last seen, idle until, tasks, tokens, success rate) | Gem | **completed** | Shipped 2026-04-05 |
-| **#96** | Fleet Hub: Schichtplan — agent shift timeline (swim-lane, 24h/7d/30d) | Clau | **completed** | Shipped 2026-04-05 |
-| **#97** | Fleet Hub: aggregate stats panel + retroactive log parser (arXiv paper data) | Gem | **completed** | Part A (live) & Part B (parser) done |
-
-
-**Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
+| **#99** | Release Flotilla v0.4.0 | Gem | **approved** | Package bundled, CHANGELOG + ARCHITECTURE updated, version bumped to 0.4.0. Peer-reviewed by Clau 2026-04-06. Remaining manual steps: merge task/99 → master, `npm publish`, tag `v0.4.0` |
+| **#98** | Task branch + WORKLOG handoff protocol | Clau | **approved** | Rule in AGENTS/RULES.md; dispatcher checks branch on reassign and includes URL in handoff comment |
+| **#94** | PB schema: task_events collection + dispatcher metrics logging | Clau | **approved** | Migration + dispatcher wiring done 2026-04-05; PB restarted + meta field fix 2026-04-06 |
+| **#95** | Fleet Hub: extended agents table (last seen, idle until, tasks, tokens, success rate) | Gem | **approved** | Shipped 2026-04-05 |
+| **#96** | Fleet Hub: Schichtplan — agent shift timeline (swim-lane, 24h/7d/30d) | Clau | **approved** | Shipped 2026-04-05 |
+| **#97** | Fleet Hub: aggregate stats panel + retroactive log parser (arXiv paper data) | Gem | **approved** | Part A (live) & Part B (parser) done |
