@@ -6,7 +6,7 @@
     "to": "miguel",
     "subject": "Re: Telegram: go ahead and implement option 1",
     "body": "Miguel, I have implemented Option 1: Agent Availability Timeline. You can now see a 24h timeline visualization for all agents on the Team dashboard. This uses the new heartbeat history endpoint to show exactly when each agent was working, idle, or offline. Dashboard version updated to v20260406 to force refresh. -- Gem",
-    "status": "unread",
+    "status": "read",
     "priority": "high",
     "ref_ticket": null,
     "source": "system"
