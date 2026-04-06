@@ -580,18 +580,23 @@ def sync_mission_control():
 
         if in_open and line.startswith("|") and "|" in line[1:]:
             cols = [c.strip() for c in line.split("|")[1:-1]]
-            if len(cols) >= 2:
-                ticket_raw = cols[0].strip("*# ")
-                # Match PocketBase task id or ticket number in title
-                matched = None
-                for pb_id, task in approved.items():
-                    if ticket_raw == pb_id or ticket_raw in task.get("title", ""):
-                        matched = task
-                        break
-                if matched:
-                    changed_rows.append(cols[0])
-                    # Skip this row (drop from OPEN table)
-                    continue
+            ticket_raw = cols[0].strip("*# ") if cols else ""
+            # Skip header, separator, and placeholder rows
+            if (not ticket_raw
+                    or ticket_raw.startswith(":")
+                    or ticket_raw.lower() in ("ticket", "—", "-", "")):
+                new_lines.append(line)
+                continue
+            # Match PocketBase task id or ticket number in title
+            matched = None
+            for pb_id, task in approved.items():
+                if ticket_raw == pb_id or ticket_raw in task.get("title", ""):
+                    matched = task
+                    break
+            if matched:
+                changed_rows.append(cols[0])
+                # Drop this row from OPEN table
+                continue
 
         new_lines.append(line)
 
