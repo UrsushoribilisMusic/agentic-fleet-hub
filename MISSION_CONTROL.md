@@ -146,9 +146,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **jq8jp97x**: good work, thanks, please close the ticket -- From Telegram: /gem good work, thanks, please close the ticket -- Gem. Approved.
 
 ### OPEN
-| Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| — | No open tickets | — | — | — |
 
 ### RECENTLY CLOSED
 | Ticket | Description | Owner | Status | Notes |
