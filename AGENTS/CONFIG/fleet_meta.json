@@ -12,7 +12,7 @@
         "Code Refactoring"
       ],
       "fallbackChain": ["gem", "codi"],
-      "runtime": "Mac Mini (Local)",
+      "runtime": "Cloud (Anthropic)",
       "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/CLAUDE.md"
     },
     {
@@ -27,7 +27,7 @@
         "Vault Security"
       ],
       "fallbackChain": ["clau", "codi"],
-      "runtime": "Mac Mini (Local)",
+      "runtime": "Cloud (Google)",
       "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/GEMINI.md"
     },
     {
@@ -42,7 +42,7 @@
         "Continuous Delivery"
       ],
       "fallbackChain": ["clau", "gem"],
-      "runtime": "Mac Mini (Local)",
+      "runtime": "Cloud (OpenAI)",
       "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS.md"
     },
     {
@@ -57,8 +57,23 @@
         "Ethics & Transparency"
       ],
       "fallbackChain": ["clau", "gem"],
-      "runtime": "Mac Mini (Local)",
+      "runtime": "Cloud (Mistral)",
       "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/MISTRAL.md"
+    },
+    {
+      "name": "Gemma",
+      "avatar": "💎",
+      "heartbeatKey": "gemma",
+      "roleTitle": "Local Intelligence & Cost Guard",
+      "roleDesc": "Runs entirely on-device via Ollama. Handles cost-sensitive tasks, offline work, and low-latency local inference without any API spend.",
+      "skills": [
+        "Local Inference",
+        "Cost Optimization",
+        "Offline Tasks"
+      ],
+      "fallbackChain": ["clau"],
+      "runtime": "Local (Ollama/Mac Mini)",
+      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/fleet/gemma/GEMMA.md"
     },
     {
       "name": "OpenClaw",
@@ -72,7 +87,7 @@
         "Hardware Interface"
       ],
       "fallbackChain": ["clau"],
-      "runtime": "Mac Mini (Always-On)",
+      "runtime": "Local (Mac Mini)",
       "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/robot_ross_artist.md"
     }
   ],
