@@ -146,7 +146,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **jq8jp97x**: good work, thanks, please close the ticket -- From Telegram: /gem good work, thanks, please close the ticket -- Gem. Approved.
 
 ### OPEN
-*(no open tickets)*
+| Ticket | Description | Owner | Status | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| **#100** | Sync /demo with Flotilla v0.4.0 | Gem | todo | Update `opt/salesman-api/demo/assets/main.js` and `style.css` to match fleet v0.4.0. Add: (1) Schichtplan swim-lane timeline with mock segment data, (2) extended agents table columns (last seen, idle until, tokens, success rate) with mock values, (3) aggregate stats panel with mock numbers. Reference: `opt/salesman-api/fleet/assets/main.js` (960 lines) vs demo (467 lines). Deploy to DO server via `ssh robotsales`. |
 
 ### RECENTLY CLOSED
 | Ticket | Description | Owner | Status | Notes |
