@@ -24,7 +24,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. These rules are followed by
 
 ## Kanban & Reporting
 
-1.  **Standups**: All daily progress is reported in `standups/`.
+1.  **Standups**: All daily progress is reported in `standups/`. Every entry heading MUST identify the agent — use the format `# Agent — Date (optional time UTC)`. Examples: `# Clau — 2026-04-06`, `# Codi — 2026-04-06 (14:32 UTC)`. Entries without an agent name in the heading are invalid and will be unattributable in the Fleet Hub dashboard. Do NOT use generic headings like `# Session (timestamp)`.
 2.  **Kanban Flow**: Ticket-based system tracked in `MISSION_CONTROL.md`.
     *   **In Progress**: Documented in the active session's standup.
     *   **Blocked**: Explicitly listed in the Blockers section of the standup.
