@@ -308,9 +308,15 @@ def reassign_tasks(offline_agent_key, all_agents_meta):
                     post_comment(task["id"], "dispatcher", f"Task blocked after {count} reassignments in 10m.", "comment")
                     continue
 
-                log(f"Reassigning task '{task['title']}' to {new_agent_key}")
+                prev_status = task.get("status", "todo")
+                # If task was in_progress, reset to todo so new agent starts clean
+                new_status = "todo" if prev_status == "in_progress" else prev_status
+                reason = "agent offline / likely context limit hit" if prev_status == "in_progress" else "agent offline"
+
+                log(f"Reassigning task '{task['title']}' ({prev_status} → {new_status}) to {new_agent_key}")
                 requests.patch(f"{PB_URL}/collections/tasks/records/{task['id']}",
                                json={"assigned_agent": new_agent_key,
+                                     "status": new_status,
                                      "reassignment_count": count,
                                      "last_reassignment_at": now_iso})
                 log_task_event("reassignment", task["id"],
@@ -318,8 +324,11 @@ def reassign_tasks(offline_agent_key, all_agents_meta):
                                meta={"from_agent": offline_agent_key,
                                      "to_agent": new_agent_key,
                                      "reassignment_count": count,
-                                     "reason": "agent offline"})
-                post_comment(task["id"], "dispatcher", f"Reassigned from {offline_agent_key} to {new_agent_key}", "comment")
+                                     "reason": reason})
+                comment = f"Reassigned from {offline_agent_key} to {new_agent_key} ({reason})."
+                if prev_status == "in_progress":
+                    comment += f" Task reset to todo — previous agent likely hit context limit mid-work. Start fresh."
+                post_comment(task["id"], "dispatcher", comment, "comment")
     except Exception as e:
         log(f"ERROR in reassign_tasks: {e}")
 
@@ -537,12 +546,80 @@ def log_queue_snapshot():
     except Exception as e:
         log(f"WARN log_queue_snapshot: {e}")
 
+def sync_mission_control():
+    """Move approved PB tasks out of the OPEN table in MISSION_CONTROL.md automatically."""
+    mc_path = os.path.join(CODEX_REPO_DIR, "MISSION_CONTROL.md")
+    try:
+        r = requests.get(f"{PB_URL}/collections/tasks/records",
+                         params={"filter": 'status = "approved"', "perPage": 200, "fields": "id,title,assigned_agent"},
+                         timeout=10)
+        approved = {t["id"]: t for t in r.json().get("items", [])}
+    except Exception as e:
+        log(f"WARN sync_mission_control: PB fetch failed: {e}")
+        return
+
+    try:
+        with open(mc_path, "r") as f:
+            content = f.read()
+    except Exception as e:
+        log(f"WARN sync_mission_control: MC read failed: {e}")
+        return
+
+    lines = content.splitlines(keepends=True)
+    in_open = False
+    changed_rows = []
+    new_lines = []
+
+    for line in lines:
+        if line.strip().startswith("### OPEN"):
+            in_open = True
+            new_lines.append(line)
+            continue
+        if in_open and line.strip().startswith("### "):
+            in_open = False
+
+        if in_open and line.startswith("|") and "|" in line[1:]:
+            cols = [c.strip() for c in line.split("|")[1:-1]]
+            if len(cols) >= 2:
+                ticket_raw = cols[0].strip("*# ")
+                # Match PocketBase task id or ticket number in title
+                matched = None
+                for pb_id, task in approved.items():
+                    if ticket_raw == pb_id or ticket_raw in task.get("title", ""):
+                        matched = task
+                        break
+                if matched:
+                    changed_rows.append(cols[0])
+                    # Skip this row (drop from OPEN table)
+                    continue
+
+        new_lines.append(line)
+
+    if not changed_rows:
+        return
+
+    log(f"sync_mission_control: closing {len(changed_rows)} approved task(s) in MISSION_CONTROL.md")
+    with open(mc_path, "w") as f:
+        f.writelines(new_lines)
+
+    try:
+        subprocess.run(["git", "add", "MISSION_CONTROL.md"], cwd=CODEX_REPO_DIR, check=True)
+        subprocess.run(["git", "commit", "-m",
+                        f"chore(dispatcher): auto-close {len(changed_rows)} approved task(s) in MISSION_CONTROL"],
+                       cwd=CODEX_REPO_DIR, check=True)
+        subprocess.run(["git", "push", "origin", "master"], cwd=CODEX_REPO_DIR, check=True)
+        log("sync_mission_control: committed and pushed")
+    except Exception as e:
+        log(f"WARN sync_mission_control: git commit failed: {e}")
+
+
 def main():
     log("Dispatcher v4 started")
     while True:
         create_daily_standup()
         check_agent_health()
         log_queue_snapshot()
+        sync_mission_control()
         
         if _state_changed():
             log("State change detected (Files or PB)")
