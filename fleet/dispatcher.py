@@ -604,12 +604,11 @@ def sync_mission_control():
                     or ticket_raw.lower() in ("ticket", "—", "-", "")):
                 new_lines.append(line)
                 continue
-            # Match PocketBase task id or ticket number in title
+            # Only match PocketBase UUID-format IDs (alphanumeric, >8 chars, not pure digits)
+            # Human ticket numbers like #98 #99 are never PB IDs and must not be removed
             matched = None
-            for pb_id, task in approved.items():
-                if ticket_raw == pb_id or ticket_raw in task.get("title", ""):
-                    matched = task
-                    break
+            if len(ticket_raw) > 8 and ticket_raw.isalnum() and not ticket_raw.isdigit():
+                matched = approved.get(ticket_raw)
             if matched:
                 changed_rows.append(cols[0])
                 # Drop this row from OPEN table
