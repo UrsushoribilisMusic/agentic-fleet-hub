@@ -146,7 +146,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **jq8jp97x**: good work, thanks, please close the ticket -- From Telegram: /gem good work, thanks, please close the ticket -- Gem. Approved.
 
 ### OPEN
+| Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **#98** | Task branch + WORKLOG handoff protocol | Clau | todo | Dispatcher: check `task/{id}` branch on reassign, include in handoff comment. Rule already added to AGENTS/RULES.md. |
+| **#99** | Release Flotilla v0.4.0 | Gem | todo | Bundle: fleet dashboard (Schichtplan, agents table, aggregate stats), dispatcher v4 (checksum gate, task_events, auto-MC sync, in_progress reset), branch handoff protocol (#98 must ship first) |
 
 ### RECENTLY CLOSED
 | Ticket | Description | Owner | Status | Notes |
