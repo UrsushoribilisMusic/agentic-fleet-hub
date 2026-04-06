@@ -148,9 +148,15 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **#94** | PB schema: task_events collection + dispatcher metrics logging | Gem | todo | Foundation for #95–#97 |
-| **#95** | Fleet Hub: extended agents table (last seen, idle until, tasks, tokens, success rate) | Gem | todo | Depends on #94 (can partially ship without) |
-| **#96** | Fleet Hub: Schichtplan — agent shift timeline (swim-lane, 24h/7d/30d) | Clau | todo | Depends on #95, can develop in parallel |
-| **#97** | Fleet Hub: aggregate stats panel + retroactive log parser (arXiv paper data) | Clau | todo | Depends on #94 for live data; Part B (log parser) independent |
+| — | No open tickets | — | — | — |
+
+### RECENTLY CLOSED
+| Ticket | Description | Owner | Status | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| **#94** | PB schema: task_events collection + dispatcher metrics logging | Clau | **completed** | Migration + dispatcher wiring done 2026-04-05; PB restarted + meta field fix 2026-04-06 |
+| **#95** | Fleet Hub: extended agents table (last seen, idle until, tasks, tokens, success rate) | Gem | **completed** | Shipped 2026-04-05 |
+| **#96** | Fleet Hub: Schichtplan — agent shift timeline (swim-lane, 24h/7d/30d) | Clau | **completed** | Shipped 2026-04-05 |
+| **#97** | Fleet Hub: aggregate stats panel + retroactive log parser (arXiv paper data) | Gem | **completed** | Part A (live) & Part B (parser) done |
+
 
 **Status: `create-flotilla@0.3.0` live on npm as of 2026-03-24. Planning for v0.4.0 in progress.**
