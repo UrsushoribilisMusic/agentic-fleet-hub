@@ -1,4 +1,4 @@
-# AgentFleet Package (v0.3.0)
+# AgentFleet Package (v0.4.0)
 
 This directory contains the open-source core of **Flotilla** and the `create-flotilla` scaffolder.
 
@@ -14,13 +14,17 @@ For a step-by-step installation walkthrough, see [INSTALL.md](./INSTALL.md).
 
 ---
 
-## What's New in v0.3.0
+## What's New in v0.4.0
 
-- **Fleet Steering**: Proper project switching via `active_context.py` and the Engineering Dashboard.
-- **Enhanced Dispatcher**: Health monitoring and skill-based task reassignment when agents go offline.
-- **Dynamic Telegram Control**: Bot commands are now loaded dynamically from `fleet_meta.json`.
-- **GitHub Sync v2**: Improved two-way sync with duplicate prevention and atomic imports.
-- **Heartbeat Gate**: `heartbeat_check.py` now enforces project relevance and mission control checksums.
+- **Schichtplan (Agent Shift Timeline)**: Visual swim-lane dashboard tracking agent activity windows (24h/7d/30d).
+- **Aggregate Stats Panel**: Real-time performance metrics (tasks completed, session duration, token estimates).
+- **Dispatcher v4.0**:
+    - **Checksum Gate**: Drastically reduces token consumption by skipping heartbeat loops if no file changes are detected.
+    - **Dual Sync Strategy**: Native support for both `MISSION_CONTROL.md` (goals) and PocketBase (execution).
+    - **Task Event Logging**: New `task_events` collection for granular state tracking and auditability.
+    - **Circuit Breaker**: Auto-blocks tasks caught in reassignment loops.
+- **Improved Reassignment Protocol**: Dispatcher now checks for active task branches on GitHub to prevent lost context during agent-to-agent handoffs.
+- **Enhanced Agents Table**: Added columns for last seen, idle until, success rate, and estimated token usage.
 
 ---
 

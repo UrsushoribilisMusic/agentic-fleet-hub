@@ -294,3 +294,155 @@ h1 { font-size: 24px; font-weight: 600; margin-bottom: 4px; color: var(--text-pr
 
 /* Monospace Helpers */
 .mono { font-family: var(--font-mono); }
+
+/* ─── Schichtplan (Agent Shift Timeline) ─────────────────────────────────── */
+.schichtplan-header {
+  display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;
+}
+.schichtplan-title {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+  color: var(--text-secondary); text-transform: uppercase;
+}
+.schichtplan-window-btns { display: flex; gap: 4px; }
+.schicht-btn {
+  padding: 3px 10px; font-size: 11px; font-weight: 600; border-radius: 4px;
+  border: 1px solid var(--border); background: var(--bg-secondary);
+  color: var(--text-secondary); cursor: pointer;
+}
+.schicht-btn.is-active {
+  background: var(--accent); border-color: var(--accent); color: #fff;
+}
+.schichtplan-chart { padding: 4px 0 8px; }
+.schichtplan-wrap { font-size: 11px; }
+.schichtplan-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.schichtplan-axis-row { margin-bottom: 0; }
+.schichtplan-label-col {
+  width: 72px; flex-shrink: 0; text-align: right;
+  padding-right: 8px; font-size: 11px; color: var(--text-secondary);
+}
+.schichtplan-agent-name { font-weight: 600; }
+.schichtplan-timeline-col { flex: 1; position: relative; height: 20px; }
+.schichtplan-lane { background: var(--bg-tertiary); border-radius: 3px; overflow: hidden; }
+.schichtplan-seg {
+  position: absolute; top: 0; height: 100%; transition: opacity 0.1s;
+}
+.schichtplan-seg:hover { opacity: 0.75; cursor: default; }
+.seg-working  { background: #2ea043; }
+.seg-idle     { background: #8c959f; }
+.seg-dark     { background: #f85149; }
+.seg-offline  { background: #d29922; }
+.schichtplan-tick-label {
+  position: absolute; top: 0; font-size: 9px; color: var(--text-muted);
+  transform: translateX(-50%); white-space: nowrap; line-height: 20px;
+}
+.schichtplan-grid-line {
+  position: absolute; top: 0; height: 100%; width: 1px;
+  background: var(--border); opacity: 0.6; pointer-events: none;
+}
+.schichtplan-legend {
+  display: flex; gap: 16px; margin-top: 10px; flex-wrap: wrap;
+}
+.schichtplan-leg {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 11px; color: var(--text-secondary);
+}
+.schichtplan-leg-swatch {
+  display: inline-block; width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0;
+}
+
+/* ─── Agents Stats Table ─────────────────────────────────────────────────── */
+.agents-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 12px; background: var(--bg-primary);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden;
+}
+.agents-table thead tr {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+}
+.agents-table th {
+  padding: 8px 12px; text-align: left;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--text-muted); text-transform: uppercase; white-space: nowrap;
+}
+.agents-table td {
+  padding: 8px 12px; border-bottom: 1px solid var(--border-muted);
+  vertical-align: middle;
+}
+.agents-table tbody tr:last-child td { border-bottom: none; }
+.agents-table tbody tr:hover { background: var(--bg-secondary); }
+
+.agent-name-cell {
+  display: flex; align-items: center; gap: 8px; white-space: nowrap;
+}
+.agent-tbl-avatar {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 26px; height: 26px; border-radius: 50%; font-size: 10px;
+  font-weight: 700; background: var(--bg-tertiary); color: var(--text-secondary);
+  flex-shrink: 0;
+}
+.stat-cell { color: var(--text-secondary); white-space: nowrap; }
+.stat-good { color: var(--success) !important; font-weight: 600; }
+.stat-warn { color: var(--warning) !important; font-weight: 600; }
+.stat-bad  { color: var(--danger)  !important; font-weight: 600; }
+
+.type-badge {
+  display: inline-block; padding: 1px 7px; border-radius: 10px;
+  font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
+}
+.type-local { background: var(--success-bg); color: var(--success); }
+.type-cloud { background: var(--accent-muted); color: var(--accent); }
+
+/* Aggregate Stats Panel */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.stat-card {
+  padding: 16px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100px;
+  transition: transform 0.1s, border-color 0.1s;
+}
+
+.stat-card:hover {
+  border-color: var(--accent);
+}
+
+.stat-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 8px;
+  font-family: var(--font-mono);
+}
+
+.stat-sub {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

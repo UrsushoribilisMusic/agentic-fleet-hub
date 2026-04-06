@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flotilla</title>
   <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
-  <link rel="stylesheet" href="assets/style.css?v=20260315">
+  <link rel="stylesheet" href="assets/style.css?v=20260406">
   <script>window.RobotRossAuthConfig = { enabled: true }; document.documentElement.dataset.authLoading = "1";</script>
   <script src="/auth/auth.js" defer></script>
 </head>
 <body>
-  <button class="mobile-menu-btn" id="mobile-toggle">â˜°</button>
+  <button class="mobile-menu-btn" id="mobile-toggle">Menu</button>
 
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-header">
@@ -21,37 +21,21 @@
     </div>
     
     <nav class="sidebar-nav" id="sidebar-nav">
-      <button class="nav-button is-active" data-section-button="section-team">
-        <span>ðŸ‘¥</span> Team
-      </button>
-      <button class="nav-button" data-section-button="section-projects">
-        <span>ðŸ“‚</span> Projects
-      </button>
-      <button class="nav-button" data-section-button="section-switch-project">
-        <span>ðŸ”„</span> Switch Project
-      </button>
-      <button class="nav-button" data-section-button="section-kanban">
-        <span>ðŸ“‹</span> Kanban
-      </button>
-      <button class="nav-button" data-section-button="section-rules">
-        <span>ðŸ“œ</span> Rules
-      </button>
-      <button class="nav-button" data-section-button="section-memory">
-        <span>ðŸ§ </span> Memory
-      </button>
-      <button class="nav-button" data-section-button="section-standups">
-        <span>â±ï¸</span> Standups
-      </button>
-      <button class="nav-button" data-section-button="section-inbox">
-        <span>ðŸ’¬</span> Inbox
-      </button>
-      <button class="nav-button" data-section-button="section-users">
-        <span>ðŸ‘¤</span> Users
+      <button class="nav-button is-active" data-section-button="section-team">Team</button>
+      <button class="nav-button" data-section-button="section-projects">Projects</button>
+
+      <button class="nav-button" data-section-button="section-kanban">Kanban</button>
+      <button class="nav-button" data-section-button="section-rules">Rules</button>
+      <button class="nav-button" data-section-button="section-memory">Memory</button>
+      <button class="nav-button" data-section-button="section-pbviewer">PB Viewer</button>
+      <button class="nav-button" data-section-button="section-standups">Standups</button>
+      <button class="nav-button" data-section-button="section-inbox">Inbox</button>
+      <button class="nav-button" data-section-button="section-users">Users</button>
       </button>
     </nav>
 
     <div class="theme-toggle">
-      <button class="theme-btn" id="theme-toggle-btn" title="Toggle Dark/Light Mode">â˜®</button>
+      <button class="theme-btn" id="theme-toggle-btn" title="Toggle Dark/Light Mode">Theme</button>
       <span style="font-size: 12px; color: var(--text-secondary);">Theme</span>
     </div>
 
@@ -69,7 +53,60 @@
         </div>
         <button class="btn-submit standalone-only" onclick="openAgentModal()" style="display: none;">+ Add Agent</button>
       </header>
+      <div id="agents-stats-table" style="margin-bottom: 24px;"></div>
       <div id="team-grid" class="cards-grid"></div>
+
+      <div id="schichtplan-container" style="margin-top: 32px;">
+        <div class="schichtplan-header">
+          <h4 class="schichtplan-title">SHIFT TIMELINE</h4>
+          <div class="schichtplan-window-btns">
+            <button class="schicht-btn is-active" data-window="24h" onclick="loadSchichtplan('24h')">24h</button>
+            <button class="schicht-btn" data-window="7d" onclick="loadSchichtplan('7d')">7d</button>
+            <button class="schicht-btn" data-window="30d" onclick="loadSchichtplan('30d')">30d</button>
+          </div>
+        </div>
+        <div id="schichtplan-chart" class="schichtplan-chart">
+          <p style="font-size: 12px; color: var(--text-muted); padding: 16px;">Loading timeline...</p>
+        </div>
+      </div>
+
+      <div id="aggregate-stats-panel" style="margin-top: 32px;">
+        <h4 class="schichtplan-title" style="margin-bottom: 12px;">FLEET PERFORMANCE</h4>
+        <div class="stats-grid">
+          <!-- Row 1: Activity -->
+          <div class="card stat-card">
+            <div class="stat-label">TASKS (24H)</div>
+            <div class="stat-value" id="stat-tasks-24h">...</div>
+            <div class="stat-sub">completed / in review / blocked</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-label">REASSIGNMENTS</div>
+            <div class="stat-value" id="stat-reassigns">...</div>
+            <div class="stat-sub" id="stat-reassigns-sub">count / blocked / avg</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-label">CIRCUIT BREAKER</div>
+            <div class="stat-value" id="stat-circuit">...</div>
+            <div class="stat-sub" id="stat-circuit-sub">fires today / total / last</div>
+          </div>
+          <!-- Row 2: Resilience -->
+          <div class="card stat-card">
+            <div class="stat-label">MTBF</div>
+            <div class="stat-value" id="stat-mtbf">...</div>
+            <div class="stat-sub">Mean Time Between Failures</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-label">MTTR</div>
+            <div class="stat-value" id="stat-mttr">...</div>
+            <div class="stat-sub">Mean Time To Recovery</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-label">FALSE WAKE RATE</div>
+            <div class="stat-value" id="stat-wake">...</div>
+            <div class="stat-sub" id="stat-wake-sub">before / after gate</div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="section-projects" class="section">
@@ -83,13 +120,7 @@
       <div id="projects-grid" class="cards-grid"></div>
     </section>
     
-    <section id="section-switch-project" class="section">
-      <header class="page-header">
-        <p class="eyebrow">Switch Project</p>
-        <h1>Activate Project</h1>
-      </header>
-      <div id="project-list" class="project-list"></div>
-    </section>
+
 
     <section id="section-kanban" class="section">
       <header class="page-header" style="display: flex; justify-content: space-between; align-items: center;">
@@ -110,6 +141,10 @@
         <div class="card">
           <div class="card-header"><h3 class="card-title">In Work</h3></div>
           <div id="kanban-working" class="activity-list"></div>
+        </div>
+        <div class="card">
+          <div class="card-header"><h3 class="card-title">Blocked</h3></div>
+          <div id="kanban-blocked" class="activity-list"></div>
         </div>
         <div class="card">
           <div class="card-header"><h3 class="card-title">Done</h3></div>
@@ -141,6 +176,29 @@
         <div id="lessons-grid" class="cards-grid"></div>
       </div>
       <div id="docs-grid" class="cards-grid"></div>
+    </section>
+
+    <section id="section-pbviewer" class="section">
+      <header class="page-header">
+        <p class="eyebrow">Database</p>
+        <h1>PocketBase Viewer</h1>
+      </header>
+      <div class="pb-controls" style="margin-bottom: 12px; padding: 8px; background: var(--bg-secondary); border-radius: 6px;">
+        <div class="filter-group" style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+          <label style="font-size: 12px; font-weight: 600;">Status Filter:</label>
+          <select id="pb-status-filter" onchange="loadPBTasks()" style="padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border); background: var(--bg-primary); color: var(--text-primary);">
+            <option value="all">All Tasks</option>
+            <option value="todo">TODO</option>
+            <option value="in_progress">In Progress</option>
+            <option value="peer_review">Peer Review</option>
+            <option value="waiting_human">Waiting Human</option>
+            <option value="blocked">Blocked</option>
+            <option value="approved">Approved</option>
+          </select>
+          <button onclick="loadPBTasks()" style="padding: 4px 12px; background: var(--accent); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 600;">Refresh</button>
+        </div>
+      </div>
+      <div id="pb-tasks-container" class="activity-list"></div>
     </section>
 
     <section id="section-standups" class="section">
@@ -247,6 +305,6 @@
     </div>
   </div>
 
-  <script src="assets/main.js?v=20260315" defer></script>
+  <script src="assets/main.js?v=20260406" defer></script>
 </body>
 </html>
