@@ -1,4 +1,4 @@
-# Flotilla Architecture (v0.2.0)
+# Flotilla Architecture (v0.4.0)
 
 ## Overview
 **Flotilla** is an autonomous multi-agent management plane designed for disciplined engineering teams. It orchestrates a fleet of specialized AI agents (Clau, Gem, Codi, Misty) to perform persistent background work without human intervention.
@@ -97,9 +97,14 @@ For Scenario 3 deployments, PocketBase remains local and the public dashboard co
 - The public server caches that payload and falls back to it for `/fleet/api/heartbeats`, `/fleet/api/tasks`, and `/fleet/api/activity`.
 - Auth is write-only and runtime-injected with `FLEET_SYNC_TOKEN`.
 
-### 3. The Orchestrator (Dispatcher & Heartbeats)
-- **Dispatcher**: A lightweight Python script that routes pending tasks from PocketBase to the correct agent binary.
-- **Heartbeats**: `launchd` services that wake agents on a staggered schedule (Gem at :00, Codi at :02, Clau at :04) to perform autonomous maintenance and review others' work.
+### 3. The Orchestrator (Dispatcher v4 & Heartbeats)
+- **Dispatcher v4**: A Python script that routes tasks and maintains fleet-wide consistency. Key behaviours:
+  - **Checksum gate** (`_state_changed()`): SHA-256 of MISSION_CONTROL.md + inbox.json + PocketBase task timestamp. Only dispatches when state has actually changed — zero idle LLM cycles.
+  - **Event logging** (`log_task_event()`): Writes to the `task_events` PocketBase collection on every status transition, reassignment, circuit-breaker trigger, and 60s queue snapshot.
+  - **Reassignment with branch handoff**: When an offline agent's `in_progress` task is reassigned, status resets to `todo` and the dispatcher checks `git ls-remote` for `task/{id}` branch. If found, the branch URL is included in the handoff comment so the new agent can resume mid-work.
+  - **MISSION_CONTROL.md auto-sync** (`sync_mission_control()`): Every cycle, approved PocketBase-UUID tasks are dropped from the OPEN table and committed automatically — the kanban never goes stale.
+- **Heartbeat wrappers**: Each agent has a wrapper script that runs `heartbeat_check.py` (Phase 0) before launching any LLM. If nothing changed, the session is skipped entirely — zero tokens spent.
+- **Schedule**: Gem at :00/:10/:20, Codi at :02/:12/:22, Clau at :04/:14/:24, Gemma at :08/:18/:28, Misty at :06/:16/:26.
 
 ### 5b. Telegram Two-Way Bridge (`fleet.bridge`)
 A always-on launchd service (`telegram_bridge.py`) providing human↔fleet communication:
@@ -120,16 +125,32 @@ Security rule:
 - Gateway secrets such as `OPENCLAW_GATEWAY_TOKEN` must be injected at runtime from vault or resolved from the local OpenClaw config.
 - Never commit gateway auth tokens into the bridge script or repository docs.
 
-### 5. Fleet Hub Dashboard
-A web-based UI that provides a "God view" of the fleet. Built with a CSS token system supporting dark/light mode (GitHub-style palette, `prefers-color-scheme` + manual toggle).
+### 5. Fleet Hub Dashboard (v0.4.0)
+A web-based UI at `api.robotross.art/fleet/` providing a "God view" of the fleet. All data is served via a snapshot connector (PocketBase runs locally; the DO server consumes a push-cached snapshot updated every 60s).
 - **Team View**: Agent cards with live heartbeat dots, role, skills, and runtime.
-- **Task Board**: Live Kanban view (Planned / In Work / Done Today) parsed from MISSION_CONTROL.md.
-- **Activity Feed**: Real-time stream of agent comments from PocketBase.
-- **Heartbeat Dots**: Green/Amber/Grey indicators for agent health, driven by PocketBase heartbeats collection.
-- **Memory Tree**: Collapsible knowledge base cards (docs + lessons) with full-text search.
-- **Standups**: Date-picker view of daily standup logs with deduplication guard.
+- **Extended Agents Table**: Per-agent row showing status, last seen, idle-until, tasks completed, estimated tokens, type (Cloud/Local with provider), and average session duration.
+- **Schichtplan (Shift Timeline)**: Swim-lane chart per agent over 24h/7d/30d. Segments colour-coded by heartbeat status. No external charting library.
+- **Fleet Performance Panel**: Six aggregate metric cards — Tasks (24h), Reassignments, Circuit Breaker, MTBF, MTTR, False Wake Rate. Backed by `task_events` collection; matures as events accumulate.
+- **Task Board (PB Viewer)**: Live task list with status filter. Backed by snapshot with server-side filter passthrough.
+- **Kanban**: OPEN/CLOSED ticket view parsed from MISSION_CONTROL.md.
+- **Activity Feed**: Real-time agent comment stream from PocketBase.
+- **Memory Tree**: Collapsible knowledge base cards with full-text search.
+- **Standups**: Date-picker view of daily standup logs.
 - **Inter-Agent Inbox**: Collapsible message cards with compose form.
 - **Users**: Access control management for hosted deployments.
+
+### 5b. Hybrid Snapshot Architecture
+Because PocketBase runs on the Mac Mini (not exposed publicly), the Fleet Hub on the DO server uses a push-cache pattern:
+- `fleet_push.py` reads `heartbeats`, `tasks`, and `comments` from local PocketBase every 60s and POSTs a signed snapshot to `POST /fleet/snapshot` on the DO server.
+- All `/fleet/api/*` endpoints try PocketBase first; on failure they fall back to the cached snapshot at `/var/lib/salesman-api/fleet_snapshot.json`.
+- New endpoints (`/fleet/api/heartbeats/timeline`, `/fleet/api/agent-stats`) follow the same pattern.
+
+### 6. Task Branch + WORKLOG Handoff Protocol
+To survive agent context-limit failures mid-task:
+- When an agent picks up a task it creates branch `task/{pb-task-id}` and commits `WORKLOG.md` with plan and incremental progress.
+- If the agent's session ends (context limit, quota), partial work is preserved on the branch.
+- On reassignment, the dispatcher checks `git ls-remote` for `task/{id}`. If found, the branch URL is included in the handoff comment. The new agent checks out the branch, reads `WORKLOG.md` and the git log, and continues.
+- If no branch exists (agent died before creating one), the task resets to `todo` with a note to start fresh.
 
 ## Task Lifecycle (Sequence Diagram)
 
