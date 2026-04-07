@@ -1,0 +1,18 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copy server files
+COPY package/server/fleet-server.mjs ./server/fleet-server.mjs
+COPY package/server/setup-lib.mjs ./server/setup-lib.mjs
+COPY package/server/package.json ./server/package.json
+
+# Copy dashboard assets
+COPY package/dashboard/ ./dashboard/
+
+# Copy data directory (config, lessons, messages templates)
+COPY package/data/ ./data/
+
+EXPOSE 8787
+
+CMD ["node", "/app/server/fleet-server.mjs"]

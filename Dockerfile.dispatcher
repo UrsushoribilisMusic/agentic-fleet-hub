@@ -1,0 +1,14 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+
+RUN pip install --no-cache-dir requests
+
+COPY package/scripts/dispatcher.py ./dispatcher.py
+COPY package/scripts/telegram_bridge.py ./telegram_bridge.py
+COPY package/scripts/fleet_utils.py ./fleet_utils.py
+
+# Create expected log dir (mapped via volume in compose)
+RUN mkdir -p /fleet/logs
+
+CMD ["python3", "/app/dispatcher.py"]
