@@ -50,14 +50,42 @@ Active brainstorming and upcoming feature drafts.
 
 ---
 
+### 6. Communication, Goals & Domain Knowledge
+Cross-cutting context that agents need to act consistently and strategically.
+- `COMMUNICATION_STYLE.md`: Agent tone, format, and writing preferences. **Read before writing any output.**
+- `GOALS.md`: What the fleet is optimizing for and what it deliberately ignores.
+- `AGENTS/CONTEXT/domain_knowledge.md`: Swiss AI context, EU AI Act compliance notes, Innosuisse/Apertus angles, Classical Remix channel context.
+
+---
+
+## 🔧 Tools & Systems: Consolidation Proposal
+
+The three technical reference docs (`ARCHITECTURE.md`, `DUAL_SYSTEM.md`, `INSTALL.md`) are complementary but fragmented. **Do not merge them** — they serve different audiences and scopes. Instead, cross-link them as follows:
+
+| Document | Audience | Scope | Links to |
+| :--- | :--- | :--- | :--- |
+| `ARCHITECTURE.md` | All agents + new contributors | System overview, component diagram, data flow | → `DUAL_SYSTEM.md` for sync detail, → `INSTALL.md` for setup |
+| `DUAL_SYSTEM.md` | Agents doing state management | How MISSION_CONTROL.md ↔ PocketBase sync works | → `ARCHITECTURE.md` for system context |
+| `INSTALL.md` | New contributors / deployment | Step-by-step environment setup | → `ARCHITECTURE.md` for what they're setting up |
+
+**Action for ticket #104 (Codi)**: Add cross-reference headers to each file pointing to the other two. No content merging needed — the separation is intentional.
+
+---
+
 ## 🔍 Documentation Gap Analysis
 
-### Identified Gaps:
+### Filled Gaps (2026-04-07, #103):
+- **Communication style**: `COMMUNICATION_STYLE.md` — created with tone, format, and output templates.
+- **Goals & priorities**: `GOALS.md` — created with optimization targets, strategic priorities, and "done" definition.
+- **Domain knowledge**: `AGENTS/CONTEXT/domain_knowledge.md` — created with EU AI Act, Swiss AI, Innosuisse, Apertus, and Classical Remix context.
+- **Tools & systems**: Cross-linking proposal documented above. File-level changes deferred to #104.
+
+### Remaining Gaps:
 - **SECURITY.md**: Missing a dedicated security policy for secret handling and vault access patterns.
 - **CONTRIBUTING.md**: While `RULES.md` exists, a specific guide for *extending* the fleet (adding new agents or bridges) is missing.
 - **TROUBLESHOOTING.md**: No centralized guide for common agent failures (e.g., token exhaustion, API disconnects).
 - **API_REFERENCE.md**: The PocketBase and Fleet Hub internal APIs are documented in fragments; a unified reference is needed.
 
 ### Documentation Health Assessment:
-**Current Status**: **GOOD (Stable)**
-The project maintains a strong "Source of Truth" in `AGENTS/CONTEXT/`, but suffers from some duplication between the `fleet/` root and the `projects/agentic-fleet-hub/` directory. Standardizing on the hub root as the primary documentation source is recommended.
+**Current Status**: **GOOD (Improving)**
+The project now has content for all six categories. The `AGENTS/CONTEXT/` source of truth is strong. Next priority: cross-linking the tools docs (#104) and filling the remaining operational gaps (SECURITY, CONTRIBUTING, TROUBLESHOOTING).
