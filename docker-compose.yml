@@ -1,0 +1,102 @@
+# Flotilla — Local Dev Stack
+# Usage:
+#   docker compose up              # starts pocketbase + fleet-hub
+#   docker compose --profile full up   # also starts dispatcher + telegram bridge
+#
+# Copy .env.example → .env and fill in secrets before running.
+
+services:
+
+  # ---------------------------------------------------------------------------
+  # PocketBase — real-time DB + admin UI
+  # Admin UI: http://localhost:8090/_/
+  # ---------------------------------------------------------------------------
+  pocketbase:
+    image: ghcr.io/muchobien/pocketbase:latest
+    restart: unless-stopped
+    ports:
+      - "8090:8090"
+    volumes:
+      - pb_data:/pb/pb_data
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8090/api/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ---------------------------------------------------------------------------
+  # Fleet Hub — Node.js dashboard (fleet / demo / growth pages)
+  # Dashboard: http://localhost:8787/fleet/
+  # ---------------------------------------------------------------------------
+  fleet-hub:
+    build:
+      context: .
+      dockerfile: Dockerfile.fleet-hub
+    restart: unless-stopped
+    ports:
+      - "8787:8787"
+    environment:
+      PORT: "8787"
+      LOCAL_MODE: "${LOCAL_MODE:-true}"
+      POCKETBASE_URL: "http://pocketbase:8090"
+      FLEET_SYNC_TOKEN: "${FLEET_SYNC_TOKEN:-}"
+      GOOGLE_CLIENT_ID: "${GOOGLE_CLIENT_ID:-}"
+      GOOGLE_CLIENT_SECRET: "${GOOGLE_CLIENT_SECRET:-}"
+      GOOGLE_AUTH_COOKIE_SECRET: "${GOOGLE_AUTH_COOKIE_SECRET:-changeme}"
+      GOOGLE_AUTH_ALLOWED_EMAILS: "${GOOGLE_AUTH_ALLOWED_EMAILS:-}"
+      PUBLIC_URL: "${PUBLIC_URL:-http://localhost:8787}"
+      GITHUB_REPO: "${GITHUB_REPO:-}"
+      GITHUB_BRANCH: "${GITHUB_BRANCH:-master}"
+    depends_on:
+      pocketbase:
+        condition: service_healthy
+    volumes:
+      - ./data:/app/data
+
+  # ---------------------------------------------------------------------------
+  # Dispatcher — polls PocketBase and routes tasks to agents  [optional]
+  # Start with: docker compose --profile full up
+  # ---------------------------------------------------------------------------
+  dispatcher:
+    profiles: ["full"]
+    build:
+      context: .
+      dockerfile: Dockerfile.dispatcher
+    restart: unless-stopped
+    environment:
+      POCKETBASE_URL: "http://pocketbase:8090"
+      TELEGRAM_TOKEN: "${TELEGRAM_TOKEN:-}"
+      TELEGRAM_CHAT_ID: "${TELEGRAM_CHAT_ID:-}"
+      DISPATCHER_COOLDOWN: "${DISPATCHER_COOLDOWN:-300}"
+      FLEET_DIR: "/fleet"
+    depends_on:
+      pocketbase:
+        condition: service_healthy
+    volumes:
+      - fleet_logs:/fleet/logs
+
+  # ---------------------------------------------------------------------------
+  # Telegram Bridge — two-way Telegram ↔ PocketBase relay  [optional]
+  # Start with: docker compose --profile full up
+  # ---------------------------------------------------------------------------
+  telegram-bridge:
+    profiles: ["full"]
+    build:
+      context: .
+      dockerfile: Dockerfile.dispatcher
+    restart: unless-stopped
+    command: ["python3", "/app/telegram_bridge.py"]
+    environment:
+      POCKETBASE_URL: "http://pocketbase:8090"
+      TELEGRAM_TOKEN: "${TELEGRAM_TOKEN:-}"
+      TELEGRAM_CHAT_ID: "${TELEGRAM_CHAT_ID:-}"
+      FLEET_DIR: "/fleet"
+    depends_on:
+      pocketbase:
+        condition: service_healthy
+    volumes:
+      - fleet_logs:/fleet/logs
+
+volumes:
+  pb_data:
+  fleet_logs:
