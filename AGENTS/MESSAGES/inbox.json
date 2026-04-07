@@ -291,7 +291,7 @@
     "to": "gem",
     "subject": "Telegram: Regarding #100 The agentic tea...",
     "body": "Regarding #100 The agentic team page has no data (despite the agents being listed as users) and the Projects is empty (previous versions had the CRM POC as example).  Please create demo data in the Agentic team including Gem, Clau, Misty, Cody and Gemma. In the timeline include all possible states and remember to have enough data for 24h/7D and 30d. In the fleet performance add some stats that kind a make sense, maybe even reflecting our ping pong loop from the past.   Also in Memory add a few entries that make sense for a web page project. Feel free to take over some of our memories. Push the changes and submit the MR for review by the team. Thanks!",
-    "status": "unread",
+    "status": "read",
     "priority": "normal",
     "ref_ticket": null,
     "source": "telegram"
