@@ -36,6 +36,13 @@ Welcome to the **Ursushoribilis Agentic Workspace**. These rules are followed by
 
 ---
 
+## Data Integrity
+
+1. **No fake data in real PocketBase**: When generating demo or example content (for `/demo/`, showcases, or testing), write it to static files under `opt/salesman-api/demo/` or to the hardcoded mock blocks in `server.mjs`. Never create fake tasks, heartbeats, or any records in the real PocketBase instance. The real PB is the live operational database — polluting it with hallucinated content breaks the kanban, the Fleet Hub dashboard, and audit logs.
+2. **Demo data ownership**: The demo endpoints in `server.mjs` already have hardcoded mock blocks that bypass PocketBase entirely for `/demo/` requests. All demo data changes go there or in the static JSON files — not in PB.
+
+---
+
 ## Secrets & Safety
 
 1.  **Credential Protection**: Never commit secrets or API keys.

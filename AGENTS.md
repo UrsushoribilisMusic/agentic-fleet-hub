@@ -6,12 +6,14 @@
 2. Run: `python fleet/heartbeat_check.py --agent codi`
    - **Exit 1**: nothing relevant changed -- post idle heartbeat and stop. Do NOT read any further files. Do NOT commit.
    - **Exit 0**: changes need your attention -- continue with steps 3-6 below.
-3. Run: `python fleet/active_context.py` -- prints the active project, the correct MISSION_CONTROL.md path, inbox path, and lessons paths. Note them.
-4. Read the **Mission Control** at the path from step 3 -- live ticket status and current priorities.
-   - If a non-hub project is active, also `cd` to that repo and `git pull origin master`.
+3. Run: `python fleet/active_context.py` -- prints ALL active project blocks. Note each block (Mission Control, inbox, and lessons paths).
+4. For EACH active project block:
+   - If it is a non-hub project, `cd` to its `repo_path` and `git pull origin master`.
+   - Read the **Mission Control** at the path from that block.
+   - Note ALL open tickets assigned to you across all active projects.
 5. Read `AGENTS/RULES.md` -- team rules.
-6. Check your IAP inbox: read the inbox path from step 3. Read all unread messages before proceeding.
-7. Only then: pick up the first open ticket from the Ticket Status table in the Mission Control you read.
+6. Check your IAP inbox: read the inbox path from the first block (always hub inbox). Read all unread messages before proceeding.
+7. Only then: pick up the first open ticket across all active project Mission Controls you read.
 
 ## Team Protocols
 

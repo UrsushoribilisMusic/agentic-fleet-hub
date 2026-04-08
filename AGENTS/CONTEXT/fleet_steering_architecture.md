@@ -17,7 +17,7 @@ Misty's earlier partial implementation (#69/#70) made the *Fleet Hub dashboard* 
 
 ## Design Principles
 
-1. **Single source of truth for project activation**: `AGENTS/CONFIG/fleet_meta.json` in the hub repo. One project's `is_active: true` at a time (non-hub project takes priority over hub).
+1. **Single source of truth for project activation**: `AGENTS/CONFIG/fleet_meta.json` in the hub repo. Multiple projects can have `is_active: true` simultaneously. Agents will scan all active project Mission Controls for assigned tickets.
 2. **Zero mandate file edits on project switch**: Agents determine where to read from at runtime.
 3. **Hub is the IAP layer**: `inbox.json` stays in the hub repo. Inter-agent messages are fleet-wide, not project-scoped.
 4. **Lessons are dual-scoped**: Global lessons in hub; project-specific lessons in the active project repo.
@@ -92,8 +92,8 @@ All four mandate files (CLAUDE.md, GEMINI.md, MISTRAL.md, AGENTS.md) follow this
 To steer the fleet to work on a different project:
 
 1. Open `AGENTS/CONFIG/fleet_meta.json`.
-2. Set the desired project's `"is_active": true`.
-3. Set all other non-hub projects' `"is_active": false`.
+2. Set all desired projects' `"is_active": true`.
+3. Note: The hub project (`repo_path: "."`) is always active as a fallback.
    (Hub's `is_active` can remain `true` — it's only used as fallback.)
 4. Commit and push to master.
 

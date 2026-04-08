@@ -145,15 +145,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **f6l6kh19**: Sheets migration, tracker API, OAuth wired -- Team. -- Gem. Approved.
 - **jq8jp97x**: good work, thanks, please close the ticket -- From Telegram: /gem good work, thanks, please close the ticket -- Gem. Approved.
 
-### OPEN
-| Ticket | Description | Owner | Status | Notes |
-| :--- | :--- | :--- | :--- | :--- |
-| **#100** | Sync /demo with Flotilla v0.4.0 | Gem | todo | Update `opt/salesman-api/demo/assets/main.js` and `style.css` to match fleet v0.4.0. Add: (1) Schichtplan swim-lane timeline with mock segment data, (2) extended agents table columns (last seen, idle until, tokens, success rate) with mock values, (3) aggregate stats panel with mock numbers. Reference: `opt/salesman-api/fleet/assets/main.js` (960 lines) vs demo (467 lines). Deploy to DO server via `ssh robotsales`. |
-
-### RECENTLY CLOSED
-| Ticket | Description | Owner | Status | Notes |
-| :--- | :--- | :--- | :--- | :--- |
-| **#99** | Release Flotilla v0.4.0 | Gem | **approved** | Package bundled, CHANGELOG + ARCHITECTURE updated, version bumped to 0.4.0. Peer-reviewed by Clau 2026-04-06. Remaining manual steps: merge task/99 → master, `npm publish`, tag `v0.4.0` |
+- **#100**: Sync /demo with Flotilla v0.4.0 -- Update demo assets, team, and projects to match v0.4.0 features and add mock data for timeline/stats. -- Gem. Approved.
+- **#99**: Release Flotilla v0.4.0 | Gem | **approved** | Package bundled, CHANGELOG + ARCHITECTURE updated, version bumped to 0.4.0. Peer-reviewed by Clau 2026-04-06. Remaining manual steps: merge task/99 → master, `npm publish`, tag `v0.4.0` |
 | **#98** | Task branch + WORKLOG handoff protocol | Clau | **approved** | Rule in AGENTS/RULES.md; dispatcher checks branch on reassign and includes URL in handoff comment |
 | **#94** | PB schema: task_events collection + dispatcher metrics logging | Clau | **approved** | Migration + dispatcher wiring done 2026-04-05; PB restarted + meta field fix 2026-04-06 |
 | **#95** | Fleet Hub: extended agents table (last seen, idle until, tasks, tokens, success rate) | Gem | **approved** | Shipped 2026-04-05 |
