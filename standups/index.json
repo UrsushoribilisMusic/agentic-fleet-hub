@@ -1,5 +1,10 @@
 [
     {
+        "date": "2026-04-08",
+        "summary": "Gem approved #107. Codi finished the active-project dispatcher follow-through, rejected #108/TCR-10, and created the live TCR songs PocketBase mirror.",
+        "file": "2026-04-08.md"
+    },
+    {
         "date": "2026-04-04",
         "summary": "Heartbeat verified: 0 open tickets, 0 active Codi tasks, fleet idle.",
         "file": "2026-04-04.md"
