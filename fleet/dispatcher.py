@@ -10,10 +10,10 @@ import requests
 import json
 import os
 import hashlib
-from datetime import datetime
+from datetime import datetime, timedelta
 
 PB_URL = "http://127.0.0.1:8090/api"
-FLEET_DIR = "/Users/miguelrodriguez/fleet"
+FLEET_DIR = "/Users/miguelrodriguez/projects/agentic-fleet-hub/fleet"
 CODEX_REPO_DIR = "/Users/miguelrodriguez/projects/agentic-fleet-hub"
 FLEET_META_PATH = os.path.join(CODEX_REPO_DIR, "AGENTS/CONFIG/fleet_meta.json")
 LOG_FILE = f"{FLEET_DIR}/logs/dispatcher.log"
@@ -618,75 +618,32 @@ def log_queue_snapshot():
     except Exception as e:
         log(f"WARN log_queue_snapshot: {e}")
 
-def sync_mission_control():
-    """Move approved PB tasks out of the OPEN table in MISSION_CONTROL.md automatically."""
-    mc_path = os.path.join(CODEX_REPO_DIR, "MISSION_CONTROL.md")
+def run_sync_scripts(force_gh=False):
+    """Run GitHub and Mission Control sync scripts with error handling."""
+    scripts_dir = os.path.join(CODEX_REPO_DIR, "fleet")
+    
+    # 1. Mission Control Sync (Every cycle)
     try:
-        r = requests.get(f"{PB_URL}/collections/tasks/records",
-                         params={"filter": 'status = "approved"', "perPage": 200, "fields": "id,title,assigned_agent"},
-                         timeout=10)
-        approved = {t["id"]: t for t in r.json().get("items", [])}
+        log("Running Mission Control sync...")
+        res = subprocess.run([sys.executable, os.path.join(scripts_dir, "fleet_sync.py")], 
+                             capture_output=True, text=True, timeout=60)
+        if res.returncode != 0:
+            log(f"ERROR: fleet_sync.py failed: {res.stderr}")
+            send_telegram(f"❌ Fleet Sync Error: MISSION_CONTROL.md update failed.\n\n{res.stderr[:200]}")
     except Exception as e:
-        log(f"WARN sync_mission_control: PB fetch failed: {e}")
-        return
+        log(f"ERROR executing fleet_sync.py: {e}")
 
-    try:
-        with open(mc_path, "r") as f:
-            content = f.read()
-    except Exception as e:
-        log(f"WARN sync_mission_control: MC read failed: {e}")
-        return
-
-    lines = content.splitlines(keepends=True)
-    in_open = False
-    changed_rows = []
-    new_lines = []
-
-    for line in lines:
-        if line.strip().startswith("### OPEN"):
-            in_open = True
-            new_lines.append(line)
-            continue
-        if in_open and line.strip().startswith("### "):
-            in_open = False
-
-        if in_open and line.startswith("|") and "|" in line[1:]:
-            cols = [c.strip() for c in line.split("|")[1:-1]]
-            ticket_raw = cols[0].strip("*# ") if cols else ""
-            # Skip header, separator, and placeholder rows
-            if (not ticket_raw
-                    or ticket_raw.startswith(":")
-                    or ticket_raw.lower() in ("ticket", "—", "-", "")):
-                new_lines.append(line)
-                continue
-            # Only match PocketBase UUID-format IDs (alphanumeric, >8 chars, not pure digits)
-            # Human ticket numbers like #98 #99 are never PB IDs and must not be removed
-            matched = None
-            if len(ticket_raw) > 8 and ticket_raw.isalnum() and not ticket_raw.isdigit():
-                matched = approved.get(ticket_raw)
-            if matched:
-                changed_rows.append(cols[0])
-                # Drop this row from OPEN table
-                continue
-
-        new_lines.append(line)
-
-    if not changed_rows:
-        return
-
-    log(f"sync_mission_control: closing {len(changed_rows)} approved task(s) in MISSION_CONTROL.md")
-    with open(mc_path, "w") as f:
-        f.writelines(new_lines)
-
-    try:
-        subprocess.run(["git", "add", "MISSION_CONTROL.md"], cwd=CODEX_REPO_DIR, check=True)
-        subprocess.run(["git", "commit", "-m",
-                        f"chore(dispatcher): auto-close {len(changed_rows)} approved task(s) in MISSION_CONTROL"],
-                       cwd=CODEX_REPO_DIR, check=True)
-        subprocess.run(["git", "push", "origin", "master"], cwd=CODEX_REPO_DIR, check=True)
-        log("sync_mission_control: committed and pushed")
-    except Exception as e:
-        log(f"WARN sync_mission_control: git commit failed: {e}")
+    # 2. GitHub Sync (Passed force_gh or every 5 mins via main loop)
+    if force_gh:
+        try:
+            log("Running GitHub sync...")
+            res = subprocess.run([sys.executable, os.path.join(scripts_dir, "github_sync.py")], 
+                                 capture_output=True, text=True, timeout=120)
+            if res.returncode != 0:
+                log(f"ERROR: github_sync.py failed: {res.stderr}")
+                send_telegram(f"❌ GitHub Sync Error: bidirectional sync failed.\n\n{res.stderr[:200]}")
+        except Exception as e:
+            log(f"ERROR executing github_sync.py: {e}")
 
 
 def main():
@@ -696,7 +653,22 @@ def main():
         create_daily_standup()
         check_agent_health()
         log_queue_snapshot()
-        sync_mission_control()
+        
+        # Run sync scripts (MC every cycle, GH every 5 cycles)
+        run_sync_scripts(force_gh=(cycle_count % 5 == 0))
+        
+        # Alert on new human issues imported from GitHub
+        if cycle_count % 5 == 0:
+            try:
+                # Find tasks created in the last 6 minutes with no assigned agent or imported description
+                r = requests.get(f"{PB_URL}/collections/tasks/records",
+                                 params={"filter": 'created > "' + (datetime.utcnow() - timedelta(minutes=6)).strftime("%Y-%m-%d %H:%M:%S") + '" && description ~ "Imported from GitHub issue"', "perPage": 10},
+                                 timeout=10)
+                new_imported = r.json().get("items", [])
+                for task in new_imported:
+                    send_telegram(f"🔔 New GitHub Issue Imported: {task['title']}\nStatus: todo\nReview at: https://github.com/{GITHUB_REPO}/issues/{task.get('gh_issue_id')}")
+            except Exception as e:
+                log(f"WARN human issue alert failed: {e}")
         
         # Every 10 cycles (10 minutes), log an idle heartbeat for all agents 
         # if they are skipped by the checksum gate. This keeps the timeline 
