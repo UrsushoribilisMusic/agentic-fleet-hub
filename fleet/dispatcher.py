@@ -15,6 +15,7 @@ from datetime import datetime
 PB_URL = "http://127.0.0.1:8090/api"
 FLEET_DIR = "/Users/miguelrodriguez/fleet"
 CODEX_REPO_DIR = "/Users/miguelrodriguez/projects/agentic-fleet-hub"
+FLEET_META_PATH = os.path.join(CODEX_REPO_DIR, "AGENTS/CONFIG/fleet_meta.json")
 LOG_FILE = f"{FLEET_DIR}/logs/dispatcher.log"
 NOTIF_FILE = f"{FLEET_DIR}/logs/notifications.json"
 OFFLINE_AGENTS_FILE = f"{FLEET_DIR}/logs/offline_agents.json"
@@ -29,12 +30,6 @@ COOLDOWN_SECONDS = int(os.environ.get("DISPATCHER_COOLDOWN", "300"))
 
 # Ensure logs directory exists
 os.makedirs(f"{FLEET_DIR}/logs", exist_ok=True)
-
-# Files to watch for changes
-WATCHED_FILES = [
-    "/Users/miguelrodriguez/fleet/MISSION_CONTROL.md",
-    "/Users/miguelrodriguez/projects/agentic-fleet-hub/AGENTS/MESSAGES/inbox.json"
-]
 
 AGENT_COMMANDS = {
     "scout": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/scout", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
@@ -55,11 +50,27 @@ AGENT_COMMANDS = {
     "gemma": ["/opt/homebrew/bin/aichat", "--rag", ".", "Run your heartbeat protocol. Read GEMMA.md first."],
 }
 
+# Force a dispatch cycle every N hours even if no changes detected.
+# Ensures heartbeats and health checks run regularly.
+FORCE_DISPATCH_INTERVAL_SEC = 2 * 3600  # 2 hours
+
 def log(msg):
     ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     with open(LOG_FILE, "a") as f:
         f.write(f"[{ts}] {msg}\n")
     print(f"[{ts}] {msg}")
+
+def log_idle_heartbeat(agent_key):
+    """Log an 'idle' heartbeat to PocketBase on behalf of a skipped agent."""
+    try:
+        payload = {
+            "agent": agent_key,
+            "status": "idle",
+            "note": "Logged by Dispatcher (Checksum Gate: No changes)"
+        }
+        requests.post(f"{PB_URL}/collections/heartbeats/records", json=payload, timeout=5)
+    except Exception as e:
+        log(f"WARN log_idle_heartbeat for {agent_key}: {e}")
 
 def log_task_event(event_type, task_id, agent=None, from_status=None, to_status=None, meta=None):
     """Write a structured event record to the task_events PocketBase collection."""
@@ -113,28 +124,60 @@ def _save_dispatcher_cache(cache):
     except Exception as e:
         log(f"Error saving dispatcher cache: {e}")
 
+def _load_fleet_meta():
+    try:
+        with open(FLEET_META_PATH, "r") as f:
+            return json.load(f)
+    except Exception as e:
+        log(f"Error loading fleet_meta.json: {e}")
+        return {}
+
+def _active_project_watch_files():
+    watched = [
+        os.path.join(CODEX_REPO_DIR, "MISSION_CONTROL.md"),
+        os.path.join(CODEX_REPO_DIR, "AGENTS/MESSAGES/inbox.json"),
+        FLEET_META_PATH,
+    ]
+
+    meta = _load_fleet_meta()
+    for project in meta.get("projects", []):
+        if not project.get("is_active"):
+            continue
+        repo_path = str(project.get("repo_path", ".")).strip()
+        if repo_path in (".", ""):
+            continue
+        watched.append(os.path.normpath(os.path.join(CODEX_REPO_DIR, repo_path, "MISSION_CONTROL.md")))
+
+    return list(dict.fromkeys(watched))
+
 def _state_changed():
-    """Check if any watched files or PocketBase tasks have changed."""
+    """Check if any watched files, PocketBase tasks have changed, or if interval exceeded."""
     cache = _load_dispatcher_cache()
     current_checksums = {}
     changed = False
-    
+    watched_files = _active_project_watch_files()
+
+    if cache.get("watched_files", []) != watched_files:
+        log("Detected change in active project watch set.")
+        changed = True
+
     # 1. Check Files
-    for file_path in WATCHED_FILES:
+    for file_path in watched_files:
         current_checksum = _file_checksum(file_path)
         current_checksums[file_path] = current_checksum
-        
+
         if current_checksum is None:
             continue
-            
-        if file_path not in cache["checksums"] or cache["checksums"][file_path] != current_checksum:
+
+        if file_path not in cache.get("checksums", {}) or cache["checksums"][file_path] != current_checksum:
             log(f"Detected change in file: {file_path}")
             changed = True
-    
+
     # 2. Check PocketBase
     try:
         r = requests.get(f"{PB_URL}/collections/tasks/records",
-                         params={"sort": "-updated", "perPage": 1, "fields": "updated"})
+                         params={"sort": "-updated", "perPage": 1, "fields": "updated"},
+                         timeout=10)
         items = r.json().get("items", [])
         if items:
             current_pb_ts = items[0]["updated"]
@@ -144,11 +187,23 @@ def _state_changed():
                 cache["pb_tasks_updated"] = current_pb_ts
     except Exception as e:
         log(f"Error checking PocketBase changes: {e}")
-    
+
+    # 3. Check forced interval
+    now_ts = datetime.utcnow().timestamp()
+    last_dispatch = cache.get("last_dispatch_ts", 0)
+    if (now_ts - last_dispatch) > FORCE_DISPATCH_INTERVAL_SEC:
+        log(f"Forced dispatch cycle (interval {FORCE_DISPATCH_INTERVAL_SEC}s exceeded)")
+        changed = True
+        cache["last_dispatch_ts"] = now_ts
+
     # Update cache
     cache["checksums"] = current_checksums
+    cache["watched_files"] = watched_files
+    if changed:
+        # If we are dispatching, update the timestamp
+        cache["last_dispatch_ts"] = now_ts
+
     _save_dispatcher_cache(cache)
-    
     return changed
 
 def send_telegram(message):
@@ -636,11 +691,17 @@ def sync_mission_control():
 
 def main():
     log("Dispatcher v4 started")
+    cycle_count = 0
     while True:
         create_daily_standup()
         check_agent_health()
         log_queue_snapshot()
         sync_mission_control()
+        
+        # Every 10 cycles (10 minutes), log an idle heartbeat for all agents 
+        # if they are skipped by the checksum gate. This keeps the timeline 
+        # active without spending any tokens.
+        should_log_idle = (cycle_count % 10 == 0)
         
         if _state_changed():
             log("State change detected (Files or PB)")
@@ -670,8 +731,18 @@ def main():
             
             check_waiting_human()
         else:
+            if should_log_idle:
+                try:
+                    meta_path = os.path.join(CODEX_REPO_DIR, "AGENTS/CONFIG/fleet_meta.json")
+                    with open(meta_path, "r") as f:
+                        fleet_meta = json.load(f)
+                    for agent in fleet_meta.get("team", []):
+                        log_idle_heartbeat(agent["heartbeatKey"])
+                except Exception as e:
+                    log(f"WARN idle heartbeat bulk log failed: {e}")
             check_waiting_human()
         
+        cycle_count += 1
         time.sleep(60)
 
 if __name__ == "__main__":
