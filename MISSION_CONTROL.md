@@ -6,7 +6,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 
 ## Team Protocols (Shared Memory)
 
-1.  **Rules & Guidelines**: Read and follow the [Team Rules](./AGENTS/RULES.md) and the [Dual Sync Strategy](./DUAL_SYSTEM.md).
+1.  **Rules & Guidelines**: Read and follow the [Team Rules](./AGENTS/RULES.md).
     *   **GitHub**: Commit and push all changes immediately.
     *   **Kanban**: Use ticket IDs in your session reporting. Check the **Ticket Status** section below for what is currently open -- do not work on tickets not listed there.
 2.  **Daily Standups**: All logs are in the [standups/](./standups/) directory.
@@ -25,16 +25,6 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 | **4. The Lost Coins** | `../the-lost-coins/` | Narrative/Story-driven project. | [Story MD](./AGENTS/CONTEXT/the_lost_coins_story.md) |
 | **5. Robot Ross** | *(Mac mini)* | **Master control** for the robot arm & painting. | [Artist MD](./AGENTS/CONTEXT/robot_ross_artist.md) |
 | **6. Salesman (OpenClaw)** | `DigitalOcean` | OpenClaw gateway & **BobRossSkill** (public). | [Salesman MD](./AGENTS/CONTEXT/robot_ross_salesman.md) |
-| **7. Classical Remix** | `../music-video-tool/` | YouTube Channel: Production & Analytics automation. | [Bible](../music-video-tool/ClassicalRemix_ProductionBible_v2.xlsx) |
-
----
-
-## 🎵 Music Production & Analytics (The Classical Remix)
-
-*   **Channel**: [The Classical Remix](https://youtube.com/@TheClassicalRemix)
-*   **Analytics API**: `api.robotross.art/tracker/analytics` (Live)
-*   **Strategy**: Transition from view-count tracking to ROI analysis (Ad spend vs. Watch time/Engagement).
-*   **Tooling**: `music-video-tool` root scripts for Data API pulling and `server/api.py` for Command Center endpoints.
 
 ---
 
@@ -50,14 +40,23 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 
 ---
 
-## Ticket Status (as of 2026-04-05)
+## Ticket Status (as of 2026-04-08)
 
 ### ENVIRONMENT NOTE — Mac Mini migration complete (2026-03-14)
 All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users/miguel/` → `/Users/miguelrodriguez/`. Repos cloned to `~/projects/`. Python 3.12 venv at `~/projects/music-video-tool/.venv312`. OpenClaw at `/opt/homebrew/bin/openclaw`. Fleet always-on infrastructure build in progress — see tickets #34–#43.
 
 ---
 
+### OPEN
+| Ticket | Description | Owner | Status | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| **#108** | Arxiv Paper: Draft documentation | Gem | planned | Document v0.4.0 protocol improvements and resilience metrics |
+
+---
+
 ### CLOSED
+- **#107**: Multi-project fleet steering — allow N concurrent active projects -- Codi. Approved (reviewed by Gem).
+- **#100**: Arxiv paper: data collection fixes for v0.4.0 -- Implemented zero-token idle heartbeat logging in Dispatcher to preserve timeline data. -- Gem. Approved.
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
 - **#93**: Tech-Angle Promotion (Reddit) -- Create tech-focused Reddit posts for u/robotrossart highlighting the Flotilla AI pipeline used for The Classical Remix. Goal: Cross-promotion and engineering credibility. -- Clau. Approved.
 - **myhluvej**: Fix Gemma agent: add aichat function tools + update plist invocation -- Gemma is not executing her heartbeat protocol. Root causes: 1) plist uses --rag mode (Q&A only, not agentic), 2) no aichat function tools defined so the model cannot call curl/file ops. Fix: create aichat functions (execute_command, read_file, write_file) and update plist invocation. -- Clau. Approved.
@@ -146,9 +145,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **jq8jp97x**: good work, thanks, please close the ticket -- From Telegram: /gem good work, thanks, please close the ticket -- Gem. Approved.
 
 - **#100**: Sync /demo with Flotilla v0.4.0 -- Update demo assets, team, and projects to match v0.4.0 features and add mock data for timeline/stats. -- Gem. Approved.
-- **#99**: Release Flotilla v0.4.0 | Gem | **approved** | Package bundled, CHANGELOG + ARCHITECTURE updated, version bumped to 0.4.0. Peer-reviewed by Clau 2026-04-06. Remaining manual steps: merge task/99 → master, `npm publish`, tag `v0.4.0` |
-| **#98** | Task branch + WORKLOG handoff protocol | Clau | **approved** | Rule in AGENTS/RULES.md; dispatcher checks branch on reassign and includes URL in handoff comment |
-| **#94** | PB schema: task_events collection + dispatcher metrics logging | Clau | **approved** | Migration + dispatcher wiring done 2026-04-05; PB restarted + meta field fix 2026-04-06 |
-| **#95** | Fleet Hub: extended agents table (last seen, idle until, tasks, tokens, success rate) | Gem | **approved** | Shipped 2026-04-05 |
-| **#96** | Fleet Hub: Schichtplan — agent shift timeline (swim-lane, 24h/7d/30d) | Clau | **approved** | Shipped 2026-04-05 |
-| **#97** | Fleet Hub: aggregate stats panel + retroactive log parser (arXiv paper data) | Gem | **approved** | Part A (live) & Part B (parser) done |
+- **#99**: Release Flotilla v0.4.0 -- Package bundled, CHANGELOG + ARCHITECTURE updated, version bumped to 0.4.0. Peer-reviewed by Clau 2026-04-06. Published to npm. -- Gem. Approved.
+- **#98**: Task branch + WORKLOG handoff protocol -- Rule in AGENTS/RULES.md; dispatcher checks branch on reassign and includes URL in handoff comment. -- Clau. Approved.
+- **#94**: PB schema: task_events collection + dispatcher metrics logging -- Migration + dispatcher wiring done 2026-04-05; PB restarted + meta field fix 2026-04-06. -- Clau. Approved.
+- **#95**: Fleet Hub: extended agents table (last seen, idle until, tasks, tokens, success rate) -- Shipped 2026-04-05. -- Gem. Approved.
+- **#96**: Fleet Hub: Schichtplan — agent shift timeline (swim-lane, 24h/7d/30d) -- Shipped 2026-04-05. -- Clau. Approved.
+- **#97**: Fleet Hub: aggregate stats panel + retroactive log parser (arXiv paper data) -- Part A (live) & Part B (parser) done. -- Gem. Approved.
+
+**Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
