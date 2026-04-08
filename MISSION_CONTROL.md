@@ -52,6 +52,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **#108** | Arxiv Paper: Draft documentation | Gem | planned | Document v0.4.0 protocol improvements and resilience metrics |
 | **#109** | Project Portfolio: Add stats links | Gemma | todo | Add deep links to analytics dashboard for Music, Robot, and Story |
+| **#110** | Stats page — add music-only filter view | Misty | todo | Filter api.robotross.art/stats/ by project |
+| **TCR-7** | Scout script — daily YouTube API pull | Misty | todo | Python script + launchd plist for daily metrics |
 
 ---
 
