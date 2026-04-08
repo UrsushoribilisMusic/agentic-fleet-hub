@@ -3,10 +3,15 @@
 ## Startup Protocol -- follow this order every session, no exceptions
 
 1. `git pull` -- get the latest state from the team.
-2. Read `MISSION_CONTROL.md` -- live ticket status and current priorities.
-3. Read `AGENTS/RULES.md` -- team rules.
-4. Check your IAP inbox: read `AGENTS/MESSAGES/inbox.json`. Read all unread messages before proceeding.
-5. Only then: pick up the first open ticket from the Ticket Status table in `MISSION_CONTROL.md`.
+2. Run: `python scripts/heartbeat_check.py --agent YOUR_ID` (if available)
+3. Run: `python scripts/active_context.py` -- prints ALL active project blocks.
+4. For EACH active project block:
+   - If it is a non-hub project, `cd` to its `repo_path` and `git pull`.
+   - Read the **Mission Control** at the path from that block.
+   - Note ALL open tickets assigned to you across all active projects.
+5. Read `AGENTS/RULES.md` -- team rules.
+6. Check your IAP inbox: read the inbox path from the first block (always hub inbox). Read all unread messages before proceeding.
+7. Only then: pick up the first open ticket across all active project Mission Controls you read.
 
 ## Team Protocols
 

@@ -15,6 +15,7 @@ from datetime import datetime
 PB_URL = "http://127.0.0.1:8090/api"
 FLEET_DIR = "/Users/miguelrodriguez/fleet"
 CODEX_REPO_DIR = "/Users/miguelrodriguez/projects/agentic-fleet-hub"
+FLEET_META_PATH = os.path.join(CODEX_REPO_DIR, "AGENTS/CONFIG/fleet_meta.json")
 LOG_FILE = f"{FLEET_DIR}/logs/dispatcher.log"
 NOTIF_FILE = f"{FLEET_DIR}/logs/notifications.json"
 OFFLINE_AGENTS_FILE = f"{FLEET_DIR}/logs/offline_agents.json"
@@ -29,12 +30,6 @@ COOLDOWN_SECONDS = int(os.environ.get("DISPATCHER_COOLDOWN", "300"))
 
 # Ensure logs directory exists
 os.makedirs(f"{FLEET_DIR}/logs", exist_ok=True)
-
-# Files to watch for changes
-WATCHED_FILES = [
-    "/Users/miguelrodriguez/fleet/MISSION_CONTROL.md",
-    "/Users/miguelrodriguez/projects/agentic-fleet-hub/AGENTS/MESSAGES/inbox.json"
-]
 
 AGENT_COMMANDS = {
     "scout": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/scout", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
@@ -113,14 +108,45 @@ def _save_dispatcher_cache(cache):
     except Exception as e:
         log(f"Error saving dispatcher cache: {e}")
 
+def _load_fleet_meta():
+    try:
+        with open(FLEET_META_PATH, "r") as f:
+            return json.load(f)
+    except Exception as e:
+        log(f"Error loading fleet_meta.json: {e}")
+        return {}
+
+def _active_project_watch_files():
+    watched = [
+        os.path.join(CODEX_REPO_DIR, "MISSION_CONTROL.md"),
+        os.path.join(CODEX_REPO_DIR, "AGENTS/MESSAGES/inbox.json"),
+        FLEET_META_PATH,
+    ]
+
+    meta = _load_fleet_meta()
+    for project in meta.get("projects", []):
+        if not project.get("is_active"):
+            continue
+        repo_path = str(project.get("repo_path", ".")).strip()
+        if repo_path in (".", ""):
+            continue
+        watched.append(os.path.normpath(os.path.join(CODEX_REPO_DIR, repo_path, "MISSION_CONTROL.md")))
+
+    return list(dict.fromkeys(watched))
+
 def _state_changed():
     """Check if any watched files or PocketBase tasks have changed."""
     cache = _load_dispatcher_cache()
     current_checksums = {}
     changed = False
+    watched_files = _active_project_watch_files()
+
+    if cache.get("watched_files", []) != watched_files:
+        log("Detected change in active project watch set.")
+        changed = True
     
     # 1. Check Files
-    for file_path in WATCHED_FILES:
+    for file_path in watched_files:
         current_checksum = _file_checksum(file_path)
         current_checksums[file_path] = current_checksum
         
@@ -147,6 +173,7 @@ def _state_changed():
     
     # Update cache
     cache["checksums"] = current_checksums
+    cache["watched_files"] = watched_files
     _save_dispatcher_cache(cache)
     
     return changed

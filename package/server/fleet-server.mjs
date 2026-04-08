@@ -438,33 +438,46 @@ async function handler(req, res) {
       return send(res, 200, { ok: true, config: normalized }, requestId);
     }
 
-    // POST /fleet/api/activate-project — activate a project by title
-    if (urlPath === "/fleet/api/activate-project" && req.method === "POST") {
+    // POST /fleet/api/switch-project — additive toggle for a single project
+    // Keep /activate-project as a compatibility alias for older dashboards.
+    if ((urlPath === "/fleet/api/switch-project" || urlPath === "/fleet/api/activate-project") && req.method === "POST") {
       const body = await readBody(req);
-      const title = body.title;
+      const title = body.title || body.project_title;
       if (!title) return send(res, 400, { ok: false, error: "title_required" }, requestId);
 
-      let activatedRepoPath = null;
+      let targetProject = null;
       const projects = fleetMeta.projects || [];
       for (const p of projects) {
         if (p.title === title) {
-          p.is_active = true;
-          activatedRepoPath = p.repo_path;
-        } else {
-          p.is_active = false;
+          p.is_active = !p.is_active; // Toggle
+          targetProject = p;
+          break;
         }
       }
 
-      if (!activatedRepoPath && activatedRepoPath !== "") {
+      if (!targetProject) {
         return send(res, 404, { ok: false, error: "project_not_found" }, requestId);
       }
 
-      // Update the global installation repo_path too
-      fleetMeta.meta.installation.repo_path = activatedRepoPath;
+      // Update the global installation repo_path if toggled on
+      if (targetProject.is_active) {
+        fleetMeta.meta.installation.repo_path = targetProject.repo_path;
+      }
       fleetMeta.meta.installation.updated_at = new Date().toISOString();
 
       writeJson(FLEET_META_PATH, fleetMeta);
-      return send(res, 200, { ok: true, title, repo_path: activatedRepoPath }, requestId);
+      return send(res, 200, { ok: true, title, is_active: targetProject.is_active, repo_path: targetProject.repo_path }, requestId);
+    }
+
+    // POST /fleet/api/clear-projects — deactivate all projects except hub
+    if (urlPath === "/fleet/api/clear-projects" && req.method === "POST") {
+      const projects = fleetMeta.projects || [];
+      for (const p of projects) {
+        const rp = (p.repo_path || "").trim();
+        p.is_active = (rp === "." || rp === "");
+      }
+      writeJson(FLEET_META_PATH, fleetMeta);
+      return send(res, 200, { ok: true, message: "All projects cleared (hub active)" }, requestId);
     }
 
     // GET /fleet/api/config/demo — public demo config

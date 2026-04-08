@@ -409,8 +409,8 @@ function populateProjects() {
       const extra = p.statsLink ? `<a href="${p.statsLink}" target="_blank" class="btn-link">📊 VIEW STATS</a>` : '';
       const crm = p.crmLink ? `<a href="${p.crmLink}" target="_blank" class="btn-link">🤝 VIEW CRM</a>` : '';
       const activeBadge = isActive
-        ? `<span style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--teal-bright);background:rgba(21,153,136,0.12);border:1px solid rgba(21,153,136,0.3);border-radius:6px;padding:0.25rem 0.75rem;">ACTIVE</span>`
-        : `<button class="btn-link" style="cursor:pointer;background:none;border:1px solid rgba(255,255,255,0.15);color:var(--text-muted);" onclick="activateProject('${p.title.replace(/'/g, "\\'")}', this)">SET ACTIVE</button>`;
+        ? `<button class="btn-link" style="cursor:pointer;background:rgba(21,153,136,0.12);border:1px solid rgba(21,153,136,0.5);color:var(--teal-bright);font-weight:700;" onclick="toggleProject('${p.title.replace(/'/g, "\\'")}', this)">ACTIVE</button>`
+        : `<button class="btn-link" style="cursor:pointer;background:none;border:1px solid rgba(255,255,255,0.15);color:var(--text-muted);" onclick="toggleProject('${p.title.replace(/'/g, "\\'")}', this)">INACTIVE</button>`;
       return `
         <article class="project-card" style="${isActive ? 'border-color:rgba(21,153,136,0.5);box-shadow:0 0 0 1px rgba(21,153,136,0.15);' : ''}">
           <div style="display:flex;align-items:center;gap:1rem;margin-bottom:0.75rem;">
@@ -430,28 +430,28 @@ function populateProjects() {
     .join('');
 }
 
-window.activateProject = async (title, btn) => {
+window.toggleProject = async (title, btn) => {
   btn.disabled = true;
-  btn.textContent = 'ACTIVATING...';
+  btn.textContent = 'UPDATING...';
   try {
-    const result = await fetchJson('/fleet/api/activate-project', {
+    const result = await fetchJson('/fleet/api/switch-project', {
       method: 'POST',
       body: JSON.stringify({ title }),
     });
     if (result.ok) {
       if (!result.synced_to_git) {
-        alert(`Dashboard updated to "${title}".\n\nAgents: the change was not pushed to GitHub automatically (no deploy key on server). Commit AGENTS/CONFIG/fleet_meta.json from your local machine to sync agents.`);
+        console.log(`Project "${title}" toggled.`);
       }
       await loadFleetMeta();
     } else {
       alert('Failed: ' + (result.error || 'unknown error'));
       btn.disabled = false;
-      btn.textContent = 'SET ACTIVE';
+      btn.textContent = 'RETRY';
     }
   } catch (e) {
     alert('Error: ' + e.message);
     btn.disabled = false;
-    btn.textContent = 'SET ACTIVE';
+    btn.textContent = 'RETRY';
   }
 };
 
@@ -1017,3 +1017,11 @@ document.addEventListener('DOMContentLoaded', () => {
   loadDailyStandups();
   setupForms();
 });
+
+window.clearAllProjects = async () => {
+  if (!confirm('Clear all active projects (except hub)?')) return;
+  try {
+    await fetchJson('/fleet/api/clear-projects', { method: 'POST' });
+    await loadFleetMeta();
+  } catch (err) { alert('Failed to clear projects: ' + err.message); }
+};

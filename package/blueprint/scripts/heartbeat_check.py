@@ -8,8 +8,8 @@ Run this immediately after `git pull`, before reading any context files.
 Checks whether MISSION_CONTROL.md or inbox.json have changed since the
 last wakeup, and whether those changes are relevant to this agent.
 
-Also reads AGENTS/CONFIG/fleet_meta.json to find the active project and
-watches that project's MISSION_CONTROL.md if it exists alongside the hub's.
+Also reads AGENTS/CONFIG/fleet_meta.json to find all active projects and
+watches their MISSION_CONTROL.md files if they exist.
 
 Exit codes:
   0  -- relevant changes detected, proceed with full startup
@@ -38,18 +38,22 @@ from typing import Optional, List, Dict
 HUB_WATCHED = [
     "MISSION_CONTROL.md",
     "AGENTS/MESSAGES/inbox.json",
+    "AGENTS/CONFIG/fleet_meta.json",
 ]
 
 FLEET_META = os.path.join("AGENTS", "CONFIG", "fleet_meta.json")
 
-# Aliases used to match this agent in ticket tables and inbox messages
-# (Fallback if fleet_meta.json is missing or doesn't list the agent)
 AGENT_ALIASES_DEFAULT = {
     "clau":  ["clau", "claude"],
     "misty": ["misty", "mistral"],
     "gem":   ["gem", "gemini"],
     "codi":  ["codi", "codex"],
 }
+
+
+# Force a full wakeup/heartbeat every N hours even if no files changed.
+# This ensures the dashboard timeline shows activity and agents stay "alive".
+FORCE_HEARTBEAT_INTERVAL_SEC = 4 * 3600  # 4 hours
 
 
 # ── Helpers ────────────────────────────────────────────────────────────────────
@@ -88,14 +92,14 @@ def _checksum(path: str) -> Optional[str]:
         return None
 
 
-def _active_project_mc(repo: str, meta: Optional[dict]) -> Optional[str]:
+def _active_project_mcs(repo: str, meta: Optional[dict]) -> List[str]:
     """
-    Return the active project's MISSION_CONTROL.md path (relative to repo),
-    or None if the hub itself is the active project or the file doesn't exist.
+    Return absolute paths to all active projects' MISSION_CONTROL.md files.
     """
     if not meta:
-        return None
+        return []
 
+    mcs = []
     for p in meta.get("projects", []):
         if not p.get("is_active"):
             continue
@@ -104,8 +108,8 @@ def _active_project_mc(repo: str, meta: Optional[dict]) -> Optional[str]:
             continue  # hub itself — already in HUB_WATCHED
         candidate = os.path.normpath(os.path.join(repo, rp, "MISSION_CONTROL.md"))
         if os.path.exists(candidate):
-            return candidate  # return absolute path
-    return None
+            mcs.append(candidate)
+    return mcs
 
 
 def _load_cache(cache_path: str) -> dict:
@@ -176,9 +180,9 @@ def main():
     # ── Build watched file list ────────────────────────────────────────────────
     # Always watch hub files; also watch active project's MC if different
     watched = list(HUB_WATCHED)  # relative paths for hub files
-    proj_mc_abs = _active_project_mc(repo, meta)
-    if proj_mc_abs:
-        watched.append(proj_mc_abs)  # absolute path for external project
+    proj_mcs = _active_project_mcs(repo, meta)
+    for mc in proj_mcs:
+        watched.append(mc)
 
     # ── Step 1: calculate current checksums ───────────────────────────────────
     def _resolve(f):
@@ -191,17 +195,35 @@ def main():
     previous = cache.get("checksums", {})
     changed  = [f for f in watched if current.get(f) != previous.get(f)]
 
-    if not changed:
+    last_checked_str = cache.get("last_checked")
+    force_wakeup = False
+    if last_checked_str:
+        try:
+            last_checked = datetime.fromisoformat(last_checked_str)
+            if last_checked.tzinfo is None:
+                last_checked = last_checked.replace(tzinfo=timezone.utc)
+            age = (datetime.now(timezone.utc) - last_checked).total_seconds()
+            if age > FORCE_HEARTBEAT_INTERVAL_SEC:
+                force_wakeup = True
+        except Exception:
+            force_wakeup = True
+    else:
+        force_wakeup = True
+
+    if not changed and not force_wakeup:
         print(f"[heartbeat:{args.agent}] No changes. Going idle.")
         _save_cache(cache_path, {
             "checksums": current,
-            "last_checked": datetime.now(timezone.utc).isoformat(),
+            "last_checked": last_checked_str if last_checked_str else datetime.now(timezone.utc).isoformat(),
             "last_result": "idle",
             "aliases": aliases,
         })
         sys.exit(1)
 
-    print(f"[heartbeat:{args.agent}] Changed: {', '.join(changed)}")
+    if force_wakeup and not changed:
+        print(f"[heartbeat:{args.agent}] Forced heartbeat wakeup (interval exceeded).")
+    elif changed:
+        print(f"[heartbeat:{args.agent}] Changed: {', '.join(changed)}")
 
     # ── Step 3: check relevance for this agent ────────────────────────────────
     reasons = []
@@ -209,15 +231,23 @@ def main():
     hub_mc_abs    = os.path.join(repo, "MISSION_CONTROL.md")
     hub_inbox_abs = os.path.join(repo, "AGENTS", "MESSAGES", "inbox.json")
 
-    if "MISSION_CONTROL.md" in changed:
+    if os.path.exists(hub_mc_abs):
         if _ticket_for_agent(hub_mc_abs, aliases):
             reasons.append("open ticket assigned to you in hub MC")
 
-    if proj_mc_abs and proj_mc_abs in changed:
-        if _ticket_for_agent(proj_mc_abs, aliases):
-            reasons.append("open ticket assigned to you in active project MC")
+    for mc_abs in proj_mcs:
+        if os.path.exists(mc_abs):
+            if _ticket_for_agent(mc_abs, aliases):
+                proj_title = "active project"
+                if meta:
+                    for p in meta.get("projects", []):
+                        rp = p.get("repo_path", ".").strip()
+                        if rp and mc_abs.endswith(os.path.join(rp, "MISSION_CONTROL.md")):
+                            proj_title = p.get("title", "active project")
+                            break
+                reasons.append(f"open ticket assigned to you in {proj_title} MC")
 
-    if "AGENTS/MESSAGES/inbox.json" in changed:
+    if os.path.exists(hub_inbox_abs):
         if _inbox_for_agent(hub_inbox_abs, aliases):
             reasons.append("unread inbox message for you")
 
@@ -228,7 +258,7 @@ def main():
         "last_result": "proceed" if reasons else "idle",
         "changed_files": changed,
         "reasons": reasons,
-        "active_project_mc": proj_mc_abs,
+        "watched_mcs": proj_mcs,
         "aliases": aliases,
     })
 

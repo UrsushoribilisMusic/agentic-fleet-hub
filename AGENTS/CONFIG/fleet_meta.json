@@ -2,7 +2,7 @@
   "team": [
     {
       "name": "Claude Code",
-      "avatar": "🤖",
+      "avatar": "\ud83e\udd16",
       "heartbeatKey": "clau",
       "roleTitle": "Senior Logic & Implementation",
       "roleDesc": "Primary engineer for high-precision code generation, algorithmic optimization, and complex feature implementation.",
@@ -11,13 +11,16 @@
         "Algorithmic Logic",
         "Code Refactoring"
       ],
-      "fallbackChain": ["gem", "codi"],
+      "fallbackChain": [
+        "gem",
+        "codi"
+      ],
       "runtime": "Cloud (Anthropic)",
       "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/CLAUDE.md"
     },
     {
       "name": "Gemini",
-      "avatar": "♊",
+      "avatar": "\u264a",
       "heartbeatKey": "gem",
       "roleTitle": "Infrastructure & Context Architect",
       "roleDesc": "Master of massive context windows and cross-project knowledge synthesis. Manages secrets, vaults, and platform stability.",
@@ -26,13 +29,16 @@
         "Infrastructure-as-Code",
         "Vault Security"
       ],
-      "fallbackChain": ["clau", "codi"],
+      "fallbackChain": [
+        "clau",
+        "codi"
+      ],
       "runtime": "Cloud (Google)",
       "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/GEMINI.md"
     },
     {
       "name": "Codex",
-      "avatar": "🛠️",
+      "avatar": "\ud83d\udee0\ufe0f",
       "heartbeatKey": "codi",
       "roleTitle": "QA & Velocity Runner",
       "roleDesc": "Ensures delivery velocity through automated testing, API prototyping, and CI/CD maintenance. Validates all fleet output.",
@@ -41,13 +47,16 @@
         "QA Automation",
         "Continuous Delivery"
       ],
-      "fallbackChain": ["clau", "gem"],
+      "fallbackChain": [
+        "clau",
+        "gem"
+      ],
       "runtime": "Cloud (OpenAI)",
       "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS.md"
     },
     {
       "name": "Misty",
-      "avatar": "⚜️",
+      "avatar": "\u269c\ufe0f",
       "heartbeatKey": "misty",
       "roleTitle": "EU Compliance & Ethics Lead",
       "roleDesc": "European model advantage. Handles AI Act compliance, audit logging, multi-agent transparency, and DACH enterprise requirements.",
@@ -56,13 +65,16 @@
         "Compliance Review",
         "Ethics & Transparency"
       ],
-      "fallbackChain": ["clau", "gem"],
+      "fallbackChain": [
+        "clau",
+        "gem"
+      ],
       "runtime": "Cloud (Mistral)",
       "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/MISTRAL.md"
     },
     {
       "name": "Gemma",
-      "avatar": "💎",
+      "avatar": "\ud83d\udc8e",
       "heartbeatKey": "gemma",
       "roleTitle": "Local Intelligence & Cost Guard",
       "roleDesc": "Runs entirely on-device via Ollama. Handles cost-sensitive tasks, offline work, and low-latency local inference without any API spend.",
@@ -71,13 +83,15 @@
         "Cost Optimization",
         "Offline Tasks"
       ],
-      "fallbackChain": ["clau"],
+      "fallbackChain": [
+        "clau"
+      ],
       "runtime": "Local (Ollama/Mac Mini)",
-      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/fleet/gemma/GEMMA.md"
+      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/GEMMA.md"
     },
     {
       "name": "OpenClaw",
-      "avatar": "🐻",
+      "avatar": "\ud83d\udc3b",
       "heartbeatKey": "openclaw",
       "roleTitle": "Robot Ross Controller",
       "roleDesc": "Runs the physical robot arm (Huenit), painting pipeline, and Telegram gateway on the Mac Mini. Master control for the Robot Ross skill.",
@@ -86,7 +100,9 @@
         "Skill Execution",
         "Hardware Interface"
       ],
-      "fallbackChain": ["clau"],
+      "fallbackChain": [
+        "clau"
+      ],
       "runtime": "Local (Mac Mini)",
       "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/robot_ross_artist.md"
     }
@@ -113,7 +129,7 @@
       ],
       "kanban": "https://github.com/users/UrsushoribilisMusic/projects/3/views/1",
       "statsLink": "https://api.robotross.art/stats/",
-      "is_active": false
+      "is_active": true
     },
     {
       "title": "Agentic CRM Prototype",

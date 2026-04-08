@@ -14,8 +14,8 @@ from service_restart import restart_all_services
 app = Flask(__name__)
 
 
-def update_fleet_meta(repo_path: str) -> bool:
-    """Update fleet_meta.json with new repo_path and set is_active field."""
+def update_fleet_meta(repo_path: str, additive: bool = True) -> bool:
+    """Update fleet_meta.json with new repo_path and toggle is_active field."""
     fleet_meta_path = os.path.expanduser("~/fleet/fleet_meta.json")
     
     # Load existing fleet_meta.json
@@ -25,7 +25,7 @@ def update_fleet_meta(repo_path: str) -> bool:
     else:
         fleet_meta = {"meta": {"installation": {}}}
     
-    # Update repo_path
+    # Update repo_path (primary project)
     fleet_meta["meta"]["installation"]["repo_path"] = repo_path
     
     # Save updated fleet_meta.json
@@ -38,7 +38,7 @@ def update_fleet_meta(repo_path: str) -> bool:
         with open(agents_fleet_meta_path, "r") as f:
             agents_fleet_meta = json.load(f)
         
-        # Set is_active to True for the project matching the repo_path
+        # Set is_active for the project matching the repo_path
         repo_name = os.path.basename(repo_path)
         
         # Map project titles to their expected repository names
@@ -48,7 +48,7 @@ def update_fleet_meta(repo_path: str) -> bool:
             "agentic crm prototype": "crm-poc",
             "the lost coins": "the-lost-coins",
             "salesman (openclaw gateway)": "salesman-cloud-infra",
-            "robot ross": "agentic-fleet-hub"  # Assuming Robot Ross is in the main repo
+            "robot ross": "agentic-fleet-hub"
         }
         
         repo_name_lower = repo_name.lower()
@@ -63,10 +63,15 @@ def update_fleet_meta(repo_path: str) -> bool:
                     expected_repo = mapped_repo
                     break
             
-            # Set active if the repo_path matches the expected repository for this project
             if expected_repo and expected_repo == repo_name_lower:
-                project["is_active"] = True
-            else:
+                if additive:
+                    # Toggle
+                    project["is_active"] = not project.get("is_active", False)
+                else:
+                    # Exclusive
+                    project["is_active"] = True
+            elif not additive:
+                # Set others to False in exclusive mode
                 project["is_active"] = False
         
         # Save updated agents_fleet_meta.json
@@ -165,9 +170,10 @@ def parse_mission_control(repo_path: str = ".") -> dict:
 
 @app.route("/fleet/api/activate-project", methods=["POST"])
 def activate_project():
-    """Activate a project by title."""
+    """Activate or deactivate a project by title (additive toggle)."""
     data = request.get_json()
     project_title = data.get("project_title")
+    additive = data.get("additive", True)
     
     if not project_title:
         return jsonify({"error": "project_title is required"}), 400
@@ -182,13 +188,18 @@ def activate_project():
         with open(agents_fleet_meta_path, "r") as f:
             fleet_meta = json.load(f)
         
-        # Find the project and set is_active
+        # Find the project and toggle is_active
         project_found = False
+        new_state = False
         for project in fleet_meta.get("projects", []):
             if project.get("title") == project_title:
-                project["is_active"] = True
+                if additive:
+                    project["is_active"] = not project.get("is_active", False)
+                else:
+                    project["is_active"] = True
+                new_state = project["is_active"]
                 project_found = True
-            else:
+            elif not additive:
                 project["is_active"] = False
         
         if not project_found:
@@ -198,46 +209,60 @@ def activate_project():
         with open(agents_fleet_meta_path, "w") as f:
             json.dump(fleet_meta, f, indent=2)
         
-        return jsonify({"success": True, "message": "Project activated successfully"}), 200
+        return jsonify({"success": True, "message": "Project toggled", "is_active": new_state}), 200
     
     except Exception as e:
         app.logger.error(f"Failed to activate project: {e}")
         return jsonify({"error": f"Failed to activate project: {str(e)}"}), 500
 
 
+@app.route("/fleet/api/clear-all-projects", methods=["POST"])
+def clear_all_projects():
+    """Deactivate all projects except hub."""
+    agents_fleet_meta_path = os.path.join(os.path.dirname(__file__), "AGENTS", "CONFIG", "fleet_meta.json")
+    try:
+        with open(agents_fleet_meta_path, "r") as f:
+            meta = json.load(f)
+        for p in meta.get("projects", []):
+            rp = p.get("repo_path", ".").strip()
+            if rp in (".", ""):
+                p["is_active"] = True
+            else:
+                p["is_active"] = False
+        with open(agents_fleet_meta_path, "w") as f:
+            json.dump(meta, f, indent=2)
+        return jsonify({"success": True, "message": "All projects cleared (hub active)"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 @app.route("/fleet/api/switch-project", methods=["POST"])
 def switch_project():
-    """Switch to a new project."""
+    """Switch to a new project (additive toggle by default)."""
     data = request.get_json()
     new_repo_path = data.get("repo_path")
+    additive = data.get("additive", True)
     
     if not new_repo_path:
         return jsonify({"error": "repo_path is required"}), 400
     
     # Validate new project path
-    # If the path is a GitHub URL, extract the repo name
     if new_repo_path.startswith("https://github.com/"):
-        # Extract the repo name from the URL
-        repo_path_parts = new_repo_path.split("/")
-        repo_name = repo_path_parts[-1]
+        repo_name = new_repo_path.split("/")[-1]
         new_repo_path = os.path.expanduser(f"~/projects/{repo_name}")
     
-    # Check if the path exists
     if not os.path.exists(new_repo_path):
         return jsonify({"error": "Invalid project path: directory not found"}), 400
     
-    if not os.path.exists(os.path.join(new_repo_path, "MISSION_CONTROL.md")):
-        return jsonify({"error": "Invalid project path: MISSION_CONTROL.md not found"}), 400
-    
-    # Update fleet_meta.json
-    if not update_fleet_meta(new_repo_path):
+    # Update fleet_meta.json (additive)
+    if not update_fleet_meta(new_repo_path, additive=additive):
         return jsonify({"error": "Failed to update fleet_meta.json"}), 500
     
     # Restart services
     if not restart_all_services():
         return jsonify({"error": "Failed to restart services"}), 500
     
-    return jsonify({"success": True, "message": "Project switched successfully"}), 200
+    return jsonify({"success": True, "message": "Project switched (toggled)"}), 200
 
 
 @app.route("/fleet/api/parse-mission-control", methods=["GET"])

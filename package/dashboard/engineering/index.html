@@ -114,8 +114,12 @@
         <div>
           <p class="eyebrow">Active Work</p>
           <h1>Project Portfolio</h1>
+          <p class="page-subtitle">Toggle any number of projects active at once. Hub remains available as the fallback context.</p>
         </div>
-        <button class="btn-submit" onclick="openProjectModal()">+ Add Project</button>
+        <div style="display:flex;gap:12px;">
+          <button class="btn-submit" style="background:none;border-color:rgba(255,255,255,0.15);color:var(--text-muted);" onclick="clearAllProjects()">CLEAR ALL</button>
+          <button class="btn-submit" onclick="openProjectModal()">+ Add Project</button>
+        </div>
       </header>
       <div id="projects-grid" class="cards-grid"></div>
     </section>
