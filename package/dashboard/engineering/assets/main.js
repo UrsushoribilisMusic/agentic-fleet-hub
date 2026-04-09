@@ -78,10 +78,11 @@ async function loadFleetMeta() {
     populateProjects();
     loadLessons(); 
     
-    if (fleetSettings.is_demo === true) {
+    if (fleetSettings.is_demo === true || isDemo || isGrowth) {
       setupReducedMode(isGrowth);
     } else {
       setupStandaloneMode();
+      loadUsers();
     }
   } catch (err) { 
     console.error('Core metadata load failed:', err);
@@ -107,7 +108,7 @@ function setupReducedMode(isGrowth) {
 
   const usersBtn = document.querySelector('[data-section-button="section-users"]');
   if (usersBtn) {
-    usersBtn.innerHTML = '<span>👤</span> User Management';
+    usersBtn.innerHTML = '<span></span> User Management';
   }
 
   const usersSection = document.getElementById('section-users');
