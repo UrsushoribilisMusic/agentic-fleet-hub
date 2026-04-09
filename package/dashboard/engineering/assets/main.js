@@ -108,7 +108,7 @@ function setupReducedMode(isGrowth) {
 
   const usersBtn = document.querySelector('[data-section-button="section-users"]');
   if (usersBtn) {
-    usersBtn.innerHTML = 'User Management';
+    usersBtn.innerHTML = '<span></span> User Management';
   }
 
   const usersSection = document.getElementById('section-users');
@@ -1025,6 +1025,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadFleetMeta();
   renderMemoryTree();
   loadDailyStandups();
+  loadInbox();
   setupForms();
 });
 
