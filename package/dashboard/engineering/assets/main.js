@@ -803,7 +803,7 @@ function wireNavControls() {
 
     button.onclick = function() { activateSection(this.getAttribute('data-section-button')); };
   }
-}
+
   const toggle = document.getElementById('mobile-toggle');
   const sidebar = document.getElementById('sidebar');
   if (toggle && sidebar) {
