@@ -260,7 +260,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **8sto1zdn** | #TCR-15: [Executor] Configure Google Ads OpenClaw executor | gem | planned | Configure the automated execution layer for Google... |
-| **yoygqot6** | Scout script — daily YouTube API pull | misty | in_work | Python script + launchd plist for daily metrics |
 | **6h6m83ya** | Scout script — daily YouTube API pull | misty | planned | Python script + launchd plist for daily metrics |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
