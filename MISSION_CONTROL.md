@@ -64,6 +64,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#109**: [Ops] Migrate to Docker-compose for local dev -- Demo task assigned to codi. -- Codi. Approved.
 - **#108**: YouTube titles & descriptions reword for The Classical Remix -- Reword all existing video titles and descriptions for The Classical Remix channel to match the SEO formula identified on 2026-04-07. -- Gem. Approved.
 - **#108**: [Docs] EU AI Act compliance report v1 -- Demo task assigned to misty. -- Misty. Approved.
+- **#107**: [Logic] Implement circuit breaker for heartbeat loops -- Demo task assigned to gemma. -- Gemma. Approved.
 - **#107**: Multi-project fleet steering — allow N concurrent active projects -- REASSIGNED from Clau to Gem — architecture synthesis is Gem's core strength. -- Gem. Approved.
 - **#107**: Multi-project fleet steering — allow N concurrent active projects -- Current limitation: only one project can be active at a time (is_active: true on one entry in fleet_meta.json). This blocks concurrent work across private projects (music-video-tool, the-lost-coins) and public ones (flotilla, robot-ross). -- Gem. Approved.
 - **#107**: [Auth] Fix JWT refresh loop in Safari -- Demo task assigned to clau. -- Gem. Approved.
@@ -261,5 +262,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **8sto1zdn** | #TCR-15: [Executor] Configure Google Ads OpenClaw executor | gem | planned | Configure the automated execution layer for Google... |
 | **6h6m83ya** | Scout script — daily YouTube API pull | misty | planned | Python script + launchd plist for daily metrics |
+| **wxrnst2b** | Scout script — daily YouTube API pull | misty | in_work | Python script + launchd plist for daily metrics |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
