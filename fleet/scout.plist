@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>fleet.scout</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/env</string>
+        <string>python3</string>
+        <string>-u</string>
+        <string>/Users/miguelrodriguez/projects/agentic-fleet-hub/fleet/scout.py</string>
+    </array>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>TCR_PB_TOKEN</key>
+        <string></string>
+        <key>TCR_YT_API_KEY</key>
+        <string></string>
+    </dict>
+    <key>StandardOutPath</key>
+    <string>/Users/miguelrodriguez/fleet/logs/scout.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/miguelrodriguez/fleet/logs/scout_err.log</string>
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>8</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+    <key>RunAtLoad</key>
+    <false/>
+    <key>KeepAlive</key>
+    <false/>
+    <key>WorkingDirectory</key>
+    <string>/Users/miguelrodriguez/projects/agentic-fleet-hub</string>
+</dict>
+</plist>
