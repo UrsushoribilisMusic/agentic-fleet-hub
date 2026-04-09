@@ -108,7 +108,7 @@ function setupReducedMode(isGrowth) {
 
   const usersBtn = document.querySelector('[data-section-button="section-users"]');
   if (usersBtn) {
-    usersBtn.innerHTML = '<span></span> User Management';
+    usersBtn.innerHTML = 'User Management';
   }
 
   const usersSection = document.getElementById('section-users');
@@ -794,13 +794,9 @@ function wireNavControls() {
   for (let i = 0; i < MAIN_SECTION_BUTTONS.length; i++) {
     const button = MAIN_SECTION_BUTTONS[i];
 
-    // Strip emojis from the span inside the button if it exists
-    const labelSpan = button.querySelector('span');
-    if (labelSpan) {
-      labelSpan.textContent = labelSpan.textContent.replace(emojiRegex, '').trim();
-    } else {
-      button.textContent = button.textContent.replace(emojiRegex, '').trim();
-    }
+    // Strip emojis and completely clear any sub-elements like spans to fix indentation
+    const cleanText = button.textContent.replace(emojiRegex, '').trim();
+    button.innerHTML = `<span></span> ${cleanText}`;
 
     button.onclick = function() { activateSection(this.getAttribute('data-section-button')); };
   }
