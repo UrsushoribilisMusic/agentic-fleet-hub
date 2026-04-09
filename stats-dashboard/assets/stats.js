@@ -202,6 +202,21 @@ async function loadRobotRossData() {
   } catch (err) { console.error(err); }
 }
 
+function getQueryParam(name) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(name);
+}
+
+function handleProjectFilter() {
+  const project = getQueryParam('project');
+  if (project === 'music') {
+    return 'music';
+  } else if (project === 'story') {
+    return 'story';
+  }
+  return 'robotross'; // default
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   STATS_GROUP_BUTTONS = Array.from(document.querySelectorAll('[data-stats-group]'));
   STATS_PANELS = Array.from(document.querySelectorAll('[data-stats-panel]'));
@@ -216,5 +231,8 @@ document.addEventListener('DOMContentLoaded', () => {
   loadVideos();
   loadStory();
   loadRobotRossData();
-  targetStatsGroup('robotross');
+  
+  // Use project filter from URL if present, otherwise default to robotross
+  const initialGroup = handleProjectFilter();
+  targetStatsGroup(initialGroup);
 });
