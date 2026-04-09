@@ -81,7 +81,7 @@ def main():
         sys.exit(0)
 
     projects = meta.get("projects", [])
-    active_projects = [p for p in projects if p.get("is_active")]
+    active_projects = [p for p in projects if p.get("is_active") and p.get("repo_path") not in (".", "")]
 
     if not active_projects:
         # Fallback to hub if nothing marked active
