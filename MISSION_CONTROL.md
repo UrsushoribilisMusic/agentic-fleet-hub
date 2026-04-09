@@ -268,7 +268,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **#124** | [ATF-1] Define Agentegra ATF architecture and schema contract | gem | merged | ## Context... |
 | **#126** | [ATF-3] Scaffold Mexico raw-log dropzone and manifest template | gemma | in_work | ## Context... |
 | **#127** | [ATF-4] Build Mexico log parser and normalized event schema | misty | planned | ## Context... |
-| **#129** | [ATF-6] Scaffold wiki index/log and page templates | gemma | planned | ## Context... |
+| **#129** | [ATF-6] Scaffold wiki index/log and page templates | gemma | in_work | ## Context... |
 | **#130** | [ATF-7] Add EU AI Act mapping metadata for wiki pages | misty | planned | ## Context... |
 | **#131** | [ATF-8] Build local model runtime adapter for Gemma/Apertus | codi | planned | ## Context... |
 | **#132** | [ATF-9] Build local CLI QA shell over wiki and ledger | clau | planned | ## Context... |
