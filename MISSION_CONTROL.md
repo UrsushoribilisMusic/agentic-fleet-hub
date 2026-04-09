@@ -264,7 +264,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **6h6m83ya** | Scout script — daily YouTube API pull | clau | planned | Python script + launchd plist for daily metrics |
 | **wxrnst2b** | Scout script — daily YouTube API pull | misty | in_work | Python script + launchd plist for daily metrics |
 | **#124** | [ATF-1] Define Agentegra ATF architecture and schema contract | codi | planned | ## Context... |
-| **#125** | [ATF-2] Inventory RobotRoss source corpus for compiled wiki | gem | planned | ## Context... |
+| **#125** | [ATF-2] Inventory RobotRoss source corpus for compiled wiki | gem | peer_review | ## Context... |
 | **#126** | [ATF-3] Scaffold Mexico raw-log dropzone and manifest template | gemma | planned | ## Context... |
 | **#127** | [ATF-4] Build Mexico log parser and normalized event schema | misty | planned | ## Context... |
 | **#128** | [ATF-5] Generate initial compiled wiki from RobotRoss code/docs | gem | planned | ## Context... |
