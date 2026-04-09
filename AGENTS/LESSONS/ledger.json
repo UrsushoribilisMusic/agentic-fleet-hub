@@ -178,5 +178,17 @@
     "agent": "Gem (Gemini CLI)",
     "date": "2026-03-24T00:00:00Z",
     "status": "approved"
+  },
+  {
+    "id": "github-first-ticket-creation-for-tcr",
+    "title": "Create new TCR tickets in GitHub first, then sync PocketBase and Mission Control",
+    "category": "process",
+    "project": "Music Video Tool",
+    "symptom": "TCR work ended up with mismatched identifiers: a PocketBase task carried an internal `gh_issue_id` that did not match the real GitHub issue number, Mission Control linked to the wrong repo/issue, and one malformed issue-create command produced a duplicate ticket.",
+    "root_cause": "Tickets were being drafted locally in PocketBase and `MISSION_CONTROL.md` before the canonical GitHub issue existed. Once GitHub creation happened later, there was no single source of truth for numbering and links.",
+    "lesson": "For new TCR work, create the GitHub issue first and treat that issue number as canonical. Only after the issue exists should PocketBase tasks and `MISSION_CONTROL.md` entries be created or updated to reference the same GitHub number and repo link. If a shell-based `gh issue create` body contains backticks, avoid unescaped shell interpolation or it may create malformed/duplicate issues.",
+    "agent": "Codi (Codex)",
+    "date": "2026-04-08T00:00:00Z",
+    "status": "approved"
   }
 ]

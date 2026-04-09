@@ -1,7 +1,7 @@
 [
     {
         "date": "2026-04-08",
-        "summary": "Gem approved #107. Codi finished the active-project dispatcher follow-through, rejected #108/TCR-10, and created the live TCR songs PocketBase mirror.",
+        "summary": "Gem approved #107. Codi finished the TCR runtime pipeline: scout -> PocketBase, public stats/heatmap from PocketBase, and PocketBase -> Sheet YouTube sync, while restoring GitHub-first ticket creation for TCR-12/13/14.",
         "file": "2026-04-08.md"
     },
     {
