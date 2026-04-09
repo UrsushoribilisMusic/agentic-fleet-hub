@@ -786,11 +786,24 @@ function activateSection(targetId) {
 function wireNavControls() {
   MAIN_SECTION_BUTTONS = Array.prototype.slice.call(document.querySelectorAll('[data-section-button]'));
   MAIN_SECTIONS = Array.prototype.slice.call(document.querySelectorAll('.section'));
+
+  // Clean emojis from nav labels to prevent encoding issues
+  const emojiRegex = /[\u{1F300}-\u{1F64F}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{1F900}-\u{1F9FF}\u{1F3FB}-\u{1F3FF}\u{1F1E6}-\u{1F1FF}\u{1F191}-\u{1F251}\u{1F004}\u{1F0CF}\u{1F170}-\u{1F171}\u{1F17E}-\u{1F17F}\u{1F18E}\u{3030}\u{2B50}\u{2B55}\u{2934}-\u{2935}\u{2B05}-\u{2B07}\u{2194}-\u{2199}\u{21A9}-\u{21AA}\u{3297}\u{3299}\u{1F201}\u{1F202}\u{1F21A}\u{1F22F}\u{1F232}-\u{1F23A}\u{1F250}\u{1F251}\u{1F300}-\u{1F321}\u{1F324}-\u{1F393}\u{1F396}-\u{1F39B}\u{1F39E}-\u{1F3F0}\u{1F3F3}-\u{1F3F5}\u{1F3F7}-\u{1F4FD}\u{1F4FF}-\u{1F53D}\u{1F549}-\u{1F54E}\u{1F550}-\u{1F567}\u{1F56F}-\u{1F579}\u{1F57B}-\u{1F5A3}\u{1F5A5}-\u{1F644}\u{1F645}-\u{1F64F}\u{1F680}-\u{1F6C5}\u{1F6CB}-\u{1F6D2}\u{1F6E0}-\u{1F6E5}\u{1F6E9}\u{1F6EB}-\u{1F6EC}\u{1F6F0}\u{1F6F3}-\u{1F6F6}]/gu;
+
   for (let i = 0; i < MAIN_SECTION_BUTTONS.length; i++) {
     const button = MAIN_SECTION_BUTTONS[i];
+
+    // Strip emojis from the span inside the button if it exists
+    const labelSpan = button.querySelector('span');
+    if (labelSpan) {
+      labelSpan.textContent = labelSpan.textContent.replace(emojiRegex, '').trim();
+    } else {
+      button.textContent = button.textContent.replace(emojiRegex, '').trim();
+    }
+
     button.onclick = function() { activateSection(this.getAttribute('data-section-button')); };
   }
-
+}
   const toggle = document.getElementById('mobile-toggle');
   const sidebar = document.getElementById('sidebar');
   if (toggle && sidebar) {
