@@ -96,6 +96,12 @@ For Scenario 3 deployments, PocketBase remains local and the public dashboard co
 - Every 60 seconds it sends a signed snapshot to the public Fleet Hub via `POST /fleet/snapshot`.
 - The public server caches that payload and falls back to it for `/fleet/api/heartbeats`, `/fleet/api/tasks`, and `/fleet/api/activity`.
 - Auth is write-only and runtime-injected with `FLEET_SYNC_TOKEN`.
+- For the Shift Timeline, the connector also synthesizes `timeline_segments` from multiple local sources:
+  - raw PocketBase `heartbeats`
+  - append-only `heartbeat_archive.jsonl`
+  - derived `working` signals from `task_events` and `comments` when an agent mutates task state without emitting a matching heartbeat
+  - dispatcher offline state from `logs/offline_agents.json`
+- This avoids two common drift cases: blank rows after heartbeat retention windows and false "idle" tails when the dispatcher already considers an agent stale/offline.
 
 ### 3. The Orchestrator (Dispatcher v4 & Heartbeats)
 - **Dispatcher v4**: A Python script that routes tasks and maintains fleet-wide consistency. Key behaviours:
@@ -104,6 +110,7 @@ For Scenario 3 deployments, PocketBase remains local and the public dashboard co
   - **Reassignment with branch handoff**: When an offline agent's `in_progress` task is reassigned, status resets to `todo` and the dispatcher checks `git ls-remote` for `task/{id}` branch. If found, the branch URL is included in the handoff comment so the new agent can resume mid-work.
   - **MISSION_CONTROL.md auto-sync** (`sync_mission_control()`): Every cycle, approved PocketBase-UUID tasks are dropped from the OPEN table and committed automatically — the kanban never goes stale.
 - **Heartbeat wrappers**: Each agent has a wrapper script that runs `heartbeat_check.py` (Phase 0) before launching any LLM. If nothing changed, the session is skipped entirely — zero tokens spent.
+- **Idle-on-skip requirement**: Even when Phase 0 exits early, wrappers must still POST an `idle` heartbeat to PocketBase. Otherwise the dispatcher will mark an available-but-idle agent stale after 30 minutes and the Fleet Hub timeline will paint a false red/offline tail.
 - **Schedule**: Gem at :00/:10/:20, Codi at :02/:12/:22, Clau at :04/:14/:24, Gemma at :08/:18/:28, Misty at :06/:16/:26.
 
 ### 5b. Telegram Two-Way Bridge (`fleet.bridge`)
@@ -144,6 +151,7 @@ Because PocketBase runs on the Mac Mini (not exposed publicly), the Fleet Hub on
 - `fleet_push.py` reads `heartbeats`, `tasks`, and `comments` from local PocketBase every 60s and POSTs a signed snapshot to `POST /fleet/snapshot` on the DO server.
 - All `/fleet/api/*` endpoints try PocketBase first; on failure they fall back to the cached snapshot at `/var/lib/salesman-api/fleet_snapshot.json`.
 - New endpoints (`/fleet/api/heartbeats/timeline`, `/fleet/api/agent-stats`) follow the same pattern.
+- `/fleet/api/heartbeats/timeline` should prefer pre-aggregated `timeline_segments` from the snapshot over raw heartbeats. This is the source that preserves archive-backed history, dispatcher offline overlays, and derived task/comment activity such as Gemma work bursts that do not always emit first-class `working` heartbeats.
 
 ### 6. Task Branch + WORKLOG Handoff Protocol
 To survive agent context-limit failures mid-task:
