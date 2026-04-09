@@ -205,3 +205,35 @@ See [`AGENTS/CONTEXT/fleet_steering_architecture.md`](./AGENTS/CONTEXT/fleet_ste
 ## Infrastructure Notes
 - **PocketBase stability**: The `fleet.pocketbase` launchd service uses `ThrottleInterval 10` to prevent rapid-restart bind conflicts on port 8090. Only one PocketBase service should be registered in `~/Library/LaunchAgents/` — the old `com.flotilla.pocketbase` label has been retired.
 - **Deployment scenarios**: See `README.md` for Local, Cloud VPS, and Hybrid (agents local + dashboard remote) setup options.
+
+## Project Initiative: Agentegra ATF / EU AI Compliance Wiki
+
+Flotilla is being used as the execution layer for a new RobotRoss showcase deliverable: a local-first compliance and explainability workspace tentatively named the **Agentegra ATF (Automated Technical File) system**.
+
+The initiative has four product layers:
+- **Compiled system wiki**: a Karpathy-style persistent markdown wiki built from RobotRoss source code, README material, architecture docs, and later compliance notes
+- **Operational ledger**: structured ingestion of real production logs, starting with the richer Mexico wood-marking runs, so observed behavior is documented alongside intended architecture
+- **Local QA interface**: a command-line tool that lets operators query the wiki and ledger using a local model such as Gemma or Apertus
+- **Optional voice shell**: speech in/out on top of the local QA interface using Whisper and Voxtral
+
+Design constraints:
+- raw source material is the source of truth and remains immutable
+- the wiki is generated and maintained by agents as a compiled knowledge layer
+- every meaningful summary should retain provenance back to source files or parsed log segments
+- legal/compliance pages should map content to relevant EU AI Act obligations where possible
+- voice features are optional and must not block the first working release
+
+Suggested repository split for this initiative:
+- `vault/raw_sources/robotross/` for local-only immutable evidence such as production logs
+- generated wiki and schema files in tracked markdown under the main repo
+- parsers and CLI tooling in normal source folders with tests
+
+Operational note for the Mexico dataset:
+- drop the raw log files into `vault/raw_sources/robotross/mexico_wood_marking/`
+- do not clean or rewrite those originals in place
+- any normalization should produce derived artifacts elsewhere so the evidence chain stays intact
+
+Execution strategy:
+- keep tickets small enough for parallel execution by Clau, Gem, Misty, and Gemma
+- reserve easier, heavily specified scaffolding tickets for Gemma
+- avoid assigning critical-path integration work to Codi until token availability returns

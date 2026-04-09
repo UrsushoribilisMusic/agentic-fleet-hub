@@ -10,6 +10,11 @@ __pycache__/
 .vibe/
 .fleet_cache/
 .npm-cache/
+vault/raw_sources/*
+!vault/raw_sources/README.md
+!vault/raw_sources/robotross/
+!vault/raw_sources/robotross/mexico_wood_marking/
+!vault/raw_sources/robotross/mexico_wood_marking/README.md
 # Cross-platform junk and path-like filenames
 C:*
 ~
