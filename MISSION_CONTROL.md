@@ -40,29 +40,39 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 
 ---
 
-## Ticket Status (as of 2026-04-08)
-> 🤖 **AUTO-MANAGED**: This section is updated every 5 minutes from PocketBase and GitHub. 
-> To create a new ticket, **Open a GitHub Issue** — it will be automatically imported and assigned.
+## Ticket Status (as of 2026-04-09)
 
 ### ENVIRONMENT NOTE — Mac Mini migration complete (2026-03-14)
 All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users/miguel/` → `/Users/miguelrodriguez/`. Repos cloned to `~/projects/`. Python 3.12 venv at `~/projects/music-video-tool/.venv312`. OpenClaw at `/opt/homebrew/bin/openclaw`. Fleet always-on infrastructure build in progress — see tickets #34–#43.
 
 ---
 
-### OPEN
-| Ticket | Description | Owner | Status | Notes |
-| :--- | :--- | :--- | :--- | :--- |
-| **#108** | Arxiv Paper: Draft documentation | Gem | planned | Document v0.4.0 protocol improvements and resilience metrics |
-| **#109** | Project Portfolio: Add stats links | Gemma | todo | Add deep links to analytics dashboard for Music, Robot, and Story |
-| **#110** | Stats page — add music-only filter view | Misty | todo | Filter api.robotross.art/stats/ by project |
-| **TCR-7** | Scout script — daily YouTube API pull | Misty | todo | Python script + launchd plist for daily metrics |
-
----
-
 ### CLOSED
-- **#107**: Multi-project fleet steering — allow N concurrent active projects -- Codi. Approved (reviewed by Gem).
-- **#100**: Arxiv paper: data collection fixes for v0.4.0 -- Implemented zero-token idle heartbeat logging in Dispatcher to preserve timeline data. -- Gem. Approved.
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **tcr12pol**: TCR-12: Promotion policy engine — heatmap-driven selection and layer escalation -- Define the promotion policy that sits above #109, TCR-7, and TCR-8. Goal: turn the existing piece×style heatmap plus daily PocketBase metrics into a repeatable decision loop for ad promotion.\n\nSCOPE\n- Use the heatmap as the prior score for each song/style combo.\n- Combine prior score with fresh runtime signals from PocketBase songs and ad_performance.\n- Produce a daily recommendation state per combo: candidate, testing, promoting, cooldown, winner, retired.\n- Define how the 3 ad layers are applied, escalated, paused, or stopped.\n\nREQUIRED OUTPUTS\n1. Candidate scoring model\n- Inputs: heatmap score, combined organic views, recent organic delta, recent watch-time delta, ad spend to date, cost_per_watch_hour, cost_per_sub, recency/cooldown state, optional exploration boost for under-tested styles.\n- Output: ranked list of promotion candidates for the day.\n\n2. Layer controller\n- Layer 1: low-budget test.\n- Layer 2: reinforcement if post-test metrics clear threshold.\n- Layer 3: scale if layer-2 efficiency remains above target.\n- Stop/cooldown rules for weak performers.\n\n3. Feedback loop\n- After each daily scout refresh, recompute status and next action for every candidate.\n- Campaign Manager should consume this policy output instead of making ad-hoc decisions from raw rows.\n\n4. Telegram briefing contract\n- Daily message should include: top candidates, active promotions, combos entering cooldown, combos promoted to next layer, and a short why for each recommendation.\n\nDECISION RULES TO SPECIFY\n- Minimum organic threshold before paid testing.\n- Escalation thresholds after each layer.\n- Cooldown duration.\n- Max concurrent promotions.\n- Daily budget allocation strategy across exploit vs explore.\n\nIMPLEMENTATION DIRECTION\n- Store policy state in PocketBase (either on songs records or a dedicated campaign_state collection if needed).\n- Keep the logic deterministic and inspectable; do not build a self-modifying agent loop.\n- Reuse the heatmap as the starting prior, but allow runtime metrics to reorder candidates over time.\n\nNON-GOAL\n- Do not implement Karpathy-style autoresearch or autonomous code mutation. This is a structured decision policy over promotion state, not an open-ended research loop.\n\nDEPENDENCIES\n- #109 songs mirror\n- TCR-7 daily scout updates\n- ad_performance collection\n\nSUCCESS CRITERIA\n- A human can inspect and explain why a combo was chosen, escalated, or cooled down.\n- Campaign Manager recommendations are derived from stable policy fields, not freeform interpretation alone.\n- The system supports both exploitation of known winners and exploration of under-tested combos. -- Codi. Approved.
+- **#117**: Project Portfolio: Add direct links to analytics (Stats) -- Add direct links to the analytics dashboard for specific projects in the Fleet Hub UI. -- Gem. Approved.
+- **dqprooej**: TCR-11: Music-video-tool AGENTS/ directory setup -- REASSIGNED from Clau to Gem — documentation structure is Gem's sweet spot. -- Gem. Approved.
+- **3h6dsn4h**: TCR-10: Gemma — weekly SEO audit and performance summary -- ASSIGNED TO GEMMA — local model, cost-free, repetitive task ideal for Gemma. -- Gem. Approved.
+- **slqxtrd9**: TCR-9: Playwright Reddit poster — automated daily posting -- ASSIGNED TO CODI — delivery/scripting, Codi's sweet spot. NOTE: Codi quota resets 2026-04-08 09:52. Do not start before then. -- Gem. Approved.
+- **tn28lgsj**: TCR-8: Campaign Manager — daily analytics briefing to Telegram -- REASSIGNED from Clau to Gem. -- Gem. Approved.
+- **743yt6fl**: TCR-7: Scout script — daily YouTube API pull to PocketBase -- ASSIGNED TO MISTY — Python scripting, well-scoped spec. -- Codi. Approved.
+- **#110**: Stats page — add music-only filter view -- ASSIGNED TO MISTY — contained frontend task to test Misty's implementation capabilities. -- Misty. Approved.
+- **#109**: Songs PocketBase collection — migrate from Excel tracker -- Create a 'songs' collection in PocketBase to replace the Excel tracker as the live source of truth for The Classical Remix catalog. This collection will feed the Scout, Campaign Manager, and SEO audit agent. -- Gemma. Approved.
+- **#108**: YouTube titles & descriptions reword for The Classical Remix -- Reword all existing video titles and descriptions for The Classical Remix channel to match the SEO formula identified on 2026-04-07. -- Gem. Approved.
+- **#107**: Multi-project fleet steering — allow N concurrent active projects -- REASSIGNED from Clau to Gem — architecture synthesis is Gem's core strength. -- Gem. Approved.
+- **#106**: Telegram bridge — auto-create follow-up task when message references a ticket number -- Problem: when a human sends a Telegram message referencing a closed ticket (e.g. "/gem Regarding #100 ..."), the bridge routes it to inbox.json but no PB task is created, so agents see it but have no actionable item and it falls through. -- Clau. Approved.
+- **#105**: Demo page — complete mock data (team, timeline, projects, PB viewer) -- Ticket #100 updated the CSS/JS but left the demo data incomplete. The demo at api.robotross.art/demo/ must be fully self-contained with realistic mock data. All edits go to the DO server via ssh robotsales at /opt/salesman-api/demo/. -- Clau. Approved.
+- **#104**: Root Directory Declutter -- The root of agentic-fleet-hub has accumulated files that belong elsewhere. Move the following using git mv and update any cross-references: -- Clau. Approved.
+- **#103**: Documentation Reorganization — FLEET_GUIDE.md -- Follow-on to your DOCUMENTATION_MAP.md audit (task 3xzo9sva). Goal: consolidate and restructure the root-level documentation using two inputs: -- Clau. Approved.
+- **#102**: Compliance Archive Logging + Shift Timeline Fix -- Implement append-only heartbeat_archive.jsonl and task_archive.jsonl for EU AI Act compliance and arXiv research data. Each heartbeat entry: agent, timestamp, status, task_id (if working), note, prev_entry_hash (tamper-evidence chain). Each task entry: lifecycle events (created, picked_up, completed, reassigned, blocked) with agent intent doc attached at pick-up. Files live at ~/fleet/, never pruned, periodically committed to private fleet-audit-log git branch. Consequences: (1) Update fleet_push.py to push pre-aggregated 15-min timeline segments fixing blank Shift Timeline rows for Clau/Gem/Codi. (2) PocketBase retention policy pruning heartbeats older than 14 days. See conversation 2026-04-07. -- Clau. Approved.
+- **#101**: Demo task for ping-pong loop -- A demo task to show back-and-forth between agents. -- Gem. Approved.
+- **#100**: Sync /demo with Flotilla v0.4.0 -- Update opt/salesman-api/demo/assets/main.js and style.css to match fleet v0.4.0. Add: (1) Schichtplan swim-lane timeline with mock segment data, (2) extended agents table columns (last seen, idle until, tokens, success rate) with mock values, (3) aggregate stats panel with mock numbers. Reference: opt/salesman-api/fleet/assets/main.js (960 lines) vs demo (467 lines). Deploy to DO server via ssh robotsales. -- Gem. Approved.
+- **#99**: Release Flotilla v0.4.0 -- Package bundled, CHANGELOG + ARCHITECTURE updated, version bumped to 0.4.0. Peer-reviewed by Clau 2026-04-06. Published to npm. -- Gem. Approved. -- Gem. Approved.
+- **#98**: Task branch + WORKLOG handoff protocol -- Rule in AGENTS/RULES.md; dispatcher checks branch on reassign and includes URL in handoff comment. -- Clau. Approved. -- Gem. Approved.
+- **#97**: #97 Fleet Hub: aggregate stats panel + retroactive log parser -- Two parts: -- Gem. Approved.
+- **#96**: #96 Fleet Hub: Schichtplan (agent shift timeline) -- Swim-lane timeline showing each agent activity over selectable time window (24h / 7d / 30d). -- Clau. Approved.
+- **#95**: #95 Fleet Hub: extended agents table -- Extend the agents table in the Fleet Hub UI with new columns: -- Gem. Approved.
+- **lqkl17be**: Your project on Capybara Market? -- Hey @UrsushoribilisMusic 👋 -- Clau. Approved.
 - **#93**: Tech-Angle Promotion (Reddit) -- Create tech-focused Reddit posts for u/robotrossart highlighting the Flotilla AI pipeline used for The Classical Remix. Goal: Cross-promotion and engineering credibility. -- Clau. Approved.
 - **myhluvej**: Fix Gemma agent: add aichat function tools + update plist invocation -- Gemma is not executing her heartbeat protocol. Root causes: 1) plist uses --rag mode (Q&A only, not agentic), 2) no aichat function tools defined so the model cannot call curl/file ops. Fix: create aichat functions (execute_command, read_file, write_file) and update plist invocation. -- Clau. Approved.
 - **3xzo9sva**: Fleet Documentation Audit - Gemma's First Task -- Create a comprehensive DOCUMENTATION_MAP.md file. Task details: 1) Explore repository structure using find/ls commands, 2) Analyze all *.md files, 3) Create DOCUMENTATION_MAP.md with categorized file list, 4) Identify documentation gaps, 5) Commit and push changes. Expected output: DOCUMENTATION_MAP.md at repo root with clear structure and health assessment. -- Gemma. Approved.
@@ -72,8 +82,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#87**: Lesson Summarizer: Post-session script -- Implement summarize_session.py to compress logs into JSON-structured lessons after each major loop. Inject top lessons into system prompts. -- Clau. Approved.
 - **#86**: Refine Lessons Schema: Enforce JSON structure -- Update PocketBase lessons collection to include mandatory fields: {decision, rationale, outcome, confidence_score}. Goal: Structured memory over free-text notes. -- Gem. Approved.
 - **#85**: Auto-Generate Daily Standup Files -- ## Problem -- Codi. Approved.
-- **#84**: Implement Option 1 - Dual Sync Strategy -- Implement Option 1 as requested by Miguel: Document Dual System, Keep both systems separate, Document that MC is for goals, PB for execution, Checksum system checks both sources. Includes updating dispatcher.py with PocketBase checksum logic. -- Gem. Approved.
-- **#83**: Fix Telegram messages incorrectly becoming GitHub issues -- Implemented comprehensive fixes to prevent Telegram direct messages from being incorrectly converted to GitHub issues. Changes include enhanced message routing, source tracking, and GitHub sync filtering. -- Gem. Approved.
+- **#84**: Hybrid Sync - MISSION_CONTROL.md <=> PocketBase -- Implement fleet_sync.py to bi-directionally sync the Markdown execution table with PocketBase state. -- Codi. Approved.
+- **#83**: Fix Telegram messages incorrectly becoming GitHub issues -- Implemented comprehensive fixes to prevent Telegram direct messages from being incorrectly converted to GitHub issues. -- Gem. Approved.
 - **#82**: Fleet Hub: Add "Blocked" filter to Task Board -- Allow humans to easily find tasks caught by the circuit breaker. -- Gem. Approved.
 - **#81**: Sync ~/fleet/gem/ with ~/fleet/ root versions -- Keep workspace copies in sync with deployed scripts. -- Gem. Approved.
 - **#80**: Release create-flotilla v0.3.0 to npm -- Perform pre-publish verification and release the new version using the Infisical-backed publish flow. -- Gem. Approved.
@@ -139,8 +149,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#22**: Ticket #22: npm package + npx installer (create-agentfleet) -- ## Objective -- Clau. Approved.
 - **#21**: Ticket #21: Kanban bridge scripts -- ## Objective -- Clau. Approved.
 - **#20**: Ticket #20: MIT License + open-source package structure -- ## Objective -- Clau. Approved.
+- **tcr14sta**: TCR-14: Stats page and heatmap read from PocketBase -- Move the stats page and heatmap off the sheet-driven runtime path so visibility uses PocketBase songs data. -- Codi. Approved.
+- **tcr13pbs**: TCR-13: PocketBase to Sheet reporting sync for YouTube metrics -- Sync YouTube metrics from PocketBase back into the reporting worksheet while leaving TikTok and Instagram columns human-owned. -- Codi. Approved.
 - **#5**: #5nkg4da6vgfbj1j: Peer review UI fixes for web page -- Reviewing UI fixes for the web page as described in task #5nkg4da6vgfbj1j -- Misty. Approved.
 - **tejrwdkf**: BBE page fixes: nav consolidation, project links, alignment -- ## What was done (Clau, 2026-03-12) -- Clau. Approved.
+- **w28r4jbj**: [infra] Codi PocketBase sandbox workaround — pre-fetch/flush wrapper -- Codi (Codex) runs in a sandboxed environment (-s workspace-write) where localhost:8090 is unreachable. Gem implemented a wrapper-based workaround: -- Gem. Approved.
 - **7e047f4z**: Growth Fleet, CRM branding, IAP inbox, mobile, BBE site, legal pages, lead intake -- Team. -- Gem. Approved.
 - **y35inha5**: Stats UI, heatmap, dashboard extraction -- Gem. -- Gem. Approved.
 - **vlubctvg**: Sheets migration, tracker API, OAuth wired -- Team. -- Gem. Approved.
@@ -149,12 +162,12 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **f6l6kh19**: Sheets migration, tracker API, OAuth wired -- Team. -- Gem. Approved.
 - **jq8jp97x**: good work, thanks, please close the ticket -- From Telegram: /gem good work, thanks, please close the ticket -- Gem. Approved.
 
-- **#100**: Sync /demo with Flotilla v0.4.0 -- Update demo assets, team, and projects to match v0.4.0 features and add mock data for timeline/stats. -- Gem. Approved.
-- **#99**: Release Flotilla v0.4.0 -- Package bundled, CHANGELOG + ARCHITECTURE updated, version bumped to 0.4.0. Peer-reviewed by Clau 2026-04-06. Published to npm. -- Gem. Approved.
-- **#98**: Task branch + WORKLOG handoff protocol -- Rule in AGENTS/RULES.md; dispatcher checks branch on reassign and includes URL in handoff comment. -- Clau. Approved.
-- **#94**: PB schema: task_events collection + dispatcher metrics logging -- Migration + dispatcher wiring done 2026-04-05; PB restarted + meta field fix 2026-04-06. -- Clau. Approved.
-- **#95**: Fleet Hub: extended agents table (last seen, idle until, tasks, tokens, success rate) -- Shipped 2026-04-05. -- Gem. Approved.
-- **#96**: Fleet Hub: Schichtplan — agent shift timeline (swim-lane, 24h/7d/30d) -- Shipped 2026-04-05. -- Clau. Approved.
-- **#97**: Fleet Hub: aggregate stats panel + retroactive log parser (arXiv paper data) -- Part A (live) & Part B (parser) done. -- Gem. Approved.
+### OPEN
+| Ticket | Description | Owner | Status | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| **#119** | [UI] Strip emojis from /demo dashboard menu | gemma | merged | Gemma, please fix the encoding issues in the demo dashboard menu by removing all emoji characters fr... |
+| **#120** | [Dashboard] Fix Standups and Inbox rendering in /fleet | misty | merged | Misty, the /fleet dashboard is not showing standups or inter-agent messages, even though data exists... |
+| **8sto1zdn** | #TCR-15: [Executor] Configure Google Ads OpenClaw executor | gem | planned | Configure the automated execution layer for Google Ads using OpenClaw.... |
+| **yoygqot6** | Scout script — daily YouTube API pull | misty | planned | Python script + launchd plist for daily metrics |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
