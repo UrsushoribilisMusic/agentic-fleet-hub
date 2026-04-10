@@ -1,0 +1,103 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Mexico Wood-Marking Log Normalized Event Schema",
+  "description": "Normalized schema for events extracted from RobotRoss Mexico wood-marking logs. See parser.py for the extraction logic.",
+  "type": "object",
+  "required": ["timestamp", "event_type", "source_file", "source_line", "message", "details"],
+  "properties": {
+    "timestamp": {
+      "description": "ISO 8601 formatted timestamp from the log entry (UTC)",
+      "type": "string",
+      "format": "date-time",
+      "examples": ["2026-03-19T12:44:47Z"]
+    },
+    "event_type": {
+      "description": "The normalized event category",
+      "type": "string",
+      "enum": [
+        "PEN_DOWN",
+        "DRAWING",
+        "JOB_START",
+        "JOB_END",
+        "DRAW_START",
+        "DRAW_END",
+        "CHECK",
+        "BUSY",
+        "SKETCH",
+        "APPROVE",
+        "OBS",
+        "CAFFEINATE",
+        "NARRATION",
+        "WARNING",
+        "VOICE_INTRO",
+        "VOICE_OUTRO",
+        "ERROR",
+        "MARKERS",
+        "STOP",
+        "AI_TOKENS",
+        "SKETCH_PREVIEW",
+        "GCODE",
+        "GCODE_COMMENT",
+        "PORT",
+        "SYSTEM_LOCK",
+        "DRY_RUN"
+      ]
+    },
+    "subtype": {
+      "description": "Secondary classification for granular categorization",
+      "type": ["string", "null"],
+      "examples": ["line", "moves", "status", "success", "failed", "start", "end", "system", "voice", "tokens", "error", "alert", "busy", "approved", "stop", "generated"]
+    },
+    "message": {
+      "description": "The cleaned/normalized log message content",
+      "type": "string"
+    },
+    "details": {
+      "description": "Structured extraction of key-value pairs from the event. Fields vary by event_type.",
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "action": {"type": "string", "description": "Action type (e.g., svg, png)"},
+        "content": {"type": "string", "description": "File content or path being processed"},
+        "size": {"type": "number", "description": "File/render size parameter"},
+        "status": {"type": "string", "description": "Status value (ready, not_ready, success, error, etc.)"},
+        "duration": {"type": "number", "description": "Duration in seconds"},
+        "progress": {"type": "string", "description": "Textual progress indicator"},
+        "line_number": {"type": "integer", "description": "Current line number in drawing"},
+        "total_lines": {"type": "integer", "description": "Total number of lines in drawing"},
+        "move_number": {"type": "integer", "description": "Current move number"},
+        "total_moves": {"type": "integer", "description": "Total number of moves"},
+        "percentage": {"type": "integer", "description": "Completion percentage"},
+        "x_mm": {"type": "number", "description": "X coordinate in millimeters"},
+        "y_mm": {"type": "number", "description": "Y coordinate in millimeters"},
+        "z_mm": {"type": "number", "description": "Z coordinate in millimeters"},
+        "prompt": {"type": "string", "description": "AI sketch prompt"},
+        "input_tokens": {"type": "integer", "description": "Number of input tokens (AI TOKENS event)"},
+        "output_tokens": {"type": "integer", "description": "Number of output tokens (AI TOKENS event)"},
+        "total_tokens": {"type": "integer", "description": "Total tokens used (AI TOKENS event)"},
+        "error_type": {"type": "string", "description": "Classification of error"},
+        "reason": {"type": "string", "description": "Reason for skip/error"},
+        "gcode": {"type": "string", "description": "G-code command"}
+      }
+    },
+    "source_file": {
+      "description": "Name of the source log file",
+      "type": "string",
+      "minLength": 1
+    },
+    "source_line": {
+      "description": "Line number in the source log file (1-indexed)",
+      "type": "integer",
+      "minimum": 1
+    },
+    "session_id": {
+      "description": "Optional session identifier for grouping related events",
+      "type": ["string", "null"]
+    },
+    "job_id": {
+      "description": "Extracted job identifier when available",
+      "type": ["string", "null"]
+    }
+  },
+  "additionalProperties": false
+}
