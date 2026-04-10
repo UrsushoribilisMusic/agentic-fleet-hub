@@ -273,5 +273,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **#132** | [ATF-9] Build local CLI QA shell over wiki and ledger | clau | planned | ## Context... |
 | **#133** | [ATF-10] Cross-reference Mexico logs into the compiled wiki | misty | planned | ## Context... |
 | **#134** | [ATF-11] Optional voice shell with Whisper and Voxtral | misty | planned | ## Context... |
+| **#135** | [Ops] Stabilize PocketBase single-instance ownership and lock contention | gem | planned | Investigate and harden PocketBase so only one mana... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
