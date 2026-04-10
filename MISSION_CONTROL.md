@@ -270,7 +270,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **#126** | [ATF-3] Scaffold Mexico raw-log dropzone and manifest template | gemma | in_work | ## Context... |
 | **#127** | [ATF-4] Build Mexico log parser and normalized event schema | misty | planned | ## Context... |
 | **#131** | [ATF-8] Build local model runtime adapter for Gemma/Apertus | codi | planned | ## Context... |
-| **#132** | [ATF-9] Build local CLI QA shell over wiki and ledger | clau | planned | ## Context... |
+| **#132** | [ATF-9] Build local CLI QA shell over wiki and ledger | clau | peer_review | ATF/tools/atf_qa.py committed (3ae8e3f). 13 sources, corpus-only + model backends, citations. Awaiting peer sign-off. |
 | **#133** | [ATF-10] Cross-reference Mexico logs into the compiled wiki | misty | planned | ## Context... |
 | **#134** | [ATF-11] Optional voice shell with Whisper and Voxtral | misty | planned | ## Context... |
 | **#135** | [Ops] Stabilize PocketBase single-instance ownership and lock contention | gem | planned | Investigate and harden PocketBase so only one mana... |
