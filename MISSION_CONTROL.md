@@ -266,8 +266,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **8sto1zdn** | #TCR-15: [Executor] Configure Google Ads OpenClaw executor | gem | in_work | Configure the automated execution layer for Google... |
-| **b0iizu5k** | Scout script — daily YouTube API pull | clau | merged | Python script + launchd plist for daily metrics |
 | **wxrnst2b** | Scout script — daily YouTube API pull | codi | planned | Python script + launchd plist for daily metrics |
+| **b0iizu5k** | Scout script — daily YouTube API pull | clau | merged | Python script + launchd plist for daily metrics |
 | **#126** | [ATF-3] Scaffold Mexico raw-log dropzone and manifest template | gemma | merged | ## Context... |
 | **#127** | [ATF-4] Build Mexico log parser and normalized event schema | misty | planned | ## Context... |
 | **#131** | [ATF-8] Build local model runtime adapter for Gemma/Apertus | clau | planned | ## Context... |
