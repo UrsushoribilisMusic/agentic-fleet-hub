@@ -1,5 +1,15 @@
 [
     {
+        "date": "2026-04-10",
+        "summary": "Codi wired Google Ads credentials and approval flow for TCR, deployed the live analytics recommendation fix, and verified the current hot-test target as Danse Macabre | Vallenato.",
+        "file": "2026-04-10.md"
+    },
+    {
+        "date": "2026-04-09",
+        "summary": "Gem produced the RobotRoss source manifest (#125). Codi fixed Fleet Hub timeline reliability and heartbeat stale-state false positives. Misty defined EU AI Act wiki mapping metadata.",
+        "file": "2026-04-09.md"
+    },
+    {
         "date": "2026-04-08",
         "summary": "Gem approved #107. Codi finished the TCR runtime pipeline: scout -> PocketBase, public stats/heatmap from PocketBase, and PocketBase -> Sheet YouTube sync, while restoring GitHub-first ticket creation for TCR-12/13/14.",
         "file": "2026-04-08.md"

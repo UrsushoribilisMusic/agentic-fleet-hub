@@ -31,6 +31,12 @@ Normalizes Virtuals ACP, Google AP2, A2A, MCP into a single endpoint. Human and 
 **Build System — The Development Fleet** (not a product layer — it's how the products are built and maintained)
 Multi-agent fleet builds enterprise software at agent speed. GitHub workflow, human Switchboard oversight. Weeks compressed to days — fully auditable. EU AI Act compliant development pipeline.
 
+### Agentegra ATF (Automated Technical File)
+
+The **ATF** is the sovereign compliance and explainability engine for Agentegra-built products. It generates a local-first "evidence-based transparency" audit trail, including a compiled wiki, operational ledger, and local Q&A CLI. This ensures full compliance with the EU AI Act's traceability and record-keeping mandates without cloud exposure.
+
+See [[agentegra_atf_architecture]] for the full technical schema and repository contract.
+
 *Website section intro: "Two sovereign product layers — built and upgraded by an agent development fleet at founder economics."*
 
 ### Why EU AI Act Matters for the Sales Pitch
