@@ -85,3 +85,4 @@ if [ $POST_EXIT -ne 0 ]; then
 fi
 
 echo "$LOG_PREFIX: Clau heartbeat complete"
+exit $CLAUDE_EXIT
