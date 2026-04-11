@@ -49,11 +49,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
-- **gyfz6ceg**: [ATF] Build human-readable operational ledger dashboard for Mexico logs -- ## Context -- Codi. Approved.
-- **vbwk63sc**: [ATF] Build browser-readable wiki UI over compiled ATF articles -- ## Context -- Clau. Approved.
-- **m8tqyiij**: [Ops] Investigate recurring Telegram billing warning unrelated to Google Ads -- ## Context -- Codi. Approved.
-- **k6oqniti**: [TCR-16] Build live Google Ads campaign execution on top of paused shell -- ## Context -- Gem. Approved.
-- **#136**: [ATF-8] Build local model runtime adapter for Apertus/Ollama -- ## Context -- Clau. Approved.
+- **#130**: [ATF-7] Add EU AI Act mapping metadata for wiki pages -- ## Context -- Misty. Approved.
+- **#129**: [ATF-6] Scaffold wiki index/log and page templates -- ## Context -- Gemma. Approved.
+- **#128**: [ATF-5] Generate initial compiled wiki from RobotRoss code/docs -- ## Context -- Gem. Approved.
+- **#125**: [ATF-2] Inventory RobotRoss source corpus for compiled wiki -- ## Context -- Gem. Approved.
+- **#124**: [ATF-1] Define Agentegra ATF architecture and schema contract -- ## Context -- Gem. Approved.
 - **#122**: Document shift timeline and heartbeat reliability fixes -- #122: Document shift timeline and heartbeat reliability fixes. Scope: record the Fleet Hub fixes completed on 2026-04-09, including (1) sidebar/user management/kanban live-server repairs, (2) timeline snapshot path using archive plus PB data, (3) dispatcher offline status surfaced into timeline segments, (4) synthetic working segments from task_events/comments for Gemma activity, and (5) idle-on-skip heartbeat wrapper fix for Clau/Gem/Codi to prevent false stale/offline states. Add the operational explanation to architecture docs and daily standup, then sync Mission Control. -- Codi. Approved.
 - **#120**: [Dashboard] Fix Standups and Inbox rendering in /fleet -- Misty, the /fleet dashboard is not showing standups or inter-agent messages, even though data exists in the snapshot. This likely broke during the /demo page fixes. -- Misty. Approved.
 - **#119**: [UI] Strip emojis from /demo dashboard menu -- Gemma, please fix the encoding issues in the demo dashboard menu by removing all emoji characters from the nav labels. -- Gemma. Approved.
@@ -266,25 +266,14 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **8sto1zdn** | #TCR-15: [Executor] Configure Google Ads OpenClaw executor | gem | in_work | Configure the automated execution layer for Google... |
-| **wsr101vk** | Scout script — daily YouTube API pull | misty | in_work | Python script + launchd plist for daily metrics |
-| **oiau2utz** | Scout script — daily YouTube API pull | clau | merged | Python script + launchd plist for daily metrics |
+| **wxrnst2b** | Scout script — daily YouTube API pull | codi | planned | Python script + launchd plist for daily metrics |
 | **b0iizu5k** | Scout script — daily YouTube API pull | clau | merged | Python script + launchd plist for daily metrics |
-| **3tkwcwy8** | Scout script — daily YouTube API pull | codi | merged | Python script + launchd plist for daily metrics |
-| **#124** | [ATF-1] Define Agentegra ATF architecture and schema contract | codi | planned | ## Context... |
-| **#125** | [ATF-2] Inventory RobotRoss source corpus for compiled wiki | gem | planned | ## Context... |
-| **#126** | [ATF-3] Scaffold Mexico raw-log dropzone and manifest template | gemma | planned | ## Context... |
+| **#126** | [ATF-3] Scaffold Mexico raw-log dropzone and manifest template | gemma | merged | ## Context... |
 | **#127** | [ATF-4] Build Mexico log parser and normalized event schema | misty | planned | ## Context... |
-| **#128** | [ATF-5] Generate initial compiled wiki from RobotRoss code/docs | gem | planned | ## Context... |
-| **#129** | [ATF-6] Scaffold wiki index/log and page templates | gemma | planned | ## Context... |
-| **#130** | [ATF-7] Add EU AI Act mapping metadata for wiki pages | misty | planned | ## Context... |
-| **#131** | [ATF-8] Build local model runtime adapter for Gemma/Apertus | codi | planned | ## Context... |
-| **#132** | [ATF-9] Build local CLI QA shell over wiki and ledger | clau | planned | ## Context... |
-| **#133** | [ATF-10] Cross-reference Mexico logs into the compiled wiki | misty | planned | ## Context... |
-| **#134** | [ATF-11] Optional voice shell with Whisper and Voxtral | misty | planned | ## Context... |
-| **#135** | [Ops] Stabilize PocketBase single-instance ownership and lock contention | gem | merged | Investigate and harden PocketBase so only one mana... |
-| **h6xy2yt7** | [ATF] Rebuild QA grounding from canonical RobotRoss sources and ledger data | gem | merged | ## Context... |
-| **qc5xcwi1** | [RobotRoss] Merge Mexico voice/pyro features from bobrossskill into robot-ross | gem | in_work | ## Context... |
-| **8dvp6ma6** | [ATF] Build integrated RobotRoss demo landing page for DigitalOcean deployment | clau | merged | ## Context... |
-| **b0envpk8** | [ATF] Build integrated local RobotRoss knowledge console with text and voice QA | clau | merged | ## Context... |
+| **#131** | [ATF-8] Build local model runtime adapter for Gemma/Apertus | clau | planned | ## Context... |
+| **#132** | [ATF-9] Build local CLI QA shell over wiki and ledger | clau | merged | ## Context... |
+| **#133** | [ATF-10] Cross-reference Mexico logs into the compiled wiki | gem | planned | ## Context... |
+| **#134** | [ATF-11] Optional voice shell with Whisper and Voxtral | clau | planned | ## Context... |
+| **#135** | [Ops] Stabilize PocketBase single-instance ownership and lock contention | gem | planned | Investigate and harden PocketBase so only one mana... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**

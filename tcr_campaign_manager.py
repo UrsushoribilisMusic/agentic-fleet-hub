@@ -3,8 +3,7 @@
 TCR Campaign Manager: Generates a daily analytics briefing for Telegram.
 """
 
-import os
-import json
+import re
 import requests
 from datetime import datetime
 
@@ -22,7 +21,7 @@ def get_monthly_spend():
                          params={"filter": f'created >= "{start_of_month}"', "perPage": 200},
                          timeout=10)
         items = r.json().get("items", [])
-        return sum(float(i.get("spend_chf", 0)) for i in items)
+        return sum(float(i.get("spend", 0) or 0) for i in items)
     except:
         return 0.0
 
@@ -50,6 +49,35 @@ def get_recommendations():
     except:
         return []
 
+def normalize_key(value):
+    return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
+
+def choose_song_for_recommendation(rec, songs):
+    if not rec or not rec.get("piece") or not rec.get("style"):
+        return None, False
+
+    target_piece = normalize_key(rec["piece"])
+    target_style = normalize_key(rec["style"])
+
+    exact = []
+    piece_only = []
+    for song in songs:
+        piece = normalize_key(song.get("piece", ""))
+        style = normalize_key(song.get("style", ""))
+        if piece == target_piece and style == target_style:
+            exact.append(song)
+        elif piece == target_piece:
+            piece_only.append(song)
+
+    exact.sort(key=lambda item: (int(item.get("ad_eligible", 0)), float(item.get("combined_views", 0) or 0)), reverse=True)
+    piece_only.sort(key=lambda item: (int(item.get("ad_eligible", 0)), float(item.get("combined_views", 0) or 0)), reverse=True)
+
+    if exact:
+        return exact[0], False
+    if piece_only:
+        return piece_only[0], True
+    return None, False
+
 def format_briefing():
     today = datetime.now().strftime("%Y-%m-%d")
     daily_budget = get_budget()
@@ -66,6 +94,7 @@ def format_briefing():
     
     # 3. Recommended boost
     top_rec = recommendations[0] if recommendations else None
+    selected_song, used_fallback = choose_song_for_recommendation(top_rec, songs)
     
     # Adjust budget if monthly cap is close
     remaining_monthly = MONTHLY_BUDGET_CAP - monthly_spend
@@ -87,7 +116,14 @@ def format_briefing():
         
     msg += "\nRecommended boost today:\n"
     if top_rec and proposed_spend > 0:
-        msg += f"- {top_rec['piece']} ({top_rec['style']}) — Predicted avg: {top_rec['predicted_avg']}\n"
+        selected_piece = selected_song.get("piece") if selected_song else top_rec["piece"]
+        selected_style = selected_song.get("style") if selected_song else top_rec["style"]
+        selected_url = (selected_song or {}).get("full_url") or (selected_song or {}).get("short_url") or "URL not available"
+        msg += f"- Analytics recommendation: {top_rec['piece']} ({top_rec['style']}) — Predicted avg: {top_rec['predicted_avg']}\n"
+        msg += f"- Selected for execution review: {selected_piece} ({selected_style})\n"
+        msg += f"- YouTube URL: {selected_url}\n"
+        if used_fallback:
+            msg += "- Note: exact style not found in PocketBase, so this is a same-piece fallback.\n"
         msg += f"Proposed spend: CHF {proposed_spend:.2f}\n"
         msg += "Daily Split:\n"
         msg += f"  - CHF {proposed_spend * 0.6:.2f} Content targeting\n"
