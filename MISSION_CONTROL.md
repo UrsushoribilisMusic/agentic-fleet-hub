@@ -266,6 +266,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **8sto1zdn** | #TCR-15: [Executor] Configure Google Ads OpenClaw executor | gem | in_work | Configure the automated execution layer for Google... |
+| **wsr101vk** | Scout script — daily YouTube API pull | misty | in_work | Python script + launchd plist for daily metrics |
+| **oiau2utz** | Scout script — daily YouTube API pull | clau | merged | Python script + launchd plist for daily metrics |
 | **b0iizu5k** | Scout script — daily YouTube API pull | clau | merged | Python script + launchd plist for daily metrics |
 | **3tkwcwy8** | Scout script — daily YouTube API pull | codi | merged | Python script + launchd plist for daily metrics |
 | **#124** | [ATF-1] Define Agentegra ATF architecture and schema contract | codi | planned | ## Context... |
@@ -284,7 +286,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **qc5xcwi1** | [RobotRoss] Merge Mexico voice/pyro features from bobrossskill into robot-ross | gem | in_work | ## Context... |
 | **8dvp6ma6** | [ATF] Build integrated RobotRoss demo landing page for DigitalOcean deployment | clau | merged | ## Context... |
 | **b0envpk8** | [ATF] Build integrated local RobotRoss knowledge console with text and voice QA | clau | merged | ## Context... |
-| **oiau2utz** | Scout script — daily YouTube API pull | clau | merged | Python script + launchd plist for daily metrics |
-| **wsr101vk** | Scout script — daily YouTube API pull | misty | in_work | Python script + launchd plist for daily metrics |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
