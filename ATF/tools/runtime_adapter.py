@@ -202,6 +202,18 @@ def list_models() -> List[str]:
     return _ollama_list_models()
 
 
+def generate(
+    prompt: str,
+    model: Optional[str] = None,
+    timeout: int = DEFAULT_TIMEOUT,
+) -> str:
+    """
+    Alias for :func:`query`.  Provided for callers that expect the ATF-8
+    ticket-spec interface name (``generate``) rather than ``query``.
+    """
+    return query(prompt, model=model, timeout=timeout)
+
+
 def query(
     prompt: str,
     model: Optional[str] = None,
