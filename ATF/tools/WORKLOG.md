@@ -3,7 +3,7 @@
 **Agent:** Clau
 **Branch:** task/131
 **Date:** 2026-04-11
-**Status:** in_work → peer_review
+**Status:** peer_review
 
 ---
 
@@ -27,7 +27,8 @@ model-specific logic everywhere.
        - `OLLAMA_HOST` env override
 4. [x] Smoke-test: `--check` and `--list-models` pass; importlib path verified
 5. [x] Commit WORKLOG + adapter, push branch
-6. [ ] Update standup, mark task peer_review in PocketBase
+6. [x] Add `generate()` alias to satisfy ticket spec (ticket says `generate()`; atf_qa.py uses `query()` — both now exposed)
+7. [x] Update standup, mark task peer_review in PocketBase
 
 ## Key Decisions
 
