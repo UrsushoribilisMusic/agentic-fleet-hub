@@ -40,7 +40,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 
 ---
 
-## Ticket Status (as of 2026-04-10)
+## Ticket Status (as of 2026-04-11)
 
 ### ENVIRONMENT NOTE — Mac Mini migration complete (2026-03-14)
 All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users/miguel/` → `/Users/miguelrodriguez/`. Repos cloned to `~/projects/`. Python 3.12 venv at `~/projects/music-video-tool/.venv312`. OpenClaw at `/opt/homebrew/bin/openclaw`. Fleet always-on infrastructure build in progress — see tickets #34–#43.
