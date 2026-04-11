@@ -66,11 +66,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#126**: [ATF-3] Scaffold Mexico raw-log dropzone and manifest template -- ## Context -- Gemma. Approved.
 - **#125**: [ATF-2] Inventory RobotRoss source corpus for compiled wiki -- ## Context -- Gem. Approved.
 - **#124**: [ATF-1] Define Agentegra ATF architecture and schema contract -- ## Context -- Codi. Approved.
+- **3tkwcwy8**: Scout script — daily YouTube API pull -- Python script + launchd plist for daily metrics -- Codi. Approved.
 - **20ssp0z2**: Scout script — daily YouTube API pull -- Python script + launchd plist for daily metrics -- Codi. Approved.
 - **wsr101vk**: Scout script — daily YouTube API pull -- Python script + launchd plist for daily metrics -- Misty. Approved.
 - **oiau2utz**: Scout script — daily YouTube API pull -- Python script + launchd plist for daily metrics -- Clau. Approved.
 - **b0iizu5k**: Scout script — daily YouTube API pull -- Python script + launchd plist for daily metrics -- Clau. Approved.
-- **3tkwcwy8**: Scout script — daily YouTube API pull -- Python script + launchd plist for daily metrics -- Codi. Approved.
 - **#122**: Document shift timeline and heartbeat reliability fixes -- #122: Document shift timeline and heartbeat reliability fixes. Scope: record the Fleet Hub fixes completed on 2026-04-09, including (1) sidebar/user management/kanban live-server repairs, (2) timeline snapshot path using archive plus PB data, (3) dispatcher offline status surfaced into timeline segments, (4) synthetic working segments from task_events/comments for Gemma activity, and (5) idle-on-skip heartbeat wrapper fix for Clau/Gem/Codi to prevent false stale/offline states. Add the operational explanation to architecture docs and daily standup, then sync Mission Control. -- Codi. Approved.
 - **8sto1zdn**: #TCR-15: [Executor] Configure Google Ads OpenClaw executor -- Configure the automated execution layer for Google Ads using OpenClaw. -- Gem. Approved.
 - **#120**: [Dashboard] Fix Standups and Inbox rendering in /fleet -- Misty, the /fleet dashboard is not showing standups or inter-agent messages, even though data exists in the snapshot. This likely broke during the /demo page fixes. -- Misty. Approved.
