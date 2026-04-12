@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Overview</title>
+  <style>
+:root {
+  --bg: #f5f1e8;
+  --paper: #fffdfa;
+  --ink: #1f2a2e;
+  --muted: #6b7476;
+  --line: #d6d0c6;
+  --accent: #b54d2f;
+  --accent-2: #2f6a73;
+  --soft: #ede6da;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top right, rgba(181,77,47,0.10), transparent 28%),
+    linear-gradient(180deg, #f8f4ec 0%, #f1ece2 100%);
+}
+a { color: var(--accent-2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.shell {
+  width: min(1180px, calc(100vw - 48px));
+  margin: 24px auto 48px;
+}
+.hero {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 28px 30px;
+  box-shadow: 0 14px 36px rgba(31,42,46,0.08);
+}
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font: 700 12px/1.2 system-ui, sans-serif;
+}
+h1 {
+  margin: 0 0 12px;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1.02;
+}
+.lede {
+  margin: 0;
+  max-width: 72ch;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.6;
+}
+.grid {
+  display: grid;
+  gap: 18px;
+  margin-top: 22px;
+}
+.grid.cards { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 28px rgba(31,42,46,0.05);
+}
+.card h2, .card h3 { margin-top: 0; }
+.nav {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+.sidebar {
+  background: rgba(255,253,250,0.82);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  position: sticky;
+  top: 18px;
+  height: fit-content;
+}
+.sidebar h3 {
+  margin: 0 0 12px;
+  font: 700 14px/1.2 system-ui, sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sidebar li + li { margin-top: 8px; }
+.article {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 28px 34px;
+  box-shadow: 0 12px 30px rgba(31,42,46,0.06);
+}
+.article h1, .article h2, .article h3 { line-height: 1.15; }
+.article p, .article li {
+  font-size: 17px;
+  line-height: 1.7;
+}
+.article ul, .article ol { padding-left: 22px; }
+.article pre {
+  overflow-x: auto;
+  background: #f1ece2;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+}
+.article code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  background: #f1ece2;
+  border-radius: 4px;
+  padding: 0 4px;
+}
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+.kpi {
+  background: linear-gradient(180deg, #fffdfa 0%, #f4ede1 100%);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+}
+.kpi .value {
+  font-size: 30px;
+  font-weight: 700;
+}
+.kpi .label {
+  color: var(--muted);
+  font: 600 12px/1.3 system-ui, sans-serif;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+th, td {
+  border-bottom: 1px solid var(--line);
+  padding: 10px 8px;
+  text-align: left;
+  vertical-align: top;
+  font-size: 15px;
+}
+th {
+  color: var(--muted);
+  font: 700 12px/1.2 system-ui, sans-serif;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.pill {
+  display: inline-block;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 10px;
+  margin: 0 8px 8px 0;
+  font: 600 13px/1.1 system-ui, sans-serif;
+}
+@media (max-width: 900px) {
+  .nav { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+  .shell { width: min(100vw - 24px, 1180px); }
+  .article { padding: 22px 20px; }
+}
+</style>
+</head>
+<body>
+  
+<div class="shell">
+  <div class="hero">
+    <p class="eyebrow">Agentegra ATF</p>
+    <h1>Overview</h1>
+    <p class="lede">Compiled RobotRoss knowledge pages rendered from the current ATF markdown corpus.</p>
+  </div>
+  <div class="nav">
+    <aside class="sidebar">
+      <p><a href="../index.html">ATF home</a></p>
+      <h3>Overview</h3><ul>
+<li><a href="Overview.html" style="font-weight:700">Overview</a></li>
+</ul>
+<h3>Subsystems</h3><ul>
+<li><a href="CommerceLayer.html">CommerceLayer</a></li>
+<li><a href="HardwareInterface.html">HardwareInterface</a></li>
+<li><a href="JobOrchestration.html">JobOrchestration</a></li>
+<li><a href="OrderManagement.html">OrderManagement</a></li>
+</ul>
+<h3>Topics</h3><ul>
+<li><a href="BiddingRules.html">BiddingRules</a></li>
+<li><a href="Calibration.html">Calibration</a></li>
+<li><a href="Compliance.html">Compliance</a></li>
+<li><a href="Narration.html">Narration</a></li>
+<li><a href="ShopifyIntegration.html">ShopifyIntegration</a></li>
+<li><a href="VideoProof.html">VideoProof</a></li>
+<li><a href="VirtualsACP.html">VirtualsACP</a></li>
+</ul>
+    </aside>
+    <article class="article">
+      <h1 id="robotross-system-overview">RobotRoss System Overview</h1>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>RobotRoss is an autonomous robotic artist platform designed to bridge AI creativity with physical execution. It uses a Huenit robotic arm to draw plotter-optimized SVGs or write calligraphy while providing poetic narration in the style of Bob Ross.</p>
+<h2 id="2-core-architecture">2. Core Architecture</h2>
+<p>The system follows a three-layer architecture:</p>
+<ul>
+<li><strong>Commerce Layer</strong>: <a href="CommerceLayer.html">CommerceLayer</a> handles order intake, queue management, and the competitive bidding system.</li>
+<li><strong>Orchestration Layer</strong>: <a href="JobOrchestration.html">JobOrchestration</a> (primarily <code>bob_ross.py</code>) manages the job lifecycle, narration, recording, and uploading.</li>
+<li><strong>Hardware Layer</strong>: <a href="HardwareInterface.html">HardwareInterface</a> provides low-level G-code control and calibration for the robot arm.</li>
+</ul>
+<h2 id="3-key-subsystems">3. Key Subsystems</h2>
+<ul>
+<li><a href="CommerceLayer.html">CommerceLayer</a>: Salesman API and order queue management.</li>
+<li><a href="JobOrchestration.html">JobOrchestration</a>: The brain of the artist side.</li>
+<li><a href="HardwareInterface.html">HardwareInterface</a>: Serial G-code control of the Huenit arm.</li>
+<li><a href="OrderManagement.html">OrderManagement</a>: Polling and logging of drawing jobs on the Artist side.</li>
+<li><a href="Narration.html">Narration</a>: Local LLM-based poetic commentary.</li>
+<li><a href="VideoProof.html">VideoProof</a>: Automated OBS recording and YouTube uploading.</li>
+</ul>
+<h2 id="4-key-integration-topics">4. Key Integration Topics</h2>
+<ul>
+<li><a href="BiddingRules.html">BiddingRules</a>: Competitive overwrite rules and the 8x8 Wall of Fame.</li>
+<li><a href="ShopifyIntegration.html">ShopifyIntegration</a>: Webhooks, metadata write-back, and human e-commerce.</li>
+<li><a href="VirtualsACP.html">VirtualsACP</a>: Agentic commerce protocol for autonomous hiring.</li>
+<li><a href="Calibration.html">Calibration</a>: Necessary startup procedures for hardware accuracy.</li>
+<li><a href="Compliance.html">Compliance</a>: EU AI Act mapping and architectural traceability.</li>
+</ul>
+<h2 id="5-hardware-requirements">5. Hardware Requirements</h2>
+<ul>
+<li><strong>Computer</strong>: Mac Mini M4 (Apple Silicon)</li>
+<li><strong>Robot</strong>: Huenit Robotic Arm</li>
+<li><strong>Cameras</strong>: Reolink 4K (Main) + macOS Screen Capture (Board)</li>
+<li><strong>Audio</strong>: BlackHole 2ch for internal routing</li>
+</ul>
+<h2 id="6-software-stack">6. Software Stack</h2>
+<ul>
+<li><strong>OS</strong>: macOS (darwin) for Artist; Ubuntu (Linux) for Salesman.</li>
+<li><strong>LLM</strong>: Apertus 8B (local via Ollama)</li>
+<li><strong>Agent Framework</strong>: OpenClaw</li>
+<li><strong>Utilities</strong>: OBS Studio, ffmpeg, Python 3.12, Node.js</li>
+</ul>
+<h2 id="7-uncertainty-amp-contradictions">7. Uncertainty &amp; Contradictions</h2>
+<ul>
+<li><strong>Calibration Persistence</strong>: Source code indicates calibration is required after every restart (<code>READY_FLAG</code> in <code>/tmp</code>), but some docs suggest it might be semi-persistent.</li>
+<li><strong>Pen Pressure</strong>: Manual leveling of the table is mentioned as a physical requirement that software cannot currently compensate for.</li>
+<li><strong>Narration Latency</strong>: There is an inherent delay while Apertus 8B generates narration, which <code>bob_ross.py</code> handles with a wait period, but the impact on &quot;live&quot; feel is a point of ongoing optimization.</li>
+</ul>
+<hr>
+<p><strong>Sources:</strong></p>
+<ul>
+<li><code>AGENTS/CONTEXT/robot_ross_artist.md</code></li>
+<li><code>AGENTS/CONTEXT/robot_ross_salesman.md</code></li>
+<li><code>~/.openclaw/workspace/skills/robot-ross/bob_ross.py</code></li>
+</ul>
+    </article>
+  </div>
+</div>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RobotRoss Knowledge Surface</title>
+  <title>JobOrchestration</title>
   <style>
 :root {
   --bg: #f5f1e8;
@@ -186,26 +186,60 @@ th {
 <div class="shell">
   <div class="hero">
     <p class="eyebrow">Agentegra ATF</p>
-    <h1>RobotRoss Knowledge Surface</h1>
-    <p class="lede">Single entry point for the current compiled wiki, the operational ledger dashboard, and the local QA tools. This build reflects the current on-disk corpus and can be regenerated after the repo merge and re-ingestion work.</p>
+    <h1>JobOrchestration</h1>
+    <p class="lede">Compiled RobotRoss knowledge pages rendered from the current ATF markdown corpus.</p>
   </div>
-  <div class="grid cards">
-    <div class="card">
-      <h2><a href="wiki-ui/index.html">Browse the wiki</a></h2>
-      <p>Read the current compiled RobotRoss knowledge pages in a browser.</p>
-    </div>
-    <div class="card">
-      <h2><a href="ledger-ui/index.html">Open the ledger dashboard</a></h2>
-      <p>Inspect the current event corpus with totals, categories, and sample rows.</p>
-    </div>
-    <div class="card">
-      <h2>Ask the local model</h2>
-      <p>Run <code>python3 ATF/tools/atf_qa.py --shell</code> from the repo root for text QA over the corpus.</p>
-    </div>
-    <div class="card">
-      <h2>Optional voice layer</h2>
-      <p>The voice shell is still pending canonical re-ingestion. Keep it behind the local deployment path only.</p>
-    </div>
+  <div class="nav">
+    <aside class="sidebar">
+      <p><a href="../index.html">ATF home</a></p>
+      <h3>Overview</h3><ul>
+<li><a href="Overview.html">Overview</a></li>
+</ul>
+<h3>Subsystems</h3><ul>
+<li><a href="CommerceLayer.html">CommerceLayer</a></li>
+<li><a href="HardwareInterface.html">HardwareInterface</a></li>
+<li><a href="JobOrchestration.html" style="font-weight:700">JobOrchestration</a></li>
+<li><a href="OrderManagement.html">OrderManagement</a></li>
+</ul>
+<h3>Topics</h3><ul>
+<li><a href="BiddingRules.html">BiddingRules</a></li>
+<li><a href="Calibration.html">Calibration</a></li>
+<li><a href="Compliance.html">Compliance</a></li>
+<li><a href="Narration.html">Narration</a></li>
+<li><a href="ShopifyIntegration.html">ShopifyIntegration</a></li>
+<li><a href="VideoProof.html">VideoProof</a></li>
+<li><a href="VirtualsACP.html">VirtualsACP</a></li>
+</ul>
+    </aside>
+    <article class="article">
+      <h1 id="job-orchestration-subsystem">Job Orchestration Subsystem</h1>
+<h2 id="1-role">1. Role</h2>
+<p>The Job Orchestration subsystem is the central &quot;brain&quot; of the RobotRoss artist side. It is primarily implemented in <code>bob_ross.py</code> and coordinates all other subsystems to fulfill drawing orders.</p>
+<h2 id="2-main-orchestrator-bob-ross-py">2. Main Orchestrator: <code>bob_ross.py</code></h2>
+<p>This script manages the high-level workflow of a drawing job:</p>
+<ol>
+<li><strong>Order Intake</strong>: Accepts commands like <code>sketch</code>, <code>write</code>, <code>draw</code>, or <code>svg</code>.</li>
+<li><strong>Readiness Check</strong>: Verifies hardware connection, calibration state, and local model (Ollama) availability.</li>
+<li><strong>Locking Mechanism</strong>: Uses <code>/tmp/robot_ross_running.lock</code> to ensure only one job runs at a time.</li>
+<li><a href="Narration.html">Narration</a> <strong>Generation</strong>: Calls Apertus 8B to generate poetic commentary based on the job prompt.</li>
+<li><a href="VideoProof.html">VideoProof</a> <strong>Control</strong>: Triggers OBS Studio recording via WebSocket.</li>
+<li><strong>Execution Control</strong>: Spawns hardware-level scripts (<code>huenit_svg.py</code>, etc.) to move the arm.</li>
+<li><strong>Cleanup</strong>: Releases the job lock and triggers post-processing of the video proof.</li>
+</ol>
+<h2 id="3-job-lifecycle">3. Job Lifecycle</h2>
+<p>The full job lifecycle is documented in <a href="Overview#Full Job Lifecycle.html">Overview#Full Job Lifecycle</a>.</p>
+<h2 id="4-uncertainty-amp-contradictions">4. Uncertainty &amp; Contradictions</h2>
+<ul>
+<li><strong>Error Recovery</strong>: The current implementation of <code>bob_ross.py</code> uses a job lock but does not explicitly document how it handles mid-job hardware failures or power loss. If a job is interrupted, the lock might remain, requiring manual intervention.</li>
+<li><strong>Hyphenation Logic</strong>: <code>bob_ross.py</code> includes a custom <code>_hyphenate_word</code> function for text wrapping. It is unclear if this logic is optimized for all languages or only English/German.</li>
+</ul>
+<hr>
+<p><strong>Sources:</strong></p>
+<ul>
+<li><code>~/.openclaw/workspace/skills/robot-ross/bob_ross.py</code></li>
+<li><code>AGENTS/CONTEXT/robot_ross_artist.md</code></li>
+</ul>
+    </article>
   </div>
 </div>
 

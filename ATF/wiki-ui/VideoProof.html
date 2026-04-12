@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RobotRoss Knowledge Surface</title>
+  <title>VideoProof</title>
   <style>
 :root {
   --bg: #f5f1e8;
@@ -186,26 +186,63 @@ th {
 <div class="shell">
   <div class="hero">
     <p class="eyebrow">Agentegra ATF</p>
-    <h1>RobotRoss Knowledge Surface</h1>
-    <p class="lede">Single entry point for the current compiled wiki, the operational ledger dashboard, and the local QA tools. This build reflects the current on-disk corpus and can be regenerated after the repo merge and re-ingestion work.</p>
+    <h1>VideoProof</h1>
+    <p class="lede">Compiled RobotRoss knowledge pages rendered from the current ATF markdown corpus.</p>
   </div>
-  <div class="grid cards">
-    <div class="card">
-      <h2><a href="wiki-ui/index.html">Browse the wiki</a></h2>
-      <p>Read the current compiled RobotRoss knowledge pages in a browser.</p>
-    </div>
-    <div class="card">
-      <h2><a href="ledger-ui/index.html">Open the ledger dashboard</a></h2>
-      <p>Inspect the current event corpus with totals, categories, and sample rows.</p>
-    </div>
-    <div class="card">
-      <h2>Ask the local model</h2>
-      <p>Run <code>python3 ATF/tools/atf_qa.py --shell</code> from the repo root for text QA over the corpus.</p>
-    </div>
-    <div class="card">
-      <h2>Optional voice layer</h2>
-      <p>The voice shell is still pending canonical re-ingestion. Keep it behind the local deployment path only.</p>
-    </div>
+  <div class="nav">
+    <aside class="sidebar">
+      <p><a href="../index.html">ATF home</a></p>
+      <h3>Overview</h3><ul>
+<li><a href="Overview.html">Overview</a></li>
+</ul>
+<h3>Subsystems</h3><ul>
+<li><a href="CommerceLayer.html">CommerceLayer</a></li>
+<li><a href="HardwareInterface.html">HardwareInterface</a></li>
+<li><a href="JobOrchestration.html">JobOrchestration</a></li>
+<li><a href="OrderManagement.html">OrderManagement</a></li>
+</ul>
+<h3>Topics</h3><ul>
+<li><a href="BiddingRules.html">BiddingRules</a></li>
+<li><a href="Calibration.html">Calibration</a></li>
+<li><a href="Compliance.html">Compliance</a></li>
+<li><a href="Narration.html">Narration</a></li>
+<li><a href="ShopifyIntegration.html">ShopifyIntegration</a></li>
+<li><a href="VideoProof.html" style="font-weight:700">VideoProof</a></li>
+<li><a href="VirtualsACP.html">VirtualsACP</a></li>
+</ul>
+    </aside>
+    <article class="article">
+      <h1 id="video-proof-subsystem">Video Proof Subsystem</h1>
+<h2 id="1-role">1. Role</h2>
+<p>The Video Proof subsystem automatically records drawing sessions and uploads them to YouTube as &quot;proof-of-work&quot; for the customer.</p>
+<h2 id="2-key-components">2. Key Components</h2>
+<ul>
+<li><strong>Recording</strong>: OBS Studio (WebSocket port 4455) records the drawing job.</li>
+<li><strong>Scene Switching</strong>: <code>obs_manager.py</code> switches between &quot;Workspace&quot; (intro/outro) and &quot;Artist&quot; (arm camera + status) scenes.</li>
+<li><strong>Post-Processing</strong>: <code>ffmpeg</code> is used to trim dead air and remux the video (MOV to MP4) for optimal YouTube upload.</li>
+<li><strong>Upload</strong>: <code>youtube_upload.py</code> uses the Google OAuth2 API to upload the video and retrieve the public URL.</li>
+</ul>
+<h2 id="3-workflow">3. Workflow</h2>
+<ol>
+<li><strong>Start Recording</strong>: <code>bob_ross.py</code> triggers OBS at the start of the job.</li>
+<li><strong>Scene Control</strong>: <code>obs_manager.py</code> handles scene transitions at specific job milestones.</li>
+<li><strong>Stop Recording</strong>: <code>bob_ross.py</code> stops OBS after the job and narration finish.</li>
+<li><strong>Processing</strong>: <code>ffmpeg</code> remuxes the file to <code>.mp4</code>.</li>
+<li><strong>Publish</strong>: <code>youtube_upload.py</code> uploads the video and records the URL in the <a href="OrderManagement#Local Ledger.html">OrderManagement#Local Ledger</a>.</li>
+</ol>
+<h2 id="4-uncertainty-amp-contradictions">4. Uncertainty &amp; Contradictions</h2>
+<ul>
+<li><strong>Storage Management</strong>: The source code does not mention a pruning strategy for local MOV/MP4 files in <code>~/Movies/</code>. Over time, this could fill the Mac Mini&#x27;s disk.</li>
+<li><strong>Upload Reliability</strong>: If the YouTube upload fails, there is no documented automatic retry mechanism. The job URL in the Salesman API might remain blank or incorrect.</li>
+</ul>
+<hr>
+<p><strong>Sources:</strong></p>
+<ul>
+<li><code>~/.openclaw/workspace/skills/robot-ross/obs_manager.py</code></li>
+<li><code>~/.openclaw/workspace/skills/robot-ross/youtube_upload.py</code></li>
+<li><code>AGENTS/CONTEXT/robot_ross_artist.md</code></li>
+</ul>
+    </article>
   </div>
 </div>
 

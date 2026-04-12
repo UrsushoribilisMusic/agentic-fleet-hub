@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CommerceLayer</title>
+  <style>
+:root {
+  --bg: #f5f1e8;
+  --paper: #fffdfa;
+  --ink: #1f2a2e;
+  --muted: #6b7476;
+  --line: #d6d0c6;
+  --accent: #b54d2f;
+  --accent-2: #2f6a73;
+  --soft: #ede6da;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top right, rgba(181,77,47,0.10), transparent 28%),
+    linear-gradient(180deg, #f8f4ec 0%, #f1ece2 100%);
+}
+a { color: var(--accent-2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.shell {
+  width: min(1180px, calc(100vw - 48px));
+  margin: 24px auto 48px;
+}
+.hero {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 28px 30px;
+  box-shadow: 0 14px 36px rgba(31,42,46,0.08);
+}
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font: 700 12px/1.2 system-ui, sans-serif;
+}
+h1 {
+  margin: 0 0 12px;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1.02;
+}
+.lede {
+  margin: 0;
+  max-width: 72ch;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.6;
+}
+.grid {
+  display: grid;
+  gap: 18px;
+  margin-top: 22px;
+}
+.grid.cards { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 28px rgba(31,42,46,0.05);
+}
+.card h2, .card h3 { margin-top: 0; }
+.nav {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+.sidebar {
+  background: rgba(255,253,250,0.82);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  position: sticky;
+  top: 18px;
+  height: fit-content;
+}
+.sidebar h3 {
+  margin: 0 0 12px;
+  font: 700 14px/1.2 system-ui, sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sidebar li + li { margin-top: 8px; }
+.article {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 28px 34px;
+  box-shadow: 0 12px 30px rgba(31,42,46,0.06);
+}
+.article h1, .article h2, .article h3 { line-height: 1.15; }
+.article p, .article li {
+  font-size: 17px;
+  line-height: 1.7;
+}
+.article ul, .article ol { padding-left: 22px; }
+.article pre {
+  overflow-x: auto;
+  background: #f1ece2;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+}
+.article code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  background: #f1ece2;
+  border-radius: 4px;
+  padding: 0 4px;
+}
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+.kpi {
+  background: linear-gradient(180deg, #fffdfa 0%, #f4ede1 100%);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+}
+.kpi .value {
+  font-size: 30px;
+  font-weight: 700;
+}
+.kpi .label {
+  color: var(--muted);
+  font: 600 12px/1.3 system-ui, sans-serif;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+th, td {
+  border-bottom: 1px solid var(--line);
+  padding: 10px 8px;
+  text-align: left;
+  vertical-align: top;
+  font-size: 15px;
+}
+th {
+  color: var(--muted);
+  font: 700 12px/1.2 system-ui, sans-serif;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.pill {
+  display: inline-block;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 10px;
+  margin: 0 8px 8px 0;
+  font: 600 13px/1.1 system-ui, sans-serif;
+}
+@media (max-width: 900px) {
+  .nav { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+  .shell { width: min(100vw - 24px, 1180px); }
+  .article { padding: 22px 20px; }
+}
+</style>
+</head>
+<body>
+  
+<div class="shell">
+  <div class="hero">
+    <p class="eyebrow">Agentegra ATF</p>
+    <h1>CommerceLayer</h1>
+    <p class="lede">Compiled RobotRoss knowledge pages rendered from the current ATF markdown corpus.</p>
+  </div>
+  <div class="nav">
+    <aside class="sidebar">
+      <p><a href="../index.html">ATF home</a></p>
+      <h3>Overview</h3><ul>
+<li><a href="Overview.html">Overview</a></li>
+</ul>
+<h3>Subsystems</h3><ul>
+<li><a href="CommerceLayer.html" style="font-weight:700">CommerceLayer</a></li>
+<li><a href="HardwareInterface.html">HardwareInterface</a></li>
+<li><a href="JobOrchestration.html">JobOrchestration</a></li>
+<li><a href="OrderManagement.html">OrderManagement</a></li>
+</ul>
+<h3>Topics</h3><ul>
+<li><a href="BiddingRules.html">BiddingRules</a></li>
+<li><a href="Calibration.html">Calibration</a></li>
+<li><a href="Compliance.html">Compliance</a></li>
+<li><a href="Narration.html">Narration</a></li>
+<li><a href="ShopifyIntegration.html">ShopifyIntegration</a></li>
+<li><a href="VideoProof.html">VideoProof</a></li>
+<li><a href="VirtualsACP.html">VirtualsACP</a></li>
+</ul>
+    </aside>
+    <article class="article">
+      <h1 id="commerce-layer-subsystem">Commerce Layer Subsystem</h1>
+<h2 id="1-role">1. Role</h2>
+<p>The Commerce Layer is the central cloud-based &quot;brain&quot; of the RobotRoss ecosystem. It manages the global order queue, competitive bidding for the physical Wall of Fame, and provides the public-facing API for integrations with Shopify, Virtuals ACP, and other 3rd party agents.</p>
+<h2 id="2-main-api-server-server-mjs">2. Main API Server: <code>server.mjs</code></h2>
+<p>This Node.js server (running on a DigitalOcean VPS) coordinates all commerce activities:</p>
+<ol>
+<li><strong>Order Intake</strong>: Accepts orders from Shopify webhooks, Virtuals ACP, and direct API calls.</li>
+<li><strong>Competitive Bidding</strong>: Enforces a 120% overwrite rule for slots on the 64-position (A1-H8) Wall of Fame.</li>
+<li><strong>Queue Management</strong>: Status-based tracking (<code>new</code>, <code>claimed</code>, <code>in_progress</code>, <code>complete</code>, <code>failed</code>).</li>
+<li><strong>Artist Handshake</strong>: Provides endpoints for the Artist (Mac Mini) to poll for and claim jobs.</li>
+<li><strong>Proof Delivery</strong>: Manages the <code>/proof/:id</code> branded delivery pages that redirect to YouTube.</li>
+</ol>
+<h2 id="3-order-lifecycle">3. Order Lifecycle</h2>
+<p>The full lifecycle of an order across the Commerce Layer:</p>
+<ol>
+<li><strong>Creation</strong>: Order enters via <code>POST /salesman/orders</code> or webhook.</li>
+<li><strong>Polling</strong>: Artist polls <code>GET /salesman/orders/incoming?status=new</code>.</li>
+<li><strong>Claim/ACK</strong>: Artist claims and acknowledges the start of work.</li>
+<li><strong>Completion</strong>: Artist uploads the YouTube URL via <code>POST /salesman/orders/:id/complete</code>.</li>
+<li><strong>Fulfilment</strong>: Server triggers write-back to the origin (e.g., Shopify metadata).</li>
+</ol>
+<h2 id="4-key-configurations">4. Key Configurations</h2>
+<ul>
+<li><strong>Database</strong>: <code>/var/lib/salesman-api/orders.json</code> (flat file for simplicity and auditability).</li>
+<li><strong>Environment</strong>: Managed via <code>systemd</code> on the <code>robotsales</code> VPS.</li>
+<li><strong>Offering</strong>: <code>offering.json</code> defines the Virtuals ACP marketplace entry.</li>
+</ul>
+<h2 id="5-uncertainty-amp-contradictions">5. Uncertainty &amp; Contradictions</h2>
+<ul>
+<li><strong>Atomic Locking</strong>: The use of a single <code>orders.json</code> flat file for persistence implies that high-concurrency writes must be handled carefully. The current implementation uses simple file-system writes; as volume grows, this may become a point of contention.</li>
+<li><strong>ACP Mapping</strong>: A known bug exists in <code>server.mjs</code> where <code>svg</code> offering IDs may map incorrectly to the <code>write</code> type instead of <code>sketch</code>.</li>
+<li><strong>Shopify Metafields</strong>: The process for writing back proof-of-work URLs to Shopify relies on a specific metafield (<code>custom.proof_of_work</code>), but the recovery path if this fails is not fully automated.</li>
+</ul>
+<hr>
+<p><strong>Sources:</strong></p>
+<ul>
+<li><code>AGENTS/CONTEXT/robot_ross_salesman.md</code></li>
+<li><code>salesman-cloud-infra/opt/salesman-api/server.mjs</code></li>
+<li><code>salesman-cloud-infra/opt/salesman-api/offering.json</code></li>
+</ul>
+    </article>
+  </div>
+</div>
+
+</body>
+</html>
