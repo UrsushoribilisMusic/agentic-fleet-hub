@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OrderManagement</title>
+  <style>
+:root {
+  --bg: #f8f9fa;
+  --paper: #ffffff;
+  --paper-soft: #fdfdfd;
+  --ink: #202122;
+  --muted: #54595d;
+  --line: #a2a9b1;
+  --line-soft: #c8ccd1;
+  --accent: #3366cc;
+  --accent-2: #0645ad;
+  --soft: #eaecf0;
+  --nav: #f6f6f6;
+  --note: #fff8d6;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--bg);
+  font: 16px/1.65 Georgia, "Times New Roman", serif;
+}
+a { color: var(--accent-2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+code, pre, .mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+.topbar {
+  border-bottom: 1px solid var(--line-soft);
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+}
+.topbar-inner {
+  width: min(1360px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 12px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  font: 13px/1.4 system-ui, sans-serif;
+  color: var(--muted);
+}
+.topbar nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.frame {
+  width: min(1360px, calc(100vw - 32px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 24px;
+  padding: 20px 0 40px;
+}
+.frame.home {
+  grid-template-columns: 1fr;
+}
+.sidebar {
+  align-self: start;
+  position: sticky;
+  top: 16px;
+  padding: 12px 14px;
+  background: var(--nav);
+  border: 1px solid var(--line-soft);
+  font: 14px/1.45 system-ui, sans-serif;
+}
+.sidebar h3,
+.sidebar h4 {
+  margin: 12px 0 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--muted);
+}
+.sidebar ul {
+  margin: 0;
+  padding-left: 18px;
+}
+.sidebar li { margin: 4px 0; }
+.content {
+  min-width: 0;
+  background: var(--paper);
+  border: 1px solid var(--line-soft);
+  padding: 24px 32px 40px;
+}
+.content h1 {
+  margin: 0 0 6px;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.15;
+}
+.content h2 {
+  margin: 1.6em 0 0.5em;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 24px;
+  font-weight: 400;
+}
+.content h3 {
+  margin: 1.2em 0 0.4em;
+  font-size: 19px;
+  font-weight: 600;
+}
+.content h4,
+.content h5,
+.content h6 {
+  margin: 1em 0 0.35em;
+  font-size: 16px;
+  font-weight: 600;
+}
+.meta {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font: 13px/1.5 system-ui, sans-serif;
+}
+.lede {
+  font-size: 17px;
+  color: #2f3133;
+}
+.note-box {
+  margin: 18px 0;
+  padding: 14px 16px;
+  border: 1px solid #f1d77a;
+  background: var(--note);
+  font: 14px/1.6 system-ui, sans-serif;
+}
+.wiki-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 290px;
+  gap: 24px;
+}
+.infobox {
+  align-self: start;
+  border: 1px solid var(--line-soft);
+  background: #f8fbff;
+  font: 14px/1.5 system-ui, sans-serif;
+}
+.infobox h3 {
+  margin: 0;
+  padding: 10px 12px;
+  text-align: center;
+  background: #dfe8f6;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 15px;
+}
+.infobox table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.infobox th,
+.infobox td {
+  padding: 8px 10px;
+  border-top: 1px solid var(--line-soft);
+  vertical-align: top;
+}
+.infobox th {
+  width: 36%;
+  background: #f8f9fa;
+  text-align: left;
+  font-weight: 600;
+}
+.toc {
+  margin: 18px 0;
+  width: fit-content;
+  min-width: 280px;
+  max-width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--line-soft);
+  background: #f8f9fa;
+  font: 14px/1.45 system-ui, sans-serif;
+}
+.toc h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+.toc ol {
+  margin: 0;
+  padding-left: 20px;
+}
+.toc li { margin: 4px 0; }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 18px 0;
+}
+.card {
+  padding: 16px;
+  border: 1px solid var(--line-soft);
+  background: var(--paper-soft);
+}
+.card h3,
+.card h2 {
+  margin-top: 0;
+  border: 0;
+  padding: 0;
+}
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 18px 0 20px;
+}
+.kpi {
+  padding: 14px 16px;
+  border: 1px solid var(--line-soft);
+  background: #fbfbfb;
+}
+.kpi .value {
+  font: 700 20px/1.15 system-ui, sans-serif;
+}
+.kpi .label {
+  margin-top: 4px;
+  color: var(--muted);
+  font: 12px/1.35 system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.pill {
+  display: inline-block;
+  margin: 0 8px 8px 0;
+  padding: 4px 9px;
+  border: 1px solid var(--line-soft);
+  background: #f8f9fa;
+  font: 13px/1.3 system-ui, sans-serif;
+}
+.diagram {
+  display: grid;
+  gap: 12px;
+  margin: 16px 0 24px;
+}
+.diagram-row {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 260px) minmax(0, 1fr);
+  gap: 14px;
+  align-items: stretch;
+}
+.diagram-tag {
+  padding: 12px;
+  background: #f8f9fa;
+  border: 1px solid var(--line-soft);
+  font: 700 12px/1.3 system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.diagram-box {
+  padding: 12px 14px;
+  border: 1px solid #98a9d0;
+  background: #eef3ff;
+  font: 700 15px/1.35 system-ui, sans-serif;
+}
+.diagram-text {
+  padding: 12px 14px;
+  border: 1px solid var(--line-soft);
+  background: #fbfbfb;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0 20px;
+  font-size: 14px;
+  table-layout: fixed;
+}
+th,
+td {
+  padding: 8px 10px;
+  border: 1px solid var(--line-soft);
+  vertical-align: top;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+th {
+  background: #eaecf0;
+  font: 600 13px/1.35 system-ui, sans-serif;
+}
+input[type="search"],
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  background: #fff;
+  font: 14px/1.5 system-ui, sans-serif;
+}
+textarea { min-height: 136px; resize: vertical; }
+.compact-textarea { min-height: 56px; }
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 12px 0;
+}
+button {
+  padding: 10px 14px;
+  border: 1px solid #8aa1d6;
+  background: #eaf1ff;
+  color: #1f3f8c;
+  cursor: pointer;
+  font: 600 14px/1 system-ui, sans-serif;
+}
+button.secondary {
+  border-color: var(--line);
+  background: #f8f9fa;
+  color: var(--ink);
+}
+button[disabled] {
+  cursor: not-allowed;
+  opacity: .7;
+}
+.response-box {
+  min-height: 160px;
+  padding: 14px 16px;
+  border: 1px solid var(--line-soft);
+  background: #fbfbfb;
+  white-space: pre-wrap;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 18px 0;
+}
+.gallery figure {
+  margin: 0;
+  padding: 8px;
+  border: 1px solid var(--line-soft);
+  background: #fff;
+}
+.gallery img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background: #f1f3f5;
+}
+.gallery figcaption {
+  padding: 8px 4px 2px;
+  font: 12px/1.45 system-ui, sans-serif;
+  color: var(--muted);
+}
+.search-meta {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font: 12px/1.4 system-ui, sans-serif;
+}
+.hero-image {
+  margin: 10px 0 18px;
+  border: 1px solid var(--line-soft);
+  background: #fff;
+}
+.hero-image img {
+  display: block;
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+}
+.hero-image figcaption {
+  padding: 8px 10px;
+  color: var(--muted);
+  font: 12px/1.45 system-ui, sans-serif;
+}
+.video-embed {
+  margin: 16px 0 20px;
+  border: 1px solid var(--line-soft);
+  background: #f8f9fa;
+  padding: 12px;
+}
+.video-embed iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+}
+.video-embed.vertical iframe {
+  max-width: 420px;
+  aspect-ratio: 9 / 16;
+}
+.video-embed.horizontal iframe {
+  aspect-ratio: 16 / 9;
+}
+.footer-note {
+  margin-top: 24px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line-soft);
+  color: var(--muted);
+  font: 12px/1.5 system-ui, sans-serif;
+}
+@media (max-width: 1024px) {
+  .frame { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+  .wiki-grid { grid-template-columns: 1fr; }
+  .diagram-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .content { padding: 18px 16px 28px; }
+  .topbar-inner, .frame { width: min(100vw - 20px, 1360px); }
+}
+</style>
+</head>
+<body>
+  
+<header class="topbar">
+  <div class="topbar-inner">
+    <nav>
+      <a href="../index.html">ATF home</a>
+      <a href="../wiki-ui/index.html">Wiki</a>
+      <a href="../ledger-ui/index.html">Ledger</a>
+    </nav>
+    <div>RobotRoss demonstrator · Agentegra ATF</div>
+  </div>
+</header>
+
+  
+<main class="frame">
+  <aside class="sidebar">
+    <p><a href="../index.html">ATF landing page</a></p>
+<h3>Overview</h3><ul>
+<li><a href="Overview.html">Overview</a></li>
+<li><a href="Architecture.html">Architecture</a></li>
+</ul>
+<h3>Subsystems</h3><ul>
+<li><a href="CommerceLayer.html">Commerce Layer</a></li>
+<li><a href="HardwareInterface.html">Hardware Interface</a></li>
+<li><a href="JobOrchestration.html">Job Orchestration</a></li>
+<li><a href="OrderManagement.html" style="font-weight:700">Order Management</a></li>
+</ul>
+<h3>Topics</h3><ul>
+<li><a href="Compliance.html">Compliance</a></li>
+<li><a href="Narration.html">Narration</a></li>
+<li><a href="VoiceControl.html">Voice Control</a></li>
+<li><a href="BiddingRules.html">Bidding Rules</a></li>
+<li><a href="Calibration.html">Calibration</a></li>
+<li><a href="ShopifyIntegration.html">Shopify Integration</a></li>
+<li><a href="VideoProof.html">Video Proof</a></li>
+<li><a href="VirtualsACP.html">Virtuals ACP</a></li>
+</ul>
+  </aside>
+  <article class="content">
+    <h1>Order Management</h1>
+    <p class="lede">Compiled RobotRoss knowledge page generated from RobotRoss source code, architecture notes, and operational documentation.</p>
+    <div class="toc"><h3>Contents</h3><ol><li style="margin-left:0px"><a href="#1-role">1. Role</a></li><li style="margin-left:0px"><a href="#2-key-components">2. Key Components</a></li><li style="margin-left:0px"><a href="#3-workflow">3. Workflow</a></li><li style="margin-left:0px"><a href="#4-notes-and-open-points">4. Notes and Open Points</a></li></ol></div>
+    <div class="wiki-grid">
+      <div>
+<figure class="hero-image">
+  <img src="../assets/media/images/OrderManagement.jpeg" alt="Order Management">
+  <figcaption>OrderManagement.jpeg</figcaption>
+</figure>
+<h1 id="order-management-subsystem">Order Management Subsystem</h1>
+<h2 id="1-role">1. Role</h2>
+<p>The Order Management subsystem handles the communication with the external Salesman API to fetch new drawing orders and logs them locally.</p>
+<h2 id="2-key-components">2. Key Components</h2>
+<ul>
+<li><strong>Poller</strong>: <code>artist_poller.py</code> runs as a daemon and polls <code>GET /salesman/orders/incoming?status=new</code> every 3 minutes.</li>
+<li><strong>Client</strong>: <code>salesman_client.py</code> provides the HTTP interface for fetching and acknowledging orders.</li>
+<li><strong>Local Ledger</strong>: <code>order_log.py</code> manages <code>orders.xlsx</code>, keeping a local record of all completed jobs and their associated YouTube proof URLs.</li>
+</ul>
+<h2 id="3-workflow">3. Workflow</h2>
+<ul>
+<li><strong>Claiming</strong>: The poller identifies a new order, claims it via the API, and triggers <code>bob_ross.py</code>.</li>
+<li><strong>Completion</strong>: Once <code>bob_ross.py</code> finishes, the poller (or <code>bob_ross.py</code> itself) notifies the Salesman API of completion and records the video proof URL.</li>
+</ul>
+<h2 id="4-notes-and-open-points">4. Notes and Open Points</h2>
+<ul>
+<li><strong>Local vs Remote</strong>: The primary source of truth for orders is the Salesman API, but <code>orders.xlsx</code> acts as a local mirror. There is no explicit documentation on how the system resolves discrepancies if the Salesman API is unavailable during a completion call.</li>
+<li><strong>Authentication</strong>: Authentication for the Salesman API uses a Bearer token stored in <code>.salesman_config</code>. There&#x27;s no documented procedure for token rotation.</li>
+</ul>
+<hr>
+<p><strong>Sources:</strong></p>
+<ul>
+<li><code>~/.openclaw/workspace/skills/robot-ross/artist_poller.py</code></li>
+<li><code>~/.openclaw/workspace/skills/robot-ross/order_log.py</code></li>
+<li><code>~/.openclaw/workspace/skills/robot-ross/salesman_client.py</code></li>
+</ul></div>
+      <aside class="infobox"><h3>Page Facts</h3><table><tr><th>Artifact</th><td>Order Management</td></tr><tr><th>Type</th><td>Compiled wiki page</td></tr><tr><th>Source</th><td>wiki/Subsystems/OrderManagement.md</td></tr><tr><th>Surface</th><td>Agentegra ATF</td></tr><tr><th>Rendering</th><td>Static HTML</td></tr></table></aside>
+    </div>
+    <p class="footer-note">Source markdown: wiki/Subsystems/OrderManagement.md · Generated from the current on-disk ATF corpus.</p>
+  </article>
+</main>
+
+</body>
+</html>

@@ -40,7 +40,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 
 ---
 
-## Ticket Status (as of 2026-04-11)
+## Ticket Status (as of 2026-04-12)
 
 ### ENVIRONMENT NOTE — Mac Mini migration complete (2026-03-14)
 All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users/miguel/` → `/Users/miguelrodriguez/`. Repos cloned to `~/projects/`. Python 3.12 venv at `~/projects/music-video-tool/.venv312`. OpenClaw at `/opt/homebrew/bin/openclaw`. Fleet always-on infrastructure build in progress — see tickets #34–#43.
@@ -289,5 +289,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **8dvp6ma6** | [ATF] Build integrated RobotRoss demo landing page for DigitalOcean deployment | clau | merged | ## Context... |
 | **b0envpk8** | [ATF] Build integrated local RobotRoss knowledge console with text and voice QA | clau | merged | ## Context... |
 | **vttdwgaa** | [Ops] Canonize Clau runtime wrapper and summarize_session entrypoint | clau | merged | Problem: Clau found that the deployed runtime copi... |
+| **2beleu6g** | [ATF] Review delivered demo wiki, landing, and ledger surfaces | clau | merged | Summary... |
+| **7gbzmg40** | [ATF] Deploy static ATF surface to api.robotross.art/atf | clau | merged | Context... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
