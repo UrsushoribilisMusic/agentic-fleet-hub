@@ -444,7 +444,7 @@ button[disabled] {
   <article class="content">
     <h1>Architecture</h1>
     <p class="lede">Compiled RobotRoss knowledge page generated from RobotRoss source code, architecture notes, and operational documentation.</p>
-    <div class="toc"><h3>Contents</h3><ol><li style="margin-left:0px"><a href="#1-overview">1. Overview</a></li><li style="margin-left:0px"><a href="#2-system-flow">2. System Flow</a></li><li style="margin-left:0px"><a href="#3-robotross-architecture-layers">3. RobotRoss Architecture Layers</a></li><li style="margin-left:0px"><a href="#4-atf-overlay">4. ATF Overlay</a></li><li style="margin-left:0px"><a href="#5-four-layer-atf-surface">5. Four-Layer ATF Surface</a></li><li style="margin-left:0px"><a href="#6-key-runtime-components">6. Key Runtime Components</a></li><li style="margin-left:0px"><a href="#7-wall-of-fame-operating-model">7. Wall of Fame Operating Model</a></li><li style="margin-left:0px"><a href="#8-notes-and-open-points">8. Notes and Open Points</a></li></ol></div>
+    <div class="toc"><h3>Contents</h3><ol><li style="margin-left:0px"><a href="#1-overview">1. Overview</a></li><li style="margin-left:0px"><a href="#2-system-flow">2. System Flow</a></li><li style="margin-left:0px"><a href="#3-robotross-architecture-layers">3. RobotRoss Architecture Layers</a></li><li style="margin-left:0px"><a href="#4-diagram">4. Diagram</a></li><li style="margin-left:0px"><a href="#5-atf-overlay">5. ATF Overlay</a></li><li style="margin-left:0px"><a href="#6-four-layer-atf-surface">6. Four-Layer ATF Surface</a></li><li style="margin-left:0px"><a href="#7-key-runtime-components">7. Key Runtime Components</a></li><li style="margin-left:0px"><a href="#8-wall-of-fame-operating-model">8. Wall of Fame Operating Model</a></li><li style="margin-left:0px"><a href="#9-notes-and-open-points">9. Notes and Open Points</a></li></ol></div>
     <div class="wiki-grid">
       <div>
 <figure class="hero-image">
@@ -464,7 +464,26 @@ button[disabled] {
 </ul>
 <h2 id="3-robotross-architecture-layers">3. RobotRoss Architecture Layers</h2>
 <table><thead><tr><th>Layer</th><th>Component</th><th>Description</th></tr></thead><tbody><tr><td><strong>Input</strong></td><td><strong>Shopify, Telegram, Voice Showcase</strong></td><td>Human prompts, uploaded designs, or spoken requests enter through commerce, messaging, or live demo channels.</td></tr><tr><td><strong>Control</strong></td><td><strong><code>chat_ross.py</code> + <code>bob_ross.py</code></strong></td><td>Interactive session handling and the main job orchestrator decide what the robot should do next.</td></tr><tr><td><strong>Models</strong></td><td><strong>Claude Haiku 4.5, Apertus 8B, Whisper, Kokoro/Voxtral</strong></td><td>Planning, narration, STT, and spoken output are split across purpose-specific model components.</td></tr><tr><td><strong>Execution</strong></td><td><strong>Huenit scripts + robot arm</strong></td><td>SVG conversion, drawing, calligraphy, calibration, and pyrography are executed against the physical arm.</td></tr><tr><td><strong>Output</strong></td><td><strong>OBS, order ledger, shipped artwork</strong></td><td>Sessions are recorded, logged, linked back to the customer journey, and turned into video proof and physical delivery.</td></tr></tbody></table>
-<h2 id="4-atf-overlay">4. ATF Overlay</h2>
+<h2 id="4-diagram">4. Diagram</h2>
+<pre><code>
+Shopify / Telegram / Voice
+            |
+            v
+  chat_ross.py / bob_ross.py
+            |
+            v
+ Claude Haiku / Apertus / Whisper / TTS
+            |
+            v
+ huenit_write / huenit_draw / huenit_svg
+            |
+            v
+      Huenit robot arm
+            |
+            v
+   OBS / order ledger / video proof
+</code></pre>
+<h2 id="5-atf-overlay">5. ATF Overlay</h2>
 <p>The ATF is layered over the live RobotRoss system rather than replacing it:</p>
 <ul>
 <li>the <strong>compiled wiki</strong> explains the intended architecture and subsystem behavior</li>
@@ -472,9 +491,9 @@ button[disabled] {
 <li>the <strong>local query path</strong> lets an operator inspect the system on the local machine</li>
 <li>the <strong>voice interface</strong> sits on top of the same evidence-backed query layer</li>
 </ul>
-<h2 id="5-four-layer-atf-surface">5. Four-Layer ATF Surface</h2>
+<h2 id="6-four-layer-atf-surface">6. Four-Layer ATF Surface</h2>
 <table><thead><tr><th>Layer</th><th>Component</th><th>Description</th></tr></thead><tbody><tr><td><strong>Layer 1</strong></td><td><strong>Compiled Wiki</strong></td><td>Structured knowledge pages distilled from docs, code, and architecture notes.</td></tr><tr><td><strong>Layer 2</strong></td><td><strong>Operational Ledger</strong></td><td>Normalized production evidence built from raw RobotRoss log streams.</td></tr><tr><td><strong>Layer 3</strong></td><td><strong>Local Q&amp;A</strong></td><td>A local model interface for answering questions over the wiki and ledger without cloud dependency.</td></tr><tr><td><strong>Layer 4</strong></td><td><strong>Voice Interface</strong></td><td>Optional speech loop using Whisper for STT and Voxtral for spoken responses.</td></tr></tbody></table>
-<h2 id="6-key-runtime-components">6. Key Runtime Components</h2>
+<h2 id="7-key-runtime-components">7. Key Runtime Components</h2>
 <ul>
 <li><strong>Voice showcase</strong>: <code>listen.py</code> performs Whisper STT with VAD, <code>chat_ross.py</code> handles the conversation loop, and spoken confirmations can trigger drawing in the background.</li>
 <li><strong>Main orchestrator</strong>: <code>bob_ross.py</code> performs readiness checks, locking, generation, narration, draw execution, and cleanup.</li>
@@ -482,13 +501,13 @@ button[disabled] {
 <li><strong>Audio/TTS</strong>: the architecture sources mention Kokoro as the primary local neural TTS path, Voxtral for higher-end spoken output, and system-level fallback voices.</li>
 <li><strong>Studio and proof</strong>: OBS captures the run, while the order ledger tracks received time, buyer, content, status, and produced video links.</li>
 </ul>
-<h2 id="7-wall-of-fame-operating-model">7. Wall of Fame Operating Model</h2>
+<h2 id="8-wall-of-fame-operating-model">8. Wall of Fame Operating Model</h2>
 <ul>
 <li>The commercial target is a <strong>10×10 Wall of Fame</strong> with 100 slots.</li>
 <li>A customer buys a slot, submits a prompt or design, the system dispatches the job, RobotRoss draws it live, proof is recorded, and the physical artwork is shipped.</li>
 <li>This commercial journey matters for the ATF because the technical file must explain not only the robot motion, but also the customer-facing intake and proof chain.</li>
 </ul>
-<h2 id="8-notes-and-open-points">8. Notes and Open Points</h2>
+<h2 id="9-notes-and-open-points">9. Notes and Open Points</h2>
 <ul>
 <li>The two source architecture documents describe the same system but emphasize different layers: one is voice-showcase and orchestrator centric, the other is end-to-end commerce/studio centric. The ATF page intentionally merges both views.</li>
 <li>TTS references are not fully aligned across the documents: one source emphasizes Kokoro plus system fallbacks, while another also calls out Voxtral. The ATF should present these as runtime variants rather than contradictory claims.</li>
