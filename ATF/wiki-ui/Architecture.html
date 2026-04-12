@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OrderManagement</title>
+  <title>Architecture</title>
   <style>
 :root {
   --bg: #f8f9fa;
@@ -422,13 +422,13 @@ button[disabled] {
     <p><a href="../index.html">ATF landing page</a></p>
 <h3>Overview</h3><ul>
 <li><a href="Overview.html">Overview</a></li>
-<li><a href="Architecture.html">Architecture</a></li>
+<li><a href="Architecture.html" style="font-weight:700">Architecture</a></li>
 </ul>
 <h3>Subsystems</h3><ul>
 <li><a href="CommerceLayer.html">Commerce Layer</a></li>
 <li><a href="HardwareInterface.html">Hardware Interface</a></li>
 <li><a href="JobOrchestration.html">Job Orchestration</a></li>
-<li><a href="OrderManagement.html" style="font-weight:700">Order Management</a></li>
+<li><a href="OrderManagement.html">Order Management</a></li>
 </ul>
 <h3>Topics</h3><ul>
 <li><a href="Compliance.html">Compliance</a></li>
@@ -442,44 +442,41 @@ button[disabled] {
 </ul>
   </aside>
   <article class="content">
-    <h1>Order Management</h1>
+    <h1>Architecture</h1>
     <p class="lede">Compiled RobotRoss knowledge page generated from RobotRoss source code, architecture notes, and operational documentation.</p>
-    <div class="toc"><h3>Contents</h3><ol><li style="margin-left:0px"><a href="#1-role">1. Role</a></li><li style="margin-left:0px"><a href="#2-key-components">2. Key Components</a></li><li style="margin-left:0px"><a href="#3-workflow">3. Workflow</a></li><li style="margin-left:0px"><a href="#4-notes-and-open-points">4. Notes and Open Points</a></li></ol></div>
+    <div class="toc"><h3>Contents</h3><ol><li style="margin-left:0px"><a href="#1-overview">1. Overview</a></li><li style="margin-left:0px"><a href="#2-four-layer-architecture">2. Four-Layer Architecture</a></li><li style="margin-left:0px"><a href="#3-atf-contract">3. ATF Contract</a></li><li style="margin-left:0px"><a href="#4-flotilla-execution-context">4. Flotilla Execution Context</a></li><li style="margin-left:0px"><a href="#5-notes-and-open-points">5. Notes and Open Points</a></li></ol></div>
     <div class="wiki-grid">
       <div>
 <figure class="hero-image">
-  <img src="../assets/media/images/OrderManagement.jpeg" alt="Order Management">
-  <figcaption>OrderManagement.jpeg</figcaption>
+  <img src="../assets/media/images/IMG_1060.jpeg" alt="Architecture">
+  <figcaption>IMG_1060.jpeg</figcaption>
 </figure>
-<h1 id="order-management-subsystem">Order Management Subsystem</h1>
-<h2 id="1-role">1. Role</h2>
-<p>The Order Management subsystem handles the communication with the external Salesman API to fetch new drawing orders and logs them locally.</p>
-<h2 id="2-key-components">2. Key Components</h2>
+<h1 id="architecture">Architecture</h1>
+<h2 id="1-overview">1. Overview</h2>
+<p>The Agentegra ATF is implemented as a four-layer compliance and explainability surface around the RobotRoss demonstrator: compiled wiki, operational ledger, local model query path, and voice interaction.</p>
+<h2 id="2-four-layer-architecture">2. Four-Layer Architecture</h2>
+<table><thead><tr><th>Layer</th><th>Component</th><th>Description</th></tr></thead><tbody><tr><td><strong>Layer 1</strong></td><td><strong>Compiled Wiki</strong></td><td>Structured knowledge pages distilled from docs, code, and architecture notes.</td></tr><tr><td><strong>Layer 2</strong></td><td><strong>Operational Ledger</strong></td><td>Normalized production evidence built from raw RobotRoss log streams.</td></tr><tr><td><strong>Layer 3</strong></td><td><strong>Local Q&amp;A</strong></td><td>A local model interface for answering questions over the wiki and ledger without cloud dependency.</td></tr><tr><td><strong>Layer 4</strong></td><td><strong>Voice Interface</strong></td><td>Optional speech loop using Whisper for STT and Voxtral for spoken responses.</td></tr></tbody></table>
+<h2 id="3-atf-contract">3. ATF Contract</h2>
 <ul>
-<li><strong>Poller</strong>: <code>artist_poller.py</code> runs as a daemon and polls <code>GET /salesman/orders/incoming?status=new</code> every 3 minutes.</li>
-<li><strong>Client</strong>: <code>salesman_client.py</code> provides the HTTP interface for fetching and acknowledging orders.</li>
-<li><strong>Local Ledger</strong>: <code>order_log.py</code> manages <code>orders.xlsx</code>, keeping a local record of all completed jobs and their associated YouTube proof URLs.</li>
+<li>The wiki is generated from source code, architectural notes, and operational documentation.</li>
+<li>The ledger is derived from immutable production logs so behavior is documented alongside intent.</li>
+<li>The query path runs on the local system to preserve data sovereignty.</li>
+<li>Voice control uses local STT/TTS components on top of the same local reasoning path.</li>
 </ul>
-<h2 id="3-workflow">3. Workflow</h2>
+<h2 id="4-flotilla-execution-context">4. Flotilla Execution Context</h2>
 <ul>
-<li><strong>Claiming</strong>: The poller identifies a new order, claims it via the API, and triggers <code>bob_ross.py</code>.</li>
-<li><strong>Completion</strong>: Once <code>bob_ross.py</code> finishes, the poller (or <code>bob_ross.py</code> itself) notifies the Salesman API of completion and records the video proof URL.</li>
+<li>Flotilla is the orchestration layer used to build and maintain the ATF artifacts.</li>
+<li>Shared mission control, PocketBase state, and agent specialization make the ATF maintainable as a living technical file.</li>
+<li>The public demo surface is static, but it reflects continuously regenerable evidence.</li>
 </ul>
-<h2 id="4-notes-and-open-points">4. Notes and Open Points</h2>
+<h2 id="5-notes-and-open-points">5. Notes and Open Points</h2>
 <ul>
-<li><strong>Local vs Remote</strong>: The primary source of truth for orders is the Salesman API, but <code>orders.xlsx</code> acts as a local mirror. There is no explicit documentation on how the system resolves discrepancies if the Salesman API is unavailable during a completion call.</li>
-<li><strong>Authentication</strong>: Authentication for the Salesman API uses a Bearer token stored in <code>.salesman_config</code>. There&#x27;s no documented procedure for token rotation.</li>
-</ul>
-<hr>
-<p><strong>Sources:</strong></p>
-<ul>
-<li><code>~/.openclaw/workspace/skills/robot-ross/artist_poller.py</code></li>
-<li><code>~/.openclaw/workspace/skills/robot-ross/order_log.py</code></li>
-<li><code>~/.openclaw/workspace/skills/robot-ross/salesman_client.py</code></li>
+<li>The compiled wiki remains dependent on the quality and completeness of the ingested source corpus.</li>
+<li>Architecture pages should keep tracking the canonical documents in <code>ARCHITECTURE.md</code> and <code>AGENTS/CONTEXT/agentegra_atf_architecture.md</code>.</li>
 </ul></div>
-      <aside class="infobox"><h3>Page Facts</h3><table><tr><th>Artifact</th><td>Order Management</td></tr><tr><th>Type</th><td>Compiled wiki page</td></tr><tr><th>Source</th><td>wiki/Subsystems/OrderManagement.md</td></tr><tr><th>Surface</th><td>Agentegra ATF</td></tr><tr><th>Rendering</th><td>Static HTML</td></tr></table></aside>
+      <aside class="infobox"><h3>Page Facts</h3><table><tr><th>Artifact</th><td>Architecture</td></tr><tr><th>Type</th><td>Compiled wiki page</td></tr><tr><th>Source</th><td>ARCHITECTURE.md + AGENTS/CONTEXT/agentegra_atf_architecture.md</td></tr><tr><th>Surface</th><td>Agentegra ATF</td></tr><tr><th>Rendering</th><td>Static HTML</td></tr></table></aside>
     </div>
-    <p class="footer-note">Source markdown: wiki/Subsystems/OrderManagement.md · Generated from the current on-disk ATF corpus.</p>
+    <p class="footer-note">Source material: ARCHITECTURE.md + AGENTS/CONTEXT/agentegra_atf_architecture.md · Rendered into the ATF wiki surface.</p>
   </article>
 </main>
 

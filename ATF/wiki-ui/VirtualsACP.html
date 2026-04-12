@@ -6,213 +6,447 @@
   <title>VirtualsACP</title>
   <style>
 :root {
-  --bg: #f5f1e8;
-  --paper: #fffdfa;
-  --ink: #1f2a2e;
-  --muted: #6b7476;
-  --line: #d6d0c6;
-  --accent: #b54d2f;
-  --accent-2: #2f6a73;
-  --soft: #ede6da;
+  --bg: #f8f9fa;
+  --paper: #ffffff;
+  --paper-soft: #fdfdfd;
+  --ink: #202122;
+  --muted: #54595d;
+  --line: #a2a9b1;
+  --line-soft: #c8ccd1;
+  --accent: #3366cc;
+  --accent-2: #0645ad;
+  --soft: #eaecf0;
+  --nav: #f6f6f6;
+  --note: #fff8d6;
 }
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
   color: var(--ink);
-  background:
-    radial-gradient(circle at top right, rgba(181,77,47,0.10), transparent 28%),
-    linear-gradient(180deg, #f8f4ec 0%, #f1ece2 100%);
+  background: var(--bg);
+  font: 16px/1.65 Georgia, "Times New Roman", serif;
 }
 a { color: var(--accent-2); text-decoration: none; }
 a:hover { text-decoration: underline; }
-.shell {
-  width: min(1180px, calc(100vw - 48px));
-  margin: 24px auto 48px;
+code, pre, .mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
-.hero {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 28px 30px;
-  box-shadow: 0 14px 36px rgba(31,42,46,0.08);
+.topbar {
+  border-bottom: 1px solid var(--line-soft);
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
 }
-.eyebrow {
-  margin: 0 0 8px;
-  color: var(--accent);
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  font: 700 12px/1.2 system-ui, sans-serif;
-}
-h1 {
-  margin: 0 0 12px;
-  font-size: clamp(34px, 5vw, 56px);
-  line-height: 1.02;
-}
-.lede {
-  margin: 0;
-  max-width: 72ch;
+.topbar-inner {
+  width: min(1360px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 12px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  font: 13px/1.4 system-ui, sans-serif;
   color: var(--muted);
-  font-size: 18px;
-  line-height: 1.6;
 }
-.grid {
+.topbar nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.frame {
+  width: min(1360px, calc(100vw - 32px));
+  margin: 0 auto;
   display: grid;
-  gap: 18px;
-  margin-top: 22px;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 24px;
+  padding: 20px 0 40px;
 }
-.grid.cards { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-.card {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 10px 28px rgba(31,42,46,0.05);
-}
-.card h2, .card h3 { margin-top: 0; }
-.nav {
-  display: grid;
-  grid-template-columns: 280px minmax(0, 1fr);
-  gap: 20px;
-  margin-top: 20px;
+.frame.home {
+  grid-template-columns: 1fr;
 }
 .sidebar {
-  background: rgba(255,253,250,0.82);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 18px;
+  align-self: start;
   position: sticky;
-  top: 18px;
-  height: fit-content;
+  top: 16px;
+  padding: 12px 14px;
+  background: var(--nav);
+  border: 1px solid var(--line-soft);
+  font: 14px/1.45 system-ui, sans-serif;
 }
-.sidebar h3 {
-  margin: 0 0 12px;
-  font: 700 14px/1.2 system-ui, sans-serif;
-  letter-spacing: .06em;
+.sidebar h3,
+.sidebar h4 {
+  margin: 12px 0 8px;
+  font-size: 12px;
   text-transform: uppercase;
+  letter-spacing: .04em;
   color: var(--muted);
 }
 .sidebar ul {
-  list-style: none;
   margin: 0;
-  padding: 0;
+  padding-left: 18px;
 }
-.sidebar li + li { margin-top: 8px; }
-.article {
+.sidebar li { margin: 4px 0; }
+.content {
+  min-width: 0;
   background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 28px 34px;
-  box-shadow: 0 12px 30px rgba(31,42,46,0.06);
+  border: 1px solid var(--line-soft);
+  padding: 24px 32px 40px;
 }
-.article h1, .article h2, .article h3 { line-height: 1.15; }
-.article p, .article li {
+.content h1 {
+  margin: 0 0 6px;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.15;
+}
+.content h2 {
+  margin: 1.6em 0 0.5em;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 24px;
+  font-weight: 400;
+}
+.content h3 {
+  margin: 1.2em 0 0.4em;
+  font-size: 19px;
+  font-weight: 600;
+}
+.content h4,
+.content h5,
+.content h6 {
+  margin: 1em 0 0.35em;
+  font-size: 16px;
+  font-weight: 600;
+}
+.meta {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font: 13px/1.5 system-ui, sans-serif;
+}
+.lede {
   font-size: 17px;
-  line-height: 1.7;
+  color: #2f3133;
 }
-.article ul, .article ol { padding-left: 22px; }
-.article pre {
-  overflow-x: auto;
-  background: #f1ece2;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 14px;
+.note-box {
+  margin: 18px 0;
+  padding: 14px 16px;
+  border: 1px solid #f1d77a;
+  background: var(--note);
+  font: 14px/1.6 system-ui, sans-serif;
 }
-.article code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  background: #f1ece2;
-  border-radius: 4px;
-  padding: 0 4px;
+.wiki-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 290px;
+  gap: 24px;
+}
+.infobox {
+  align-self: start;
+  border: 1px solid var(--line-soft);
+  background: #f8fbff;
+  font: 14px/1.5 system-ui, sans-serif;
+}
+.infobox h3 {
+  margin: 0;
+  padding: 10px 12px;
+  text-align: center;
+  background: #dfe8f6;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 15px;
+}
+.infobox table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.infobox th,
+.infobox td {
+  padding: 8px 10px;
+  border-top: 1px solid var(--line-soft);
+  vertical-align: top;
+}
+.infobox th {
+  width: 36%;
+  background: #f8f9fa;
+  text-align: left;
+  font-weight: 600;
+}
+.toc {
+  margin: 18px 0;
+  width: fit-content;
+  min-width: 280px;
+  max-width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--line-soft);
+  background: #f8f9fa;
+  font: 14px/1.45 system-ui, sans-serif;
+}
+.toc h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+.toc ol {
+  margin: 0;
+  padding-left: 20px;
+}
+.toc li { margin: 4px 0; }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 18px 0;
+}
+.card {
+  padding: 16px;
+  border: 1px solid var(--line-soft);
+  background: var(--paper-soft);
+}
+.card h3,
+.card h2 {
+  margin-top: 0;
+  border: 0;
+  padding: 0;
 }
 .kpis {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  gap: 14px;
-  margin-top: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 18px 0 20px;
 }
 .kpi {
-  background: linear-gradient(180deg, #fffdfa 0%, #f4ede1 100%);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--line-soft);
+  background: #fbfbfb;
 }
 .kpi .value {
-  font-size: 30px;
-  font-weight: 700;
+  font: 700 20px/1.15 system-ui, sans-serif;
 }
 .kpi .label {
+  margin-top: 4px;
   color: var(--muted);
-  font: 600 12px/1.3 system-ui, sans-serif;
-  letter-spacing: .05em;
+  font: 12px/1.35 system-ui, sans-serif;
   text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.pill {
+  display: inline-block;
+  margin: 0 8px 8px 0;
+  padding: 4px 9px;
+  border: 1px solid var(--line-soft);
+  background: #f8f9fa;
+  font: 13px/1.3 system-ui, sans-serif;
+}
+.diagram {
+  display: grid;
+  gap: 12px;
+  margin: 16px 0 24px;
+}
+.diagram-row {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 260px) minmax(0, 1fr);
+  gap: 14px;
+  align-items: stretch;
+}
+.diagram-tag {
+  padding: 12px;
+  background: #f8f9fa;
+  border: 1px solid var(--line-soft);
+  font: 700 12px/1.3 system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.diagram-box {
+  padding: 12px 14px;
+  border: 1px solid #98a9d0;
+  background: #eef3ff;
+  font: 700 15px/1.35 system-ui, sans-serif;
+}
+.diagram-text {
+  padding: 12px 14px;
+  border: 1px solid var(--line-soft);
+  background: #fbfbfb;
 }
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 16px;
+  margin: 14px 0 20px;
+  font-size: 14px;
+  table-layout: fixed;
 }
-th, td {
-  border-bottom: 1px solid var(--line);
-  padding: 10px 8px;
-  text-align: left;
+th,
+td {
+  padding: 8px 10px;
+  border: 1px solid var(--line-soft);
   vertical-align: top;
-  font-size: 15px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 th {
-  color: var(--muted);
-  font: 700 12px/1.2 system-ui, sans-serif;
-  letter-spacing: .05em;
-  text-transform: uppercase;
+  background: #eaecf0;
+  font: 600 13px/1.35 system-ui, sans-serif;
 }
-.pill {
-  display: inline-block;
-  background: var(--soft);
+input[type="search"],
+textarea {
+  width: 100%;
+  padding: 10px 12px;
   border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 5px 10px;
-  margin: 0 8px 8px 0;
-  font: 600 13px/1.1 system-ui, sans-serif;
+  background: #fff;
+  font: 14px/1.5 system-ui, sans-serif;
 }
-@media (max-width: 900px) {
-  .nav { grid-template-columns: 1fr; }
+textarea { min-height: 136px; resize: vertical; }
+.compact-textarea { min-height: 56px; }
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 12px 0;
+}
+button {
+  padding: 10px 14px;
+  border: 1px solid #8aa1d6;
+  background: #eaf1ff;
+  color: #1f3f8c;
+  cursor: pointer;
+  font: 600 14px/1 system-ui, sans-serif;
+}
+button.secondary {
+  border-color: var(--line);
+  background: #f8f9fa;
+  color: var(--ink);
+}
+button[disabled] {
+  cursor: not-allowed;
+  opacity: .7;
+}
+.response-box {
+  min-height: 160px;
+  padding: 14px 16px;
+  border: 1px solid var(--line-soft);
+  background: #fbfbfb;
+  white-space: pre-wrap;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 18px 0;
+}
+.gallery figure {
+  margin: 0;
+  padding: 8px;
+  border: 1px solid var(--line-soft);
+  background: #fff;
+}
+.gallery img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background: #f1f3f5;
+}
+.gallery figcaption {
+  padding: 8px 4px 2px;
+  font: 12px/1.45 system-ui, sans-serif;
+  color: var(--muted);
+}
+.search-meta {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font: 12px/1.4 system-ui, sans-serif;
+}
+.hero-image {
+  margin: 10px 0 18px;
+  border: 1px solid var(--line-soft);
+  background: #fff;
+}
+.hero-image img {
+  display: block;
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+}
+.hero-image figcaption {
+  padding: 8px 10px;
+  color: var(--muted);
+  font: 12px/1.45 system-ui, sans-serif;
+}
+.video-embed {
+  margin: 16px 0 20px;
+  border: 1px solid var(--line-soft);
+  background: #f8f9fa;
+  padding: 12px;
+}
+.video-embed iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+}
+.video-embed.vertical iframe {
+  max-width: 420px;
+  aspect-ratio: 9 / 16;
+}
+.video-embed.horizontal iframe {
+  aspect-ratio: 16 / 9;
+}
+.footer-note {
+  margin-top: 24px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line-soft);
+  color: var(--muted);
+  font: 12px/1.5 system-ui, sans-serif;
+}
+@media (max-width: 1024px) {
+  .frame { grid-template-columns: 1fr; }
   .sidebar { position: static; }
-  .shell { width: min(100vw - 24px, 1180px); }
-  .article { padding: 22px 20px; }
+  .wiki-grid { grid-template-columns: 1fr; }
+  .diagram-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .content { padding: 18px 16px 28px; }
+  .topbar-inner, .frame { width: min(100vw - 20px, 1360px); }
 }
 </style>
 </head>
 <body>
   
-<div class="shell">
-  <div class="hero">
-    <p class="eyebrow">Agentegra ATF</p>
-    <h1>VirtualsACP</h1>
-    <p class="lede">Compiled RobotRoss knowledge pages rendered from the current ATF markdown corpus.</p>
+<header class="topbar">
+  <div class="topbar-inner">
+    <nav>
+      <a href="../index.html">ATF home</a>
+      <a href="../wiki-ui/index.html">Wiki</a>
+      <a href="../ledger-ui/index.html">Ledger</a>
+    </nav>
+    <div>RobotRoss demonstrator · Agentegra ATF</div>
   </div>
-  <div class="nav">
-    <aside class="sidebar">
-      <p><a href="../index.html">ATF home</a></p>
-      <h3>Overview</h3><ul>
+</header>
+
+  
+<main class="frame">
+  <aside class="sidebar">
+    <p><a href="../index.html">ATF landing page</a></p>
+<h3>Overview</h3><ul>
 <li><a href="Overview.html">Overview</a></li>
+<li><a href="Architecture.html">Architecture</a></li>
 </ul>
 <h3>Subsystems</h3><ul>
-<li><a href="CommerceLayer.html">CommerceLayer</a></li>
-<li><a href="HardwareInterface.html">HardwareInterface</a></li>
-<li><a href="JobOrchestration.html">JobOrchestration</a></li>
-<li><a href="OrderManagement.html">OrderManagement</a></li>
+<li><a href="CommerceLayer.html">Commerce Layer</a></li>
+<li><a href="HardwareInterface.html">Hardware Interface</a></li>
+<li><a href="JobOrchestration.html">Job Orchestration</a></li>
+<li><a href="OrderManagement.html">Order Management</a></li>
 </ul>
 <h3>Topics</h3><ul>
-<li><a href="BiddingRules.html">BiddingRules</a></li>
-<li><a href="Calibration.html">Calibration</a></li>
 <li><a href="Compliance.html">Compliance</a></li>
 <li><a href="Narration.html">Narration</a></li>
-<li><a href="ShopifyIntegration.html">ShopifyIntegration</a></li>
-<li><a href="VideoProof.html">VideoProof</a></li>
-<li><a href="VirtualsACP.html" style="font-weight:700">VirtualsACP</a></li>
+<li><a href="VoiceControl.html">Voice Control</a></li>
+<li><a href="BiddingRules.html">Bidding Rules</a></li>
+<li><a href="Calibration.html">Calibration</a></li>
+<li><a href="ShopifyIntegration.html">Shopify Integration</a></li>
+<li><a href="VideoProof.html">Video Proof</a></li>
+<li><a href="VirtualsACP.html" style="font-weight:700">Virtuals ACP</a></li>
 </ul>
-    </aside>
-    <article class="article">
-      <h1 id="virtuals-protocol-agentic-commerce-protocol-acp">Virtuals Protocol Agentic Commerce Protocol (ACP)</h1>
+  </aside>
+  <article class="content">
+    <h1>Virtuals ACP</h1>
+    <p class="lede">Compiled RobotRoss knowledge page generated from RobotRoss source code, architecture notes, and operational documentation.</p>
+    <div class="toc"><h3>Contents</h3><ol><li style="margin-left:0px"><a href="#1-overview">1. Overview</a></li><li style="margin-left:0px"><a href="#2-offering-structure">2. Offering Structure</a></li><li style="margin-left:0px"><a href="#3-implementation-workflow">3. Implementation Workflow</a></li><li style="margin-left:0px"><a href="#4-key-configurations">4. Key Configurations</a></li><li style="margin-left:0px"><a href="#5-notes-and-open-points">5. Notes and Open Points</a></li></ol></div>
+    <div class="wiki-grid">
+      <div><h1 id="virtuals-protocol-agentic-commerce-protocol-acp">Virtuals Protocol Agentic Commerce Protocol (ACP)</h1>
 <h2 id="1-overview">1. Overview</h2>
 <p>The Virtuals Protocol ACP allows autonomous AI agents to hire RobotRoss for physical artistic services. This integration makes RobotRoss a &quot;sovereign service provider&quot; in the agentic economy.</p>
 <h2 id="2-offering-structure">2. Offering Structure</h2>
@@ -246,7 +480,7 @@ th {
 <li><strong>Agent Profile</strong>: https://app.virtuals.io/acp/agents/auj2pb60mizox9of81hcmyhm</li>
 <li><strong>API Key</strong>: <code>VIRTUALS_ACP_API_KEY</code> (stored securely on the VPS).</li>
 </ul>
-<h2 id="5-uncertainty-amp-contradictions">5. Uncertainty &amp; Contradictions</h2>
+<h2 id="5-notes-and-open-points">5. Notes and Open Points</h2>
 <ul>
 <li><strong>Handler State</strong>: The <code>handlers.ts</code> file is currently a scaffold and requires full implementation to wire the polling logic.</li>
 <li><strong>Offering Type Mapping</strong>: A known bug in <code>server.mjs</code> prevents correct mapping of certain ACP offering IDs to the <code>sketch</code> internal type.</li>
@@ -258,10 +492,12 @@ th {
 <li><code>AGENTS/CONTEXT/robot_ross_salesman.md</code></li>
 <li><code>salesman-cloud-infra/opt/salesman-api/offering.json</code></li>
 <li><code>/root/.openclaw/workspace/skills/virtuals-protocol-acp/src/seller/offerings/robotross/handlers.ts</code> (Scaffold only)</li>
-</ul>
-    </article>
-  </div>
-</div>
+</ul></div>
+      <aside class="infobox"><h3>Page Facts</h3><table><tr><th>Artifact</th><td>Virtuals ACP</td></tr><tr><th>Type</th><td>Compiled wiki page</td></tr><tr><th>Source</th><td>wiki/Topics/VirtualsACP.md</td></tr><tr><th>Surface</th><td>Agentegra ATF</td></tr><tr><th>Rendering</th><td>Static HTML</td></tr></table></aside>
+    </div>
+    <p class="footer-note">Source markdown: wiki/Topics/VirtualsACP.md · Generated from the current on-disk ATF corpus.</p>
+  </article>
+</main>
 
 </body>
 </html>
