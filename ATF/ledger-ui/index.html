@@ -6,217 +6,478 @@
   <title>RobotRoss Ledger Dashboard</title>
   <style>
 :root {
-  --bg: #f5f1e8;
-  --paper: #fffdfa;
-  --ink: #1f2a2e;
-  --muted: #6b7476;
-  --line: #d6d0c6;
-  --accent: #b54d2f;
-  --accent-2: #2f6a73;
-  --soft: #ede6da;
+  --bg: #f8f9fa;
+  --paper: #ffffff;
+  --paper-soft: #fdfdfd;
+  --ink: #202122;
+  --muted: #54595d;
+  --line: #a2a9b1;
+  --line-soft: #c8ccd1;
+  --accent: #3366cc;
+  --accent-2: #0645ad;
+  --soft: #eaecf0;
+  --nav: #f6f6f6;
+  --note: #fff8d6;
 }
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
   color: var(--ink);
-  background:
-    radial-gradient(circle at top right, rgba(181,77,47,0.10), transparent 28%),
-    linear-gradient(180deg, #f8f4ec 0%, #f1ece2 100%);
+  background: var(--bg);
+  font: 16px/1.65 Georgia, "Times New Roman", serif;
 }
 a { color: var(--accent-2); text-decoration: none; }
 a:hover { text-decoration: underline; }
-.shell {
-  width: min(1180px, calc(100vw - 48px));
-  margin: 24px auto 48px;
+code, pre, .mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
-.hero {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 28px 30px;
-  box-shadow: 0 14px 36px rgba(31,42,46,0.08);
+.topbar {
+  border-bottom: 1px solid var(--line-soft);
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
 }
-.eyebrow {
-  margin: 0 0 8px;
-  color: var(--accent);
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  font: 700 12px/1.2 system-ui, sans-serif;
-}
-h1 {
-  margin: 0 0 12px;
-  font-size: clamp(34px, 5vw, 56px);
-  line-height: 1.02;
-}
-.lede {
-  margin: 0;
-  max-width: 72ch;
+.topbar-inner {
+  width: min(1360px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 12px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  font: 13px/1.4 system-ui, sans-serif;
   color: var(--muted);
-  font-size: 18px;
-  line-height: 1.6;
 }
-.grid {
+.topbar nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.frame {
+  width: min(1360px, calc(100vw - 32px));
+  margin: 0 auto;
   display: grid;
-  gap: 18px;
-  margin-top: 22px;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 24px;
+  padding: 20px 0 40px;
 }
-.grid.cards { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-.card {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 10px 28px rgba(31,42,46,0.05);
-}
-.card h2, .card h3 { margin-top: 0; }
-.nav {
-  display: grid;
-  grid-template-columns: 280px minmax(0, 1fr);
-  gap: 20px;
-  margin-top: 20px;
+.frame.home {
+  grid-template-columns: 1fr;
 }
 .sidebar {
-  background: rgba(255,253,250,0.82);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 18px;
+  align-self: start;
   position: sticky;
-  top: 18px;
-  height: fit-content;
+  top: 16px;
+  padding: 12px 14px;
+  background: var(--nav);
+  border: 1px solid var(--line-soft);
+  font: 14px/1.45 system-ui, sans-serif;
 }
-.sidebar h3 {
-  margin: 0 0 12px;
-  font: 700 14px/1.2 system-ui, sans-serif;
-  letter-spacing: .06em;
+.sidebar h3,
+.sidebar h4 {
+  margin: 12px 0 8px;
+  font-size: 12px;
   text-transform: uppercase;
+  letter-spacing: .04em;
   color: var(--muted);
 }
 .sidebar ul {
-  list-style: none;
   margin: 0;
-  padding: 0;
+  padding-left: 18px;
 }
-.sidebar li + li { margin-top: 8px; }
-.article {
+.sidebar li { margin: 4px 0; }
+.content {
+  min-width: 0;
   background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 28px 34px;
-  box-shadow: 0 12px 30px rgba(31,42,46,0.06);
+  border: 1px solid var(--line-soft);
+  padding: 24px 32px 40px;
 }
-.article h1, .article h2, .article h3 { line-height: 1.15; }
-.article p, .article li {
+.content h1 {
+  margin: 0 0 6px;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.15;
+}
+.content h2 {
+  margin: 1.6em 0 0.5em;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 24px;
+  font-weight: 400;
+}
+.content h3 {
+  margin: 1.2em 0 0.4em;
+  font-size: 19px;
+  font-weight: 600;
+}
+.content h4,
+.content h5,
+.content h6 {
+  margin: 1em 0 0.35em;
+  font-size: 16px;
+  font-weight: 600;
+}
+.meta {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font: 13px/1.5 system-ui, sans-serif;
+}
+.lede {
   font-size: 17px;
-  line-height: 1.7;
+  color: #2f3133;
 }
-.article ul, .article ol { padding-left: 22px; }
-.article pre {
-  overflow-x: auto;
-  background: #f1ece2;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 14px;
+.note-box {
+  margin: 18px 0;
+  padding: 14px 16px;
+  border: 1px solid #f1d77a;
+  background: var(--note);
+  font: 14px/1.6 system-ui, sans-serif;
 }
-.article code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  background: #f1ece2;
-  border-radius: 4px;
-  padding: 0 4px;
+.wiki-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 290px;
+  gap: 24px;
+}
+.infobox {
+  align-self: start;
+  border: 1px solid var(--line-soft);
+  background: #f8fbff;
+  font: 14px/1.5 system-ui, sans-serif;
+}
+.infobox h3 {
+  margin: 0;
+  padding: 10px 12px;
+  text-align: center;
+  background: #dfe8f6;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 15px;
+}
+.infobox table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.infobox th,
+.infobox td {
+  padding: 8px 10px;
+  border-top: 1px solid var(--line-soft);
+  vertical-align: top;
+}
+.infobox th {
+  width: 36%;
+  background: #f8f9fa;
+  text-align: left;
+  font-weight: 600;
+}
+.toc {
+  margin: 18px 0;
+  width: fit-content;
+  min-width: 280px;
+  max-width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--line-soft);
+  background: #f8f9fa;
+  font: 14px/1.45 system-ui, sans-serif;
+}
+.toc h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+.toc ol {
+  margin: 0;
+  padding-left: 20px;
+}
+.toc li { margin: 4px 0; }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 18px 0;
+}
+.card {
+  padding: 16px;
+  border: 1px solid var(--line-soft);
+  background: var(--paper-soft);
+}
+.card h3,
+.card h2 {
+  margin-top: 0;
+  border: 0;
+  padding: 0;
 }
 .kpis {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  gap: 14px;
-  margin-top: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 18px 0 20px;
 }
 .kpi {
-  background: linear-gradient(180deg, #fffdfa 0%, #f4ede1 100%);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--line-soft);
+  background: #fbfbfb;
 }
 .kpi .value {
-  font-size: 30px;
-  font-weight: 700;
+  font: 700 20px/1.15 system-ui, sans-serif;
 }
 .kpi .label {
+  margin-top: 4px;
   color: var(--muted);
-  font: 600 12px/1.3 system-ui, sans-serif;
-  letter-spacing: .05em;
+  font: 12px/1.35 system-ui, sans-serif;
   text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.pill {
+  display: inline-block;
+  margin: 0 8px 8px 0;
+  padding: 4px 9px;
+  border: 1px solid var(--line-soft);
+  background: #f8f9fa;
+  font: 13px/1.3 system-ui, sans-serif;
+}
+.diagram {
+  display: grid;
+  gap: 12px;
+  margin: 16px 0 24px;
+}
+.diagram-row {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 260px) minmax(0, 1fr);
+  gap: 14px;
+  align-items: stretch;
+}
+.diagram-tag {
+  padding: 12px;
+  background: #f8f9fa;
+  border: 1px solid var(--line-soft);
+  font: 700 12px/1.3 system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.diagram-box {
+  padding: 12px 14px;
+  border: 1px solid #98a9d0;
+  background: #eef3ff;
+  font: 700 15px/1.35 system-ui, sans-serif;
+}
+.diagram-text {
+  padding: 12px 14px;
+  border: 1px solid var(--line-soft);
+  background: #fbfbfb;
 }
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 16px;
+  margin: 14px 0 20px;
+  font-size: 14px;
+  table-layout: fixed;
 }
-th, td {
-  border-bottom: 1px solid var(--line);
-  padding: 10px 8px;
-  text-align: left;
+th,
+td {
+  padding: 8px 10px;
+  border: 1px solid var(--line-soft);
   vertical-align: top;
-  font-size: 15px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 th {
-  color: var(--muted);
-  font: 700 12px/1.2 system-ui, sans-serif;
-  letter-spacing: .05em;
-  text-transform: uppercase;
+  background: #eaecf0;
+  font: 600 13px/1.35 system-ui, sans-serif;
 }
-.pill {
-  display: inline-block;
-  background: var(--soft);
+input[type="search"],
+textarea {
+  width: 100%;
+  padding: 10px 12px;
   border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 5px 10px;
-  margin: 0 8px 8px 0;
-  font: 600 13px/1.1 system-ui, sans-serif;
+  background: #fff;
+  font: 14px/1.5 system-ui, sans-serif;
 }
-@media (max-width: 900px) {
-  .nav { grid-template-columns: 1fr; }
+textarea { min-height: 136px; resize: vertical; }
+.compact-textarea { min-height: 56px; }
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 12px 0;
+}
+button {
+  padding: 10px 14px;
+  border: 1px solid #8aa1d6;
+  background: #eaf1ff;
+  color: #1f3f8c;
+  cursor: pointer;
+  font: 600 14px/1 system-ui, sans-serif;
+}
+button.secondary {
+  border-color: var(--line);
+  background: #f8f9fa;
+  color: var(--ink);
+}
+button[disabled] {
+  cursor: not-allowed;
+  opacity: .7;
+}
+.response-box {
+  min-height: 160px;
+  padding: 14px 16px;
+  border: 1px solid var(--line-soft);
+  background: #fbfbfb;
+  white-space: pre-wrap;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 18px 0;
+}
+.gallery figure {
+  margin: 0;
+  padding: 8px;
+  border: 1px solid var(--line-soft);
+  background: #fff;
+}
+.gallery img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background: #f1f3f5;
+}
+.gallery figcaption {
+  padding: 8px 4px 2px;
+  font: 12px/1.45 system-ui, sans-serif;
+  color: var(--muted);
+}
+.search-meta {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font: 12px/1.4 system-ui, sans-serif;
+}
+.hero-image {
+  margin: 10px 0 18px;
+  border: 1px solid var(--line-soft);
+  background: #fff;
+}
+.hero-image img {
+  display: block;
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+}
+.hero-image figcaption {
+  padding: 8px 10px;
+  color: var(--muted);
+  font: 12px/1.45 system-ui, sans-serif;
+}
+.video-embed {
+  margin: 16px 0 20px;
+  border: 1px solid var(--line-soft);
+  background: #f8f9fa;
+  padding: 12px;
+}
+.video-embed iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+}
+.video-embed.vertical iframe {
+  max-width: 420px;
+  aspect-ratio: 9 / 16;
+}
+.video-embed.horizontal iframe {
+  aspect-ratio: 16 / 9;
+}
+.footer-note {
+  margin-top: 24px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line-soft);
+  color: var(--muted);
+  font: 12px/1.5 system-ui, sans-serif;
+}
+@media (max-width: 1024px) {
+  .frame { grid-template-columns: 1fr; }
   .sidebar { position: static; }
-  .shell { width: min(100vw - 24px, 1180px); }
-  .article { padding: 22px 20px; }
+  .wiki-grid { grid-template-columns: 1fr; }
+  .diagram-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .content { padding: 18px 16px 28px; }
+  .topbar-inner, .frame { width: min(100vw - 20px, 1360px); }
 }
 </style>
 </head>
 <body>
   
-<div class="shell">
-  <div class="hero">
-    <p class="eyebrow">Agentegra ATF</p>
+<header class="topbar">
+  <div class="topbar-inner">
+    <nav>
+      <a href="../index.html">ATF home</a>
+      <a href="../wiki-ui/index.html">Wiki</a>
+      <a href="../ledger-ui/index.html">Ledger</a>
+    </nav>
+    <div>RobotRoss demonstrator · Agentegra ATF</div>
+  </div>
+</header>
+
+  
+<main class="frame home">
+  <section class="content">
+    <div class="meta">Static evidence surface</div>
     <h1>RobotRoss Ledger Dashboard</h1>
-    <p class="lede">Human-readable overview of the current operational ledger extracted from the RobotRoss event log corpus.</p>
-  </div>
-  <div class="kpis"><div class="kpi"><div class="value">50878</div><div class="label">Events</div></div><div class="kpi"><div class="value">5294</div><div class="label">Drawing events</div></div><div class="kpi"><div class="value">0</div><div class="label">Job-end events</div></div><div class="kpi"><div class="value">23</div><div class="label">Distinct categories</div></div><div class="kpi"><div class="value">2026-03-19T12:44:47Z</div><div class="label">First event</div></div><div class="kpi"><div class="value">2026-03-30T20:26:04Z</div><div class="label">Last event</div></div></div>
-  <div class="grid cards">
-    <div class="card">
-      <h2>Top categories</h2>
-      <div><span class="pill">GCODE: 44806</span><span class="pill">DRAWING: 3959</span><span class="pill">PEN: 1272</span><span class="pill">NARRATION: 111</span><span class="pill">JOB: 103</span><span class="pill">OBS: 101</span><span class="pill">STOP: 77</span><span class="pill">VOICE: 69</span><span class="pill">CAFFEINATE: 64</span><span class="pill">WARNING: 63</span><span class="pill">DRAW: 63</span><span class="pill">MARKERS: 57</span></div>
+    <p class="lede">Wikipedia-toned operational view over the normalized RobotRoss event ledger, with job summaries first and raw-row search as a secondary drill-down.</p>
+    <div class="kpis"><div class="kpi"><div class="value">50878</div><div class="label">Events</div></div><div class="kpi"><div class="value">5294</div><div class="label">Drawing events</div></div><div class="kpi"><div class="value">23</div><div class="label">Distinct categories</div></div><div class="kpi"><div class="value">2026-03-19 12:44 UTC</div><div class="label">First event</div></div><div class="kpi"><div class="value">2026-03-30 20:26 UTC</div><div class="label">Last event</div></div><div class="kpi"><div class="value">8</div><div class="label">Recent jobs</div></div></div>
+    <div class="cards">
+      <div class="card">
+        <h3>Top categories</h3>
+        <div><span class="pill">GCODE: 44806</span><span class="pill">DRAWING: 3959</span><span class="pill">PEN: 1272</span><span class="pill">NARRATION: 111</span><span class="pill">JOB: 103</span><span class="pill">OBS: 101</span><span class="pill">STOP: 77</span><span class="pill">VOICE: 69</span><span class="pill">CAFFEINATE: 64</span><span class="pill">WARNING: 63</span><span class="pill">DRAW: 63</span><span class="pill">MARKERS: 57</span></div>
+      </div>
+      <div class="card">
+        <h3>Top actions</h3>
+        <div><span class="pill">execute: 44806</span><span class="pill">progress: 3959</span><span class="pill">down: 1272</span><span class="pill">status: 308</span><span class="pill">start: 129</span><span class="pill">signal: 77</span><span class="pill">play: 63</span><span class="pill">failed: 57</span><span class="pill">intro: 46</span><span class="pill">end: 37</span><span class="pill">request: 31</span><span class="pill">outro: 23</span></div>
+      </div>
     </div>
-    <div class="card">
-      <h2>Top actions</h2>
-      <div><span class="pill">execute: 44806</span><span class="pill">progress: 3959</span><span class="pill">down: 1272</span><span class="pill">status: 308</span><span class="pill">start: 129</span><span class="pill">signal: 77</span><span class="pill">play: 63</span><span class="pill">failed: 57</span><span class="pill">intro: 46</span><span class="pill">end: 37</span><span class="pill">request: 31</span><span class="pill">outro: 23</span></div>
+    <h2>Recent jobs</h2>
+    <table>
+      <thead><tr><th>Started</th><th>Content</th><th>Size</th><th>Events</th><th>Status</th><th>Notes</th></tr></thead>
+      <tbody><tr><td>2026-03-30 20:19 UTC</td><td>quickdraw_scene.svg</td><td>80.0 mm</td><td>86</td><td>attention</td><td>[2026-03-30 20:20:42] MARKERS � corner marks + signature added (viewBox 125�125)</td></tr><tr><td>2026-03-30 20:06 UTC</td><td>bear.svg</td><td>80.0 mm</td><td>123</td><td>attention</td><td>[2026-03-30 20:08:26] MARKERS � corner marks + signature added (viewBox 880�880) | [2026-03-30 20:11:11] STOP � signal received � aborting job | [2026-03-30 20:11:11] STOP � arm st</td></tr><tr><td>2026-03-30 19:46 UTC</td><td>API.svg</td><td>80.0 mm</td><td>82</td><td>attention</td><td>[2026-03-30 19:48:22] MARKERS � corner marks + signature added (viewBox 1199�896)</td></tr><tr><td>2026-03-30 19:36 UTC</td><td>quickdraw_scene.svg</td><td>80.0 mm</td><td>68</td><td>attention</td><td>[2026-03-30 19:37:55] MARKERS � corner marks + signature added (viewBox 125�125)</td></tr><tr><td>2026-03-30 19:22 UTC</td><td>quickdraw_scene.svg</td><td>80.0 mm</td><td>51</td><td>attention</td><td>[2026-03-30 19:23:52] MARKERS � corner marks + signature added (viewBox 125�125)</td></tr><tr><td>2026-03-30 19:09 UTC</td><td>quickdraw_scene.svg</td><td>80.0 mm</td><td>14</td><td>attention</td><td>[2026-03-30 19:11:08] MARKERS � corner marks + signature added (viewBox 125�125)</td></tr><tr><td>2026-03-30 18:59 UTC</td><td>quickdraw_scene.svg</td><td>80.0 mm</td><td>9</td><td>attention</td><td>[2026-03-30 18:59:17] STOP � signal received � aborting job</td></tr><tr><td>2026-03-30 18:54 UTC</td><td>quickdraw_scene.svg</td><td>80.0 mm</td><td>43</td><td>attention</td><td>[2026-03-30 18:56:22] MARKERS � corner marks + signature added (viewBox 125�125) | [2026-03-30 18:59:15] STOP � signal received � aborting job</td></tr></tbody>
+    </table>
+    <div class="cards">
+      <div class="card">
+        <h3>Recent activity by day</h3>
+        <table>
+          <thead><tr><th>Day</th><th>Events</th></tr></thead>
+          <tbody><tr><td>2026-03-30</td><td>2909</td></tr><tr><td>2026-03-28</td><td>45806</td></tr><tr><td>2026-03-27</td><td>412</td></tr><tr><td>2026-03-26</td><td>1081</td></tr><tr><td>2026-03-25</td><td>257</td></tr><tr><td>2026-03-20</td><td>253</td></tr><tr><td>2026-03-19</td><td>160</td></tr></tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h3>Ledger text search</h3>
+        <input id="ledger-search" type="search" placeholder="Search raw log text, category, or action">
+        <p id="ledger-search-count" class="search-meta"></p>
+        <table>
+          <thead><tr><th>Timestamp</th><th>Type</th><th>Category</th><th>Action</th><th>Raw line</th></tr></thead>
+          <tbody><tr class="ledger-row" data-search="[2026-03-30 20:26:04] obs � stop skipped (windows / --no-obs) status obs"><td>2026-03-30 20:26 UTC</td><td>system</td><td>OBS</td><td>status</td><td>[2026-03-30 20:26:04] OBS � stop skipped (Windows / --no-obs)</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:26:04] job end � status=success duration=302.9s end job"><td>2026-03-30 20:26 UTC</td><td>job</td><td>JOB</td><td>end</td><td>[2026-03-30 20:26:04] JOB END � status=success duration=302.9s</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:25:45] voice outro � and there we have it. isn&#x27;t that a lovely piece. you can remove your artwork now. outro voice"><td>2026-03-30 20:25 UTC</td><td>voice</td><td>VOICE</td><td>outro</td><td>[2026-03-30 20:25:45] VOICE OUTRO � And there we have it. Isn&#x27;t that a lovely piece. You can remove your artwork now.</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:25:43] pen down � drawing line 1284/1284 down pen"><td>2026-03-30 20:25 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:25:43] PEN DOWN � drawing line 1284/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:25:41] pen down � drawing line 1278/1284 down pen"><td>2026-03-30 20:25 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:25:41] PEN DOWN � drawing line 1278/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:25:40] pen down � drawing line 1277/1284 down pen"><td>2026-03-30 20:25 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:25:40] PEN DOWN � drawing line 1277/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:25:39] pen down � drawing line 1276/1284 down pen"><td>2026-03-30 20:25 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:25:39] PEN DOWN � drawing line 1276/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:25:37] pen down � drawing line 1270/1284 down pen"><td>2026-03-30 20:25 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:25:37] PEN DOWN � drawing line 1270/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:25:35] pen down � drawing line 1269/1284 down pen"><td>2026-03-30 20:25 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:25:35] PEN DOWN � drawing line 1269/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:25:34] pen down � drawing line 1268/1284 down pen"><td>2026-03-30 20:25 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:25:34] PEN DOWN � drawing line 1268/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:25:31] pen down � drawing line 1267/1284 down pen"><td>2026-03-30 20:25 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:25:31] PEN DOWN � drawing line 1267/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:25:30] pen down � drawing line 1266/1284 down pen"><td>2026-03-30 20:25 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:25:30] PEN DOWN � drawing line 1266/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:25:27] drawing  � 1250/1284 (97%) � x:+15.3 y:+35.0 z:+0.000mm progress drawing"><td>2026-03-30 20:25 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:25:27] DRAWING  � 1250/1284 (97%) � X:+15.3 Y:+35.0 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:25:22] pen down � drawing line 1218/1284 down pen"><td>2026-03-30 20:25 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:25:22] PEN DOWN � drawing line 1218/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:25:18] drawing  � 1200/1284 (93%) � x:+18.6 y:+35.0 z:+0.000mm progress drawing"><td>2026-03-30 20:25 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:25:18] DRAWING  � 1200/1284 (93%) � X:+18.6 Y:+35.0 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:25:13] pen down � drawing line 1170/1284 down pen"><td>2026-03-30 20:25 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:25:13] PEN DOWN � drawing line 1170/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:25:09] drawing  � 1150/1284 (90%) � x:+16.3 y:+34.0 z:+0.000mm progress drawing"><td>2026-03-30 20:25 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:25:09] DRAWING  � 1150/1284 (90%) � X:+16.3 Y:+34.0 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:25:04] pen down � drawing line 1122/1284 down pen"><td>2026-03-30 20:25 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:25:04] PEN DOWN � drawing line 1122/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:25:00] drawing  � 1100/1284 (86%) � x:-21.3 y:+32.2 z:+0.000mm progress drawing"><td>2026-03-30 20:25 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:25:00] DRAWING  � 1100/1284 (86%) � X:-21.3 Y:+32.2 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:24:55] pen down � drawing line 1074/1284 down pen"><td>2026-03-30 20:24 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:24:55] PEN DOWN � drawing line 1074/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:24:51] drawing  � 1050/1284 (82%) � x:-17.9 y:+31.8 z:+0.000mm progress drawing"><td>2026-03-30 20:24 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:24:51] DRAWING  � 1050/1284 (82%) � X:-17.9 Y:+31.8 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:24:47] pen down � drawing line 1026/1284 down pen"><td>2026-03-30 20:24 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:24:47] PEN DOWN � drawing line 1026/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:24:42] drawing  � 1000/1284 (78%) � x:-19.8 y:+30.6 z:+0.000mm progress drawing"><td>2026-03-30 20:24 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:24:42] DRAWING  � 1000/1284 (78%) � X:-19.8 Y:+30.6 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:24:38] pen down � drawing line 978/1284 down pen"><td>2026-03-30 20:24 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:24:38] PEN DOWN � drawing line 978/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:24:31] drawing  � 950/1284 (74%) � x:+28.5 y:-5.9 z:+0.000mm progress drawing"><td>2026-03-30 20:24 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:24:31] DRAWING  � 950/1284 (74%) � X:+28.5 Y:-5.9 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:24:28] pen down � drawing line 930/1284 down pen"><td>2026-03-30 20:24 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:24:28] PEN DOWN � drawing line 930/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:24:26] pen down � drawing line 928/1284 down pen"><td>2026-03-30 20:24 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:24:26] PEN DOWN � drawing line 928/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:24:20] drawing  � 900/1284 (70%) � x:-26.8 y:-2.6 z:-0.000mm progress drawing"><td>2026-03-30 20:24 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:24:20] DRAWING  � 900/1284 (70%) � X:-26.8 Y:-2.6 Z:-0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:24:16] pen down � drawing line 880/1284 down pen"><td>2026-03-30 20:24 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:24:16] PEN DOWN � drawing line 880/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:24:15] pen down � drawing line 878/1284 down pen"><td>2026-03-30 20:24 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:24:15] PEN DOWN � drawing line 878/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:24:08] drawing  � 850/1284 (66%) � x:+7.2 y:-20.4 z:+0.000mm progress drawing"><td>2026-03-30 20:24 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:24:08] DRAWING  � 850/1284 (66%) � X:+7.2 Y:-20.4 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:24:04] pen down � drawing line 830/1284 down pen"><td>2026-03-30 20:24 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:24:04] PEN DOWN � drawing line 830/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:23:57] drawing  � 800/1284 (62%) � x:-15.5 y:-20.3 z:-0.000mm progress drawing"><td>2026-03-30 20:23 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:23:57] DRAWING  � 800/1284 (62%) � X:-15.5 Y:-20.3 Z:-0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:23:54] pen down � drawing line 782/1284 down pen"><td>2026-03-30 20:23 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:23:54] PEN DOWN � drawing line 782/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:23:47] drawing  � 750/1284 (58%) � x:-1.6 y:-3.7 z:-0.000mm progress drawing"><td>2026-03-30 20:23 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:23:47] DRAWING  � 750/1284 (58%) � X:-1.6 Y:-3.7 Z:-0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:23:44] pen down � drawing line 734/1284 down pen"><td>2026-03-30 20:23 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:23:44] PEN DOWN � drawing line 734/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:23:38] drawing  � 700/1284 (55%) � x:+17.4 y:+29.0 z:+0.000mm progress drawing"><td>2026-03-30 20:23 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:23:38] DRAWING  � 700/1284 (55%) � X:+17.4 Y:+29.0 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:23:35] pen down � drawing line 686/1284 down pen"><td>2026-03-30 20:23 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:23:35] PEN DOWN � drawing line 686/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:23:34] pen down � drawing line 685/1284 down pen"><td>2026-03-30 20:23 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:23:34] PEN DOWN � drawing line 685/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:23:33] pen down � drawing line 684/1284 down pen"><td>2026-03-30 20:23 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:23:33] PEN DOWN � drawing line 684/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:23:33] pen down � drawing line 683/1284 down pen"><td>2026-03-30 20:23 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:23:33] PEN DOWN � drawing line 683/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:23:27] drawing  � 650/1284 (51%) � x:+13.7 y:+22.7 z:+0.000mm progress drawing"><td>2026-03-30 20:23 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:23:27] DRAWING  � 650/1284 (51%) � X:+13.7 Y:+22.7 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:23:24] pen down � drawing line 635/1284 down pen"><td>2026-03-30 20:23 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:23:24] PEN DOWN � drawing line 635/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:23:23] pen down � drawing line 634/1284 down pen"><td>2026-03-30 20:23 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:23:23] PEN DOWN � drawing line 634/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:23:16] drawing  � 600/1284 (47%) � x:+7.4 y:+9.6 z:+0.000mm progress drawing"><td>2026-03-30 20:23 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:23:16] DRAWING  � 600/1284 (47%) � X:+7.4 Y:+9.6 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:23:14] pen down � drawing line 586/1284 down pen"><td>2026-03-30 20:23 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:23:14] PEN DOWN � drawing line 586/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:23:13] pen down � drawing line 585/1284 down pen"><td>2026-03-30 20:23 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:23:13] PEN DOWN � drawing line 585/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:23:10] pen down � drawing line 581/1284 down pen"><td>2026-03-30 20:23 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:23:10] PEN DOWN � drawing line 581/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:23:03] drawing  � 550/1284 (43%) � x:+25.3 y:+14.3 z:+0.000mm progress drawing"><td>2026-03-30 20:23 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:23:03] DRAWING  � 550/1284 (43%) � X:+25.3 Y:+14.3 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:23:00] pen down � drawing line 533/1284 down pen"><td>2026-03-30 20:23 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:23:00] PEN DOWN � drawing line 533/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:22:53] drawing  � 500/1284 (39%) � x:+19.5 y:+13.8 z:+0.000mm progress drawing"><td>2026-03-30 20:22 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:22:53] DRAWING  � 500/1284 (39%) � X:+19.5 Y:+13.8 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:22:50] pen down � drawing line 485/1284 down pen"><td>2026-03-30 20:22 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:22:50] PEN DOWN � drawing line 485/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:22:49] pen down � drawing line 484/1284 down pen"><td>2026-03-30 20:22 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:22:49] PEN DOWN � drawing line 484/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:22:42] drawing  � 450/1284 (35%) � x:+22.6 y:+20.2 z:+0.000mm progress drawing"><td>2026-03-30 20:22 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:22:42] DRAWING  � 450/1284 (35%) � X:+22.6 Y:+20.2 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:22:39] pen down � drawing line 436/1284 down pen"><td>2026-03-30 20:22 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:22:39] PEN DOWN � drawing line 436/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:22:32] drawing  � 400/1284 (31%) � x:+33.6 y:+1.0 z:+0.000mm progress drawing"><td>2026-03-30 20:22 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:22:32] DRAWING  � 400/1284 (31%) � X:+33.6 Y:+1.0 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:22:29] pen down � drawing line 388/1284 down pen"><td>2026-03-30 20:22 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:22:29] PEN DOWN � drawing line 388/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:22:21] drawing  � 350/1284 (27%) � x:+28.2 y:+1.0 z:+0.000mm progress drawing"><td>2026-03-30 20:22 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:22:21] DRAWING  � 350/1284 (27%) � X:+28.2 Y:+1.0 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:22:19] pen down � drawing line 340/1284 down pen"><td>2026-03-30 20:22 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:22:19] PEN DOWN � drawing line 340/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:22:18] pen down � drawing line 339/1284 down pen"><td>2026-03-30 20:22 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:22:18] PEN DOWN � drawing line 339/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:22:10] drawing  � 300/1284 (23%) � x:+32.2 y:+9.6 z:+0.000mm progress drawing"><td>2026-03-30 20:22 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:22:10] DRAWING  � 300/1284 (23%) � X:+32.2 Y:+9.6 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:22:08] pen down � drawing line 291/1284 down pen"><td>2026-03-30 20:22 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:22:08] PEN DOWN � drawing line 291/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:21:59] drawing  � 250/1284 (19%) � x:-19.5 y:+16.4 z:+0.000mm progress drawing"><td>2026-03-30 20:21 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:21:59] DRAWING  � 250/1284 (19%) � X:-19.5 Y:+16.4 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:21:58] pen down � drawing line 243/1284 down pen"><td>2026-03-30 20:21 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:21:58] PEN DOWN � drawing line 243/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:21:50] drawing  � 200/1284 (16%) � x:-25.3 y:+16.9 z:+0.000mm progress drawing"><td>2026-03-30 20:21 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:21:50] DRAWING  � 200/1284 (16%) � X:-25.3 Y:+16.9 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:21:48] pen down � drawing line 195/1284 down pen"><td>2026-03-30 20:21 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:21:48] PEN DOWN � drawing line 195/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:21:47] pen down � drawing line 194/1284 down pen"><td>2026-03-30 20:21 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:21:47] PEN DOWN � drawing line 194/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:21:38] drawing  � 150/1284 (12%) � x:-20.8 y:+24.9 z:+0.000mm progress drawing"><td>2026-03-30 20:21 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:21:38] DRAWING  � 150/1284 (12%) � X:-20.8 Y:+24.9 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:21:37] pen down � drawing line 146/1284 down pen"><td>2026-03-30 20:21 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:21:37] PEN DOWN � drawing line 146/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:21:28] drawing  � 100/1284 (8%) � x:-24.0 y:+6.6 z:+0.000mm progress drawing"><td>2026-03-30 20:21 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:21:28] DRAWING  � 100/1284 (8%) � X:-24.0 Y:+6.6 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:21:27] pen down � drawing line 98/1284 down pen"><td>2026-03-30 20:21 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:21:27] PEN DOWN � drawing line 98/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:21:18] drawing  � 50/1284 (4%) � x:-30.3 y:+7.6 z:+0.000mm progress drawing"><td>2026-03-30 20:21 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:21:18] DRAWING  � 50/1284 (4%) � X:-30.3 Y:+7.6 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:21:18] pen down � drawing line 50/1284 down pen"><td>2026-03-30 20:21 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:21:18] PEN DOWN � drawing line 50/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:21:16] pen down � drawing line 49/1284 down pen"><td>2026-03-30 20:21 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:21:16] PEN DOWN � drawing line 49/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:21:06] pen down � drawing line 1/1284 down pen"><td>2026-03-30 20:21 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:21:06] PEN DOWN � drawing line 1/1284</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:21:05] calibration done � z_up=6.00 tilty=+0.00000 tiltx=+0.00000 � starting draw unknown unknown"><td>2026-03-30 20:21 UTC</td><td>unknown</td><td>UNKNOWN</td><td>unknown</td><td>[2026-03-30 20:21:05] Calibration done � Z_UP=6.00 TiltY=+0.00000 TiltX=+0.00000 � starting draw</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:20:44] port opened com3  (boot wait done) status port"><td>2026-03-30 20:20 UTC</td><td>system</td><td>PORT</td><td>status</td><td>[2026-03-30 20:20:44] PORT opened COM3  (boot wait done)</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:20:42] markers � corner marks + signature added (viewbox 125�125) failed markers"><td>2026-03-30 20:20 UTC</td><td>error</td><td>MARKERS</td><td>failed</td><td>[2026-03-30 20:20:42] MARKERS � corner marks + signature added (viewBox 125�125)</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:20:42] draw start � svg &#x27;c:\\users\\migue\\appdata\\local\\temp\\quickdraw_scene.svg&#x27; start draw"><td>2026-03-30 20:20 UTC</td><td>drawing</td><td>DRAW</td><td>start</td><td>[2026-03-30 20:20:42] DRAW START � svg &#x27;C:\\Users\\migue\\AppData\\Local\\Temp\\quickdraw_scene.svg&#x27;</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:20:14] voice intro � we got a lovely request for robot arm in bob ross style on paper with vibrant colors and happy trees surrounding it today. let&#x27;s see what happy little marks we can make together. intro voice"><td>2026-03-30 20:20 UTC</td><td>voice</td><td>VOICE</td><td>intro</td><td>[2026-03-30 20:20:14] VOICE INTRO � We got a lovely request for robot arm in Bob Ross style on paper with vibrant colors and happy trees surrounding it today. Let&#x27;s see what happy </td></tr><tr class="ledger-row" data-search="[2026-03-30 20:20:12] warning tone � playing � stand clear play warning"><td>2026-03-30 20:20 UTC</td><td>voice</td><td>WARNING</td><td>play</td><td>[2026-03-30 20:20:12] WARNING TONE � playing � stand clear</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:20:12] narration � ready status narration"><td>2026-03-30 20:20 UTC</td><td>voice</td><td>NARRATION</td><td>status</td><td>[2026-03-30 20:20:12] NARRATION � ready</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:19:10] narration � requesting from apertus status narration"><td>2026-03-30 20:19 UTC</td><td>voice</td><td>NARRATION</td><td>status</td><td>[2026-03-30 20:19:10] NARRATION � requesting from Apertus</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:19:10] caffeinate � skipped (windows � manage sleep settings manually) status caffeinate"><td>2026-03-30 20:19 UTC</td><td>system</td><td>CAFFEINATE</td><td>status</td><td>[2026-03-30 20:19:10] CAFFEINATE � skipped (Windows � manage sleep settings manually)</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:19:10] obs � skipped (windows / --no-obs) status obs"><td>2026-03-30 20:19 UTC</td><td>system</td><td>OBS</td><td>status</td><td>[2026-03-30 20:19:10] OBS � skipped (Windows / --no-obs)</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:19:09] job start � action=svg content=&#x27;c:\\users\\migue\\appdata\\local\\temp\\quickdraw_scene.svg&#x27; size=80.0 start job"><td>2026-03-30 20:19 UTC</td><td>job</td><td>JOB</td><td>start</td><td>[2026-03-30 20:19:09] JOB START � action=svg content=&#x27;C:\\Users\\migue\\AppData\\Local\\Temp\\quickdraw_scene.svg&#x27; size=80.0</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:19:09] sketch direct � bypassing preview, drawing immediately request sketch"><td>2026-03-30 20:19 UTC</td><td>ai</td><td>SKETCH</td><td>request</td><td>[2026-03-30 20:19:09] SKETCH DIRECT � bypassing preview, drawing immediately</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:19:09] ai tokens � tokens � input=234 output=1192 total=1426 usage ai"><td>2026-03-30 20:19 UTC</td><td>ai</td><td>AI</td><td>usage</td><td>[2026-03-30 20:19:09] AI TOKENS � TOKENS � input=234 output=1192 total=1426</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:19:03] sketch � prompt=&#x27;robot arm in bob ross style on paper with vibrant colors and happy trees surrounding it&#x27; request sketch"><td>2026-03-30 20:19 UTC</td><td>ai</td><td>SKETCH</td><td>request</td><td>[2026-03-30 20:19:03] SKETCH � prompt=&#x27;robot arm in Bob Ross style on paper with vibrant colors and happy trees surrounding it&#x27;</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:11:11] stop � arm stopped mid-draw after 165.4s signal stop"><td>2026-03-30 20:11 UTC</td><td>system</td><td>STOP</td><td>signal</td><td>[2026-03-30 20:11:11] STOP � arm stopped mid-draw after 165.4s</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:11:11] stop � signal received � aborting job signal stop"><td>2026-03-30 20:11 UTC</td><td>system</td><td>STOP</td><td>signal</td><td>[2026-03-30 20:11:11] STOP � signal received � aborting job</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:11:09] drawing  � 4250/15630 (27%) � x:-21.5 y:+38.5 z:+0.000mm progress drawing"><td>2026-03-30 20:11 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:11:09] DRAWING  � 4250/15630 (27%) � X:-21.5 Y:+38.5 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:11:06] drawing  � 4200/15630 (27%) � x:-21.4 y:+39.5 z:+0.000mm progress drawing"><td>2026-03-30 20:11 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:11:06] DRAWING  � 4200/15630 (27%) � X:-21.4 Y:+39.5 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:11:04] drawing  � 4150/15630 (27%) � x:-20.7 y:+39.3 z:+0.000mm progress drawing"><td>2026-03-30 20:11 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:11:04] DRAWING  � 4150/15630 (27%) � X:-20.7 Y:+39.3 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:11:03] pen down � drawing line 4148/15630 down pen"><td>2026-03-30 20:11 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:11:03] PEN DOWN � drawing line 4148/15630</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:11:01] drawing  � 4100/15630 (26%) � x:-21.1 y:+38.6 z:+0.000mm progress drawing"><td>2026-03-30 20:11 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:11:01] DRAWING  � 4100/15630 (26%) � X:-21.1 Y:+38.6 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:59] pen down � drawing line 4067/15630 down pen"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:10:59] PEN DOWN � drawing line 4067/15630</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:57] drawing  � 4050/15630 (26%) � x:-22.1 y:+38.8 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:57] DRAWING  � 4050/15630 (26%) � X:-22.1 Y:+38.8 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:57] drawing  � 4000/15630 (26%) � x:-21.9 y:+38.6 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:57] DRAWING  � 4000/15630 (26%) � X:-21.9 Y:+38.6 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:57] drawing  � 3950/15630 (25%) � x:-22.0 y:+38.4 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:57] DRAWING  � 3950/15630 (25%) � X:-22.0 Y:+38.4 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:56] pen down � drawing line 3921/15630 down pen"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:10:56] PEN DOWN � drawing line 3921/15630</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:55] drawing  � 3900/15630 (25%) � x:-23.5 y:+38.5 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:55] DRAWING  � 3900/15630 (25%) � X:-23.5 Y:+38.5 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:54] drawing  � 3850/15630 (25%) � x:-24.0 y:+38.5 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:54] DRAWING  � 3850/15630 (25%) � X:-24.0 Y:+38.5 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:51] drawing  � 3800/15630 (24%) � x:-24.1 y:+39.2 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:51] DRAWING  � 3800/15630 (24%) � X:-24.1 Y:+39.2 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:49] drawing  � 3750/15630 (24%) � x:-23.6 y:+39.6 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:49] DRAWING  � 3750/15630 (24%) � X:-23.6 Y:+39.6 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:48] pen down � drawing line 3736/15630 down pen"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:10:48] PEN DOWN � drawing line 3736/15630</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:46] drawing  � 3700/15630 (24%) � x:-23.8 y:+38.6 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:46] DRAWING  � 3700/15630 (24%) � X:-23.8 Y:+38.6 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:43] drawing  � 3650/15630 (23%) � x:-23.4 y:+39.1 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:43] DRAWING  � 3650/15630 (23%) � X:-23.4 Y:+39.1 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:41] drawing  � 3600/15630 (23%) � x:-23.8 y:+39.4 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:41] DRAWING  � 3600/15630 (23%) � X:-23.8 Y:+39.4 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:40] pen down � drawing line 3576/15630 down pen"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:10:40] PEN DOWN � drawing line 3576/15630</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:38] drawing  � 3550/15630 (23%) � x:-25.0 y:+38.6 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:38] DRAWING  � 3550/15630 (23%) � X:-25.0 Y:+38.6 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:38] drawing  � 3500/15630 (22%) � x:-24.6 y:+38.7 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:38] DRAWING  � 3500/15630 (22%) � X:-24.6 Y:+38.7 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:37] drawing  � 3450/15630 (22%) � x:-24.4 y:+38.7 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:37] DRAWING  � 3450/15630 (22%) � X:-24.4 Y:+38.7 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:37] drawing  � 3400/15630 (22%) � x:-24.7 y:+38.4 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:37] DRAWING  � 3400/15630 (22%) � X:-24.7 Y:+38.4 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:35] pen down � drawing line 3368/15630 down pen"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:10:35] PEN DOWN � drawing line 3368/15630</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:34] drawing  � 3350/15630 (21%) � x:-25.7 y:+39.5 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:34] DRAWING  � 3350/15630 (21%) � X:-25.7 Y:+39.5 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:33] drawing  � 3300/15630 (21%) � x:-25.6 y:+38.8 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:33] DRAWING  � 3300/15630 (21%) � X:-25.6 Y:+38.8 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:33] drawing  � 3250/15630 (21%) � x:-25.7 y:+38.5 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:33] DRAWING  � 3250/15630 (21%) � X:-25.7 Y:+38.5 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:31] drawing  � 3200/15630 (20%) � x:-26.3 y:+38.5 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:31] DRAWING  � 3200/15630 (20%) � X:-26.3 Y:+38.5 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:30] drawing  � 3150/15630 (20%) � x:-26.3 y:+38.7 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:30] DRAWING  � 3150/15630 (20%) � X:-26.3 Y:+38.7 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:29] drawing  � 3100/15630 (20%) � x:-25.8 y:+38.7 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:29] DRAWING  � 3100/15630 (20%) � X:-25.8 Y:+38.7 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:28] drawing  � 3050/15630 (20%) � x:-26.0 y:+38.9 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:28] DRAWING  � 3050/15630 (20%) � X:-26.0 Y:+38.9 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:28] drawing  � 3000/15630 (19%) � x:-26.4 y:+39.0 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:28] DRAWING  � 3000/15630 (19%) � X:-26.4 Y:+39.0 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:27] drawing  � 2950/15630 (19%) � x:-26.5 y:+39.4 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:27] DRAWING  � 2950/15630 (19%) � X:-26.5 Y:+39.4 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:25] drawing  � 2900/15630 (19%) � x:-25.9 y:+39.5 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:25] DRAWING  � 2900/15630 (19%) � X:-25.9 Y:+39.5 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:25] pen down � drawing line 2885/15630 down pen"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:10:25] PEN DOWN � drawing line 2885/15630</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:24] drawing  � 2850/15630 (18%) � x:-25.9 y:+39.3 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:24] DRAWING  � 2850/15630 (18%) � X:-25.9 Y:+39.3 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:23] drawing  � 2800/15630 (18%) � x:-26.3 y:+39.4 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:23] DRAWING  � 2800/15630 (18%) � X:-26.3 Y:+39.4 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:23] drawing  � 2750/15630 (18%) � x:-26.3 y:+39.1 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:23] DRAWING  � 2750/15630 (18%) � X:-26.3 Y:+39.1 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:22] pen down � drawing line 2704/15630 down pen"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:10:22] PEN DOWN � drawing line 2704/15630</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:21] drawing  � 2700/15630 (17%) � x:-27.5 y:+38.0 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:21] DRAWING  � 2700/15630 (17%) � X:-27.5 Y:+38.0 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:20] drawing  � 2650/15630 (17%) � x:-28.0 y:+38.4 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:20] DRAWING  � 2650/15630 (17%) � X:-28.0 Y:+38.4 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:18] drawing  � 2600/15630 (17%) � x:-28.3 y:+39.0 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:18] DRAWING  � 2600/15630 (17%) � X:-28.3 Y:+39.0 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:15] drawing  � 2550/15630 (16%) � x:-28.0 y:+39.6 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:15] DRAWING  � 2550/15630 (16%) � X:-28.0 Y:+39.6 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:14] pen down � drawing line 2519/15630 down pen"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:10:14] PEN DOWN � drawing line 2519/15630</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:12] drawing  � 2500/15630 (16%) � x:-28.1 y:+38.7 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:12] DRAWING  � 2500/15630 (16%) � X:-28.1 Y:+38.7 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:10] drawing  � 2450/15630 (16%) � x:-27.6 y:+38.8 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:10] DRAWING  � 2450/15630 (16%) � X:-27.6 Y:+38.8 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:08] drawing  � 2400/15630 (15%) � x:-27.8 y:+39.4 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:08] DRAWING  � 2400/15630 (15%) � X:-27.8 Y:+39.4 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:06] pen down � drawing line 2359/15630 down pen"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:10:06] PEN DOWN � drawing line 2359/15630</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:05] drawing  � 2350/15630 (15%) � x:-28.7 y:+39.3 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:05] DRAWING  � 2350/15630 (15%) � X:-28.7 Y:+39.3 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:04] drawing  � 2300/15630 (15%) � x:-29.2 y:+39.3 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:04] DRAWING  � 2300/15630 (15%) � X:-29.2 Y:+39.3 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:10:02] drawing  � 2250/15630 (14%) � x:-28.5 y:+38.8 z:+0.000mm progress drawing"><td>2026-03-30 20:10 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:10:02] DRAWING  � 2250/15630 (14%) � X:-28.5 Y:+38.8 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:59] drawing  � 2200/15630 (14%) � x:-29.3 y:+38.5 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:59] DRAWING  � 2200/15630 (14%) � X:-29.3 Y:+38.5 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:56] drawing  � 2150/15630 (14%) � x:-29.2 y:+39.5 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:56] DRAWING  � 2150/15630 (14%) � X:-29.2 Y:+39.5 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:53] drawing  � 2100/15630 (13%) � x:-28.5 y:+39.3 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:53] DRAWING  � 2100/15630 (13%) � X:-28.5 Y:+39.3 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:53] pen down � drawing line 2097/15630 down pen"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:09:53] PEN DOWN � drawing line 2097/15630</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:50] drawing  � 2050/15630 (13%) � x:-28.9 y:+38.6 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:50] DRAWING  � 2050/15630 (13%) � X:-28.9 Y:+38.6 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:49] pen down � drawing line 2016/15630 down pen"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:09:49] PEN DOWN � drawing line 2016/15630</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:47] drawing  � 2000/15630 (13%) � x:-30.4 y:+38.7 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:47] DRAWING  � 2000/15630 (13%) � X:-30.4 Y:+38.7 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:47] drawing  � 1950/15630 (12%) � x:-30.0 y:+38.6 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:47] DRAWING  � 1950/15630 (12%) � X:-30.0 Y:+38.6 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:45] drawing  � 1900/15630 (12%) � x:-29.7 y:+38.8 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:45] DRAWING  � 1900/15630 (12%) � X:-29.7 Y:+38.8 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:45] drawing  � 1850/15630 (12%) � x:-29.9 y:+38.5 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:45] DRAWING  � 1850/15630 (12%) � X:-29.9 Y:+38.5 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:44] pen down � drawing line 1808/15630 down pen"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:09:44] PEN DOWN � drawing line 1808/15630</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:43] drawing  � 1800/15630 (12%) � x:-31.8 y:+39.8 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:43] DRAWING  � 1800/15630 (12%) � X:-31.8 Y:+39.8 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:40] drawing  � 1750/15630 (11%) � x:-31.1 y:+40.0 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:40] DRAWING  � 1750/15630 (11%) � X:-31.1 Y:+40.0 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:38] drawing  � 1700/15630 (11%) � x:-31.1 y:+38.5 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:38] DRAWING  � 1700/15630 (11%) � X:-31.1 Y:+38.5 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:35] drawing  � 1650/15630 (11%) � x:-31.8 y:+38.6 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:35] DRAWING  � 1650/15630 (11%) � X:-31.8 Y:+38.6 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:33] drawing  � 1600/15630 (10%) � x:-31.7 y:+39.4 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:33] DRAWING  � 1600/15630 (10%) � X:-31.7 Y:+39.4 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:30] drawing  � 1550/15630 (10%) � x:-31.1 y:+39.6 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:30] DRAWING  � 1550/15630 (10%) � X:-31.1 Y:+39.6 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:29] drawing  � 1500/15630 (10%) � x:-31.4 y:+39.8 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:29] DRAWING  � 1500/15630 (10%) � X:-31.4 Y:+39.8 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:29] pen down � drawing line 1464/15630 down pen"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:09:29] PEN DOWN � drawing line 1464/15630</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:27] drawing  � 1450/15630 (9%) � x:-31.6 y:+38.8 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:27] DRAWING  � 1450/15630 (9%) � X:-31.6 Y:+38.8 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:26] drawing  � 1400/15630 (9%) � x:-31.1 y:+38.7 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:26] DRAWING  � 1400/15630 (9%) � X:-31.1 Y:+38.7 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:23] drawing  � 1350/15630 (9%) � x:-31.3 y:+39.4 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:23] DRAWING  � 1350/15630 (9%) � X:-31.3 Y:+39.4 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:21] pen down � drawing line 1304/15630 down pen"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:09:21] PEN DOWN � drawing line 1304/15630</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:20] drawing  � 1300/15630 (8%) � x:-32.1 y:+38.0 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:20] DRAWING  � 1300/15630 (8%) � X:-32.1 Y:+38.0 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:20] pen down � drawing line 1300/15630 down pen"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:09:20] PEN DOWN � drawing line 1300/15630</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:18] pen down � drawing line 1296/15630 down pen"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:09:18] PEN DOWN � drawing line 1296/15630</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:15] drawing  � 1250/15630 (8%) � x:-32.9 y:+39.6 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:15] DRAWING  � 1250/15630 (8%) � X:-32.9 Y:+39.6 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:14] drawing  � 1200/15630 (8%) � x:-32.5 y:+39.3 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:14] DRAWING  � 1200/15630 (8%) � X:-32.5 Y:+39.3 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:14] drawing  � 1150/15630 (7%) � x:-32.7 y:+39.0 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:14] DRAWING  � 1150/15630 (7%) � X:-32.7 Y:+39.0 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:13] drawing  � 1100/15630 (7%) � x:-33.2 y:+38.8 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:13] DRAWING  � 1100/15630 (7%) � X:-33.2 Y:+38.8 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:13] drawing  � 1050/15630 (7%) � x:-33.1 y:+38.6 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:13] DRAWING  � 1050/15630 (7%) � X:-33.1 Y:+38.6 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:13] drawing  � 1000/15630 (6%) � x:-32.7 y:+38.7 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:13] DRAWING  � 1000/15630 (6%) � X:-32.7 Y:+38.7 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:12] drawing  � 950/15630 (6%) � x:-32.8 y:+38.4 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:12] DRAWING  � 950/15630 (6%) � X:-32.8 Y:+38.4 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:12] drawing  � 900/15630 (6%) � x:-33.2 y:+38.5 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:12] DRAWING  � 900/15630 (6%) � X:-33.2 Y:+38.5 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:12] drawing  � 850/15630 (5%) � x:-33.4 y:+38.8 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:12] DRAWING  � 850/15630 (5%) � X:-33.4 Y:+38.8 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:11] drawing  � 800/15630 (5%) � x:-33.0 y:+39.1 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:11] DRAWING  � 800/15630 (5%) � X:-33.0 Y:+39.1 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:10] drawing  � 750/15630 (5%) � x:-32.7 y:+39.3 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:10] DRAWING  � 750/15630 (5%) � X:-32.7 Y:+39.3 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:09] drawing  � 700/15630 (4%) � x:-33.1 y:+39.4 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:09] DRAWING  � 700/15630 (4%) � X:-33.1 Y:+39.4 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:09] pen down � drawing line 674/15630 down pen"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:09:09] PEN DOWN � drawing line 674/15630</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:08] drawing  � 650/15630 (4%) � x:-33.9 y:+39.4 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:08] DRAWING  � 650/15630 (4%) � X:-33.9 Y:+39.4 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:07] drawing  � 600/15630 (4%) � x:-34.4 y:+39.2 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:07] DRAWING  � 600/15630 (4%) � X:-34.4 Y:+39.2 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:05] drawing  � 550/15630 (4%) � x:-33.7 y:+38.5 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:05] DRAWING  � 550/15630 (4%) � X:-33.7 Y:+38.5 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:09:02] drawing  � 500/15630 (3%) � x:-34.6 y:+38.8 z:+0.000mm progress drawing"><td>2026-03-30 20:09 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:09:02] DRAWING  � 500/15630 (3%) � X:-34.6 Y:+38.8 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:08:59] drawing  � 450/15630 (3%) � x:-34.0 y:+39.6 z:+0.000mm progress drawing"><td>2026-03-30 20:08 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:08:59] DRAWING  � 450/15630 (3%) � X:-34.0 Y:+39.6 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:08:57] pen down � drawing line 412/15630 down pen"><td>2026-03-30 20:08 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:08:57] PEN DOWN � drawing line 412/15630</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:08:55] drawing  � 400/15630 (3%) � x:-34.3 y:+38.8 z:+0.000mm progress drawing"><td>2026-03-30 20:08 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:08:55] DRAWING  � 400/15630 (3%) � X:-34.3 Y:+38.8 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:08:54] drawing  � 350/15630 (2%) � x:-33.8 y:+38.7 z:+0.000mm progress drawing"><td>2026-03-30 20:08 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:08:54] DRAWING  � 350/15630 (2%) � X:-33.8 Y:+38.7 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:08:53] pen down � drawing line 331/15630 down pen"><td>2026-03-30 20:08 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:08:53] PEN DOWN � drawing line 331/15630</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:08:51] drawing  � 300/15630 (2%) � x:-35.1 y:+39.5 z:+0.000mm progress drawing"><td>2026-03-30 20:08 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:08:51] DRAWING  � 300/15630 (2%) � X:-35.1 Y:+39.5 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:08:50] drawing  � 250/15630 (2%) � x:-34.8 y:+39.1 z:+0.000mm progress drawing"><td>2026-03-30 20:08 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:08:50] DRAWING  � 250/15630 (2%) � X:-34.8 Y:+39.1 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:08:47] drawing  � 200/15630 (1%) � x:-34.9 y:+38.3 z:+0.000mm progress drawing"><td>2026-03-30 20:08 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:08:47] DRAWING  � 200/15630 (1%) � X:-34.9 Y:+38.3 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:08:45] drawing  � 150/15630 (1%) � x:-35.5 y:+38.0 z:+0.000mm progress drawing"><td>2026-03-30 20:08 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:08:45] DRAWING  � 150/15630 (1%) � X:-35.5 Y:+38.0 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:08:45] pen down � drawing line 148/15630 down pen"><td>2026-03-30 20:08 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:08:45] PEN DOWN � drawing line 148/15630</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:08:42] drawing  � 100/15630 (1%) � x:-35.0 y:+38.5 z:+0.000mm progress drawing"><td>2026-03-30 20:08 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:08:42] DRAWING  � 100/15630 (1%) � X:-35.0 Y:+38.5 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:08:39] drawing  � 50/15630 (0%) � x:-35.1 y:+39.2 z:+0.000mm progress drawing"><td>2026-03-30 20:08 UTC</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>[2026-03-30 20:08:39] DRAWING  � 50/15630 (0%) � X:-35.1 Y:+39.2 Z:+0.000mm</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:08:38] pen down � drawing line 5/15630 down pen"><td>2026-03-30 20:08 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:08:38] PEN DOWN � drawing line 5/15630</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:08:29] pen down � drawing line 1/15630 down pen"><td>2026-03-30 20:08 UTC</td><td>drawing</td><td>PEN</td><td>down</td><td>[2026-03-30 20:08:29] PEN DOWN � drawing line 1/15630</td></tr><tr class="ledger-row" data-search="[2026-03-30 20:08:28] port opened com3  (boot wait done) status port"><td>2026-03-30 20:08 UTC</td><td>system</td><td>PORT</td><td>status</td><td>[2026-03-30 20:08:28] PORT opened COM3  (boot wait done)</td></tr></tbody>
+        </table>
+      </div>
     </div>
-  </div>
-  <div class="grid cards">
-    <div class="card">
-      <h2>Recent activity by day</h2>
-      <table>
-        <thead><tr><th>Day</th><th>Events</th></tr></thead>
-        <tbody><tr><td>2026-03-30</td><td>2909</td></tr><tr><td>2026-03-28</td><td>45806</td></tr><tr><td>2026-03-27</td><td>412</td></tr><tr><td>2026-03-26</td><td>1081</td></tr><tr><td>2026-03-25</td><td>257</td></tr><tr><td>2026-03-20</td><td>253</td></tr><tr><td>2026-03-19</td><td>160</td></tr></tbody>
-      </table>
-    </div>
-    <div class="card">
-      <h2>Recent ledger rows</h2>
-      <table>
-        <thead><tr><th>Timestamp</th><th>Type</th><th>Category</th><th>Action</th><th>Line</th></tr></thead>
-        <tbody><tr><td>2026-03-19T12:44:47Z</td><td>drawing</td><td>PEN</td><td>down</td><td>1</td></tr><tr><td>2026-03-19T12:44:56Z</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>2</td></tr><tr><td>2026-03-19T12:45:04Z</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>3</td></tr><tr><td>2026-03-19T12:45:14Z</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>4</td></tr><tr><td>2026-03-19T12:45:23Z</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>5</td></tr><tr><td>2026-03-19T12:45:33Z</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>6</td></tr><tr><td>2026-03-19T12:45:40Z</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>7</td></tr><tr><td>2026-03-19T12:45:48Z</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>8</td></tr><tr><td>2026-03-19T12:45:49Z</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>9</td></tr><tr><td>2026-03-19T12:45:52Z</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>10</td></tr><tr><td>2026-03-19T12:46:01Z</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>11</td></tr><tr><td>2026-03-19T12:46:08Z</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>12</td></tr></tbody>
-      </table>
-    </div>
-  </div>
-</div>
+    <p class="footer-note">The large first/last-event hero tiles were intentionally removed to keep the emphasis on job summaries and searchable evidence rather than oversized timestamps.</p>
+  </section>
+</main>
+
+<script>
+const searchInput = document.getElementById('ledger-search');
+const rows = Array.from(document.querySelectorAll('.ledger-row'));
+const counter = document.getElementById('ledger-search-count');
+function applySearch() {
+  const term = searchInput.value.trim().toLowerCase();
+  let shown = 0;
+  for (const row of rows) {
+    const hit = !term || row.dataset.search.includes(term);
+    row.style.display = hit ? '' : 'none';
+    if (hit) shown += 1;
+  }
+  counter.textContent = term ? `${shown} matching rows in the recent 200-event sample` : `Showing ${shown} recent ledger rows`;
+}
+searchInput.addEventListener('input', applySearch);
+applySearch();
+</script>
+
 
 </body>
 </html>

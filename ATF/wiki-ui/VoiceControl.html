@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OrderManagement</title>
+  <title>Voice Control</title>
   <style>
 :root {
   --bg: #f8f9fa;
@@ -428,12 +428,12 @@ button[disabled] {
 <li><a href="CommerceLayer.html">Commerce Layer</a></li>
 <li><a href="HardwareInterface.html">Hardware Interface</a></li>
 <li><a href="JobOrchestration.html">Job Orchestration</a></li>
-<li><a href="OrderManagement.html" style="font-weight:700">Order Management</a></li>
+<li><a href="OrderManagement.html">Order Management</a></li>
 </ul>
 <h3>Topics</h3><ul>
 <li><a href="Compliance.html">Compliance</a></li>
 <li><a href="Narration.html">Narration</a></li>
-<li><a href="VoiceControl.html">Voice Control</a></li>
+<li><a href="VoiceControl.html" style="font-weight:700">Voice Control</a></li>
 <li><a href="BiddingRules.html">Bidding Rules</a></li>
 <li><a href="Calibration.html">Calibration</a></li>
 <li><a href="ShopifyIntegration.html">Shopify Integration</a></li>
@@ -442,44 +442,48 @@ button[disabled] {
 </ul>
   </aside>
   <article class="content">
-    <h1>Order Management</h1>
+    <h1>Voice Control</h1>
     <p class="lede">Compiled RobotRoss knowledge page generated from RobotRoss source code, architecture notes, and operational documentation.</p>
-    <div class="toc"><h3>Contents</h3><ol><li style="margin-left:0px"><a href="#1-role">1. Role</a></li><li style="margin-left:0px"><a href="#2-key-components">2. Key Components</a></li><li style="margin-left:0px"><a href="#3-workflow">3. Workflow</a></li><li style="margin-left:0px"><a href="#4-notes-and-open-points">4. Notes and Open Points</a></li></ol></div>
+    <div class="toc"><h3>Contents</h3><ol><li style="margin-left:0px"><a href="#1-overview">1. Overview</a></li><li style="margin-left:0px"><a href="#2-speech-to-text">2. Speech-to-Text</a></li><li style="margin-left:0px"><a href="#3-reasoning-path">3. Reasoning Path</a></li><li style="margin-left:0px"><a href="#4-text-to-speech">4. Text-to-Speech</a></li><li style="margin-left:0px"><a href="#5-notes-and-open-points">5. Notes and Open Points</a></li></ol></div>
     <div class="wiki-grid">
       <div>
 <figure class="hero-image">
-  <img src="../assets/media/images/OrderManagement.jpeg" alt="Order Management">
-  <figcaption>OrderManagement.jpeg</figcaption>
+  <img src="../assets/media/images/IMG_1302 2.jpeg" alt="Voice Control">
+  <figcaption>IMG_1302 2.jpeg</figcaption>
 </figure>
-<h1 id="order-management-subsystem">Order Management Subsystem</h1>
-<h2 id="1-role">1. Role</h2>
-<p>The Order Management subsystem handles the communication with the external Salesman API to fetch new drawing orders and logs them locally.</p>
-<h2 id="2-key-components">2. Key Components</h2>
+<h1 id="voice-control">Voice Control</h1>
+<h2 id="1-overview">1. Overview</h2>
+<p>Voice control is a top-level part of the ATF architecture, not a side note. It provides spoken interaction with the same local evidence base used by the text query path.</p>
+<h2 id="2-speech-to-text">2. Speech-to-Text</h2>
 <ul>
-<li><strong>Poller</strong>: <code>artist_poller.py</code> runs as a daemon and polls <code>GET /salesman/orders/incoming?status=new</code> every 3 minutes.</li>
-<li><strong>Client</strong>: <code>salesman_client.py</code> provides the HTTP interface for fetching and acknowledging orders.</li>
-<li><strong>Local Ledger</strong>: <code>order_log.py</code> manages <code>orders.xlsx</code>, keeping a local record of all completed jobs and their associated YouTube proof URLs.</li>
+<li>Whisper is the intended speech-to-text engine for converting operator prompts into local text queries.</li>
+<li>Spoken prompts should be interpreted against the compiled wiki and the operational ledger.</li>
 </ul>
-<h2 id="3-workflow">3. Workflow</h2>
+<h2 id="3-reasoning-path">3. Reasoning Path</h2>
 <ul>
-<li><strong>Claiming</strong>: The poller identifies a new order, claims it via the API, and triggers <code>bob_ross.py</code>.</li>
-<li><strong>Completion</strong>: Once <code>bob_ross.py</code> finishes, the poller (or <code>bob_ross.py</code> itself) notifies the Salesman API of completion and records the video proof URL.</li>
+<li>The local model answers from the RobotRoss knowledge corpus and ledger evidence.</li>
+<li>This query path is intended to run on the local system, not through a cloud-hosted inference layer.</li>
 </ul>
-<h2 id="4-notes-and-open-points">4. Notes and Open Points</h2>
+<h2 id="4-text-to-speech">4. Text-to-Speech</h2>
 <ul>
-<li><strong>Local vs Remote</strong>: The primary source of truth for orders is the Salesman API, but <code>orders.xlsx</code> acts as a local mirror. There is no explicit documentation on how the system resolves discrepancies if the Salesman API is unavailable during a completion call.</li>
-<li><strong>Authentication</strong>: Authentication for the Salesman API uses a Bearer token stored in <code>.salesman_config</code>. There&#x27;s no documented procedure for token rotation.</li>
+<li>Voxtral is the intended text-to-speech engine for spoken answers.</li>
+<li>Spoken output should summarize the same evidence-backed answer returned in the text channel.</li>
 </ul>
-<hr>
-<p><strong>Sources:</strong></p>
+<h2 id="5-notes-and-open-points">5. Notes and Open Points</h2>
 <ul>
-<li><code>~/.openclaw/workspace/skills/robot-ross/artist_poller.py</code></li>
-<li><code>~/.openclaw/workspace/skills/robot-ross/order_log.py</code></li>
-<li><code>~/.openclaw/workspace/skills/robot-ross/salesman_client.py</code></li>
-</ul></div>
-      <aside class="infobox"><h3>Page Facts</h3><table><tr><th>Artifact</th><td>Order Management</td></tr><tr><th>Type</th><td>Compiled wiki page</td></tr><tr><th>Source</th><td>wiki/Subsystems/OrderManagement.md</td></tr><tr><th>Surface</th><td>Agentegra ATF</td></tr><tr><th>Rendering</th><td>Static HTML</td></tr></table></aside>
+<li>Voice interaction should remain aligned with the same provenance expectations as the text query path.</li>
+<li>The UI should present voice as a first-class control surface once the runtime hookup is in place.</li>
+</ul>
+<section>
+  <h2 id="voice-demo">Voice Demo</h2>
+  <div class="video-embed vertical">
+    <iframe src="https://www.youtube.com/embed/rpEXI3Dk49s" title="RobotRoss voice control demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+</section>
+</div>
+      <aside class="infobox"><h3>Page Facts</h3><table><tr><th>Artifact</th><td>Voice Control</td></tr><tr><th>Type</th><td>Compiled wiki page</td></tr><tr><th>Source</th><td>AGENTS/CONTEXT/agentegra_atf_architecture.md</td></tr><tr><th>Surface</th><td>Agentegra ATF</td></tr><tr><th>Rendering</th><td>Static HTML</td></tr></table></aside>
     </div>
-    <p class="footer-note">Source markdown: wiki/Subsystems/OrderManagement.md · Generated from the current on-disk ATF corpus.</p>
+    <p class="footer-note">Source material: AGENTS/CONTEXT/agentegra_atf_architecture.md · Rendered into the ATF wiki surface.</p>
   </article>
 </main>
 
