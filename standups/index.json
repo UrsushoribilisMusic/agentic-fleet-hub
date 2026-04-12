@@ -1,5 +1,15 @@
 [
     {
+        "date": "2026-04-12",
+        "summary": "ATF surfaces were approved, deployed live to api.robotross.art/atf, and verified end to end, including the RobotRoss architecture page and public media assets.",
+        "file": "2026-04-12.md"
+    },
+    {
+        "date": "2026-04-11",
+        "summary": "ATF wiki, ledger, local QA, optional voice shell, and deployment tracks all moved through review with the public RobotRoss demo surface prepared for go-live.",
+        "file": "2026-04-11.md"
+    },
+    {
         "date": "2026-04-10",
         "summary": "Codi wired Google Ads credentials and approval flow for TCR, deployed the live analytics recommendation fix, and verified the current hot-test target as Danse Macabre | Vallenato.",
         "file": "2026-04-10.md"
