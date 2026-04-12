@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RobotRoss Knowledge Surface</title>
+  <title>BiddingRules</title>
   <style>
 :root {
   --bg: #f5f1e8;
@@ -186,26 +186,65 @@ th {
 <div class="shell">
   <div class="hero">
     <p class="eyebrow">Agentegra ATF</p>
-    <h1>RobotRoss Knowledge Surface</h1>
-    <p class="lede">Single entry point for the current compiled wiki, the operational ledger dashboard, and the local QA tools. This build reflects the current on-disk corpus and can be regenerated after the repo merge and re-ingestion work.</p>
+    <h1>BiddingRules</h1>
+    <p class="lede">Compiled RobotRoss knowledge pages rendered from the current ATF markdown corpus.</p>
   </div>
-  <div class="grid cards">
-    <div class="card">
-      <h2><a href="wiki-ui/index.html">Browse the wiki</a></h2>
-      <p>Read the current compiled RobotRoss knowledge pages in a browser.</p>
-    </div>
-    <div class="card">
-      <h2><a href="ledger-ui/index.html">Open the ledger dashboard</a></h2>
-      <p>Inspect the current event corpus with totals, categories, and sample rows.</p>
-    </div>
-    <div class="card">
-      <h2>Ask the local model</h2>
-      <p>Run <code>python3 ATF/tools/atf_qa.py --shell</code> from the repo root for text QA over the corpus.</p>
-    </div>
-    <div class="card">
-      <h2>Optional voice layer</h2>
-      <p>The voice shell is still pending canonical re-ingestion. Keep it behind the local deployment path only.</p>
-    </div>
+  <div class="nav">
+    <aside class="sidebar">
+      <p><a href="../index.html">ATF home</a></p>
+      <h3>Overview</h3><ul>
+<li><a href="Overview.html">Overview</a></li>
+</ul>
+<h3>Subsystems</h3><ul>
+<li><a href="CommerceLayer.html">CommerceLayer</a></li>
+<li><a href="HardwareInterface.html">HardwareInterface</a></li>
+<li><a href="JobOrchestration.html">JobOrchestration</a></li>
+<li><a href="OrderManagement.html">OrderManagement</a></li>
+</ul>
+<h3>Topics</h3><ul>
+<li><a href="BiddingRules.html" style="font-weight:700">BiddingRules</a></li>
+<li><a href="Calibration.html">Calibration</a></li>
+<li><a href="Compliance.html">Compliance</a></li>
+<li><a href="Narration.html">Narration</a></li>
+<li><a href="ShopifyIntegration.html">ShopifyIntegration</a></li>
+<li><a href="VideoProof.html">VideoProof</a></li>
+<li><a href="VirtualsACP.html">VirtualsACP</a></li>
+</ul>
+    </aside>
+    <article class="article">
+      <h1 id="bidding-amp-wall-of-fame-rules">Bidding &amp; Wall of Fame Rules</h1>
+<h2 id="1-overview">1. Overview</h2>
+<p>The Wall of Fame is a physical 8x8 grid (64 slots total, A1 through H8) where drawings are pinned. Drawings stay on the wall until their specific slot is &quot;outbid&quot; by another customer.</p>
+<h2 id="2-competitive-overwrite-rule">2. Competitive Overwrite Rule</h2>
+<p>To maintain a fair and dynamic physical board, the following rules apply:</p>
+<ol>
+<li><strong>Minimum Entry</strong>: The base price for any empty or available slot is 5.00 USD/USDC.</li>
+<li><strong>The 120% Rule</strong>: To overwrite an existing drawing in a specific slot, the new bid must be at least 120% of the current price of that slot.</li>
+<li><strong>Price Persistence</strong>: Once a slot is outbid, the new price becomes the base for future bids. Prices in high-demand slots naturally escalate.</li>
+</ol>
+<h2 id="3-slot-allocation-the-slot-sniffer">3. Slot Allocation (The Slot Sniffer)</h2>
+<p>If an order does not explicitly specify a slot (e.g., via a Shopify line item), the <code>server.mjs</code> &quot;Slot Sniffer&quot; logic kicks in:</p>
+<ol>
+<li><strong>Content Parsing</strong>: The server scans the order <code>content</code> for alphanumeric identifiers like &quot;A3&quot;, &quot;H7&quot;, etc.</li>
+<li><strong>Defaulting</strong>: If no slot is identified, the order is placed into the first available slot (lowest price/oldest entry) based on the current state of <code>orders.json</code>.</li>
+</ol>
+<h2 id="4-physical-requirements">4. Physical Requirements</h2>
+<ul>
+<li><strong>64 slots</strong>: Physical limits of the board (A1-H8).</li>
+<li><strong>20% Overwrite</strong>: Simplified phrasing used in some marketing materials to describe the 120% bid rule.</li>
+</ul>
+<h2 id="5-uncertainty-amp-contradictions">5. Uncertainty &amp; Contradictions</h2>
+<ul>
+<li><strong>Slot Conflict</strong>: It is not explicitly documented what happens if two identical bids for the same slot arrive at the exact same millisecond. The current system relies on sequential JSON file updates.</li>
+<li><strong>Physical Removal</strong>: While the software tracks the &quot;overwrite&quot;, the actual physical removal of the old drawing and placement of the new one is performed by the Artist (robot) as part of the job sequence, but the disposal/archiving of old drawings is not documented.</li>
+</ul>
+<hr>
+<p><strong>Sources:</strong></p>
+<ul>
+<li><code>AGENTS/CONTEXT/robot_ross_salesman.md</code></li>
+<li><code>salesman-cloud-infra/opt/salesman-api/server.mjs</code></li>
+</ul>
+    </article>
   </div>
 </div>
 

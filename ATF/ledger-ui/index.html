@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RobotRoss Knowledge Surface</title>
+  <title>RobotRoss Ledger Dashboard</title>
   <style>
 :root {
   --bg: #f5f1e8;
@@ -186,25 +186,34 @@ th {
 <div class="shell">
   <div class="hero">
     <p class="eyebrow">Agentegra ATF</p>
-    <h1>RobotRoss Knowledge Surface</h1>
-    <p class="lede">Single entry point for the current compiled wiki, the operational ledger dashboard, and the local QA tools. This build reflects the current on-disk corpus and can be regenerated after the repo merge and re-ingestion work.</p>
+    <h1>RobotRoss Ledger Dashboard</h1>
+    <p class="lede">Human-readable overview of the current operational ledger extracted from the RobotRoss event log corpus.</p>
+  </div>
+  <div class="kpis"><div class="kpi"><div class="value">50878</div><div class="label">Events</div></div><div class="kpi"><div class="value">5294</div><div class="label">Drawing events</div></div><div class="kpi"><div class="value">0</div><div class="label">Job-end events</div></div><div class="kpi"><div class="value">23</div><div class="label">Distinct categories</div></div><div class="kpi"><div class="value">2026-03-19T12:44:47Z</div><div class="label">First event</div></div><div class="kpi"><div class="value">2026-03-30T20:26:04Z</div><div class="label">Last event</div></div></div>
+  <div class="grid cards">
+    <div class="card">
+      <h2>Top categories</h2>
+      <div><span class="pill">GCODE: 44806</span><span class="pill">DRAWING: 3959</span><span class="pill">PEN: 1272</span><span class="pill">NARRATION: 111</span><span class="pill">JOB: 103</span><span class="pill">OBS: 101</span><span class="pill">STOP: 77</span><span class="pill">VOICE: 69</span><span class="pill">CAFFEINATE: 64</span><span class="pill">WARNING: 63</span><span class="pill">DRAW: 63</span><span class="pill">MARKERS: 57</span></div>
+    </div>
+    <div class="card">
+      <h2>Top actions</h2>
+      <div><span class="pill">execute: 44806</span><span class="pill">progress: 3959</span><span class="pill">down: 1272</span><span class="pill">status: 308</span><span class="pill">start: 129</span><span class="pill">signal: 77</span><span class="pill">play: 63</span><span class="pill">failed: 57</span><span class="pill">intro: 46</span><span class="pill">end: 37</span><span class="pill">request: 31</span><span class="pill">outro: 23</span></div>
+    </div>
   </div>
   <div class="grid cards">
     <div class="card">
-      <h2><a href="wiki-ui/index.html">Browse the wiki</a></h2>
-      <p>Read the current compiled RobotRoss knowledge pages in a browser.</p>
+      <h2>Recent activity by day</h2>
+      <table>
+        <thead><tr><th>Day</th><th>Events</th></tr></thead>
+        <tbody><tr><td>2026-03-30</td><td>2909</td></tr><tr><td>2026-03-28</td><td>45806</td></tr><tr><td>2026-03-27</td><td>412</td></tr><tr><td>2026-03-26</td><td>1081</td></tr><tr><td>2026-03-25</td><td>257</td></tr><tr><td>2026-03-20</td><td>253</td></tr><tr><td>2026-03-19</td><td>160</td></tr></tbody>
+      </table>
     </div>
     <div class="card">
-      <h2><a href="ledger-ui/index.html">Open the ledger dashboard</a></h2>
-      <p>Inspect the current event corpus with totals, categories, and sample rows.</p>
-    </div>
-    <div class="card">
-      <h2>Ask the local model</h2>
-      <p>Run <code>python3 ATF/tools/atf_qa.py --shell</code> from the repo root for text QA over the corpus.</p>
-    </div>
-    <div class="card">
-      <h2>Optional voice layer</h2>
-      <p>The voice shell is still pending canonical re-ingestion. Keep it behind the local deployment path only.</p>
+      <h2>Recent ledger rows</h2>
+      <table>
+        <thead><tr><th>Timestamp</th><th>Type</th><th>Category</th><th>Action</th><th>Line</th></tr></thead>
+        <tbody><tr><td>2026-03-19T12:44:47Z</td><td>drawing</td><td>PEN</td><td>down</td><td>1</td></tr><tr><td>2026-03-19T12:44:56Z</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>2</td></tr><tr><td>2026-03-19T12:45:04Z</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>3</td></tr><tr><td>2026-03-19T12:45:14Z</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>4</td></tr><tr><td>2026-03-19T12:45:23Z</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>5</td></tr><tr><td>2026-03-19T12:45:33Z</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>6</td></tr><tr><td>2026-03-19T12:45:40Z</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>7</td></tr><tr><td>2026-03-19T12:45:48Z</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>8</td></tr><tr><td>2026-03-19T12:45:49Z</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>9</td></tr><tr><td>2026-03-19T12:45:52Z</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>10</td></tr><tr><td>2026-03-19T12:46:01Z</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>11</td></tr><tr><td>2026-03-19T12:46:08Z</td><td>drawing</td><td>DRAWING</td><td>progress</td><td>12</td></tr></tbody>
+      </table>
     </div>
   </div>
 </div>

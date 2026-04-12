@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RobotRoss Knowledge Surface</title>
+  <title>OrderManagement</title>
   <style>
 :root {
   --bg: #f5f1e8;
@@ -186,26 +186,59 @@ th {
 <div class="shell">
   <div class="hero">
     <p class="eyebrow">Agentegra ATF</p>
-    <h1>RobotRoss Knowledge Surface</h1>
-    <p class="lede">Single entry point for the current compiled wiki, the operational ledger dashboard, and the local QA tools. This build reflects the current on-disk corpus and can be regenerated after the repo merge and re-ingestion work.</p>
+    <h1>OrderManagement</h1>
+    <p class="lede">Compiled RobotRoss knowledge pages rendered from the current ATF markdown corpus.</p>
   </div>
-  <div class="grid cards">
-    <div class="card">
-      <h2><a href="wiki-ui/index.html">Browse the wiki</a></h2>
-      <p>Read the current compiled RobotRoss knowledge pages in a browser.</p>
-    </div>
-    <div class="card">
-      <h2><a href="ledger-ui/index.html">Open the ledger dashboard</a></h2>
-      <p>Inspect the current event corpus with totals, categories, and sample rows.</p>
-    </div>
-    <div class="card">
-      <h2>Ask the local model</h2>
-      <p>Run <code>python3 ATF/tools/atf_qa.py --shell</code> from the repo root for text QA over the corpus.</p>
-    </div>
-    <div class="card">
-      <h2>Optional voice layer</h2>
-      <p>The voice shell is still pending canonical re-ingestion. Keep it behind the local deployment path only.</p>
-    </div>
+  <div class="nav">
+    <aside class="sidebar">
+      <p><a href="../index.html">ATF home</a></p>
+      <h3>Overview</h3><ul>
+<li><a href="Overview.html">Overview</a></li>
+</ul>
+<h3>Subsystems</h3><ul>
+<li><a href="CommerceLayer.html">CommerceLayer</a></li>
+<li><a href="HardwareInterface.html">HardwareInterface</a></li>
+<li><a href="JobOrchestration.html">JobOrchestration</a></li>
+<li><a href="OrderManagement.html" style="font-weight:700">OrderManagement</a></li>
+</ul>
+<h3>Topics</h3><ul>
+<li><a href="BiddingRules.html">BiddingRules</a></li>
+<li><a href="Calibration.html">Calibration</a></li>
+<li><a href="Compliance.html">Compliance</a></li>
+<li><a href="Narration.html">Narration</a></li>
+<li><a href="ShopifyIntegration.html">ShopifyIntegration</a></li>
+<li><a href="VideoProof.html">VideoProof</a></li>
+<li><a href="VirtualsACP.html">VirtualsACP</a></li>
+</ul>
+    </aside>
+    <article class="article">
+      <h1 id="order-management-subsystem">Order Management Subsystem</h1>
+<h2 id="1-role">1. Role</h2>
+<p>The Order Management subsystem handles the communication with the external Salesman API to fetch new drawing orders and logs them locally.</p>
+<h2 id="2-key-components">2. Key Components</h2>
+<ul>
+<li><strong>Poller</strong>: <code>artist_poller.py</code> runs as a daemon and polls <code>GET /salesman/orders/incoming?status=new</code> every 3 minutes.</li>
+<li><strong>Client</strong>: <code>salesman_client.py</code> provides the HTTP interface for fetching and acknowledging orders.</li>
+<li><strong>Local Ledger</strong>: <code>order_log.py</code> manages <code>orders.xlsx</code>, keeping a local record of all completed jobs and their associated YouTube proof URLs.</li>
+</ul>
+<h2 id="3-workflow">3. Workflow</h2>
+<ul>
+<li><strong>Claiming</strong>: The poller identifies a new order, claims it via the API, and triggers <code>bob_ross.py</code>.</li>
+<li><strong>Completion</strong>: Once <code>bob_ross.py</code> finishes, the poller (or <code>bob_ross.py</code> itself) notifies the Salesman API of completion and records the video proof URL.</li>
+</ul>
+<h2 id="4-uncertainty-amp-contradictions">4. Uncertainty &amp; Contradictions</h2>
+<ul>
+<li><strong>Local vs Remote</strong>: The primary source of truth for orders is the Salesman API, but <code>orders.xlsx</code> acts as a local mirror. There is no explicit documentation on how the system resolves discrepancies if the Salesman API is unavailable during a completion call.</li>
+<li><strong>Authentication</strong>: Authentication for the Salesman API uses a Bearer token stored in <code>.salesman_config</code>. There&#x27;s no documented procedure for token rotation.</li>
+</ul>
+<hr>
+<p><strong>Sources:</strong></p>
+<ul>
+<li><code>~/.openclaw/workspace/skills/robot-ross/artist_poller.py</code></li>
+<li><code>~/.openclaw/workspace/skills/robot-ross/order_log.py</code></li>
+<li><code>~/.openclaw/workspace/skills/robot-ross/salesman_client.py</code></li>
+</ul>
+    </article>
   </div>
 </div>
 

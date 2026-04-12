@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RobotRoss Knowledge Surface</title>
+  <title>Compliance</title>
   <style>
 :root {
   --bg: #f5f1e8;
@@ -186,26 +186,52 @@ th {
 <div class="shell">
   <div class="hero">
     <p class="eyebrow">Agentegra ATF</p>
-    <h1>RobotRoss Knowledge Surface</h1>
-    <p class="lede">Single entry point for the current compiled wiki, the operational ledger dashboard, and the local QA tools. This build reflects the current on-disk corpus and can be regenerated after the repo merge and re-ingestion work.</p>
+    <h1>Compliance</h1>
+    <p class="lede">Compiled RobotRoss knowledge pages rendered from the current ATF markdown corpus.</p>
   </div>
-  <div class="grid cards">
-    <div class="card">
-      <h2><a href="wiki-ui/index.html">Browse the wiki</a></h2>
-      <p>Read the current compiled RobotRoss knowledge pages in a browser.</p>
-    </div>
-    <div class="card">
-      <h2><a href="ledger-ui/index.html">Open the ledger dashboard</a></h2>
-      <p>Inspect the current event corpus with totals, categories, and sample rows.</p>
-    </div>
-    <div class="card">
-      <h2>Ask the local model</h2>
-      <p>Run <code>python3 ATF/tools/atf_qa.py --shell</code> from the repo root for text QA over the corpus.</p>
-    </div>
-    <div class="card">
-      <h2>Optional voice layer</h2>
-      <p>The voice shell is still pending canonical re-ingestion. Keep it behind the local deployment path only.</p>
-    </div>
+  <div class="nav">
+    <aside class="sidebar">
+      <p><a href="../index.html">ATF home</a></p>
+      <h3>Overview</h3><ul>
+<li><a href="Overview.html">Overview</a></li>
+</ul>
+<h3>Subsystems</h3><ul>
+<li><a href="CommerceLayer.html">CommerceLayer</a></li>
+<li><a href="HardwareInterface.html">HardwareInterface</a></li>
+<li><a href="JobOrchestration.html">JobOrchestration</a></li>
+<li><a href="OrderManagement.html">OrderManagement</a></li>
+</ul>
+<h3>Topics</h3><ul>
+<li><a href="BiddingRules.html">BiddingRules</a></li>
+<li><a href="Calibration.html">Calibration</a></li>
+<li><a href="Compliance.html" style="font-weight:700">Compliance</a></li>
+<li><a href="Narration.html">Narration</a></li>
+<li><a href="ShopifyIntegration.html">ShopifyIntegration</a></li>
+<li><a href="VideoProof.html">VideoProof</a></li>
+<li><a href="VirtualsACP.html">VirtualsACP</a></li>
+</ul>
+    </aside>
+    <article class="article">
+      <h1 id="compliance-amp-eu-ai-act">Compliance &amp; EU AI Act</h1>
+<h2 id="1-overview">1. Overview</h2>
+<p>RobotRoss is designed with the forthcoming EU AI Act (August 2026 deadline) in mind. The Agentegra ATF (Agentic Task Force) provides the architectural framework to ensure that physical robotic operations are transparent, traceable, and subject to human oversight.</p>
+<h2 id="2-compliance-mapping">2. Compliance Mapping</h2>
+<p>Each page in this wiki maps to specific obligations under the EU AI Act:</p>
+<p>| Wiki Page | Key Obligation | Compliance Theme | | :--- | :--- | :--- | | <a href="Overview.html">Overview</a> | Traceability | System-level design transparency. | | <a href="JobOrchestration.html">JobOrchestration</a> | Traceability / Record-keeping | Clear documentation of job lifecycle logic. | | <a href="Narration.html">Narration</a> | Transparency | Disclosing AI interaction to the end user. | | <a href="CommerceLayer.html">CommerceLayer</a> | Record-keeping / Human Oversight | Auditability of financial and order logs. | | <a href="HardwareInterface.html">HardwareInterface</a> | Human Oversight | Ability for a human operator to override arm movements. |</p>
+<h2 id="3-metadata-amp-provenance">3. Metadata &amp; Provenance</h2>
+<p>As defined in <a href="atf_eu_ai_act_mapping.html">atf_eu_ai_act_mapping</a>, all wiki and ledger entries must maintain strict provenance back to their source code or operational log files. This ensures that any system decision or failure can be audited with high fidelity.</p>
+<h2 id="4-uncertainty-amp-contradictions">4. Uncertainty &amp; Contradictions</h2>
+<ul>
+<li><strong>Dynamic Policy</strong>: The EU AI Act is evolving. The mapping in this wiki represents the <em>current</em> architectural state but may require adjustment as technical standards for agentic commerce are finalized.</li>
+<li><strong>On-premise Isolation</strong>: While local LLM usage (Apertus 8B) enhances data sovereignty, it creates challenges for centralized compliance reporting that must be addressed via the <a href="OrderManagement.html">OrderManagement</a> offline ledger.</li>
+</ul>
+<hr>
+<p><strong>Sources:</strong></p>
+<ul>
+<li><code>AGENTS/CONTEXT/atf_eu_ai_act_mapping.md</code></li>
+<li><code>AGENTS/CONTEXT/agentegra.md</code></li>
+</ul>
+    </article>
   </div>
 </div>
 

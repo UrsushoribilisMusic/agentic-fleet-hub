@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RobotRoss Knowledge Surface</title>
+  <title>HardwareInterface</title>
   <style>
 :root {
   --bg: #f5f1e8;
@@ -186,26 +186,61 @@ th {
 <div class="shell">
   <div class="hero">
     <p class="eyebrow">Agentegra ATF</p>
-    <h1>RobotRoss Knowledge Surface</h1>
-    <p class="lede">Single entry point for the current compiled wiki, the operational ledger dashboard, and the local QA tools. This build reflects the current on-disk corpus and can be regenerated after the repo merge and re-ingestion work.</p>
+    <h1>HardwareInterface</h1>
+    <p class="lede">Compiled RobotRoss knowledge pages rendered from the current ATF markdown corpus.</p>
   </div>
-  <div class="grid cards">
-    <div class="card">
-      <h2><a href="wiki-ui/index.html">Browse the wiki</a></h2>
-      <p>Read the current compiled RobotRoss knowledge pages in a browser.</p>
-    </div>
-    <div class="card">
-      <h2><a href="ledger-ui/index.html">Open the ledger dashboard</a></h2>
-      <p>Inspect the current event corpus with totals, categories, and sample rows.</p>
-    </div>
-    <div class="card">
-      <h2>Ask the local model</h2>
-      <p>Run <code>python3 ATF/tools/atf_qa.py --shell</code> from the repo root for text QA over the corpus.</p>
-    </div>
-    <div class="card">
-      <h2>Optional voice layer</h2>
-      <p>The voice shell is still pending canonical re-ingestion. Keep it behind the local deployment path only.</p>
-    </div>
+  <div class="nav">
+    <aside class="sidebar">
+      <p><a href="../index.html">ATF home</a></p>
+      <h3>Overview</h3><ul>
+<li><a href="Overview.html">Overview</a></li>
+</ul>
+<h3>Subsystems</h3><ul>
+<li><a href="CommerceLayer.html">CommerceLayer</a></li>
+<li><a href="HardwareInterface.html" style="font-weight:700">HardwareInterface</a></li>
+<li><a href="JobOrchestration.html">JobOrchestration</a></li>
+<li><a href="OrderManagement.html">OrderManagement</a></li>
+</ul>
+<h3>Topics</h3><ul>
+<li><a href="BiddingRules.html">BiddingRules</a></li>
+<li><a href="Calibration.html">Calibration</a></li>
+<li><a href="Compliance.html">Compliance</a></li>
+<li><a href="Narration.html">Narration</a></li>
+<li><a href="ShopifyIntegration.html">ShopifyIntegration</a></li>
+<li><a href="VideoProof.html">VideoProof</a></li>
+<li><a href="VirtualsACP.html">VirtualsACP</a></li>
+</ul>
+    </aside>
+    <article class="article">
+      <h1 id="hardware-interface-subsystem">Hardware Interface Subsystem</h1>
+<h2 id="1-role">1. Role</h2>
+<p>The Hardware Interface subsystem provides the low-level communication and control for the Huenit robotic arm via a serial (USB) G-code interface.</p>
+<h2 id="2-key-components">2. Key Components</h2>
+<ul>
+<li><strong>Serial Interface</strong>: Communication occurs over <code>/dev/cu.usbserial-310</code> at 115200 baud.</li>
+<li><strong>G-code Controller</strong>: <code>huenit_svg.py</code> and <code>huenit_draw.py</code> parse SVG or shape commands into G-code for the arm&#x27;s onboard controller.</li>
+<li><strong>Z-axis Control</strong>: Manages pen-up (<code>Z_UP=6.0mm</code>) and pen-down movements.</li>
+<li><strong>Tilt Correction</strong>: <code>TILT_SLOPE</code> in <code>huenit_svg.py</code> provides Z-height correction per mm of Y travel, indicating the drawing surface may not be perfectly level.</li>
+</ul>
+<h2 id="3-calibration">3. Calibration</h2>
+<ul>
+<li><strong>Required</strong>: Must be run at the start of each session.</li>
+<li><strong>Tool</strong>: <code>huenit_draw.py calibrate</code></li>
+<li><strong>Output</strong>: Generates <code>calibration.json</code> in the huenit skill directory.</li>
+</ul>
+<h2 id="4-uncertainty-amp-contradictions">4. Uncertainty &amp; Contradictions</h2>
+<ul>
+<li><strong>Calibration Persistence</strong>: Code checks for <code>/tmp/huenit_ready.flag</code>. Since <code>/tmp</code> is cleared on reboot, calibration must be performed every session. However, some documentation implies a more permanent state could be achieved.</li>
+<li><strong>Safety</strong>: The arm&#x27;s G-code parser does not appear to have complex obstacle avoidance. It relies on the user ensuring the drawing area (125mm x 125mm) is clear.</li>
+</ul>
+<hr>
+<p><strong>Sources:</strong></p>
+<ul>
+<li><code>~/.openclaw/workspace/skills/huenit/huenit_svg.py</code></li>
+<li><code>~/.openclaw/workspace/skills/huenit/huenit_draw.py</code></li>
+<li><code>AGENTS/CONTEXT/robot_ross_artist.md</code></li>
+</ul>
+    </article>
   </div>
 </div>
 

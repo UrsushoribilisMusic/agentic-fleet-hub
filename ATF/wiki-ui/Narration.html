@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RobotRoss Knowledge Surface</title>
+  <title>Narration</title>
   <style>
 :root {
   --bg: #f5f1e8;
@@ -186,26 +186,67 @@ th {
 <div class="shell">
   <div class="hero">
     <p class="eyebrow">Agentegra ATF</p>
-    <h1>RobotRoss Knowledge Surface</h1>
-    <p class="lede">Single entry point for the current compiled wiki, the operational ledger dashboard, and the local QA tools. This build reflects the current on-disk corpus and can be regenerated after the repo merge and re-ingestion work.</p>
+    <h1>Narration</h1>
+    <p class="lede">Compiled RobotRoss knowledge pages rendered from the current ATF markdown corpus.</p>
   </div>
-  <div class="grid cards">
-    <div class="card">
-      <h2><a href="wiki-ui/index.html">Browse the wiki</a></h2>
-      <p>Read the current compiled RobotRoss knowledge pages in a browser.</p>
-    </div>
-    <div class="card">
-      <h2><a href="ledger-ui/index.html">Open the ledger dashboard</a></h2>
-      <p>Inspect the current event corpus with totals, categories, and sample rows.</p>
-    </div>
-    <div class="card">
-      <h2>Ask the local model</h2>
-      <p>Run <code>python3 ATF/tools/atf_qa.py --shell</code> from the repo root for text QA over the corpus.</p>
-    </div>
-    <div class="card">
-      <h2>Optional voice layer</h2>
-      <p>The voice shell is still pending canonical re-ingestion. Keep it behind the local deployment path only.</p>
-    </div>
+  <div class="nav">
+    <aside class="sidebar">
+      <p><a href="../index.html">ATF home</a></p>
+      <h3>Overview</h3><ul>
+<li><a href="Overview.html">Overview</a></li>
+</ul>
+<h3>Subsystems</h3><ul>
+<li><a href="CommerceLayer.html">CommerceLayer</a></li>
+<li><a href="HardwareInterface.html">HardwareInterface</a></li>
+<li><a href="JobOrchestration.html">JobOrchestration</a></li>
+<li><a href="OrderManagement.html">OrderManagement</a></li>
+</ul>
+<h3>Topics</h3><ul>
+<li><a href="BiddingRules.html">BiddingRules</a></li>
+<li><a href="Calibration.html">Calibration</a></li>
+<li><a href="Compliance.html">Compliance</a></li>
+<li><a href="Narration.html" style="font-weight:700">Narration</a></li>
+<li><a href="ShopifyIntegration.html">ShopifyIntegration</a></li>
+<li><a href="VideoProof.html">VideoProof</a></li>
+<li><a href="VirtualsACP.html">VirtualsACP</a></li>
+</ul>
+    </aside>
+    <article class="article">
+      <h1 id="narration-subsystem">Narration Subsystem</h1>
+<h2 id="1-role">1. Role</h2>
+<p>The Narration subsystem generates Bob Ross-style poetic commentary for each drawing job, providing a unique &quot;personality&quot; to the robot.</p>
+<h2 id="2-key-components">2. Key Components</h2>
+<ul>
+<li><strong>Local LLM</strong>: Apertus 8B (Swiss open-weights, based on Llama 3) running via Ollama.</li>
+<li><strong>Model Model</strong>: <code>MichelRosselli/apertus:8b-instruct-2509-q4_k_m</code></li>
+<li><strong>Voice Output</strong>: Kokoro (local TTS) with a macOS <code>say</code> fallback.</li>
+</ul>
+<h2 id="3-workflow">3. Workflow</h2>
+<ol>
+<li><strong>Prompt Generation</strong>: <code>bob_ross.py</code> constructs a prompt based on the drawing job (e.g., &quot;a happy little lighthouse&quot;).</li>
+<li><strong>Narration JSON</strong>: Apertus generates a JSON structure containing:</li>
+</ol>
+<ul>
+<li><code>intro</code>: Spoken before drawing starts.</li>
+<li><code>commentary[]</code>: A list of short phrases spoken during drawing at regular intervals.</li>
+<li><code>outro</code>: Spoken after the job completes.</li>
+</ul>
+<ol>
+<li><strong>Playback</strong>: Commentary is spoken in parallel with the arm movements.</li>
+</ol>
+<h2 id="4-uncertainty-amp-contradictions">4. Uncertainty &amp; Contradictions</h2>
+<ul>
+<li><strong>Commentary Timing</strong>: <code>bob_ross.py</code> uses a hard-coded <code>COMMENTARY_INTERVAL</code> (default 6 seconds). If the drawing is very simple, some commentary might be cut off. If it is very complex, there might be long periods of silence if the list of phrases is short.</li>
+<li><strong>TTS Personality</strong>: While the text is generated in the style of Bob Ross, the voice (Kokoro or macOS <code>say</code>) may lack the specific intonation of the artist, creating a mismatch between text and voice.</li>
+</ul>
+<hr>
+<p><strong>Sources:</strong></p>
+<ul>
+<li><code>~/.openclaw/workspace/skills/robot-ross/bob_ross.py</code></li>
+<li><code>AGENTS/CONTEXT/agentegra.md</code></li>
+<li><code>AGENTS/CONTEXT/robot_ross_artist.md</code></li>
+</ul>
+    </article>
   </div>
 </div>
 
