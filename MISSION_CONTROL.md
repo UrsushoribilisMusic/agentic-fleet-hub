@@ -59,6 +59,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#134**: [ATF-11] Optional voice shell with Whisper and Voxtral -- ## Context -- Clau. Approved.
 - **#133**: [ATF-10] Cross-reference Mexico logs into the compiled wiki -- ## Context -- Gem. Approved.
 - **#132**: [ATF-9] Build local CLI QA shell over wiki and ledger -- ## Context -- Clau. Approved.
+- **#131**: [ATF-8] Build local model runtime adapter for Gemma/Apertus -- Runtime adapter verification and cleanup after prior ticket drift. -- Clau. Approved.
 - **#130**: [ATF-7] Add EU AI Act mapping metadata for wiki pages -- ## Context -- Misty. Approved.
 - **#129**: [ATF-6] Scaffold wiki index/log and page templates -- ## Context -- Gemma. Approved.
 - **#128**: [ATF-5] Generate initial compiled wiki from RobotRoss code/docs -- ## Context -- Gem. Approved.
@@ -283,13 +284,12 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **#131** | [ATF-8] Build local model runtime adapter for Gemma/Apertus | clau | merged | Runtime adapter verification and cleanup after pri... |
 | **#131** | [ATF-8] Build local model runtime adapter for Gemma/Apertus | clau | merged | ## Context... |
 | **qc5xcwi1** | [RobotRoss] Merge Mexico voice/pyro features from bobrossskill into robot-ross | gem | in_work | ## Context... |
 | **8dvp6ma6** | [ATF] Build integrated RobotRoss demo landing page for DigitalOcean deployment | clau | merged | ## Context... |
 | **b0envpk8** | [ATF] Build integrated local RobotRoss knowledge console with text and voice QA | clau | merged | ## Context... |
 | **vttdwgaa** | [Ops] Canonize Clau runtime wrapper and summarize_session entrypoint | clau | merged | Problem: Clau found that the deployed runtime copi... |
-| **2beleu6g** | [ATF] Review delivered demo wiki, landing, and ledger surfaces | clau | peer_review | GitHub #147. Branch `task/8dvp6ma64g1co2w` pushed with delivered ATF wiki, landing, ledger, media, and architecture updates. |
-| **7gbzmg40** | [ATF] Deploy static ATF surface to api.robotross.art/atf | clau | planned | GitHub #148. Deploy the generated static ATF landing, wiki, ledger, and media bundle to the demo host. |
+| **2beleu6g** | [ATF] Review delivered demo wiki, landing, and ledger surfaces | clau | planned | Summary... |
+| **7gbzmg40** | [ATF] Deploy static ATF surface to api.robotross.art/atf | clau | planned | Context... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
