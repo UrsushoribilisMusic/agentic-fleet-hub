@@ -432,11 +432,15 @@ def canonical_heading(text: str) -> str:
 
 def replace_inline(text: str) -> str:
     text = html.escape(text)
-    text = re.sub(
-        r"\[\[([^\]]+)\]\]",
-        lambda m: f'<a href="{m.group(1)}.html">{html.escape(page_title(m.group(1)))}</a>',
-        text,
-    )
+    def _wikilink(m: re.Match) -> str:
+        target = m.group(1)
+        if "#" in target:
+            stem, anchor = target.split("#", 1)
+            slug = re.sub(r"[^a-z0-9]+", "-", anchor.strip().lower()).strip("-")
+            return f'<a href="{stem.strip()}.html#{slug}">{html.escape(page_title(stem.strip()))}</a>'
+        return f'<a href="{target}.html">{html.escape(page_title(target))}</a>'
+
+    text = re.sub(r"\[\[([^\]]+)\]\]", _wikilink, text)
     text = re.sub(r"`([^`]+)`", lambda m: f"<code>{m.group(1)}</code>", text)
     text = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", text)
     text = re.sub(r"\*([^*]+)\*", r"<em>\1</em>", text)
@@ -631,29 +635,49 @@ RobotRoss combines customer-facing input channels, an orchestration layer, local
 | **Execution** | **Huenit scripts + robot arm** | SVG conversion, drawing, calligraphy, calibration, and pyrography are executed against the physical arm. |
 | **Output** | **OBS, order ledger, shipped artwork** | Sessions are recorded, logged, linked back to the customer journey, and turned into video proof and physical delivery. |
 
-## 4. ATF Overlay
+## 4. Diagram
+```text
+Shopify / Telegram / Voice
+            |
+            v
+  chat_ross.py / bob_ross.py
+            |
+            v
+ Claude Haiku / Apertus / Whisper / TTS
+            |
+            v
+ huenit_write / huenit_draw / huenit_svg
+            |
+            v
+      Huenit robot arm
+            |
+            v
+   OBS / order ledger / video proof
+```
+
+## 5. ATF Overlay
 The ATF is layered over the live RobotRoss system rather than replacing it:
 - the **compiled wiki** explains the intended architecture and subsystem behavior
 - the **operational ledger** captures what actually happened in production logs
 - the **local query path** lets an operator inspect the system on the local machine
 - the **voice interface** sits on top of the same evidence-backed query layer
 
-## 5. Four-Layer ATF Surface
+## 6. Four-Layer ATF Surface
 {architecture_diagram_markdown()}
 
-## 6. Key Runtime Components
+## 7. Key Runtime Components
 - **Voice showcase**: `listen.py` performs Whisper STT with VAD, `chat_ross.py` handles the conversation loop, and spoken confirmations can trigger drawing in the background.
 - **Main orchestrator**: `bob_ross.py` performs readiness checks, locking, generation, narration, draw execution, and cleanup.
 - **Drawing pipeline**: `huenit_write.py`, `huenit_draw.py`, `huenit_svg.py`, and sketch composition utilities convert requests into robot motion.
 - **Audio/TTS**: the architecture sources mention Kokoro as the primary local neural TTS path, Voxtral for higher-end spoken output, and system-level fallback voices.
 - **Studio and proof**: OBS captures the run, while the order ledger tracks received time, buyer, content, status, and produced video links.
 
-## 7. Wall of Fame Operating Model
+## 8. Wall of Fame Operating Model
 - The commercial target is a **10×10 Wall of Fame** with 100 slots.
 - A customer buys a slot, submits a prompt or design, the system dispatches the job, RobotRoss draws it live, proof is recorded, and the physical artwork is shipped.
 - This commercial journey matters for the ATF because the technical file must explain not only the robot motion, but also the customer-facing intake and proof chain.
 
-## 8. Notes and Open Points
+## 9. Notes and Open Points
 - The two source architecture documents describe the same system but emphasize different layers: one is voice-showcase and orchestrator centric, the other is end-to-end commerce/studio centric. The ATF page intentionally merges both views.
 - TTS references are not fully aligned across the documents: one source emphasizes Kokoro plus system fallbacks, while another also calls out Voxtral. The ATF should present these as runtime variants rather than contradictory claims.
 - Some model assignments are mode-specific. Claude Haiku 4.5 appears in control and commerce flows, while Apertus 8B is the local narration/default local reasoning path.
