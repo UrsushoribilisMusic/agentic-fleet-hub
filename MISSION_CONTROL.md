@@ -293,5 +293,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **qc5xcwi1** | [RobotRoss] Merge Mexico voice/pyro features from bobrossskill into robot-ross | gem | in_work | ## Context... |
+| **r6pc52qv** | [bug] Demo page: 404 on /fleet/api/config/demo | gem | in_work | The demo dashboard is empty because the node serve... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
