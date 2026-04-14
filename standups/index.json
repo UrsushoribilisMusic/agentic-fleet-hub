@@ -1,5 +1,10 @@
 [
     {
+        "date": "2026-04-14",
+        "summary": "Fleet dashboard drift was reviewed and corrected: Done now shows the latest 5 cards, Standups reload on open, the fuller Team/Projects dashboard was restored live, and a known-good Fleet UI baseline was committed and tagged in salesman-cloud-infra.",
+        "file": "2026-04-14.md"
+    },
+    {
         "date": "2026-04-12",
         "summary": "ATF surfaces were approved, deployed live to api.robotross.art/atf, and verified end to end, including the RobotRoss architecture page and public media assets.",
         "file": "2026-04-12.md"
