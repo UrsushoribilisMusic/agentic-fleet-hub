@@ -294,6 +294,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **qc5xcwi1** | [RobotRoss] Merge Mexico voice/pyro features from bobrossskill into robot-ross | gem | in_work | ## Context... |
 | **r6pc52qv** | [bug] Demo page: 404 on /fleet/api/config/demo | gem | in_work | The demo dashboard is empty because the node serve... |
-| **#atf-ledger-jsonl** | [ATF] Make Mexico production log searchable in local Q&A | clau | open | `ATF/artifacts/ledger/mexico_events.jsonl` exists but `atf_qa.py` only reads `.md` files — ledger is not in the QA corpus. Add JSONL parsing to `load_corpus()` so Mexico run data is queryable alongside the wiki. Branch: `task/8dvp6ma64g1co2w`. |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
