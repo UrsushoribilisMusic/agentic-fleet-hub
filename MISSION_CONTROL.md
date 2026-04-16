@@ -50,7 +50,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
 - **7gbzmg40**: [ATF] Deploy static ATF surface to api.robotross.art/atf -- Context -- Clau. Approved.
-- **2beleu6g**: [ATF] Review delivered demo wiki, landing, and ledger surfaces -- Summary -- Gem. Approved.
+- **#147**: [ATF] Document Vector RAG and RobotRoss Wiki upgrades -- ## Context -- Gem. Approved.
 - **vttdwgaa**: [Ops] Canonize Clau runtime wrapper and summarize_session entrypoint -- Problem: Clau found that the deployed runtime copies of the wrapper and summarizer had diverged from the repo copies. The immediate bug was a Python 3.9 parse failure in summarize_session.py caused by newer type-hint syntax, but the larger issue is runtime drift. There is also a second summarize_session.py at the repo root using a newer CLI and architecture that is not the deployed runtime version. We need one canonical summarizer, one canonical wrapper path, removal or archival of dead duplicates, verification that fresh Clau pre/post summarizer runs exit 0 from the real wrapper environment, and documentation of the canonical runtime paths so this drift does not recur. -- Clau. Approved.
 - **#146**: [Ops] Canonize Clau runtime wrapper and summarize_session entrypoint -- Created from GitHub issue #146. Canonize Clau runtime wrapper and summarize_session entrypoint; remove duplicate summarizer drift and document the canonical runtime path. -- Clau. Approved.
 - **#145**: [ATF-8] Build local model runtime adapter for Gemma/Apertus -- Runtime adapter verification and cleanup after prior ticket drift. -- Clau. Approved. -- Created from MISSION_CONTROL.md sync -- Gem. Approved.
@@ -293,7 +293,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **#147** | [ATF] Document Vector RAG and RobotRoss Wiki upgrades | gem | merged | ## Context... |
+| **2beleu6g** | [ATF] Review delivered demo wiki, landing, and ledger surfaces | gem | merged | Summary... |
 | **r6pc52qv** | [bug] Demo page: 404 on /fleet/api/config/demo | gem | merged | The demo dashboard is empty because the node serve... |
 | **ewvyeviu** | [ATF] ledger_to_md: convert JSONL run ledger to queryable wiki MD | clau | merged | ## Context... |
 
