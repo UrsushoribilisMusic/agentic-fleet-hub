@@ -49,6 +49,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **doxgxuvc**: [ATF] Make Mexico production log searchable in local Q&A -- `ATF/artifacts/ledger/mexico_events.jsonl` exists but `atf_qa.py` only reads `.md` files — ledger is not in the QA corpus. Add JSONL parsing to `load_corpus()` so Mexico run data is queryable alongside the wiki. Branch: `task/8dvp6ma64g1co2w`. -- Clau. Approved.
 - **7gbzmg40**: [ATF] Deploy static ATF surface to api.robotross.art/atf -- Context -- Clau. Approved.
 - **#147**: [ATF] Document Vector RAG and RobotRoss Wiki upgrades -- ## Context -- Gem. Approved.
 - **vttdwgaa**: [Ops] Canonize Clau runtime wrapper and summarize_session entrypoint -- Problem: Clau found that the deployed runtime copies of the wrapper and summarizer had diverged from the repo copies. The immediate bug was a Python 3.9 parse failure in summarize_session.py caused by newer type-hint syntax, but the larger issue is runtime drift. There is also a second summarize_session.py at the repo root using a newer CLI and architecture that is not the deployed runtime version. We need one canonical summarizer, one canonical wrapper path, removal or archival of dead duplicates, verification that fresh Clau pre/post summarizer runs exit 0 from the real wrapper environment, and documentation of the canonical runtime paths so this drift does not recur. -- Clau. Approved.
