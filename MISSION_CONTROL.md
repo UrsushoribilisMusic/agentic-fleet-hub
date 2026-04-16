@@ -295,5 +295,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **2beleu6g** | [ATF] Review delivered demo wiki, landing, and ledger surfaces | gem | merged | Summary... |
 | **#147** | [ATF] Document Vector RAG and RobotRoss Wiki upgrades | gem | merged | ## Context... |
 | **r6pc52qv** | [bug] Demo page: 404 on /fleet/api/config/demo | gem | in_work | The demo dashboard is empty because the node serve... |
+| **ewvyeviu** | [ATF] ledger_to_md: convert JSONL run ledger to queryable wiki MD | clau | planned | ## Context... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
