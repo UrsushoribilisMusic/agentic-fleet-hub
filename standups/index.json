@@ -1,8 +1,8 @@
 [
     {
-        "date": "2026-04-14",
-        "summary": "Fleet dashboard drift was reviewed and corrected: Done now shows the latest 5 cards, Standups reload on open, the fuller Team/Projects dashboard was restored live, and a known-good Fleet UI baseline was committed and tagged in salesman-cloud-infra.",
-        "file": "2026-04-14.md"
+        "date": "2026-04-17",
+        "summary": "Author site live (MiguelRodriguezAuthor.com), Swiss ISBN filed, Zug Press logo created. YouTube channel 75→215 subscribers via Google Ads (CHF 0.30/subscriber). Ads audited and fixed.",
+        "file": "2026-04-17.md"
     },
     {
         "date": "2026-04-12",
@@ -93,6 +93,11 @@
         "date": "2026-03-20",
         "summary": "Heartbeat Protocol verified: no open tickets, fleet stable.",
         "file": "2026-03-20.md"
+=======
+        "date": "2026-04-17",
+        "summary": "Author site live (MiguelRodriguezAuthor.com), Swiss ISBN filed, Zug Press logo created. YouTube channel 75→215 subscribers via Google Ads (CHF 0.30/subscriber). Ads audited and fixed.",
+        "file": "2026-04-17.md"
+>>>>>>> Stashed changes
     },
     {
         "date": "2026-03-19",

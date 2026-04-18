@@ -78,6 +78,50 @@ A Gradio-based web application (Python) that automates the creation of short-for
 - **Top performers**: Danse Macabre Irish (1453 YT), Clair de Lune Vallenato (1274 YT), Danse Macabre Vallenato (1253 YT)
 - **Rule**: Always launch new pieces with Irish or Vallenato, never Progressive first
 
+## YouTube Monetization Strategy — Three Phases
+
+Decided 2026-04-18. Do not deviate without Miguel's explicit sign-off.
+
+### Phase 1 — Subscriber Acquisition (current, until 1,000 subs)
+- **Goal**: Hit YouTube Partner Program threshold (1,000 subscribers)
+- **Ad targeting**: All countries and territories — maximize cheap volume
+- **Campaign focus**: Subscriber conversions (YouTube engagements goal)
+- **Cost per subscriber**: ~CHF 0.11 (blended paid + organic multiplier)
+- **Do not change**: geo targeting, bid strategy, or campaign structure during this phase
+- **A/B test running**: Individual CHF 4/day (Maximize conversions) vs Shared budget (Target CPA)
+
+### Phase 2 — Watch Hours (1,000 subs → 4,000 valid public watch hours)
+- **Goal**: Hit the second YPP threshold (4,000 valid public watch hours in 12 months)
+- **Ad targeting**: Still broad (all countries) — watch hours count equally regardless of geography
+- **Campaign focus**: Switch to promoting **full-length videos** (not Shorts — Shorts watch time does NOT count toward the 4,000 hour requirement)
+- **Geo targeting**: Keep broad to maximize view volume cheaply
+- **Key action**: Run ads on full-length video URLs, not Short URLs
+
+### Phase 3 — Revenue Maximization (post-monetization)
+- **Goal**: Maximize YouTube ad RPM and streaming royalties
+- **Ad targeting**: Switch to high-RPM geographic markets only:
+  - **Tier 1** (RPM $6-9): UK, Germany, Switzerland, Austria, Netherlands, Sweden, Norway, Denmark, Finland, USA, Canada, Australia, New Zealand
+  - **Tier 2** (RPM $3-6): France, Italy, Spain, Belgium, Ireland, Japan, South Korea, Singapore
+  - **Middle East** (RPM $3-5): UAE, Saudi Arabia, Qatar, Kuwait, Israel
+  - **Latin America** (RPM $1-3): Brazil, Mexico, Argentina, Colombia
+- **Why**: Indian/South Asian audience (currently 11.9% of views) pays ~$0.15 RPM vs $9.13 in UK. Same content, 60x revenue difference.
+- **Campaign code**: Modify `tcr_campaign_manager.py` and `tcr_ads_live_executor.py` geo targeting when entering this phase
+
+### Why This Order
+Subscriber and watch hour thresholds must be hit before monetization unlocks. Cheap broad traffic is the fastest path to those thresholds. Switching to high-RPM targeting too early wastes budget acquiring subscribers from low-value markets before there's any revenue to optimize.
+
+### Revenue Expectations (realistic)
+| Stage | Monthly views | Est. monthly YouTube revenue |
+|-------|--------------|------------------------------|
+| Phase 1 (current) | 74K | $0 (not monetized) |
+| Phase 2 | 150-300K | $0 (not monetized) |
+| Phase 3 entry | 300K | ~$300-600 (high-RPM audience) |
+| Phase 3 mature | 1M+ | ~$1,000-3,000 |
+
+DistroKid streaming royalties (Spotify, Apple Music) are additive and geography-independent — pursue in parallel regardless of phase.
+
+---
+
 ## Technical Notes
 - `moviepy<2.0` required (2.x removed `.editor` submodule)
 - `numpy<2.0` required (int64 frame dtype compatibility)
