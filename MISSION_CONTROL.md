@@ -20,7 +20,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 | Project | Local Path | Description | Docs / Reference |
 | :--- | :--- | :--- | :--- |
 | **1. Salesman Infra** | `../salesman-cloud-infra/` | Cloud-side scripts, Caddy proxy. | [Infra Docs](../salesman-cloud-infra/README.md) |
-| **2. Music Video Tool** | `../music-video-tool/` | Tooling for creating music videos and content. | [Project MD](./AGENTS/CONTEXT/music_video_tool.md) |
+| **2. Music Video Tool** | `../music-video-tool/` | Tooling for creating music videos and content. **3-phase YPP monetization strategy active — read before modifying ad campaigns.** | [Project MD](./AGENTS/CONTEXT/music_video_tool.md) |
 | **3. CRM-POC** | `../crm-poc/` | Customer & Agent relational management system. | [Context MD](./AGENTS/CONTEXT/crm_poc_context.md) |
 | **4. The Lost Coins** | `../the-lost-coins/` | Narrative/Story-driven project. | [Story MD](./AGENTS/CONTEXT/the_lost_coins_story.md) |
 | **5. Robot Ross** | *(Mac mini)* | **Master control** for the robot arm & painting. | [Artist MD](./AGENTS/CONTEXT/robot_ross_artist.md) |
