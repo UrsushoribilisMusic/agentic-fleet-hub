@@ -1,5 +1,10 @@
 [
     {
+        "date": "2026-04-17",
+        "summary": "Author site live (MiguelRodriguezAuthor.com), Swiss ISBN filed, Zug Press logo created. YouTube channel 75→215 subscribers via Google Ads (CHF 0.30/subscriber). Ads audited and fixed.",
+        "file": "2026-04-17.md"
+    },
+    {
         "date": "2026-04-12",
         "summary": "ATF surfaces were approved, deployed live to api.robotross.art/atf, and verified end to end, including the RobotRoss architecture page and public media assets.",
         "file": "2026-04-12.md"
@@ -88,6 +93,11 @@
         "date": "2026-03-20",
         "summary": "Heartbeat Protocol verified: no open tickets, fleet stable.",
         "file": "2026-03-20.md"
+=======
+        "date": "2026-04-17",
+        "summary": "Author site live (MiguelRodriguezAuthor.com), Swiss ISBN filed, Zug Press logo created. YouTube channel 75→215 subscribers via Google Ads (CHF 0.30/subscriber). Ads audited and fixed.",
+        "file": "2026-04-17.md"
+>>>>>>> Stashed changes
     },
     {
         "date": "2026-03-19",
