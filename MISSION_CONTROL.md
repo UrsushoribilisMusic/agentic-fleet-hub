@@ -301,8 +301,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **m05kfwp2** | [PRIVATECORE-IOS] PC-014 Save-anything capture — iOS Share Extension | misty | planned | **Project:** PrivateCore iOS... |
 | **515wzi20** | [PRIVATECORE-IOS] PC-015 Document ingestion — PDF and text file import | misty | planned | **Project:** PrivateCore iOS... |
 | **z361cr8h** | [PRIVATECORE-IOS] PC-018 LLM-powered auto-tagging of captured content | misty | planned | **Project:** PrivateCore iOS... |
-| **#131** | [ATF-8] Build local model runtime adapter for Gemma/Apertus | clau | merged | Runtime adapter verification and cleanup after pri... |
 | **#131** | [ATF-8] Build local model runtime adapter for Gemma/Apertus | clau | merged | ## Context... |
+| **#131** | [ATF-8] Build local model runtime adapter for Gemma/Apertus | clau | merged | Runtime adapter verification and cleanup after pri... |
 | **qc5xcwi1** | [RobotRoss] Merge Mexico voice/pyro features from bobrossskill into robot-ross | gem | in_work | ## Context... |
 | **8dvp6ma6** | [ATF] Build integrated RobotRoss demo landing page for DigitalOcean deployment | clau | merged | ## Context... |
 | **b0envpk8** | [ATF] Build integrated local RobotRoss knowledge console with text and voice QA | clau | merged | ## Context... |
