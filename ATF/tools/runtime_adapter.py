@@ -243,17 +243,34 @@ def query(
     RuntimeError
         When no local model backend is reachable or the response is empty.
     """
+    text, _ = query_with_model(prompt, model=model, timeout=timeout)
+    return text
+
+
+def query_with_model(
+    prompt: str,
+    model: Optional[str] = None,
+    timeout: int = DEFAULT_TIMEOUT,
+) -> tuple:
+    """
+    Like :func:`query` but returns ``(response_text, model_name)`` so callers
+    can surface which model was actually used.
+
+    ``model_name`` is the full Ollama model tag (e.g.
+    ``"MichelRosselli/apertus:8b-instruct-2509-q4_k_m"``) or ``"aichat"``
+    when the subprocess fallback is used.
+    """
     # --- Primary: Ollama HTTP ---
     available = _ollama_list_models()
     if available:
         chosen = _select_model(available, hint=model)
         if chosen:
-            return _ollama_generate(prompt, chosen, timeout)
+            return _ollama_generate(prompt, chosen, timeout), chosen
 
     # --- Secondary: aichat subprocess ---
     answer = _aichat_query(prompt, model, timeout)
     if answer:
-        return answer
+        return answer, "aichat"
 
     raise RuntimeError(
         "No local model backend is reachable.\n"

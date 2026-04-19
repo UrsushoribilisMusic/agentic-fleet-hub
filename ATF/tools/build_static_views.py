@@ -737,11 +737,11 @@ def topbar(prefix: str) -> str:
 <header class="topbar">
   <div class="topbar-inner">
     <nav>
-      <a href="{prefix}index.html">ATF home</a>
+      <a href="{prefix}index.html">Technical File</a>
       <a href="{prefix}wiki-ui/index.html">Wiki</a>
       <a href="{prefix}ledger-ui/index.html">Ledger</a>
     </nav>
-    <div>RobotRoss demonstrator · Agentegra ATF</div>
+    <div><a href="https://agentegra.com/robotross.html" target="_blank" rel="noopener">Robot Ross demonstrator</a> · <a href="https://agentegra.com/" target="_blank" rel="noopener">Agentegra ATF</a> · <a href="https://bigbearengineering.com/" target="_blank" rel="noopener">Built with Flotilla</a></div>
   </div>
 </header>
 """.replace("{prefix}", prefix)
@@ -758,7 +758,7 @@ def wiki_sidebar(current: str) -> str:
     for page in synthetic_pages():
         groups.setdefault(page["group"], []).append({"stem": page["stem"], "title": page["title"]})
 
-    chunks = ['<p><a href="../index.html">ATF landing page</a></p>']
+    chunks = ['<p><a href="../index.html">Robot Ross Technical File</a></p>']
     for group, pages in groups.items():
         if not pages:
             continue
