@@ -47,7 +47,7 @@ The system is fully autonomous — from order intake to YouTube upload — with 
 ## 4. Key File Paths
 
 ```
-~/.openclaw/workspace/skills/robot-ross/
+~/robot-ross/skills/robot-ross/
   bob_ross.py          — main job orchestrator
   artist_poller.py     — polling daemon
   salesman_client.py   — HTTP client for Salesman API
@@ -63,7 +63,7 @@ The system is fully autonomous — from order intake to YouTube upload — with 
   .salesman_config     — API URL + Bearer token (gitignored)
   .youtube_token.json  — Google OAuth token (gitignored)
 
-~/.openclaw/workspace/skills/huenit/
+~/robot-ross/skills/huenit/
   huenit_svg.py        — SVG to arm movements
   huenit_write.py      — Text calligraphy
   huenit_draw.py       — Basic shapes + calibration
@@ -164,7 +164,7 @@ After pinning a completed drawing to the Wall of Fame:
 
 **Manual job:**
 ```bash
-cd ~/.openclaw/workspace/skills/robot-ross
+cd ~/robot-ross/skills/robot-ross
 /usr/bin/python3 bob_ross.py sketch "a lighthouse" --direct --buyer "Alice"
 ```
 
@@ -174,7 +174,7 @@ cd ~/.openclaw/workspace/skills/robot-ross
 
 Must be run at the start of each physical session (after robot restart):
 ```bash
-/usr/bin/python3 ~/.openclaw/workspace/skills/huenit/huenit_draw.py calibrate
+/usr/bin/python3 ~/robot-ross/skills/huenit/huenit_draw.py calibrate
 ```
 - Z_UP = 6.0mm (pen-up height, confirmed working)
 - Drawing area capped at 125mm in all directions
