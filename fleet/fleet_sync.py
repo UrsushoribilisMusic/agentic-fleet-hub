@@ -145,8 +145,12 @@ def sync_mc_to_pb(content, pb_tasks):
             update_data = {}
             
             if pb_t['status'] != mc_t['status']:
-                needs_update = True
-                update_data['status'] = mc_t['status']
+                # Never downgrade from approved — PB agent writes are authoritative
+                if pb_t['status'] == 'approved':
+                    pass
+                else:
+                    needs_update = True
+                    update_data['status'] = mc_t['status']
             
             # For open tickets, also check owner
             if 'owner' in mc_t and mc_t['owner'] != 'n/a':

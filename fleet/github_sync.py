@@ -292,6 +292,16 @@ def infer_agent_from_labels(label_names):
 
 # ── Outbound: PB -> GitHub ────────────────────────────────────────────────────
 
+EXTRA_REPO_PREFIXES = tuple(
+    f"[{cfg['repo'].split('/')[-1].upper()}]" for cfg in EXTRA_INBOUND_REPOS
+)
+
+
+def is_extra_repo_task(title):
+    """Return True if this task was imported from an extra repo (not the hub)."""
+    return title.startswith(EXTRA_REPO_PREFIXES)
+
+
 def sync_outbound(tasks, offset):
     changed = False
     for task in tasks:
@@ -300,6 +310,11 @@ def sync_outbound(tasks, offset):
         status = task.get("status", "todo")
         title = task.get("title", "(untitled)")
         description = task.get("description", "")
+
+        # Extra-repo tasks (e.g. PC-*) live in a different GitHub repo.
+        # Skip outbound label/issue management for them — their repo owns their labels.
+        if is_extra_repo_task(title):
+            continue
 
         if not gh_issue_id:
             # Check for existing issue with same title before creating to avoid duplicates
