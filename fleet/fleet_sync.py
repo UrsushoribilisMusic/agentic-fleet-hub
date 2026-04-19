@@ -137,6 +137,10 @@ def sync_mc_to_pb(content, pb_tasks):
     all_mc = open_mc
     
     for mc_t in all_mc:
+        # Skip extra-repo tasks — they are managed by their own repo's kanban
+        if is_extra_repo_task(mc_t.get('title_desc', '')):
+            continue
+
         # Try finding by full ID, #ID, or prefix
         pb_t = pb_map.get(mc_t['id_num']) or pb_prefix_map.get(mc_t['id_num'])
         
@@ -188,9 +192,18 @@ def sync_mc_to_pb(content, pb_tasks):
             
     return updates_made
 
+EXTRA_REPO_PREFIXES = ("[PRIVATECORE-IOS]",)
+
+
+def is_extra_repo_task(title):
+    return title.startswith(EXTRA_REPO_PREFIXES)
+
+
 def format_open_table(tasks):
-    # Only include tasks that are NOT approved/backlog
-    open_tasks = [t for t in tasks if t['status'] in ['todo', 'in_progress', 'peer_review']]
+    # Only include tasks that are NOT approved/backlog and not from extra repos
+    open_tasks = [t for t in tasks
+                  if t['status'] in ['todo', 'in_progress', 'peer_review']
+                  and not is_extra_repo_task(t.get('title', ''))]
     if not open_tasks:
         return "| Ticket | Description | Owner | Status | Notes |\n| :--- | :--- | :--- | :--- | :--- |\n"
 
@@ -231,7 +244,9 @@ def format_open_table(tasks):
     return "\n".join(lines) + "\n"
 
 def format_closed_list(tasks):
-    closed_tasks = [t for t in tasks if t['status'] == 'approved']
+    closed_tasks = [t for t in tasks
+                    if t['status'] == 'approved'
+                    and not is_extra_repo_task(t.get('title', ''))]
     
     # Sort by ID descending
     def get_id_num(t):
