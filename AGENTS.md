@@ -3,10 +3,10 @@
 ## Startup Protocol -- follow this order every session, no exceptions
 
 1. `git pull origin master` -- get the latest state from the team.
-2. Run: `python fleet/heartbeat_check.py --agent codi`
+2. Run: `python3 fleet/heartbeat_check.py --agent codi`
    - **Exit 1**: nothing relevant changed -- post idle heartbeat and stop. Do NOT read any further files. Do NOT commit.
    - **Exit 0**: changes need your attention -- continue with steps 3-6 below.
-3. Run: `python fleet/active_context.py` -- prints ALL active project blocks. Note each block (Mission Control, inbox, and lessons paths).
+3. Run: `python3 fleet/active_context.py` -- prints ALL active project blocks. Note each block (Mission Control, inbox, and lessons paths).
 4. For EACH active project block:
    - If it is a non-hub project, `cd` to its `repo_path` and `git pull origin master`.
    - Read the **Mission Control** at the path from that block.
