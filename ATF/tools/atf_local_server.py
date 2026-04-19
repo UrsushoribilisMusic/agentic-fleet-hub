@@ -39,7 +39,7 @@ def get_corpus():
     return _corpus
 
 
-def handle_qa(query: str, model_hint: str = None) -> dict:
+def handle_qa(query: str, model_hint: str = None, lang: str = "en") -> dict:
     """Run the real ATF QA pipeline and return a structured result."""
     sys.path.insert(0, SCRIPT_DIR)
     import atf_qa
@@ -60,10 +60,15 @@ def handle_qa(query: str, model_hint: str = None) -> dict:
         }
 
     context, sources = atf_qa.build_context(chunks)
+    lang_names = {"fr": "French", "de": "German", "es": "Spanish", "it": "Italian",
+                  "pt": "Portuguese", "en": "English"}
+    lang_label = lang_names.get((lang or "en")[:2].lower(), "English")
+    lang_instruction = f"\nIMPORTANT: Respond in {lang_label}." if lang_label != "English" else ""
+
     prompt = (
         "You are a technical assistant with access to the RobotRoss system documentation.\n"
         "Answer the question using ONLY the context below. "
-        "Cite sources by their [N] reference number.\n\n"
+        f"Cite sources by their [N] reference number.{lang_instruction}\n\n"
         f"Context:\n{context}\n\n"
         f"Question: {query}\n\nAnswer:"
     )
@@ -193,9 +198,10 @@ class ATFHandler(BaseHTTPRequestHandler):
             return
 
         model_hint = (payload.get("model") or "").strip() or None
+        lang = (payload.get("lang") or "en").strip().lower()
 
         try:
-            result = handle_qa(query, model_hint=model_hint)
+            result = handle_qa(query, model_hint=model_hint, lang=lang)
             self.send_json(200, result)
         except Exception as exc:
             self.send_json(500, {"error": str(exc)})
