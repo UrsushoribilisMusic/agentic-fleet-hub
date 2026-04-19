@@ -43,3 +43,4 @@ echo "$LOG_PREFIX: flushing staged PocketBase writes..."
 $PYTHON "$CODI/pb_flush.py"
 
 echo "$LOG_PREFIX: Codi heartbeat complete"
+exit $CODEX_EXIT
