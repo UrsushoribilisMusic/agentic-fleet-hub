@@ -284,7 +284,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **tcr14sta**: TCR-14: Stats page and heatmap read from PocketBase -- Move the stats page and heatmap off the sheet-driven runtime path so visibility uses PocketBase songs data. -- Codi. Approved.
 - **tcr13pbs**: TCR-13: PocketBase to Sheet reporting sync for YouTube metrics -- Sync YouTube metrics from PocketBase back into the reporting worksheet while leaving TikTok and Instagram columns human-owned. -- Codi. Approved.
 - **#5**: #5nkg4da6vgfbj1j: Peer review UI fixes for web page -- Reviewing UI fixes for the web page as described in task #5nkg4da6vgfbj1j -- Misty. Approved.
-- **fdmqdx4d**: [PRIVATECORE-IOS] PC-000 Initialize repo — push Xcode scaffold, .gitignore, README -- **Project:** PrivateCore iOS -- Clau. Approved.
 - **tejrwdkf**: BBE page fixes: nav consolidation, project links, alignment -- ## What was done (Clau, 2026-03-12) -- Clau. Approved.
 - **w28r4jbj**: [infra] Codi PocketBase sandbox workaround — pre-fetch/flush wrapper -- Codi (Codex) runs in a sandboxed environment (-s workspace-write) where localhost:8090 is unreachable. Gem implemented a wrapper-based workaround: -- Gem. Approved.
 - **7e047f4z**: Growth Fleet, CRM branding, IAP inbox, mobile, BBE site, legal pages, lead intake -- Team. -- Created from MISSION_CONTROL.md sync -- Gem. Approved.
@@ -298,18 +297,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **whevw7fg** | [PRIVATECORE-IOS] PC-001 MLX iOS inference engine — 1B bundled model | codi | planned | **Project:** PrivateCore iOS... |
-| **imodrpn0** | [PRIVATECORE-IOS] PC-002 ModelManager — download, store, activate larger models | codi | planned | **Project:** PrivateCore iOS... |
-| **ggxeefg2** | [PRIVATECORE-IOS] PC-003 ModelRouter — hot-swap between text and vision models | codi | planned | **Project:** PrivateCore iOS... |
-| **7u4usz7o** | [PRIVATECORE-IOS] PC-004 PHPhotoLibrary access — metadata extraction and asset index | clau | planned | **Project:** PrivateCore iOS... |
-| **zk5i5252** | [PRIVATECORE-IOS] PC-005 EventKit access — calendar event ingestion | clau | planned | **Project:** PrivateCore iOS... |
-| **blu04a2v** | [PRIVATECORE-IOS] PC-007 Local vector store — SQLite + sqlite-vec setup | codi | merged | **Project:** PrivateCore iOS... |
-| **f2m25lba** | [PRIVATECORE-IOS] PC-010 Apple Vision OCR pipeline — extract text from photos | gem | planned | **Project:** PrivateCore iOS... |
-| **36gqu1pz** | [PRIVATECORE-IOS] PC-011 Embedding pipeline — semantic vectors for all content | gem | merged | **Project:** PrivateCore iOS... |
-| **yr1ixyae** | [PRIVATECORE-IOS] PC-012 VLM image query — Qwen2.5-VL visual understanding | gem | merged | **Project:** PrivateCore iOS... |
-| **m05kfwp2** | [PRIVATECORE-IOS] PC-014 Save-anything capture — iOS Share Extension | misty | planned | **Project:** PrivateCore iOS... |
-| **515wzi20** | [PRIVATECORE-IOS] PC-015 Document ingestion — PDF and text file import | misty | planned | **Project:** PrivateCore iOS... |
-| **z361cr8h** | [PRIVATECORE-IOS] PC-018 LLM-powered auto-tagging of captured content | misty | planned | **Project:** PrivateCore iOS... |
 | **qc5xcwi1** | [RobotRoss] Merge Mexico voice/pyro features from bobrossskill into robot-ross | gem | in_work | ## Context... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
