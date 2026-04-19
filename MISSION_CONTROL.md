@@ -50,10 +50,17 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **ewvyeviu**: [ATF] ledger_to_md: convert JSONL run ledger to queryable wiki MD -- ## Context -- Clau. Approved.
 - **doxgxuvc**: [ATF] Make Mexico production log searchable in local Q&A -- `ATF/artifacts/ledger/mexico_events.jsonl` exists but `atf_qa.py` only reads `.md` files — ledger is not in the QA corpus. Add JSONL parsing to `load_corpus()` so Mexico run data is queryable alongside the wiki. Branch: `task/8dvp6ma64g1co2w`. -- Clau. Approved.
+- **r6pc52qv**: [bug] Demo page: 404 on /fleet/api/config/demo -- The demo dashboard is empty because the node server does not handle the /fleet/api/config/demo endpoint, causing the frontend to fail loading metadata. -- Gem. Approved.
+- **7gbzmg40**: [ATF] Deploy static ATF surface to api.robotross.art/atf -- Context -- Clau. Approved.
+- **2beleu6g**: [ATF] Review delivered demo wiki, landing, and ledger surfaces -- Summary -- Clau. Approved.
 - **#147**: [ATF] Document Vector RAG and RobotRoss Wiki upgrades -- ## Context -- Gem. Approved.
+- **vttdwgaa**: [Ops] Canonize Clau runtime wrapper and summarize_session entrypoint -- Problem: Clau found that the deployed runtime copies of the wrapper and summarizer had diverged from the repo copies. The immediate bug was a Python 3.9 parse failure in summarize_session.py caused by newer type-hint syntax, but the larger issue is runtime drift. There is also a second summarize_session.py at the repo root using a newer CLI and architecture that is not the deployed runtime version. We need one canonical summarizer, one canonical wrapper path, removal or archival of dead duplicates, verification that fresh Clau pre/post summarizer runs exit 0 from the real wrapper environment, and documentation of the canonical runtime paths so this drift does not recur. -- Clau. Approved.
 - **#146**: [Ops] Canonize Clau runtime wrapper and summarize_session entrypoint -- Created from GitHub issue #146. Canonize Clau runtime wrapper and summarize_session entrypoint; remove duplicate summarizer drift and document the canonical runtime path. -- Clau. Approved.
 - **#145**: [ATF-8] Build local model runtime adapter for Gemma/Apertus -- Runtime adapter verification and cleanup after prior ticket drift. -- Clau. Approved. -- Created from MISSION_CONTROL.md sync -- Gem. Approved.
+- **b0envpk8**: [ATF] Build integrated local RobotRoss knowledge console with text and voice QA -- ## Context -- Clau. Approved.
+- **8dvp6ma6**: [ATF] Build integrated RobotRoss demo landing page for DigitalOcean deployment -- ## Context -- Clau. Approved.
 - **h6xy2yt7**: [ATF] Rebuild QA grounding from canonical RobotRoss sources and ledger data -- ## Context -- Clau. Approved.
 - **gyfz6ceg**: [ATF] Build human-readable operational ledger dashboard for Mexico logs -- ## Context -- Codi. Approved.
 - **vbwk63sc**: [ATF] Build browser-readable wiki UI over compiled ATF articles -- ## Context -- Clau. Approved.
@@ -64,6 +71,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#134**: [ATF-11] Optional voice shell with Whisper and Voxtral -- ## Context -- Clau. Approved.
 - **#133**: [ATF-10] Cross-reference Mexico logs into the compiled wiki -- ## Context -- Gem. Approved.
 - **#132**: [ATF-9] Build local CLI QA shell over wiki and ledger -- ## Context -- Clau. Approved.
+- **#131**: [ATF-8] Build local model runtime adapter for Gemma/Apertus -- Runtime adapter verification and cleanup after prior ticket drift. -- Clau. Approved.
+- **#131**: [ATF-8] Build local model runtime adapter for Gemma/Apertus -- ## Context... -- Clau. Approved.
 - **#130**: [ATF-7] Add EU AI Act mapping metadata for wiki pages -- ## Context -- Misty. Approved.
 - **#129**: [ATF-6] Scaffold wiki index/log and page templates -- ## Context -- Gemma. Approved.
 - **#128**: [ATF-5] Generate initial compiled wiki from RobotRoss code/docs -- ## Context -- Gem. Approved.
@@ -301,15 +310,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **m05kfwp2** | [PRIVATECORE-IOS] PC-014 Save-anything capture — iOS Share Extension | misty | planned | **Project:** PrivateCore iOS... |
 | **515wzi20** | [PRIVATECORE-IOS] PC-015 Document ingestion — PDF and text file import | misty | planned | **Project:** PrivateCore iOS... |
 | **z361cr8h** | [PRIVATECORE-IOS] PC-018 LLM-powered auto-tagging of captured content | misty | planned | **Project:** PrivateCore iOS... |
-| **#131** | [ATF-8] Build local model runtime adapter for Gemma/Apertus | clau | merged | Runtime adapter verification and cleanup after pri... |
-| **#131** | [ATF-8] Build local model runtime adapter for Gemma/Apertus | clau | merged | ## Context... |
 | **qc5xcwi1** | [RobotRoss] Merge Mexico voice/pyro features from bobrossskill into robot-ross | gem | in_work | ## Context... |
-| **8dvp6ma6** | [ATF] Build integrated RobotRoss demo landing page for DigitalOcean deployment | clau | merged | ## Context... |
-| **b0envpk8** | [ATF] Build integrated local RobotRoss knowledge console with text and voice QA | clau | merged | ## Context... |
-| **vttdwgaa** | [Ops] Canonize Clau runtime wrapper and summarize_session entrypoint | clau | merged | Problem: Clau found that the deployed runtime copi... |
-| **2beleu6g** | [ATF] Review delivered demo wiki, landing, and ledger surfaces | clau | merged | Summary... |
-| **7gbzmg40** | [ATF] Deploy static ATF surface to api.robotross.art/atf | clau | merged | Context... |
-| **r6pc52qv** | [bug] Demo page: 404 on /fleet/api/config/demo | gem | merged | The demo dashboard is empty because the node serve... |
-| **ewvyeviu** | [ATF] ledger_to_md: convert JSONL run ledger to queryable wiki MD | clau | merged | ## Context... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
