@@ -64,6 +64,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#134**: [ATF-11] Optional voice shell with Whisper and Voxtral -- ## Context -- Clau. Approved.
 - **#133**: [ATF-10] Cross-reference Mexico logs into the compiled wiki -- ## Context -- Gem. Approved.
 - **#132**: [ATF-9] Build local CLI QA shell over wiki and ledger -- ## Context -- Clau. Approved.
+- **#131**: [ATF-8] Build local model runtime adapter for Gemma/Apertus -- ## Context... -- Clau. Approved.
 - **#130**: [ATF-7] Add EU AI Act mapping metadata for wiki pages -- ## Context -- Misty. Approved.
 - **#129**: [ATF-6] Scaffold wiki index/log and page templates -- ## Context -- Gemma. Approved.
 - **#128**: [ATF-5] Generate initial compiled wiki from RobotRoss code/docs -- ## Context -- Gem. Approved.
@@ -275,6 +276,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **tcr14sta**: TCR-14: Stats page and heatmap read from PocketBase -- Move the stats page and heatmap off the sheet-driven runtime path so visibility uses PocketBase songs data. -- Codi. Approved.
 - **tcr13pbs**: TCR-13: PocketBase to Sheet reporting sync for YouTube metrics -- Sync YouTube metrics from PocketBase back into the reporting worksheet while leaving TikTok and Instagram columns human-owned. -- Codi. Approved.
 - **#5**: #5nkg4da6vgfbj1j: Peer review UI fixes for web page -- Reviewing UI fixes for the web page as described in task #5nkg4da6vgfbj1j -- Misty. Approved.
+- **fdmqdx4d**: [PRIVATECORE-IOS] PC-000 Initialize repo — push Xcode scaffold, .gitignore, README -- **Project:** PrivateCore iOS -- Clau. Approved.
 - **tejrwdkf**: BBE page fixes: nav consolidation, project links, alignment -- ## What was done (Clau, 2026-03-12) -- Clau. Approved.
 - **w28r4jbj**: [infra] Codi PocketBase sandbox workaround — pre-fetch/flush wrapper -- Codi (Codex) runs in a sandboxed environment (-s workspace-write) where localhost:8090 is unreachable. Gem implemented a wrapper-based workaround: -- Gem. Approved.
 - **7e047f4z**: Growth Fleet, CRM branding, IAP inbox, mobile, BBE site, legal pages, lead intake -- Team. -- Created from MISSION_CONTROL.md sync -- Gem. Approved.
@@ -288,8 +290,19 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **whevw7fg** | [PRIVATECORE-IOS] PC-001 MLX iOS inference engine — 1B bundled model | codi | planned | **Project:** PrivateCore iOS... |
+| **imodrpn0** | [PRIVATECORE-IOS] PC-002 ModelManager — download, store, activate larger models | codi | planned | **Project:** PrivateCore iOS... |
+| **ggxeefg2** | [PRIVATECORE-IOS] PC-003 ModelRouter — hot-swap between text and vision models | codi | planned | **Project:** PrivateCore iOS... |
+| **7u4usz7o** | [PRIVATECORE-IOS] PC-004 PHPhotoLibrary access — metadata extraction and asset index | clau | merged | **Project:** PrivateCore iOS... |
+| **zk5i5252** | [PRIVATECORE-IOS] PC-005 EventKit access — calendar event ingestion | clau | merged | **Project:** PrivateCore iOS... |
+| **blu04a2v** | [PRIVATECORE-IOS] PC-007 Local vector store — SQLite + sqlite-vec setup | codi | merged | **Project:** PrivateCore iOS... |
+| **f2m25lba** | [PRIVATECORE-IOS] PC-010 Apple Vision OCR pipeline — extract text from photos | gem | merged | **Project:** PrivateCore iOS... |
+| **36gqu1pz** | [PRIVATECORE-IOS] PC-011 Embedding pipeline — semantic vectors for all content | gem | merged | **Project:** PrivateCore iOS... |
+| **yr1ixyae** | [PRIVATECORE-IOS] PC-012 VLM image query — Qwen2.5-VL visual understanding | gem | merged | **Project:** PrivateCore iOS... |
+| **m05kfwp2** | [PRIVATECORE-IOS] PC-014 Save-anything capture — iOS Share Extension | misty | planned | **Project:** PrivateCore iOS... |
+| **515wzi20** | [PRIVATECORE-IOS] PC-015 Document ingestion — PDF and text file import | misty | planned | **Project:** PrivateCore iOS... |
+| **z361cr8h** | [PRIVATECORE-IOS] PC-018 LLM-powered auto-tagging of captured content | misty | planned | **Project:** PrivateCore iOS... |
 | **#131** | [ATF-8] Build local model runtime adapter for Gemma/Apertus | clau | merged | Runtime adapter verification and cleanup after pri... |
-| **#131** | [ATF-8] Build local model runtime adapter for Gemma/Apertus | clau | merged | ## Context... |
 | **qc5xcwi1** | [RobotRoss] Merge Mexico voice/pyro features from bobrossskill into robot-ross | gem | in_work | ## Context... |
 | **8dvp6ma6** | [ATF] Build integrated RobotRoss demo landing page for DigitalOcean deployment | clau | merged | ## Context... |
 | **b0envpk8** | [ATF] Build integrated local RobotRoss knowledge console with text and voice QA | clau | merged | ## Context... |
