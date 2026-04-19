@@ -10,6 +10,9 @@ LOG_PREFIX="[wrapper] $(date '+%Y-%m-%d %H:%M:%S')"
 
 echo "$LOG_PREFIX: starting Codi heartbeat"
 
+# Pull latest fleet config before anything else so mandate changes take effect
+git -C "$REPO" pull --quiet origin master 2>/dev/null || true
+
 # Phase 0: checksum gate — skip if nothing changed (zero LLM tokens)
 REPO="/Users/miguelrodriguez/projects/agentic-fleet-hub"
 /usr/bin/python3 "$FLEET/heartbeat_check.py" --agent codi --repo "$REPO"
