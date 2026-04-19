@@ -40,7 +40,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 
 ---
 
-## Ticket Status (as of 2026-04-12)
+## Ticket Status (as of 2026-04-19)
 
 ### ENVIRONMENT NOTE — Mac Mini migration complete (2026-03-14)
 All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users/miguel/` → `/Users/miguelrodriguez/`. Repos cloned to `~/projects/`. Python 3.12 venv at `~/projects/music-video-tool/.venv312`. OpenClaw at `/opt/homebrew/bin/openclaw`. Fleet always-on infrastructure build in progress — see tickets #34–#43.
@@ -49,7 +49,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **doxgxuvc**: [ATF] Make Mexico production log searchable in local Q&A -- `ATF/artifacts/ledger/mexico_events.jsonl` exists but `atf_qa.py` only reads `.md` files — ledger is not in the QA corpus. Add JSONL parsing to `load_corpus()` so Mexico run data is queryable alongside the wiki. Branch: `task/8dvp6ma64g1co2w`. -- Clau. Approved.
+- **#147**: [ATF] Document Vector RAG and RobotRoss Wiki upgrades -- ## Context -- Gem. Approved.
 - **#146**: [Ops] Canonize Clau runtime wrapper and summarize_session entrypoint -- Created from GitHub issue #146. Canonize Clau runtime wrapper and summarize_session entrypoint; remove duplicate summarizer drift and document the canonical runtime path. -- Clau. Approved.
+- **#145**: [ATF-8] Build local model runtime adapter for Gemma/Apertus -- Runtime adapter verification and cleanup after prior ticket drift. -- Clau. Approved. -- Created from MISSION_CONTROL.md sync -- Gem. Approved.
+- **h6xy2yt7**: [ATF] Rebuild QA grounding from canonical RobotRoss sources and ledger data -- ## Context -- Clau. Approved.
 - **gyfz6ceg**: [ATF] Build human-readable operational ledger dashboard for Mexico logs -- ## Context -- Codi. Approved.
 - **vbwk63sc**: [ATF] Build browser-readable wiki UI over compiled ATF articles -- ## Context -- Clau. Approved.
 - **m8tqyiij**: [Ops] Investigate recurring Telegram billing warning unrelated to Google Ads -- ## Context -- Codi. Approved.
@@ -59,6 +63,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#134**: [ATF-11] Optional voice shell with Whisper and Voxtral -- ## Context -- Clau. Approved.
 - **#133**: [ATF-10] Cross-reference Mexico logs into the compiled wiki -- ## Context -- Gem. Approved.
 - **#132**: [ATF-9] Build local CLI QA shell over wiki and ledger -- ## Context -- Clau. Approved.
+- **#131**: [ATF-8] Build local model runtime adapter for Gemma/Apertus -- ## Context... -- Clau. Approved.
 - **#130**: [ATF-7] Add EU AI Act mapping metadata for wiki pages -- ## Context -- Misty. Approved.
 - **#129**: [ATF-6] Scaffold wiki index/log and page templates -- ## Context -- Gemma. Approved.
 - **#128**: [ATF-5] Generate initial compiled wiki from RobotRoss code/docs -- ## Context -- Gem. Approved.
@@ -284,12 +289,13 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **#131** | [ATF-8] Build local model runtime adapter for Gemma/Apertus | clau | merged | Runtime adapter verification and cleanup after pri... |
-| **#131** | [ATF-8] Build local model runtime adapter for Gemma/Apertus | clau | merged | ## Context... |
 | **qc5xcwi1** | [RobotRoss] Merge Mexico voice/pyro features from bobrossskill into robot-ross | gem | in_work | ## Context... |
 | **8dvp6ma6** | [ATF] Build integrated RobotRoss demo landing page for DigitalOcean deployment | clau | merged | ## Context... |
 | **b0envpk8** | [ATF] Build integrated local RobotRoss knowledge console with text and voice QA | clau | merged | ## Context... |
 | **vttdwgaa** | [Ops] Canonize Clau runtime wrapper and summarize_session entrypoint | clau | merged | Problem: Clau found that the deployed runtime copi... |
 | **2beleu6g** | [ATF] Review delivered demo wiki, landing, and ledger surfaces | clau | merged | Summary... |
 | **7gbzmg40** | [ATF] Deploy static ATF surface to api.robotross.art/atf | clau | merged | Context... |
+| **r6pc52qv** | [bug] Demo page: 404 on /fleet/api/config/demo | gem | merged | The demo dashboard is empty because the node serve... |
+| **ewvyeviu** | [ATF] ledger_to_md: convert JSONL run ledger to queryable wiki MD | clau | merged | ## Context... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
