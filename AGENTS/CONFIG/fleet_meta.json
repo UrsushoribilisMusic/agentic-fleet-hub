@@ -168,6 +168,18 @@
       "is_active": false
     },
     {
+      "title": "PrivateCore iOS",
+      "owners": "Ursus Fleet",
+      "repo_path": "../private-core/PrivateCore",
+      "summary": "Privacy-first on-device AI platform for iPhone. Local LLM inference (MLX Swift), iOS data access (Photos/Calendar/Health), on-device vision pipeline. Sprint 1 goal: photo metadata as LLM context on physical iPhone 15 Pro. No cloud. No subscriptions. Each agent has assigned PC-* tickets.",
+      "docs": [
+        "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/privatecore_ios.md"
+      ],
+      "kanban": "https://github.com/UrsushoribilisMusic/privatecore-ios/issues",
+      "notes": "Repo uses 'main' branch, not 'master'. Use: git pull origin main",
+      "is_active": true
+    },
+    {
       "title": "Agentic Fleet Hub (Flotilla)",
       "owners": "Ursus Fleet",
       "repo_path": ".",
