@@ -489,6 +489,14 @@ button.voice-active {
     <div class="button-row">
       <button type="button" id="query-model">Query model</button>
       <button type="button" class="secondary" id="voice-btn">&#127908; Talk to the model</button>
+      <select id="lang-select" title="Response language" style="margin-left:8px;padding:6px 10px;border-radius:6px;background:#1e293b;color:#cbd5e1;border:1px solid #334155;font-size:13px">
+        <option value="en" selected>🇬🇧 EN</option>
+        <option value="fr">🇫🇷 FR</option>
+        <option value="de">🇩🇪 DE</option>
+        <option value="es">🇪🇸 ES</option>
+        <option value="it">🇮🇹 IT</option>
+        <option value="pt">🇵🇹 PT</option>
+      </select>
     </div>
     <div class="voice-status" id="voice-status" style="display:none;">
       <div class="voice-dot"></div>
@@ -624,6 +632,11 @@ function renderAnswer(answerText, backend) {
   if (backend) backendLabel.textContent = `via ${backend}`;
 }
 
+function selectedLang() {
+  const sel = document.getElementById('lang-select');
+  return sel ? sel.value : 'en';
+}
+
 async function runQuery() {
   const query = queryField.value.trim();
   if (!query) {
@@ -640,7 +653,7 @@ async function runQuery() {
     const resp = await fetch(QA_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ query, model: selectedModel }),
+      body: JSON.stringify({ query, model: selectedModel, lang: selectedLang() }),
       signal: AbortSignal.timeout(60000),
     });
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
@@ -676,7 +689,8 @@ function speak(text) {
   if (!window.speechSynthesis) return;
   window.speechSynthesis.cancel(); // stop anything already playing
   const utt = new SpeechSynthesisUtterance(text);
-  utt.lang = 'en-US';
+  const ttsLocales = { en:'en-US', fr:'fr-FR', de:'de-DE', es:'es-ES', it:'it-IT', pt:'pt-PT' };
+  utt.lang = ttsLocales[selectedLang()] || 'en-US';
   utt.rate = 1.05;
   utt.pitch = 1.0;
   utt.onstart = () => { voiceStatusText.textContent = 'Speaking...'; voiceStatus.style.display = 'flex'; };
@@ -702,7 +716,8 @@ if (!SpeechRecognition) {
   voiceBtn.disabled = true;
 } else {
   const recognition = new SpeechRecognition();
-  recognition.lang = 'en-US';
+  const langLocales = { en:'en-US', fr:'fr-FR', de:'de-DE', es:'es-ES', it:'it-IT', pt:'pt-PT' };
+  recognition.lang = langLocales[selectedLang()] || 'en-US';
   recognition.interimResults = true;   // show partial transcripts as you speak
   recognition.maxAlternatives = 1;
   let isListening = false;

@@ -6,7 +6,7 @@ echo ========================================
 echo.
 
 cd /d "%~dp0"
-git checkout task/8dvp6ma64g1co2w >nul 2>&1
+git pull origin master >nul 2>&1
 
 echo Starting server... (browser will open in 3 seconds)
 echo.
