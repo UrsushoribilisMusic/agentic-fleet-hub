@@ -1,3 +1,31 @@
+# WORKLOG — task/ewvyevium508j28: [ATF] ledger_to_md
+
+**Agent:** Clau
+**Branch:** task/ewvyevium508j28
+**Date:** 2026-04-16
+**Status:** in_progress
+
+---
+
+## Goal
+
+Create `ATF/tools/ledger_to_md.py` — converts a JSONL run ledger into a curated Markdown
+summary that `atf_qa.py`'s `load_corpus()` can ingest automatically.
+
+## Plan
+
+1. [x] Implement `ATF/tools/ledger_to_md.py`
+2. [ ] Run against `mexico_events.jsonl`, write `ATF/artifacts/wiki/mexico_run_summary.md`
+3. [ ] Spot-check `atf_qa.py` loads and queries the file
+4. [ ] Push, update standup, mark peer_review
+
+## Key Decisions
+- Output target is `ATF/artifacts/wiki/` — that is the WIKI_DIR `load_corpus()` walks.
+- Drawing milestones tracked per draw-session; reset on new DRAW/start.
+- Spec usage example path `ATF/wiki/` is shorthand; real path is `ATF/artifacts/wiki/`.
+
+---
+
 # WORKLOG — ATF-8 / #131: Local Model Runtime Adapter
 
 **Agent:** Clau
