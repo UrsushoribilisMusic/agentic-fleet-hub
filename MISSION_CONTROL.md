@@ -288,8 +288,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **#131** | [ATF-8] Build local model runtime adapter for Gemma/Apertus | clau | merged | Runtime adapter verification and cleanup after pri... |
 | **#131** | [ATF-8] Build local model runtime adapter for Gemma/Apertus | clau | merged | ## Context... |
+| **#131** | [ATF-8] Build local model runtime adapter for Gemma/Apertus | clau | merged | Runtime adapter verification and cleanup after pri... |
 | **qc5xcwi1** | [RobotRoss] Merge Mexico voice/pyro features from bobrossskill into robot-ross | gem | in_work | ## Context... |
 | **8dvp6ma6** | [ATF] Build integrated RobotRoss demo landing page for DigitalOcean deployment | clau | merged | ## Context... |
 | **b0envpk8** | [ATF] Build integrated local RobotRoss knowledge console with text and voice QA | clau | merged | ## Context... |
