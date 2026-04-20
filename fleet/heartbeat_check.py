@@ -130,17 +130,24 @@ def _save_cache(cache_path: str, data: dict):
 
 def _ticket_for_agent(mc_path: str, aliases: list) -> bool:
     """Return True if MISSION_CONTROL.md has an OPEN ticket for this agent."""
+    # Section headers that indicate active/open work (covers both old and new MC formats)
+    OPEN_PATTERNS = [
+        r"### OPEN",
+        r"### Phase \d+ — Active",
+        r"### In Progress",
+        r"### Todo",
+    ]
     try:
         with open(mc_path) as f:
             content = f.read()
-        # Extract only the OPEN section (stop at next ### or end of file)
-        match = re.search(r"### OPEN.*?(?=\n###|\Z)", content, re.DOTALL | re.IGNORECASE)
-        if not match:
-            return False
-        open_section = match.group()
-        for alias in aliases:
-            if alias.lower() in open_section.lower():
-                return True
+        # Try each known open-section pattern
+        for pattern in OPEN_PATTERNS:
+            match = re.search(pattern + r".*?(?=\n###|\Z)", content, re.DOTALL | re.IGNORECASE)
+            if match:
+                section = match.group()
+                for alias in aliases:
+                    if alias.lower() in section.lower():
+                        return True
         return False
     except Exception:
         return True  # safe default: assume relevant if unreadable
