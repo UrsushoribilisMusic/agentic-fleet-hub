@@ -1,5 +1,20 @@
 [
     {
+        "date": "2026-04-21",
+        "summary": "PC-025 trip boundary detection complete (Gem). Misty finishing PC-013/018. Phase 2 sprint active: trips, dashboard, image-first chat.",
+        "file": "2026-04-21.md"
+    },
+    {
+        "date": "2026-04-20",
+        "summary": "PrivateCore Phase 1 complete. 11 tickets closed: PC-009/015/016/017/019/020/022/023/024/028/029. Phase 2 sprint started. heartbeat_check.py fixed for PrivateCore MC format.",
+        "file": "2026-04-20.md"
+    },
+    {
+        "date": "2026-04-19",
+        "summary": "PrivateCore iOS kickoff: 18 tickets closed (PC-000–PC-014). MLX Swift inference, OCR, embeddings, VectorStore, VLM, Share Extension all built. App running on device.",
+        "file": "2026-04-19.md"
+    },
+    {
         "date": "2026-04-17",
         "summary": "Author site live (MiguelRodriguezAuthor.com), Swiss ISBN filed, Zug Press logo created. YouTube channel 75→215 subscribers via Google Ads (CHF 0.30/subscriber). Ads audited and fixed.",
         "file": "2026-04-17.md"
@@ -60,9 +75,9 @@
         "file": "2026-03-29.md"
     },
     {
-        "date": "2026-03-24",
-        "summary": "Heartbeat verified: 0 tasks. Recorded PocketBase filter quoting lesson.",
-        "file": "2026-03-24.md"
+        "date": "2026-03-26",
+        "summary": "Heartbeat verified: 0 tasks. Fleet idle.",
+        "file": "2026-03-26.md"
     },
     {
         "date": "2026-03-25",
@@ -70,9 +85,9 @@
         "file": "2026-03-25.md"
     },
     {
-        "date": "2026-03-26",
-        "summary": "Heartbeat verified: 0 tasks. Fleet idle.",
-        "file": "2026-03-26.md"
+        "date": "2026-03-24",
+        "summary": "Heartbeat verified: 0 tasks. Recorded PocketBase filter quoting lesson.",
+        "file": "2026-03-24.md"
     },
     {
         "date": "2026-03-23",
@@ -93,11 +108,6 @@
         "date": "2026-03-20",
         "summary": "Heartbeat Protocol verified: no open tickets, fleet stable.",
         "file": "2026-03-20.md"
-=======
-        "date": "2026-04-17",
-        "summary": "Author site live (MiguelRodriguezAuthor.com), Swiss ISBN filed, Zug Press logo created. YouTube channel 75→215 subscribers via Google Ads (CHF 0.30/subscriber). Ads audited and fixed.",
-        "file": "2026-04-17.md"
->>>>>>> Stashed changes
     },
     {
         "date": "2026-03-19",

@@ -25,6 +25,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. These rules are followed by
 ## Kanban & Reporting
 
 1.  **Standups**: All daily progress is reported in `standups/`. Every entry heading MUST identify the agent — use the format `# Agent — Date (optional time UTC)`. Examples: `# Clau — 2026-04-06`, `# Codi — 2026-04-06 (14:32 UTC)`. Entries without an agent name in the heading are invalid and will be unattributable in the Fleet Hub dashboard. Do NOT use generic headings like `# Session (timestamp)`.
+    **index.json rule**: After writing or updating any standup `.md` file, you MUST update `standups/index.json` to include an entry for that date. The entry format is `{"date": "YYYY-MM-DD", "summary": "one-line summary", "file": "YYYY-MM-DD.md"}`. Entries are sorted newest-first. NEVER use `git stash` on `standups/index.json` — merge conflicts in this file corrupt the JSON and break the Fleet Hub standup display. If you detect conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`) in `index.json`, resolve them immediately before committing.
 2.  **Kanban Flow**: Ticket-based system tracked in `MISSION_CONTROL.md` and PocketBase.
     *   **GitHub-First**: To create a new task, you MUST **open a GitHub Issue**. The Dispatcher will automatically import it into PocketBase and update `MISSION_CONTROL.md`. 
     *   **In Progress**: Documented in the active session's standup.
