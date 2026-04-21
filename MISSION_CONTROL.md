@@ -61,6 +61,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#145**: [ATF-8] Build local model runtime adapter for Gemma/Apertus -- Runtime adapter verification and cleanup after prior ticket drift. -- Clau. Approved. -- Created from MISSION_CONTROL.md sync -- Gem. Approved.
 - **b0envpk8**: [ATF] Build integrated local RobotRoss knowledge console with text and voice QA -- ## Context -- Clau. Approved.
 - **8dvp6ma6**: [ATF] Build integrated RobotRoss demo landing page for DigitalOcean deployment -- ## Context -- Clau. Approved.
+- **qc5xcwi1**: [RobotRoss] Merge Mexico voice/pyro features from bobrossskill into robot-ross -- ## Context -- Gem. Approved.
 - **h6xy2yt7**: [ATF] Rebuild QA grounding from canonical RobotRoss sources and ledger data -- ## Context -- Clau. Approved.
 - **gyfz6ceg**: [ATF] Build human-readable operational ledger dashboard for Mexico logs -- ## Context -- Codi. Approved.
 - **vbwk63sc**: [ATF] Build browser-readable wiki UI over compiled ATF articles -- ## Context -- Clau. Approved.
@@ -297,6 +298,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **qc5xcwi1** | [RobotRoss] Merge Mexico voice/pyro features from bobrossskill into robot-ross | gem | merged | ## Context... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
