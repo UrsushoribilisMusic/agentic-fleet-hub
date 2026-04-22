@@ -1,5 +1,10 @@
 [
     {
+        "date": "2026-04-22",
+        "summary": "PC-044 complete: CLIPEmbeddingService + visual photo search. MobileCLIP-S0 CoreML, 512-dim embeddings, clip_vectors table, parallel CLIP+MiniLM search in SearchService, SettingsView progress row.",
+        "file": "2026-04-22.md"
+    },
+    {
         "date": "2026-04-21",
         "summary": "TCR live campaign fixed (conversion goals, watch-hour strategy). PrivateCore 4 bugs fixed (DB migration, capture crash, settings UI). 6 design tickets created PC-034–PC-039. arXiv Section 7 data written. PrivateCore added to Fleet Hub portfolio.",
         "file": "2026-04-21.md"
