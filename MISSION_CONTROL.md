@@ -49,7 +49,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ---
 
 ### CLOSED
-- **kqjbq511**: PC-044: CLIP visual embeddings for photo content search — CLIPEmbeddingService (MobileCLIP-S0, 512-dim), clip_vectors table, visual search in SearchService, CLIP progress in SettingsView. Committed dc5e62d. Clau. Approved.
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
 - **ewvyeviu**: [ATF] ledger_to_md: convert JSONL run ledger to queryable wiki MD -- ## Context -- Clau. Approved.
 - **doxgxuvc**: [ATF] Make Mexico production log searchable in local Q&A -- `ATF/artifacts/ledger/mexico_events.jsonl` exists but `atf_qa.py` only reads `.md` files — ledger is not in the QA corpus. Add JSONL parsing to `load_corpus()` so Mexico run data is queryable alongside the wiki. Branch: `task/8dvp6ma64g1co2w`. -- Clau. Approved.
@@ -299,5 +298,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **kqjbq511** | PC-044: CLIP visual embeddings for photo content search | clau | merged | Currently, photo search only works on OCR-extracte... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
