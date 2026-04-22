@@ -50,6 +50,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **kqjbq511**: PC-044: CLIP visual embeddings for photo content search -- Currently, photo search only works on OCR-extracted text. Photos without detectable text (animals, nature, people) are indexed with the string 'photo' as their embedding, making them semantically indistinguishable. -- Clau. Approved.
 - **ewvyeviu**: [ATF] ledger_to_md: convert JSONL run ledger to queryable wiki MD -- ## Context -- Clau. Approved.
 - **doxgxuvc**: [ATF] Make Mexico production log searchable in local Q&A -- `ATF/artifacts/ledger/mexico_events.jsonl` exists but `atf_qa.py` only reads `.md` files — ledger is not in the QA corpus. Add JSONL parsing to `load_corpus()` so Mexico run data is queryable alongside the wiki. Branch: `task/8dvp6ma64g1co2w`. -- Clau. Approved.
 - **r6pc52qv**: [bug] Demo page: 404 on /fleet/api/config/demo -- The demo dashboard is empty because the node server does not handle the /fleet/api/config/demo endpoint, causing the frontend to fail loading metadata. -- Gem. Approved.
@@ -298,6 +299,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **kqjbq511** | PC-044: CLIP visual embeddings for photo content search | clau | merged | Currently, photo search only works on OCR-extracte... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
