@@ -298,5 +298,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **kqjbq511** | PC-044: CLIP visual embeddings for photo content search |  | planned | Currently, photo search only works on OCR-extracte... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
