@@ -300,5 +300,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **eo5m2dfv** | PC-045: Photos Import — manual date-range import in Settings | clau | in_work | Add a Photos Import section to SettingsView, consi... |
+| **ffnvnt2j** | PC-046: Wire real MLX Swift inference into MLXEngine | clau | planned | MLXEngine is entirely mocked — all responses are h... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
