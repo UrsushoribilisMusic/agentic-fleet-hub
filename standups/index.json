@@ -1,5 +1,10 @@
 [
     {
+        "date": "2026-04-23",
+        "summary": "PC-046 → peer_review: real MLX inference wired into MLXEngine via ChatSession (mlx-swift-lm 2.31.3). PC-033 ModelManager HuggingFace download complete.",
+        "file": "2026-04-23.md"
+    },
+    {
         "date": "2026-04-22",
         "summary": "PC-044 complete: CLIPEmbeddingService + visual photo search. MobileCLIP-S0 CoreML, 512-dim embeddings, clip_vectors table, parallel CLIP+MiniLM search in SearchService, SettingsView progress row.",
         "file": "2026-04-22.md"
