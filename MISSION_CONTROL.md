@@ -49,6 +49,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ---
 
 ### CLOSED
+- **jzlfovqu**: PC-049: Trips detail redesign — hero view, timeline spine, smart photo grid, time-of-day labels -- Clau. Approved.
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
 - **cv1gpxa6**: PC-048: Places view — visit history per location across trips -- Build PlacesView accessible from Library Intelligence hub. Show list of unique places with visit count and total photo count. Tapping a place shows visit history: each trip that included that location, with date, trip name, and photo count. Tapping a visit shows photos from that trip at that place. A place visited on 3 different trips shows 3 rows. -- Gem. Approved.
 - **bex24mhb**: PC-047: Library Intelligence hub — wire Trips/Places/Insights; remove those tabs -- Remove Trips and Insights from the tab bar. Wire the Intelligence icon strip in LibraryView to real views: TripsView, PlacesView (new stub), DashboardView. Tab bar becomes 6 items: Home, Library, Search, Capture, Ask, Settings. Add People link placeholder to Intelligence strip for future use. -- Clau. Approved.
@@ -304,6 +305,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **eo5m2dfv** | PC-045: Photos Import — manual date-range import in Settings | clau | in_work | Add a Photos Import section to SettingsView, consi... |
-| **jzlfovqu** | PC-049: Trips detail redesign — day timeline + calendar event anchors + photo clusters | clau | planned | Redesign TripDetailView with day-by-day timeline. ... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
