@@ -301,5 +301,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **eo5m2dfv** | PC-045: Photos Import — manual date-range import in Settings | clau | in_work | Add a Photos Import section to SettingsView, consi... |
 | **ffnvnt2j** | PC-046: Wire real MLX Swift inference into MLXEngine | clau | planned | MLXEngine is entirely mocked — all responses are h... |
+| **bex24mhb** | PC-047: Library Intelligence hub — wire Trips/Places/Insights; remove those tabs | clau | planned | Remove Trips and Insights from the tab bar. Wire t... |
+| **cv1gpxa6** | PC-048: Places view — visit history per location across trips | gem | planned | Build PlacesView accessible from Library Intellige... |
+| **jzlfovqu** | PC-049: Trips detail redesign — day timeline + calendar event anchors + photo clusters | clau | planned | Redesign TripDetailView with day-by-day timeline. ... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
