@@ -326,8 +326,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **izvglcrw** | PC-029 [P0]: Person Detail — photo timeline + contact card + CRM layer | codi | planned | Photo timeline (PHAssets from cluster grouped by t... |
 | **addep7b9** | PC-030 [P1]: Person card — backlink integration | clau | planned | Register Person cards as [[PersonName]] backlink t... |
 | **v62xny4o** | PC-030 [P1]: Person card — backlink integration | clau | planned | Register Person cards as [[PersonName]] backlink t... |
-| **pf8tamey** | PC-031 [P1]: Project model and creation | codi | planned | Project is a Card of type 'project': {id, name, de... |
 | **4yex311s** | PC-031 [P1]: Project model and creation | clau | planned | Project is a Card of type 'project' in SQLite: {id... |
+| **pf8tamey** | PC-031 [P1]: Project model and creation | codi | planned | Project is a Card of type 'project': {id, name, de... |
 | **9wwrobcy** | PC-032 [P1]: Project Dashboard — scoped Daily Note and saved searches | misty | planned | Project Detail two tabs: Cards and Dashboard. Dash... |
 | **9w1bmrcc** | PC-032 [P1]: Project Dashboard — scoped Daily Note and saved searches | misty | planned | Project Detail gains two tabs: Cards and Dashboard... |
 | **91hgsyur** | PC-033 [P2]: Creative Writing mode — long-form note with chapter outline | misty | planned | Long-form mode toggle in Project note editor toolb... |
