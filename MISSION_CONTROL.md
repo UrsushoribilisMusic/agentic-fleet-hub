@@ -306,17 +306,17 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **eo5m2dfv** | PC-045: Photos Import — manual date-range import in Settings | clau | in_work | Add a Photos Import section to SettingsView, consi... |
-| **9iau909g** | PC-019 [P0]: Home screen redesign — Daily Note as hero element | clau | planned | Redesign Home tab: Daily Note hero (full-width, to... |
 | **vlhccz8t** | PC-019 [P0]: Home screen redesign — Daily Note as hero element | codi | planned | Redesign Home tab: Daily Note hero (full-width, to... |
+| **9iau909g** | PC-019 [P0]: Home screen redesign — Daily Note as hero element | clau | planned | Redesign Home tab: Daily Note hero (full-width, to... |
 | **fqp461ih** | PC-020 [P0]: Daily Note — auto-population from device data | clau | planned | DailyNoteService.today(): photos taken today (PHPh... |
 | **iwfrlkao** | PC-021 [P1]: Daily Note — On This Day historical recall | clau | planned | OnThisDayService.fetch(for: Date): query cards/pho... |
 | **vs5puhko** | PC-021 [P1]: Daily Note — On This Day historical recall | clau | planned | OnThisDayService.fetch(for: Date): query cards/pho... |
 | **haiicy4g** | PC-022 [P0]: Unified hashtag index — manual + auto tags in one system | gem | merged | HashtagParser.extract(from: String) finds all #wor... |
 | **i0eub6bd** | PC-023 [P1]: Hashtag browser and tag cloud in Library | gem | merged | Tags section in Library showing top 20 tags sized ... |
-| **ezhb4e5e** | PC-024 [P1]: Hashtag autocomplete in note editor and capture | misty | planned | Inline autocomplete dropdown after typing # + 1 ch... |
 | **i9vw8nst** | PC-024 [P1]: Hashtag autocomplete in note editor and capture | misty | in_work | Inline autocomplete dropdown after typing # + 1 ch... |
-| **yc8gr5m2** | PC-025 [P0]: Save a search — create Smart Space from Search tab | gem | in_work | SmartSpace model: {id, name, query, tags, createdA... |
+| **ezhb4e5e** | PC-024 [P1]: Hashtag autocomplete in note editor and capture | misty | planned | Inline autocomplete dropdown after typing # + 1 ch... |
 | **awfjpfft** | PC-025 [P0]: Save a search — create Smart Space from Search tab | clau | planned | SmartSpace model: {id, name, query, tags, createdA... |
+| **yc8gr5m2** | PC-025 [P0]: Save a search — create Smart Space from Search tab | gem | in_work | SmartSpace model: {id, name, query, tags, createdA... |
 | **exv6m2cr** | PC-026 [P1]: Smart Space management — edit, delete, pin to Home | gem | merged | Long-press Smart Space card → context menu: Edit, ... |
 | **b0cl5x08** | PC-027 [P2]: Smart Space alert mode — notify on new match | misty | planned | SmartSpace gains alertEnabled: Bool. Toggle in edi... |
 | **3tqptp1r** | PC-027 [P2]: Smart Space alert mode — notify on new match | misty | planned | SmartSpace gains alertEnabled: Bool. Toggle in edi... |
