@@ -50,7 +50,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **t9y7eajd**: PC-029 [P0]: Person Detail — photo timeline + contact card + CRM layer -- Photo timeline (PHAssets from cluster grouped by trip/month), contact match (fuzzy name match against indexed contacts), linked cards (tags include person name or [[PersonName]] backlink), interaction log (EventKit events containing person name). '+' button to add note pre-tagged with #personname. 8pts. -- Gem. Approved.
+- **1dykcyrl**: PC-028 [P0]: People — face cluster display and naming -- PeopleService.fetchClusters() via PHAssetCollection people albums. Grid of circular avatars (most recent face photo as thumbnail). Tap name to rename inline (stored in SQLite linked to PHAssetCollection localIdentifier). Sorted by photo count desc. SPIKE the PHPhotoLibrary API first, validate on device before building UI. 8pts. -- Gem. Approved.
+- **yc8gr5m2**: PC-025 [P0]: Save a search — create Smart Space from Search tab -- SmartSpace model: {id, name, query, tags, createdAt, lastRunAt, resultCount}. 'Save this search' button after any search. Bottom sheet: name + tag (default #queries). Appears in Library as card with live result count (re-queried on display, 500ms debounce). 5pts. -- Gem. Approved.
 - **l433h2i7**: PC-020 [P0]: Daily Note — auto-population from device data -- DailyNoteService.today(): photos taken today (PHPhotoLibrary), calendar events (EventKit), health snapshot (HealthKit steps + sleep). Free-text Markdown area persists as daily-note Card in SQLite keyed by date. Reverse geocode location (cache per day). 8pts. -- Clau. Approved.
+- **9iau909g**: PC-019 [P0]: Home screen redesign — Daily Note as hero element -- Redesign Home tab: Daily Note hero (full-width, today date + inferred location), Recent Captures (last 5 cards), Smart Space previews (top 3 saved searches with live counts), On This Day card. All from real SQLite. Renders within 1s of foreground. 8pts. -- Clau. Approved.
 - **jzlfovqu**: PC-049: Trips detail redesign — day timeline + calendar event anchors + photo clusters -- Redesign TripDetailView with day-by-day timeline. Calendar events that fall within the trip date range and location become section anchors (e.g. Dinner with Peter, Restaurant X). Photos within ±2h of an event time window cluster under that event. Remaining photos for the day group by time-of-day proximity (unlabeled cluster, taggable in future). Cover photo at top, daily sections below. SQLite join: fetch trip photos + calendar events in trip date range. -- Clau. Approved.
 - **cv1gpxa6**: PC-048: Places view — visit history per location across trips -- Build PlacesView accessible from Library Intelligence hub. Show list of unique places with visit count and total photo count. Tapping a place shows visit history: each trip that included that location, with date, trip name, and photo count. Tapping a visit shows photos from that trip at that place. A place visited on 3 different trips shows 3 rows. -- Gem. Approved.
 - **bex24mhb**: PC-047: Library Intelligence hub — wire Trips/Places/Insights; remove those tabs -- Remove Trips and Insights from the tab bar. Wire the Intelligence icon strip in LibraryView to real views: TripsView, PlacesView (new stub), DashboardView. Tab bar becomes 6 items: Home, Library, Search, Capture, Ask, Settings. Add People link placeholder to Intelligence strip for future use. -- Clau. Approved.
@@ -307,7 +311,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **eo5m2dfv** | PC-045: Photos Import — manual date-range import in Settings | clau | in_work | Add a Photos Import section to SettingsView, consi... |
 | **vlhccz8t** | PC-019 [P0]: Home screen redesign — Daily Note as hero element | codi | planned | Redesign Home tab: Daily Note hero (full-width, to... |
-| **9iau909g** | PC-019 [P0]: Home screen redesign — Daily Note as hero element | clau | planned | Redesign Home tab: Daily Note hero (full-width, to... |
 | **fqp461ih** | PC-020 [P0]: Daily Note — auto-population from device data | clau | planned | DailyNoteService.today(): photos taken today (PHPh... |
 | **iwfrlkao** | PC-021 [P1]: Daily Note — On This Day historical recall | clau | planned | OnThisDayService.fetch(for: Date): query cards/pho... |
 | **vs5puhko** | PC-021 [P1]: Daily Note — On This Day historical recall | clau | planned | OnThisDayService.fetch(for: Date): query cards/pho... |
@@ -316,14 +319,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **i9vw8nst** | PC-024 [P1]: Hashtag autocomplete in note editor and capture | misty | in_work | Inline autocomplete dropdown after typing # + 1 ch... |
 | **ezhb4e5e** | PC-024 [P1]: Hashtag autocomplete in note editor and capture | misty | planned | Inline autocomplete dropdown after typing # + 1 ch... |
 | **awfjpfft** | PC-025 [P0]: Save a search — create Smart Space from Search tab | clau | planned | SmartSpace model: {id, name, query, tags, createdA... |
-| **yc8gr5m2** | PC-025 [P0]: Save a search — create Smart Space from Search tab | gem | in_work | SmartSpace model: {id, name, query, tags, createdA... |
 | **exv6m2cr** | PC-026 [P1]: Smart Space management — edit, delete, pin to Home | gem | merged | Long-press Smart Space card → context menu: Edit, ... |
 | **b0cl5x08** | PC-027 [P2]: Smart Space alert mode — notify on new match | misty | planned | SmartSpace gains alertEnabled: Bool. Toggle in edi... |
 | **3tqptp1r** | PC-027 [P2]: Smart Space alert mode — notify on new match | misty | planned | SmartSpace gains alertEnabled: Bool. Toggle in edi... |
 | **osm4rlek** | PC-028 [P0]: People — face cluster display and naming | codi | planned | PeopleService.fetchClusters() via PHAssetCollectio... |
-| **1dykcyrl** | PC-028 [P0]: People — face cluster display and naming | gem | merged | PeopleService.fetchClusters() via PHAssetCollectio... |
 | **izvglcrw** | PC-029 [P0]: Person Detail — photo timeline + contact card + CRM layer | codi | planned | Photo timeline (PHAssets from cluster grouped by t... |
-| **t9y7eajd** | PC-029 [P0]: Person Detail — photo timeline + contact card + CRM layer | gem | merged | Photo timeline (PHAssets from cluster grouped by t... |
 | **addep7b9** | PC-030 [P1]: Person card — backlink integration | clau | planned | Register Person cards as [[PersonName]] backlink t... |
 | **v62xny4o** | PC-030 [P1]: Person card — backlink integration | clau | planned | Register Person cards as [[PersonName]] backlink t... |
 | **pf8tamey** | PC-031 [P1]: Project model and creation | codi | planned | Project is a Card of type 'project': {id, name, de... |
