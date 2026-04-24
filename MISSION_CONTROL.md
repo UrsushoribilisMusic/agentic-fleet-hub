@@ -312,8 +312,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **eo5m2dfv** | PC-045: Photos Import — manual date-range import in Settings | clau | in_work | Add a Photos Import section to SettingsView, consi... |
 | **vlhccz8t** | PC-019 [P0]: Home screen redesign — Daily Note as hero element | codi | planned | Redesign Home tab: Daily Note hero (full-width, to... |
 | **fqp461ih** | PC-020 [P0]: Daily Note — auto-population from device data | clau | planned | DailyNoteService.today(): photos taken today (PHPh... |
-| **iwfrlkao** | PC-021 [P1]: Daily Note — On This Day historical recall | clau | planned | OnThisDayService.fetch(for: Date): query cards/pho... |
 | **vs5puhko** | PC-021 [P1]: Daily Note — On This Day historical recall | clau | planned | OnThisDayService.fetch(for: Date): query cards/pho... |
+| **iwfrlkao** | PC-021 [P1]: Daily Note — On This Day historical recall | clau | planned | OnThisDayService.fetch(for: Date): query cards/pho... |
 | **haiicy4g** | PC-022 [P0]: Unified hashtag index — manual + auto tags in one system | gem | merged | HashtagParser.extract(from: String) finds all #wor... |
 | **i0eub6bd** | PC-023 [P1]: Hashtag browser and tag cloud in Library | gem | merged | Tags section in Library showing top 20 tags sized ... |
 | **i9vw8nst** | PC-024 [P1]: Hashtag autocomplete in note editor and capture | misty | in_work | Inline autocomplete dropdown after typing # + 1 ch... |
@@ -324,17 +324,17 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **3tqptp1r** | PC-027 [P2]: Smart Space alert mode — notify on new match | misty | planned | SmartSpace gains alertEnabled: Bool. Toggle in edi... |
 | **osm4rlek** | PC-028 [P0]: People — face cluster display and naming | codi | planned | PeopleService.fetchClusters() via PHAssetCollectio... |
 | **izvglcrw** | PC-029 [P0]: Person Detail — photo timeline + contact card + CRM layer | codi | planned | Photo timeline (PHAssets from cluster grouped by t... |
-| **addep7b9** | PC-030 [P1]: Person card — backlink integration | clau | planned | Register Person cards as [[PersonName]] backlink t... |
 | **v62xny4o** | PC-030 [P1]: Person card — backlink integration | clau | planned | Register Person cards as [[PersonName]] backlink t... |
-| **4yex311s** | PC-031 [P1]: Project model and creation | clau | planned | Project is a Card of type 'project' in SQLite: {id... |
+| **addep7b9** | PC-030 [P1]: Person card — backlink integration | clau | planned | Register Person cards as [[PersonName]] backlink t... |
 | **pf8tamey** | PC-031 [P1]: Project model and creation | codi | planned | Project is a Card of type 'project': {id, name, de... |
+| **4yex311s** | PC-031 [P1]: Project model and creation | clau | planned | Project is a Card of type 'project' in SQLite: {id... |
 | **9wwrobcy** | PC-032 [P1]: Project Dashboard — scoped Daily Note and saved searches | misty | planned | Project Detail two tabs: Cards and Dashboard. Dash... |
 | **9w1bmrcc** | PC-032 [P1]: Project Dashboard — scoped Daily Note and saved searches | misty | planned | Project Detail gains two tabs: Cards and Dashboard... |
 | **91hgsyur** | PC-033 [P2]: Creative Writing mode — long-form note with chapter outline | misty | planned | Long-form mode toggle in Project note editor toolb... |
 | **4whxzu2p** | PC-033 [P2]: Creative Writing mode — long-form note with chapter outline | misty | planned | Long-form mode toggle in note editor toolbar (Proj... |
 | **alblpxpg** | PC-034 [P1]: Mood Board view — image-only Library layout | misty | planned | View toggle in Library top-right (Grid / Mood Boar... |
 | **0idunsm2** | PC-034 [P1]: Mood Board view — image-only Library layout | misty | planned | View toggle in Library top-right (Grid / Mood Boar... |
-| **q3d8zlw8** | PC-035 [P1]: Named Mood Boards — curated image collections | gem | merged | Mood Board = Project with type 'mood-board'. Creat... |
 | **okj05373** | PC-035 [P1]: Named Mood Boards — curated image collections | gem | merged | Mood Board = Project with type 'mood-board'. Creat... |
+| **q3d8zlw8** | PC-035 [P1]: Named Mood Boards — curated image collections | gem | merged | Mood Board = Project with type 'mood-board'. Creat... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
