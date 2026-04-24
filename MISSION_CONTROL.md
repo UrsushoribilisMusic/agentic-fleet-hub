@@ -334,7 +334,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **4whxzu2p** | PC-033 [P2]: Creative Writing mode — long-form note with chapter outline | misty | planned | Long-form mode toggle in note editor toolbar (Proj... |
 | **alblpxpg** | PC-034 [P1]: Mood Board view — image-only Library layout | misty | planned | View toggle in Library top-right (Grid / Mood Boar... |
 | **0idunsm2** | PC-034 [P1]: Mood Board view — image-only Library layout | misty | planned | View toggle in Library top-right (Grid / Mood Boar... |
-| **okj05373** | PC-035 [P1]: Named Mood Boards — curated image collections | gem | merged | Mood Board = Project with type 'mood-board'. Creat... |
 | **q3d8zlw8** | PC-035 [P1]: Named Mood Boards — curated image collections | gem | merged | Mood Board = Project with type 'mood-board'. Creat... |
+| **okj05373** | PC-035 [P1]: Named Mood Boards — curated image collections | gem | merged | Mood Board = Project with type 'mood-board'. Creat... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
