@@ -1,5 +1,10 @@
 [
     {
+        "date": "2026-04-24",
+        "summary": "PC-024 hashtag autocomplete implemented. Misty completed TagSuggestionService, autocomplete components, and integration into CardDetailView, AddCardSheet, and SearchView. Gem completed PC-022/023/026 hashtag index and management.",
+        "file": "2026-04-24.md"
+    },
+    {
         "date": "2026-04-23",
         "summary": "PC-046 → peer_review: real MLX inference wired into MLXEngine via ChatSession (mlx-swift-lm 2.31.3). PC-033 ModelManager HuggingFace download complete.",
         "file": "2026-04-23.md"
