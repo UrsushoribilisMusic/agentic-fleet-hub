@@ -41,7 +41,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 
 ---
 
-## Ticket Status (as of 2026-04-24)
+## Ticket Status (as of 2026-04-25)
 
 ### ENVIRONMENT NOTE — Mac Mini migration complete (2026-03-14)
 All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users/miguel/` → `/Users/miguelrodriguez/`. Repos cloned to `~/projects/`. Python 3.12 venv at `~/projects/music-video-tool/.venv312`. OpenClaw at `/opt/homebrew/bin/openclaw`. Fleet always-on infrastructure build in progress — see tickets #34–#43.
@@ -52,6 +52,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
 - **q3d8zlw8**: PC-035 [P1]: Named Mood Boards — curated image collections -- Mood Board = Project with type 'mood-board'. Create via Library '+'. Opening auto-applies Mood Board layout. Intelligence row gains 'Boards' icon with count. Add images via #moodboard-name tag or long-press. Reuses Project model entirely. 3pts. -- Gem. Approved.
 - **okj05373**: PC-035 [P1]: Named Mood Boards — curated image collections -- Mood Board = Project with type 'mood-board'. Create via Library '+' → New Mood Board. Opening auto-applies Mood Board layout. Library Intelligence row gains 'Boards' icon with count. Add images via tag #moodboard-name or long-press → Add to Mood Board. Reuses Project model entirely. 3pts. -- Gem. Approved.
+- **alblpxpg**: PC-034 [P1]: Mood Board view — image-only Library layout -- View toggle in Library top-right (Grid / Mood Board). Mood Board: 2-col square thumbnails, no text/chips, PHAsset localIdentifier loading (target 400x400pt @2x). Respects active tag filter. Tapping thumbnail opens card detail. Preference persists per-session. 5pts. -- Misty. Approved.
 - **pf8tamey**: PC-031 [P1]: Project model and creation -- Project is a Card of type 'project': {id, name, description, coverImageAssetId?, tags, createdAt, cardCount}. Create via Library '+'. Full-width card in Library. Long-press any card → Add to Project (1 project max). Project Detail: card list sorted by createdAt. No Canvas. 5pts. -- Codi. Approved.
 - **izvglcrw**: PC-029 [P0]: Person Detail — photo timeline + contact card + CRM layer -- Photo timeline (PHAssets from cluster grouped by trip/month), contact match (fuzzy name against indexed contacts), linked cards (tags include person name or [[PersonName]] backlink), interaction log (EventKit events with person name). '+' button adds note pre-tagged with #personname. 8pts. -- Codi. Approved.
 - **t9y7eajd**: PC-029 [P0]: Person Detail — photo timeline + contact card + CRM layer -- Photo timeline (PHAssets from cluster grouped by trip/month), contact match (fuzzy name match against indexed contacts), linked cards (tags include person name or [[PersonName]] backlink), interaction log (EventKit events containing person name). '+' button to add note pre-tagged with #personname. 8pts. -- Gem. Approved.
@@ -61,7 +62,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **yc8gr5m2**: PC-025 [P0]: Save a search — create Smart Space from Search tab -- SmartSpace model: {id, name, query, tags, createdAt, lastRunAt, resultCount}. 'Save this search' button after any search. Bottom sheet: name + tag (default #queries). Appears in Library as card with live result count (re-queried on display, 500ms debounce). 5pts. -- Gem. Approved.
 - **i0eub6bd**: PC-023 [P1]: Hashtag browser and tag cloud in Library -- Tags section in Library showing top 20 tags sized by frequency (log scale, 14–28pt). Tapping opens filtered Library view titled '#tagname — N items'. Updates in real time. 5pts. -- Gem. Approved.
 - **haiicy4g**: PC-022 [P0]: Unified hashtag index — manual + auto tags in one system -- HashtagParser.extract(from: String) finds all #word tokens. Tags stored normalised (lowercase, no #) in SQLite tags table with source (auto/manual/system/vision). Runs on every card save/edit. Existing PC-018 auto-tags migrated. Tapping tag chip triggers filtered search. 5pts. -- Gem. Approved.
-- **l433h2i7**: PC-020 [P0]: Daily Note — auto-population from device data -- DailyNoteService.today(): photos taken today (PHPhotoLibrary), calendar events (EventKit), health snapshot (HealthKit steps + sleep). Free-text Markdown area persists as daily-note Card in SQLite keyed by date. Reverse geocode location (cache per day). 8pts. -- Clau. Approved.
+- **l433h2i7**: PC-020 [P0]: Daily Note — auto-population from device data -- DailyNoteService.today(): photos taken today (PHPhotoLibrary), calendar events (EventKit), health snapshot (HealthKit steps + sleep). Free-text Markdown area persists as daily-note Card in SQLite keyed by date. Reverse geocode location (cache per day). 8pts. -- Codi. Approved.
 - **vlhccz8t**: PC-019 [P0]: Home screen redesign — Daily Note as hero element -- Redesign Home tab: Daily Note hero (full-width, today date + inferred location), Recent Captures (last 5 cards), Smart Space previews (top 3 pinned saved searches with live counts), On This Day card. All from real SQLite. Renders within 1s of foreground. 8pts. -- Codi. Approved.
 - **9iau909g**: PC-019 [P0]: Home screen redesign — Daily Note as hero element -- Redesign Home tab: Daily Note hero (full-width, today date + inferred location), Recent Captures (last 5 cards), Smart Space previews (top 3 saved searches with live counts), On This Day card. All from real SQLite. Renders within 1s of foreground. 8pts. -- Clau. Approved.
 - **jzlfovqu**: PC-049: Trips detail redesign — day timeline + calendar event anchors + photo clusters -- Redesign TripDetailView with day-by-day timeline. Calendar events that fall within the trip date range and location become section anchors (e.g. Dinner with Peter, Restaurant X). Photos within ±2h of an event time window cluster under that event. Remaining photos for the day group by time-of-day proximity (unlabeled cluster, taggable in future). Cover photo at top, daily sections below. SQLite join: fetch trip photos + calendar events in trip date range. -- Clau. Approved.
@@ -318,12 +319,22 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **eo5m2dfv** | PC-045: Photos Import — manual date-range import in Settings | clau | in_work | Add a Photos Import section to SettingsView with manual date-range picker. |
-| **iwfrlkao** | PC-021 [P1]: Daily Note — On This Day historical recall | clau | planned | OnThisDayService.fetch(for: Date): same calendar day in prior years. 1 result (photo GPS > daily-note > any card). Hidden if empty. 3pts. |
-| **i9vw8nst** | PC-024 [P1]: Hashtag autocomplete in note editor and capture | misty | in_work | Inline autocomplete after # + 1 char. Top 5 tags by frequency. Works in daily note, card editor, capture. 3pts. |
-| **3tqptp1r** | PC-027 [P2]: Smart Space alert mode — notify on new match | misty | planned | SmartSpace alertEnabled: Bool. Local notification when new card matches. Async, non-blocking batch check. 5pts. |
-| **addep7b9** | PC-030 [P1]: Person card — backlink integration | clau | planned | [[PersonName]] targets Person cards. Person Detail shows Mentioned In section. 3pts. |
-| **9wwrobcy** | PC-032 [P1]: Project Dashboard — scoped Daily Note and saved searches | misty | planned | Project Detail: Cards + Dashboard tabs. Dashboard: project daily note + Smart Spaces tagged #project-name + quick capture. 5pts. |
-| **91hgsyur** | PC-033 [P2]: Creative Writing — long-form note with chapter outline | misty | planned | Long-form toggle in Project note editor. H1/H2 outline as bottom drawer. Export .md. Word count. 5pts. |
+| **eo5m2dfv** | PC-045: Photos Import — manual date-range import in Settings | clau | in_work | Add a Photos Import section to SettingsView, consi... |
+| **fqp461ih** | PC-020 [P0]: Daily Note — auto-population from device data | clau | planned | DailyNoteService.today(): photos taken today (PHPh... |
+| **iwfrlkao** | PC-021 [P1]: Daily Note — On This Day historical recall | clau | planned | OnThisDayService.fetch(for: Date): query cards/pho... |
+| **vs5puhko** | PC-021 [P1]: Daily Note — On This Day historical recall | clau | merged | OnThisDayService.fetch(for: Date): query cards/pho... |
+| **i9vw8nst** | PC-024 [P1]: Hashtag autocomplete in note editor and capture | misty | in_work | Inline autocomplete dropdown after typing # + 1 ch... |
+| **ezhb4e5e** | PC-024 [P1]: Hashtag autocomplete in note editor and capture | misty | planned | Inline autocomplete dropdown after typing # + 1 ch... |
+| **awfjpfft** | PC-025 [P0]: Save a search — create Smart Space from Search tab | clau | planned | SmartSpace model: {id, name, query, tags, createdA... |
+| **3tqptp1r** | PC-027 [P2]: Smart Space alert mode — notify on new match | misty | planned | SmartSpace gains alertEnabled: Bool. Toggle in edi... |
+| **b0cl5x08** | PC-027 [P2]: Smart Space alert mode — notify on new match | misty | planned | SmartSpace gains alertEnabled: Bool. Toggle in edi... |
+| **addep7b9** | PC-030 [P1]: Person card — backlink integration | clau | planned | Register Person cards as [[PersonName]] backlink t... |
+| **v62xny4o** | PC-030 [P1]: Person card — backlink integration | clau | merged | Register Person cards as [[PersonName]] backlink t... |
+| **4yex311s** | PC-031 [P1]: Project model and creation | clau | planned | Project is a Card of type 'project' in SQLite: {id... |
+| **9wwrobcy** | PC-032 [P1]: Project Dashboard — scoped Daily Note and saved searches | misty | planned | Project Detail two tabs: Cards and Dashboard. Dash... |
+| **9w1bmrcc** | PC-032 [P1]: Project Dashboard — scoped Daily Note and saved searches | misty | planned | Project Detail gains two tabs: Cards and Dashboard... |
+| **91hgsyur** | PC-033 [P2]: Creative Writing mode — long-form note with chapter outline | misty | planned | Long-form mode toggle in Project note editor toolb... |
+| **4whxzu2p** | PC-033 [P2]: Creative Writing mode — long-form note with chapter outline | misty | planned | Long-form mode toggle in note editor toolbar (Proj... |
+| **0idunsm2** | PC-034 [P1]: Mood Board view — image-only Library layout | misty | planned | View toggle in Library top-right (Grid / Mood Boar... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
