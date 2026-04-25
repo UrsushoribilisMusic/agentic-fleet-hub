@@ -1,5 +1,10 @@
 [
     {
+        "date": "2026-04-25",
+        "summary": "PC-021 On This Day: tappable NavigationLink added to OnThisDayCard → OnThisDayDetailView. Merged to main. Both PC-021 tickets moved to peer_review.",
+        "file": "2026-04-25.md"
+    },
+    {
         "date": "2026-04-24",
         "summary": "PC-024 hashtag autocomplete implemented. Misty completed TagSuggestionService, autocomplete components, and integration into CardDetailView, AddCardSheet, and SearchView. Gem completed PC-022/023/026 hashtag index and management.",
         "file": "2026-04-24.md"
