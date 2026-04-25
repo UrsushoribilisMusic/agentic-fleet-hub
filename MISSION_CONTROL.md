@@ -319,14 +319,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **fqp461ih** | PC-020 [P0]: Daily Note — auto-population from device data | clau | planned | DailyNoteService.today(): photos taken today (PHPh... |
-| **i9vw8nst** | PC-024 [P1]: Hashtag autocomplete in note editor and capture | misty | in_work | Inline autocomplete dropdown after typing # + 1 ch... |
-| **awfjpfft** | PC-025 [P0]: Save a search — create Smart Space from Search tab | clau | planned | SmartSpace model: {id, name, query, tags, createdA... |
-| **3tqptp1r** | PC-027 [P2]: Smart Space alert mode — notify on new match | misty | planned | SmartSpace gains alertEnabled: Bool. Toggle in edi... |
-| **addep7b9** | PC-030 [P1]: Person card — backlink integration | clau | planned | Register Person cards as [[PersonName]] backlink t... |
-| **4yex311s** | PC-031 [P1]: Project model and creation | clau | planned | Project is a Card of type 'project' in SQLite: {id... |
-| **9wwrobcy** | PC-032 [P1]: Project Dashboard — scoped Daily Note and saved searches | misty | planned | Project Detail two tabs: Cards and Dashboard. Dash... |
-| **91hgsyur** | PC-033 [P2]: Creative Writing mode — long-form note with chapter outline | misty | planned | Long-form mode toggle in Project note editor toolb... |
-| **0idunsm2** | PC-034 [P1]: Mood Board view — image-only Library layout | misty | planned | View toggle in Library top-right (Grid / Mood Boar... |
+| **ezhb4e5e** | PC-024 [P1]: Hashtag autocomplete in note editor and capture | misty | waiting_human | Inline autocomplete dropdown after typing # + 1 ch... |
+| **awfjpfft** | PC-025 [P0]: Save a search — create Smart Space from Search tab | clau | in_progress | SmartSpace model: {id, name, query, tags, createdA... |
+| **b0cl5x08** | PC-027 [P2]: Smart Space alert mode — notify on new match | misty | waiting_human | SmartSpace gains alertEnabled: Bool. Toggle in edi... |
+| **4yex311s** | PC-031 [P1]: Project model and creation | clau | todo | Project is a Card of type 'project' in SQLite: {id... |
+| **0idunsm2** | PC-034 [P1]: Mood Board view — image-only Library layout | misty | waiting_human | View toggle in Library top-right (Grid / Mood Boar... |
+| **eo5m2dfv** | PC-045: Photos Import — manual date-range import in Settings | clau | in_progress | Add a Photos Import section to SettingsView, consi... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
