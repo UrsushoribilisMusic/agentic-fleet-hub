@@ -318,23 +318,12 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **eo5m2dfv** | PC-045: Photos Import — manual date-range import in Settings | clau | in_work | Add a Photos Import section to SettingsView, consi... |
-| **fqp461ih** | PC-020 [P0]: Daily Note — auto-population from device data | clau | planned | DailyNoteService.today(): photos taken today (PHPh... |
-| **iwfrlkao** | PC-021 [P1]: Daily Note — On This Day historical recall | clau | planned | OnThisDayService.fetch(for: Date): query cards/pho... |
-| **vs5puhko** | PC-021 [P1]: Daily Note — On This Day historical recall | clau | planned | OnThisDayService.fetch(for: Date): query cards/pho... |
-| **ezhb4e5e** | PC-024 [P1]: Hashtag autocomplete in note editor and capture | misty | planned | Inline autocomplete dropdown after typing # + 1 ch... |
-| **i9vw8nst** | PC-024 [P1]: Hashtag autocomplete in note editor and capture | misty | in_work | Inline autocomplete dropdown after typing # + 1 ch... |
-| **awfjpfft** | PC-025 [P0]: Save a search — create Smart Space from Search tab | clau | planned | SmartSpace model: {id, name, query, tags, createdA... |
-| **b0cl5x08** | PC-027 [P2]: Smart Space alert mode — notify on new match | misty | planned | SmartSpace gains alertEnabled: Bool. Toggle in edi... |
-| **3tqptp1r** | PC-027 [P2]: Smart Space alert mode — notify on new match | misty | planned | SmartSpace gains alertEnabled: Bool. Toggle in edi... |
-| **addep7b9** | PC-030 [P1]: Person card — backlink integration | clau | planned | Register Person cards as [[PersonName]] backlink t... |
-| **v62xny4o** | PC-030 [P1]: Person card — backlink integration | clau | planned | Register Person cards as [[PersonName]] backlink t... |
-| **4yex311s** | PC-031 [P1]: Project model and creation | clau | planned | Project is a Card of type 'project' in SQLite: {id... |
-| **9wwrobcy** | PC-032 [P1]: Project Dashboard — scoped Daily Note and saved searches | misty | planned | Project Detail two tabs: Cards and Dashboard. Dash... |
-| **9w1bmrcc** | PC-032 [P1]: Project Dashboard — scoped Daily Note and saved searches | misty | planned | Project Detail gains two tabs: Cards and Dashboard... |
-| **91hgsyur** | PC-033 [P2]: Creative Writing mode — long-form note with chapter outline | misty | planned | Long-form mode toggle in Project note editor toolb... |
-| **4whxzu2p** | PC-033 [P2]: Creative Writing mode — long-form note with chapter outline | misty | planned | Long-form mode toggle in note editor toolbar (Proj... |
-| **alblpxpg** | PC-034 [P1]: Mood Board view — image-only Library layout | misty | planned | View toggle in Library top-right (Grid / Mood Boar... |
-| **0idunsm2** | PC-034 [P1]: Mood Board view — image-only Library layout | misty | planned | View toggle in Library top-right (Grid / Mood Boar... |
+| **eo5m2dfv** | PC-045: Photos Import — manual date-range import in Settings | clau | in_work | Add a Photos Import section to SettingsView with manual date-range picker. |
+| **iwfrlkao** | PC-021 [P1]: Daily Note — On This Day historical recall | clau | planned | OnThisDayService.fetch(for: Date): same calendar day in prior years. 1 result (photo GPS > daily-note > any card). Hidden if empty. 3pts. |
+| **i9vw8nst** | PC-024 [P1]: Hashtag autocomplete in note editor and capture | misty | in_work | Inline autocomplete after # + 1 char. Top 5 tags by frequency. Works in daily note, card editor, capture. 3pts. |
+| **3tqptp1r** | PC-027 [P2]: Smart Space alert mode — notify on new match | misty | planned | SmartSpace alertEnabled: Bool. Local notification when new card matches. Async, non-blocking batch check. 5pts. |
+| **addep7b9** | PC-030 [P1]: Person card — backlink integration | clau | planned | [[PersonName]] targets Person cards. Person Detail shows Mentioned In section. 3pts. |
+| **9wwrobcy** | PC-032 [P1]: Project Dashboard — scoped Daily Note and saved searches | misty | planned | Project Detail: Cards + Dashboard tabs. Dashboard: project daily note + Smart Spaces tagged #project-name + quick capture. 5pts. |
+| **91hgsyur** | PC-033 [P2]: Creative Writing — long-form note with chapter outline | misty | planned | Long-form toggle in Project note editor. H1/H2 outline as bottom drawer. Export .md. Word count. 5pts. |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
