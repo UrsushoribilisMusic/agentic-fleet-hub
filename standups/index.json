@@ -1,8 +1,8 @@
 [
   {
     "date": "2026-04-26",
-    "summary": "Misty: Verified PC-053 (Trip summary — TripSummaryCard, generateSummary, cachedSummary) and PC-058 (People smart groups — CoOccurrenceAnalyser, SuggestedGroupCard, NewPeopleGroupSheet) in PrivateCore. Both moved to peer_review. All implementation already existed in commits 6428c05 and 9e2498f.",
-    "file": "2026-04-26-misty.md"
+    "summary": "Agentic Watch: PC-069/PC-070 Capture UI fixes + PC-058 verification completed",
+    "file": "2026-04-26.md"
   },
   {
     "date": "2026-04-25",
