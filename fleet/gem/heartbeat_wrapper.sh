@@ -29,7 +29,7 @@ echo "$LOG_PREFIX: launching Gemini CLI..."
 if [ -n "$1" ]; then
     GEM_PROMPT="$1"
 else
-    GEM_PROMPT="Run your heartbeat protocol. Read ~/fleet/MISSION_CONTROL.md first."
+    GEM_PROMPT="Run your heartbeat protocol. Read ~/projects/agentic-fleet-hub/GEMINI.md first, then MISSION_CONTROL.md, then AGENTS/RULES.md, then AGENTS/MESSAGES/inbox.json. Follow all 6 phases."
 fi
 /opt/homebrew/bin/node /opt/homebrew/bin/gemini \
     --yolo \

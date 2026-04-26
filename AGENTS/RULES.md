@@ -2,6 +2,50 @@
 
 Welcome to the **Ursushoribilis Agentic Workspace**. These rules are followed by **Clau**, **Gem**, **Codi**, and **Misty**.
 
+Each agent's runtime-specific file (`CLAUDE.md` / `GEMINI.md` / `AGENTS.md` / `MISTRAL.md`) declares its own identity, the value to substitute for `<agent>` in commands below, and any agent-specific quirks. The Heartbeat Protocol and rules in this file are universal.
+
+---
+
+## Heartbeat Protocol — every session, no exceptions
+
+### Phase 1 — Orient
+1. `git pull origin master` — get the latest state from the team.
+2. `python3 fleet/heartbeat_check.py --agent <agent>`
+   - **Exit 1**: nothing relevant changed — POST idle heartbeat and stop. Do NOT read further files. Do NOT commit.
+   - **Exit 0**: continue with the steps below.
+3. `python3 fleet/active_context.py` — prints ALL active project blocks. Note each block (Mission Control, inbox, and lessons paths).
+4. For EACH active project block:
+   - If it is a non-hub project, `cd` to its `repo_path` and `git pull origin master`.
+   - Read the **Mission Control** at the path from that block.
+   - Note ALL open tickets assigned to you across all active projects.
+5. Read `AGENTS/RULES.md` (this file).
+6. Read the inbox at the path from the first block (always hub inbox). ALL unread messages before anything else — they may change your priorities entirely.
+7. POST `http://localhost:8090/api/collections/heartbeats/records` `{"agent": "<agent>", "status": "working"}`.
+
+### Phase 2 — Peer Review First
+1. GET `http://localhost:8090/api/collections/tasks/records?filter=status="peer_review"`.
+2. For each task NOT assigned to you: post a feedback comment (`type: "feedback"`) or approval (`type: "approval"`), and set status to `approved`.
+3. Do NOT self-approve — see Rule #7 under Kanban & Reporting. A different agent must approve your own work.
+
+### Phase 3 — Own Tasks
+1. GET tasks assigned to you with status `todo`. Pick the first, set status `in_progress`. **Do NOT create a new task if one already exists.** Only pick up existing todo tasks.
+2. Do the work. Follow the Task Branch Protocol (Rule #6 under Kanban & Reporting).
+3. Before claiming success, run any project build-verifier (e.g. `scripts/build-tag.sh` in PrivateCore). Only claim "BUILD SUCCEEDED" if it exits 0 — see Rule #6 under GitHub & Commits.
+4. POST output to `/api/collections/comments/records` `{"task_id": "...", "agent": "<agent>", "content": "...", "type": "output"}`.
+5. Set task status to `peer_review`.
+
+### Phase 4 — Blockers
+- If blocked: POST comment `type: "question"`, mention `"@miguel"` or `"@<peer-agent>"`.
+- Set task status to `waiting_human`.
+
+### Phase 5 — Lessons
+- If the session produced reusable insight: POST `/api/collections/lessons/records` `{"title": "...", "content": "...", "category": "...", "confidence": "medium", "status": "pending_review"}`.
+
+### Phase 6 — Sign Off
+- POST heartbeat `{"agent": "<agent>", "status": "idle"}`.
+- Only if you did actual work this session: write a summary to `~/fleet/<agent>/PROGRESS.md`.
+- Only commit if there are real changes: run `git status --short` first. If output is empty, do NOT commit. If there are staged changes, commit with a descriptive message (not "session summary") and push.
+
 ---
 
 ## GitHub & Commits
@@ -11,6 +55,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. These rules are followed by
 3.  **Deploy Keys**: For SSH access, use the `github-clau`, `github-codi`, or `github-gem` aliases in your `~/.ssh/config`.
 4.  **Action**: Every commit must be pushed immediately to ensure the next agent is up to date.
 5.  **Server = repo**: If you deploy a file directly to a production server (e.g. via SSH or `scp`), you MUST commit that same file to the repo in the same session. Never leave server-only changes uncomitted. The repo is the source of truth — if it is not in git, it does not exist.
+6.  **Verify before claiming green**: For any project that ships a build-verifier script (e.g. `scripts/build-tag.sh` in PrivateCore), you MUST run it before pushing and only claim "BUILD SUCCEEDED" in commit messages, comments, or task output if the verifier exits 0. Never paste a fabricated success line. Precedent: PC-057 commit `697a0c0` claimed `Build: BUILD SUCCEEDED` while shipping references to undefined types (`NewPeopleGroupSheet`, `PeopleGroupCard`), forcing the next two agents to clean up. If the verifier fails, fix it or push the broken state with `BUILD FAILED` so the next agent sees the real state — do not lie up the chain.
 
 ---
 
