@@ -351,6 +351,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **izhylty5** | PC-053 [P2]: Trip summary — auto-generated overview card | misty | planned | Summary card pinned at top of Trip detail: duratio... |
 | **5202ii3e** | PC-057 [P0]: People groups — user-defined via Board model | misty | planned | People Group = Board(type=.list) containing Person... |
 | **5x5engqa** | PC-058 [P2]: People — smart group suggestions from co-occurrence | misty | planned | CoOccurrenceAnalyser background task: find Person ... |
-| **if9n50mx** | PC-061 [P1]: Home — On This Day + Recent Captures | clau | planned | Recent Captures: last 5 cards (any type) horizonta... |
+| **if9n50mx** | PC-061 [P1]: Home — On This Day + Recent Captures | clau | merged | Recent Captures: last 5 cards (any type) horizonta... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
