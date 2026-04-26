@@ -30,9 +30,12 @@ import json
 import os
 import re
 import sys
+import urllib.request
+import urllib.error
+import urllib.parse
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Optional, List, Dict
+from typing import Optional, List, Dict, Tuple
 
 # Hub files always watched
 HUB_WATCHED = [
@@ -55,6 +58,12 @@ AGENT_ALIASES_DEFAULT = {
 # Force a full wakeup/heartbeat every N hours even if no files changed.
 # This ensures the dashboard timeline shows activity and agents stay "alive".
 FORCE_HEARTBEAT_INTERVAL_SEC = 4 * 3600  # 4 hours
+
+# PocketBase state dimension — included in the checksum set so new tickets
+# trigger a wakeup even when no fleet file changed.
+PB_BASE_URL  = "http://127.0.0.1:8090"
+PB_TIMEOUT_SEC = 3
+PB_ACTIONABLE_STATUSES = ("todo", "in_progress", "peer_review")
 
 # ── Helpers ────────────────────────────────────────────────────────────────────
 
@@ -169,6 +178,50 @@ def _inbox_for_agent(inbox_path: str, aliases: list) -> bool:
         return True  # safe default
 
 
+# ── PocketBase state dimension ────────────────────────────────────────────────
+
+def _pb_fetch_actionable(aliases: List[str]) -> Optional[List[dict]]:
+    """
+    Fetch all actionable tasks (todo/in_progress/peer_review) assigned to
+    any of this agent's aliases. Returns None on PocketBase error so the
+    gate degrades gracefully without blocking the agent.
+    """
+    if not aliases:
+        return []
+
+    agent_clauses = "||".join(f"assigned_agent='{a}'" for a in aliases)
+    status_clauses = "||".join(f"status='{s}'" for s in PB_ACTIONABLE_STATUSES)
+    pb_filter = f"({status_clauses})&&({agent_clauses})"
+
+    encoded = urllib.parse.quote(pb_filter, safe="")
+    url = f"{PB_BASE_URL}/api/collections/tasks/records?perPage=200&fields=id,updated,status,title&filter={encoded}"
+
+    try:
+        with urllib.request.urlopen(url, timeout=PB_TIMEOUT_SEC) as r:
+            return json.loads(r.read()).get("items", [])
+    except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, json.JSONDecodeError):
+        return None
+
+
+def _pb_state_hash(items: Optional[List[dict]]) -> Optional[str]:
+    """
+    Hash the (id, updated, status) tuples so any new/edited/closed actionable
+    ticket changes the hash. Returns None if PB was unreachable (caller treats
+    None as "unknown" rather than "no work").
+    """
+    if items is None:
+        return None
+    rows = sorted(
+        (str(t.get("id", "")), str(t.get("updated", "")), str(t.get("status", "")))
+        for t in items
+    )
+    h = hashlib.sha256()
+    for row in rows:
+        h.update("|".join(row).encode())
+        h.update(b"\n")
+    return h.hexdigest()
+
+
 # ── Main ───────────────────────────────────────────────────────────────────────
 
 def main():
@@ -197,10 +250,16 @@ def main():
 
     current = {f: _checksum(_resolve(f)) for f in watched}
 
+    # PB state dimension: any change to actionable tickets for this agent
+    # (new/edited/status-changed) registers as a synthetic "file" change.
+    pb_items = _pb_fetch_actionable(aliases)
+    pb_hash  = _pb_state_hash(pb_items)
+    current["__pb_state__"] = pb_hash
+
     # ── Step 2: compare to previous run ───────────────────────────────────────
     cache    = _load_cache(cache_path)
     previous = cache.get("checksums", {})
-    changed  = [f for f in watched if current.get(f) != previous.get(f)]
+    changed  = [f for f in current if current.get(f) != previous.get(f)]
 
     # Check for forced heartbeat based on time
     last_checked_str = cache.get("last_checked")
@@ -260,6 +319,20 @@ def main():
     if os.path.exists(hub_inbox_abs):
         if _inbox_for_agent(hub_inbox_abs, aliases):
             reasons.append("unread inbox message for you")
+
+    # PB-direct: actionable ticket exists for this agent (handles tickets
+    # created via web UI / scripts that never touched a fleet file).
+    if pb_items is not None and len(pb_items) > 0:
+        by_status: Dict[str, int] = {}
+        for t in pb_items:
+            s = t.get("status", "unknown")
+            by_status[s] = by_status.get(s, 0) + 1
+        breakdown = ", ".join(f"{n} {s}" for s, n in sorted(by_status.items()))
+        reasons.append(f"PocketBase: {breakdown} ticket(s) assigned to you")
+    elif pb_items is None:
+        # PB unreachable — log it but don't block; force_wakeup will still
+        # surface eventually.
+        print(f"[heartbeat:{args.agent}] WARN: PocketBase unreachable; PB-state dimension skipped")
 
     # ── Step 4: save cache and exit ───────────────────────────────────────────
     _save_cache(cache_path, {
