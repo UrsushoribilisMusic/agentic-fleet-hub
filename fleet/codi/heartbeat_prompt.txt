@@ -1,6 +1,7 @@
-Run your heartbeat protocol. IMPORTANT: PocketBase is not reachable from your sandbox via curl. Instead:
+Run your heartbeat protocol. Read ~/projects/agentic-fleet-hub/AGENTS.md first, then MISSION_CONTROL.md, then AGENTS/RULES.md, then AGENTS/MESSAGES/inbox.json. Follow all 6 phases.
+
+IMPORTANT: PocketBase is not reachable from your sandbox via curl. Instead:
 - READ your pre-fetched context from /Users/miguelrodriguez/fleet/codi/pb_snapshot.json which contains tasks, lessons, and heartbeats.
 - To POST or PATCH PocketBase records (heartbeat status, task updates, comments), write your intended operations to /Users/miguelrodriguez/fleet/codi/pb_pending_writes.json as a JSON array with objects like: {"method":"POST","collection":"heartbeats","data":{"agent":"codi","status":"working"}} or {"method":"PATCH","collection":"tasks","id":"RECORD_ID","data":{"status":"peer_review"}}
 - The wrapper will execute those writes after your session ends.
 - Git pull and file reads/writes work normally.
-- Read /Users/miguelrodriguez/fleet/MISSION_CONTROL.md as your starting point.

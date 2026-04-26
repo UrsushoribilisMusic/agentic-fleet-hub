@@ -48,7 +48,7 @@ fi
 if [ -n "$1" ]; then
     BASE_PROMPT="$1"
 else
-    BASE_PROMPT="Run your heartbeat protocol. Read ~/fleet/MISSION_CONTROL.md first."
+    BASE_PROMPT="Run your heartbeat protocol. Read ~/projects/agentic-fleet-hub/CLAUDE.md first, then MISSION_CONTROL.md, then AGENTS/RULES.md, then AGENTS/MESSAGES/inbox.json. Follow all 6 phases."
 fi
 
 if [ -s "$ACTIVE_LESSONS" ]; then
