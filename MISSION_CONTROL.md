@@ -360,5 +360,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **uvyc148n** | PC-071 [P2]: Trips & Places — show progress when 'Run Detection' / 'Run Identification' is tapped | clau | in_work | BUG/UX from device-test 2026-04-26. In both empty ... |
+| **vk7gdffa** | PC-073 [P1]: Library — New Card sheet, entered data not shown after dismiss | clau | planned | BUG from device-test 2026-04-26 (post-install). Li... |
+| **x192ij56** | PC-074 [P1]: Library — filter by category returns empty | gem | planned | BUG from device-test 2026-04-26. Library → filter ... |
+| **yft4kgq2** | PC-075 [P2]: Home — Recent Captures shows file path as title (regression / not all paths covered) | misty | planned | BUG from device-test 2026-04-26. RecentCaptureCard... |
+| **flwe3qbr** | PC-076 [P2]: People — explicit 'Create New Group' button missing or hidden in empty state | misty | planned | BUG/UX from device-test 2026-04-26. Miguel reports... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
