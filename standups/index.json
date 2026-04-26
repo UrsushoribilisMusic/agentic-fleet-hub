@@ -1,7 +1,7 @@
 [
     {
         "date": "2026-04-26",
-        "summary": "Misty: PC-053 Trip summary completed (cachedSummary, durationDays, TripSummaryCard, LLM generation). PC-066/057/058 blocked on PC-063 dependency. All committed to privatecore-ios/main.",
+        "summary": "Misty: PC-053 Trip summary completed (cachedSummary, durationDays, TripSummaryCard, LLM generation). Codi: heartbeat protocol run; active repos synced, inbox clear, current PrivateCore nonterminal tasks are PC-062 in_progress plus PC-055/059 in peer_review.",
         "file": "2026-04-26.md"
     },
     {
