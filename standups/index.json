@@ -1,7 +1,7 @@
 [
     {
         "date": "2026-04-26",
-        "summary": "Misty: PC-066 already implemented (commit 7145e76) - found Board.focusModeEnabled, BoardFocusView with Content/Focus tabs, board-scoped daily notes, Smart Space filtering by #boardname. Moved PC-066 to peer_review. Picked up PC-057, PC-053, PC-058 as in_progress.",
+        "summary": "Misty: PC-066 found already implemented on main (Board.focusModeEnabled, BoardFocusView, DailyNoteService methods). Moved PC-066 to peer_review with WORKLOG. Picked up PC-057, PC-053, PC-058 as in_progress.",
         "file": "2026-04-26.md"
     },
     {
