@@ -337,5 +337,21 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **addep7b9** | PC-030 [P1]: Person card — backlink integration | clau | planned | Register Person cards as [[PersonName]] backlink t... |
 | **4yex311s** | PC-031 [P1]: Project model and creation | clau | planned | Project is a Card of type 'project' in SQLite: {id... |
+| **ynpoi8zf** | PC-062 [P2]: Library card thumbnails showing /var/mobile/Containers path as title | codi | planned | BUG from Sprint 2 device-test review. Camera-captu... |
+| **if9n50mx** | PC-061 [P1]: Home — On This Day + Recent Captures | clau | planned | Recent Captures: last 5 cards (any type) horizonta... |
+| **by9b2gf5** | PC-060 [P0]: Daily Note — complete device data wiring | clau | planned | Complete PC-020 from Sprint 2. Daily Note hero sho... |
+| **5x5engqa** | PC-058 [P2]: People — smart group suggestions from co-occurrence | misty | planned | CoOccurrenceAnalyser background task: find Person ... |
+| **lmzajtfn** | PC-059 [P0]: People — face clusters shipped (PC-028 completion) | codi | planned | *** SPIKE FIRST *** before any UI work: Codi runs ... |
+| **5202ii3e** | PC-057 [P0]: People groups — user-defined via Board model | misty | planned | People Group = Board(type=.list) containing Person... |
+| **8i7lvebh** | PC-056 [P1]: Place cards — linkable to Boards and People | gem | planned | Place can be added as Board member via PC-049 flow... |
+| **4q2sak6n** | PC-055 [P0]: Place detail — navigable view with date-grouped photos | codi | planned | Place detail screen: MKMapSnapshotter at top, phot... |
+| **mhv4epse** | PC-054 [P0]: Places — country grouping + city deduplication | gem | planned | Place table gains country, countryCode (ISO 3166-1... |
+| **izhylty5** | PC-053 [P2]: Trip summary — auto-generated overview card | misty | planned | Summary card pinned at top of Trip detail: duratio... |
+| **tejy1q5t** | PC-052 [P0]: Trip timeline — calendar event photo grouping (30-min window) | clau | merged | ALREADY SHIPPED in commit a5ac195. Tightened from ... |
+| **hz532xrs** | PC-051 [P0]: Trip notes — inline notes in trip timeline | clau | merged | ALREADY SHIPPED in commit a5ac195 on main. New fet... |
+| **synu3lzc** | PC-050 [P1]: Board focus mode — scoped daily note + Smart Spaces | misty | planned | Boards with focusModeEnabled=true gain a Focus tab... |
+| **303xic3k** | PC-049 [P1]: Board members — add any card type incl People + Places | gem | planned | Extend 'Add to Board' to support photos, notes, li... |
+| **n2hn7s8g** | PC-048 [P0]: Board detail — universal view mode toggle | codi | planned | View mode toggle in Board detail (top-right): Visu... |
+| **v6bspoiu** | PC-047 [P0]: Unified Board model — merge Project + Mood Board | codi | planned | Refactor data model: replace separate Project + Mo... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
