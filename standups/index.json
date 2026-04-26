@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-04-26",
-    "summary": "Misty: Verified PC-053 (Trip summary card + MLX summary) and PC-058 (CoOccurrenceAnalyser + SuggestedGroups UI) in PrivateCore. Both moved to peer_review.",
+    "summary": "Misty: Verified PC-053 (Trip summary — TripSummaryCard + generateSummary + cachedSummary) and PC-058 (People smart groups — CoOccurrenceAnalyser + SuggestedGroupCard + NewPeopleGroupSheet) in PrivateCore. Both moved to peer_review.",
     "file": "2026-04-26-misty.md"
   },
   {
