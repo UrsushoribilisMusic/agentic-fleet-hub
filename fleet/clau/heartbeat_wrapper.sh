@@ -84,5 +84,9 @@ if [ $POST_EXIT -ne 0 ]; then
     echo "$LOG_PREFIX: WARN summarize_session --post exited $POST_EXIT"
 fi
 
+# Phase 5: branch hygiene — delete task/<pb_id> branches whose ticket is approved
+"$FLEET/cleanup_task_branches.sh" --repo /Users/miguelrodriguez/projects/agentic-fleet-hub
+"$FLEET/cleanup_task_branches.sh" --repo /Users/miguelrodriguez/projects/private-core/PrivateCore
+
 echo "$LOG_PREFIX: Clau heartbeat complete"
 exit $CLAUDE_EXIT
