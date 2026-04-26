@@ -48,26 +48,14 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ---
 
-### SPRINT 3 — PrivateCore iOS (kicked off 2026-04-26)
-
-Sprint 3 handover doc: `PrivateCore_Sprint3_Handover.docx`. 16 tickets PC-051..PC-066 (renumbered from doc's PC-036..PC-046 + PC-037-A/B/C + PC-039-B + PC-041-B due to PB ID collisions). PC-051 + PC-052 already shipped this session (peer_review).
-
-**Critical path:** PC-063 (Unified Board refactor — Codi) blocks PC-064/065/066/057. PC-059 (face cluster spike — Codi) is highest-risk unknown; spike before any UI.
-
-**TODO assignments:**
-- **Codi**: PC-063 (P0 Board refactor), PC-064 (P0 view-mode toggle), PC-055 (P0 Place detail), PC-059 (P0 face cluster — SPIKE FIRST), PC-062 (P2 Library title bug — small onboarding fix)
-- **Clau**: PC-060 (P0 Daily Note completion), PC-061 (P1 Recent Captures)
-- **Gem**: PC-054 (P0 Country grouping), PC-065 (P1 Board members universal — depends PC-063), PC-056 (P1 Place ↔ Board ↔ People)
-- **Misty**: PC-066 (P1 Focus mode — depends PC-063), PC-057 (P0 People Groups — depends PC-063), PC-058 (P2 Smart suggestions), PC-053 (P2 Trip LLM summary)
-
-**PEER_REVIEW (Clau, awaiting device verification):**
-- **hz532xrs6gt6na0**: PC-051 — Trip notes inline rendering (commit a5ac195)
-- **tejy1q5tim1kl7e**: PC-052 — Trip event-match window 30-min (commit a5ac195)
-
----
-
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **8i7lvebh**: PC-056 [P1]: Place cards — linkable to Boards and People -- Place can be added as Board member via PC-065 flow. Person detail gains Places section (cities where photos containing this person were taken; derived from face cluster → GPS → reverse geocode). Tap Place in Person detail → Place detail. Depends on PC-063 + PC-065. (Handover ID PC-041-B) -- Gem. Approved.
+- **mhv4epse**: PC-054 [P0]: Places — country grouping + city deduplication -- Place table gains country, countryCode (ISO 3166-1 alpha-2), city. Background re-geocode of existing rows. Places list: country sections with flag emoji (derived from countryCode via Unicode regional indicators) + place count. Within country: cities listed with visit count. Multiple addresses for same city merged. Test: existing Toblerstrasse + Claridenstrasse → one Zürich entry under 🇨🇭 Switzerland. (Handover ID PC-040) -- Gem. Approved.
+- **tejy1q5t**: PC-052 [P0]: Trip timeline — calendar event photo grouping (30-min window) -- ALREADY SHIPPED in commit a5ac195. Tightened from ±2h to ±30min. Photos matching no event bucket as 'Other moments' when events exist (was 'Morning/Afternoon' fallback regardless). Falls back to time-of-day only if no events that day. EventAnchorView already shows event title + time. Pending: device verification with Miguel Hidalgo trip events. (Handover ID PC-039) -- Clau. Approved.
+- **hz532xrs**: PC-051 [P0]: Trip notes — inline notes in trip timeline -- ALREADY SHIPPED in commit a5ac195 on main. New fetchCardsForTrip + TimelineEntry enum (cluster | note) + TripNoteRow view. Notes interleave with photo clusters by createdAt. TripNoteSheet (toolbar + per-day +) creates Card with linkItemToTrip. Day-scoped notes get yyyy-MM-dd tag. Pending: device verification by Miguel. (Handover ID PC-038) -- Clau. Approved.
+- **303xic3k**: PC-065 [P1]: Board members — add any card type incl People + Places -- Extend 'Add to Board' to support photos, notes, links, PDFs, Persons, Places. BoardMember.cardType distinguishes type. Person card in Visual mode = circular avatar. Place card in Visual mode = map pin thumbnail. Long-press anywhere → Add to Board → picker shows all Boards with member counts. Replaces today's discrete AddToBoardMenu + cardToLinkPerson + Trips photo dialog scaffolding. Depends on PC-063. (Handover ID PC-037-B) -- Gem. Approved.
+- **v6bspoiu**: PC-063 [P0]: Unified Board model — merge Project + Mood Board -- Refactor data model: replace separate Project + MoodBoard tables with single Board table. Migrate Project records to Board(type=.list) and MoodBoard records to Board(type=.visual). New BoardMember table with cardType column. All UI continues to function post-migration. Keep _legacy_project + _legacy_moodboard tables for one sprint. Write dry-run mode first; test on Miguel's device with real data before committing. Blocks PC-064/065/066/057. (Sprint 3 handover ID PC-036) -- Codi. Approved.
 - **q3d8zlw8**: PC-035 [P1]: Named Mood Boards — curated image collections -- Mood Board = Project with type 'mood-board'. Create via Library '+'. Opening auto-applies Mood Board layout. Intelligence row gains 'Boards' icon with count. Add images via #moodboard-name tag or long-press. Reuses Project model entirely. 3pts. -- Gem. Approved.
 - **okj05373**: PC-035 [P1]: Named Mood Boards — curated image collections -- Mood Board = Project with type 'mood-board'. Create via Library '+' → New Mood Board. Opening auto-applies Mood Board layout. Library Intelligence row gains 'Boards' icon with count. Add images via tag #moodboard-name or long-press → Add to Mood Board. Reuses Project model entirely. 3pts. -- Gem. Approved.
 - **0idunsm2**: PC-034 [P1]: Mood Board view — image-only Library layout -- View toggle in Library top-right (Grid / Mood Board). Mood Board: 2-col square thumbnails, no text/chips, PHAsset localIdentifier for image loading (target 400×400pt @2x). Respects active tag filter. Tapping thumbnail opens card detail. Preference persists per-session. 5pts. -- Misty. Approved.
@@ -93,7 +81,6 @@ Sprint 3 handover doc: `PrivateCore_Sprint3_Handover.docx`. 16 tickets PC-051..P
 - **haiicy4g**: PC-022 [P0]: Unified hashtag index — manual + auto tags in one system -- HashtagParser.extract(from: String) finds all #word tokens. Tags stored normalised (lowercase, no #) in SQLite tags table with source (auto/manual/system/vision). Runs on every card save/edit. Existing PC-018 auto-tags migrated. Tapping tag chip triggers filtered search. 5pts. -- Gem. Approved.
 - **iwfrlkao**: PC-021 [P1]: Daily Note — On This Day historical recall -- OnThisDayService.fetch(for: Date): query cards/photos from same calendar day in prior years. Return 1 result (photo with GPS > daily-note > any card). Compact tappable card at bottom of Home. Hidden if no historical content. 3pts. -- Clau. Approved.
 - **vs5puhko**: PC-021 [P1]: Daily Note — On This Day historical recall -- OnThisDayService.fetch(for: Date): query cards/photos from same calendar day in prior years. Return 1 result (photo with GPS > daily-note > any card). Compact tappable card at bottom of Home. Hidden if no historical content. 3pts. -- Clau. Approved.
-- **#185**: Follow-up on #185: Clau is out of tokens. Please take her tickets starting with -- Clau is out of tokens. Please take her tickets starting with #185: PC-020 [P0]: Daily Note — auto-population from device data -- Codi. Approved.
 - **fqp461ih**: PC-020 [P0]: Daily Note — auto-population from device data -- DailyNoteService.today(): photos taken today (PHPhotoLibrary), calendar events (EventKit), health snapshot (HealthKit steps + sleep). Free-text Markdown area persists as daily-note Card in SQLite keyed by date. Reverse geocode location (cache per day). 8pts. -- Clau. Approved.
 - **l433h2i7**: PC-020 [P0]: Daily Note — auto-population from device data -- DailyNoteService.today(): photos taken today (PHPhotoLibrary), calendar events (EventKit), health snapshot (HealthKit steps + sleep). Free-text Markdown area persists as daily-note Card in SQLite keyed by date. Reverse geocode location (cache per day). 8pts. -- Codi. Approved.
 - **vlhccz8t**: PC-019 [P0]: Home screen redesign — Daily Note as hero element -- Redesign Home tab: Daily Note hero (full-width, today date + inferred location), Recent Captures (last 5 cards), Smart Space previews (top 3 pinned saved searches with live counts), On This Day card. All from real SQLite. Renders within 1s of foreground. 8pts. -- Codi. Approved.
@@ -355,21 +342,15 @@ Sprint 3 handover doc: `PrivateCore_Sprint3_Handover.docx`. 16 tickets PC-051..P
 | :--- | :--- | :--- | :--- | :--- |
 | **addep7b9** | PC-030 [P1]: Person card — backlink integration | clau | planned | Register Person cards as [[PersonName]] backlink t... |
 | **4yex311s** | PC-031 [P1]: Project model and creation | clau | planned | Project is a Card of type 'project' in SQLite: {id... |
-| **ynpoi8zf** | PC-062 [P2]: Library card thumbnails showing /var/mobile/Containers path as title | codi | planned | BUG from Sprint 2 device-test review. Camera-captu... |
-| **if9n50mx** | PC-061 [P1]: Home — On This Day + Recent Captures | clau | planned | Recent Captures: last 5 cards (any type) horizonta... |
-| **by9b2gf5** | PC-060 [P0]: Daily Note — complete device data wiring | clau | planned | Complete PC-020 from Sprint 2. Daily Note hero sho... |
+| **n2hn7s8g** | PC-064 [P0]: Board detail — universal view mode toggle | codi | planned | View mode toggle in Board detail (top-right): Visu... |
+| **synu3lzc** | PC-066 [P1]: Board focus mode — scoped daily note + Smart Spaces | misty | planned | Boards with focusModeEnabled=true gain a Focus tab... |
+| **izhylty5** | PC-053 [P2]: Trip summary — auto-generated overview card | misty | planned | Summary card pinned at top of Trip detail: duratio... |
+| **4q2sak6n** | PC-055 [P0]: Place detail — navigable view with date-grouped photos | codi | planned | Place detail screen: MKMapSnapshotter at top, phot... |
+| **5202ii3e** | PC-057 [P0]: People groups — user-defined via Board model | misty | planned | People Group = Board(type=.list) containing Person... |
 | **5x5engqa** | PC-058 [P2]: People — smart group suggestions from co-occurrence | misty | planned | CoOccurrenceAnalyser background task: find Person ... |
 | **lmzajtfn** | PC-059 [P0]: People — face clusters shipped (PC-028 completion) | codi | planned | *** SPIKE FIRST *** before any UI work: Codi runs ... |
-| **5202ii3e** | PC-057 [P0]: People groups — user-defined via Board model | misty | planned | People Group = Board(type=.list) containing Person... |
-| **8i7lvebh** | PC-056 [P1]: Place cards — linkable to Boards and People | gem | planned | Place can be added as Board member via PC-049 flow... |
-| **4q2sak6n** | PC-055 [P0]: Place detail — navigable view with date-grouped photos | codi | planned | Place detail screen: MKMapSnapshotter at top, phot... |
-| **mhv4epse** | PC-054 [P0]: Places — country grouping + city deduplication | gem | planned | Place table gains country, countryCode (ISO 3166-1... |
-| **izhylty5** | PC-053 [P2]: Trip summary — auto-generated overview card | misty | planned | Summary card pinned at top of Trip detail: duratio... |
-| **tejy1q5t** | PC-052 [P0]: Trip timeline — calendar event photo grouping (30-min window) | clau | merged | ALREADY SHIPPED in commit a5ac195. Tightened from ... |
-| **hz532xrs** | PC-051 [P0]: Trip notes — inline notes in trip timeline | clau | merged | ALREADY SHIPPED in commit a5ac195 on main. New fet... |
-| **synu3lzc** | PC-050 [P1]: Board focus mode — scoped daily note + Smart Spaces | misty | planned | Boards with focusModeEnabled=true gain a Focus tab... |
-| **303xic3k** | PC-049 [P1]: Board members — add any card type incl People + Places | gem | planned | Extend 'Add to Board' to support photos, notes, li... |
-| **n2hn7s8g** | PC-048 [P0]: Board detail — universal view mode toggle | codi | planned | View mode toggle in Board detail (top-right): Visu... |
-| **v6bspoiu** | PC-047 [P0]: Unified Board model — merge Project + Mood Board | codi | planned | Refactor data model: replace separate Project + Mo... |
+| **by9b2gf5** | PC-060 [P0]: Daily Note — complete device data wiring | clau | planned | Complete PC-020 from Sprint 2. Daily Note hero sho... |
+| **if9n50mx** | PC-061 [P1]: Home — On This Day + Recent Captures | clau | planned | Recent Captures: last 5 cards (any type) horizonta... |
+| **ynpoi8zf** | PC-062 [P2]: Library card thumbnails showing /var/mobile/Containers path as title | codi | planned | BUG from Sprint 2 device-test review. Camera-captu... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
