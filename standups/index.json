@@ -1,7 +1,7 @@
 [
     {
         "date": "2026-04-26",
-        "summary": "Misty: PC-053 Trip summary completed (cachedSummary, durationDays, TripSummaryCard, LLM generation). Codi: heartbeat protocol run; active repos synced, inbox clear, current PrivateCore nonterminal tasks are PC-062 in_progress plus PC-055/059 in peer_review.",
+        "summary": "Misty: PC-066 already implemented (commit 7145e76) - found Board.focusModeEnabled, BoardFocusView with Content/Focus tabs, board-scoped daily notes, Smart Space filtering by #boardname. Moved PC-066 to peer_review. Picked up PC-057, PC-053, PC-058 as in_progress.",
         "file": "2026-04-26.md"
     },
     {
