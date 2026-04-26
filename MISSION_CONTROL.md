@@ -359,6 +359,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **uvyc148n** | PC-071 [P2]: Trips & Places — show progress when 'Run Detection' / 'Run Identification' is tapped | clau | in_work | BUG/UX from device-test 2026-04-26. In both empty ... |
-| **dz0u6mja** | PC-072 [P1]: People view shows empty when persons table has 514 rows — load() aborts on suggestGroups() error | gem | planned | BUG from device-test 2026-04-26. Settings shows 'C... |
+| **dz0u6mja** | PC-072 [P1]: People view shows empty when persons table has 514 rows — load() aborts on suggestGroups() error | gem | merged | BUG from device-test 2026-04-26. Settings shows 'C... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
