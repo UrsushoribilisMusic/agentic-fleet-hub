@@ -1,8 +1,8 @@
 [
   {
     "date": "2026-04-26",
-    "summary": "Misty: Peer review approval of 4 PC tasks - PC-067 (Clau) Capture tag option, PC-068 (Gem) Translate button, PC-069/PC-070 (Misty) gallery picker + camera flip fixes. All devices-test BUG fixes from 2026-04-26 verified and approved.",
-    "file": "2026-04-26-misty.md"
+    "summary": "Misty: PC-075 Complete - Created CardTitleSanitizer utility and applied to all Card ingestion paths (camera, documents, share extension). Added one-shot migration fixCardsWithPathTitles() to clean existing bad titles. Commit 9b80fef to privatecore-ios main. BUILD SUCCEEDED.",
+    "file": "2026-04-26.md"
   },
   {
     "date": "2026-04-26",
