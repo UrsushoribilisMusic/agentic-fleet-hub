@@ -354,5 +354,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **izhylty5** | PC-053 [P2]: Trip summary — auto-generated overview card | misty | planned | Summary card pinned at top of Trip detail: duratio... |
 | **5x5engqa** | PC-058 [P2]: People — smart group suggestions from co-occurrence | misty | planned | CoOccurrenceAnalyser background task: find Person ... |
+| **uafm1ips** | PC-067 [P2]: Capture — add tag option to photo confirmation flow | clau | planned | After taking a photo via Capture (mode = .photo), ... |
+| **dev2t0fg** | PC-068 [P2]: Capture — Translate quick-action button | gem | planned | Add a 'Translate' button next to 'Ask' in the phot... |
+| **5r4o3r4t** | PC-069 [P1]: Capture — gallery picker button not wired (BUG) | misty | planned | BUG from device-test 2026-04-26. The gallery picke... |
+| **t3un6vnh** | PC-070 [P2]: Capture — camera flip button not wired (BUG) | misty | planned | BUG from device-test 2026-04-26. The camera flip b... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
