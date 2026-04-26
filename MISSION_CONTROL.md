@@ -48,6 +48,24 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ---
 
+### SPRINT 3 — PrivateCore iOS (kicked off 2026-04-26)
+
+Sprint 3 handover doc: `PrivateCore_Sprint3_Handover.docx`. 16 tickets PC-051..PC-066 (renumbered from doc's PC-036..PC-046 + PC-037-A/B/C + PC-039-B + PC-041-B due to PB ID collisions). PC-051 + PC-052 already shipped this session (peer_review).
+
+**Critical path:** PC-063 (Unified Board refactor — Codi) blocks PC-064/065/066/057. PC-059 (face cluster spike — Codi) is highest-risk unknown; spike before any UI.
+
+**TODO assignments:**
+- **Codi**: PC-063 (P0 Board refactor), PC-064 (P0 view-mode toggle), PC-055 (P0 Place detail), PC-059 (P0 face cluster — SPIKE FIRST), PC-062 (P2 Library title bug — small onboarding fix)
+- **Clau**: PC-060 (P0 Daily Note completion), PC-061 (P1 Recent Captures)
+- **Gem**: PC-054 (P0 Country grouping), PC-065 (P1 Board members universal — depends PC-063), PC-056 (P1 Place ↔ Board ↔ People)
+- **Misty**: PC-066 (P1 Focus mode — depends PC-063), PC-057 (P0 People Groups — depends PC-063), PC-058 (P2 Smart suggestions), PC-053 (P2 Trip LLM summary)
+
+**PEER_REVIEW (Clau, awaiting device verification):**
+- **hz532xrs6gt6na0**: PC-051 — Trip notes inline rendering (commit a5ac195)
+- **tejy1q5tim1kl7e**: PC-052 — Trip event-match window 30-min (commit a5ac195)
+
+---
+
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
 - **q3d8zlw8**: PC-035 [P1]: Named Mood Boards — curated image collections -- Mood Board = Project with type 'mood-board'. Create via Library '+'. Opening auto-applies Mood Board layout. Intelligence row gains 'Boards' icon with count. Add images via #moodboard-name tag or long-press. Reuses Project model entirely. 3pts. -- Gem. Approved.
