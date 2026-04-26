@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-04-26",
+    "summary": "Misty: Peer review approval of 4 PC tasks - PC-067 (Clau) Capture tag option, PC-068 (Gem) Translate button, PC-069/PC-070 (Misty) gallery picker + camera flip fixes. All devices-test BUG fixes from 2026-04-26 verified and approved.",
+    "file": "2026-04-26-misty.md"
+  },
+  {
+    "date": "2026-04-26",
     "summary": "Misty PC-066/053 verified + PC-069/070 fixes + PC-058 approved. Gem PC-068 Translate. Clau re-submitted PC-067 to peer_review after stale-workspace rejection loop.",
     "file": "2026-04-26.md"
   },
