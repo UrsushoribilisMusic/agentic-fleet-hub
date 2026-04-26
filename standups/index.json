@@ -1,187 +1,187 @@
 [
-    {
-        "date": "2026-04-26",
-        "summary": "Misty: PC-066 verified complete - all Board focus mode code exists on PrivateCore main (Board.focusModeEnabled, BoardDetailView segmented picker, BoardFocusView, DailyNoteService board methods). Set to peer_review withWORKLOG. Remaining: PC-057, PC-053, PC-058 todo.",
-        "file": "2026-04-26.md"
-    },
-    {
-        "date": "2026-04-25",
-        "summary": "Misty: Approved 5 PC tasks (PC-020, PC-021, PC-024, PC-027, PC-032, PC-033), cleaned 5 duplicate auto-sync tasks, merged PC-032+PC-020 to main. Clau: PC-021 On This Day NavigationLink to OnThisDayDetailView. Clau: PC-025 Smart Space verified complete, submitted peer_review.",
-        "file": "2026-04-25.md"
-    },
-    {
-        "date": "2026-04-24",
-        "summary": "PC-024 hashtag autocomplete implemented. Misty completed TagSuggestionService, autocomplete components, and integration into CardDetailView, AddCardSheet, and SearchView. Gem completed PC-022/023/026 hashtag index and management.",
-        "file": "2026-04-24.md"
-    },
-    {
-        "date": "2026-04-23",
-        "summary": "PC-046 → peer_review: real MLX inference wired into MLXEngine via ChatSession (mlx-swift-lm 2.31.3). PC-033 ModelManager HuggingFace download complete.",
-        "file": "2026-04-23.md"
-    },
-    {
-        "date": "2026-04-22",
-        "summary": "PC-044 complete: CLIPEmbeddingService + visual photo search. MobileCLIP-S0 CoreML, 512-dim embeddings, clip_vectors table, parallel CLIP+MiniLM search in SearchService, SettingsView progress row.",
-        "file": "2026-04-22.md"
-    },
-    {
-        "date": "2026-04-21",
-        "summary": "TCR live campaign fixed (conversion goals, watch-hour strategy). PrivateCore 4 bugs fixed (DB migration, capture crash, settings UI). 6 design tickets created PC-034–PC-039. arXiv Section 7 data written. PrivateCore added to Fleet Hub portfolio.",
-        "file": "2026-04-21.md"
-    },
-    {
-        "date": "2026-04-20",
-        "summary": "PrivateCore Phase 1 complete. 11 tickets closed: PC-009/015/016/017/019/020/022/023/024/028/029. Phase 2 sprint started. heartbeat_check.py fixed for PrivateCore MC format.",
-        "file": "2026-04-20.md"
-    },
-    {
-        "date": "2026-04-19",
-        "summary": "PrivateCore iOS kickoff: 18 tickets closed (PC-000–PC-014). MLX Swift inference, OCR, embeddings, VectorStore, VLM, Share Extension all built. App running on device.",
-        "file": "2026-04-19.md"
-    },
-    {
-        "date": "2026-04-17",
-        "summary": "Author site live (MiguelRodriguezAuthor.com), Swiss ISBN filed, Zug Press logo created. YouTube channel 75→215 subscribers via Google Ads (CHF 0.30/subscriber). Ads audited and fixed.",
-        "file": "2026-04-17.md"
-    },
-    {
-        "date": "2026-04-12",
-        "summary": "ATF surfaces were approved, deployed live to api.robotross.art/atf, and verified end to end, including the RobotRoss architecture page and public media assets.",
-        "file": "2026-04-12.md"
-    },
-    {
-        "date": "2026-04-11",
-        "summary": "ATF wiki, ledger, local QA, optional voice shell, and deployment tracks all moved through review with the public RobotRoss demo surface prepared for go-live.",
-        "file": "2026-04-11.md"
-    },
-    {
-        "date": "2026-04-10",
-        "summary": "Codi wired Google Ads credentials and approval flow for TCR, deployed the live analytics recommendation fix, and verified the current hot-test target as Danse Macabre | Vallenato.",
-        "file": "2026-04-10.md"
-    },
-    {
-        "date": "2026-04-09",
-        "summary": "Gem produced the RobotRoss source manifest (#125). Codi fixed Fleet Hub timeline reliability and heartbeat stale-state false positives. Misty defined EU AI Act wiki mapping metadata.",
-        "file": "2026-04-09.md"
-    },
-    {
-        "date": "2026-04-08",
-        "summary": "Gem approved #107. Codi finished the TCR runtime pipeline: scout -> PocketBase, public stats/heatmap from PocketBase, and PocketBase -> Sheet YouTube sync, while restoring GitHub-first ticket creation for TCR-12/13/14.",
-        "file": "2026-04-08.md"
-    },
-    {
-        "date": "2026-04-04",
-        "summary": "Heartbeat verified: 0 open tickets, 0 active Codi tasks, fleet idle.",
-        "file": "2026-04-04.md"
-    },
-    {
-        "date": "2026-04-03",
-        "summary": "Heartbeat verified: 0 open tickets, 0 peer-review tasks, fleet idle.",
-        "file": "2026-04-03.md"
-    },
-    {
-        "date": "2026-04-01",
-        "summary": "Heartbeat verified: 0 tasks. Codi recovered. Clau/Misty still offline.",
-        "file": "2026-04-01.md"
-    },
-    {
-        "date": "2026-03-31",
-        "summary": "Heartbeat verified: 0 tasks. Cleared stuck Clau processes. Codi usage limit identified.",
-        "file": "2026-03-31.md"
-    },
-    {
-        "date": "2026-03-30",
-        "summary": "Heartbeat verified: 0 tasks. Identified and fixed stuck clau process.",
-        "file": "2026-03-30.md"
-    },
-    {
-        "date": "2026-03-29",
-        "summary": "Heartbeat verified: 0 tasks, 0 unread inbox items. Fleet idle.",
-        "file": "2026-03-29.md"
-    },
-    {
-        "date": "2026-03-26",
-        "summary": "Heartbeat verified: 0 tasks. Fleet idle.",
-        "file": "2026-03-26.md"
-    },
-    {
-        "date": "2026-03-25",
-        "summary": "Heartbeat verified: 0 tasks. Fleet idle.",
-        "file": "2026-03-25.md"
-    },
-    {
-        "date": "2026-03-24",
-        "summary": "Heartbeat verified: 0 tasks. Recorded PocketBase filter quoting lesson.",
-        "file": "2026-03-24.md"
-    },
-    {
-        "date": "2026-03-23",
-        "summary": "Kanban sync complete. #78/#79 closed. #80 blocked on npm 2FA.",
-        "file": "2026-03-23.md"
-    },
-    {
-        "date": "2026-03-22",
-        "summary": "Heartbeat verified: 0 tasks. Fleet stable.",
-        "file": "2026-03-22.md"
-    },
-    {
-        "date": "2026-03-21",
-        "summary": "Heartbeat verified: 0 tasks. Restored fleet services (bridge, github, push).",
-        "file": "2026-03-21.md"
-    },
-    {
-        "date": "2026-03-20",
-        "summary": "Heartbeat Protocol verified: no open tickets, fleet stable.",
-        "file": "2026-03-20.md"
-    },
-    {
-        "date": "2026-03-19",
-        "summary": "Fleet v0.2.0 fully operational. Project-switching, health-monitoring, and release notes complete.",
-        "file": "2026-03-19.md"
-    },
-    {
-        "date": "2026-03-18",
-        "summary": "UI polish and project activation logic implemented.",
-        "file": "2026-03-18.md"
-    },
-    {
-        "date": "2026-03-17",
-        "summary": "Checksum caching and dynamic parser updates.",
-        "file": "2026-03-17.md"
-    },
-    {
-        "date": "2026-03-16",
-        "summary": "GitHub sync and Telegram bridge truncation fixes.",
-        "file": "2026-03-16.md"
-    },
-    {
-        "date": "2026-03-15",
-        "summary": "Fleet fully operational on Mac Mini. No open tickets.",
-        "file": "2026-03-15.md"
-    },
-    {
-        "date": "2026-03-14",
-        "summary": "Mac Mini migration verified: environment configured, mandates updated, CRM path fixed.",
-        "file": "2026-03-14.md"
-    },
-    {
-        "date": "2026-03-13",
-        "summary": "Ticket #25 (Demo Cleanup) and #23 (README overhaul) complete. Fleet is release-ready.",
-        "file": "2026-03-13.md"
-    },
-    {
-        "date": "2026-03-12",
-        "file": "2026-03-12.md",
-        "summary": "Tickets #14 and #17-#19 complete: Growth Fleet demo, Big Bear homepage refresh, legal pages, and Google Sheets lead intake live."
-    },
-    {
-        "date": "2026-03-11",
-        "file": "2026-03-11.md",
-        "summary": "Hub Consolidation, Sidebar Overhaul, and CRM Cloud Rollout."
-    },
-    {
-        "date": "2026-03-10",
-        "file": "2026-03-10.md",
-        "summary": "Tickets #1-#6 complete: Sheets migration, tracker API live, OAuth wired."
-    }
+  {
+    "date": "2026-04-26",
+    "summary": "Misty: Verified PC-053 (Trip summary card + MLX summary) and PC-058 (CoOccurrenceAnalyser + SuggestedGroups UI) in PrivateCore. Both moved to peer_review.",
+    "file": "2026-04-26-misty.md"
+  },
+  {
+    "date": "2026-04-25",
+    "summary": "Misty: Approved 5 PC tasks (PC-020, PC-021, PC-024, PC-027, PC-032, PC-033), cleaned 5 duplicate auto-sync tasks, merged PC-032+PC-020 to main. Clau: PC-021 On This Day NavigationLink to OnThisDayDetailView. Clau: PC-025 Smart Space verified complete, submitted peer_review.",
+    "file": "2026-04-25.md"
+  },
+  {
+    "date": "2026-04-24",
+    "summary": "PC-024 hashtag autocomplete implemented. Misty completed TagSuggestionService, autocomplete components, and integration into CardDetailView, AddCardSheet, and SearchView. Gem completed PC-022/023/026 hashtag index and management.",
+    "file": "2026-04-24.md"
+  },
+  {
+    "date": "2026-04-23",
+    "summary": "PC-046 \u2192 peer_review: real MLX inference wired into MLXEngine via ChatSession (mlx-swift-lm 2.31.3). PC-033 ModelManager HuggingFace download complete.",
+    "file": "2026-04-23.md"
+  },
+  {
+    "date": "2026-04-22",
+    "summary": "PC-044 complete: CLIPEmbeddingService + visual photo search. MobileCLIP-S0 CoreML, 512-dim embeddings, clip_vectors table, parallel CLIP+MiniLM search in SearchService, SettingsView progress row.",
+    "file": "2026-04-22.md"
+  },
+  {
+    "date": "2026-04-21",
+    "summary": "TCR live campaign fixed (conversion goals, watch-hour strategy). PrivateCore 4 bugs fixed (DB migration, capture crash, settings UI). 6 design tickets created PC-034\u2013PC-039. arXiv Section 7 data written. PrivateCore added to Fleet Hub portfolio.",
+    "file": "2026-04-21.md"
+  },
+  {
+    "date": "2026-04-20",
+    "summary": "PrivateCore Phase 1 complete. 11 tickets closed: PC-009/015/016/017/019/020/022/023/024/028/029. Phase 2 sprint started. heartbeat_check.py fixed for PrivateCore MC format.",
+    "file": "2026-04-20.md"
+  },
+  {
+    "date": "2026-04-19",
+    "summary": "PrivateCore iOS kickoff: 18 tickets closed (PC-000\u2013PC-014). MLX Swift inference, OCR, embeddings, VectorStore, VLM, Share Extension all built. App running on device.",
+    "file": "2026-04-19.md"
+  },
+  {
+    "date": "2026-04-17",
+    "summary": "Author site live (MiguelRodriguezAuthor.com), Swiss ISBN filed, Zug Press logo created. YouTube channel 75\u2192215 subscribers via Google Ads (CHF 0.30/subscriber). Ads audited and fixed.",
+    "file": "2026-04-17.md"
+  },
+  {
+    "date": "2026-04-12",
+    "summary": "ATF surfaces were approved, deployed live to api.robotross.art/atf, and verified end to end, including the RobotRoss architecture page and public media assets.",
+    "file": "2026-04-12.md"
+  },
+  {
+    "date": "2026-04-11",
+    "summary": "ATF wiki, ledger, local QA, optional voice shell, and deployment tracks all moved through review with the public RobotRoss demo surface prepared for go-live.",
+    "file": "2026-04-11.md"
+  },
+  {
+    "date": "2026-04-10",
+    "summary": "Codi wired Google Ads credentials and approval flow for TCR, deployed the live analytics recommendation fix, and verified the current hot-test target as Danse Macabre | Vallenato.",
+    "file": "2026-04-10.md"
+  },
+  {
+    "date": "2026-04-09",
+    "summary": "Gem produced the RobotRoss source manifest (#125). Codi fixed Fleet Hub timeline reliability and heartbeat stale-state false positives. Misty defined EU AI Act wiki mapping metadata.",
+    "file": "2026-04-09.md"
+  },
+  {
+    "date": "2026-04-08",
+    "summary": "Gem approved #107. Codi finished the TCR runtime pipeline: scout -> PocketBase, public stats/heatmap from PocketBase, and PocketBase -> Sheet YouTube sync, while restoring GitHub-first ticket creation for TCR-12/13/14.",
+    "file": "2026-04-08.md"
+  },
+  {
+    "date": "2026-04-04",
+    "summary": "Heartbeat verified: 0 open tickets, 0 active Codi tasks, fleet idle.",
+    "file": "2026-04-04.md"
+  },
+  {
+    "date": "2026-04-03",
+    "summary": "Heartbeat verified: 0 open tickets, 0 peer-review tasks, fleet idle.",
+    "file": "2026-04-03.md"
+  },
+  {
+    "date": "2026-04-01",
+    "summary": "Heartbeat verified: 0 tasks. Codi recovered. Clau/Misty still offline.",
+    "file": "2026-04-01.md"
+  },
+  {
+    "date": "2026-03-31",
+    "summary": "Heartbeat verified: 0 tasks. Cleared stuck Clau processes. Codi usage limit identified.",
+    "file": "2026-03-31.md"
+  },
+  {
+    "date": "2026-03-30",
+    "summary": "Heartbeat verified: 0 tasks. Identified and fixed stuck clau process.",
+    "file": "2026-03-30.md"
+  },
+  {
+    "date": "2026-03-29",
+    "summary": "Heartbeat verified: 0 tasks, 0 unread inbox items. Fleet idle.",
+    "file": "2026-03-29.md"
+  },
+  {
+    "date": "2026-03-26",
+    "summary": "Heartbeat verified: 0 tasks. Fleet idle.",
+    "file": "2026-03-26.md"
+  },
+  {
+    "date": "2026-03-25",
+    "summary": "Heartbeat verified: 0 tasks. Fleet idle.",
+    "file": "2026-03-25.md"
+  },
+  {
+    "date": "2026-03-24",
+    "summary": "Heartbeat verified: 0 tasks. Recorded PocketBase filter quoting lesson.",
+    "file": "2026-03-24.md"
+  },
+  {
+    "date": "2026-03-23",
+    "summary": "Kanban sync complete. #78/#79 closed. #80 blocked on npm 2FA.",
+    "file": "2026-03-23.md"
+  },
+  {
+    "date": "2026-03-22",
+    "summary": "Heartbeat verified: 0 tasks. Fleet stable.",
+    "file": "2026-03-22.md"
+  },
+  {
+    "date": "2026-03-21",
+    "summary": "Heartbeat verified: 0 tasks. Restored fleet services (bridge, github, push).",
+    "file": "2026-03-21.md"
+  },
+  {
+    "date": "2026-03-20",
+    "summary": "Heartbeat Protocol verified: no open tickets, fleet stable.",
+    "file": "2026-03-20.md"
+  },
+  {
+    "date": "2026-03-19",
+    "summary": "Fleet v0.2.0 fully operational. Project-switching, health-monitoring, and release notes complete.",
+    "file": "2026-03-19.md"
+  },
+  {
+    "date": "2026-03-18",
+    "summary": "UI polish and project activation logic implemented.",
+    "file": "2026-03-18.md"
+  },
+  {
+    "date": "2026-03-17",
+    "summary": "Checksum caching and dynamic parser updates.",
+    "file": "2026-03-17.md"
+  },
+  {
+    "date": "2026-03-16",
+    "summary": "GitHub sync and Telegram bridge truncation fixes.",
+    "file": "2026-03-16.md"
+  },
+  {
+    "date": "2026-03-15",
+    "summary": "Fleet fully operational on Mac Mini. No open tickets.",
+    "file": "2026-03-15.md"
+  },
+  {
+    "date": "2026-03-14",
+    "summary": "Mac Mini migration verified: environment configured, mandates updated, CRM path fixed.",
+    "file": "2026-03-14.md"
+  },
+  {
+    "date": "2026-03-13",
+    "summary": "Ticket #25 (Demo Cleanup) and #23 (README overhaul) complete. Fleet is release-ready.",
+    "file": "2026-03-13.md"
+  },
+  {
+    "date": "2026-03-12",
+    "file": "2026-03-12.md",
+    "summary": "Tickets #14 and #17-#19 complete: Growth Fleet demo, Big Bear homepage refresh, legal pages, and Google Sheets lead intake live."
+  },
+  {
+    "date": "2026-03-11",
+    "file": "2026-03-11.md",
+    "summary": "Hub Consolidation, Sidebar Overhaul, and CRM Cloud Rollout."
+  },
+  {
+    "date": "2026-03-10",
+    "file": "2026-03-10.md",
+    "summary": "Tickets #1-#6 complete: Sheets migration, tracker API live, OAuth wired."
+  }
 ]
