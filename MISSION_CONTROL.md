@@ -384,9 +384,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **r4ad10f4** | PC-097 [P1]: BackgroundScheduler — BGTask identifiers not advertised in built Info.plist | codi | merged | Device logs show BGTaskScheduler rejects both regi... |
 | **e9nfoh9q** | PC-083 [P1]: Places — no photos found despite photos with geolocation available |  | merged | BUG from device-test 2026-04-26 (Miguel via Telegr... |
 | **2a3g2oce** | PC-086 [P1]: Boards — count shows 1 item but opened board has no photos (write/read mismatch) | gem | merged | BUG from device-test 2026-04-26 (Miguel via Telegr... |
-| **#225** | Fleet Hub — namespace GitHub issue identity in PocketBase tasks | codi | planned | Add `github_repo` and treat (`github_repo`, `gh_is... |
+| **#225** | Fleet Hub — namespace GitHub issue identity in PocketBase tasks | codi | merged | Add `github_repo` and treat (`github_repo`, `gh_is... |
+| **#225** | Fleet Hub — namespace GitHub issue identity in PocketBase tasks | codi | merged | Problem: PocketBase stores only a bare gh_issue_id... |
 | **hpqill8m** | Fleet Hub: namespace GitHub issue identity in PocketBase tasks | codi | merged | Problem: PocketBase stores only a bare gh_issue_id... |
-| **#225** | Fleet Hub — namespace GitHub issue identity in PocketBase tasks | codi | planned | Problem: PocketBase stores only a bare gh_issue_id... |
 | **lvfrnytr** | PC-078 [P2]: Regression test — CLIP text-feature name + empty-result detection | codi | merged | FOLLOW-UP from device-test 2026-04-26. The CLIP te... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
