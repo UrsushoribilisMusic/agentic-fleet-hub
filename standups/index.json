@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-04-27",
-    "summary": "Misty: Heartbeat Protocol executed. Peer reviewed and approved PC-079 (CardTitleSanitizer deduplication) and PC-077 (SearchResultCard photo thumbnails + unified progress format). No todo tasks assigned.",
+    "summary": "Misty: Peer reviewed and approved PC-081 (Trips photo tap navigation). Implemented PC-084 fix (People Groups Create button error handling - try? await swallowing errors). Branch task/7gytgo7vk89mudo.",
     "file": "2026-04-27.md"
   },
   {
