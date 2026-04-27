@@ -131,7 +131,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#145**: [ATF-8] Build local model runtime adapter for Gemma/Apertus -- Runtime adapter verification and cleanup after prior ticket drift. -- Clau. Approved. -- Created from MISSION_CONTROL.md sync -- Gem. Approved.
 - **b0envpk8**: [ATF] Build integrated local RobotRoss knowledge console with text and voice QA -- ## Context -- Clau. Approved.
 - **8dvp6ma6**: [ATF] Build integrated RobotRoss demo landing page for DigitalOcean deployment -- ## Context -- Clau. Approved.
-- **qc5xcwi1**: [RobotRoss] Merge Mexico voice/pyro features from bobrossskill into robot-ross -- ## Context -- Gem. Approved.
 - **h6xy2yt7**: [ATF] Rebuild QA grounding from canonical RobotRoss sources and ledger data -- ## Context -- Clau. Approved.
 - **gyfz6ceg**: [ATF] Build human-readable operational ledger dashboard for Mexico logs -- ## Context -- Codi. Approved.
 - **vbwk63sc**: [ATF] Build browser-readable wiki UI over compiled ATF articles -- ## Context -- Clau. Approved.
@@ -380,13 +379,14 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **r21df2aa** | PC-095 [P2]: Library — New Card dialog needs optional board assignment | gem | merged | Add a board picker at the bottom of the New Card d... |
 | **r0569d33** | PC-096 [P1]: Search — newly added tags appear in tag list but do not return linked cards | codi | merged | Investigate the tag index vs search result query m... |
 | **r4ad10f4** | PC-097 [P1]: BackgroundScheduler — BGTask identifiers not advertised in built Info.plist | codi | merged | Device logs show BGTaskScheduler rejects both regi... |
-| **e9nfoh9q** | PC-083 [P1]: Places — no photos found despite photos with geolocation available |  | planned | BUG from device-test 2026-04-26 (Miguel via Telegr... |
-| **7gytgo7v** | PC-084 [P1]: People > Groups — Create button does not react when tapped (action handler missing/no-op) |  | in_work | BUG from device-test 2026-04-26 (Miguel via Telegr... |
-| **ft9neonu** | PC-085 [P1]: Library — photos not rendered, only text and file path shown |  | planned | BUG from device-test 2026-04-26 (Miguel via Telegr... |
+| **qc5xcwi1** | [RobotRoss] Merge Mexico voice/pyro features from bobrossskill into robot-ross | gem | merged | ## Context... |
+| **e9nfoh9q** | PC-083 [P1]: Places — no photos found despite photos with geolocation available |  | merged | BUG from device-test 2026-04-26 (Miguel via Telegr... |
+| **7gytgo7v** | PC-084 [P1]: People > Groups — Create button does not react when tapped (action handler missing/no-op) |  | merged | BUG from device-test 2026-04-26 (Miguel via Telegr... |
+| **ft9neonu** | PC-085 [P1]: Library — photos not rendered, only text and file path shown |  | merged | BUG from device-test 2026-04-26 (Miguel via Telegr... |
 | **2a3g2oce** | PC-086 [P1]: Boards — count shows 1 item but opened board has no photos (write/read mismatch) |  | merged | BUG from device-test 2026-04-26 (Miguel via Telegr... |
-| **#225** | Fleet Hub — namespace GitHub issue identity in PocketBase tasks | codi | merged | Add `github_repo` and treat (`github_repo`, `gh_is... |
-| **#225** | Fleet Hub — namespace GitHub issue identity in PocketBase tasks | codi | merged | Problem: PocketBase stores only a bare gh_issue_id... |
 | **hpqill8m** | Fleet Hub: namespace GitHub issue identity in PocketBase tasks | codi | merged | Problem: PocketBase stores only a bare gh_issue_id... |
+| **#225** | Fleet Hub — namespace GitHub issue identity in PocketBase tasks | codi | planned | Add `github_repo` and treat (`github_repo`, `gh_is... |
+| **#225** | Fleet Hub — namespace GitHub issue identity in PocketBase tasks | codi | planned | Problem: PocketBase stores only a bare gh_issue_id... |
 | **lvfrnytr** | PC-078 [P2]: Regression test — CLIP text-feature name + empty-result detection | codi | merged | FOLLOW-UP from device-test 2026-04-26. The CLIP te... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
