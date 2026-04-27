@@ -1,7 +1,12 @@
 [
   {
     "date": "2026-04-27",
-    "summary": "Misty: Peer reviewed and approved PC-081 (Trips photo tap navigation). Implemented PC-084 fix (People Groups Create button error handling - try? await swallowing errors). Branch task/7gytgo7vk89mudo.",
+    "summary": "Clau: PC-031 peer-review fix — wrapped Today calendar rows in NavigationLink to SearchView (the last 'deep-links from all items' gap Codi flagged). Commit b85bed5 on privatecore-ios main, BUILD SUCCEEDED (build-green-2026-04-27-14), task back to peer_review.",
+    "file": "2026-04-27.md"
+  },
+  {
+    "date": "2026-04-27",
+    "summary": "Codi: reconciled PrivateCore PocketBase/Mission Control, reassigned PC-083..086, created/synced PC-087..097 plus fleet ticket #225 for github_repo+gh_issue_id namespacing, approved PC-071/082, and returned PC-081 to todo.",
     "file": "2026-04-27.md"
   },
   {
