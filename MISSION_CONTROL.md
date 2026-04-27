@@ -435,6 +435,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **vj4xbq5h** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
 | **pnpn70kw** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
 | **bg8mupq4** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
+| **ak7cdodw** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
 | **v5iopebj** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
 | **15uoa3jl** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
 
