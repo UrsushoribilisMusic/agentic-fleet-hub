@@ -387,5 +387,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **9bskyrav** | PC-098 [P1]: Add Qwen2.5 3B Instruct Q4 as Translation model + plan to retire old Qwen | gem | planned | Add Qwen2.5 3B Instruct Q4 to ModelManager.availab... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
