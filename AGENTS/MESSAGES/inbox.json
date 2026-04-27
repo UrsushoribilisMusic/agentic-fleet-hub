@@ -355,5 +355,77 @@
     "priority": "high",
     "ref_ticket": "123",
     "source": "system"
+  },
+  {
+    "id": "msg-tg-1777236345",
+    "timestamp": "2026-04-26T20:45:45Z",
+    "from": "chocolodreams",
+    "to": "clau",
+    "subject": "Telegram: create ticket for PrivateCore ...",
+    "body": "create ticket for PrivateCore bug found: in trips Click on photo results in blank page, no actions available - expected: add to people, to board, add hashtags",
+    "status": "unread",
+    "priority": "normal",
+    "ref_ticket": null,
+    "source": "telegram"
+  },
+  {
+    "id": "msg-tg-1777236421",
+    "timestamp": "2026-04-26T20:47:01Z",
+    "from": "chocolodreams",
+    "to": "clau",
+    "subject": "Telegram: create ticket for PrivateCore ...",
+    "body": "create ticket for PrivateCore bug found: in trips, after add note to a day it\u2019s not shown on trip. Should be shown as card next to photos.",
+    "status": "unread",
+    "priority": "normal",
+    "ref_ticket": null,
+    "source": "telegram"
+  },
+  {
+    "id": "msg-tg-1777236530",
+    "timestamp": "2026-04-26T20:48:50Z",
+    "from": "chocolodreams",
+    "to": "clau",
+    "subject": "Telegram: create ticket for PrivateCore ...",
+    "body": "create ticket for PrivateCore bug found: in places: no photos found, despite being photos with geolocation available",
+    "status": "unread",
+    "priority": "normal",
+    "ref_ticket": null,
+    "source": "telegram"
+  },
+  {
+    "id": "msg-tg-1777236603",
+    "timestamp": "2026-04-26T20:50:03Z",
+    "from": "chocolodreams",
+    "to": "clau",
+    "subject": "Telegram: bug found in PrivateCore: in P...",
+    "body": "bug found in PrivateCore: in People- groups/ new gropup does not work ( create does not react )",
+    "status": "unread",
+    "priority": "normal",
+    "ref_ticket": null,
+    "source": "telegram"
+  },
+  {
+    "id": "msg-tg-1777236669",
+    "timestamp": "2026-04-26T20:51:09Z",
+    "from": "chocolodreams",
+    "to": "clau",
+    "subject": "Telegram: create ticket in private core....",
+    "body": "create ticket in private core. Bug: In library, photos are not shown: only text and path.",
+    "status": "unread",
+    "priority": "normal",
+    "ref_ticket": null,
+    "source": "telegram"
+  },
+  {
+    "id": "msg-tg-1777236766",
+    "timestamp": "2026-04-26T20:52:46Z",
+    "from": "chocolodreams",
+    "to": "clau",
+    "subject": "Telegram: new bug private core: in home-...",
+    "body": "new bug private core: in home- Photos added to board, board shows text: 1 item, navigate to board and no photos shown",
+    "status": "unread",
+    "priority": "normal",
+    "ref_ticket": null,
+    "source": "telegram"
   }
 ]

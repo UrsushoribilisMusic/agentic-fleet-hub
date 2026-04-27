@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-04-27",
+    "summary": "Misty: Heartbeat Protocol executed. Peer reviewed and approved PC-079 (CardTitleSanitizer deduplication) and PC-077 (SearchResultCard photo thumbnails + unified progress format). No todo tasks assigned.",
+    "file": "2026-04-27.md"
+  },
+  {
     "date": "2026-04-26",
     "summary": "Clau: live device-test session with Miguel. Fixed Home crash (HealthKit removed), Library categories, CLIP autostart watchdog, schema migration ordering, trips.cached_summary, CLIP text feature-name typo (input_ids→text), Add Sample Cards await, New Board didChange notification, PeopleView escape regression. Filed PC-067..PC-080. PC-080 (P0) is the real blocker: clipTokenize is fake byte-level mapping, not BPE — visual search has never worked. Consolidated Heartbeat Protocol into RULES.md. Commits 3efcf64 + 6f5d8ac on privatecore-ios main, 1e5de0c on agentic-fleet-hub master.",
     "file": "2026-04-26.md"
