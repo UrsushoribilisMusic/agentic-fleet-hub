@@ -366,6 +366,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **uvyc148n** | PC-071 [P2]: Trips & Places — show progress when 'Run Detection' / 'Run Identification' is tapped | clau | in_work | BUG/UX from device-test 2026-04-26. In both empty ... |
+| **uvyc148n** | PC-071 [P2]: Trips & Places — show progress when 'Run Detection' / 'Run Identification' is tapped | clau | merged | BUG/UX from device-test 2026-04-26. In both empty ... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
