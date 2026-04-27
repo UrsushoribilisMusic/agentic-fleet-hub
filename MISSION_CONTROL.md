@@ -367,5 +367,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **uvyc148n** | PC-071 [P2]: Trips & Places — show progress when 'Run Detection' / 'Run Identification' is tapped | clau | merged | BUG/UX from device-test 2026-04-26. In both empty ... |
+| **2a3g2oce** | PC-086 [P1]: Boards — count shows 1 item but opened board has no photos (write/read mismatch) |  | planned | BUG from device-test 2026-04-26 (Miguel via Telegr... |
+| **ft9neonu** | PC-085 [P1]: Library — photos not rendered, only text and file path shown |  | planned | BUG from device-test 2026-04-26 (Miguel via Telegr... |
+| **7gytgo7v** | PC-084 [P1]: People > Groups — Create button does not react when tapped (action handler missing/no-op) |  | planned | BUG from device-test 2026-04-26 (Miguel via Telegr... |
+| **e9nfoh9q** | PC-083 [P1]: Places — no photos found despite photos with geolocation available |  | planned | BUG from device-test 2026-04-26 (Miguel via Telegr... |
+| **6bbfk14y** | PC-082 [P2]: Trips — note added to a day is not shown on the trip (should appear as card next to photos) |  | planned | BUG from device-test 2026-04-26 (Miguel via Telegr... |
+| **6dgaav38** | PC-081 [P2]: Trips — tap photo opens blank detail page, no actions (add to people/board/hashtags) |  | planned | BUG/UX from device-test 2026-04-26 (Miguel via Tel... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
