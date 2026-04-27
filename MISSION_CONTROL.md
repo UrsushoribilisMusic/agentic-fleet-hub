@@ -136,7 +136,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **kqjbq511**: PC-044: CLIP visual embeddings for photo content search -- Currently, photo search only works on OCR-extracted text. Photos without detectable text (animals, nature, people) are indexed with the string 'photo' as their embedding, making them semantically indistinguishable. -- Clau. Approved.
 - **ewvyeviu**: [ATF] ledger_to_md: convert JSONL run ledger to queryable wiki MD -- ## Context -- Clau. Approved.
 - **doxgxuvc**: [ATF] Make Mexico production log searchable in local Q&A -- `ATF/artifacts/ledger/mexico_events.jsonl` exists but `atf_qa.py` only reads `.md` files — ledger is not in the QA corpus. Add JSONL parsing to `load_corpus()` so Mexico run data is queryable alongside the wiki. Branch: `task/8dvp6ma64g1co2w`. -- Clau. Approved.
+- **#149**: #149 [P0]: gemma Phase 2 rubber-stamps every peer_review ticket without verification -- run_heartbeat.sh Phase 2 fetches all peer_review tickets where assigned_agent != 'gemma' and unconditionally PATCHes status='approved'. No diff inspection, no build run, no test. This is the *source* of the fleet-wide 'approved without shipping' lies — every ticket gemma rubber-stamped reads as done in PocketBase even when no commit exists. -- Clau. Approved.
 - **r6pc52qv**: [bug] Demo page: 404 on /fleet/api/config/demo -- The demo dashboard is empty because the node server does not handle the /fleet/api/config/demo endpoint, causing the frontend to fail loading metadata. -- Clau. Approved.
+- **#148**: #148 [P0]: gemma heartbeat Phase 3 doesn't execute task work — aichat -e is non-interactive in launchd -- run_heartbeat.sh Phase 3 calls `aichat -e` (execute mode) which proposes shell commands then prompts for confirmation. In non-TTY launchd this never confirms — the wrapper captures the proposed command string as `Output:`, blindly PATCHes ticket status to peer_review, and signs off. Zero file edits, zero git ops. -- Clau. Approved.
 - **7gbzmg40**: [ATF] Deploy static ATF surface to api.robotross.art/atf -- Context -- Clau. Approved.
 - **#147**: [ATF] Document Vector RAG and RobotRoss Wiki upgrades -- ## Context -- Gem. Approved.
 - **2beleu6g**: [ATF] Review delivered demo wiki, landing, and ledger surfaces -- Summary -- Clau. Approved.
@@ -394,8 +396,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **#148** | #148 [P0]: gemma heartbeat Phase 3 doesn't execute task work — aichat -e is non-interactive in launchd | clau | merged | run_heartbeat.sh Phase 3 calls `aichat -e` (execut... |
-| **#149** | #149 [P0]: gemma Phase 2 rubber-stamps every peer_review ticket without verification | clau | merged | run_heartbeat.sh Phase 2 fetches all peer_review t... |
 | **9bskyrav** | PC-098 [P1]: Add Qwen2.5 3B Instruct Q4 as Translation model + plan to retire old Qwen | codi | merged | Add Qwen2.5 3B Instruct Q4 to ModelManager.availab... |
 | **djg7fb5m** | PC-106 [P0]: PlaceService watchdog hammers CLGeocoder past Apple rate limit | codi | merged | PrivateCoreApp.swift:78-85 watchdog runs every 60s... |
 | **qbb817ac** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
@@ -413,6 +413,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **kt3t79x6** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
 | **c83h5jrv** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
 | **qae7ebtv** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
+| **0x515wte** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
 | **im9sh0tf** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
 | **ng1uujcq** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
 | **4ie3xz5z** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
