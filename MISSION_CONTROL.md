@@ -402,10 +402,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **6uehppp2** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
 | **lp2jlkem** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
 | **6chsnpwg** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ro810bpr** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **vs32mc74** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ml7owskr** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **hc6g55x1** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
 | **oz4iciap** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
+| **hc6g55x1** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
+| **ml7owskr** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
+| **vs32mc74** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
+| **ro810bpr** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
+| **bgf77esl** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
