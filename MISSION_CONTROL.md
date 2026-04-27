@@ -133,6 +133,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#145**: [ATF-8] Build local model runtime adapter for Gemma/Apertus -- Runtime adapter verification and cleanup after prior ticket drift. -- Clau. Approved. -- Created from MISSION_CONTROL.md sync -- Gem. Approved.
 - **b0envpk8**: [ATF] Build integrated local RobotRoss knowledge console with text and voice QA -- ## Context -- Clau. Approved.
 - **8dvp6ma6**: [ATF] Build integrated RobotRoss demo landing page for DigitalOcean deployment -- ## Context -- Clau. Approved.
+- **qc5xcwi1**: [RobotRoss] Merge Mexico voice/pyro features from bobrossskill into robot-ross -- ## Context -- Gem. Approved.
 - **h6xy2yt7**: [ATF] Rebuild QA grounding from canonical RobotRoss sources and ledger data -- ## Context -- Clau. Approved.
 - **gyfz6ceg**: [ATF] Build human-readable operational ledger dashboard for Mexico logs -- ## Context -- Codi. Approved.
 - **vbwk63sc**: [ATF] Build browser-readable wiki UI over compiled ATF articles -- ## Context -- Clau. Approved.
@@ -319,6 +320,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#39**: launchd heartbeat plists: Gem + Codi -- Clau. Approved.
 - **rxhpb0xz**: Service restart logic for project switching -- Add logic to restart PocketBase, dispatcher, and other services cleanly -- Misty. Approved.
 - **g7ksn8dq**: Service restart logic for project switching -- Add logic to restart PocketBase, dispatcher, and other services cleanly -- Misty. Approved.
+- **r82a9e53**: PC-092 [P0]: Navigation — remove Ask tab and merge reduced history into Search -- Collapse the top-level menu from 6 tabs to 5. Remove the standalone Ask tab. Add a History section to Search, and keep Suggested only for low-history or new-user state. -- Gem. Approved.
 - **h34k7k0c**: Update MISSION_CONTROL.md parser for dynamic project switching -- Make parser dynamic to read from active project, ensure Kanban/ticket views reflect new project -- Misty. Approved.
 - **#38**: launchd plists: PocketBase + dispatcher -- Clau. Approved.
 - **tfpw2xej**: UI for project activation (toggle-based) -- List projects, active project at top with badge, inactive projects have Activate button with confirmation -- Misty. Approved.
@@ -375,13 +377,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **r83013f4** | PC-089 [P1]: People Groups — multi-select people when editing a group | gem | merged | In the group edit flow, list all people with check... |
 | **re00f1a4** | PC-090 [P1]: Document scan — captured scan shows no text and no photo preview | codi | merged | Investigate the scan capture to stored asset to OC... |
 | **rd96b70e** | PC-091 [P1]: Photos — portrait images not rotated correctly | codi | merged | Respect EXIF/orientation metadata in thumbnails an... |
-| **r82a9e53** | PC-092 [P0]: Navigation — remove Ask tab and merge reduced history into Search | gem | merged | Collapse the top-level menu from 6 tabs to 5. Remo... |
 | **r7c1f829** | PC-093 [P1]: Home — photo count says N but visible list shows fewer items | codi | merged | Reconcile the Home photo count query with the rend... |
 | **r342ee7f** | PC-094 [P1]: Home Photos — add actions to assign to Person and add hashtag | gem | merged | Extend the current photo action flow beyond Add to... |
 | **r21df2aa** | PC-095 [P2]: Library — New Card dialog needs optional board assignment | gem | merged | Add a board picker at the bottom of the New Card d... |
 | **r0569d33** | PC-096 [P1]: Search — newly added tags appear in tag list but do not return linked cards | codi | merged | Investigate the tag index vs search result query m... |
 | **r4ad10f4** | PC-097 [P1]: BackgroundScheduler — BGTask identifiers not advertised in built Info.plist | codi | merged | Device logs show BGTaskScheduler rejects both regi... |
-| **qc5xcwi1** | [RobotRoss] Merge Mexico voice/pyro features from bobrossskill into robot-ross | gem | merged | ## Context... |
 | **e9nfoh9q** | PC-083 [P1]: Places — no photos found despite photos with geolocation available |  | merged | BUG from device-test 2026-04-26 (Miguel via Telegr... |
 | **2a3g2oce** | PC-086 [P1]: Boards — count shows 1 item but opened board has no photos (write/read mismatch) | gem | merged | BUG from device-test 2026-04-26 (Miguel via Telegr... |
 | **#225** | Fleet Hub — namespace GitHub issue identity in PocketBase tasks | codi | merged | Add `github_repo` and treat (`github_repo`, `gh_is... |
