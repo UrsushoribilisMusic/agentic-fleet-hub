@@ -384,9 +384,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **7gytgo7v** | PC-084 [P1]: People > Groups — Create button does not react when tapped (action handler missing/no-op) |  | merged | BUG from device-test 2026-04-26 (Miguel via Telegr... |
 | **ft9neonu** | PC-085 [P1]: Library — photos not rendered, only text and file path shown |  | merged | BUG from device-test 2026-04-26 (Miguel via Telegr... |
 | **2a3g2oce** | PC-086 [P1]: Boards — count shows 1 item but opened board has no photos (write/read mismatch) |  | merged | BUG from device-test 2026-04-26 (Miguel via Telegr... |
+| **#225** | Fleet Hub — namespace GitHub issue identity in PocketBase tasks | codi | merged | Add `github_repo` and treat (`github_repo`, `gh_is... |
+| **#225** | Fleet Hub — namespace GitHub issue identity in PocketBase tasks | codi | merged | Problem: PocketBase stores only a bare gh_issue_id... |
 | **hpqill8m** | Fleet Hub: namespace GitHub issue identity in PocketBase tasks | codi | merged | Problem: PocketBase stores only a bare gh_issue_id... |
-| **#225** | Fleet Hub — namespace GitHub issue identity in PocketBase tasks | codi | planned | Add `github_repo` and treat (`github_repo`, `gh_is... |
-| **#225** | Fleet Hub — namespace GitHub issue identity in PocketBase tasks | codi | planned | Problem: PocketBase stores only a bare gh_issue_id... |
 | **lvfrnytr** | PC-078 [P2]: Regression test — CLIP text-feature name + empty-result detection | codi | merged | FOLLOW-UP from device-test 2026-04-26. The CLIP te... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
