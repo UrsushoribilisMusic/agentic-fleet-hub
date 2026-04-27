@@ -324,7 +324,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#47**: create-flotilla v0.2.0 — package release with new fleet features -- Bump create-flotilla to v0.2.0. Update package to include: Kanban parser/UI, PocketBase schema bootstrap, Telegram two-way bridge, heartbeat indicators, Memory Tree search, dispatcher. Update README and changelog. Publish to npm. -- Codi. Approved.
 - **#46**: Outbound Telegram Bridge -- Implement logic in telegram_bridge.py to poll PocketBase for new agent comments and push them to Miguel via Telegram. -- Gem. Approved.
 - **#45**: Telegram Listener Bridge (Two-Way Chat) -- Poll Telegram for replies, post to PocketBase comments as spec or approval. Extract task IDs from replies to HUMAN NEEDED messages. -- Gem. Approved.
-- **r4ad10f4**: PC-097 [P1]: BackgroundScheduler — BGTask identifiers not advertised in built Info.plist -- Device logs show BGTaskScheduler rejects both registered task identifiers with code 3 / Unrecognized Identifier: ch.bigbear.PrivateCore.refresh and ch.bigbear.PrivateCore.processing. The app target uses generated Info.plist settings, and BGTaskSchedulerPermittedIdentifiers appears to be injected as a single flat string instead of a valid plist array, so the built app does not actually advertise the identifiers at runtime. Acceptance: built app advertises both identifiers correctly; no more BGTaskSchedulerErrorDomain code 3; background refresh and processing requests can be submitted successfully on device; fix is validated against the actual built app Info.plist/runtime behavior, not only project.pbxproj settings. -- Codi. Approved.
 - **3y1qgnyg**: Peer review tasks -- Review tasks in peer_review status -- Misty. Approved.
 - **#43**: Fleet Hub: Tasks tab + Activity feed + Heartbeat indicators -- Read-only PocketBase views. -- Gem. Approved.
 - **r0569d33**: PC-096 [P1]: Search — newly added tags appear in tag list but do not return linked cards -- Investigate the tag index vs search result query mismatch. Ensure selecting or searching a tag returns associated cards and photos consistently. -- Codi. Approved.
@@ -396,6 +395,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **r4ad10f4** | PC-097 [P1]: BackgroundScheduler — BGTask identifiers not advertised in built Info.plist | codi | planned | Device logs show BGTaskScheduler rejects both regi... |
 | **2a3g2oce** | PC-086 [P1]: Boards — count shows 1 item but opened board has no photos (write/read mismatch) | gem | merged | BUG from device-test 2026-04-26 (Miguel via Telegr... |
 | **9bskyrav** | PC-098 [P1]: Add Qwen2.5 3B Instruct Q4 as Translation model + plan to retire old Qwen | codi | merged | Add Qwen2.5 3B Instruct Q4 to ModelManager.availab... |
 | **djg7fb5m** | PC-106 [P0]: PlaceService watchdog hammers CLGeocoder past Apple rate limit | codi | merged | PrivateCoreApp.swift:78-85 watchdog runs every 60s... |
@@ -476,19 +476,21 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **l18m945t** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
 | **5nj9x2vj** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
 | **9jvwd2al** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
+| **rmdto762** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
+| **3wxiqj31** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
+| **ysrb13br** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
+| **vnkpo5gq** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
+| **rcbq107x** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
+| **kw9gem7d** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
+| **hakowt67** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
+| **ewdlqu1q** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
 | **y960otbc** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
 | **d5nlsggf** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **kw9gem7d** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
 | **mxa5l57e** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **rcbq107x** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
 | **zkdxp48t** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **vnkpo5gq** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
 | **tlc4yjha** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ysrb13br** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
 | **oa09fqdn** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **3wxiqj31** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
 | **qv3w19ge** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **rmdto762** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
 | **0dcgeytx** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
 | **95i1l0n3** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
 | **6cpb0hgi** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
