@@ -370,18 +370,22 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **ra98a3d0** | PC-087 [P1]: Trips — allow manual rename of trip title | codi | planned | Add rename/edit-title action in trip detail. Persi... |
-| **r9c20748** | PC-088 [P2]: Insights — sort Top Places by photos/visits, not alphabetically | gem | planned | Change the Insights Top Places ranking so it sorts... |
-| **r83013f4** | PC-089 [P1]: People Groups — multi-select people when editing a group | gem | planned | In the group edit flow, list all people with check... |
-| **re00f1a4** | PC-090 [P1]: Document scan — captured scan shows no text and no photo preview | codi | planned | Investigate the scan capture to stored asset to OC... |
-| **rd96b70e** | PC-091 [P1]: Photos — portrait images not rotated correctly | codi | planned | Respect EXIF/orientation metadata in thumbnails an... |
-| **r82a9e53** | PC-092 [P0]: Navigation — remove Ask tab and merge reduced history into Search | gem | planned | Collapse the top-level menu from 6 tabs to 5. Remo... |
-| **r7c1f829** | PC-093 [P1]: Home — photo count says N but visible list shows fewer items | codi | planned | Reconcile the Home photo count query with the rend... |
-| **r342ee7f** | PC-094 [P1]: Home Photos — add actions to assign to Person and add hashtag | gem | planned | Extend the current photo action flow beyond Add to... |
-| **r21df2aa** | PC-095 [P2]: Library — New Card dialog needs optional board assignment | gem | planned | Add a board picker at the bottom of the New Card d... |
-| **r0569d33** | PC-096 [P1]: Search — newly added tags appear in tag list but do not return linked cards | codi | planned | Investigate the tag index vs search result query m... |
+| **r9c20748** | PC-088 [P2]: Insights — sort Top Places by photos/visits, not alphabetically | gem | merged | Change the Insights Top Places ranking so it sorts... |
+| **r83013f4** | PC-089 [P1]: People Groups — multi-select people when editing a group | gem | merged | In the group edit flow, list all people with check... |
+| **re00f1a4** | PC-090 [P1]: Document scan — captured scan shows no text and no photo preview | codi | merged | Investigate the scan capture to stored asset to OC... |
+| **rd96b70e** | PC-091 [P1]: Photos — portrait images not rotated correctly | codi | merged | Respect EXIF/orientation metadata in thumbnails an... |
+| **r82a9e53** | PC-092 [P0]: Navigation — remove Ask tab and merge reduced history into Search | gem | merged | Collapse the top-level menu from 6 tabs to 5. Remo... |
+| **r7c1f829** | PC-093 [P1]: Home — photo count says N but visible list shows fewer items | codi | merged | Reconcile the Home photo count query with the rend... |
+| **r342ee7f** | PC-094 [P1]: Home Photos — add actions to assign to Person and add hashtag | gem | merged | Extend the current photo action flow beyond Add to... |
+| **r21df2aa** | PC-095 [P2]: Library — New Card dialog needs optional board assignment | gem | merged | Add a board picker at the bottom of the New Card d... |
+| **r0569d33** | PC-096 [P1]: Search — newly added tags appear in tag list but do not return linked cards | codi | merged | Investigate the tag index vs search result query m... |
+| **r4ad10f4** | PC-097 [P1]: BackgroundScheduler — BGTask identifiers not advertised in built Info.plist | codi | planned | Device logs show BGTaskScheduler rejects both regi... |
 | **e9nfoh9q** | PC-083 [P1]: Places — no photos found despite photos with geolocation available |  | planned | BUG from device-test 2026-04-26 (Miguel via Telegr... |
 | **7gytgo7v** | PC-084 [P1]: People > Groups — Create button does not react when tapped (action handler missing/no-op) |  | in_work | BUG from device-test 2026-04-26 (Miguel via Telegr... |
 | **ft9neonu** | PC-085 [P1]: Library — photos not rendered, only text and file path shown |  | planned | BUG from device-test 2026-04-26 (Miguel via Telegr... |
 | **2a3g2oce** | PC-086 [P1]: Boards — count shows 1 item but opened board has no photos (write/read mismatch) |  | planned | BUG from device-test 2026-04-26 (Miguel via Telegr... |
+| **hpqill8m** | Fleet Hub: namespace GitHub issue identity in PocketBase tasks | gem | planned | Problem: PocketBase stores only a bare gh_issue_id... |
+| **#225** | Fleet Hub — namespace GitHub issue identity in PocketBase tasks | codi | planned | Problem: PocketBase stores only a bare gh_issue_id... |
+| **lvfrnytr** | PC-078 [P2]: Regression test — CLIP text-feature name + empty-result detection | codi | planned | FOLLOW-UP from device-test 2026-04-26. The CLIP te... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
