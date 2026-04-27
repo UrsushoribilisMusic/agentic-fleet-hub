@@ -147,12 +147,26 @@ def sync_mc_to_pb(content, pb_tasks):
         if pb_t:
             needs_update = False
             update_data = {}
-            
+
+            # Priority-based conflict resolution: only let MC upgrade PB,
+            # never downgrade. Human-managed states (waiting_human, blocked)
+            # and post-work states (peer_review, approved) are sticky in PB
+            # so the dispatcher can't silently revert agent work.
+            status_priority = {
+                'approved': 5,
+                'waiting_human_notified': 5,
+                'waiting_human': 5,
+                'blocked': 5,
+                'peer_review': 3,
+                'in_progress': 2,
+                'todo': 1,
+                'backlog': 0,
+            }
+
             if pb_t['status'] != mc_t['status']:
-                # Never downgrade from approved — PB agent writes are authoritative
-                if pb_t['status'] == 'approved':
-                    pass
-                else:
+                pb_prio = status_priority.get(pb_t['status'], 0)
+                mc_prio = status_priority.get(mc_t['status'], 0)
+                if mc_prio > pb_prio:
                     needs_update = True
                     update_data['status'] = mc_t['status']
             
