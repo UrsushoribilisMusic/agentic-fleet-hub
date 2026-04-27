@@ -383,7 +383,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **e9nfoh9q** | PC-083 [P1]: Places — no photos found despite photos with geolocation available |  | planned | BUG from device-test 2026-04-26 (Miguel via Telegr... |
 | **7gytgo7v** | PC-084 [P1]: People > Groups — Create button does not react when tapped (action handler missing/no-op) |  | in_work | BUG from device-test 2026-04-26 (Miguel via Telegr... |
 | **ft9neonu** | PC-085 [P1]: Library — photos not rendered, only text and file path shown |  | planned | BUG from device-test 2026-04-26 (Miguel via Telegr... |
-| **2a3g2oce** | PC-086 [P1]: Boards — count shows 1 item but opened board has no photos (write/read mismatch) |  | planned | BUG from device-test 2026-04-26 (Miguel via Telegr... |
+| **2a3g2oce** | PC-086 [P1]: Boards — count shows 1 item but opened board has no photos (write/read mismatch) |  | merged | BUG from device-test 2026-04-26 (Miguel via Telegr... |
 | **#225** | Fleet Hub — namespace GitHub issue identity in PocketBase tasks | codi | merged | Add `github_repo` and treat (`github_repo`, `gh_is... |
 | **#225** | Fleet Hub — namespace GitHub issue identity in PocketBase tasks | codi | merged | Problem: PocketBase stores only a bare gh_issue_id... |
 | **hpqill8m** | Fleet Hub: namespace GitHub issue identity in PocketBase tasks | codi | merged | Problem: PocketBase stores only a bare gh_issue_id... |
