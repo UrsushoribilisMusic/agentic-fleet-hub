@@ -387,11 +387,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **ra98a3d0** | PC-087 [P1]: Trips — allow manual rename of trip title | codi | planned | Add rename/edit-title action in trip detail. Persi... |
+| **ra98a3d0** | PC-087 [P1]: Trips — allow manual rename of trip title | codi | merged | Add rename/edit-title action in trip detail. Persi... |
 | **r9c20748** | PC-088 [P2]: Insights — sort Top Places by photos/visits, not alphabetically | gem | merged | Change the Insights Top Places ranking so it sorts... |
-| **r83013f4** | PC-089 [P1]: People Groups — multi-select people when editing a group | gem | planned | In the group edit flow, list all people with check... |
+| **r83013f4** | PC-089 [P1]: People Groups — multi-select people when editing a group | gem | merged | In the group edit flow, list all people with check... |
 | **e9nfoh9q** | PC-083 [P1]: Places — no photos found despite photos with geolocation available |  | planned | BUG from device-test 2026-04-26 (Miguel via Telegr... |
-| **2a3g2oce** | PC-086 [P1]: Boards — count shows 1 item but opened board has no photos (write/read mismatch) | gem | planned | BUG from device-test 2026-04-26 (Miguel via Telegr... |
+| **2a3g2oce** | PC-086 [P1]: Boards — count shows 1 item but opened board has no photos (write/read mismatch) | gem | merged | BUG from device-test 2026-04-26 (Miguel via Telegr... |
 | **9bskyrav** | PC-098 [P1]: Add Qwen2.5 3B Instruct Q4 as Translation model + plan to retire old Qwen | gem | merged | Add Qwen2.5 3B Instruct Q4 to ModelManager.availab... |
 | **ingxuc6h** | PC-103 [P2]: Settings cleanup — remove Apertus model + HF token UI | clau | merged | Apertus 8B no longer in roadmap (no MLX swift supp... |
 | **kjj2p1gj** | PC-105 [P1]: Trip events count always 0 in summary | gem | merged | Trip Summary shows 0 events even when calendar has... |
