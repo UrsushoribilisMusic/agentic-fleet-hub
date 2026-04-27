@@ -135,9 +135,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **eo5m2dfv**: PC-045: Photos Import — manual date-range import in Settings -- Add a Photos Import section to SettingsView, consistent with the existing Calendar Import button. -- Clau. Approved.
 - **kqjbq511**: PC-044: CLIP visual embeddings for photo content search -- Currently, photo search only works on OCR-extracted text. Photos without detectable text (animals, nature, people) are indexed with the string 'photo' as their embedding, making them semantically indistinguishable. -- Clau. Approved.
 - **ewvyeviu**: [ATF] ledger_to_md: convert JSONL run ledger to queryable wiki MD -- ## Context -- Clau. Approved.
-- **doxgxuvc**: [ATF] Make Mexico production log searchable in local Q&A -- `ATF/artifacts/ledger/mexico_events.jsonl` exists but `atf_qa.py` only reads `.md` files — ledger is not in the QA corpus. Add JSONL parsing to `load_corpus()` so Mexico run data is queryable alongside the wiki. Branch: `task/8dvp6ma64g1co2w`. -- Clau. Approved.
-- **r6pc52qv**: [bug] Demo page: 404 on /fleet/api/config/demo -- The demo dashboard is empty because the node server does not handle the /fleet/api/config/demo endpoint, causing the frontend to fail loading metadata. -- Gem. Approved.
-- **7gbzmg40**: [ATF] Deploy static ATF surface to api.robotross.art/atf -- Context -- Clau. Approved.
+- **doxgxuvc**: [ATF] Make Mexico production log searchable in local Q&A -- `ATF/artifacts/ledger/mexico_events.jsonl` exists but `atf_qa.py` only reads `.md` files — ledger is not in the QA corpus. Add JSONL parsing to `load_corpus()` so Mexico run data is queryable alongside the wiki. Branch: `task/8dvp6ma64g1co2w`. -- Codi. Approved.
+- **r6pc52qv**: [bug] Demo page: 404 on /fleet/api/config/demo -- The demo dashboard is empty because the node server does not handle the /fleet/api/config/demo endpoint, causing the frontend to fail loading metadata. -- Codi. Approved.
+- **7gbzmg40**: [ATF] Deploy static ATF surface to api.robotross.art/atf -- Context -- Codi. Approved.
 - **#147**: [ATF] Document Vector RAG and RobotRoss Wiki upgrades -- ## Context -- Gem. Approved.
 - **2beleu6g**: [ATF] Review delivered demo wiki, landing, and ledger surfaces -- Summary -- Clau. Approved.
 - **#146**: [Ops] Canonize Clau runtime wrapper and summarize_session entrypoint -- Created from GitHub issue #146. Canonize Clau runtime wrapper and summarize_session entrypoint; remove duplicate summarizer drift and document the canonical runtime path. -- Clau. Approved.
@@ -394,9 +394,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **#148** | #148 [P0]: gemma heartbeat Phase 3 doesn't execute task work — aichat -e is non-interactive in launchd | codi | planned | run_heartbeat.sh Phase 3 calls `aichat -e` (execut... |
-| **#149** | #149 [P0]: gemma Phase 2 rubber-stamps every peer_review ticket without verification | codi | planned | run_heartbeat.sh Phase 2 fetches all peer_review t... |
-| **#150** | #150 [P1]: Dispatcher resets assigned_agent to original-creator on task completion | codi | planned | Empirical pattern: when an agent ships work, the d... |
+| **#148** | #148 [P0]: gemma heartbeat Phase 3 doesn't execute task work — aichat -e is non-interactive in launchd | codi | merged | run_heartbeat.sh Phase 3 calls `aichat -e` (execut... |
+| **#149** | #149 [P0]: gemma Phase 2 rubber-stamps every peer_review ticket without verification | codi | merged | run_heartbeat.sh Phase 2 fetches all peer_review t... |
+| **#150** | #150 [P1]: Dispatcher resets assigned_agent to original-creator on task completion | codi | merged | Empirical pattern: when an agent ships work, the d... |
 | **9bskyrav** | PC-098 [P1]: Add Qwen2.5 3B Instruct Q4 as Translation model + plan to retire old Qwen | codi | merged | Add Qwen2.5 3B Instruct Q4 to ModelManager.availab... |
 | **djg7fb5m** | PC-106 [P0]: PlaceService watchdog hammers CLGeocoder past Apple rate limit | codi | merged | PrivateCoreApp.swift:78-85 watchdog runs every 60s... |
 
