@@ -394,6 +394,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **#148** | #148 [P0]: gemma heartbeat Phase 3 doesn't execute task work — aichat -e is non-interactive in launchd | codi | planned | run_heartbeat.sh Phase 3 calls `aichat -e` (execut... |
+| **#149** | #149 [P0]: gemma Phase 2 rubber-stamps every peer_review ticket without verification | codi | planned | run_heartbeat.sh Phase 2 fetches all peer_review t... |
+| **#150** | #150 [P1]: Dispatcher resets assigned_agent to original-creator on task completion | codi | planned | Empirical pattern: when an agent ships work, the d... |
 | **9bskyrav** | PC-098 [P1]: Add Qwen2.5 3B Instruct Q4 as Translation model + plan to retire old Qwen | codi | merged | Add Qwen2.5 3B Instruct Q4 to ModelManager.availab... |
 | **djg7fb5m** | PC-106 [P0]: PlaceService watchdog hammers CLGeocoder past Apple rate limit | codi | merged | PrivateCoreApp.swift:78-85 watchdog runs every 60s... |
 
