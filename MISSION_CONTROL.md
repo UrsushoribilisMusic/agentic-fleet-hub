@@ -392,7 +392,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **e9nfoh9q** | PC-083 [P1]: Places — no photos found despite photos with geolocation available |  | planned | BUG from device-test 2026-04-26 (Miguel via Telegr... |
+| **e9nfoh9q** | PC-083 [P1]: Places — no photos found despite photos with geolocation available |  | merged | BUG from device-test 2026-04-26 (Miguel via Telegr... |
 | **ingxuc6h** | PC-103 [P2]: Settings cleanup — remove Apertus model + HF token UI | clau | merged | Apertus 8B no longer in roadmap (no MLX swift supp... |
 | **kjj2p1gj** | PC-105 [P1]: Trip events count always 0 in summary | gem | merged | Trip Summary shows 0 events even when calendar has... |
 
