@@ -5,6 +5,7 @@ from datetime import datetime
 
 PB_URL = "http://localhost:8090/api"
 MC_PATH = "/Users/miguelrodriguez/projects/agentic-fleet-hub/MISSION_CONTROL.md"
+HUB_REPO = "UrsushoribilisMusic/agentic-fleet-hub"
 
 def fetch_pb_tasks():
     print("Fetching tasks from PocketBase...")
@@ -118,6 +119,11 @@ def sync_mc_to_pb(content, pb_tasks):
     pb_prefix_map = {} # Map 8-char prefixes to tasks
     
     for task in pb_tasks:
+        # Only map tasks that belong to the Hub repo or have no repo assigned yet
+        repo = task.get('github_repo') or HUB_REPO
+        if repo != HUB_REPO:
+            continue
+
         # Extract #ID from title
         match = re.search(r"#(\d+)", task['title'])
         if match:
@@ -175,6 +181,19 @@ def sync_mc_to_pb(content, pb_tasks):
                 if pb_t.get('assigned_agent') != mc_t['owner']:
                     needs_update = True
                     update_data['assigned_agent'] = mc_t['owner']
+
+            if mc_t['id_num'].isdigit():
+                issue_id = int(mc_t['id_num'])
+                if pb_t.get('gh_issue_id') != issue_id:
+                    needs_update = True
+                    update_data['gh_issue_id'] = issue_id
+                if (pb_t.get('github_repo') or HUB_REPO) != HUB_REPO:
+                    needs_update = True
+                    update_data['github_repo'] = HUB_REPO
+                expected_url = f"https://github.com/{HUB_REPO}/issues/{issue_id}"
+                if pb_t.get('github_issue_url') != expected_url:
+                    needs_update = True
+                    update_data['github_issue_url'] = expected_url
             
             if needs_update:
                 if update_pb_task(pb_t['id'], update_data):
@@ -191,7 +210,10 @@ def sync_mc_to_pb(content, pb_tasks):
                 "title": title,
                 "status": mc_t['status'],
                 "assigned_agent": mc_t.get('owner', 'gem'),
-                "description": mc_t.get('notes', 'Created from MISSION_CONTROL.md sync')
+                "description": mc_t.get('notes', 'Created from MISSION_CONTROL.md sync'),
+                "gh_issue_id": int(mc_t['id_num']) if mc_t['id_num'].isdigit() else 0,
+                "github_repo": HUB_REPO,
+                "github_issue_url": f"https://github.com/{HUB_REPO}/issues/{mc_t['id_num']}" if mc_t['id_num'].isdigit() else ""
             }
             
             try:

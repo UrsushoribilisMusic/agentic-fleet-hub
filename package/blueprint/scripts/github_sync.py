@@ -60,10 +60,16 @@ def load_offset():
     if os.path.exists(OFFSET_FILE):
         try:
             with open(OFFSET_FILE) as f:
-                return json.load(f)
+                data = json.load(f)
+                if "closed_gh_issues_map" not in data:
+                    closed = data.pop("closed_gh_issues", [])
+                    data["closed_gh_issues_map"] = {
+                        GITHUB_REPO: closed,
+                    } if closed else {}
+                return data
         except Exception:
             pass
-    return {"last_gh_issue": 0, "last_pb_scan": ""}
+    return {"last_gh_issue": 0, "last_pb_scan": "", "closed_gh_issues_map": {}}
 
 
 def save_offset(data):
@@ -117,25 +123,30 @@ def close_approved_issues(offset):
     })
     if not result:
         return
-    closed_set = set(offset.get("closed_gh_issues", []))
+    closed_dict = offset.get("closed_gh_issues_map", {})
     changed = False
     for task in result.get("items", []):
         n = task.get("gh_issue_id", 0)
-        if n and n not in closed_set:
-            close_github_issue(n)
-            set_issue_labels(n, "approved")
-            closed_set.add(n)
+        repo = task.get("github_repo") or GITHUB_REPO
+        if repo not in closed_dict:
+            closed_dict[repo] = []
+        if n and n not in closed_dict[repo]:
+            close_github_issue(n, repo=repo)
+            set_issue_labels(n, "approved", repo=repo)
+            closed_dict[repo].append(n)
             changed = True
     if changed:
-        offset["closed_gh_issues"] = list(closed_set)
+        offset["closed_gh_issues_map"] = {
+            repo: sorted(set(numbers)) for repo, numbers in closed_dict.items()
+        }
         save_offset(offset)
 
 
 # ── GitHub helpers (via gh CLI) ───────────────────────────────────────────────
 
-def gh(*args, input_text=None):
+def gh(*args, input_text=None, repo=None):
     """Run a gh CLI command. Returns (stdout, returncode)."""
-    cmd = [GH_BIN, "--repo", GITHUB_REPO] + list(args)
+    cmd = [GH_BIN, "--repo", repo or GITHUB_REPO] + list(args)
     try:
         result = subprocess.run(
             cmd,
@@ -150,17 +161,17 @@ def gh(*args, input_text=None):
         return "", 1
 
 
-def ensure_labels():
+def ensure_labels(repo=None):
     """Create flotilla status labels and flotilla-managed label if missing."""
     labels_needed = {FLOTILLA_LABEL: "0075ca"} | {v: "e4e669" for v in ALL_STATUS_LABELS}
-    out, _ = gh("label", "list", "--json", "name", "--limit", "100")
+    out, _ = gh("label", "list", "--json", "name", "--limit", "100", repo=repo)
     try:
         existing = {item["name"] for item in json.loads(out)}
     except Exception:
         existing = set()
     for name, color in labels_needed.items():
         if name not in existing:
-            gh("label", "create", name, "--color", color, "--force")
+            gh("label", "create", name, "--color", color, "--force", repo=repo)
             log(f"Created GitHub label: {name}")
 
 
@@ -182,14 +193,14 @@ def create_github_issue(title, body):
         return None
 
 
-def set_issue_labels(issue_number, status):
+def set_issue_labels(issue_number, status, repo=None):
     """Replace status labels on an issue to reflect current PB status."""
     status_label = STATUS_LABEL_MAP.get(status)
     if not status_label:
         return
 
     # Remove all other status labels, add correct one
-    out, _ = gh("issue", "view", str(issue_number), "--json", "labels")
+    out, _ = gh("issue", "view", str(issue_number), "--json", "labels", repo=repo)
     try:
         current_labels = [l["name"] for l in json.loads(out).get("labels", [])]
     except Exception:
@@ -197,15 +208,15 @@ def set_issue_labels(issue_number, status):
 
     for old in current_labels:
         if old in ALL_STATUS_LABELS and old != status_label:
-            gh("issue", "edit", str(issue_number), "--remove-label", old)
+            gh("issue", "edit", str(issue_number), "--remove-label", old, repo=repo)
 
     if status_label not in current_labels:
-        gh("issue", "edit", str(issue_number), "--add-label", status_label)
+        gh("issue", "edit", str(issue_number), "--add-label", status_label, repo=repo)
 
 
-def close_github_issue(issue_number):
-    gh("issue", "close", str(issue_number))
-    log(f"Closed GitHub issue #{issue_number}")
+def close_github_issue(issue_number, repo=None):
+    gh("issue", "close", str(issue_number), repo=repo)
+    log(f"Closed GitHub issue {repo or GITHUB_REPO}#{issue_number}")
 
 
 def find_existing_issue_by_title(title):
@@ -276,7 +287,11 @@ def sync_outbound(tasks, offset):
             # Check for existing issue with same title before creating to avoid duplicates
             existing = find_existing_issue_by_title(title)
             if existing:
-                pb_patch(f"collections/tasks/records/{task_id}", {"gh_issue_id": existing})
+                pb_patch(f"collections/tasks/records/{task_id}", {
+                    "gh_issue_id": existing,
+                    "github_repo": GITHUB_REPO,
+                    "github_issue_url": f"https://github.com/{GITHUB_REPO}/issues/{existing}",
+                })
                 set_issue_labels(existing, status)
                 log(f"OUTBOUND: Linked existing issue #{existing} to task '{title}' (dedup)")
                 changed = True
@@ -285,16 +300,21 @@ def sync_outbound(tasks, offset):
                 body = f"{description}\n\n---\n*PocketBase task ID: `{task_id}`*"
                 number = create_github_issue(title, body)
                 if number:
-                    pb_patch(f"collections/tasks/records/{task_id}", {"gh_issue_id": number})
+                    pb_patch(f"collections/tasks/records/{task_id}", {
+                        "gh_issue_id": number,
+                        "github_repo": GITHUB_REPO,
+                        "github_issue_url": f"https://github.com/{GITHUB_REPO}/issues/{number}",
+                    })
                     set_issue_labels(number, status)
                     log(f"OUTBOUND: Created issue #{number} for task '{title}'")
                     changed = True
         else:
             # Update labels to reflect current status
-            set_issue_labels(gh_issue_id, status)
+            repo = task.get("github_repo") or GITHUB_REPO
+            set_issue_labels(gh_issue_id, status, repo=repo)
             if status == "approved":
-                close_github_issue(gh_issue_id)
-                log(f"OUTBOUND: Closed issue #{gh_issue_id} (task approved)")
+                close_github_issue(gh_issue_id, repo=repo)
+                log(f"OUTBOUND: Closed issue {repo}#{gh_issue_id} (task approved)")
 
     return changed
 
@@ -322,6 +342,8 @@ def sync_inbound(offset):
             "status": "todo",
             "assigned_agent": agent,
             "gh_issue_id": number,
+            "github_repo": GITHUB_REPO,
+            "github_issue_url": f"https://github.com/{GITHUB_REPO}/issues/{number}",
         })
         if task:
             # Tag the issue flotilla-managed to prevent re-import

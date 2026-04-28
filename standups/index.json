@@ -1,12 +1,17 @@
 [
   {
+    "date": "2026-04-28",
+    "summary": "Codi: completed hub task #225 on branch task/r8c8381ddac0886 by namespacing PocketBase GitHub identity with github_repo + github_issue_url across runtime and packaged sync scripts; verified all touched Python files with py_compile and staged the task for peer review.",
+    "file": "2026-04-28.md"
+  },
+  {
     "date": "2026-04-27",
     "summary": "Clau: PC-031 peer-review fix — wrapped Today calendar rows in NavigationLink to SearchView (the last 'deep-links from all items' gap Codi flagged). Commit b85bed5 on privatecore-ios main, BUILD SUCCEEDED (build-green-2026-04-27-14), task back to peer_review.",
     "file": "2026-04-27.md"
   },
   {
     "date": "2026-04-27",
-    "summary": "Codi: reconciled PrivateCore PocketBase/Mission Control, reassigned PC-083..086, created/synced PC-087..097 plus fleet ticket #225 for github_repo+gh_issue_id namespacing, approved PC-071/082, and returned PC-081 to todo.",
+    "summary": "Codi: reconciled PrivateCore PocketBase/Mission Control earlier in the day; later heartbeat-only runs found the cached PB snapshot stuck on duplicate self-owned PC-107/PC-108 peer_review records with no actionable todo tasks, so only heartbeats/lesson bookkeeping were staged.",
     "file": "2026-04-27.md"
   },
   {

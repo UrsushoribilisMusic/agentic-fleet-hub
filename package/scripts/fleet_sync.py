@@ -5,6 +5,8 @@ from datetime import datetime
 
 PB_URL = "http://localhost:8090/api"
 MC_PATH = "/Users/miguelrodriguez/projects/agentic-fleet-hub/MISSION_CONTROL.md"
+HUB_REPO = "UrsushoribilisMusic/agentic-fleet-hub"
+EXTRA_REPO_PREFIXES = ("[PRIVATECORE-IOS]",)
 
 def fetch_pb_tasks():
     print("Fetching tasks from PocketBase...")
@@ -118,6 +120,10 @@ def sync_mc_to_pb(content, pb_tasks):
     pb_prefix_map = {} # Map 8-char prefixes to tasks
     
     for task in pb_tasks:
+        repo = task.get('github_repo') or HUB_REPO
+        if repo != HUB_REPO:
+            continue
+
         # Extract #ID from title
         match = re.search(r"#(\d+)", task['title'])
         if match:
@@ -137,6 +143,9 @@ def sync_mc_to_pb(content, pb_tasks):
     all_mc = open_mc
     
     for mc_t in all_mc:
+        if is_extra_repo_task(mc_t.get('title_desc', '')):
+            continue
+
         # Try finding by full ID, #ID, or prefix
         pb_t = pb_map.get(mc_t['id_num']) or pb_prefix_map.get(mc_t['id_num'])
         
@@ -144,15 +153,42 @@ def sync_mc_to_pb(content, pb_tasks):
             needs_update = False
             update_data = {}
             
+            status_priority = {
+                'approved': 5,
+                'waiting_human_notified': 5,
+                'waiting_human': 5,
+                'blocked': 5,
+                'peer_review': 3,
+                'in_progress': 2,
+                'todo': 1,
+                'backlog': 0,
+            }
+
             if pb_t['status'] != mc_t['status']:
-                needs_update = True
-                update_data['status'] = mc_t['status']
+                pb_prio = status_priority.get(pb_t['status'], 0)
+                mc_prio = status_priority.get(mc_t['status'], 0)
+                if mc_prio > pb_prio:
+                    needs_update = True
+                    update_data['status'] = mc_t['status']
             
             # For open tickets, also check owner
             if 'owner' in mc_t and mc_t['owner'] != 'n/a':
                 if pb_t.get('assigned_agent') != mc_t['owner']:
                     needs_update = True
                     update_data['assigned_agent'] = mc_t['owner']
+
+            if mc_t['id_num'].isdigit():
+                issue_id = int(mc_t['id_num'])
+                if pb_t.get('gh_issue_id') != issue_id:
+                    needs_update = True
+                    update_data['gh_issue_id'] = issue_id
+                if (pb_t.get('github_repo') or HUB_REPO) != HUB_REPO:
+                    needs_update = True
+                    update_data['github_repo'] = HUB_REPO
+                expected_url = f"https://github.com/{HUB_REPO}/issues/{issue_id}"
+                if pb_t.get('github_issue_url') != expected_url:
+                    needs_update = True
+                    update_data['github_issue_url'] = expected_url
             
             if needs_update:
                 if update_pb_task(pb_t['id'], update_data):
@@ -169,7 +205,10 @@ def sync_mc_to_pb(content, pb_tasks):
                 "title": title,
                 "status": mc_t['status'],
                 "assigned_agent": mc_t.get('owner', 'gem'),
-                "description": mc_t.get('notes', 'Created from MISSION_CONTROL.md sync')
+                "description": mc_t.get('notes', 'Created from MISSION_CONTROL.md sync'),
+                "gh_issue_id": int(mc_t['id_num']) if mc_t['id_num'].isdigit() else 0,
+                "github_repo": HUB_REPO,
+                "github_issue_url": f"https://github.com/{HUB_REPO}/issues/{mc_t['id_num']}" if mc_t['id_num'].isdigit() else "",
             }
             
             try:
@@ -184,9 +223,17 @@ def sync_mc_to_pb(content, pb_tasks):
             
     return updates_made
 
+
+def is_extra_repo_task(title):
+    return title.startswith(EXTRA_REPO_PREFIXES)
+
 def format_open_table(tasks):
     # Only include tasks that are NOT approved/backlog
-    open_tasks = [t for t in tasks if t['status'] in ['todo', 'in_progress', 'peer_review']]
+    open_tasks = [
+        t for t in tasks
+        if t['status'] in ['todo', 'in_progress', 'peer_review']
+        and not is_extra_repo_task(t.get('title', ''))
+    ]
     if not open_tasks:
         return "| Ticket | Description | Owner | Status | Notes |\n| :--- | :--- | :--- | :--- | :--- |\n"
 
@@ -227,7 +274,11 @@ def format_open_table(tasks):
     return "\n".join(lines) + "\n"
 
 def format_closed_list(tasks):
-    closed_tasks = [t for t in tasks if t['status'] == 'approved']
+    closed_tasks = [
+        t for t in tasks
+        if t['status'] == 'approved'
+        and not is_extra_repo_task(t.get('title', ''))
+    ]
     
     # Sort by ID descending
     def get_id_num(t):
