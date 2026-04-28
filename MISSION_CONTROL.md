@@ -50,6 +50,138 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **iv6x1ihn**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **a2zzo7a9**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **8cvsm3am**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ht27zsk3**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **enkn9o0o**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **sadj6ivp**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **bgyoze0s**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **t9vkoa17**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **pjec337v**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **8sqtpyr8**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **cqpe2so4**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **d7d9kth0**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **wd82zm4b**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **ewdlqu1q**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **95i1l0n3**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **6cpb0hgi**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **zioaicxu**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **fzzjkqim**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ii44ldj9**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **rhevvrhd**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **dbmcshgr**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **8oo6m1g5**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **93wgxd1o**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **6365v7oe**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **7mzlbf1a**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **jw6vr9nr**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **t0du1ubx**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **z0bbjtav**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **0n6c71fr**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **z57pv68i**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **hzgxtjm3**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **dfn3wc0l**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **rlw8bcdq**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **hvil5en7**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **s252zko0**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **go825eit**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **d18qkyfm**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **xv0nq1h7**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **8z892yde**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **hakowt67**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **mxa5l57e**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **zkdxp48t**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **tlc4yjha**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **oa09fqdn**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **b19qnvih**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **nkl6krrv**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **eeptluqd**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **6n93miyq**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **lqfgj8xg**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **y960otbc**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **qv3w19ge**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **kw9gem7d**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **rcbq107x**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **vnkpo5gq**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **ysrb13br**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **3wxiqj31**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **rmdto762**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **9jvwd2al**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **5nj9x2vj**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **vze71uhk**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **t5ilvl3v**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **rqnnfwk1**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **8r34b8hy**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **kj539bvf**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **50tsrpth**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **cy4srf2q**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **vw4x4cxt**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **9h0tx1r5**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **221y6o8u**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **250mlg55**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **7acyorc8**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **33hacdx3**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **rzz9ejta**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **6mo5fxnh**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **97vg5990**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **8l6mjmm7**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **cylmqlq5**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **vhuo8mvt**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **yp8njcek**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ado6s1wc**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **563gbw84**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **rsnx25zf**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **u25n4oxi**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **yywmhwda**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **gy3qmj0n**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **d2rx4jop**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **a1jfwi7l**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **5po3tgav**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **2dc7c8jx**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **sfpvi69t**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **buzjmg64**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **wor51jgc**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **xkjh7jwx**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ak7cdodw**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **v5iopebj**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **15uoa3jl**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **bg8mupq4**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **pnpn70kw**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **vj4xbq5h**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **0aoqdedr**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **hqhvmbe2**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **b9i4f8wa**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **9mgc65oi**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **z2f0sizb**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ylnq9u2z**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **sleejaii**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **enom01jz**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **k3hbfbk1**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **zpame7ac**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **plyoaypc**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **6py1v2ti**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **vmvf3qzw**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **xuy29njy**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **fiper3i7**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **0x515wte**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **im9sh0tf**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ng1uujcq**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **4ie3xz5z**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **qae7ebtv**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **c83h5jrv**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **kt3t79x6**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **3gtzokpy**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **xkihov13**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **bgf77esl**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ro810bpr**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **vs32mc74**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ml7owskr**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **hc6g55x1**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **oz4iciap**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **6chsnpwg**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **lp2jlkem**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **6uehppp2**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
 - **kjj2p1gj**: PC-105 [P1]: Trip events count always 0 in summary -- Trip Summary shows 0 events even when calendar has events in the trip date range. Investigate event linkage in TripDetailViewModel.load — events query may use wrong date predicate. -- Gem. Approved.
 - **tgiddv3k**: PC-104 [P2]: Photo count '31\n6' wraps when 3-digit on trip summary card -- In trip Summary stat tile, 'Photos' value 316 line-breaks to '31\n6'. Fix tile width or use minimumScaleFactor / lineLimit(1). -- Misty. Approved.
 - **ingxuc6h**: PC-103 [P2]: Settings cleanup — remove Apertus model + HF token UI -- Apertus 8B no longer in roadmap (no MLX swift support yet). Remove from ModelManager.availableModels list, hide HF Token field in SettingsView. -- Clau. Approved.
@@ -382,7 +514,485 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **tcr13pbs**: TCR-13: PocketBase to Sheet reporting sync for YouTube metrics -- Sync YouTube metrics from PocketBase back into the reporting worksheet while leaving TikTok and Instagram columns human-owned. -- Codi. Approved.
 - **#5**: #5nkg4da6vgfbj1j: Peer review UI fixes for web page -- Reviewing UI fixes for the web page as described in task #5nkg4da6vgfbj1j -- Misty. Approved.
 - **tejrwdkf**: BBE page fixes: nav consolidation, project links, alignment -- ## What was done (Clau, 2026-03-12) -- Clau. Approved.
+- **fx1k0gr0**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **gpbyve12**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **hvmn1ob2**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **435cwgut**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **kbihitmf**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **22es5im9**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **kk9hj7si**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **75j3cprf**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **ufbigeu8**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **2aj5kejy**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **9fw5hpd5**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **iaud1jqd**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **zpx9e6ck**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **x7j7d9a7**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **w1pojmbk**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **35pybinz**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **7eo8m7yh**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **p6cn91ys**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **amhavrih**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **tuee6pvs**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **d3sdhsyo**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **ivfsgcjn**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **dmila734**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **byqqduxt**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **tdimaoit**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **t4r0x1vw**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **rxttx5o7**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **q4nz2hei**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **m6b15fme**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **9avj4v3x**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **204x0u3i**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **huyppqgo**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **rbdqrpxl**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **mhbt5lbc**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **cg2e2aea**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **6yzm6mnj**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **k3140xb9**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **x9qzr0ju**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **67hf1c01**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **zxziqiji**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **rtf446bh**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **57vsslij**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **8uakxnrn**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **p6kg0ni2**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **3j18lfby**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **0zb4wqiy**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **2ad1m66p**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **3krhvoq2**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **dbu4mzp5**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **78t4qgz7**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **mwmwyo8s**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **o4w38xl1**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **eiblqe1c**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **f3uofpbr**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **tiff2raj**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **hyviv6j3**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **4jb4leme**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **g76syrxq**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **cj86xrob**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **ovgt1gp1**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **ehxu3vfc**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **1ty27a2e**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **ud6inkh6**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **pmsacwfv**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **o4cd9v2z**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **u3doojbi**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **fi6yt7v1**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **opvtfj6z**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **66dlo4xc**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **ezlie6xa**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **dn3hjoq3**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **vwvsv3aq**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **02yszsok**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **79wpg1dv**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **x0ezwzii**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **oteufc4p**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **ie3dhc7c**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **s8xd7hgk**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **wa0yaq42**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **na2cthoj**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **8c61xy7v**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **j9c6ky5v**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **km7dim3w**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **l24rgqgf**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **khgtde15**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **f6wx0g40**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **nay6lrpq**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **kh9upuhd**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **l9ezkolw**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **kxaly3nx**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **7gy0jfbb**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **8m6rw63l**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **qu5n4k19**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **lrpwkmkx**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **g9rgxuzv**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **tckw50fd**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **k306zx4w**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **345r5nr9**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **8owb34rn**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **wsr78pwv**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **dblf3kg1**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **kpffi1gt**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **3tljwj49**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **ctii01k7**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **sbsvi8i0**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **ov3kypwj**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **yon6jjxq**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **hofc9tye**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **5adc3rsz**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **2agh868b**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **rxpiynmk**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **b30cs4ct**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **n4ij40s9**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **ve88b4ft**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **fwwy7tq7**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **5u07ijh9**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **g4bcazf6**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **64rihwkw**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **1c1z0ejy**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **85r60y54**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **io2k02ou**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **avbtqny4**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **f905a74k**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **g3b9plkn**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **5fylerib**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **9r8lg6v8**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **sltc9eq8**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **t1cegt0t**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **94qjv2xw**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **k1utevsm**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **vunjv6xu**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **e4bhjerl**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **y3vou9mh**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **nwqpi00b**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **lji73qtv**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **5w38i1it**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **elz966e2**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **ysqyt22r**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **5jp6otwo**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **3b9iawfr**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **5idlv5oe**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **yfs8t5um**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **g3ten3co**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **qucf28rv**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **gsks81t5**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **hfnc6x17**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **p3eff0ec**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **hme8wk9e**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **jvxsn6ml**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **8k26j6do**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **nolz2hkt**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **7uoisf38**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **4bd62v9a**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **32l35tpk**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **gwlqhfsg**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **4gj3sa6k**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **0nxad5zu**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **yf8ovfn4**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **r9gpzglp**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **ur7b7pjt**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **gp8dq3z6**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **43nw5upe**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **ie8aud70**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **0ea4q1j2**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **oqzbilys**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **hh91uous**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **3x08wd4c**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **swvot2z6**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **y0ui1wfc**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **k7a8r6r0**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **euhxnwhe**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **5tfr2jnj**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **yughbl8w**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **2o84j3ta**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **zqfw6t2f**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **wxd3liql**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **fxndwqgd**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **8qhughzx**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **wr7rr1by**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **fd8wb192**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **gsogyme2**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **w058xf7g**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **dd94ei99**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **mir7g2lc**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **7hehwtdd**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **r7eoeqfa**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **3l7gs29g**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **j14bomn8**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **tu5kg29q**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **we8eri5y**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **d2uw8d3f**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **ju8qsfki**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **7ljkam36**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **oy3gf5rd**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **bvgto39s**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **u3ralat9**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **lbgaa7cc**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **mze2hddr**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **hb64vq12**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **8704ie6f**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **ykmw3zs7**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **mi92u0ep**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **t702k13x**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **uonod3nv**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **sq7fir2w**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **29u74vyw**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **xz3cd6h0**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **hbsfodgt**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **j02gykkh**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **y2rqfzv4**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **vj5b4obh**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **s14gtqat**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **bqdtu7xw**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **ogwwrqwm**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **k5ma7quy**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **ec380x0w**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **vbvg3koe**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **b2bacqet**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **auqz9lwp**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **hys8a14l**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **4bpqx7xn**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **2t485c4u**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **vyvx8jjw**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **59k2m92t**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **h5ro9pch**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **bb3277ai**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **livbzleg**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **oqnb9sc7**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **3xq42y6m**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **6wwrc21e**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **lufyua85**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **olan7ad8**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by ... -- Codi. Approved.
+- **qpel3ie1**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ykwx3i2s**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **b5hv45qg**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **de90fp3l**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **s3iaxxxy**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **hmnyzcrf**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **y6bzfvkw**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **7z0bjyze**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ygmv8o14**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **3ig5dfeo**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **nlitwr0c**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **y2m47w22**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **s8zok7zb**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **qy0j6cd6**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **jcntbyvy**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **tgza5xzi**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **8yf03n7u**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **2ck6xd14**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **mzk65wxf**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **91phmqsf**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **fxwid6cj**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **f7zgu6rw**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ca4helxr**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **gc2p3kfk**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **yplrdmi8**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ny4pqo1s**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **0u4q74lv**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **0hvjmeel**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **1p9526h1**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **e7sno5sr**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **x3zgrhea**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **rspuubah**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **mzrnimy4**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **5v4ebev0**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **g40kktbw**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **z2ee04sh**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **j2onq32p**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **qhdvjbc9**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **xgox2qhd**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ei0xh35m**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **mdtrs5uu**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **0zluthhq**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **auzw1ius**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **5xkcn128**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **h3imlatm**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **9jezoray**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ooog7fzv**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ydn19hv8**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **p9dimp27**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **eanazkz2**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **dpajti3m**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **jxcar5el**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ago9y1j7**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ar9tns2v**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ssujuiel**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **7saqdgfy**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **wrvtyrao**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **w36kvbrh**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **sz2t7p02**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **5s5zktcx**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **9ptgr2ae**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **69uxw4l0**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **eiecoz5w**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **k4snowog**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **vopjujge**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **2wg4soye**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **4e6gmigs**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **j8os793u**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **n01pda53**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **kkv1r0es**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **18kgvnim**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **83a597df**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **qe3ldj0u**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **7a9vtosr**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **4uc4tw6a**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **d82jcemy**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **dmv41omp**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **1vnti7bq**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ymzt64q2**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **nu4gslgl**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ttm5qsxp**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ckxg7he5**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **c3egdo90**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **tpdh63ge**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **1583o7z4**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **5ou7s4x7**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **3lvifyrq**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **39hwkfll**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **uya1eot4**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **b8oygn64**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **4gu3561f**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **fv3sjilz**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **2xnwwbvd**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **xa6pg2xu**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **iyan6of1**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **2eqok0sk**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **1isctovy**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **rtrjmidl**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **tafo41vd**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **18pyn1l7**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **8bu3mwjb**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **48w170e6**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **xex8qa4x**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ec2t17qf**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **2cr5c03g**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **31mtlqqj**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **pntqe5uv**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **69mrz6da**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **tb0qg2va**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **y3dgd18a**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **779oeb3y**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **li5qn21a**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **gged87zv**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **j70q6jnf**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **aerzyw63**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **pgbwv6c4**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **vri0fyhn**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **6tbfvjs9**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **d5rybi2y**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **9ehcs40r**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **sldvve6d**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ghme2zi7**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **juzp3pm6**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **f5n8ck3n**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **nadgr2lp**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **4hsnbczq**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **duc4qcbl**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **7k8jmxld**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ovop6hgt**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **gns0e8j9**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **24yyhnqz**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **3i1dgucp**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **1dhamzi9**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **k6in6ymu**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **3k9nn0t7**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **kmni25u5**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **pflyz9ll**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **g16s4rf2**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **cd69y6ll**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **q50nayv3**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **nz7hw96r**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **xudcwb4x**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **1un2wz9o**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **3aqsh25i**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **xyorhois**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **lu1dp4uz**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **p16vz8sx**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **jklue51a**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **npz0ditq**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **u8o1oing**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **d4g177c2**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **qnytuhyp**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **sgcikyqx**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **4madgb8e**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **vwz0fipm**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **0kuoccu0**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **aysjlxnf**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **0m92ig2e**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **l2x3fwim**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **dufhza94**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **wbvozs00**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **e1w1zkmf**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **q5cvhvef**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **606rfoz1**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **rpmntn6p**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **6lp5lb9c**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **647iu56i**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **6gd4oaya**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **q6it9mws**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **lqgli4tk**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **r7gt7lno**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **fus0tq17**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **692sadx9**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **m6l8oa1i**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **y04dj03r**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **rdt28re4**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **lrxdish1**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **w2cfwpvw**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **5fg00riu**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **g6qq9ddx**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **3tf74lz7**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **4igjdotv**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **h3o6i625**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **cyvktkeq**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **2yj7sr1o**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **fnbwg9ao**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **queiuo4u**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **2owvrcky**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **n4xcy0m5**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **n3vraal9**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **6wicr7xo**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **67yumwpy**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **e672xob1**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **qwi23fpd**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ihqszehx**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **o90a0yqr**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **1xfkxilo**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **k6n7ncnz**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **5ypg01wv**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **91vljers**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **xqq18zdq**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **cag7yf5x**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **jrd5kv68**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **rae9grtv**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **uqdedtqw**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **lddv1zb2**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **1oq43vbh**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **sczx31o6**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ul4ehz41**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **3r7r371m**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **critbrc7**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **fog03q5d**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **z1lzthfy**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **3di2amtj**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **g252xn8l**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **iv8xp5e9**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **250aau99**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **8jj97rbr**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **xkl080rc**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **04qgtn2m**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **69s8qhlq**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **b8xzj56s**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **7nm00b9g**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **nortqjzw**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **cdx52xg1**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **bel8uw3g**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **jdo70602**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **pqtq7y5f**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ujafjaj1**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **gkzh0ooz**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **d5nlsggf**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **0dcgeytx**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
 - **xin4ssfe**: PC-107 [P1]: Retire Qwen2.5-VL 3B Q4 — too big for iOS jetsam, keep Qwen2-VL 2B as the only VLM -- On-device test 2026-04-27: Qwen2.5-VL 3B Q4 loads at ~2932MB active RAM. With CLIP, SQLite, SwiftUI heap and inference activations on top, it exceeds the iOS foreground jetsam cap and the app gets killed — even with onDismiss/background unload (PC-XXX). -- Codi. Approved.
+- **axjlcsjz**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **970gv5jb**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **yu877l0o**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **1fb4lqbc**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **mvpovnv0**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **23hw7rx7**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **j0pdz695**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **4xogwogf**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **4aepmo3u**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **e38a3p51**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **p6meay3q**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **tqtx38sj**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **ejccde14**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
+- **sibvnhzk**: PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now -- PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... -- Codi. Approved.
 - **d3xr2948**: PC-050: Model download UX — file counter + percentage -- Replace narrow progress bar with bar + text label showing File N/Total and file-level %. Preparing state shows Preparing text. Implemented via ModelDownloadProgress struct. -- Codi. Approved.
 - **w28r4jbj**: [infra] Codi PocketBase sandbox workaround — pre-fetch/flush wrapper -- Codi (Codex) runs in a sandboxed environment (-s workspace-write) where localhost:8090 is unreachable. Gem implemented a wrapper-based workaround: -- Gem. Approved.
 - **7e047f4z**: Growth Fleet, CRM branding, IAP inbox, mobile, BBE site, legal pages, lead intake -- Team. -- Created from MISSION_CONTROL.md sync -- Gem. Approved.
@@ -400,612 +1010,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **9bskyrav** | PC-098 [P1]: Add Qwen2.5 3B Instruct Q4 as Translation model + plan to retire old Qwen | codi | merged | Add Qwen2.5 3B Instruct Q4 to ModelManager.availab... |
 | **djg7fb5m** | PC-106 [P0]: PlaceService watchdog hammers CLGeocoder past Apple rate limit | codi | merged | PrivateCoreApp.swift:78-85 watchdog runs every 60s... |
 | **qbb817ac** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | planned | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **6uehppp2** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **lp2jlkem** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **6chsnpwg** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **oz4iciap** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **hc6g55x1** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ml7owskr** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **vs32mc74** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ro810bpr** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **bgf77esl** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **xkihov13** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **3gtzokpy** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **kt3t79x6** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **c83h5jrv** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **qae7ebtv** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **4ie3xz5z** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ng1uujcq** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **im9sh0tf** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **0x515wte** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **fiper3i7** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **xuy29njy** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **vmvf3qzw** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **6py1v2ti** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **plyoaypc** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **zpame7ac** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **k3hbfbk1** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **enom01jz** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **sleejaii** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ylnq9u2z** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **z2f0sizb** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **9mgc65oi** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **b9i4f8wa** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **hqhvmbe2** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **0aoqdedr** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **vj4xbq5h** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **pnpn70kw** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **bg8mupq4** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **15uoa3jl** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **v5iopebj** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ak7cdodw** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **xkjh7jwx** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **wor51jgc** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **buzjmg64** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **sfpvi69t** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **2dc7c8jx** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **5po3tgav** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **a1jfwi7l** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **d2rx4jop** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **gy3qmj0n** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **yywmhwda** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **u25n4oxi** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **rsnx25zf** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **563gbw84** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ado6s1wc** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **yp8njcek** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **vhuo8mvt** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **cylmqlq5** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **8l6mjmm7** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **97vg5990** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **6mo5fxnh** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **rzz9ejta** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **33hacdx3** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **7acyorc8** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **250mlg55** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **221y6o8u** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **9h0tx1r5** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **vw4x4cxt** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **cy4srf2q** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **50tsrpth** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **kj539bvf** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **8r34b8hy** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **rqnnfwk1** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **t5ilvl3v** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **vze71uhk** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
 | **l18m945t** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | planned | Goal: better translation quality at lower RAM, by ... |
-| **5nj9x2vj** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **9jvwd2al** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **rmdto762** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **3wxiqj31** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **ysrb13br** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **vnkpo5gq** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **rcbq107x** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **kw9gem7d** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **qv3w19ge** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **y960otbc** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **lqfgj8xg** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **6n93miyq** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **eeptluqd** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **nkl6krrv** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **b19qnvih** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **oa09fqdn** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **tlc4yjha** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **zkdxp48t** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **mxa5l57e** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **hakowt67** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **8z892yde** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **xv0nq1h7** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **d18qkyfm** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **go825eit** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **s252zko0** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **hvil5en7** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **rlw8bcdq** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **dfn3wc0l** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **hzgxtjm3** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **z57pv68i** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **0n6c71fr** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **z0bbjtav** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **t0du1ubx** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **jw6vr9nr** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **7mzlbf1a** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **6365v7oe** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **93wgxd1o** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **8oo6m1g5** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **dbmcshgr** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **rhevvrhd** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ii44ldj9** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **fzzjkqim** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **zioaicxu** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **6cpb0hgi** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **95i1l0n3** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ewdlqu1q** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **wd82zm4b** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **d7d9kth0** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **cqpe2so4** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **8sqtpyr8** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **pjec337v** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **t9vkoa17** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **bgyoze0s** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **sadj6ivp** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **enkn9o0o** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **ht27zsk3** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **8cvsm3am** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **a2zzo7a9** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **iv6x1ihn** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **gpbyve12** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **ykwx3i2s** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **hvmn1ob2** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **b5hv45qg** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **435cwgut** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **de90fp3l** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **kbihitmf** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **s3iaxxxy** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **22es5im9** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **hmnyzcrf** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **kk9hj7si** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **y6bzfvkw** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **75j3cprf** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **7z0bjyze** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ufbigeu8** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **ygmv8o14** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **2aj5kejy** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **3ig5dfeo** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **9fw5hpd5** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **nlitwr0c** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **iaud1jqd** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **y2m47w22** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **zpx9e6ck** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **s8zok7zb** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **x7j7d9a7** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **qy0j6cd6** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **w1pojmbk** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **jcntbyvy** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **35pybinz** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **tgza5xzi** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **7eo8m7yh** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **8yf03n7u** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **p6cn91ys** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **2ck6xd14** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **amhavrih** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **mzk65wxf** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **tuee6pvs** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **91phmqsf** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **d3sdhsyo** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **fxwid6cj** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ivfsgcjn** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **f7zgu6rw** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **dmila734** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **ca4helxr** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **byqqduxt** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **gc2p3kfk** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **tdimaoit** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **yplrdmi8** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **t4r0x1vw** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **ny4pqo1s** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **rxttx5o7** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **0u4q74lv** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **q4nz2hei** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **0hvjmeel** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **m6b15fme** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **1p9526h1** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **9avj4v3x** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **e7sno5sr** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **204x0u3i** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **x3zgrhea** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **huyppqgo** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **rspuubah** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **rbdqrpxl** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **mzrnimy4** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **mhbt5lbc** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **5v4ebev0** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **cg2e2aea** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **g40kktbw** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **6yzm6mnj** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **z2ee04sh** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **k3140xb9** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **j2onq32p** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **x9qzr0ju** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **qhdvjbc9** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **67hf1c01** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **xgox2qhd** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **zxziqiji** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **ei0xh35m** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **rtf446bh** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **mdtrs5uu** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **57vsslij** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **0zluthhq** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **8uakxnrn** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **auzw1ius** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **p6kg0ni2** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **5xkcn128** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **3j18lfby** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **h3imlatm** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **0zb4wqiy** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **9jezoray** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **2ad1m66p** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **ooog7fzv** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **3krhvoq2** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **ydn19hv8** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **dbu4mzp5** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **p9dimp27** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **78t4qgz7** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **eanazkz2** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **mwmwyo8s** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **dpajti3m** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **o4w38xl1** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **jxcar5el** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **eiblqe1c** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **ago9y1j7** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **f3uofpbr** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **ar9tns2v** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **tiff2raj** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **ssujuiel** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **hyviv6j3** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **7saqdgfy** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **4jb4leme** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **wrvtyrao** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **g76syrxq** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **w36kvbrh** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **cj86xrob** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **sz2t7p02** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ovgt1gp1** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **5s5zktcx** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **1ty27a2e** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **69uxw4l0** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ud6inkh6** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **eiecoz5w** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **pmsacwfv** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **k4snowog** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **o4cd9v2z** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **vopjujge** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **u3doojbi** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **2wg4soye** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **fi6yt7v1** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **4e6gmigs** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **opvtfj6z** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **j8os793u** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **66dlo4xc** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **n01pda53** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ezlie6xa** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **kkv1r0es** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **dn3hjoq3** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **18kgvnim** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **vwvsv3aq** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **83a597df** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **02yszsok** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **qe3ldj0u** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **79wpg1dv** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **7a9vtosr** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **x0ezwzii** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **4uc4tw6a** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **oteufc4p** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **d82jcemy** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ie3dhc7c** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **dmv41omp** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **s8xd7hgk** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **1vnti7bq** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **wa0yaq42** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **ymzt64q2** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **na2cthoj** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **nu4gslgl** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **8c61xy7v** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **ttm5qsxp** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **j9c6ky5v** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **ckxg7he5** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **km7dim3w** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **c3egdo90** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **l24rgqgf** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **tpdh63ge** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **khgtde15** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **1583o7z4** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **f6wx0g40** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **5ou7s4x7** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **nay6lrpq** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **3lvifyrq** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **kh9upuhd** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **39hwkfll** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **l9ezkolw** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **uya1eot4** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **kxaly3nx** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **b8oygn64** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **7gy0jfbb** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **4gu3561f** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **8m6rw63l** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **fv3sjilz** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **qu5n4k19** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **2xnwwbvd** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **lrpwkmkx** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **xa6pg2xu** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **g9rgxuzv** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **iyan6of1** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **tckw50fd** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **2eqok0sk** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **k306zx4w** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **1isctovy** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **345r5nr9** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **rtrjmidl** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **8owb34rn** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **tafo41vd** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **wsr78pwv** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **18pyn1l7** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **dblf3kg1** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **8bu3mwjb** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **kpffi1gt** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **48w170e6** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **3tljwj49** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **xex8qa4x** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ctii01k7** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **ec2t17qf** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **sbsvi8i0** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **2cr5c03g** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ov3kypwj** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **31mtlqqj** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **yon6jjxq** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **pntqe5uv** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **hofc9tye** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **69mrz6da** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **5adc3rsz** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **tb0qg2va** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **2agh868b** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **y3dgd18a** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **rxpiynmk** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **779oeb3y** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **b30cs4ct** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **li5qn21a** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **n4ij40s9** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **gged87zv** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ve88b4ft** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **j70q6jnf** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **fwwy7tq7** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **aerzyw63** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **5u07ijh9** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **pgbwv6c4** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **g4bcazf6** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **vri0fyhn** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **64rihwkw** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **6tbfvjs9** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **1c1z0ejy** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **d5rybi2y** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **85r60y54** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **9ehcs40r** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **io2k02ou** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **sldvve6d** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **avbtqny4** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **ghme2zi7** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **f905a74k** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **juzp3pm6** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **g3b9plkn** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **f5n8ck3n** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **5fylerib** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **nadgr2lp** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **9r8lg6v8** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **4hsnbczq** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **sltc9eq8** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **duc4qcbl** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **t1cegt0t** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **7k8jmxld** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **94qjv2xw** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **ovop6hgt** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **k1utevsm** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **gns0e8j9** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **vunjv6xu** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **24yyhnqz** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **e4bhjerl** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **3i1dgucp** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **y3vou9mh** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **1dhamzi9** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **nwqpi00b** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **k6in6ymu** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **lji73qtv** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **3k9nn0t7** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **5w38i1it** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **kmni25u5** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **elz966e2** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **pflyz9ll** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ysqyt22r** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **g16s4rf2** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **5jp6otwo** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **cd69y6ll** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **3b9iawfr** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **q50nayv3** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **5idlv5oe** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **nz7hw96r** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **yfs8t5um** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **xudcwb4x** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **g3ten3co** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **1un2wz9o** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **qucf28rv** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **3aqsh25i** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **gsks81t5** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **xyorhois** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **hfnc6x17** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **lu1dp4uz** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **p3eff0ec** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **p16vz8sx** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **hme8wk9e** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **jklue51a** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **jvxsn6ml** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **npz0ditq** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **8k26j6do** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **u8o1oing** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **nolz2hkt** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **d4g177c2** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **7uoisf38** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **qnytuhyp** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **4bd62v9a** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **sgcikyqx** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **32l35tpk** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **4madgb8e** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **gwlqhfsg** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **vwz0fipm** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **4gj3sa6k** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **0kuoccu0** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **0nxad5zu** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **aysjlxnf** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **yf8ovfn4** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **0m92ig2e** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **r9gpzglp** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **l2x3fwim** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ur7b7pjt** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **dufhza94** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **gp8dq3z6** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **wbvozs00** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **43nw5upe** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **e1w1zkmf** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ie8aud70** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **q5cvhvef** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **0ea4q1j2** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **606rfoz1** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **oqzbilys** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **rpmntn6p** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **hh91uous** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **6lp5lb9c** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **3x08wd4c** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **647iu56i** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **swvot2z6** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **6gd4oaya** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **y0ui1wfc** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **q6it9mws** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **k7a8r6r0** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **lqgli4tk** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **euhxnwhe** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **r7gt7lno** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **5tfr2jnj** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **fus0tq17** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **yughbl8w** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **692sadx9** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **2o84j3ta** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **m6l8oa1i** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **zqfw6t2f** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **y04dj03r** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **wxd3liql** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **rdt28re4** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **fxndwqgd** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **lrxdish1** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **8qhughzx** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **w2cfwpvw** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **wr7rr1by** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **5fg00riu** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **fd8wb192** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **g6qq9ddx** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **gsogyme2** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **3tf74lz7** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **w058xf7g** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **4igjdotv** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **dd94ei99** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **h3o6i625** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **mir7g2lc** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **cyvktkeq** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **7hehwtdd** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **2yj7sr1o** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **r7eoeqfa** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **fnbwg9ao** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **3l7gs29g** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **queiuo4u** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **j14bomn8** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **2owvrcky** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **tu5kg29q** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **n4xcy0m5** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **we8eri5y** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **n3vraal9** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **d2uw8d3f** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **6wicr7xo** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ju8qsfki** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **67yumwpy** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **7ljkam36** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **e672xob1** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **oy3gf5rd** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **qwi23fpd** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **bvgto39s** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **ihqszehx** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **u3ralat9** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **o90a0yqr** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **lbgaa7cc** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **1xfkxilo** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **mze2hddr** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **k6n7ncnz** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **hb64vq12** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **5ypg01wv** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **8704ie6f** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **91vljers** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ykmw3zs7** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **xqq18zdq** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **mi92u0ep** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **cag7yf5x** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **t702k13x** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **jrd5kv68** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **uonod3nv** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **rae9grtv** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **sq7fir2w** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **uqdedtqw** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **29u74vyw** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **lddv1zb2** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **xz3cd6h0** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **1oq43vbh** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **hbsfodgt** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **sczx31o6** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **j02gykkh** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **ul4ehz41** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **y2rqfzv4** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **3r7r371m** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **critbrc7** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **vj5b4obh** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **fog03q5d** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **s14gtqat** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **z1lzthfy** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **3di2amtj** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **bqdtu7xw** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **g252xn8l** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ogwwrqwm** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **k5ma7quy** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **iv8xp5e9** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ec380x0w** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **250aau99** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **vbvg3koe** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **8jj97rbr** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **b2bacqet** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **xkl080rc** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **auqz9lwp** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **hys8a14l** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **4bpqx7xn** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **04qgtn2m** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **69s8qhlq** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **2t485c4u** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **b8xzj56s** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **vyvx8jjw** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **7nm00b9g** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **59k2m92t** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **nortqjzw** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **h5ro9pch** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **bb3277ai** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **cdx52xg1** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **livbzleg** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **bel8uw3g** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **oqnb9sc7** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **jdo70602** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **3xq42y6m** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **pqtq7y5f** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **6wwrc21e** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **lufyua85** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **ujafjaj1** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **olan7ad8** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
-| **gkzh0ooz** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **d5nlsggf** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **0dcgeytx** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **axjlcsjz** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **970gv5jb** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **yu877l0o** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **1fb4lqbc** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **mvpovnv0** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **23hw7rx7** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **j0pdz695** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **4xogwogf** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **4aepmo3u** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **e38a3p51** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **p6meay3q** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **tqtx38sj** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **ejccde14** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
-| **sibvnhzk** | PC-107 [P2]: Retire Qwen2-VL 2B Q4 entry from ModelManager — Qwen2.5-VL 3B is the only VL model now | codi | merged | PC-098 (2b1e286) added Qwen2.5-VL 3B Q4 and kept Q... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
