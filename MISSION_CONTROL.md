@@ -744,6 +744,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **r4ad10f4** | PC-097 [P1]: BackgroundScheduler — BGTask identifiers not advertised in built Info.plist | codi | merged | Device logs show BGTaskScheduler rejects both regi... |
 | **l18m945t** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
+| **ynvm4wbf** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
 | **epb0aj75** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
 | **48tfzpwq** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
 | **iibrx921** | PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse | codi | merged | Goal: better translation quality at lower RAM, by ... |
