@@ -200,31 +200,13 @@ def sync_mc_to_pb(content, pb_tasks):
                     updates_made += 1
                     pb_t.update(update_data)
         else:
-            # Task not found, CREATE it
-            print(f"Ticket #{mc_t['id_num']} not found in PocketBase. Creating...")
-            title = mc_t.get('title_desc') or mc_t.get('desc_raw') or f"Task from MC: {mc_t['id_num']}"
-            if mc_t['id_num'].isdigit():
-                title = f"#{mc_t['id_num']}: {title}"
-            
-            new_task = {
-                "title": title,
-                "status": mc_t['status'],
-                "assigned_agent": mc_t.get('owner', 'gem'),
-                "description": mc_t.get('notes', 'Created from MISSION_CONTROL.md sync'),
-                "gh_issue_id": int(mc_t['id_num']) if mc_t['id_num'].isdigit() else 0,
-                "github_repo": HUB_REPO,
-                "github_issue_url": f"https://github.com/{HUB_REPO}/issues/{mc_t['id_num']}" if mc_t['id_num'].isdigit() else ""
-            }
-            
-            try:
-                r = requests.post(f"{PB_URL}/collections/tasks/records", json=new_task, timeout=10)
-                if r.status_code == 200:
-                    print(f"Created task: {title}")
-                    updates_made += 1
-                else:
-                    print(f"Failed to create task: {r.status_code}")
-            except Exception as e:
-                print(f"Error creating task: {e}")
+            # PB is the authoritative source. If MC references a record that
+            # is not in PB (typically a stale short-ID left over from a record
+            # we already deleted), skip — never auto-create. Earlier behavior
+            # re-spawned dupes every cycle: clau cleaned 600+ PC-107/PC-108
+            # records on 2026-04-28 and the next sync re-created 9 of them
+            # from stale MC short-IDs. github_sync owns the GH→PB lifecycle.
+            print(f"  skip: MC references {mc_t['id_num']} but no PB record matches (stale MC entry — will clear on next regen).")
             
     return updates_made
 
