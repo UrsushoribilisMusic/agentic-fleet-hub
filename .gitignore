@@ -24,3 +24,15 @@ test_*.py
 check_*.py
 peer_review_*.py
 tasks_response.json
+
+# Codi sandbox-blocked patch handoffs (obsolete now that codi can write directly,
+# but leave on disk for reference)
+.pc-patch/
+.pc-ios-link
+*.patch
+artifacts/
+
+# Daemon runtime caches that mutate every tick
+fleet/logs/dispatcher_cache.json
+fleet/logs/offline_agents.json
+fleet/logs/gh_sync_offset.json

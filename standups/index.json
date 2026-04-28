@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-04-28",
-    "summary": "Codi: completed hub task #225 on branch task/r8c8381ddac0886 by namespacing PocketBase GitHub identity with github_repo + github_issue_url across runtime and packaged sync scripts; verified all touched Python files with py_compile and staged the task for peer review.",
+    "summary": "Codi: completed hub task #225 earlier; later PC-109 investigation produced a validated PrivateCore patch artifact for Capture Scan OCR note creation, but direct iOS repo writes and PocketBase updates were blocked by the session environment.",
     "file": "2026-04-28.md"
   },
   {
