@@ -45,7 +45,10 @@ fi
   --dangerously-bypass-approvals-and-sandbox \
   --skip-git-repo-check \
   -C /Users/miguelrodriguez/projects/agentic-fleet-hub \
-  --add-dir /Users/miguelrodriguez/projects \
+  --add-dir /Users/miguelrodriguez/projects/private-core/PrivateCore \
+  --add-dir /Users/miguelrodriguez/projects/private-core \
+  --add-dir /Users/miguelrodriguez/projects/agentic-fleet-hub \
+  --add-dir /Users/miguelrodriguez/projects/agentic-fleet-hub/.fleet_cache \
   --add-dir "$FLEET" \
   "$CODEX_PROMPT"
 CODEX_EXIT=$?

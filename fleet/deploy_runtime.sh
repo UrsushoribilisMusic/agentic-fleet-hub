@@ -17,6 +17,12 @@ FILES=(
   fleet_sync.py
   github_sync.py
   heartbeat_check.py
+  codi/heartbeat_wrapper.sh
+  codi/pb_flush.py
+  codi/pb_fetch.py
+  codi/heartbeat_prompt.txt
+  clau/heartbeat_wrapper.sh
+  gem/heartbeat_wrapper.sh
 )
 
 # launchd services that import the synced files and need a bounce after copy.
@@ -33,10 +39,14 @@ for f in "${FILES[@]}"; do
     echo "  WARN: $f not in repo — skipping"
     continue
   fi
+  mkdir -p "$(dirname "$RUNTIME/_backup_$ts/$f")"
   if [ -f "$RUNTIME/$f" ]; then
     cp "$RUNTIME/$f" "$RUNTIME/_backup_$ts/$f"
   fi
+  mkdir -p "$(dirname "$RUNTIME/$f")"
   cp "$REPO/$f" "$RUNTIME/$f"
+  # heartbeat_wrapper.sh files need exec bit
+  case "$f" in *heartbeat_wrapper.sh|*pb_flush.py|*pb_fetch.py) chmod +x "$RUNTIME/$f" ;; esac
   echo "  $f"
 done
 echo "  backup at $RUNTIME/_backup_$ts"
