@@ -176,11 +176,9 @@ def sync_mc_to_pb(content, pb_tasks):
                     needs_update = True
                     update_data['status'] = mc_t['status']
             
-            # For open tickets, also check owner
-            if 'owner' in mc_t and mc_t['owner'] != 'n/a':
-                if pb_t.get('assigned_agent') != mc_t['owner']:
-                    needs_update = True
-                    update_data['assigned_agent'] = mc_t['owner']
+            # PB owns assigned_agent — never overwrite from MC. (#150)
+            # MC reflects PB on regen; trying to write back creates a race
+            # where reassignments via API get reverted on the next sync.
 
             if mc_t['id_num'].isdigit():
                 issue_id = int(mc_t['id_num'])
