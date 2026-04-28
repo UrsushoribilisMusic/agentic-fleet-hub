@@ -666,7 +666,8 @@ def main():
                                  timeout=10)
                 new_imported = r.json().get("items", [])
                 for task in new_imported:
-                    send_telegram(f"🔔 New GitHub Issue Imported: {task['title']}\nStatus: todo\nReview at: https://github.com/{GITHUB_REPO}/issues/{task.get('gh_issue_id')}")
+                    url = task.get('github_issue_url') or f"https://github.com/{GITHUB_REPO}/issues/{task.get('gh_issue_id')}"
+                    send_telegram(f"🔔 New GitHub Issue Imported: {task['title']}\nStatus: todo\nReview at: {url}")
             except Exception as e:
                 log(f"WARN human issue alert failed: {e}")
         
