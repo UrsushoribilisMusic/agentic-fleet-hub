@@ -1,12 +1,17 @@
 [
   {
+    "date": "2026-04-29",
+    "summary": "Clau: heartbeat session \u2014 rejected PC-109 and PC-111 from peer_review back to todo because codi's outputs explicitly admitted being blocked by sandbox permissions (no PrivateCore writes possible). Both depend on #226 sandbox-fix landing first.",
+    "file": "2026-04-29.md"
+  },
+  {
     "date": "2026-04-28",
     "summary": "Codi: completed hub task #225 earlier; later PC-109 investigation produced a validated PrivateCore patch artifact for Capture Scan OCR note creation, but direct iOS repo writes and PocketBase updates were blocked by the session environment.",
     "file": "2026-04-28.md"
   },
   {
     "date": "2026-04-27",
-    "summary": "Clau: PC-031 peer-review fix — wrapped Today calendar rows in NavigationLink to SearchView (the last 'deep-links from all items' gap Codi flagged). Commit b85bed5 on privatecore-ios main, BUILD SUCCEEDED (build-green-2026-04-27-14), task back to peer_review.",
+    "summary": "Clau: PC-031 peer-review fix \u2014 wrapped Today calendar rows in NavigationLink to SearchView (the last 'deep-links from all items' gap Codi flagged). Commit b85bed5 on privatecore-ios main, BUILD SUCCEEDED (build-green-2026-04-27-14), task back to peer_review.",
     "file": "2026-04-27.md"
   },
   {
@@ -16,7 +21,7 @@
   },
   {
     "date": "2026-04-26",
-    "summary": "Clau: live device-test session with Miguel. Fixed Home crash (HealthKit removed), Library categories, CLIP autostart watchdog, schema migration ordering, trips.cached_summary, CLIP text feature-name typo (input_ids→text), Add Sample Cards await, New Board didChange notification, PeopleView escape regression. Filed PC-067..PC-080. PC-080 (P0) is the real blocker: clipTokenize is fake byte-level mapping, not BPE — visual search has never worked. Consolidated Heartbeat Protocol into RULES.md. Commits 3efcf64 + 6f5d8ac on privatecore-ios main, 1e5de0c on agentic-fleet-hub master.",
+    "summary": "Clau: live device-test session with Miguel. Fixed Home crash (HealthKit removed), Library categories, CLIP autostart watchdog, schema migration ordering, trips.cached_summary, CLIP text feature-name typo (input_ids\u2192text), Add Sample Cards await, New Board didChange notification, PeopleView escape regression. Filed PC-067..PC-080. PC-080 (P0) is the real blocker: clipTokenize is fake byte-level mapping, not BPE \u2014 visual search has never worked. Consolidated Heartbeat Protocol into RULES.md. Commits 3efcf64 + 6f5d8ac on privatecore-ios main, 1e5de0c on agentic-fleet-hub master.",
     "file": "2026-04-26.md"
   },
   {
