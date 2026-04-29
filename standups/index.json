@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-04-29",
-    "summary": "Gem: fixed orientation normalization for camera captures (PC-091); add-to-board inline NewBoardSheet (PC-120). Clau: shipped PC-134 capture flow simplification, PC-126 trip summary edit button (a89cf4b). Codi: approved PC-112/132/134/135, returned PC-131 to todo, build-green-2026-04-29-18.",
+    "summary": "Clau: approved PC-126, fixed PC-124/127/128/129 stuck statuses, shipped PC-133 (Saved Searches section + reload fix)",
     "file": "2026-04-29.md"
   },
   {
