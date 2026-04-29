@@ -65,6 +65,7 @@ fi
 echo "$LOG_PREFIX: launching Claude Code..."
 /Users/miguelrodriguez/.local/bin/claude \
     --dangerously-skip-permissions \
+    --model claude-sonnet-4-6 \
     -p "$FULL_PROMPT" >"$CLAUDE_TMP" 2>&1
 CLAUDE_EXIT=$?
 cat "$CLAUDE_TMP"
