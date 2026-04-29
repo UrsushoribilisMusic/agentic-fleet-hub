@@ -52,6 +52,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
 - **49qzyt6z**: PC-135 [P2]: Settings → Reindex: progress feedback during reindex -- Currently tapping Reindex starts the work silently — no spinner, no count, no log line in the UI. User can't tell if it's running or stuck. Add either: -- Clau. Approved.
 - **u6jwfkfr**: PC-134 [P0]: Capture flow simplification: 4 actions, single layer, no save-to-library prompt -- Current: Capture has two menus — first level (Photo/Scan/Ask), second level after capture. Plus a 'top X' button that does nothing. Plus a 'save to library' question. -- Clau. Approved.
+- **spp93kio**: PC-133 [P1]: Saved Searches section + bug: stored searches lost when re-saving -- Two issues: -- Misty. Approved.
 - **e1qnyv3d**: PC-132 [P1]: Library empty state should show last 10 cards instead of 'add sample cards' -- When the user has cards but the navigation lands on a flat 'empty library — add sample cards' state (observed after navigating back from Insights), the message is wrong AND wastes the screen. Replace with a 'Recent activity' section: last 10 cards across all types (photos, notes, boards). Keep the sample-cards CTA only when the library is genuinely empty (count == 0). -- Clau. Approved.
 - **bhzspx8g**: PC-129 [P1]: Boards detail: render members as pinterest-style cards, not just photos -- Library → Boards → board → currently no photos shown for boards with members. Use the PC-127 pinterest layout, BUT extend it to render every board-member type as a card: -- Codi. Approved.
 - **fw39agdh**: PC-128 [P1]: Place detail: photos use the same day-grouped pinterest layout as PC-127 -- Library → Places → place → photos must render via the same component that PC-127 introduces for Trip-day photos. Tapping a photo navigates to the metadata detail view (PC-124). -- Codi. Approved.
@@ -426,7 +427,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **3507n6wx** | PC-125 [P1]: Calendar event 'See all matches' should execute the search, not navigate to empty Search tab | misty | planned | Today/Upcoming → tap event → CalendarEventDetailVi... |
 | **nzwzgjqa** | PC-127 [P0]: Trip photos: replace flat thumbnail list with day-grouped pinterest-style cards | clau | merged | Big UX change for Trips → trip detail. Currently p... |
 | **x5fyu470** | PC-131 [P1]: Library → Insights: make Top Tags / Trips / Top Places clickable | misty | planned | Library → Insights screen lists three sections tha... |
-| **spp93kio** | PC-133 [P1]: Saved Searches section + bug: stored searches lost when re-saving | misty | merged | Two issues:... |
 | **k55s09zn** | PC-136 [P1]: Universal pinterest/mymind-style card view — apply to all photo+card lists | codi | merged | General architectural ask (Miguel 2026-04-29): the... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
