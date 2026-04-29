@@ -427,6 +427,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **nzwzgjqa** | PC-127 [P0]: Trip photos: replace flat thumbnail list with day-grouped pinterest-style cards | clau | merged | Big UX change for Trips → trip detail. Currently p... |
 | **x5fyu470** | PC-131 [P1]: Library → Insights: make Top Tags / Trips / Top Places clickable | misty | planned | Library → Insights screen lists three sections tha... |
 | **spp93kio** | PC-133 [P1]: Saved Searches section + bug: stored searches lost when re-saving | misty | merged | Two issues:... |
-| **k55s09zn** | PC-136 [P1]: Universal pinterest/mymind-style card view — apply to all photo+card lists | codi | planned | General architectural ask (Miguel 2026-04-29): the... |
+| **k55s09zn** | PC-136 [P1]: Universal pinterest/mymind-style card view — apply to all photo+card lists | codi | merged | General architectural ask (Miguel 2026-04-29): the... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
