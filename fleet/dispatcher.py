@@ -272,7 +272,7 @@ def is_agent_offline(agent_key):
         dt = datetime.strptime(ts_part, "%Y-%m-%d %H:%M:%S")
         age_seconds = (now - dt).total_seconds()
         last_seen_str = f"{int(age_seconds // 60)}m ago"
-        return (age_seconds > 1800), last_seen_str # 30 min threshold
+        return (age_seconds > 5400), last_seen_str # 90 min threshold (was 30, raised after 2026-04-28 sandbox glitch caused gem-pile-up)
     except Exception as e:
         log(f"Error checking health for {agent_key}: {e}")
         return True, "Error"
