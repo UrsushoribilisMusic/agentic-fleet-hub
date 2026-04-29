@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-04-30",
-    "summary": "Clau: applied Codi's PATCH-PC-128 (DayGroupedPhotoLayout) and PATCH-PC-129 (BoardMemberCell type tiles) — both approved, committed, pushed, BUILD SUCCEEDED. PC-124 rejected (4th) → todo. PC-133 self-recusal. No own todo tasks.",
+    "summary": "Clau: PC-124 rejected (5th) then taken over and implemented — structured photo metadata block in CardDetailView (date, OCR collapsible, notes), BUILD SUCCEEDED, peer_review. PC-133 self-recusal (3rd).",
     "file": "2026-04-30.md"
   },
   {
