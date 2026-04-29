@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-04-29",
-    "summary": "Gem: fixed orientation normalization for camera captures (PC-091), build verified, task to peer_review; Clau: heartbeat session \u2014 rejected PC-109 and PC-111 from peer_review back to todo because codi's outputs explicitly admitted being blocked by sandbox permissions (no PrivateCore writes possible). Both depend on #226 sandbox-fix landing first.",
+    "summary": "Gem: fixed orientation normalization for camera captures (PC-091); add-to-board inline NewBoardSheet (PC-120). Clau: shipped PC-134 capture flow simplification (single-layer 4-action panel, build-green-2026-04-29-11) and blocked PC-130 on PC-127.",
     "file": "2026-04-29.md"
   },
   {
