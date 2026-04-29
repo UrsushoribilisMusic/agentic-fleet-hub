@@ -421,7 +421,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **oe6us4ec** | PC-123 [P1]: Photo cards with stale absolute paths (old container UUID) need migration to PHAsset.localIdentifier | clau | merged | Symptom (in v0.1.12 logs): CardImageThumbnail repe... |
 | **f0vbuej7** | PC-124 [P1]: Photo card detail — replace raw path/Content with structured metadata block | codi | merged | Follow-up to PC-122 (which prevented mutation of c... |
 | **3507n6wx** | PC-125 [P1]: Calendar event 'See all matches' should execute the search, not navigate to empty Search tab | misty | planned | Today/Upcoming → tap event → CalendarEventDetailVi... |
-| **7jwq7hwn** | PC-126 [P1]: Trip summary needs an Edit button (in-place edit + save) | clau | planned | Library → Trips → trip → trip summary block is rea... |
+| **7jwq7hwn** | PC-126 [P1]: Trip summary needs an Edit button (in-place edit + save) | misty | planned | Library → Trips → trip → trip summary block is rea... |
 | **nzwzgjqa** | PC-127 [P0]: Trip photos: replace flat thumbnail list with day-grouped pinterest-style cards | codi | merged | Big UX change for Trips → trip detail. Currently p... |
 | **fw39agdh** | PC-128 [P1]: Place detail: photos use the same day-grouped pinterest layout as PC-127 | codi | merged | Library → Places → place → photos must render via ... |
 | **bhzspx8g** | PC-129 [P1]: Boards detail: render members as pinterest-style cards, not just photos | codi | merged | Library → Boards → board → currently no photos sho... |
