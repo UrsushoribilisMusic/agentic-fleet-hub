@@ -425,7 +425,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **nzwzgjqa** | PC-127 [P0]: Trip photos: replace flat thumbnail list with day-grouped pinterest-style cards | codi | merged | Big UX change for Trips → trip detail. Currently p... |
 | **fw39agdh** | PC-128 [P1]: Place detail: photos use the same day-grouped pinterest layout as PC-127 | codi | merged | Library → Places → place → photos must render via ... |
 | **bhzspx8g** | PC-129 [P1]: Boards detail: render members as pinterest-style cards, not just photos | codi | merged | Library → Boards → board → currently no photos sho... |
-| **x5fyu470** | PC-131 [P1]: Library → Insights: make Top Tags / Trips / Top Places clickable | clau | planned | Library → Insights screen lists three sections tha... |
+| **x5fyu470** | PC-131 [P1]: Library → Insights: make Top Tags / Trips / Top Places clickable | misty | planned | Library → Insights screen lists three sections tha... |
 | **spp93kio** | PC-133 [P1]: Saved Searches section + bug: stored searches lost when re-saving | clau | planned | Two issues:... |
 | **k55s09zn** | PC-136 [P1]: Universal pinterest/mymind-style card view — apply to all photo+card lists | codi | planned | General architectural ask (Miguel 2026-04-29): the... |
 
