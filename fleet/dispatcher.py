@@ -5,6 +5,7 @@ Implements Option 1: Dual Sync Strategy (Checks both Files and PocketBase).
 """
 
 import subprocess
+import sys
 import time
 import requests
 import json
@@ -20,6 +21,7 @@ LOG_FILE = f"{FLEET_DIR}/logs/dispatcher.log"
 NOTIF_FILE = f"{FLEET_DIR}/logs/notifications.json"
 OFFLINE_AGENTS_FILE = f"{FLEET_DIR}/logs/offline_agents.json"
 DISPATCHER_CACHE_FILE = f"{FLEET_DIR}/logs/dispatcher_cache.json"
+AGENT_FAILURES_FILE = f"{FLEET_DIR}/logs/agent_failures.json"
 
 # Telegram settings from environment (Infisical)
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
@@ -27,6 +29,17 @@ TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "997912895")
 
 # Configurable Cooldown (default 5 minutes)
 COOLDOWN_SECONDS = int(os.environ.get("DISPATCHER_COOLDOWN", "300"))
+FAILURE_COOLDOWN_SECONDS = int(os.environ.get("DISPATCHER_FAILURE_COOLDOWN", "3600"))
+TOKEN_FAILURE_COOLDOWN_SECONDS = int(os.environ.get("DISPATCHER_TOKEN_FAILURE_COOLDOWN", str(12 * 3600)))
+TOKEN_FAILURE_PATTERNS = (
+    "quota",
+    "rate limit",
+    "resource_exhausted",
+    "exceeded",
+    "out of tokens",
+    "token limit",
+    "insufficient_quota",
+)
 
 # Ensure logs directory exists
 os.makedirs(f"{FLEET_DIR}/logs", exist_ok=True)
@@ -47,7 +60,7 @@ AGENT_COMMANDS = {
         FLEET_DIR,
         "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
     ],
-    "gemma": ["/opt/homebrew/bin/aichat", "--rag", ".", "Run your heartbeat protocol. Read GEMMA.md first."],
+    "gemma": ["/opt/homebrew/bin/aichat", "-m", os.environ.get("QWEN_CODER_MODEL", "ollama-gemma:qwen3-coder:latest"), "--rag", ".", "Run your heartbeat protocol. Read GEMMA.md first."],
 }
 
 # Force a dispatch cycle every N hours even if no changes detected.
@@ -131,6 +144,71 @@ def _load_fleet_meta():
     except Exception as e:
         log(f"Error loading fleet_meta.json: {e}")
         return {}
+
+def _parse_utc(value):
+    if not value:
+        return None
+    try:
+        return datetime.fromisoformat(str(value).replace("Z", "+00:00")).replace(tzinfo=None)
+    except ValueError:
+        return None
+
+def _load_agent_failures():
+    try:
+        if os.path.exists(AGENT_FAILURES_FILE):
+            with open(AGENT_FAILURES_FILE, "r") as f:
+                return json.load(f)
+    except Exception as e:
+        log(f"Error loading agent failures: {e}")
+    return {}
+
+def _save_agent_failures(data):
+    try:
+        with open(AGENT_FAILURES_FILE, "w") as f:
+            json.dump(data, f, indent=2)
+    except Exception as e:
+        log(f"Error saving agent failures: {e}")
+
+def _agent_meta_by_key(agent_key, all_agents_meta=None):
+    if all_agents_meta is None:
+        all_agents_meta = _load_fleet_meta().get("team", [])
+    return next((a for a in all_agents_meta if a.get("heartbeatKey") == agent_key), {})
+
+def is_agent_available(agent_key, agent_meta=None):
+    """Explicit availability gate: token exhaustion beats heartbeat freshness."""
+    agent_meta = agent_meta or _agent_meta_by_key(agent_key)
+    now = datetime.utcnow()
+
+    if agent_meta.get("available") is False:
+        return False, "disabled in fleet_meta"
+
+    meta_until = _parse_utc(agent_meta.get("unavailableUntil") or agent_meta.get("blocked_until"))
+    if meta_until and meta_until > now:
+        return False, f"unavailable until {meta_until.isoformat()}Z"
+
+    failure = _load_agent_failures().get(agent_key, {})
+    blocked_until = _parse_utc(failure.get("blocked_until"))
+    if blocked_until and blocked_until > now:
+        return False, failure.get("reason", f"cooldown until {blocked_until.isoformat()}Z")
+
+    return True, ""
+
+def mark_agent_unavailable(agent_key, reason, cooldown_seconds):
+    blocked_until = datetime.utcnow() + timedelta(seconds=cooldown_seconds)
+    failures = _load_agent_failures()
+    failures[agent_key] = {
+        "blocked_until": blocked_until.strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "reason": reason,
+        "updated": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+    }
+    _save_agent_failures(failures)
+    log(f"Marked {agent_key} unavailable until {failures[agent_key]['blocked_until']}: {reason}")
+
+def classify_agent_failure(output):
+    text = (output or "").lower()
+    if any(pattern in text for pattern in TOKEN_FAILURE_PATTERNS):
+        return "token/quota failure", TOKEN_FAILURE_COOLDOWN_SECONDS
+    return "invocation failure", FAILURE_COOLDOWN_SECONDS
 
 def _active_project_watch_files():
     watched = [
@@ -253,19 +331,20 @@ def post_comment(task_id, agent, content, comment_type="output"):
         log(f"ERROR posting comment: {e}")
 
 def is_agent_offline(agent_key):
-    """Checks if an agent has been offline for more than 30 minutes."""
+    """Checks if an agent has been offline, ignoring dispatcher-synthesized idle heartbeats."""
     try:
         r = requests.get(f"{PB_URL}/collections/heartbeats/records",
                          params={
                              "filter": f'agent = "{agent_key}"',
                              "sort": "-updated",
-                             "perPage": 1
+                             "perPage": 20
                          }, timeout=10)
         items = r.json().get("items", [])
+        items = [hb for hb in items if hb.get("status") != "idle"]
         
         now = datetime.utcnow()
         if not items:
-            return True, "Never"
+            return True, "No non-idle heartbeat"
         
         hb = items[0]
         ts_part = hb["updated"].split('.')[0].replace('Z', '')
@@ -291,6 +370,9 @@ def find_best_substitute(task, offline_agent_key, all_agents_meta, offline_skill
 
     for agent in all_agents_meta:
         if agent["heartbeatKey"] == offline_agent_key: continue
+        available, _ = is_agent_available(agent["heartbeatKey"], agent)
+        if not available:
+            continue
         
         agent_skills = set(agent.get("skills", []))
         score = len(required_skills_set.intersection(agent_skills))
@@ -378,7 +460,7 @@ def reclaim_tasks_for_returning_agent(returning_agent_key):
 def reassign_tasks(offline_agent_key, all_agents_meta):
     try:
         r = requests.get(f"{PB_URL}/collections/tasks/records",
-                         params={"filter": f'assigned_agent = "{offline_agent_key}" && (status = "todo" || status = "in_progress")'})
+                         params={"filter": f'assigned_agent = "{offline_agent_key}" && status = "in_progress"'})
         tasks = r.json().get("items", [])
         if not tasks:
             return
@@ -503,7 +585,11 @@ def check_agent_health():
             agent_key = agent_meta["heartbeatKey"]
             if agent_key == "openclaw": continue
             
+            is_available, availability_reason = is_agent_available(agent_key, agent_meta)
             is_currently_offline, last_seen_str = is_agent_offline(agent_key)
+            if not is_available:
+                is_currently_offline = True
+                last_seen_str = availability_reason
             previously_offline = agent_key in offline_data
             
             if is_currently_offline:
@@ -528,6 +614,10 @@ def check_agent_health():
 def run_agent(agent_name, task):
     if agent_name not in AGENT_COMMANDS:
         return
+    is_available, reason = is_agent_available(agent_name)
+    if not is_available:
+        log(f"Skipping {agent_name} for '{task['title']}': {reason}")
+        return
 
     log(f"Dispatching task '{task['title']}' to {agent_name}")
     update_task_status(task["id"], "in_progress", from_status=task.get("status"), agent=agent_name)
@@ -549,9 +639,12 @@ def run_agent(agent_name, task):
         else:
             log(f"ERROR: Agent {agent_name} failed")
             post_comment(task["id"], agent_name, f"FAILED with return code {result.returncode}:\n{output[:1000]}", "feedback")
+            reason, cooldown = classify_agent_failure(output)
+            mark_agent_unavailable(agent_name, reason, cooldown)
             update_task_status(task["id"], "todo", from_status="in_progress", agent=agent_name)
     except Exception as e:
         log(f"ERROR running {agent_name}: {e}")
+        mark_agent_unavailable(agent_name, "dispatcher exception", FAILURE_COOLDOWN_SECONDS)
         update_task_status(task["id"], "todo", from_status="in_progress", agent=agent_name)
 
 def get_notif_data():
@@ -770,6 +863,12 @@ def main():
                         log(f"Auto-assigned task '{task['title']}' to {agent}")
                         update_task_agent(task["id"], agent)
                 
+                if agent:
+                    is_available, reason = is_agent_available(agent, _agent_meta_by_key(agent, all_agents_meta))
+                    if not is_available:
+                        log(f"Skipping task '{task['title']}' for unavailable agent {agent}: {reason}")
+                        continue
+
                 if agent and agent not in offline_agents:
                     run_agent(agent, task)
             

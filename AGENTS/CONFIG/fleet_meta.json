@@ -33,6 +33,7 @@
         "clau",
         "codi"
       ],
+      "unavailableUntil": "2026-04-30T06:00:00Z",
       "runtime": "Cloud (Google)",
       "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/GEMINI.md"
     },
@@ -73,15 +74,15 @@
       "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/MISTRAL.md"
     },
     {
-      "name": "Gemma",
-      "avatar": "💎",
+      "name": "Qwen Coder",
+      "avatar": "QC",
       "heartbeatKey": "gemma",
-      "roleTitle": "Local Intelligence & Cost Guard",
-      "roleDesc": "Runs entirely on-device via Ollama. Handles cost-sensitive tasks, offline work, and low-latency local inference without any API spend.",
+      "roleTitle": "Local Coding Model",
+      "roleDesc": "Runs through the legacy gemma fleet slot using Qwen Coder via aichat/Ollama. Intended for local coding assistance once the tool-safe execution harness is enabled.",
       "skills": [
         "Local Inference",
-        "Cost Optimization",
-        "Offline Tasks"
+        "Code Generation",
+        "Low-Cost Coding"
       ],
       "fallbackChain": [
         "clau"
