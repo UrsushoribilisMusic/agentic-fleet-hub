@@ -48,7 +48,7 @@ AGENT_COMMANDS = {
     "scout": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/scout", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "echo": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/echo", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "closer": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/closer", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
-    "clau": ["/Users/miguelrodriguez/.local/bin/claude", "--dangerously-skip-permissions", "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
+    "clau": ["/Users/miguelrodriguez/.local/bin/claude", "--dangerously-skip-permissions", "--model", "claude-sonnet-4-6", "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "gem": ["/opt/homebrew/bin/node", "/opt/homebrew/bin/gemini", "--yolo", "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "codi": [
         "/opt/homebrew/bin/node",
@@ -58,6 +58,8 @@ AGENT_COMMANDS = {
         CODEX_REPO_DIR,
         "--add-dir",
         FLEET_DIR,
+        "--add-dir",
+        "/Users/miguelrodriguez/projects/private-core/PrivateCore",
         "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
     ],
     "gemma": ["/opt/homebrew/bin/aichat", "-m", os.environ.get("QWEN_CODER_MODEL", "ollama-gemma:qwen3-coder:latest"), "--rag", ".", "Run your heartbeat protocol. Read GEMMA.md first."],
