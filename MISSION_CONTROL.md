@@ -422,7 +422,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **myucacbb** | PC-110 [P0]: Capture → Save to Library stays on photo preview; should save and return to camera | clau | merged | After tapping Save in Capture, app stays on the ph... |
 | **oe6us4ec** | PC-123 [P1]: Photo cards with stale absolute paths (old container UUID) need migration to PHAsset.localIdentifier | clau | merged | Symptom (in v0.1.12 logs): CardImageThumbnail repe... |
-| **f0vbuej7** | PC-124 [P1]: Photo card detail — replace raw path/Content with structured metadata block | codi | merged | Follow-up to PC-122 (which prevented mutation of c... |
+| **f0vbuej7** | PC-124 [P1]: Photo card detail — replace raw path/Content with structured metadata block | clau | merged | Follow-up to PC-122 (which prevented mutation of c... |
 | **3507n6wx** | PC-125 [P1]: Calendar event 'See all matches' should execute the search, not navigate to empty Search tab | misty | planned | Today/Upcoming → tap event → CalendarEventDetailVi... |
 | **nzwzgjqa** | PC-127 [P0]: Trip photos: replace flat thumbnail list with day-grouped pinterest-style cards | clau | merged | Big UX change for Trips → trip detail. Currently p... |
 | **x5fyu470** | PC-131 [P1]: Library → Insights: make Top Tags / Trips / Top Places clickable | misty | planned | Library → Insights screen lists three sections tha... |
