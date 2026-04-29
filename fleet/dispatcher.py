@@ -306,6 +306,75 @@ def find_best_substitute(task, offline_agent_key, all_agents_meta, offline_skill
                     
     return best_agent
 
+def reclaim_tasks_for_returning_agent(returning_agent_key):
+    """When an agent comes back online, reclaim recently reassigned-away tasks
+    that the substitute agent never started. Prevents the gem-pile-up that
+    happened 2026-04-28 when codi was sandbox-blocked for ~2 hours and all her
+    capture-flow P0s ended up on gem."""
+    try:
+        # Find recent reassignment events where this agent was the original owner.
+        # 24h window — older reassignments are stale; respect that the substitute
+        # may have made progress.
+        since = (datetime.utcnow() - timedelta(hours=24)).strftime("%Y-%m-%d %H:%M:%S")
+        r = requests.get(
+            f"{PB_URL}/collections/task_events/records",
+            params={
+                "filter": f'event_type="reassignment" && timestamp >= "{since}"',
+                "perPage": 200,
+                "sort": "-created",
+            }, timeout=10
+        )
+        events = r.json().get("items", [])
+        candidates = [
+            e for e in events
+            if (e.get("meta") or {}).get("from_agent") == returning_agent_key
+        ]
+        if not candidates:
+            return
+
+        # Dedupe by task_id (most recent event per task)
+        seen = {}
+        for e in candidates:
+            tid = e.get("task_id")
+            if tid and tid not in seen:
+                seen[tid] = e
+
+        reclaimed = 0
+        for tid, ev in seen.items():
+            # Fetch current task. Only reclaim if:
+            #   - assigned_agent is still the substitute (no further reassign)
+            #   - status is still 'todo' (substitute didn't start work)
+            try:
+                t = requests.get(f"{PB_URL}/collections/tasks/records/{tid}", timeout=10).json()
+            except Exception:
+                continue
+            current_agent = t.get("assigned_agent")
+            substitute    = (ev.get("meta") or {}).get("to_agent")
+            if current_agent != substitute:
+                continue  # already moved further; leave it
+            if t.get("status") != "todo":
+                continue  # substitute already in_progress / shipped — respect their work
+
+            try:
+                requests.patch(f"{PB_URL}/collections/tasks/records/{tid}",
+                               json={"assigned_agent": returning_agent_key}, timeout=10)
+                log_task_event("reclaim", tid,
+                               agent="dispatcher",
+                               meta={"from_agent": substitute,
+                                     "to_agent": returning_agent_key,
+                                     "reason": "original owner returned online",
+                                     "original_reassignment": ev.get("id")})
+                reclaimed += 1
+            except Exception as e:
+                log(f"ERROR reclaiming task {tid}: {e}")
+
+        if reclaimed:
+            log(f"Reclaimed {reclaimed} task(s) back to {returning_agent_key} on recovery")
+            send_telegram(f"♻️ Reclaimed {reclaimed} task(s) for {returning_agent_key.capitalize()} on return.")
+    except Exception as e:
+        log(f"ERROR in reclaim_tasks_for_returning_agent: {e}")
+
+
 def reassign_tasks(offline_agent_key, all_agents_meta):
     try:
         r = requests.get(f"{PB_URL}/collections/tasks/records",
@@ -448,6 +517,8 @@ def check_agent_health():
                 send_telegram(f"✅ {agent_key.capitalize()} is back online.")
                 del offline_data[agent_key]
                 changed = True
+                # Reclaim recently-reassigned-away tasks the substitute hasn't started.
+                reclaim_tasks_for_returning_agent(agent_key)
                 
         if changed:
             save_offline_agents(offline_data)
