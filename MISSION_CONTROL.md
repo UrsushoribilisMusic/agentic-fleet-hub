@@ -418,15 +418,15 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **myucacbb** | PC-110 [P0]: Capture → Save to Library stays on photo preview; should save and return to camera | codi | in_work | After tapping Save in Capture, app stays on the ph... |
-| **oe6us4ec** | PC-123 [P1]: Photo cards with stale absolute paths (old container UUID) need migration to PHAsset.localIdentifier | gem | planned | Symptom (in v0.1.12 logs): CardImageThumbnail repe... |
-| **f0vbuej7** | PC-124 [P1]: Photo card detail — replace raw path/Content with structured metadata block | gem | planned | Follow-up to PC-122 (which prevented mutation of c... |
+| **oe6us4ec** | PC-123 [P1]: Photo cards with stale absolute paths (old container UUID) need migration to PHAsset.localIdentifier | clau | planned | Symptom (in v0.1.12 logs): CardImageThumbnail repe... |
+| **f0vbuej7** | PC-124 [P1]: Photo card detail — replace raw path/Content with structured metadata block | codi | planned | Follow-up to PC-122 (which prevented mutation of c... |
 | **3507n6wx** | PC-125 [P1]: Calendar event 'See all matches' should execute the search, not navigate to empty Search tab | misty | planned | Today/Upcoming → tap event → CalendarEventDetailVi... |
-| **7jwq7hwn** | PC-126 [P1]: Trip summary needs an Edit button (in-place edit + save) | gem | planned | Library → Trips → trip → trip summary block is rea... |
-| **nzwzgjqa** | PC-127 [P0]: Trip photos: replace flat thumbnail list with day-grouped pinterest-style cards | gem | planned | Big UX change for Trips → trip detail. Currently p... |
-| **fw39agdh** | PC-128 [P1]: Place detail: photos use the same day-grouped pinterest layout as PC-127 | gem | planned | Library → Places → place → photos must render via ... |
-| **bhzspx8g** | PC-129 [P1]: Boards detail: render members as pinterest-style cards, not just photos | codi | planned | Library → Boards → board → currently no photos sho... |
+| **7jwq7hwn** | PC-126 [P1]: Trip summary needs an Edit button (in-place edit + save) | clau | planned | Library → Trips → trip → trip summary block is rea... |
+| **nzwzgjqa** | PC-127 [P0]: Trip photos: replace flat thumbnail list with day-grouped pinterest-style cards | codi | planned | Big UX change for Trips → trip detail. Currently p... |
+| **fw39agdh** | PC-128 [P1]: Place detail: photos use the same day-grouped pinterest layout as PC-127 | codi | planned | Library → Places → place → photos must render via ... |
+| **bhzspx8g** | PC-129 [P1]: Boards detail: render members as pinterest-style cards, not just photos | codi | merged | Library → Boards → board → currently no photos sho... |
 | **x5fyu470** | PC-131 [P1]: Library → Insights: make Top Tags / Trips / Top Places clickable | clau | planned | Library → Insights screen lists three sections tha... |
-| **spp93kio** | PC-133 [P1]: Saved Searches section + bug: stored searches lost when re-saving | gem | planned | Two issues:... |
-| **k55s09zn** | PC-136 [P1]: Universal pinterest/mymind-style card view — apply to all photo+card lists | gem | planned | General architectural ask (Miguel 2026-04-29): the... |
+| **spp93kio** | PC-133 [P1]: Saved Searches section + bug: stored searches lost when re-saving | clau | planned | Two issues:... |
+| **k55s09zn** | PC-136 [P1]: Universal pinterest/mymind-style card view — apply to all photo+card lists | codi | planned | General architectural ask (Miguel 2026-04-29): the... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
