@@ -422,11 +422,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **oe6us4ec** | PC-123 [P1]: Photo cards with stale absolute paths (old container UUID) need migration to PHAsset.localIdentifier | clau | merged | Symptom (in v0.1.12 logs): CardImageThumbnail repe... |
 | **f0vbuej7** | PC-124 [P1]: Photo card detail — replace raw path/Content with structured metadata block | codi | merged | Follow-up to PC-122 (which prevented mutation of c... |
 | **3507n6wx** | PC-125 [P1]: Calendar event 'See all matches' should execute the search, not navigate to empty Search tab | misty | planned | Today/Upcoming → tap event → CalendarEventDetailVi... |
-| **nzwzgjqa** | PC-127 [P0]: Trip photos: replace flat thumbnail list with day-grouped pinterest-style cards | codi | merged | Big UX change for Trips → trip detail. Currently p... |
+| **nzwzgjqa** | PC-127 [P0]: Trip photos: replace flat thumbnail list with day-grouped pinterest-style cards | clau | merged | Big UX change for Trips → trip detail. Currently p... |
 | **fw39agdh** | PC-128 [P1]: Place detail: photos use the same day-grouped pinterest layout as PC-127 | codi | merged | Library → Places → place → photos must render via ... |
 | **bhzspx8g** | PC-129 [P1]: Boards detail: render members as pinterest-style cards, not just photos | codi | merged | Library → Boards → board → currently no photos sho... |
 | **x5fyu470** | PC-131 [P1]: Library → Insights: make Top Tags / Trips / Top Places clickable | misty | planned | Library → Insights screen lists three sections tha... |
-| **spp93kio** | PC-133 [P1]: Saved Searches section + bug: stored searches lost when re-saving | misty | planned | Two issues:... |
+| **spp93kio** | PC-133 [P1]: Saved Searches section + bug: stored searches lost when re-saving | misty | merged | Two issues:... |
 | **k55s09zn** | PC-136 [P1]: Universal pinterest/mymind-style card view — apply to all photo+card lists | codi | planned | General architectural ask (Miguel 2026-04-29): the... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
