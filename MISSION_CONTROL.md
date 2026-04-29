@@ -68,6 +68,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **3z5h4aa9**: PC-113 [P1]: Places list count vs detail count mismatch (visits) -- Same shape as PC-112 but for visits. PlacesView tile shows N visits; navigating in shows M. Pick one canonical count source. -- Clau. Approved.
 - **441k0bp7**: PC-112 [P1]: Places list count vs detail count mismatch (photos) -- PlacesView's per-place photo count does not match what PlaceDetailView shows after navigating. Likely two different queries / aggregation paths. Reconcile so the list count == detail count. -- Clau. Approved.
 - **h257kfsl**: PC-111 [P0]: Capture → Ask flow has no save/discard prompt after answer -- When user gets an answer from the VLM, there's no follow-up to save it. Add a sheet: Save as note (optional tags, mirroring the photo capture confirmation flow) or Discard. On Save, persist the question + answer as a card. -- Clau. Approved.
+- **myucacbb**: PC-110 [P0]: Capture → Save to Library stays on photo preview; should save and return to camera -- After tapping Save in Capture, app stays on the photo preview screen. Expected: persist the card, then dismiss the preview and return to the live camera so the user can keep capturing. -- Clau. Approved.
 - **5p1jbwez**: PC-109 [P0]: Capture → Scan stays on photo preview; should OCR and paste text into a new note + return to camera -- After tapping Scan in Capture, the user is left on the captured-photo screen. Expected: extract text via Apple Vision OCR, create a new text note with the OCR'd content, return to the camera so the next scan can be taken without an extra back-tap. -- Clau. Approved.
 - **ms7693zw**: PC-097 [P1]: BackgroundScheduler — BGTask identifiers not advertised in built Info.plist -- Device logs show BGTaskScheduler rejects both regi... -- Codi. Approved.
 - **l18m945t**: PC-108 [P1]: 2-stage Translate pipeline + add Qwen2.5 1.5B Instruct as text workhorse -- Goal: better translation quality at lower RAM, by separating OCR (where Apple Vision is already excellent) from translation (where the VLM is currently weak — sometimes echoes the original text back). -- Codi. Approved.
@@ -420,7 +421,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **myucacbb** | PC-110 [P0]: Capture → Save to Library stays on photo preview; should save and return to camera | clau | merged | After tapping Save in Capture, app stays on the ph... |
 | **oe6us4ec** | PC-123 [P1]: Photo cards with stale absolute paths (old container UUID) need migration to PHAsset.localIdentifier | clau | merged | Symptom (in v0.1.12 logs): CardImageThumbnail repe... |
 | **f0vbuej7** | PC-124 [P1]: Photo card detail — replace raw path/Content with structured metadata block | clau | merged | Follow-up to PC-122 (which prevented mutation of c... |
 | **3507n6wx** | PC-125 [P1]: Calendar event 'See all matches' should execute the search, not navigate to empty Search tab | misty | planned | Today/Upcoming → tap event → CalendarEventDetailVi... |
