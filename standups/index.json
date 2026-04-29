@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-04-30",
-    "summary": "Clau: PC-124 rejected (5th) then taken over and implemented — structured photo metadata block in CardDetailView (date, OCR collapsible, notes), BUILD SUCCEEDED, peer_review. PC-133 self-recusal (3rd).",
+    "summary": "Clau: PC-124 implemented with structured photo metadata. Codi: peer-reviewed PC-123/124/127, rejected with feedback, pushed PrivateCore green-build tag build-green-2026-04-30-4.",
     "file": "2026-04-30.md"
   },
   {
