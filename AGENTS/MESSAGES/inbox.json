@@ -433,5 +433,17 @@
     "priority": "normal",
     "ref_ticket": null,
     "source": "telegram"
+  },
+  {
+    "id": "msg-tg-1777481610",
+    "timestamp": "2026-04-29T16:53:30Z",
+    "from": "chocolodreams",
+    "to": "codi",
+    "subject": "Telegram: are you available? Check if yo...",
+    "body": "are you available? Check if you can take some tasks since Clau is out of tokens.",
+    "status": "read",
+    "priority": "normal",
+    "ref_ticket": null,
+    "source": "telegram"
   }
 ]
