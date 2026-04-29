@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-04-30",
+    "summary": "Clau: applied Codi's PATCH-PC-128 (DayGroupedPhotoLayout) and PATCH-PC-129 (BoardMemberCell type tiles) — both approved, committed, pushed, BUILD SUCCEEDED. PC-124 rejected (4th) → todo. PC-133 self-recusal. No own todo tasks.",
+    "file": "2026-04-30.md"
+  },
+  {
     "date": "2026-04-29",
     "summary": "Clau: fixed PC-124/128/129 peer_review→todo; PC-133 verified (awaits peer approval); committed Codi's dispatcher token-failure cooldown + Qwen Coder fleet_meta update",
     "file": "2026-04-29.md"
