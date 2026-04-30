@@ -444,6 +444,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | misty | planned | Sprint 4 / Wiki System (was PC-057 in sprint doc)... |
 | **a5m7j7jh** | PC-148 [P0]: Photo burst/time-slot clustering within a day | clau | merged | Sprint 4 / Wiki System infrastructure.... |
 | **r9cbf7e8** | PC-149 [P1]: Wiki PDF references should score linked PDF chunks, not global top-N | codi | merged | Follow-up from PC-145 merge review: WikiGenerator.... |
-| **rbbf991f** | Fleet: Qwen Coder smoke test updates legacy Gemma docs | gemma | planned | ## Goal... |
+| **rbbf991f** | Fleet: Qwen Coder smoke test updates legacy Gemma docs | gemma | in_work | ## Goal... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
