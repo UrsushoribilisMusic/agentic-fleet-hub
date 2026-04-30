@@ -443,7 +443,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **bfrln3t6** | PC-140 [P0]: Wiki — WikiGenerator trip wiki | clau | in_work | Sprint 4 / Wiki System (was PC-050 in sprint doc)... |
+| **bfrln3t6** | PC-140 [P0]: Wiki — WikiGenerator trip wiki | clau | merged | Sprint 4 / Wiki System (was PC-050 in sprint doc)... |
 | **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | misty | planned | Sprint 4 / Wiki System (was PC-057 in sprint doc)... |
 | **r9cbf7e8** | PC-149 [P1]: Wiki PDF references should score linked PDF chunks, not global top-N | gem | merged | Follow-up from PC-145 merge review: WikiGenerator.... |
 | **rbbf991f** | Fleet: Qwen Coder smoke test updates legacy Gemma docs | clau | in_work | ## Goal... |
