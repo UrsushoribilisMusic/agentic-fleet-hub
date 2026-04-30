@@ -437,8 +437,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **3507n6wx** | PC-125 [P1]: Calendar event 'See all matches' should execute the search, not navigate to empty Search tab | clau | merged | Today/Upcoming → tap event → CalendarEventDetailVi... |
 | **x5fyu470** | PC-131 [P1]: Library → Insights: make Top Tags / Trips / Top Places clickable | clau | merged | Library → Insights screen lists three sections tha... |
 | **010vep8e** | PC-139 [P0]: Wiki — WikiNavigationService (wikilink routing) | clau | merged | Sprint 4 / Wiki System (was PC-049 in sprint doc)... |
-| **bfrln3t6** | PC-140 [P0]: Wiki — WikiGenerator trip wiki | misty | planned | Sprint 4 / Wiki System (was PC-050 in sprint doc)... |
-| **ljva93dt** | PC-142 [P1]: Wiki — WikiGenerator board/daily/place/person wikis | misty | planned | Sprint 4 / Wiki System (was PC-052 in sprint doc)... |
+| **bfrln3t6** | PC-140 [P0]: Wiki — WikiGenerator trip wiki | gem | planned | Sprint 4 / Wiki System (was PC-050 in sprint doc)... |
+| **ljva93dt** | PC-142 [P1]: Wiki — WikiGenerator board/daily/place/person wikis | gem | planned | Sprint 4 / Wiki System (was PC-052 in sprint doc)... |
 | **lfrbg6xd** | PC-144 [P1]: Wiki — Wiki tab in Intelligence row | clau | merged | Sprint 4 / Wiki System (was PC-054 in sprint doc)... |
 | **xv6ksphw** | PC-146 [P1]: Wiki — Generation progress UX | gem | in_work | Sprint 4 / Wiki System (was PC-056 in sprint doc)... |
 | **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | misty | planned | Sprint 4 / Wiki System (was PC-057 in sprint doc)... |
