@@ -53,6 +53,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **vjrin29g**: PC-151 [P2]: Photo masonry should use natural PHAsset aspect ratios, not fixed cycling heights -- DayGroupedPhotoGrid and BoardPhotoTile use hardcoded cycling height patterns ([210, 150, 185] / [160, 220, 175]) instead of each photo's real pixel dimensions. True Pinterest-style stagger requires fetching PHAsset.pixelWidth/pixelHeight and computing each column cell height proportionally. This affects Places, Trips, Boards, People, and any view using DayGroupedPhotoGrid or masonry layout. -- Clau. Approved.
 - **746ydyvd**: PC-150 [P1]: Boards detail Content tab still renders flat list, not masonry photo grid -- BoardDetailView Content tab shows a dated icon+text list ("26 April 2026 — Photo") instead of the masonry photo grid that PC-129 was supposed to deliver. Photos exist in the board but are not rendering as thumbnails. Expected: 2-column staggered photo grid matching the pinterest-style layout used in Places and Trips. Confirmed broken on device build 2026-04-30. -- Clau. Approved.
 - **rbbf991f**: Fleet: Qwen Coder smoke test updates legacy Gemma docs -- ## Goal -- Clau. Approved.
+- **r9cbf7e8**: PC-149 [P1]: Wiki PDF references should score linked PDF chunks, not global top-N -- Follow-up from PC-145 merge review: WikiGenerator.buildPDFSection searches the global vector index with limit equal to linked chunk count, then filters to linked PDF chunks. In large indexes this can omit linked PDF chunks entirely. Score linked chunks directly or add filtered vector search and regression coverage. -- Gem. Approved.
 - **rffa361e**: Fleet: Replace legacy Gemma slot with Qwen Coder safely -- Replace the legacy local Gemma fleet slot with Qwen Coder while keeping heartbeatKey=gemma for compatibility. Confirm local model name, resolve Ollama MLX/Metal crash, keep autonomous code execution disabled until a tool-safe non-interactive harness exists, and document local Ollama/aichat vs DashScope/Qwen Code CLI runtime choice. -- Codi. Approved.
 - **a5m7j7jh**: PC-148 [P0]: Photo burst/time-slot clustering within a day -- Sprint 4 / Wiki System infrastructure. -- Misty. Approved.
 - **xv6ksphw**: PC-146 [P1]: Wiki — Generation progress UX -- Sprint 4 / Wiki System (was PC-056 in sprint doc) -- Gem. Approved.
@@ -61,6 +62,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **2rnnh3f1**: PC-143 [P0]: Wiki — Library homepage replaces empty state -- Sprint 4 / Wiki System (was PC-053 in sprint doc) -- Clau. Approved.
 - **ljva93dt**: PC-142 [P1]: Wiki — WikiGenerator board/daily/place/person wikis -- Sprint 4 / Wiki System (was PC-052 in sprint doc) -- Clau. Approved.
 - **ku4l6nzk**: PC-141 [P0]: Wiki — WikiGenerator homepage (This Week) -- Sprint 4 / Wiki System (was PC-051 in sprint doc) -- Clau. Approved.
+- **bfrln3t6**: PC-140 [P0]: Wiki — WikiGenerator trip wiki -- Sprint 4 / Wiki System (was PC-050 in sprint doc) -- Clau. Approved.
 - **010vep8e**: PC-139 [P0]: Wiki — WikiNavigationService (wikilink routing) -- Sprint 4 / Wiki System (was PC-049 in sprint doc) -- Clau. Approved.
 - **ziux84w6**: PC-138 [P0]: Wiki — WikiArticleView (Wikipedia-style SwiftUI renderer) -- Sprint 4 / Wiki System (was PC-048 in sprint doc) -- Clau. Approved.
 - **gv4ce7hp**: PC-137 [P0]: Wiki — WikiArticle data model and SQLite schema -- Sprint 4 / Wiki System (was PC-047 in sprint doc) -- Codi. Approved.
@@ -444,8 +446,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **bfrln3t6** | PC-140 [P0]: Wiki — WikiGenerator trip wiki | clau | merged | Sprint 4 / Wiki System (was PC-050 in sprint doc)... |
 | **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | misty | planned | Sprint 4 / Wiki System (was PC-057 in sprint doc)... |
-| **r9cbf7e8** | PC-149 [P1]: Wiki PDF references should score linked PDF chunks, not global top-N | gem | merged | Follow-up from PC-145 merge review: WikiGenerator.... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
