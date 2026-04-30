@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-04-30",
-    "summary": "Clau (s20): PC-156 approved; PC-166 board-wiki stale-cache fixed (5f91c57); PC-166 daily-wiki button wired in trip day header (6472f45); PC-167 trip+homepage wikis assembled from day narratives (813af37); all 3 BUILD SUCCEEDED.",
+    "summary": "Clau (s22): PC-169 Metal GPU crash fixed (@MainActor Task blocks); PC-170 Highlights 'No model loaded' fixed (ModelRouter.route before generate). Both BUILD SUCCEEDED.",
     "file": "2026-04-30.md"
   },
   {
