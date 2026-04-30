@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-04-30",
-    "summary": "Clau (s16): PC-151 DONE — masonry uses natural PHAsset aspect ratios (BUILD OK). PC-149 NOT APPROVED → todo (no implementation). Gem s1 PC-146 reviewed.",
+    "summary": "Codi: PC-157 approved with green tag build-green-2026-04-30-27; PC-160 rejected for build failure/incomplete narrative; PC-152 moved to peer_review.",
     "file": "2026-04-30.md"
   },
   {
