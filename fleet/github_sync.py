@@ -22,6 +22,7 @@ Uses `gh` CLI (already auth'd) for all GitHub operations.
 Stores last-synced state in ~/fleet/logs/gh_sync_offset.json.
 """
 
+import argparse
 import subprocess
 import json
 import os
@@ -484,29 +485,41 @@ def sync_extra_repo_inbound(repo_cfg):
 
 # ── Main loop ─────────────────────────────────────────────────────────────────
 
+def sync_cycle(offset):
+    try:
+        tasks = get_all_tasks()
+        out_changed = sync_outbound(tasks, offset)
+        in_changed = sync_inbound(offset)
+        close_approved_issues(offset)
+
+        for repo_cfg in EXTRA_INBOUND_REPOS:
+            if sync_extra_repo_inbound(repo_cfg):
+                in_changed = True
+
+        if out_changed or in_changed:
+            save_offset(offset)
+    except Exception as e:
+        log(f"Sync cycle error: {e}")
+
+
 def main():
+    parser = argparse.ArgumentParser(description="GitHub <-> PocketBase sync")
+    parser.add_argument("--once", action="store_true", help="Run a single sync cycle and exit")
+    args = parser.parse_args()
+
     log("GitHub sync started")
     ensure_labels()
     for repo_cfg in EXTRA_INBOUND_REPOS:
         ensure_labels(repo=repo_cfg["repo"])
 
+    if args.once:
+        offset = load_offset()
+        sync_cycle(offset)
+        return
+
     while True:
         offset = load_offset()
-        try:
-            tasks = get_all_tasks()
-            out_changed = sync_outbound(tasks, offset)
-            in_changed = sync_inbound(offset)
-            close_approved_issues(offset)
-
-            for repo_cfg in EXTRA_INBOUND_REPOS:
-                if sync_extra_repo_inbound(repo_cfg):
-                    in_changed = True
-
-            if out_changed or in_changed:
-                save_offset(offset)
-        except Exception as e:
-            log(f"Sync cycle error: {e}")
-
+        sync_cycle(offset)
         time.sleep(300)  # 5-minute interval
 
 
