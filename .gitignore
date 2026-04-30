@@ -36,3 +36,8 @@ artifacts/
 fleet/logs/dispatcher_cache.json
 fleet/logs/offline_agents.json
 fleet/logs/gh_sync_offset.json
+fleet/logs/agent_failures.json
+fleet/logs/notifications.json
+
+# Codi patch diff artifacts (applied patches, obsolete once merged)
+PATCH-PC-*.diff
