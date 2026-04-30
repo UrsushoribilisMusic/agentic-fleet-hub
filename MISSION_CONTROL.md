@@ -449,8 +449,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | misty | planned | Sprint 4 / Wiki System (was PC-057 in sprint doc)... |
 | **e4a0lew6** | PC-152 [P0]: Journaling crash — type word + space triggers crash | codi | merged | Home > Journaling: typing one word then pressing s... |
-| **c8srg1z4** | PC-153 [P1]: Text card (scan) missing assign-to-board and assign-to-person | codi | in_work | Home > Recent Captures: text cards from document s... |
-| **yn3tha07** | PC-154 [P1]: Boards list view items are not navigable | codi | planned | Board detail > List view: tapping items does nothi... |
+| **c8srg1z4** | PC-153 [P1]: Text card (scan) missing assign-to-board and assign-to-person | codi | merged | Home > Recent Captures: text cards from document s... |
+| **yn3tha07** | PC-154 [P1]: Boards list view items are not navigable | codi | in_work | Board detail > List view: tapping items does nothi... |
 | **ptj9vn97** | PC-155 [P1]: All Photos — visual index information not shown on photo detail | codi | planned | Library > All Photos: the AI visual description (C... |
 | **1yab1z0c** | PC-156 [P2]: All Photos — OCR text items not tappable and font too large | misty | planned | Library > All Photos > OCR section: entries should... |
 | **gijiwfy4** | PC-158 [P2]: Library — remove Boards and Saved Searches, move Hashtags below Wiki | misty | planned | LibraryView: (1) Remove Boards entry. (2) Remove S... |
@@ -458,9 +458,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **v4pmvfam** | PC-160 [P1]: Wiki — replace Recent Captures + Connected Wikis with LLM narrative section | gem | merged | WikiArticleView: replace Recent Captures strip and... |
 | **nsutn834** | PC-161 [P1]: Places — saved note not shown in place detail | misty | planned | Place detail > Add Note: note is saved but not dis... |
 | **y5q4nrxh** | PC-162 [P1]: Trips summary — use OCR, location, time, and clip info for narrative | codi | in_work | Trip detail > Summarize: extend WikiGenerator.gene... |
-| **n68p4aoi** | PC-163 [P1]: Incremental wiki hierarchy — section wikis compose into day and trip wikis | codi | in_work | New wiki generation architecture: (1) Section wiki... |
+| **n68p4aoi** | PC-163 [P1]: Incremental wiki hierarchy — section wikis compose into day and trip wikis | codi | merged | New wiki generation architecture: (1) Section wiki... |
 | **ewoym3l8** | PC-164 [P0]: Trip section summaries — LLM narrative per Morning/Afternoon/Evening slot | codi | planned | TripDetailView already groups photos by day and ti... |
-| **mz5yzw9q** | PC-165 [P1]: Person wiki — LLM narrative from tagged photos, events, and notes | gem | planned | Each person should have a Wiki tab in PersonDetail... |
+| **mz5yzw9q** | PC-165 [P1]: Person wiki — LLM narrative from tagged photos, events, and notes | clau | merged | Each person should have a Wiki tab in PersonDetail... |
 | **rad91221** | PC-166 [P1]: Board wiki tab can show stale cached content after board changes | codi | planned | ## Problem... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
