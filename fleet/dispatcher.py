@@ -62,7 +62,9 @@ AGENT_COMMANDS = {
         "/Users/miguelrodriguez/projects/private-core/PrivateCore",
         "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
     ],
-    "gemma": ["/opt/homebrew/bin/aichat", "-m", os.environ.get("QWEN_CODER_MODEL", "ollama-gemma:qwen3-coder:30b"), "--rag", ".", "Run your heartbeat protocol. Read GEMMA.md first."],
+    # Legacy key retained for PB/launchd compatibility. The wrapper keeps
+    # peer review and code-task execution disabled until a safe harness exists.
+    "gemma": ["/bin/bash", f"{FLEET_DIR}/gemma/run_heartbeat.sh"],
 }
 
 # Force a dispatch cycle every N hours even if no changes detected.

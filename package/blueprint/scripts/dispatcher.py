@@ -45,6 +45,9 @@ AGENT_COMMANDS = {
         FLEET_DIR,
         "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
     ],
+    # Legacy key retained for PB/launchd compatibility. The wrapper keeps
+    # peer review and code-task execution disabled until a safe harness exists.
+    "gemma": ["/bin/bash", f"{FLEET_DIR}/gemma/run_heartbeat.sh"],
 }
 
 def log(msg):

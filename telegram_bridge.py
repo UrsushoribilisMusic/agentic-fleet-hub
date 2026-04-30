@@ -37,7 +37,7 @@ BOT_COMMANDS = [
     {"command": "gem",    "description": "Message Gem (Gemini)"},
     {"command": "codi",   "description": "Message Codi (Codex)"},
     {"command": "misty",  "description": "Message Misty (Mistral Vibe)"},
-    {"command": "gemma",  "description": "Message Gemma (local Gemma4 via aichat)"},
+    {"command": "gemma",  "description": "Message Qwen Coder (legacy gemma slot, local Ollama/aichat)"},
     {"command": "claw",   "description": "Talk to OpenClaw (Robot Ross artist agent)"},
     {"command": "ask",    "description": "Ask the fleet a question (routes to Clau inbox)"},
     {"command": "spec",   "description": "Post a new spec or idea (routes to Clau inbox)"},

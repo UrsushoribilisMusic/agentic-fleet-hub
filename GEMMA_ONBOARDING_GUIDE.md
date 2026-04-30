@@ -1,3 +1,11 @@
+# Legacy Gemma Onboarding Guide
+
+Status: superseded for the live fleet slot. The `gemma` heartbeat key now runs
+Qwen Coder locally via aichat/Ollama. Keep this guide only as historical context
+for adding a generic local LLM agent.
+
+For the active runtime contract, see `AGENTS/CONTEXT/qwen_coder_runtime.md`.
+
 # Gemma Onboarding Guide: Adding Local LLM Agents to Your Fleet
 
 **Version**: 1.0

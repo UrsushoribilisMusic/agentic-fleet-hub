@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-04-30",
-    "summary": "Clau (s13): PC-145 DONE — wiki PDF association, WikiSourcePanelView, VectorStore chunk injection (BUILD OK). Fixed PC-139/144/148 status (stuck in peer_review). Earlier: PC-143/141/125 done.",
+    "summary": "Clau (s13): PC-145 DONE — wiki PDF association, WikiSourcePanelView, VectorStore chunk injection (BUILD OK). Codi: rffa361e Qwen Coder slot docs/dispatcher safety routing, heartbeatKey=gemma preserved.",
     "file": "2026-04-30.md"
   },
   {

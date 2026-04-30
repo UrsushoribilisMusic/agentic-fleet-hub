@@ -23,12 +23,15 @@ FILES=(
   codi/heartbeat_prompt.txt
   clau/heartbeat_wrapper.sh
   gem/heartbeat_wrapper.sh
+  gemma/GEMMA.md
+  gemma/run_heartbeat.sh
 )
 
 # launchd services that import the synced files and need a bounce after copy.
 SERVICES=(
   fleet.dispatcher
   fleet.github
+  fleet.gemma
 )
 
 echo "=== sync repo → runtime ==="
@@ -45,8 +48,8 @@ for f in "${FILES[@]}"; do
   fi
   mkdir -p "$(dirname "$RUNTIME/$f")"
   cp "$REPO/$f" "$RUNTIME/$f"
-  # heartbeat_wrapper.sh files need exec bit
-  case "$f" in *heartbeat_wrapper.sh|*pb_flush.py|*pb_fetch.py) chmod +x "$RUNTIME/$f" ;; esac
+  # Runtime shell/Python entrypoints need exec bit.
+  case "$f" in *heartbeat_wrapper.sh|*run_heartbeat.sh|*pb_flush.py|*pb_fetch.py) chmod +x "$RUNTIME/$f" ;; esac
   echo "  $f"
 done
 echo "  backup at $RUNTIME/_backup_$ts"
