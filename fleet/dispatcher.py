@@ -62,7 +62,7 @@ AGENT_COMMANDS = {
         "/Users/miguelrodriguez/projects/private-core/PrivateCore",
         "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
     ],
-    "gemma": ["/opt/homebrew/bin/aichat", "-m", os.environ.get("QWEN_CODER_MODEL", "ollama-gemma:qwen3-coder:latest"), "--rag", ".", "Run your heartbeat protocol. Read GEMMA.md first."],
+    "gemma": ["/opt/homebrew/bin/aichat", "-m", os.environ.get("QWEN_CODER_MODEL", "ollama-gemma:qwen3-coder:30b"), "--rag", ".", "Run your heartbeat protocol. Read GEMMA.md first."],
 }
 
 # Force a dispatch cycle every N hours even if no changes detected.
