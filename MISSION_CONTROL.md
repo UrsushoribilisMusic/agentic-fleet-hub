@@ -447,17 +447,19 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | misty | planned | Sprint 4 / Wiki System (was PC-057 in sprint doc)... |
-| **n68p4aoi** | PC-163 [P1]: Incremental wiki hierarchy — section wikis compose into day and trip wikis | gem | planned | New wiki generation architecture: (1) Section wiki... |
-| **y5q4nrxh** | PC-162 [P1]: Trips summary — use OCR, location, time, and clip info for narrative | gem | planned | Trip detail > Summarize: extend WikiGenerator.gene... |
-| **nsutn834** | PC-161 [P1]: Places — saved note not shown in place detail | clau | planned | Place detail > Add Note: note is saved but not dis... |
-| **v4pmvfam** | PC-160 [P1]: Wiki — replace Recent Captures + Connected Wikis with LLM narrative section | gem | planned | WikiArticleView: replace Recent Captures strip and... |
-| **a7vuf5rf** | PC-159 [P1]: Wiki homepage photo count shows 0 | clau | planned | WikiArticleView / WikiBrowserView: photo count on ... |
-| **gijiwfy4** | PC-158 [P2]: Library — remove Boards and Saved Searches, move Hashtags below Wiki | clau | planned | LibraryView: (1) Remove Boards entry. (2) Remove S... |
-| **1rs24i9t** | PC-157 [P1]: Board wiki — LLM narrative from board photos OCR, notes, PDFs | gem | planned | Each board needs a Wiki tab. Article is generated ... |
-| **1yab1z0c** | PC-156 [P2]: All Photos — OCR text items not tappable and font too large | clau | planned | Library > All Photos > OCR section: entries should... |
-| **ptj9vn97** | PC-155 [P1]: All Photos — visual index information not shown on photo detail | clau | planned | Library > All Photos: the AI visual description (C... |
-| **yn3tha07** | PC-154 [P1]: Boards list view items are not navigable | clau | planned | Board detail > List view: tapping items does nothi... |
-| **c8srg1z4** | PC-153 [P1]: Text card (scan) missing assign-to-board and assign-to-person | clau | planned | Home > Recent Captures: text cards from document s... |
 | **e4a0lew6** | PC-152 [P0]: Journaling crash — type word + space triggers crash | clau | planned | Home > Journaling: typing one word then pressing s... |
+| **c8srg1z4** | PC-153 [P1]: Text card (scan) missing assign-to-board and assign-to-person | clau | planned | Home > Recent Captures: text cards from document s... |
+| **yn3tha07** | PC-154 [P1]: Boards list view items are not navigable | clau | planned | Board detail > List view: tapping items does nothi... |
+| **ptj9vn97** | PC-155 [P1]: All Photos — visual index information not shown on photo detail | clau | planned | Library > All Photos: the AI visual description (C... |
+| **1yab1z0c** | PC-156 [P2]: All Photos — OCR text items not tappable and font too large | misty | planned | Library > All Photos > OCR section: entries should... |
+| **1rs24i9t** | PC-157 [P1]: Board wiki — LLM narrative from board photos OCR, notes, PDFs | gem | in_work | Each board needs a Wiki tab. Article is generated ... |
+| **gijiwfy4** | PC-158 [P2]: Library — remove Boards and Saved Searches, move Hashtags below Wiki | misty | planned | LibraryView: (1) Remove Boards entry. (2) Remove S... |
+| **a7vuf5rf** | PC-159 [P1]: Wiki homepage photo count shows 0 | misty | planned | WikiArticleView / WikiBrowserView: photo count on ... |
+| **v4pmvfam** | PC-160 [P1]: Wiki — replace Recent Captures + Connected Wikis with LLM narrative section | gem | planned | WikiArticleView: replace Recent Captures strip and... |
+| **nsutn834** | PC-161 [P1]: Places — saved note not shown in place detail | misty | planned | Place detail > Add Note: note is saved but not dis... |
+| **y5q4nrxh** | PC-162 [P1]: Trips summary — use OCR, location, time, and clip info for narrative | gem | planned | Trip detail > Summarize: extend WikiGenerator.gene... |
+| **n68p4aoi** | PC-163 [P1]: Incremental wiki hierarchy — section wikis compose into day and trip wikis | gem | planned | New wiki generation architecture: (1) Section wiki... |
+| **mz5yzw9q** | PC-165 [P1]: Person wiki — LLM narrative from tagged photos, events, and notes | gem | planned | Each person should have a Wiki tab in PersonDetail... |
+| **ewoym3l8** | PC-164 [P0]: Trip section summaries — LLM narrative per Morning/Afternoon/Evening slot | clau | planned | TripDetailView already groups photos by day and ti... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
