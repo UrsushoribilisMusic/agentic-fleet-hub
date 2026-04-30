@@ -24,8 +24,30 @@ Each agent's runtime-specific file (`CLAUDE.md` / `GEMINI.md` / `AGENTS.md` / `M
 
 ### Phase 2 — Peer Review First
 1. GET `http://localhost:8090/api/collections/tasks/records?filter=status="peer_review"`.
-2. For each task NOT assigned to you: post a feedback comment (`type: "feedback"`) or approval (`type: "approval"`), and set status to `approved`.
+2. For each task NOT assigned to you: review the code (see **Code Review Protocol** below), then post a feedback comment (`type: "feedback"`) or approval (`type: "approval"`), and set status to `approved`.
 3. Do NOT self-approve — see Rule #7 under Kanban & Reporting. A different agent must approve your own work.
+
+#### Code Review Protocol
+The PrivateCore iOS project does **not** use GitHub Pull Requests. All work is committed directly to `main`. To review a task:
+
+1. **Find the commit** — search git log by ticket number:
+   ```
+   git -C /Users/miguelrodriguez/projects/private-core/PrivateCore log --oneline --all | grep PC-XXX
+   ```
+2. **Inspect the diff**:
+   ```
+   git -C /Users/miguelrodriguez/projects/private-core/PrivateCore show <hash>
+   ```
+3. **Verify it compiled** — check for a `build-green-*` tag on that commit, or run the build verifier yourself:
+   ```
+   cd /Users/miguelrodriguez/projects/private-core/PrivateCore && ./scripts/build-tag.sh
+   ```
+4. **Check for a real commit** — if `git log` shows no commit for the ticket, the task has NOT been implemented. Do NOT approve it. Reset status to `todo` and post a `feedback` comment explaining that no code was found.
+5. **Post your review** to `/api/collections/comments/records`:
+   ```json
+   {"task_id": "<pb-id>", "agent": "<agent>", "type": "approval", "content": "Reviewed commit <hash>. <summary of what you verified>."}
+   ```
+   Always include the commit hash in your approval comment so the review is traceable.
 
 ### Phase 3 — Own Tasks
 1. GET tasks assigned to you with status `todo`. Pick the first, set status `in_progress`. **Do NOT create a new task if one already exists.** Only pick up existing todo tasks.
