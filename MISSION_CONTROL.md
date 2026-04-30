@@ -428,5 +428,16 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **nzwzgjqa** | PC-127 [P0]: Trip photos: replace flat thumbnail list with day-grouped pinterest-style cards | clau | merged | Big UX change for Trips → trip detail. Currently p... |
 | **x5fyu470** | PC-131 [P1]: Library → Insights: make Top Tags / Trips / Top Places clickable | clau | planned | Library → Insights screen lists three sections tha... |
 | **k55s09zn** | PC-136 [P1]: Universal pinterest/mymind-style card view — apply to all photo+card lists | clau | merged | General architectural ask (Miguel 2026-04-29): the... |
+| **gv4ce7hp** | PC-137 [P0]: Wiki — WikiArticle data model and SQLite schema | codi | todo | Sprint 4. CRITICAL PATH: must land first. |
+| **ziux84w6** | PC-138 [P0]: Wiki — WikiArticleView (Wikipedia-style SwiftUI renderer) | gem | todo | Sprint 4. 13pts. GATE: Miguel visual approval on device required before generation tickets proceed. |
+| **010vep8e** | PC-139 [P0]: Wiki — WikiNavigationService (wikilink routing) | codi | todo | Sprint 4. |
+| **bfrln3t6** | PC-140 [P0]: Wiki — WikiGenerator trip wiki | misty | todo | Sprint 4. Misty leads prompt engineering. Depends PC-137, PC-138 approval gate. |
+| **ku4l6nzk** | PC-141 [P0]: Wiki — WikiGenerator homepage (This Week) | clau | todo | Sprint 4. Depends PC-137, PC-138 approval gate. |
+| **ljva93dt** | PC-142 [P1]: Wiki — WikiGenerator board/daily/place/person wikis | misty | todo | Sprint 4. After PC-140 validated on device. |
+| **2rnnh3f1** | PC-143 [P0]: Wiki — Library homepage replaces empty state | clau | todo | Sprint 4. Supersedes PC-132. Depends PC-141 + PC-138. |
+| **lfrbg6xd** | PC-144 [P1]: Wiki — Wiki tab in Intelligence row | codi | todo | Sprint 4. |
+| **xj3hxgkb** | PC-145 [P1]: Wiki — PDF association with wiki articles | clau | todo | Sprint 4. |
+| **xv6ksphw** | PC-146 [P1]: Wiki — Generation progress UX | gem | todo | Sprint 4. |
+| **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | misty | todo | Sprint 4. Annotations stored separately from articleJSON — non-destructive on regen. |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
