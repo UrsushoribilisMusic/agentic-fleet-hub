@@ -50,8 +50,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **xj3hxgkb**: PC-145 [P1]: Wiki — PDF association with wiki articles -- Sprint 4 / Wiki System (was PC-055 in sprint doc) -- Clau. Approved.
+- **2rnnh3f1**: PC-143 [P0]: Wiki — Library homepage replaces empty state -- Sprint 4 / Wiki System (was PC-053 in sprint doc) -- Clau. Approved.
 - **ku4l6nzk**: PC-141 [P0]: Wiki — WikiGenerator homepage (This Week) -- Sprint 4 / Wiki System (was PC-051 in sprint doc) -- Clau. Approved.
 - **gv4ce7hp**: PC-137 [P0]: Wiki — WikiArticle data model and SQLite schema -- Sprint 4 / Wiki System (was PC-047 in sprint doc) -- Codi. Approved.
+- **k55s09zn**: PC-136 [P1]: Universal pinterest/mymind-style card view — apply to all photo+card lists -- General architectural ask (Miguel 2026-04-29): the day-grouped pinterest layout introduced for Trips (PC-127) should be the UNIVERSAL pattern wherever the app shows a list of cards or photos: -- Clau. Approved.
 - **49qzyt6z**: PC-135 [P2]: Settings → Reindex: progress feedback during reindex -- Currently tapping Reindex starts the work silently — no spinner, no count, no log line in the UI. User can't tell if it's running or stuck. Add either: -- Clau. Approved.
 - **u6jwfkfr**: PC-134 [P0]: Capture flow simplification: 4 actions, single layer, no save-to-library prompt -- Current: Capture has two menus — first level (Photo/Scan/Ask), second level after capture. Plus a 'top X' button that does nothing. Plus a 'save to library' question. -- Clau. Approved.
 - **spp93kio**: PC-133 [P1]: Saved Searches section + bug: stored searches lost when re-saving -- Two issues: -- Misty. Approved.
@@ -61,6 +64,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **fw39agdh**: PC-128 [P1]: Place detail: photos use the same day-grouped pinterest layout as PC-127 -- Library → Places → place → photos must render via the same component that PC-127 introduces for Trip-day photos. Tapping a photo navigates to the metadata detail view (PC-124). -- Codi. Approved.
 - **nzwzgjqa**: PC-127 [P0]: Trip photos: replace flat thumbnail list with day-grouped pinterest-style cards -- Big UX change for Trips → trip detail. Currently photos render as a flat scroll. Replace with: -- Clau. Approved.
 - **7jwq7hwn**: PC-126 [P1]: Trip summary needs an Edit button (in-place edit + save) -- Library → Trips → trip → trip summary block is read-only. Add an Edit button (pencil icon) that swaps the summary text into a TextEditor; Save persists to the trip record (cached_summary column) and re-renders. No other behavior change — auto-generated summary stays as the default. -- Misty. Approved.
+- **f0vbuej7**: PC-124 [P1]: Photo card detail — replace raw path/Content with structured metadata block -- Follow-up to PC-122 (which prevented mutation of card.content for photo cards). The underlying UX problem is that we never should have surfaced the filesystem path to the user in the first place — it leaked because card.content was being used as both the asset reference (for camera captures) and the OCR/note field (for PHAsset imports), and the same field was rendered as 'Content' in CardDetailView. -- Clau. Approved.
+- **oe6us4ec**: PC-123 [P1]: Photo cards with stale absolute paths (old container UUID) need migration to PHAsset.localIdentifier -- Symptom (in v0.1.12 logs): CardImageThumbnail repeatedly fails to resolve photo cards because their stored image_path is `/var/mobile/Containers/Data/Application/<old-UUID>/...`. Container UUIDs change on every fresh install, TestFlight upgrade, or device migration, so absolute paths from a previous install are guaranteed to break. -- Clau. Approved.
 - **7sinjqp0**: PC-122 [P0]: Edit Card on a photo must not let the user mutate the image path / asset reference -- Reproduction (Miguel's daughter, 2026-04-28): open a photo card, tap Edit, the displayed Title or Content happens to contain the underlying filesystem path; she edited it; on Save, the photo disappeared. App log: -- Clau. Approved.
 - **2xj8vw9i**: PC-121 [P2]: Settings → Data → Reindex needs an explanation (or removal) -- The Reindex button is unclear — users don't know what it rebuilds or when to use it. Either (a) add a footer string explaining when to tap it (e.g. 'Recomputes embeddings and OCR on imported photos. Use after upgrading models or clearing the database.'), or (b) remove the button if it's a leftover dev tool. -- Clau. Approved.
 - **3n1x0px0**: PC-120 [P1]: Add-to-Board sheet needs an inline 'New Board' option -- When adding a photo (or any card) to a board, the picker only lists existing boards. Add a 'New Board' row at the top that opens the New Board sheet inline; on save, return to the picker with the new board pre-selected. -- Gem. Approved.
@@ -427,21 +432,17 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **oe6us4ec** | PC-123 [P1]: Photo cards with stale absolute paths (old container UUID) need migration to PHAsset.localIdentifier | clau | merged | Symptom (in v0.1.12 logs): CardImageThumbnail repe... |
-| **f0vbuej7** | PC-124 [P1]: Photo card detail — replace raw path/Content with structured metadata block | clau | merged | Follow-up to PC-122 (which prevented mutation of c... |
 | **3507n6wx** | PC-125 [P1]: Calendar event 'See all matches' should execute the search, not navigate to empty Search tab | clau | merged | Today/Upcoming → tap event → CalendarEventDetailVi... |
 | **x5fyu470** | PC-131 [P1]: Library → Insights: make Top Tags / Trips / Top Places clickable | misty | planned | Library → Insights screen lists three sections tha... |
-| **k55s09zn** | PC-136 [P1]: Universal pinterest/mymind-style card view — apply to all photo+card lists | clau | merged | General architectural ask (Miguel 2026-04-29): the... |
 | **ziux84w6** | PC-138 [P0]: Wiki — WikiArticleView (Wikipedia-style SwiftUI renderer) | gem | planned | Sprint 4 / Wiki System (was PC-048 in sprint doc)... |
 | **010vep8e** | PC-139 [P0]: Wiki — WikiNavigationService (wikilink routing) | codi | merged | Sprint 4 / Wiki System (was PC-049 in sprint doc)... |
 | **bfrln3t6** | PC-140 [P0]: Wiki — WikiGenerator trip wiki | misty | planned | Sprint 4 / Wiki System (was PC-050 in sprint doc)... |
 | **ljva93dt** | PC-142 [P1]: Wiki — WikiGenerator board/daily/place/person wikis | misty | planned | Sprint 4 / Wiki System (was PC-052 in sprint doc)... |
-| **2rnnh3f1** | PC-143 [P0]: Wiki — Library homepage replaces empty state | clau | merged | Sprint 4 / Wiki System (was PC-053 in sprint doc)... |
 | **lfrbg6xd** | PC-144 [P1]: Wiki — Wiki tab in Intelligence row | codi | merged | Sprint 4 / Wiki System (was PC-054 in sprint doc)... |
-| **xj3hxgkb** | PC-145 [P1]: Wiki — PDF association with wiki articles | clau | merged | Sprint 4 / Wiki System (was PC-055 in sprint doc)... |
 | **xv6ksphw** | PC-146 [P1]: Wiki — Generation progress UX | gem | planned | Sprint 4 / Wiki System (was PC-056 in sprint doc)... |
 | **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | misty | planned | Sprint 4 / Wiki System (was PC-057 in sprint doc)... |
 | **a5m7j7jh** | PC-148 [P0]: Photo burst/time-slot clustering within a day | codi | merged | Sprint 4 / Wiki System infrastructure.... |
 | **rffa361e** | Fleet: Replace legacy Gemma slot with Qwen Coder safely | codi | planned | Replace the legacy local Gemma fleet slot with Qwe... |
+| **r9cbf7e8** | PC-149 [P1]: Wiki PDF references should score linked PDF chunks, not global top-N | codi | planned | Follow-up from PC-145 merge review: WikiGenerator.... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
