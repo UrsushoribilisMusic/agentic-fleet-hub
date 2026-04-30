@@ -442,7 +442,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **lfrbg6xd** | PC-144 [P1]: Wiki — Wiki tab in Intelligence row | clau | merged | Sprint 4 / Wiki System (was PC-054 in sprint doc)... |
 | **xv6ksphw** | PC-146 [P1]: Wiki — Generation progress UX | gem | in_work | Sprint 4 / Wiki System (was PC-056 in sprint doc)... |
 | **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | misty | planned | Sprint 4 / Wiki System (was PC-057 in sprint doc)... |
-| **a5m7j7jh** | PC-148 [P0]: Photo burst/time-slot clustering within a day | clau | merged | Sprint 4 / Wiki System infrastructure.... |
+| **a5m7j7jh** | PC-148 [P0]: Photo burst/time-slot clustering within a day | misty | merged | Sprint 4 / Wiki System infrastructure.... |
 | **r9cbf7e8** | PC-149 [P1]: Wiki PDF references should score linked PDF chunks, not global top-N | codi | merged | Follow-up from PC-145 merge review: WikiGenerator.... |
 | **rbbf991f** | Fleet: Qwen Coder smoke test updates legacy Gemma docs | gemma | in_work | ## Goal... |
 
