@@ -442,5 +442,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **xv6ksphw** | PC-146 [P1]: Wiki — Generation progress UX | gem | planned | Sprint 4 / Wiki System (was PC-056 in sprint doc)... |
 | **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | misty | planned | Sprint 4 / Wiki System (was PC-057 in sprint doc)... |
 | **a5m7j7jh** | PC-148 [P0]: Photo burst/time-slot clustering within a day | codi | merged | Sprint 4 / Wiki System infrastructure.... |
+| **rffa361e** | Fleet: Replace legacy Gemma slot with Qwen Coder safely | codi | planned | Replace the legacy local Gemma fleet slot with Qwe... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
