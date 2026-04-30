@@ -449,7 +449,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | misty | planned | Sprint 4 / Wiki System (was PC-057 in sprint doc)... |
 | **e4a0lew6** | PC-152 [P0]: Journaling crash — type word + space triggers crash | codi | merged | Home > Journaling: typing one word then pressing s... |
-| **c8srg1z4** | PC-153 [P1]: Text card (scan) missing assign-to-board and assign-to-person | codi | planned | Home > Recent Captures: text cards from document s... |
+| **c8srg1z4** | PC-153 [P1]: Text card (scan) missing assign-to-board and assign-to-person | codi | in_work | Home > Recent Captures: text cards from document s... |
 | **yn3tha07** | PC-154 [P1]: Boards list view items are not navigable | codi | planned | Board detail > List view: tapping items does nothi... |
 | **ptj9vn97** | PC-155 [P1]: All Photos — visual index information not shown on photo detail | codi | planned | Library > All Photos: the AI visual description (C... |
 | **1yab1z0c** | PC-156 [P2]: All Photos — OCR text items not tappable and font too large | misty | planned | Library > All Photos > OCR section: entries should... |
