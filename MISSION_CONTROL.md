@@ -424,9 +424,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **oe6us4ec** | PC-123 [P1]: Photo cards with stale absolute paths (old container UUID) need migration to PHAsset.localIdentifier | clau | merged | Symptom (in v0.1.12 logs): CardImageThumbnail repe... |
 | **f0vbuej7** | PC-124 [P1]: Photo card detail — replace raw path/Content with structured metadata block | clau | merged | Follow-up to PC-122 (which prevented mutation of c... |
-| **3507n6wx** | PC-125 [P1]: Calendar event 'See all matches' should execute the search, not navigate to empty Search tab | misty | planned | Today/Upcoming → tap event → CalendarEventDetailVi... |
+| **3507n6wx** | PC-125 [P1]: Calendar event 'See all matches' should execute the search, not navigate to empty Search tab | clau | planned | Today/Upcoming → tap event → CalendarEventDetailVi... |
 | **nzwzgjqa** | PC-127 [P0]: Trip photos: replace flat thumbnail list with day-grouped pinterest-style cards | clau | merged | Big UX change for Trips → trip detail. Currently p... |
-| **x5fyu470** | PC-131 [P1]: Library → Insights: make Top Tags / Trips / Top Places clickable | misty | planned | Library → Insights screen lists three sections tha... |
+| **x5fyu470** | PC-131 [P1]: Library → Insights: make Top Tags / Trips / Top Places clickable | clau | planned | Library → Insights screen lists three sections tha... |
 | **k55s09zn** | PC-136 [P1]: Universal pinterest/mymind-style card view — apply to all photo+card lists | clau | merged | General architectural ask (Miguel 2026-04-29): the... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
