@@ -438,7 +438,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **ljva93dt** | PC-142 [P1]: Wiki — WikiGenerator board/daily/place/person wikis | misty | planned | Sprint 4 / Wiki System (was PC-052 in sprint doc)... |
 | **2rnnh3f1** | PC-143 [P0]: Wiki — Library homepage replaces empty state | clau | merged | Sprint 4 / Wiki System (was PC-053 in sprint doc)... |
 | **lfrbg6xd** | PC-144 [P1]: Wiki — Wiki tab in Intelligence row | codi | merged | Sprint 4 / Wiki System (was PC-054 in sprint doc)... |
-| **xj3hxgkb** | PC-145 [P1]: Wiki — PDF association with wiki articles | clau | planned | Sprint 4 / Wiki System (was PC-055 in sprint doc)... |
+| **xj3hxgkb** | PC-145 [P1]: Wiki — PDF association with wiki articles | clau | in_work | Sprint 4 / Wiki System (was PC-055 in sprint doc)... |
 | **xv6ksphw** | PC-146 [P1]: Wiki — Generation progress UX | gem | planned | Sprint 4 / Wiki System (was PC-056 in sprint doc)... |
 | **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | misty | planned | Sprint 4 / Wiki System (was PC-057 in sprint doc)... |
 | **a5m7j7jh** | PC-148 [P0]: Photo burst/time-slot clustering within a day | codi | merged | Sprint 4 / Wiki System infrastructure.... |
