@@ -50,6 +50,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **gv4ce7hp**: PC-137 [P0]: Wiki — WikiArticle data model and SQLite schema -- Sprint 4 / Wiki System (was PC-047 in sprint doc) -- Codi. Approved.
 - **49qzyt6z**: PC-135 [P2]: Settings → Reindex: progress feedback during reindex -- Currently tapping Reindex starts the work silently — no spinner, no count, no log line in the UI. User can't tell if it's running or stuck. Add either: -- Clau. Approved.
 - **u6jwfkfr**: PC-134 [P0]: Capture flow simplification: 4 actions, single layer, no save-to-library prompt -- Current: Capture has two menus — first level (Photo/Scan/Ask), second level after capture. Plus a 'top X' button that does nothing. Plus a 'save to library' question. -- Clau. Approved.
 - **spp93kio**: PC-133 [P1]: Saved Searches section + bug: stored searches lost when re-saving -- Two issues: -- Misty. Approved.
@@ -430,17 +431,16 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **2fzez6uc** | PC-130 [P1]: Trip photo back-navigation should return to Day view, not trip top | clau | merged | Library → Trips → trip → day → photo → close. Curr... |
 | **x5fyu470** | PC-131 [P1]: Library → Insights: make Top Tags / Trips / Top Places clickable | misty | planned | Library → Insights screen lists three sections tha... |
 | **k55s09zn** | PC-136 [P1]: Universal pinterest/mymind-style card view — apply to all photo+card lists | clau | merged | General architectural ask (Miguel 2026-04-29): the... |
-| **gv4ce7hp** | PC-137 [P0]: Wiki — WikiArticle data model and SQLite schema | codi | merged | Sprint 4 / Wiki System (was PC-047 in sprint doc)... |
 | **ziux84w6** | PC-138 [P0]: Wiki — WikiArticleView (Wikipedia-style SwiftUI renderer) | gem | planned | Sprint 4 / Wiki System (was PC-048 in sprint doc)... |
-| **010vep8e** | PC-139 [P0]: Wiki — WikiNavigationService (wikilink routing) | codi | planned | Sprint 4 / Wiki System (was PC-049 in sprint doc)... |
+| **010vep8e** | PC-139 [P0]: Wiki — WikiNavigationService (wikilink routing) | codi | merged | Sprint 4 / Wiki System (was PC-049 in sprint doc)... |
 | **bfrln3t6** | PC-140 [P0]: Wiki — WikiGenerator trip wiki | misty | planned | Sprint 4 / Wiki System (was PC-050 in sprint doc)... |
-| **ku4l6nzk** | PC-141 [P0]: Wiki — WikiGenerator homepage (This Week) | clau | planned | Sprint 4 / Wiki System (was PC-051 in sprint doc)... |
+| **ku4l6nzk** | PC-141 [P0]: Wiki — WikiGenerator homepage (This Week) | clau | merged | Sprint 4 / Wiki System (was PC-051 in sprint doc)... |
 | **ljva93dt** | PC-142 [P1]: Wiki — WikiGenerator board/daily/place/person wikis | misty | planned | Sprint 4 / Wiki System (was PC-052 in sprint doc)... |
 | **2rnnh3f1** | PC-143 [P0]: Wiki — Library homepage replaces empty state | clau | planned | Sprint 4 / Wiki System (was PC-053 in sprint doc)... |
-| **lfrbg6xd** | PC-144 [P1]: Wiki — Wiki tab in Intelligence row | codi | planned | Sprint 4 / Wiki System (was PC-054 in sprint doc)... |
+| **lfrbg6xd** | PC-144 [P1]: Wiki — Wiki tab in Intelligence row | codi | merged | Sprint 4 / Wiki System (was PC-054 in sprint doc)... |
 | **xj3hxgkb** | PC-145 [P1]: Wiki — PDF association with wiki articles | clau | planned | Sprint 4 / Wiki System (was PC-055 in sprint doc)... |
 | **xv6ksphw** | PC-146 [P1]: Wiki — Generation progress UX | gem | planned | Sprint 4 / Wiki System (was PC-056 in sprint doc)... |
 | **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | misty | planned | Sprint 4 / Wiki System (was PC-057 in sprint doc)... |
-| **a5m7j7jh** | PC-148 [P0]: Photo burst/time-slot clustering within a day | codi | planned | Sprint 4 / Wiki System infrastructure.... |
+| **a5m7j7jh** | PC-148 [P0]: Photo burst/time-slot clustering within a day | codi | merged | Sprint 4 / Wiki System infrastructure.... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
