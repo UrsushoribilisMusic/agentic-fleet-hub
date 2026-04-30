@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-04-30",
-    "summary": "Clau (s22): PC-169 Metal GPU crash fixed (@MainActor Task blocks); PC-170 Highlights 'No model loaded' fixed (ModelRouter.route before generate). Both BUILD SUCCEEDED.",
+    "summary": "Clau (s23): rescued uncommitted PC-168 changes (OCR+geocode daily note photos), committed 1c83669, BUILD SUCCEEDED; fixed PC-170 stuck in_progress → peer_review.",
     "file": "2026-04-30.md"
   },
   {
