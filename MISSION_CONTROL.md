@@ -455,11 +455,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **1rs24i9t** | PC-157 [P1]: Board wiki — LLM narrative from board photos OCR, notes, PDFs | gem | in_work | Each board needs a Wiki tab. Article is generated ... |
 | **gijiwfy4** | PC-158 [P2]: Library — remove Boards and Saved Searches, move Hashtags below Wiki | misty | planned | LibraryView: (1) Remove Boards entry. (2) Remove S... |
 | **a7vuf5rf** | PC-159 [P1]: Wiki homepage photo count shows 0 | misty | planned | WikiArticleView / WikiBrowserView: photo count on ... |
-| **v4pmvfam** | PC-160 [P1]: Wiki — replace Recent Captures + Connected Wikis with LLM narrative section | gem | planned | WikiArticleView: replace Recent Captures strip and... |
+| **v4pmvfam** | PC-160 [P1]: Wiki — replace Recent Captures + Connected Wikis with LLM narrative section | gem | merged | WikiArticleView: replace Recent Captures strip and... |
 | **nsutn834** | PC-161 [P1]: Places — saved note not shown in place detail | misty | planned | Place detail > Add Note: note is saved but not dis... |
-| **y5q4nrxh** | PC-162 [P1]: Trips summary — use OCR, location, time, and clip info for narrative | gem | planned | Trip detail > Summarize: extend WikiGenerator.gene... |
+| **y5q4nrxh** | PC-162 [P1]: Trips summary — use OCR, location, time, and clip info for narrative | gem | in_work | Trip detail > Summarize: extend WikiGenerator.gene... |
 | **n68p4aoi** | PC-163 [P1]: Incremental wiki hierarchy — section wikis compose into day and trip wikis | gem | planned | New wiki generation architecture: (1) Section wiki... |
-| **mz5yzw9q** | PC-165 [P1]: Person wiki — LLM narrative from tagged photos, events, and notes | gem | planned | Each person should have a Wiki tab in PersonDetail... |
 | **ewoym3l8** | PC-164 [P0]: Trip section summaries — LLM narrative per Morning/Afternoon/Evening slot | clau | planned | TripDetailView already groups photos by day and ti... |
+| **mz5yzw9q** | PC-165 [P1]: Person wiki — LLM narrative from tagged photos, events, and notes | gem | planned | Each person should have a Wiki tab in PersonDetail... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
