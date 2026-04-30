@@ -52,6 +52,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
 - **rffa361e**: Fleet: Replace legacy Gemma slot with Qwen Coder safely -- Replace the legacy local Gemma fleet slot with Qwen Coder while keeping heartbeatKey=gemma for compatibility. Confirm local model name, resolve Ollama MLX/Metal crash, keep autonomous code execution disabled until a tool-safe non-interactive harness exists, and document local Ollama/aichat vs DashScope/Qwen Code CLI runtime choice. -- Codi. Approved.
 - **a5m7j7jh**: PC-148 [P0]: Photo burst/time-slot clustering within a day -- Sprint 4 / Wiki System infrastructure. -- Misty. Approved.
+- **xv6ksphw**: PC-146 [P1]: Wiki — Generation progress UX -- Sprint 4 / Wiki System (was PC-056 in sprint doc) -- Gem. Approved.
 - **xj3hxgkb**: PC-145 [P1]: Wiki — PDF association with wiki articles -- Sprint 4 / Wiki System (was PC-055 in sprint doc) -- Clau. Approved.
 - **lfrbg6xd**: PC-144 [P1]: Wiki — Wiki tab in Intelligence row -- Sprint 4 / Wiki System (was PC-054 in sprint doc) -- Clau. Approved.
 - **2rnnh3f1**: PC-143 [P0]: Wiki — Library homepage replaces empty state -- Sprint 4 / Wiki System (was PC-053 in sprint doc) -- Clau. Approved.
@@ -441,7 +442,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **bfrln3t6** | PC-140 [P0]: Wiki — WikiGenerator trip wiki | gem | planned | Sprint 4 / Wiki System (was PC-050 in sprint doc)... |
 | **ljva93dt** | PC-142 [P1]: Wiki — WikiGenerator board/daily/place/person wikis | gem | planned | Sprint 4 / Wiki System (was PC-052 in sprint doc)... |
-| **xv6ksphw** | PC-146 [P1]: Wiki — Generation progress UX | gem | merged | Sprint 4 / Wiki System (was PC-056 in sprint doc)... |
 | **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | misty | planned | Sprint 4 / Wiki System (was PC-057 in sprint doc)... |
 | **r9cbf7e8** | PC-149 [P1]: Wiki PDF references should score linked PDF chunks, not global top-N | codi | merged | Follow-up from PC-145 merge review: WikiGenerator.... |
 | **rbbf991f** | Fleet: Qwen Coder smoke test updates legacy Gemma docs | gemma | in_work | ## Goal... |
