@@ -14,6 +14,18 @@ import hashlib
 from datetime import datetime, timedelta
 
 PB_URL = "http://127.0.0.1:8090/api"
+
+# Guard: warn if running from the repo checkout instead of the canonical runtime path.
+_CANONICAL_RUNTIME = os.path.expanduser("~/fleet/dispatcher.py")
+_THIS_FILE = os.path.realpath(__file__)
+if os.path.realpath(_CANONICAL_RUNTIME) != _THIS_FILE:
+    import warnings
+    warnings.warn(
+        f"dispatcher.py is running from {_THIS_FILE} — not the canonical runtime path "
+        f"{_CANONICAL_RUNTIME}. Run 'bash fleet/sync_to_fleet.sh --restart' instead.",
+        stacklevel=1,
+    )
+
 FLEET_DIR = "/Users/miguelrodriguez/projects/agentic-fleet-hub/fleet"
 CODEX_REPO_DIR = "/Users/miguelrodriguez/projects/agentic-fleet-hub"
 FLEET_META_PATH = os.path.join(CODEX_REPO_DIR, "AGENTS/CONFIG/fleet_meta.json")
@@ -50,6 +62,7 @@ AGENT_COMMANDS = {
     "closer": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/closer", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "clau": ["/Users/miguelrodriguez/.local/bin/claude", "--dangerously-skip-permissions", "--model", "claude-sonnet-4-6", "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "gem": ["/opt/homebrew/bin/node", "/opt/homebrew/bin/gemini", "--yolo", "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
+    "misty": ["vibe", "-C", CODEX_REPO_DIR, "--prompt", "Run your heartbeat protocol. Read ~/projects/agentic-fleet-hub/MISTRAL.md first, then follow AGENTS/RULES.md. Follow all 6 phases."],
     "codi": [
         "/opt/homebrew/bin/node",
         "/opt/homebrew/bin/codex",
@@ -786,9 +799,11 @@ def log_queue_snapshot():
     except Exception as e:
         log(f"WARN log_queue_snapshot: {e}")
 
+RUNTIME_DIR = os.path.expanduser("~/fleet")
+
 def run_sync_scripts(force_gh=False):
     """Run GitHub and Mission Control sync scripts with error handling."""
-    scripts_dir = os.path.join(CODEX_REPO_DIR, "fleet")
+    scripts_dir = RUNTIME_DIR  # always run from ~/fleet/, never the repo checkout
     
     # 1. Mission Control Sync (Every cycle)
     try:
@@ -805,8 +820,8 @@ def run_sync_scripts(force_gh=False):
     if force_gh:
         try:
             log("Running GitHub sync...")
-            res = subprocess.run([sys.executable, os.path.join(scripts_dir, "github_sync.py")], 
-                                 capture_output=True, text=True, timeout=120)
+            res = subprocess.run([sys.executable, os.path.join(scripts_dir, "github_sync.py"), "--once"], 
+                                 capture_output=True, text=True, timeout=90)
             if res.returncode != 0:
                 log(f"ERROR: github_sync.py failed: {res.stderr}")
                 send_telegram(f"❌ GitHub Sync Error: bidirectional sync failed.\n\n{res.stderr[:200]}")

@@ -74,6 +74,34 @@ We recommend using **systemd** or **pm2** to keep the server running 24/7.
 pm2 start server.mjs --name flotilla
 ```
 
+### 4. Dispatcher Runtime Path
+
+The launchd-managed dispatcher and agent heartbeats always execute from **`~/fleet/`**
+(`/Users/miguelrodriguez/fleet/`). This is the single runtime source of truth.
+
+| Path | Purpose |
+|------|---------|
+| `~/fleet/dispatcher.py` | Running binary (launchd `fleet.dispatcher` service) |
+| `~/fleet/github_sync.py` | Running binary (launchd `fleet.github` service) |
+| `~/fleet/fleet_sync.py` | Called by dispatcher each cycle |
+| `~/projects/agentic-fleet-hub/fleet/` | Repo checkout — develop here, mirror to `~/fleet/` |
+| `~/projects/agentic-fleet-hub/fleet/logs/` | Shared log directory (both paths write here) |
+
+**After editing any `fleet/*.py` in the repo, mirror and restart:**
+
+```bash
+# From the repo root:
+bash fleet/sync_to_fleet.sh --restart
+```
+
+`sync_to_fleet.sh` diffs each script and copies only changed files, then bounces
+`fleet.dispatcher` and `fleet.github` via `launchctl kickstart`. Run without `--restart`
+to inspect what would change before committing to a restart.
+
+**Never start a second dispatcher from the repo path.** `launchd` owns the dispatcher
+lifecycle. Starting `python3 fleet/dispatcher.py` from the repo would create a second
+instance that races against the managed one for PocketBase writes and Telegram messages.
+
 ---
 
 ## 🤝 Onboarding Your First Agent
