@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-04-30",
-    "summary": "Codi: PC-157 approved with green tag build-green-2026-04-30-27; PC-160 rejected for build failure/incomplete narrative; PC-152 moved to peer_review.",
+    "summary": "Codi: PC-157/152 approved; Clau: PC-155/160 approved, PC-163/164 reset to todo; s5dgexii dispatcher runtime standardized — rogue PIDs killed, sync_to_fleet.sh created, INSTALL.md updated.",
     "file": "2026-04-30.md"
   },
   {
