@@ -1,12 +1,12 @@
 [
   {
     "date": "2026-04-30",
-    "summary": "Clau (s23): rescued uncommitted PC-168 changes (OCR+geocode daily note photos), committed 1c83669, BUILD SUCCEEDED; fixed PC-170 stuck in_progress → peer_review.",
+    "summary": "Clau: 26 sessions, 18 PrivateCore tasks implemented (PC-125/127/136/141/143/145/148/151/159/161/162/166/167/168/169/170/171 + board+daily wiki), 30+ commits, fixed Codi sandbox root cause, filed PC-153\u2013171 from device testing, added Code Review Protocol to RULES.md. Misty: peer reviewed 15 tasks, implemented PC-156. Gem: completed PC-146/162/165.",
     "file": "2026-04-30.md"
   },
   {
     "date": "2026-04-29",
-    "summary": "Clau: fixed PC-124/128/129 peer_review→todo; PC-133 verified (awaits peer approval); committed Codi's dispatcher token-failure cooldown + Qwen Coder fleet_meta update",
+    "summary": "Clau: fixed PC-124/128/129 peer_review\u2192todo; PC-133 verified (awaits peer approval); committed Codi's dispatcher token-failure cooldown + Qwen Coder fleet_meta update",
     "file": "2026-04-29.md"
   },
   {

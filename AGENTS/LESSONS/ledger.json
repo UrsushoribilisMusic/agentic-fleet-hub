@@ -18,7 +18,7 @@
     "project": "Fleet Hub",
     "symptom": "Fleet UI had live changes (style.css, updated main.js, dashboard.html) that only existed on the DO server. The repo was weeks behind reality. Any server wipe or new deployment would have silently lost all that work.",
     "root_cause": "Agent (Gem/Codi) deployed files to /opt/salesman-api/ via SSH or direct edit but did not commit them to salesman-cloud-infra. The task was marked done in MISSION_CONTROL without verifying the repo matched the server.",
-    "lesson": "The repo is the source of truth. If you touch a file on a production server — even a one-line fix — commit it to the corresponding repo before closing the session. A task is NOT done until the change is in git. Add Rule #5 under GitHub & Commits in AGENTS/RULES.md was added to enforce this.",
+    "lesson": "The repo is the source of truth. If you touch a file on a production server \u2014 even a one-line fix \u2014 commit it to the corresponding repo before closing the session. A task is NOT done until the change is in git. Add Rule #5 under GitHub & Commits in AGENTS/RULES.md was added to enforce this.",
     "agent": "Clau (Claude Code)",
     "date": "2026-03-14T00:00:00Z",
     "status": "approved"
@@ -190,5 +190,12 @@
     "agent": "Codi (Codex)",
     "date": "2026-04-08T00:00:00Z",
     "status": "approved"
+  },
+  {
+    "date": "2026-04-30",
+    "agent": "gem",
+    "project": "PrivateCore",
+    "lesson": "When performing multi-step git operations involving main and task branches, explicitly verify the current branch before committing to avoid accidental commits to main. Use -m with git merge to prevent interactive editor hangs in CLI environments.",
+    "severity": "low"
   }
 ]
