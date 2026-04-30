@@ -463,5 +463,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **nsutn834** | PC-161 [P1]: Places — saved note not shown in place detail | gem | planned | Place detail > Add Note: note is saved but not dis... |
 | **y5q4nrxh** | PC-162 [P1]: Trips summary — use OCR, location, time, and clip info for narrative | gem | merged | Trip detail > Summarize: extend WikiGenerator.gene... |
 | **rad91221** | PC-166 [P1]: Board wiki tab can show stale cached content after board changes | gem | planned | ## Problem... |
+| **q5khf7zg** | PC-167 [P1]: Weekly wiki — LLM narrative assembled from day wikis, formatted as a cohesive trip story | gem | planned | The trip/weekly wiki (homepage 'This Week' and tri... |
+| **jml2bti3** | PC-166 [P1]: Daily wiki — LLM narrative assembled from morning/afternoon/evening section summaries | gem | planned | Each day in TripDetailView (and standalone in the ... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
