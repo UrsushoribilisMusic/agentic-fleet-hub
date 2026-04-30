@@ -450,7 +450,7 @@
     "id": "wake-clau-2026-04-30",
     "from": "miguel",
     "to": "clau",
-    "status": "unread",
+    "status": "read",
     "timestamp": "2026-04-30T16:35:29.988287Z",
     "content": "4 todo tickets waiting for you: PC-166 (board wiki stale cache), PC-166 (daily wiki), PC-167 (weekly wiki), and PC-164 (trip section summaries). Gem ran out of tokens \u2014 these are reassigned to you. Build is green. Start with PC-164 (P0)."
   }
