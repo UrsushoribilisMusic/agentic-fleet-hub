@@ -459,7 +459,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | gem | planned | Sprint 4 / Wiki System (was PC-057 in sprint doc)... |
 | **1yab1z0c** | PC-156 [P2]: All Photos — OCR text items not tappable and font too large | gem | planned | Library > All Photos > OCR section: entries should... |
 | **gijiwfy4** | PC-158 [P2]: Library — remove Boards and Saved Searches, move Hashtags below Wiki | clau | merged | LibraryView: (1) Remove Boards entry. (2) Remove S... |
-| **a7vuf5rf** | PC-159 [P1]: Wiki homepage photo count shows 0 | gem | planned | WikiArticleView / WikiBrowserView: photo count on ... |
+| **a7vuf5rf** | PC-159 [P1]: Wiki homepage photo count shows 0 | gem | in_work | WikiArticleView / WikiBrowserView: photo count on ... |
 | **nsutn834** | PC-161 [P1]: Places — saved note not shown in place detail | gem | planned | Place detail > Add Note: note is saved but not dis... |
 | **y5q4nrxh** | PC-162 [P1]: Trips summary — use OCR, location, time, and clip info for narrative | clau | in_work | Trip detail > Summarize: extend WikiGenerator.gene... |
 | **rad91221** | PC-166 [P1]: Board wiki tab can show stale cached content after board changes | codi | planned | ## Problem... |
