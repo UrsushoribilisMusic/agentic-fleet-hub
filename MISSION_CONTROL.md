@@ -54,6 +54,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **xj3hxgkb**: PC-145 [P1]: Wiki — PDF association with wiki articles -- Sprint 4 / Wiki System (was PC-055 in sprint doc) -- Clau. Approved.
 - **2rnnh3f1**: PC-143 [P0]: Wiki — Library homepage replaces empty state -- Sprint 4 / Wiki System (was PC-053 in sprint doc) -- Clau. Approved.
 - **ku4l6nzk**: PC-141 [P0]: Wiki — WikiGenerator homepage (This Week) -- Sprint 4 / Wiki System (was PC-051 in sprint doc) -- Clau. Approved.
+- **ziux84w6**: PC-138 [P0]: Wiki — WikiArticleView (Wikipedia-style SwiftUI renderer) -- Sprint 4 / Wiki System (was PC-048 in sprint doc) -- Clau. Approved.
 - **gv4ce7hp**: PC-137 [P0]: Wiki — WikiArticle data model and SQLite schema -- Sprint 4 / Wiki System (was PC-047 in sprint doc) -- Codi. Approved.
 - **k55s09zn**: PC-136 [P1]: Universal pinterest/mymind-style card view — apply to all photo+card lists -- General architectural ask (Miguel 2026-04-29): the day-grouped pinterest layout introduced for Trips (PC-127) should be the UNIVERSAL pattern wherever the app shows a list of cards or photos: -- Clau. Approved.
 - **49qzyt6z**: PC-135 [P2]: Settings → Reindex: progress feedback during reindex -- Currently tapping Reindex starts the work silently — no spinner, no count, no log line in the UI. User can't tell if it's running or stuck. Add either: -- Clau. Approved.
@@ -434,13 +435,12 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **3507n6wx** | PC-125 [P1]: Calendar event 'See all matches' should execute the search, not navigate to empty Search tab | clau | merged | Today/Upcoming → tap event → CalendarEventDetailVi... |
-| **x5fyu470** | PC-131 [P1]: Library → Insights: make Top Tags / Trips / Top Places clickable | misty | planned | Library → Insights screen lists three sections tha... |
-| **ziux84w6** | PC-138 [P0]: Wiki — WikiArticleView (Wikipedia-style SwiftUI renderer) | clau | in_work | Sprint 4 / Wiki System (was PC-048 in sprint doc)... |
+| **x5fyu470** | PC-131 [P1]: Library → Insights: make Top Tags / Trips / Top Places clickable | clau | merged | Library → Insights screen lists three sections tha... |
 | **010vep8e** | PC-139 [P0]: Wiki — WikiNavigationService (wikilink routing) | clau | merged | Sprint 4 / Wiki System (was PC-049 in sprint doc)... |
 | **bfrln3t6** | PC-140 [P0]: Wiki — WikiGenerator trip wiki | misty | planned | Sprint 4 / Wiki System (was PC-050 in sprint doc)... |
 | **ljva93dt** | PC-142 [P1]: Wiki — WikiGenerator board/daily/place/person wikis | misty | planned | Sprint 4 / Wiki System (was PC-052 in sprint doc)... |
 | **lfrbg6xd** | PC-144 [P1]: Wiki — Wiki tab in Intelligence row | clau | merged | Sprint 4 / Wiki System (was PC-054 in sprint doc)... |
-| **xv6ksphw** | PC-146 [P1]: Wiki — Generation progress UX | gem | planned | Sprint 4 / Wiki System (was PC-056 in sprint doc)... |
+| **xv6ksphw** | PC-146 [P1]: Wiki — Generation progress UX | gem | in_work | Sprint 4 / Wiki System (was PC-056 in sprint doc)... |
 | **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | misty | planned | Sprint 4 / Wiki System (was PC-057 in sprint doc)... |
 | **a5m7j7jh** | PC-148 [P0]: Photo burst/time-slot clustering within a day | clau | merged | Sprint 4 / Wiki System infrastructure.... |
 | **r9cbf7e8** | PC-149 [P1]: Wiki PDF references should score linked PDF chunks, not global top-N | codi | merged | Follow-up from PC-145 merge review: WikiGenerator.... |
