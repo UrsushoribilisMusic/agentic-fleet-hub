@@ -461,5 +461,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **n68p4aoi** | PC-163 [P1]: Incremental wiki hierarchy — section wikis compose into day and trip wikis | codi | in_work | New wiki generation architecture: (1) Section wiki... |
 | **ewoym3l8** | PC-164 [P0]: Trip section summaries — LLM narrative per Morning/Afternoon/Evening slot | codi | planned | TripDetailView already groups photos by day and ti... |
 | **mz5yzw9q** | PC-165 [P1]: Person wiki — LLM narrative from tagged photos, events, and notes | gem | planned | Each person should have a Wiki tab in PersonDetail... |
+| **rad91221** | PC-166 [P1]: Board wiki tab can show stale cached content after board changes | codi | planned | ## Problem... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
