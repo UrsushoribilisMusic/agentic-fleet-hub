@@ -451,12 +451,12 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | misty | planned | Sprint 4 / Wiki System (was PC-057 in sprint doc)... |
-| **1yab1z0c** | PC-156 [P2]: All Photos — OCR text items not tappable and font too large | misty | planned | Library > All Photos > OCR section: entries should... |
-| **gijiwfy4** | PC-158 [P2]: Library — remove Boards and Saved Searches, move Hashtags below Wiki | misty | planned | LibraryView: (1) Remove Boards entry. (2) Remove S... |
-| **a7vuf5rf** | PC-159 [P1]: Wiki homepage photo count shows 0 | misty | planned | WikiArticleView / WikiBrowserView: photo count on ... |
+| **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | gem | planned | Sprint 4 / Wiki System (was PC-057 in sprint doc)... |
+| **1yab1z0c** | PC-156 [P2]: All Photos — OCR text items not tappable and font too large | gem | planned | Library > All Photos > OCR section: entries should... |
+| **gijiwfy4** | PC-158 [P2]: Library — remove Boards and Saved Searches, move Hashtags below Wiki | gem | planned | LibraryView: (1) Remove Boards entry. (2) Remove S... |
+| **a7vuf5rf** | PC-159 [P1]: Wiki homepage photo count shows 0 | gem | planned | WikiArticleView / WikiBrowserView: photo count on ... |
 | **v4pmvfam** | PC-160 [P1]: Wiki — replace Recent Captures + Connected Wikis with LLM narrative section | gem | merged | WikiArticleView: replace Recent Captures strip and... |
-| **nsutn834** | PC-161 [P1]: Places — saved note not shown in place detail | misty | planned | Place detail > Add Note: note is saved but not dis... |
+| **nsutn834** | PC-161 [P1]: Places — saved note not shown in place detail | gem | planned | Place detail > Add Note: note is saved but not dis... |
 | **y5q4nrxh** | PC-162 [P1]: Trips summary — use OCR, location, time, and clip info for narrative | clau | in_work | Trip detail > Summarize: extend WikiGenerator.gene... |
 | **n68p4aoi** | PC-163 [P1]: Incremental wiki hierarchy — section wikis compose into day and trip wikis | codi | merged | New wiki generation architecture: (1) Section wiki... |
 | **ewoym3l8** | PC-164 [P0]: Trip section summaries — LLM narrative per Morning/Afternoon/Evening slot | codi | merged | TripDetailView already groups photos by day and ti... |
