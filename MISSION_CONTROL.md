@@ -452,7 +452,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **yn3tha07** | PC-154 [P1]: Boards list view items are not navigable | clau | planned | Board detail > List view: tapping items does nothi... |
 | **ptj9vn97** | PC-155 [P1]: All Photos — visual index information not shown on photo detail | clau | planned | Library > All Photos: the AI visual description (C... |
 | **1yab1z0c** | PC-156 [P2]: All Photos — OCR text items not tappable and font too large | misty | planned | Library > All Photos > OCR section: entries should... |
-| **1rs24i9t** | PC-157 [P1]: Board wiki — LLM narrative from board photos OCR, notes, PDFs | gem | in_work | Each board needs a Wiki tab. Article is generated ... |
+| **1rs24i9t** | PC-157 [P1]: Board wiki — LLM narrative from board photos OCR, notes, PDFs | gem | merged | Each board needs a Wiki tab. Article is generated ... |
 | **gijiwfy4** | PC-158 [P2]: Library — remove Boards and Saved Searches, move Hashtags below Wiki | misty | planned | LibraryView: (1) Remove Boards entry. (2) Remove S... |
 | **a7vuf5rf** | PC-159 [P1]: Wiki homepage photo count shows 0 | misty | planned | WikiArticleView / WikiBrowserView: photo count on ... |
 | **v4pmvfam** | PC-160 [P1]: Wiki — replace Recent Captures + Connected Wikis with LLM narrative section | gem | merged | WikiArticleView: replace Recent Captures strip and... |
