@@ -443,7 +443,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **bfrln3t6** | PC-140 [P0]: Wiki — WikiGenerator trip wiki | gem | planned | Sprint 4 / Wiki System (was PC-050 in sprint doc)... |
 | **ljva93dt** | PC-142 [P1]: Wiki — WikiGenerator board/daily/place/person wikis | gem | planned | Sprint 4 / Wiki System (was PC-052 in sprint doc)... |
 | **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | misty | planned | Sprint 4 / Wiki System (was PC-057 in sprint doc)... |
-| **r9cbf7e8** | PC-149 [P1]: Wiki PDF references should score linked PDF chunks, not global top-N | codi | merged | Follow-up from PC-145 merge review: WikiGenerator.... |
+| **r9cbf7e8** | PC-149 [P1]: Wiki PDF references should score linked PDF chunks, not global top-N | gem | merged | Follow-up from PC-145 merge review: WikiGenerator.... |
 | **rbbf991f** | Fleet: Qwen Coder smoke test updates legacy Gemma docs | gemma | in_work | ## Goal... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
