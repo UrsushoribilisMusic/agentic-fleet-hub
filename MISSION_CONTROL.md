@@ -461,7 +461,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **1yab1z0c** | PC-156 [P2]: All Photos — OCR text items not tappable and font too large | clau | planned | Library > All Photos > OCR section: entries should... |
-| **a7vuf5rf** | PC-159 [P1]: Wiki homepage photo count shows 0 | clau | in_work | WikiArticleView / WikiBrowserView: photo count on ... |
+| **a7vuf5rf** | PC-159 [P1]: Wiki homepage photo count shows 0 | clau | merged | WikiArticleView / WikiBrowserView: photo count on ... |
 | **rad91221** | PC-166 [P1]: Board wiki tab can show stale cached content after board changes | clau | planned | ## Problem... |
 | **jml2bti3** | PC-166 [P1]: Daily wiki — LLM narrative assembled from morning/afternoon/evening section summaries | clau | planned | Each day in TripDetailView (and standalone in the ... |
 | **q5khf7zg** | PC-167 [P1]: Weekly wiki — LLM narrative assembled from day wikis, formatted as a cohesive trip story | clau | planned | The trip/weekly wiki (homepage 'This Week' and tri... |
