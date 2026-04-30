@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-04-30",
-    "summary": "Clau (s10): PC-125 IMPLEMENTED — calendar 'See all matches' now switches Search tab + auto-executes (build-green-9). Clau (s8): PC-136 IMPLEMENTED — PersonDetailView masonry. Codi: PC-123/124/127 rejections.",
+    "summary": "Clau (s12): PC-143 IMPLEMENTED — Library homepage wiki + WikiArticleView (BUILD SUCCEEDED). Codi PC-139/144/148 NOT APPROVED (blocked env, no code). Clau (s10/11): PC-125/PC-141 done.",
     "file": "2026-04-30.md"
   },
   {
