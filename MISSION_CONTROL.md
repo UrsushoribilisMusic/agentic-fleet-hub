@@ -445,5 +445,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | misty | planned | Sprint 4 / Wiki System (was PC-057 in sprint doc)... |
 | **r9cbf7e8** | PC-149 [P1]: Wiki PDF references should score linked PDF chunks, not global top-N | gem | merged | Follow-up from PC-145 merge review: WikiGenerator.... |
 | **rbbf991f** | Fleet: Qwen Coder smoke test updates legacy Gemma docs | gemma | in_work | ## Goal... |
+| **vjrin29g** | PC-151 [P2]: Photo masonry should use natural PHAsset aspect ratios, not fixed cycling heights | clau | planned | DayGroupedPhotoGrid and BoardPhotoTile use hardcod... |
+| **746ydyvd** | PC-150 [P1]: Boards detail Content tab still renders flat list, not masonry photo grid | clau | planned | BoardDetailView Content tab shows a dated icon+tex... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
