@@ -428,6 +428,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **nzwzgjqa** | PC-127 [P0]: Trip photos: replace flat thumbnail list with day-grouped pinterest-style cards | clau | merged | Big UX change for Trips → trip detail. Currently p... |
 | **x5fyu470** | PC-131 [P1]: Library → Insights: make Top Tags / Trips / Top Places clickable | clau | planned | Library → Insights screen lists three sections tha... |
 | **k55s09zn** | PC-136 [P1]: Universal pinterest/mymind-style card view — apply to all photo+card lists | clau | merged | General architectural ask (Miguel 2026-04-29): the... |
+| **a5m7j7jh** | PC-148 [P0]: Photo burst/time-slot clustering within a day | codi | planned | Sprint 4 / Wiki System infrastructure.... |
 | **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | misty | planned | Sprint 4 / Wiki System (was PC-057 in sprint doc)... |
 | **xv6ksphw** | PC-146 [P1]: Wiki — Generation progress UX | gem | planned | Sprint 4 / Wiki System (was PC-056 in sprint doc)... |
 | **xj3hxgkb** | PC-145 [P1]: Wiki — PDF association with wiki articles | clau | planned | Sprint 4 / Wiki System (was PC-055 in sprint doc)... |
