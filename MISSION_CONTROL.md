@@ -462,8 +462,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **rad91221** | PC-166 [P1]: Board wiki tab can show stale cached content after board changes | clau | in_work | ## Problem... |
-| **jml2bti3** | PC-166 [P1]: Daily wiki — LLM narrative assembled from morning/afternoon/evening section summaries | clau | planned | Each day in TripDetailView (and standalone in the ... |
+| **rad91221** | PC-166 [P1]: Board wiki tab can show stale cached content after board changes | clau | merged | ## Problem... |
+| **jml2bti3** | PC-166 [P1]: Daily wiki — LLM narrative assembled from morning/afternoon/evening section summaries | clau | in_work | Each day in TripDetailView (and standalone in the ... |
 | **q5khf7zg** | PC-167 [P1]: Weekly wiki — LLM narrative assembled from day wikis, formatted as a cohesive trip story | clau | planned | The trip/weekly wiki (homepage 'This Week' and tri... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
