@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-04-30",
-    "summary": "Clau (s7): PC-136 NOT APPROVED→todo; recovered 4 uncommitted PC batches (PC-091/114/083/067-069); implemented PC-127 day-strip + pinterest masonry for trips. Codi: reviewed PC-123/124/127 rejections.",
+    "summary": "Clau (s8): PC-136 IMPLEMENTED — PersonDetailView day-grouped photos + masonry cards (build-green-2026-04-30-5). Clau (s7): PC-127 trip day-strip + pinterest masonry. Codi: PC-123/124/127 rejections.",
     "file": "2026-04-30.md"
   },
   {
