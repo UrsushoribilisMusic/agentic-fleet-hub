@@ -425,22 +425,22 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **oe6us4ec** | PC-123 [P1]: Photo cards with stale absolute paths (old container UUID) need migration to PHAsset.localIdentifier | clau | merged | Symptom (in v0.1.12 logs): CardImageThumbnail repe... |
 | **f0vbuej7** | PC-124 [P1]: Photo card detail — replace raw path/Content with structured metadata block | clau | merged | Follow-up to PC-122 (which prevented mutation of c... |
-| **3507n6wx** | PC-125 [P1]: Calendar event 'See all matches' should execute the search, not navigate to empty Search tab | clau | planned | Today/Upcoming → tap event → CalendarEventDetailVi... |
+| **3507n6wx** | PC-125 [P1]: Calendar event 'See all matches' should execute the search, not navigate to empty Search tab | clau | in_work | Today/Upcoming → tap event → CalendarEventDetailVi... |
 | **nzwzgjqa** | PC-127 [P0]: Trip photos: replace flat thumbnail list with day-grouped pinterest-style cards | clau | merged | Big UX change for Trips → trip detail. Currently p... |
 | **2fzez6uc** | PC-130 [P1]: Trip photo back-navigation should return to Day view, not trip top | clau | planned | Library → Trips → trip → day → photo → close. Curr... |
-| **x5fyu470** | PC-131 [P1]: Library → Insights: make Top Tags / Trips / Top Places clickable | clau | planned | Library → Insights screen lists three sections tha... |
+| **x5fyu470** | PC-131 [P1]: Library → Insights: make Top Tags / Trips / Top Places clickable | misty | planned | Library → Insights screen lists three sections tha... |
 | **k55s09zn** | PC-136 [P1]: Universal pinterest/mymind-style card view — apply to all photo+card lists | clau | merged | General architectural ask (Miguel 2026-04-29): the... |
-| **a5m7j7jh** | PC-148 [P0]: Photo burst/time-slot clustering within a day | codi | planned | Sprint 4 / Wiki System infrastructure.... |
-| **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | misty | planned | Sprint 4 / Wiki System (was PC-057 in sprint doc)... |
-| **xv6ksphw** | PC-146 [P1]: Wiki — Generation progress UX | gem | planned | Sprint 4 / Wiki System (was PC-056 in sprint doc)... |
-| **xj3hxgkb** | PC-145 [P1]: Wiki — PDF association with wiki articles | clau | planned | Sprint 4 / Wiki System (was PC-055 in sprint doc)... |
-| **lfrbg6xd** | PC-144 [P1]: Wiki — Wiki tab in Intelligence row | codi | planned | Sprint 4 / Wiki System (was PC-054 in sprint doc)... |
-| **2rnnh3f1** | PC-143 [P0]: Wiki — Library homepage replaces empty state | clau | planned | Sprint 4 / Wiki System (was PC-053 in sprint doc)... |
-| **ljva93dt** | PC-142 [P1]: Wiki — WikiGenerator board/daily/place/person wikis | misty | planned | Sprint 4 / Wiki System (was PC-052 in sprint doc)... |
-| **ku4l6nzk** | PC-141 [P0]: Wiki — WikiGenerator homepage (This Week) | clau | planned | Sprint 4 / Wiki System (was PC-051 in sprint doc)... |
-| **bfrln3t6** | PC-140 [P0]: Wiki — WikiGenerator trip wiki | misty | planned | Sprint 4 / Wiki System (was PC-050 in sprint doc)... |
-| **010vep8e** | PC-139 [P0]: Wiki — WikiNavigationService (wikilink routing) | codi | planned | Sprint 4 / Wiki System (was PC-049 in sprint doc)... |
-| **ziux84w6** | PC-138 [P0]: Wiki — WikiArticleView (Wikipedia-style SwiftUI renderer) | gem | planned | Sprint 4 / Wiki System (was PC-048 in sprint doc)... |
 | **gv4ce7hp** | PC-137 [P0]: Wiki — WikiArticle data model and SQLite schema | codi | planned | Sprint 4 / Wiki System (was PC-047 in sprint doc)... |
+| **ziux84w6** | PC-138 [P0]: Wiki — WikiArticleView (Wikipedia-style SwiftUI renderer) | gem | planned | Sprint 4 / Wiki System (was PC-048 in sprint doc)... |
+| **010vep8e** | PC-139 [P0]: Wiki — WikiNavigationService (wikilink routing) | codi | planned | Sprint 4 / Wiki System (was PC-049 in sprint doc)... |
+| **bfrln3t6** | PC-140 [P0]: Wiki — WikiGenerator trip wiki | misty | planned | Sprint 4 / Wiki System (was PC-050 in sprint doc)... |
+| **ku4l6nzk** | PC-141 [P0]: Wiki — WikiGenerator homepage (This Week) | clau | planned | Sprint 4 / Wiki System (was PC-051 in sprint doc)... |
+| **ljva93dt** | PC-142 [P1]: Wiki — WikiGenerator board/daily/place/person wikis | misty | planned | Sprint 4 / Wiki System (was PC-052 in sprint doc)... |
+| **2rnnh3f1** | PC-143 [P0]: Wiki — Library homepage replaces empty state | clau | planned | Sprint 4 / Wiki System (was PC-053 in sprint doc)... |
+| **lfrbg6xd** | PC-144 [P1]: Wiki — Wiki tab in Intelligence row | codi | planned | Sprint 4 / Wiki System (was PC-054 in sprint doc)... |
+| **xj3hxgkb** | PC-145 [P1]: Wiki — PDF association with wiki articles | clau | planned | Sprint 4 / Wiki System (was PC-055 in sprint doc)... |
+| **xv6ksphw** | PC-146 [P1]: Wiki — Generation progress UX | gem | planned | Sprint 4 / Wiki System (was PC-056 in sprint doc)... |
+| **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | misty | planned | Sprint 4 / Wiki System (was PC-057 in sprint doc)... |
+| **a5m7j7jh** | PC-148 [P0]: Photo burst/time-slot clustering within a day | codi | planned | Sprint 4 / Wiki System infrastructure.... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
