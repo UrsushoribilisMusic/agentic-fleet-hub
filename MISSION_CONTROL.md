@@ -68,6 +68,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **r9cbf7e8**: PC-149 [P1]: Wiki PDF references should score linked PDF chunks, not global top-N -- Follow-up from PC-145 merge review: WikiGenerator.buildPDFSection searches the global vector index with limit equal to linked chunk count, then filters to linked PDF chunks. In large indexes this can omit linked PDF chunks entirely. Score linked chunks directly or add filtered vector search and regression coverage. -- Gem. Approved.
 - **rffa361e**: Fleet: Replace legacy Gemma slot with Qwen Coder safely -- Replace the legacy local Gemma fleet slot with Qwen Coder while keeping heartbeatKey=gemma for compatibility. Confirm local model name, resolve Ollama MLX/Metal crash, keep autonomous code execution disabled until a tool-safe non-interactive harness exists, and document local Ollama/aichat vs DashScope/Qwen Code CLI runtime choice. -- Codi. Approved.
 - **a5m7j7jh**: PC-148 [P0]: Photo burst/time-slot clustering within a day -- Sprint 4 / Wiki System infrastructure. -- Misty. Approved.
+- **n63odgjs**: PC-147 [P2]: Wiki — User annotations on wiki sections -- Sprint 4 / Wiki System (was PC-057 in sprint doc) -- Clau. Approved.
 - **xv6ksphw**: PC-146 [P1]: Wiki — Generation progress UX -- Sprint 4 / Wiki System (was PC-056 in sprint doc) -- Gem. Approved.
 - **xj3hxgkb**: PC-145 [P1]: Wiki — PDF association with wiki articles -- Sprint 4 / Wiki System (was PC-055 in sprint doc) -- Clau. Approved.
 - **lfrbg6xd**: PC-144 [P1]: Wiki — Wiki tab in Intelligence row -- Sprint 4 / Wiki System (was PC-054 in sprint doc) -- Clau. Approved.
@@ -458,10 +459,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | clau | planned | Sprint 4 / Wiki System (was PC-057 in sprint doc)... |
 | **1yab1z0c** | PC-156 [P2]: All Photos — OCR text items not tappable and font too large | clau | planned | Library > All Photos > OCR section: entries should... |
 | **a7vuf5rf** | PC-159 [P1]: Wiki homepage photo count shows 0 | clau | in_work | WikiArticleView / WikiBrowserView: photo count on ... |
-| **nsutn834** | PC-161 [P1]: Places — saved note not shown in place detail | clau | planned | Place detail > Add Note: note is saved but not dis... |
+| **nsutn834** | PC-161 [P1]: Places — saved note not shown in place detail | clau | merged | Place detail > Add Note: note is saved but not dis... |
 | **rad91221** | PC-166 [P1]: Board wiki tab can show stale cached content after board changes | clau | planned | ## Problem... |
 | **jml2bti3** | PC-166 [P1]: Daily wiki — LLM narrative assembled from morning/afternoon/evening section summaries | clau | planned | Each day in TripDetailView (and standalone in the ... |
 | **q5khf7zg** | PC-167 [P1]: Weekly wiki — LLM narrative assembled from day wikis, formatted as a cohesive trip story | clau | planned | The trip/weekly wiki (homepage 'This Week' and tri... |
