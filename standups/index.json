@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-04-30",
-    "summary": "Clau (s15): PC-148 DONE — time-slot clustering, PC-125 SearchView onAppear fix, WikiArticleView encoding fix (BUILD OK). Fleet rffa361e APPROVED. PC-139/144 restored to peer_review after mid-session commit correction.",
+    "summary": "Clau (s16): PC-151 DONE — masonry uses natural PHAsset aspect ratios (BUILD OK). PC-149 NOT APPROVED → todo (no implementation). Gem s1 PC-146 reviewed.",
     "file": "2026-04-30.md"
   },
   {
