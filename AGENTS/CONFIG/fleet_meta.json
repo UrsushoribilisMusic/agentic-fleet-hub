@@ -79,6 +79,7 @@
       "heartbeatKey": "gemma",
       "roleTitle": "Local Coding Model",
       "roleDesc": "Runs through the legacy gemma fleet slot using Qwen Coder via aichat/Ollama. Intended for local coding assistance once the tool-safe execution harness is enabled.",
+      "model": "qwen3-coder:30b",
       "skills": [
         "Local Inference",
         "Code Generation",
