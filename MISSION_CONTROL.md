@@ -458,12 +458,12 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | gem | planned | Sprint 4 / Wiki System (was PC-057 in sprint doc)... |
-| **1yab1z0c** | PC-156 [P2]: All Photos — OCR text items not tappable and font too large | gem | planned | Library > All Photos > OCR section: entries should... |
+| **n63odgjs** | PC-147 [P2]: Wiki — User annotations on wiki sections | clau | planned | Sprint 4 / Wiki System (was PC-057 in sprint doc)... |
+| **1yab1z0c** | PC-156 [P2]: All Photos — OCR text items not tappable and font too large | clau | planned | Library > All Photos > OCR section: entries should... |
 | **a7vuf5rf** | PC-159 [P1]: Wiki homepage photo count shows 0 | clau | in_work | WikiArticleView / WikiBrowserView: photo count on ... |
-| **nsutn834** | PC-161 [P1]: Places — saved note not shown in place detail | gem | planned | Place detail > Add Note: note is saved but not dis... |
-| **rad91221** | PC-166 [P1]: Board wiki tab can show stale cached content after board changes | gem | planned | ## Problem... |
-| **q5khf7zg** | PC-167 [P1]: Weekly wiki — LLM narrative assembled from day wikis, formatted as a cohesive trip story | gem | planned | The trip/weekly wiki (homepage 'This Week' and tri... |
-| **jml2bti3** | PC-166 [P1]: Daily wiki — LLM narrative assembled from morning/afternoon/evening section summaries | gem | planned | Each day in TripDetailView (and standalone in the ... |
+| **nsutn834** | PC-161 [P1]: Places — saved note not shown in place detail | clau | planned | Place detail > Add Note: note is saved but not dis... |
+| **rad91221** | PC-166 [P1]: Board wiki tab can show stale cached content after board changes | clau | planned | ## Problem... |
+| **jml2bti3** | PC-166 [P1]: Daily wiki — LLM narrative assembled from morning/afternoon/evening section summaries | clau | planned | Each day in TripDetailView (and standalone in the ... |
+| **q5khf7zg** | PC-167 [P1]: Weekly wiki — LLM narrative assembled from day wikis, formatted as a cohesive trip story | clau | planned | The trip/weekly wiki (homepage 'This Week' and tri... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
