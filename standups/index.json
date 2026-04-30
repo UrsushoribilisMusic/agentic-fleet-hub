@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-04-30",
-    "summary": "Clau (s6): PC-136 NOT APPROVED→todo (Codi still sandbox-blocked). PC-124 implemented. Codi: reviewed PC-123/124/127 rejections. No open clau tasks.",
+    "summary": "Clau (s7): PC-136 NOT APPROVED→todo; recovered 4 uncommitted PC batches (PC-091/114/083/067-069); implemented PC-127 day-strip + pinterest masonry for trips. Codi: reviewed PC-123/124/127 rejections.",
     "file": "2026-04-30.md"
   },
   {
