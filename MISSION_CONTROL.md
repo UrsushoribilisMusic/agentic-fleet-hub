@@ -467,7 +467,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **brsr7o7j** | PC-168 [P1]: Daily note shows raw markdown timestamp list — surface OCR and caption per photo | clau | merged | Home > Daily Note card: the auto-generated content... |
 | **e9hc4vox** | PC-169 [P1]: Trip section/day generate summary crashes — Metal GPU called from background task | clau | merged | Tapping 'Generate Summary' on a trip day/section c... |
-| **unxj53y2** | PC-170 [P1]: Highlights section shows 'No model loaded' even when models are configured | clau | planned | Home wiki / Library homepage: Highlights section s... |
+| **unxj53y2** | PC-170 [P1]: Highlights section shows 'No model loaded' even when models are configured | clau | merged | Home wiki / Library homepage: Highlights section s... |
 | **lcoiqu3q** | PC-171 [P2]: People badge count (514) clipped by icon corner radius | misty | in_work | Library > Intelligence row: the People badge showi... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
