@@ -458,7 +458,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **v4pmvfam** | PC-160 [P1]: Wiki — replace Recent Captures + Connected Wikis with LLM narrative section | gem | merged | WikiArticleView: replace Recent Captures strip and... |
 | **nsutn834** | PC-161 [P1]: Places — saved note not shown in place detail | misty | planned | Place detail > Add Note: note is saved but not dis... |
 | **y5q4nrxh** | PC-162 [P1]: Trips summary — use OCR, location, time, and clip info for narrative | gem | in_work | Trip detail > Summarize: extend WikiGenerator.gene... |
-| **n68p4aoi** | PC-163 [P1]: Incremental wiki hierarchy — section wikis compose into day and trip wikis | gem | planned | New wiki generation architecture: (1) Section wiki... |
+| **n68p4aoi** | PC-163 [P1]: Incremental wiki hierarchy — section wikis compose into day and trip wikis | gem | in_work | New wiki generation architecture: (1) Section wiki... |
 | **ewoym3l8** | PC-164 [P0]: Trip section summaries — LLM narrative per Morning/Afternoon/Evening slot | codi | planned | TripDetailView already groups photos by day and ti... |
 | **mz5yzw9q** | PC-165 [P1]: Person wiki — LLM narrative from tagged photos, events, and notes | gem | planned | Each person should have a Wiki tab in PersonDetail... |
 
