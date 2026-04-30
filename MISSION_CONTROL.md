@@ -425,12 +425,12 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **oe6us4ec** | PC-123 [P1]: Photo cards with stale absolute paths (old container UUID) need migration to PHAsset.localIdentifier | clau | merged | Symptom (in v0.1.12 logs): CardImageThumbnail repe... |
 | **f0vbuej7** | PC-124 [P1]: Photo card detail — replace raw path/Content with structured metadata block | clau | merged | Follow-up to PC-122 (which prevented mutation of c... |
-| **3507n6wx** | PC-125 [P1]: Calendar event 'See all matches' should execute the search, not navigate to empty Search tab | clau | in_work | Today/Upcoming → tap event → CalendarEventDetailVi... |
+| **3507n6wx** | PC-125 [P1]: Calendar event 'See all matches' should execute the search, not navigate to empty Search tab | clau | merged | Today/Upcoming → tap event → CalendarEventDetailVi... |
 | **nzwzgjqa** | PC-127 [P0]: Trip photos: replace flat thumbnail list with day-grouped pinterest-style cards | clau | merged | Big UX change for Trips → trip detail. Currently p... |
-| **2fzez6uc** | PC-130 [P1]: Trip photo back-navigation should return to Day view, not trip top | clau | planned | Library → Trips → trip → day → photo → close. Curr... |
+| **2fzez6uc** | PC-130 [P1]: Trip photo back-navigation should return to Day view, not trip top | clau | merged | Library → Trips → trip → day → photo → close. Curr... |
 | **x5fyu470** | PC-131 [P1]: Library → Insights: make Top Tags / Trips / Top Places clickable | misty | planned | Library → Insights screen lists three sections tha... |
 | **k55s09zn** | PC-136 [P1]: Universal pinterest/mymind-style card view — apply to all photo+card lists | clau | merged | General architectural ask (Miguel 2026-04-29): the... |
-| **gv4ce7hp** | PC-137 [P0]: Wiki — WikiArticle data model and SQLite schema | codi | planned | Sprint 4 / Wiki System (was PC-047 in sprint doc)... |
+| **gv4ce7hp** | PC-137 [P0]: Wiki — WikiArticle data model and SQLite schema | codi | merged | Sprint 4 / Wiki System (was PC-047 in sprint doc)... |
 | **ziux84w6** | PC-138 [P0]: Wiki — WikiArticleView (Wikipedia-style SwiftUI renderer) | gem | planned | Sprint 4 / Wiki System (was PC-048 in sprint doc)... |
 | **010vep8e** | PC-139 [P0]: Wiki — WikiNavigationService (wikilink routing) | codi | planned | Sprint 4 / Wiki System (was PC-049 in sprint doc)... |
 | **bfrln3t6** | PC-140 [P0]: Wiki — WikiGenerator trip wiki | misty | planned | Sprint 4 / Wiki System (was PC-050 in sprint doc)... |
