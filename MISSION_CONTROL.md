@@ -470,7 +470,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **5zjvce4s** | PC-172 [P0]: PDF ingestion pipeline — extraction, chunking, embedding | codi | planned | Implement the core PDF ingestion pipeline. PDFKit ... |
-| **xlow72fx** | PC-173 [P0]: PDF LLM enrichment — summary, tags, entities, document type | clau | planned | After PDF text extraction (PC-172), invoke the loc... |
+| **xlow72fx** | PC-173 [P0]: PDF LLM enrichment — summary, tags, entities, document type | clau | in_work | After PDF text extraction (PC-172), invoke the loc... |
 | **jv83k9wo** | PC-174 [P0]: Document card UI — enriched display and detail view | gem | planned | Build the enriched document card for Library displ... |
 | **yazeo4vc** | PC-175 [P1]: Document association with trips, boards, places | clau | planned | Allow document cards to be associated with trips, ... |
 | **vxlc078r** | PC-176 [P1]: Document import UX — Files picker and Share Extension | misty | planned | Surface document import from two entry points: Fil... |
