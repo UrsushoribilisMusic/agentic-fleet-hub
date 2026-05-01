@@ -482,6 +482,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **5t0fyome** | PC-181 [P0]: Graph data assembly — nodes and edges from wiki articles | codi | planned | Implement GraphDataService that assembles GraphNod... |
 | **fsjirupq** | PC-182 [P0]: Force-directed layout engine — simd_float2 implementation | misty | merged | Implement force-directed layout algorithm in Swift... |
 | **j24byvvm** | PC-184 [P1]: Graph entry points — Wiki browser and Library | codi | planned | Surface the concept graph from two entry points: g... |
-| **x18us7bn** | PC-185 [P2]: Graph search and highlight | misty | in_work | Add search overlay to concept graph. Typing highli... |
+| **x18us7bn** | PC-185 [P2]: Graph search and highlight | misty | merged | Add search overlay to concept graph. Typing highli... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
