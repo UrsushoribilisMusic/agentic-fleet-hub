@@ -50,7 +50,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **gm6tedrh**: PC-180 [P1]: Apply topic weights to surfaces -- Plug computed topic weights into homepage Highlights, wiki generation prompts, and search ranking. -- Clau. Approved.
+- **yazeo4vc**: PC-175 [P1]: Document association with trips, boards, places -- Allow document cards to be associated with trips, boards, and places as wiki sources. Associated documents injected as additional context into wiki generation. Full implementation of PC-145 PDF sources spec. -- Clau. Approved.
 - **xlow72fx**: PC-173 [P0]: PDF LLM enrichment — summary, tags, entities, document type -- After PDF text extraction (PC-172), invoke the local LLM to generate a summary, tags, entity list, and document type classification. Results stored on Card and in card_entities table. Entities become wikilink candidates. -- Clau. Approved.
+- **5zjvce4s**: PC-172 [P0]: PDF ingestion pipeline — extraction, chunking, embedding -- Implement the core PDF ingestion pipeline. PDFKit extracts text. If PDFKit returns empty (scanned PDF), Apple Vision OCR is used as fallback. Text is chunked into 500-token paragraphs with 50-token overlap. Each chunk is embedded via CoreML MiniLM model and stored in VectorStore. A Card of type 'document' is created. -- Codi. Approved.
 - **lcoiqu3q**: PC-171 [P2]: People badge count (514) clipped by icon corner radius -- Library > Intelligence row: the People badge showing count '514' is cut off at the top-right corner of the icon because the badge extends beyond the clipped bounds of the icon container. Fix: apply the badge overlay outside the clipped view, or increase the icon container padding to accommodate the badge. Use .overlay on the outer container rather than inside the clipped image view. -- Clau. Approved.
 - **unxj53y2**: PC-170 [P1]: Highlights section shows 'No model loaded' even when models are configured -- Home wiki / Library homepage: Highlights section shows 'No model loaded. Go to Settings → Models to configure.' but user has models loaded. The model detection check (likely checking for MLX model availability) is returning false incorrectly. Check the model availability check in the highlights generation code — it may be checking the wrong path, wrong model name, or the check runs before the model is fully initialised at launch. -- Clau. Approved.
 - **e9hc4vox**: PC-169 [P1]: Trip section/day generate summary crashes — Metal GPU called from background task -- Tapping 'Generate Summary' on a trip day/section crashes with: 'IOGPUMetalError: Insufficient Permission — kIOGPUCommandBufferCallbackErrorBackgroundExecutionNotPermitted'. An MLX or on-device ML model is being invoked from inside a background Task, which iOS forbids from using Metal GPU. Fix: either (1) wrap the MLX inference call in MainActor to ensure it runs on the main thread, or (2) catch the Metal exception and fall back to the Anthropic API for generation instead of local model. The crash is uncaught std::runtime_error from Metal command buffer execution. -- Clau. Approved.
@@ -470,16 +473,13 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **5zjvce4s** | PC-172 [P0]: PDF ingestion pipeline — extraction, chunking, embedding | codi | merged | Implement the core PDF ingestion pipeline. PDFKit ... |
 | **jv83k9wo** | PC-174 [P0]: Document card UI — enriched display and detail view | clau | merged | Build the enriched document card for Library displ... |
-| **yazeo4vc** | PC-175 [P1]: Document association with trips, boards, places | clau | merged | Allow document cards to be associated with trips, ... |
 | **vxlc078r** | PC-176 [P1]: Document import UX — Files picker and Share Extension | misty | merged | Surface document import from two entry points: Fil... |
 | **ifrb8toe** | PC-177 [P0]: Topic signal tracking infrastructure | codi | planned | Create topic_signals and topic_weights SQLite tabl... |
 | **tl1imyva** | PC-178 [P0]: Topic weight computation and decay — nightly BGProcessingTask | misty | merged | Implement nightly background task that recomputes ... |
 | **58g0iaai** | PC-179 [P1]: Signal recording — wire into existing user interactions | codi | planned | Wire TopicSignalRecorder into existing interaction... |
-| **gm6tedrh** | PC-180 [P1]: Apply topic weights to surfaces | clau | merged | Plug computed topic weights into homepage Highligh... |
 | **5t0fyome** | PC-181 [P0]: Graph data assembly — nodes and edges from wiki articles | codi | planned | Implement GraphDataService that assembles GraphNod... |
-| **fsjirupq** | PC-182 [P0]: Force-directed layout engine — simd_float2 implementation | misty | planned | Implement force-directed layout algorithm in Swift... |
+| **fsjirupq** | PC-182 [P0]: Force-directed layout engine — simd_float2 implementation | misty | in_work | Implement force-directed layout algorithm in Swift... |
 | **n9sa2nm2** | PC-183 [P1]: ConceptGraphView — interactive SwiftUI Canvas rendering | misty | planned | Build ConceptGraphView using SwiftUI Canvas. Nodes... |
 | **j24byvvm** | PC-184 [P1]: Graph entry points — Wiki browser and Library | codi | planned | Surface the concept graph from two entry points: g... |
 | **x18us7bn** | PC-185 [P2]: Graph search and highlight | misty | planned | Add search overlay to concept graph. Typing highli... |
