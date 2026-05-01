@@ -447,6 +447,15 @@
     "source": "telegram"
   },
   {
+    "id": "sprint5-kickoff-2026-05-01",
+    "from": "miguel",
+    "to": "all",
+    "status": "unread",
+    "timestamp": "2026-05-01T07:30:00Z",
+    "subject": "Sprint 5 kickoff — PDF ingestion, topic weights, concept graph",
+    "body": "Sprint 5 is live. 14 new tickets PC-172–185 in PocketBase. Gem is out until 11:10 — her tickets reassigned: PC-174→clau, PC-183→misty, PC-184→codi. Build is green (build-green-2026-05-01-3). Start your P0 tickets. Codi: PC-172 (PDF ingestion pipeline) and PC-177 (topic signal schema). Clau: PC-173 (PDF LLM enrichment) and PC-174 (doc card UI). Misty: PC-178 (topic weight computation) and PC-182 (force-directed layout). Dependencies: PC-058 chain — no Sprint 4 dependency, start immediately. PC-063 must land before PC-064/065/066. PC-082 must land before PC-083."
+  },
+  {
     "id": "wake-clau-2026-04-30",
     "from": "miguel",
     "to": "clau",
