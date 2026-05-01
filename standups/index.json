@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-05-01",
-    "summary": "Clau: PC-173 [P0] PDF LLM enrichment — DocumentEnrichmentService, Card model extensions, card_entities table, SQLiteStore migration, DocumentIngestionService wired. Build green.",
+    "summary": "Clau: PC-173 PDF LLM enrichment. PC-174 document card UI — DocumentTypeBadge, inline tag editor, entity wikilinks, share button.",
     "file": "2026-05-01.md"
   },
   {
