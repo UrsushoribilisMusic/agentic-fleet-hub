@@ -472,7 +472,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **5zjvce4s** | PC-172 [P0]: PDF ingestion pipeline — extraction, chunking, embedding | codi | planned | Implement the core PDF ingestion pipeline. PDFKit ... |
 | **jv83k9wo** | PC-174 [P0]: Document card UI — enriched display and detail view | clau | merged | Build the enriched document card for Library displ... |
-| **yazeo4vc** | PC-175 [P1]: Document association with trips, boards, places | clau | planned | Allow document cards to be associated with trips, ... |
+| **yazeo4vc** | PC-175 [P1]: Document association with trips, boards, places | clau | in_work | Allow document cards to be associated with trips, ... |
 | **vxlc078r** | PC-176 [P1]: Document import UX — Files picker and Share Extension | misty | merged | Surface document import from two entry points: Fil... |
 | **ifrb8toe** | PC-177 [P0]: Topic signal tracking infrastructure | codi | planned | Create topic_signals and topic_weights SQLite tabl... |
 | **tl1imyva** | PC-178 [P0]: Topic weight computation and decay — nightly BGProcessingTask | misty | in_work | Implement nightly background task that recomputes ... |
