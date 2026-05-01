@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-05-01",
+    "summary": "Clau: PC-191 (iOS Photos People linking + person→concept graph edges) + PC-188 wiki context (city names in LLM context). Approved PC-188 (Gem). BUILD build-green-2026-05-01-25.",
+    "file": "2026-05-01.md"
+  },
+  {
+    "date": "2026-05-01",
     "summary": "Clau: PC-186 (VLM hashtag extraction wired into describeWithAI) + PC-188 (LocationGeocoder — city name in photo metadata panel). Fixed SettingsView double-encoded UTF-8 (em dash/ellipsis mojibake). BUILD build-green-2026-05-01-24.",
     "file": "2026-05-01-clau.md"
   },
