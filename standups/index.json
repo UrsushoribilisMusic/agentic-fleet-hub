@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-05-01",
+    "summary": "Clau: PC-173 [P0] PDF LLM enrichment — DocumentEnrichmentService, Card model extensions, card_entities table, SQLiteStore migration, DocumentIngestionService wired. Build green.",
+    "file": "2026-05-01.md"
+  },
+  {
     "date": "2026-04-30",
     "summary": "Clau: 26 sessions, 18 PrivateCore tasks implemented (PC-125/127/136/141/143/145/148/151/159/161/162/166/167/168/169/170/171 + board+daily wiki), 30+ commits, fixed Codi sandbox root cause, filed PC-153\u2013171 from device testing, added Code Review Protocol to RULES.md. Misty: peer reviewed 15 tasks, implemented PC-156. Gem: completed PC-146/162/165.",
     "file": "2026-04-30.md"
