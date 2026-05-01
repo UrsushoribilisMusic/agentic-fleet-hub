@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-05-01",
-    "summary": "Clau: PC-173 PDF LLM enrichment. PC-174 document card UI — DocumentTypeBadge, inline tag editor, entity wikilinks, share button.",
+    "summary": "Clau: PC-173 + PC-174 earlier sessions. Peer reviewed PC-176 (Misty, approved) + PC-178 (Misty, approved). Implemented PC-180 — topic weight chips, wiki prompt injection, search score boost.",
     "file": "2026-05-01.md"
   },
   {
