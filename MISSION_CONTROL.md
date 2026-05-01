@@ -480,7 +480,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **58g0iaai** | PC-179 [P1]: Signal recording — wire into existing user interactions | codi | planned | Wire TopicSignalRecorder into existing interaction... |
 | **5t0fyome** | PC-181 [P0]: Graph data assembly — nodes and edges from wiki articles | codi | planned | Implement GraphDataService that assembles GraphNod... |
 | **fsjirupq** | PC-182 [P0]: Force-directed layout engine — simd_float2 implementation | misty | merged | Implement force-directed layout algorithm in Swift... |
-| **n9sa2nm2** | PC-183 [P1]: ConceptGraphView — interactive SwiftUI Canvas rendering | clau | planned | Build ConceptGraphView using SwiftUI Canvas. Nodes... |
+| **n9sa2nm2** | PC-183 [P1]: ConceptGraphView — interactive SwiftUI Canvas rendering | clau | merged | Build ConceptGraphView using SwiftUI Canvas. Nodes... |
 | **j24byvvm** | PC-184 [P1]: Graph entry points — Wiki browser and Library | codi | planned | Surface the concept graph from two entry points: g... |
 | **x18us7bn** | PC-185 [P2]: Graph search and highlight | misty | planned | Add search overlay to concept graph. Typing highli... |
 
