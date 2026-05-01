@@ -470,8 +470,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **5zjvce4s** | PC-172 [P0]: PDF ingestion pipeline — extraction, chunking, embedding | codi | planned | Implement the core PDF ingestion pipeline. PDFKit ... |
-| **xlow72fx** | PC-173 [P0]: PDF LLM enrichment — summary, tags, entities, document type | clau | in_work | After PDF text extraction (PC-172), invoke the loc... |
-| **jv83k9wo** | PC-174 [P0]: Document card UI — enriched display and detail view | gem | planned | Build the enriched document card for Library displ... |
+| **xlow72fx** | PC-173 [P0]: PDF LLM enrichment — summary, tags, entities, document type | clau | merged | After PDF text extraction (PC-172), invoke the loc... |
+| **jv83k9wo** | PC-174 [P0]: Document card UI — enriched display and detail view | clau | planned | Build the enriched document card for Library displ... |
 | **yazeo4vc** | PC-175 [P1]: Document association with trips, boards, places | clau | planned | Allow document cards to be associated with trips, ... |
 | **vxlc078r** | PC-176 [P1]: Document import UX — Files picker and Share Extension | misty | planned | Surface document import from two entry points: Fil... |
 | **ifrb8toe** | PC-177 [P0]: Topic signal tracking infrastructure | codi | planned | Create topic_signals and topic_weights SQLite tabl... |
@@ -480,8 +480,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **gm6tedrh** | PC-180 [P1]: Apply topic weights to surfaces | clau | planned | Plug computed topic weights into homepage Highligh... |
 | **5t0fyome** | PC-181 [P0]: Graph data assembly — nodes and edges from wiki articles | codi | planned | Implement GraphDataService that assembles GraphNod... |
 | **fsjirupq** | PC-182 [P0]: Force-directed layout engine — simd_float2 implementation | misty | planned | Implement force-directed layout algorithm in Swift... |
-| **n9sa2nm2** | PC-183 [P1]: ConceptGraphView — interactive SwiftUI Canvas rendering | gem | planned | Build ConceptGraphView using SwiftUI Canvas. Nodes... |
-| **j24byvvm** | PC-184 [P1]: Graph entry points — Wiki browser and Library | gem | planned | Surface the concept graph from two entry points: g... |
+| **n9sa2nm2** | PC-183 [P1]: ConceptGraphView — interactive SwiftUI Canvas rendering | misty | planned | Build ConceptGraphView using SwiftUI Canvas. Nodes... |
+| **j24byvvm** | PC-184 [P1]: Graph entry points — Wiki browser and Library | codi | planned | Surface the concept graph from two entry points: g... |
 | **x18us7bn** | PC-185 [P2]: Graph search and highlight | misty | planned | Add search overlay to concept graph. Typing highli... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
