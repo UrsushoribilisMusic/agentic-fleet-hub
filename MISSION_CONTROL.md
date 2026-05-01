@@ -483,5 +483,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **kaxyqid0** | test |  | planned |  |
+| **43gsi9nq** | test |  | planned |  |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
