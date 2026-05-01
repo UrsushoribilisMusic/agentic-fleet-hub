@@ -50,6 +50,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **mxsg70xg**: PC-188 [P2]: Reverse geocode lat/lon to city name -- Replace raw coordinates with city + country via CLGeocoder.reverseGeocodeLocation(). -- Gem. Approved.
+- **vqtr49io**: PC-187 [P1]: Background VLM description pipeline + Settings simplification -- (1) BGProcessingTask: describe all image cards where notes == nil using Qwen2-VL, most recent first, unload model after every 5 photos. -- Clau. Approved.
+- **bv5gqi37**: PC-186 [P1]: VLM hashtag extraction — tag photos from description, OCR, and location -- After VLMService generates a description, run a second pass (same model) extracting 3-6 hashtags from: (1) VLM description, (2) OCR text (photo.photoText), (3) reverse-geocoded city name (PC-188). -- Clau. Approved.
 - **kaxyqid0**: [DELETE ME] test record -- Clau. Approved.
 - **43gsi9nq**: [DELETE ME] test record -- Clau. Approved.
 - **x18us7bn**: PC-185 [P2]: Graph search and highlight -- Add search overlay to concept graph. Typing highlights matching nodes and dims others. Useful at 50+ nodes. -- Misty. Approved.
@@ -485,9 +488,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **bv5gqi37** | PC-186 [P1]: VLM hashtag extraction — tag photos from description, OCR, and location | clau | merged | After VLMService generates a description, run a se... |
-| **vqtr49io** | PC-187 [P1]: Background VLM description pipeline + Settings simplification | clau | merged | (1) BGProcessingTask: describe all image cards whe... |
-| **mxsg70xg** | PC-188 [P2]: Reverse geocode lat/lon to city name | gem | merged | Replace raw coordinates with city + country via CL... |
 | **y62gskkp** | PC-189 [P2]: Settings data section cleanup | gem | planned | Keep in main list: Photos indexed, OCR, AI describ... |
 | **ics2qdkg** | PC-190 [P1]: Similar photos — CLIP cosine search | gem | planned | Add 'Similar photos' horizontal carousel to PhotoD... |
 | **ywrqcxfm** | PC-191 [P1]: Link iOS Photos People to Person records + graph integration | clau | in_work | PersonDetailView: 'Link to Photos People' button o... |
