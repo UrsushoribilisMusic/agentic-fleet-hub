@@ -484,13 +484,13 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **43gsi9nq** | test | clau | planned |  |
-| **8hedhdns** | PC-192 [P1]: WikiDayView — navigable day links and debug interface | clau | planned | (1) Fix WikiNavigationService: parse date-format t... |
-| **ywrqcxfm** | PC-191 [P1]: Link iOS Photos People to Person records + graph integration | clau | planned | PersonDetailView: 'Link to Photos People' button o... |
-| **ics2qdkg** | PC-190 [P1]: Similar photos — CLIP cosine search | clau | planned | Add 'Similar photos' horizontal carousel to PhotoD... |
-| **y62gskkp** | PC-189 [P2]: Settings data section cleanup | clau | planned | Keep in main list: Photos indexed, OCR, AI describ... |
-| **mxsg70xg** | PC-188 [P2]: Reverse geocode lat/lon to city name | clau | planned | Replace raw coordinates with city + country via CL... |
-| **vqtr49io** | PC-187 [P1]: Background VLM description pipeline + Settings simplification | clau | planned | (1) BGProcessingTask: describe all image cards whe... |
+| **43gsi9nq** | [DELETE ME] test record | clau | merged |  |
 | **bv5gqi37** | PC-186 [P1]: VLM hashtag extraction — tag photos from description, OCR, and location | clau | planned | After VLMService generates a description, run a se... |
+| **vqtr49io** | PC-187 [P1]: Background VLM description pipeline + Settings simplification | clau | planned | (1) BGProcessingTask: describe all image cards whe... |
+| **mxsg70xg** | PC-188 [P2]: Reverse geocode lat/lon to city name | clau | planned | Replace raw coordinates with city + country via CL... |
+| **y62gskkp** | PC-189 [P2]: Settings data section cleanup | clau | planned | Keep in main list: Photos indexed, OCR, AI describ... |
+| **ics2qdkg** | PC-190 [P1]: Similar photos — CLIP cosine search | clau | planned | Add 'Similar photos' horizontal carousel to PhotoD... |
+| **ywrqcxfm** | PC-191 [P1]: Link iOS Photos People to Person records + graph integration | clau | planned | PersonDetailView: 'Link to Photos People' button o... |
+| **8hedhdns** | PC-192 [P1]: WikiDayView — navigable day links and debug interface | clau | planned | (1) Fix WikiNavigationService: parse date-format t... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
