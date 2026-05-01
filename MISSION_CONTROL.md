@@ -50,6 +50,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **kaxyqid0**: [DELETE ME] test record -- Clau. Approved.
 - **x18us7bn**: PC-185 [P2]: Graph search and highlight -- Add search overlay to concept graph. Typing highlights matching nodes and dims others. Useful at 50+ nodes. -- Misty. Approved.
 - **j24byvvm**: PC-184 [P1]: Graph entry points — Wiki browser and Library -- Surface the concept graph from two entry points: graph icon in Wiki browser top-right, and fullscreen option from Library top-right controls menu. -- Gem. Approved.
 - **n9sa2nm2**: PC-183 [P1]: ConceptGraphView — interactive SwiftUI Canvas rendering -- Build ConceptGraphView using SwiftUI Canvas. Nodes as coloured circles, edges as lines. Pinch/pan/tap interactive. NodeDetailSheet on selection. -- Clau. Approved.
@@ -483,7 +484,13 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **kaxyqid0** | test | clau | planned |  |
 | **43gsi9nq** | test | clau | planned |  |
+| **8hedhdns** | PC-192 [P1]: WikiDayView — navigable day links and debug interface | clau | planned | (1) Fix WikiNavigationService: parse date-format t... |
+| **ywrqcxfm** | PC-191 [P1]: Link iOS Photos People to Person records + graph integration | clau | planned | PersonDetailView: 'Link to Photos People' button o... |
+| **ics2qdkg** | PC-190 [P1]: Similar photos — CLIP cosine search | clau | planned | Add 'Similar photos' horizontal carousel to PhotoD... |
+| **y62gskkp** | PC-189 [P2]: Settings data section cleanup | clau | planned | Keep in main list: Photos indexed, OCR, AI describ... |
+| **mxsg70xg** | PC-188 [P2]: Reverse geocode lat/lon to city name | clau | planned | Replace raw coordinates with city + country via CL... |
+| **vqtr49io** | PC-187 [P1]: Background VLM description pipeline + Settings simplification | clau | planned | (1) BGProcessingTask: describe all image cards whe... |
+| **bv5gqi37** | PC-186 [P1]: VLM hashtag extraction — tag photos from description, OCR, and location | clau | planned | After VLMService generates a description, run a se... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
