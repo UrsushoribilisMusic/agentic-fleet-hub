@@ -51,7 +51,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
 - **gm6tedrh**: PC-180 [P1]: Apply topic weights to surfaces -- Plug computed topic weights into homepage Highlights, wiki generation prompts, and search ranking. -- Clau. Approved.
+- **tl1imyva**: PC-178 [P0]: Topic weight computation and decay — nightly BGProcessingTask -- Implement nightly background task that recomputes topic_weights from topic_signals using exponential decay. 30-day half-life. Runs as BGProcessingTask. -- Misty. Approved.
+- **vxlc078r**: PC-176 [P1]: Document import UX — Files picker and Share Extension -- Surface document import from two entry points: Files.app picker from Library + button, and Share Extension extended to handle PDF files. Both routes through DocumentIngestionService. -- Misty. Approved.
 - **yazeo4vc**: PC-175 [P1]: Document association with trips, boards, places -- Allow document cards to be associated with trips, boards, and places as wiki sources. Associated documents injected as additional context into wiki generation. Full implementation of PC-145 PDF sources spec. -- Clau. Approved.
+- **jv83k9wo**: PC-174 [P0]: Document card UI — enriched display and detail view -- Build the enriched document card for Library display and the document detail view. Document cards are visually distinct from text and link cards. -- Clau. Approved.
 - **xlow72fx**: PC-173 [P0]: PDF LLM enrichment — summary, tags, entities, document type -- After PDF text extraction (PC-172), invoke the local LLM to generate a summary, tags, entity list, and document type classification. Results stored on Card and in card_entities table. Entities become wikilink candidates. -- Clau. Approved.
 - **5zjvce4s**: PC-172 [P0]: PDF ingestion pipeline — extraction, chunking, embedding -- Implement the core PDF ingestion pipeline. PDFKit extracts text. If PDFKit returns empty (scanned PDF), Apple Vision OCR is used as fallback. Text is chunked into 500-token paragraphs with 50-token overlap. Each chunk is embedded via CoreML MiniLM model and stored in VectorStore. A Card of type 'document' is created. -- Codi. Approved.
 - **lcoiqu3q**: PC-171 [P2]: People badge count (514) clipped by icon corner radius -- Library > Intelligence row: the People badge showing count '514' is cut off at the top-right corner of the icon because the badge extends beyond the clipped bounds of the icon container. Fix: apply the badge overlay outside the clipped view, or increase the icon container padding to accommodate the badge. Use .overlay on the outer container rather than inside the clipped image view. -- Clau. Approved.
@@ -473,10 +476,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **jv83k9wo** | PC-174 [P0]: Document card UI — enriched display and detail view | clau | merged | Build the enriched document card for Library displ... |
-| **vxlc078r** | PC-176 [P1]: Document import UX — Files picker and Share Extension | misty | merged | Surface document import from two entry points: Fil... |
 | **ifrb8toe** | PC-177 [P0]: Topic signal tracking infrastructure | codi | planned | Create topic_signals and topic_weights SQLite tabl... |
-| **tl1imyva** | PC-178 [P0]: Topic weight computation and decay — nightly BGProcessingTask | misty | merged | Implement nightly background task that recomputes ... |
 | **58g0iaai** | PC-179 [P1]: Signal recording — wire into existing user interactions | codi | planned | Wire TopicSignalRecorder into existing interaction... |
 | **5t0fyome** | PC-181 [P0]: Graph data assembly — nodes and edges from wiki articles | codi | planned | Implement GraphDataService that assembles GraphNod... |
 | **fsjirupq** | PC-182 [P0]: Force-directed layout engine — simd_float2 implementation | misty | merged | Implement force-directed layout algorithm in Swift... |
