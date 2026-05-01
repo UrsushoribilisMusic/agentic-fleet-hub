@@ -485,9 +485,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **bv5gqi37** | PC-186 [P1]: VLM hashtag extraction — tag photos from description, OCR, and location | clau | in_work | After VLMService generates a description, run a se... |
+| **bv5gqi37** | PC-186 [P1]: VLM hashtag extraction — tag photos from description, OCR, and location | clau | merged | After VLMService generates a description, run a se... |
 | **vqtr49io** | PC-187 [P1]: Background VLM description pipeline + Settings simplification | clau | merged | (1) BGProcessingTask: describe all image cards whe... |
-| **mxsg70xg** | PC-188 [P2]: Reverse geocode lat/lon to city name | gem | in_work | Replace raw coordinates with city + country via CL... |
+| **mxsg70xg** | PC-188 [P2]: Reverse geocode lat/lon to city name | gem | merged | Replace raw coordinates with city + country via CL... |
 | **y62gskkp** | PC-189 [P2]: Settings data section cleanup | gem | planned | Keep in main list: Photos indexed, OCR, AI describ... |
 | **ics2qdkg** | PC-190 [P1]: Similar photos — CLIP cosine search | gem | planned | Add 'Similar photos' horizontal carousel to PhotoD... |
 | **ywrqcxfm** | PC-191 [P1]: Link iOS Photos People to Person records + graph integration | clau | planned | PersonDetailView: 'Link to Photos People' button o... |
