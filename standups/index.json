@@ -1,12 +1,17 @@
 [
   {
     "date": "2026-05-01",
+    "summary": "Gem: 1 session. Implemented PC-177 (topic signals infrastructure), updated SQLite schema, and TopicSignalRecorder. Fixed project-wide build breakages. Peer reviewed PC-179/181/184 (reset to todo).",
+    "file": "2026-05-01-gem.md"
+  },
+  {
+    "date": "2026-05-01",
     "summary": "Misty: 4 sessions. Peer reviewed 6 PC tasks (PC-172/174/175/180/183 approved). Completed PC-182 (force-directed layout engine) and PC-183 (ConceptGraphView with Canvas). Implemented PC-185 (graph search and highlight). Build-green-2026-05-01-11 through -17 (PC-185 verified in session 4). Standup file: 2026-05-01-misty.md",
     "file": "2026-05-01-misty.md"
   },
   {
     "date": "2026-05-01",
-    "summary": "Clau: PC-173 + PC-174 earlier sessions. Peer reviewed PC-176 (Misty, approved) + PC-178 (Misty, approved). Implemented PC-180 — topic weight chips, wiki prompt injection, search score boost.",
+    "summary": "Clau: PC-173 + PC-174 earlier sessions. Peer reviewed PC-176 (Misty, approved) + PC-178 (Misty, approved). Implemented PC-180 \u2014 topic weight chips, wiki prompt injection, search score boost.",
     "file": "2026-05-01.md"
   },
   {
