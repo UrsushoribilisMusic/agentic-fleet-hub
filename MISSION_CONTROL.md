@@ -473,9 +473,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **5zjvce4s** | PC-172 [P0]: PDF ingestion pipeline — extraction, chunking, embedding | codi | planned | Implement the core PDF ingestion pipeline. PDFKit ... |
 | **jv83k9wo** | PC-174 [P0]: Document card UI — enriched display and detail view | clau | merged | Build the enriched document card for Library displ... |
 | **yazeo4vc** | PC-175 [P1]: Document association with trips, boards, places | clau | planned | Allow document cards to be associated with trips, ... |
-| **vxlc078r** | PC-176 [P1]: Document import UX — Files picker and Share Extension | misty | in_work | Surface document import from two entry points: Fil... |
+| **vxlc078r** | PC-176 [P1]: Document import UX — Files picker and Share Extension | misty | merged | Surface document import from two entry points: Fil... |
 | **ifrb8toe** | PC-177 [P0]: Topic signal tracking infrastructure | codi | planned | Create topic_signals and topic_weights SQLite tabl... |
-| **tl1imyva** | PC-178 [P0]: Topic weight computation and decay — nightly BGProcessingTask | misty | planned | Implement nightly background task that recomputes ... |
+| **tl1imyva** | PC-178 [P0]: Topic weight computation and decay — nightly BGProcessingTask | misty | in_work | Implement nightly background task that recomputes ... |
 | **58g0iaai** | PC-179 [P1]: Signal recording — wire into existing user interactions | codi | planned | Wire TopicSignalRecorder into existing interaction... |
 | **gm6tedrh** | PC-180 [P1]: Apply topic weights to surfaces | clau | planned | Plug computed topic weights into homepage Highligh... |
 | **5t0fyome** | PC-181 [P0]: Graph data assembly — nodes and edges from wiki articles | codi | planned | Implement GraphDataService that assembles GraphNod... |
