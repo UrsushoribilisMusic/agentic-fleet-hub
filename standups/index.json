@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-05-01",
+    "summary": "Clau: PC-189 (settings verified done), PC-190 (CLIP similar photos carousel + More Like This), PC-192 (WikiDayView + date-link navigation). BUILD build-green-2026-05-01-26.",
+    "file": "2026-05-01.md"
+  },
+  {
+    "date": "2026-05-01",
     "summary": "Clau: PC-191 (iOS Photos People linking + person→concept graph edges) + PC-188 wiki context (city names in LLM context). Approved PC-188 (Gem). BUILD build-green-2026-05-01-25.",
     "file": "2026-05-01.md"
   },
