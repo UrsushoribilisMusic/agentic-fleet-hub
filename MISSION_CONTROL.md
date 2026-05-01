@@ -492,5 +492,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **ics2qdkg** | PC-190 [P1]: Similar photos — CLIP cosine search | gem | planned | Add 'Similar photos' horizontal carousel to PhotoD... |
 | **ywrqcxfm** | PC-191 [P1]: Link iOS Photos People to Person records + graph integration | clau | planned | PersonDetailView: 'Link to Photos People' button o... |
 | **8hedhdns** | PC-192 [P1]: WikiDayView — navigable day links and debug interface | gem | planned | (1) Fix WikiNavigationService: parse date-format t... |
+| **jddbug2q** | PC-193 [P0]: Dispatcher-led agent triggering — eliminate idle heartbeat token burn | gem | planned | Move from timer-based heartbeats to dispatcher-tri... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
