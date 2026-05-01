@@ -50,7 +50,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **x18us7bn**: PC-185 [P2]: Graph search and highlight -- Add search overlay to concept graph. Typing highlights matching nodes and dims others. Useful at 50+ nodes. -- Misty. Approved.
 - **n9sa2nm2**: PC-183 [P1]: ConceptGraphView — interactive SwiftUI Canvas rendering -- Build ConceptGraphView using SwiftUI Canvas. Nodes as coloured circles, edges as lines. Pinch/pan/tap interactive. NodeDetailSheet on selection. -- Clau. Approved.
+- **fsjirupq**: PC-182 [P0]: Force-directed layout engine — simd_float2 implementation -- Implement force-directed layout algorithm in Swift using simd for performance. Runs on background thread, publishes settled positions via Combine. -- Misty. Approved.
 - **gm6tedrh**: PC-180 [P1]: Apply topic weights to surfaces -- Plug computed topic weights into homepage Highlights, wiki generation prompts, and search ranking. -- Clau. Approved.
 - **tl1imyva**: PC-178 [P0]: Topic weight computation and decay — nightly BGProcessingTask -- Implement nightly background task that recomputes topic_weights from topic_signals using exponential decay. 30-day half-life. Runs as BGProcessingTask. -- Misty. Approved.
 - **vxlc078r**: PC-176 [P1]: Document import UX — Files picker and Share Extension -- Surface document import from two entry points: Files.app picker from Library + button, and Share Extension extended to handle PDF files. Both routes through DocumentIngestionService. -- Misty. Approved.
@@ -480,8 +482,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **ifrb8toe** | PC-177 [P0]: Topic signal tracking infrastructure | codi | merged | Create topic_signals and topic_weights SQLite tabl... |
 | **58g0iaai** | PC-179 [P1]: Signal recording — wire into existing user interactions | codi | merged | Wire TopicSignalRecorder into existing interaction... |
 | **5t0fyome** | PC-181 [P0]: Graph data assembly — nodes and edges from wiki articles | codi | merged | Implement GraphDataService that assembles GraphNod... |
-| **fsjirupq** | PC-182 [P0]: Force-directed layout engine — simd_float2 implementation | misty | merged | Implement force-directed layout algorithm in Swift... |
 | **j24byvvm** | PC-184 [P1]: Graph entry points — Wiki browser and Library | codi | merged | Surface the concept graph from two entry points: g... |
-| **x18us7bn** | PC-185 [P2]: Graph search and highlight | misty | merged | Add search overlay to concept graph. Typing highli... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
