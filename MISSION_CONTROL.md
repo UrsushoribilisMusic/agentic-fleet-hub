@@ -479,7 +479,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **ifrb8toe** | PC-177 [P0]: Topic signal tracking infrastructure | codi | merged | Create topic_signals and topic_weights SQLite tabl... |
+| **ifrb8toe** | PC-177 [P0]: Topic signal tracking infrastructure | gem | merged | Create topic_signals and topic_weights SQLite tabl... |
 | **58g0iaai** | PC-179 [P1]: Signal recording — wire into existing user interactions | codi | merged | Wire TopicSignalRecorder into existing interaction... |
 | **5t0fyome** | PC-181 [P0]: Graph data assembly — nodes and edges from wiki articles | codi | merged | Implement GraphDataService that assembles GraphNod... |
 | **j24byvvm** | PC-184 [P1]: Graph entry points — Wiki browser and Library | codi | merged | Surface the concept graph from two entry points: g... |
