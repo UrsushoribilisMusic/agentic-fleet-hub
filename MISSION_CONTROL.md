@@ -475,7 +475,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **yazeo4vc** | PC-175 [P1]: Document association with trips, boards, places | clau | in_work | Allow document cards to be associated with trips, ... |
 | **vxlc078r** | PC-176 [P1]: Document import UX — Files picker and Share Extension | misty | merged | Surface document import from two entry points: Fil... |
 | **ifrb8toe** | PC-177 [P0]: Topic signal tracking infrastructure | codi | planned | Create topic_signals and topic_weights SQLite tabl... |
-| **tl1imyva** | PC-178 [P0]: Topic weight computation and decay — nightly BGProcessingTask | misty | in_work | Implement nightly background task that recomputes ... |
+| **tl1imyva** | PC-178 [P0]: Topic weight computation and decay — nightly BGProcessingTask | misty | merged | Implement nightly background task that recomputes ... |
 | **58g0iaai** | PC-179 [P1]: Signal recording — wire into existing user interactions | codi | planned | Wire TopicSignalRecorder into existing interaction... |
 | **gm6tedrh** | PC-180 [P1]: Apply topic weights to surfaces | clau | planned | Plug computed topic weights into homepage Highligh... |
 | **5t0fyome** | PC-181 [P0]: Graph data assembly — nodes and edges from wiki articles | codi | planned | Implement GraphDataService that assembles GraphNod... |
