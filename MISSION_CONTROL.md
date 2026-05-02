@@ -507,6 +507,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **jddbug2q** | PC-193 [P0]: Dispatcher-led agent triggering — eliminate idle heartbeat token burn | gem | planned | Move from timer-based heartbeats to dispatcher-tri... |
+| **jddbug2q** | PC-193 [P0]: Dispatcher-led agent triggering — eliminate idle heartbeat token burn | gem | merged | Move from timer-based heartbeats to dispatcher-tri... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
