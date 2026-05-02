@@ -501,7 +501,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **jddbug2q** | PC-193 [P0]: Dispatcher-led agent triggering — eliminate idle heartbeat token burn | gem | planned | Move from timer-based heartbeats to dispatcher-tri... |
-| **38lasxwv** | PC-197 [P1]: Week wiki generation | clau | planned | Generate a weekly wiki article that aggregates 7 d... |
+| **38lasxwv** | PC-197 [P1]: Week wiki generation | clau | in_work | Generate a weekly wiki article that aggregates 7 d... |
 | **wetu3ozb** | PC-199 [P1]: Journaling — browse and edit previous entries | clau | planned | Users need a way to view and edit journaling cards... |
 | **t5hayl7d** | PC-204 [P0]: MLX generation queue — serialize concurrent callers to prevent app kill | gem | merged | When multiple AI generation requests fire simultan... |
 | **rmrezewa** | PC-205 [P1]: Scoped knowledge graph per board and per trip | gem | planned | After PC-198 (per-week hashtag graph) lands, add e... |
