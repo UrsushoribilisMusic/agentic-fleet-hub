@@ -50,6 +50,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **8hedhdns**: PC-192 [P1]: WikiDayView — navigable day links and debug interface -- (1) Fix WikiNavigationService: parse date-format targets ('Monday 27 Apr 2026') → push WikiDayView instead of .notFound. -- Clau. Approved.
+- **ywrqcxfm**: PC-191 [P1]: Link iOS Photos People to Person records + graph integration -- PersonDetailView: 'Link to Photos People' button opens PHPickerViewController with PHPickerFilter.people (iOS 16+). User selects face group → receive PHAsset IDs for all photos iOS attributes to that person. -- Clau. Approved.
+- **ics2qdkg**: PC-190 [P1]: Similar photos — CLIP cosine search -- Add 'Similar photos' horizontal carousel to PhotoDetailView when clip_embedding_status = done. -- Clau. Approved.
+- **y62gskkp**: PC-189 [P2]: Settings data section cleanup -- Keep in main list: Photos indexed, OCR, AI described (PC-187), Contacts, Calendar events, Cards, Trips detected, Last wiki generation, Database size. -- Clau. Approved.
 - **mxsg70xg**: PC-188 [P2]: Reverse geocode lat/lon to city name -- Replace raw coordinates with city + country via CLGeocoder.reverseGeocodeLocation(). -- Gem. Approved.
 - **vqtr49io**: PC-187 [P1]: Background VLM description pipeline + Settings simplification -- (1) BGProcessingTask: describe all image cards where notes == nil using Qwen2-VL, most recent first, unload model after every 5 photos. -- Clau. Approved.
 - **bv5gqi37**: PC-186 [P1]: VLM hashtag extraction — tag photos from description, OCR, and location -- After VLMService generates a description, run a second pass (same model) extracting 3-6 hashtags from: (1) VLM description, (2) OCR text (photo.photoText), (3) reverse-geocoded city name (PC-188). -- Clau. Approved.
@@ -488,10 +492,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **y62gskkp** | PC-189 [P2]: Settings data section cleanup | clau | merged | Keep in main list: Photos indexed, OCR, AI describ... |
-| **ics2qdkg** | PC-190 [P1]: Similar photos — CLIP cosine search | clau | merged | Add 'Similar photos' horizontal carousel to PhotoD... |
-| **ywrqcxfm** | PC-191 [P1]: Link iOS Photos People to Person records + graph integration | clau | merged | PersonDetailView: 'Link to Photos People' button o... |
-| **8hedhdns** | PC-192 [P1]: WikiDayView — navigable day links and debug interface | clau | merged | (1) Fix WikiNavigationService: parse date-format t... |
 | **jddbug2q** | PC-193 [P0]: Dispatcher-led agent triggering — eliminate idle heartbeat token burn | gem | planned | Move from timer-based heartbeats to dispatcher-tri... |
 | **k5h37al4** | PC-194 [P1]: UITest target + privatecore:// deep link scheme | clau | merged | Add a PrivateCoreUITests XCUITest target to the Xc... |
 | **nrtcom3l** | PC-195 [P2]: Smoke test coverage for Sprint 5 features | gem | planned | Extend PrivateCore SmokeTests v1 with test cases f... |
