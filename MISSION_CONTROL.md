@@ -55,6 +55,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **y8gub7u7**: PC-201 [P1]: Remove generationPrompt leak from wiki article views -- WikiContainerView shows a DisclosureGroup("Generation prompt") containing the full system + user prompt stored in article.generationPrompt (set in WikiGenerator.generateStructuredWiki at line ~1155 as debugPrompt). In production this reveals internal prompting to the user and causes the "Moments" and "Highlights" section headers to appear as raw prompt text. -- Clau. Approved.
 - **o9nxih0z**: PC-200 [P1]: People Photos picker — fix wrong picker and broken link button -- PersonDetailView has two bugs with the "Link to Photos People" feature (PC-191): -- Clau. Approved.
 - **quvxto1p**: PC-198 [P1]: Per-week hashtag graph -- Build a knowledge graph scoped to a single ISO week, accessible from the week wiki. -- Gem. Approved.
+- **38lasxwv**: PC-197 [P1]: Week wiki generation -- Generate a weekly wiki article that aggregates 7 day wikis. -- Clau. Approved.
 - **xz3n51oq**: PC-196 [P0]: Day wiki auto-generation pipeline -- After OCR + VLM batch complete for a given day, auto-trigger generateAndSaveDailyWiki(). -- Clau. Approved.
 - **nrtcom3l**: PC-195 [P2]: Smoke test coverage for Sprint 5 features -- Extend PrivateCore SmokeTests v1 with test cases for all Sprint 5 features. Update the document at ~/Downloads/PrivateCore SmokeTests v1.docx (or create v1.1) and commit a markdown version to agentic-fleet-hub/docs/smoke_tests.md. -- Gem. Approved.
 - **k5h37al4**: PC-194 [P1]: UITest target + privatecore:// deep link scheme -- Add a PrivateCoreUITests XCUITest target to the Xcode project and wire up a basic privatecore:// URL scheme so automated smoke tests can trigger app flows without human interaction. -- Clau. Approved.
@@ -501,7 +502,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **jddbug2q** | PC-193 [P0]: Dispatcher-led agent triggering — eliminate idle heartbeat token burn | gem | planned | Move from timer-based heartbeats to dispatcher-tri... |
-| **38lasxwv** | PC-197 [P1]: Week wiki generation | clau | merged | Generate a weekly wiki article that aggregates 7 d... |
 | **wetu3ozb** | PC-199 [P1]: Journaling — browse and edit previous entries | clau | merged | Users need a way to view and edit journaling cards... |
 | **t5hayl7d** | PC-204 [P0]: MLX generation queue — serialize concurrent callers to prevent app kill | gem | merged | When multiple AI generation requests fire simultan... |
 | **rmrezewa** | PC-205 [P1]: Scoped knowledge graph per board and per trip | gem | merged | After PC-198 (per-week hashtag graph) lands, add e... |
