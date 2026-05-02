@@ -506,7 +506,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **t5hayl7d** | PC-204 [P0]: MLX generation queue — serialize concurrent callers to prevent app kill | gem | merged | When multiple AI generation requests fire simultan... |
 | **rmrezewa** | PC-205 [P1]: Scoped knowledge graph per board and per trip | gem | merged | After PC-198 (per-week hashtag graph) lands, add e... |
 | **befyo4kv** | PC-206 [P1]: Documents row in Library Intelligence section | clau | merged | Documents (PDF cards with type == .document) are a... |
-| **izj6nmgp** | PC-207 [P2]: Remove Insights tab — surface top places in PlacesView header | clau | planned | The Insights tab in Library is redundant: stats ar... |
+| **izj6nmgp** | PC-207 [P2]: Remove Insights tab — surface top places in PlacesView header | clau | merged | The Insights tab in Library is redundant: stats ar... |
 | **sln025dz** | PC-208 [P1]: Global knowledge graph — all relationships across wikis, trips, boards | gem | merged | The graph icon in the Library tab (currently wired... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
