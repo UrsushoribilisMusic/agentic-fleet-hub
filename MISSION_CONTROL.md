@@ -50,6 +50,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **sln025dz**: PC-208 [P1]: Global knowledge graph — all relationships across wikis, trips, boards -- The graph icon in the Library tab (currently wired to ConceptGraphView / the week graph) should show a full cross-entity knowledge graph, not a weekly scope. -- Gem. Approved.
+- **izj6nmgp**: PC-207 [P2]: Remove Insights tab — surface top places in PlacesView header -- The Insights tab in Library is redundant: stats are already in Settings, and place information belongs in Places. Remove it and redistribute its content. -- Clau. Approved.
 - **befyo4kv**: PC-206 [P1]: Documents row in Library Intelligence section -- Documents (PDF cards with type == .document) are a first-class content type but have no entry point in the Library Intelligence section. Add a "Documents" row alongside Wiki, People, Places. -- Clau. Approved.
 - **rmrezewa**: PC-205 [P1]: Scoped knowledge graph per board and per trip -- After PC-198 (per-week hashtag graph) lands, add equivalent scoped graphs for boards and trips. Both reuse ConceptGraphView and the same node/edge types — only the data source changes. -- Gem. Approved.
 - **t5hayl7d**: PC-204 [P0]: MLX generation queue — serialize concurrent callers to prevent app kill -- When multiple AI generation requests fire simultaneously (e.g. user taps Generate on multiple wikis at once, or VLMService.describeUndescribed() runs while WikiGenerator is generating), both callers load the 1.2GB Qwen model into memory at the same time. iOS kills the process due to memory pressure. -- Gem. Approved.
@@ -506,7 +508,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **jddbug2q** | PC-193 [P0]: Dispatcher-led agent triggering — eliminate idle heartbeat token burn | gem | planned | Move from timer-based heartbeats to dispatcher-tri... |
-| **izj6nmgp** | PC-207 [P2]: Remove Insights tab — surface top places in PlacesView header | clau | merged | The Insights tab in Library is redundant: stats ar... |
-| **sln025dz** | PC-208 [P1]: Global knowledge graph — all relationships across wikis, trips, boards | gem | merged | The graph icon in the Library tab (currently wired... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
