@@ -495,5 +495,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **jddbug2q** | PC-193 [P0]: Dispatcher-led agent triggering — eliminate idle heartbeat token burn | gem | planned | Move from timer-based heartbeats to dispatcher-tri... |
 | **k5h37al4** | PC-194 [P1]: UITest target + privatecore:// deep link scheme | clau | merged | Add a PrivateCoreUITests XCUITest target to the Xc... |
 | **nrtcom3l** | PC-195 [P2]: Smoke test coverage for Sprint 5 features | gem | planned | Extend PrivateCore SmokeTests v1 with test cases f... |
+| **xz3n51oq** | PC-196 [P0]: Day wiki auto-generation pipeline | clau | planned | After OCR + VLM batch complete for a given day, au... |
+| **38lasxwv** | PC-197 [P1]: Week wiki generation | clau | planned | Generate a weekly wiki article that aggregates 7 d... |
+| **quvxto1p** | PC-198 [P1]: Per-week hashtag graph | gem | planned | Build a knowledge graph scoped to a single ISO wee... |
+| **wetu3ozb** | PC-199 [P1]: Journaling — browse and edit previous entries | clau | planned | Users need a way to view and edit journaling cards... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
