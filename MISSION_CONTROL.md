@@ -503,6 +503,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **y8gub7u7** | PC-201 [P1]: Remove generationPrompt leak from wiki article views | clau | planned | WikiContainerView shows a DisclosureGroup("Generat... |
 | **fnai7mul** | PC-202 [P1]: Board wiki — add regenerate button and text/hashtag edit | clau | planned | When viewing a wiki for a Board (WikiContainerView... |
 | **8aihe6xb** | PC-203 [P1]: Trip wiki stale text — fix caching of failed generation | clau | planned | Trip wiki shows old text even after 3 regeneration... |
-| **t5hayl7d** | PC-204 [P0]: MLX generation queue — serialize concurrent callers to prevent app kill | clau | planned | When multiple AI generation requests fire simultan... |
+| **t5hayl7d** | PC-204 [P0]: MLX generation queue — serialize concurrent callers to prevent app kill | clau | in_work | When multiple AI generation requests fire simultan... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
