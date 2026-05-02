@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-05-02",
-    "summary": "Gem: PC-198 (per-week hashtag graph UI/data layer complete, build green-2026-05-02-2) + PC-195 (smoke tests Sprint 5 docs/smoke_tests.md created).",
+    "summary": "Clau: PC-204 (MLXQueue), PC-201 (prompt leak removed), PC-203 (stale cache fix), PC-202 (board wiki edit+regen), PC-200 (people picker). Gem: PC-198 (hashtag graph), PC-195 (smoke tests). Build green-2026-05-02-3.",
     "file": "2026-05-02.md"
   },
   {
