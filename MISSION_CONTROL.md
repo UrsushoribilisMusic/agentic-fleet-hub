@@ -499,5 +499,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **38lasxwv** | PC-197 [P1]: Week wiki generation | clau | planned | Generate a weekly wiki article that aggregates 7 d... |
 | **quvxto1p** | PC-198 [P1]: Per-week hashtag graph | gem | planned | Build a knowledge graph scoped to a single ISO wee... |
 | **wetu3ozb** | PC-199 [P1]: Journaling — browse and edit previous entries | clau | planned | Users need a way to view and edit journaling cards... |
+| **t5hayl7d** | PC-204 [P0]: MLX generation queue — serialize concurrent callers to prevent app kill | clau | planned | When multiple AI generation requests fire simultan... |
+| **8aihe6xb** | PC-203 [P1]: Trip wiki stale text — fix caching of failed generation | clau | planned | Trip wiki shows old text even after 3 regeneration... |
+| **fnai7mul** | PC-202 [P1]: Board wiki — add regenerate button and text/hashtag edit | clau | planned | When viewing a wiki for a Board (WikiContainerView... |
+| **y8gub7u7** | PC-201 [P1]: Remove generationPrompt leak from wiki article views | clau | planned | WikiContainerView shows a DisclosureGroup("Generat... |
+| **o9nxih0z** | PC-200 [P1]: People Photos picker — fix wrong picker and broken link button | clau | planned | PersonDetailView has two bugs with the "Link to Ph... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
