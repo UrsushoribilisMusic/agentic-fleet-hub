@@ -50,10 +50,14 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **befyo4kv**: PC-206 [P1]: Documents row in Library Intelligence section -- Documents (PDF cards with type == .document) are a first-class content type but have no entry point in the Library Intelligence section. Add a "Documents" row alongside Wiki, People, Places. -- Clau. Approved.
+- **rmrezewa**: PC-205 [P1]: Scoped knowledge graph per board and per trip -- After PC-198 (per-week hashtag graph) lands, add equivalent scoped graphs for boards and trips. Both reuse ConceptGraphView and the same node/edge types — only the data source changes. -- Gem. Approved.
+- **t5hayl7d**: PC-204 [P0]: MLX generation queue — serialize concurrent callers to prevent app kill -- When multiple AI generation requests fire simultaneously (e.g. user taps Generate on multiple wikis at once, or VLMService.describeUndescribed() runs while WikiGenerator is generating), both callers load the 1.2GB Qwen model into memory at the same time. iOS kills the process due to memory pressure. -- Gem. Approved.
 - **8aihe6xb**: PC-203 [P1]: Trip wiki stale text — fix caching of failed generation -- Trip wiki shows old text even after 3 regeneration attempts. Root cause: WikiGenerator caches the content hash after generation. When generation fails 3 times and a fallback article is returned, the fallback article hash is written to the cache. On the next generation attempt the new inputs hash matches the cached hash (because the inputs did not change), so WikiGenerator returns the stale cached article without attempting a new generation. -- Clau. Approved.
 - **fnai7mul**: PC-202 [P1]: Board wiki — add regenerate button and text/hashtag edit -- When viewing a wiki for a Board (WikiContainerView opened from a board), there is no way to regenerate or edit the wiki content. The homepage wiki has a regenerate button; boards need the same. -- Clau. Approved.
 - **y8gub7u7**: PC-201 [P1]: Remove generationPrompt leak from wiki article views -- WikiContainerView shows a DisclosureGroup("Generation prompt") containing the full system + user prompt stored in article.generationPrompt (set in WikiGenerator.generateStructuredWiki at line ~1155 as debugPrompt). In production this reveals internal prompting to the user and causes the "Moments" and "Highlights" section headers to appear as raw prompt text. -- Clau. Approved.
 - **o9nxih0z**: PC-200 [P1]: People Photos picker — fix wrong picker and broken link button -- PersonDetailView has two bugs with the "Link to Photos People" feature (PC-191): -- Clau. Approved.
+- **wetu3ozb**: PC-199 [P1]: Journaling — browse and edit previous entries -- Users need a way to view and edit journaling cards for past days, not just today. -- Clau. Approved.
 - **quvxto1p**: PC-198 [P1]: Per-week hashtag graph -- Build a knowledge graph scoped to a single ISO week, accessible from the week wiki. -- Gem. Approved.
 - **38lasxwv**: PC-197 [P1]: Week wiki generation -- Generate a weekly wiki article that aggregates 7 day wikis. -- Clau. Approved.
 - **xz3n51oq**: PC-196 [P0]: Day wiki auto-generation pipeline -- After OCR + VLM batch complete for a given day, auto-trigger generateAndSaveDailyWiki(). -- Clau. Approved.
@@ -502,10 +506,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **jddbug2q** | PC-193 [P0]: Dispatcher-led agent triggering — eliminate idle heartbeat token burn | gem | planned | Move from timer-based heartbeats to dispatcher-tri... |
-| **wetu3ozb** | PC-199 [P1]: Journaling — browse and edit previous entries | clau | merged | Users need a way to view and edit journaling cards... |
-| **t5hayl7d** | PC-204 [P0]: MLX generation queue — serialize concurrent callers to prevent app kill | gem | merged | When multiple AI generation requests fire simultan... |
-| **rmrezewa** | PC-205 [P1]: Scoped knowledge graph per board and per trip | gem | merged | After PC-198 (per-week hashtag graph) lands, add e... |
-| **befyo4kv** | PC-206 [P1]: Documents row in Library Intelligence section | clau | merged | Documents (PDF cards with type == .document) are a... |
 | **izj6nmgp** | PC-207 [P2]: Remove Insights tab — surface top places in PlacesView header | clau | merged | The Insights tab in Library is redundant: stats ar... |
 | **sln025dz** | PC-208 [P1]: Global knowledge graph — all relationships across wikis, trips, boards | gem | merged | The graph icon in the Library tab (currently wired... |
 
