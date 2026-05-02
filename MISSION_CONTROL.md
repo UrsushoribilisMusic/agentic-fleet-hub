@@ -499,11 +499,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **38lasxwv** | PC-197 [P1]: Week wiki generation | clau | planned | Generate a weekly wiki article that aggregates 7 d... |
 | **quvxto1p** | PC-198 [P1]: Per-week hashtag graph | gem | merged | Build a knowledge graph scoped to a single ISO wee... |
 | **wetu3ozb** | PC-199 [P1]: Journaling — browse and edit previous entries | clau | planned | Users need a way to view and edit journaling cards... |
-| **o9nxih0z** | PC-200 [P1]: People Photos picker — fix wrong picker and broken link button | clau | planned | PersonDetailView has two bugs with the "Link to Ph... |
-| **y8gub7u7** | PC-201 [P1]: Remove generationPrompt leak from wiki article views | clau | planned | WikiContainerView shows a DisclosureGroup("Generat... |
-| **fnai7mul** | PC-202 [P1]: Board wiki — add regenerate button and text/hashtag edit | clau | planned | When viewing a wiki for a Board (WikiContainerView... |
-| **8aihe6xb** | PC-203 [P1]: Trip wiki stale text — fix caching of failed generation | clau | planned | Trip wiki shows old text even after 3 regeneration... |
-| **t5hayl7d** | PC-204 [P0]: MLX generation queue — serialize concurrent callers to prevent app kill | gem | in_work | When multiple AI generation requests fire simultan... |
+| **o9nxih0z** | PC-200 [P1]: People Photos picker — fix wrong picker and broken link button | clau | merged | PersonDetailView has two bugs with the "Link to Ph... |
+| **y8gub7u7** | PC-201 [P1]: Remove generationPrompt leak from wiki article views | clau | merged | WikiContainerView shows a DisclosureGroup("Generat... |
+| **fnai7mul** | PC-202 [P1]: Board wiki — add regenerate button and text/hashtag edit | clau | merged | When viewing a wiki for a Board (WikiContainerView... |
+| **8aihe6xb** | PC-203 [P1]: Trip wiki stale text — fix caching of failed generation | clau | merged | Trip wiki shows old text even after 3 regeneration... |
+| **t5hayl7d** | PC-204 [P0]: MLX generation queue — serialize concurrent callers to prevent app kill | gem | merged | When multiple AI generation requests fire simultan... |
 | **rmrezewa** | PC-205 [P1]: Scoped knowledge graph per board and per trip | gem | planned | After PC-198 (per-week hashtag graph) lands, add e... |
 | **befyo4kv** | PC-206 [P1]: Documents row in Library Intelligence section | clau | planned | Documents (PDF cards with type == .document) are a... |
 | **izj6nmgp** | PC-207 [P2]: Remove Insights tab — surface top places in PlacesView header | clau | planned | The Insights tab in Library is redundant: stats ar... |
