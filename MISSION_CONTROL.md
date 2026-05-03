@@ -525,5 +525,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **3wpatmsj** | [LIFELORE] PC-083 [P0]: Screen C — calendar permission | clau | in_work | Calendar permission screen. Shows concrete example... |
 | **ltdkzlw1** | [LIFELORE] PC-084 [P0]: Screen D — feature carousel with generation interrupt | clau | in_work | 8-card feature carousel, auto-advances every 4 sec... |
 | **dt0v05a4** | [LIFELORE] PC-086 [P0]: StoreKit 2 — products and purchase flow | gem | merged | Three products: wiki.lifelore.pro.monthly (€5.99),... |
+| **a4ew7vp4** | [LIFELORE] PC-087 [P0]: Paywall — contextual paywall screen | misty | merged | PaywallView with PaywallTrigger enum: .generationL... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
