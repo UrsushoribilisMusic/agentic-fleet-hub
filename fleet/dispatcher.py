@@ -69,8 +69,8 @@ AGENT_COMMANDS = {
     "echo": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/echo", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "closer": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/closer", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "clau": ["/Users/miguelrodriguez/.local/bin/claude", "--dangerously-skip-permissions", "--model", "claude-sonnet-4-6", "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
-    "gem": ["/opt/homebrew/bin/node", "/opt/homebrew/bin/gemini", "--yolo", "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
-    "misty": ["/opt/homebrew/bin/vibe", "-C", CODEX_REPO_DIR, "--prompt", "Run your heartbeat protocol. Read ~/projects/agentic-fleet-hub/MISTRAL.md first, then follow AGENTS/RULES.md. Follow all 6 phases."],
+    "gem": ["/opt/homebrew/bin/node", "/opt/homebrew/bin/gemini", "--yolo", "--skip-trust", "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
+    "misty": ["/opt/homebrew/bin/vibe", "--workdir", CODEX_REPO_DIR, "--trust", "-p", "Run your heartbeat protocol. Read ~/projects/agentic-fleet-hub/MISTRAL.md first, then follow AGENTS/RULES.md. Follow all 6 phases."],
     "codi": [
         "/opt/homebrew/bin/node",
         "/opt/homebrew/bin/codex",
