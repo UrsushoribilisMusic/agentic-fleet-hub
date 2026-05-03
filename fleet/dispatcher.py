@@ -70,7 +70,7 @@ AGENT_COMMANDS = {
     "closer": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/closer", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "clau": ["/Users/miguelrodriguez/.local/bin/claude", "--dangerously-skip-permissions", "--model", "claude-sonnet-4-6", "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "gem": ["/opt/homebrew/bin/node", "/opt/homebrew/bin/gemini", "--yolo", "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
-    "misty": ["vibe", "-C", CODEX_REPO_DIR, "--prompt", "Run your heartbeat protocol. Read ~/projects/agentic-fleet-hub/MISTRAL.md first, then follow AGENTS/RULES.md. Follow all 6 phases."],
+    "misty": ["/opt/homebrew/bin/vibe", "-C", CODEX_REPO_DIR, "--prompt", "Run your heartbeat protocol. Read ~/projects/agentic-fleet-hub/MISTRAL.md first, then follow AGENTS/RULES.md. Follow all 6 phases."],
     "codi": [
         "/opt/homebrew/bin/node",
         "/opt/homebrew/bin/codex",
@@ -377,17 +377,23 @@ def is_agent_offline(agent_key):
                          }, timeout=10)
         items = r.json().get("items", [])
         items = [hb for hb in items if hb.get("status") != "idle"]
-        
+
         now = datetime.utcnow()
         if not items:
-            return True, "No non-idle heartbeat"
+            # Dispatcher model: no heartbeat just means agent hasn't been
+            # dispatched yet — not an offline signal.
+            return False, "No non-idle heartbeat (assumed online)"
         
         hb = items[0]
         ts_part = hb["updated"].split('.')[0].replace('Z', '')
         dt = datetime.strptime(ts_part, "%Y-%m-%d %H:%M:%S")
         age_seconds = (now - dt).total_seconds()
         last_seen_str = f"{int(age_seconds // 60)}m ago"
-        return (age_seconds > 5400), last_seen_str # 90 min threshold (was 30, raised after 2026-04-28 sandbox glitch caused gem-pile-up)
+        # Dispatcher-led model: agents only post heartbeats when dispatched,
+        # so heartbeat age is not a reliable offline signal. Use 7 days so
+        # only truly abandoned agents are flagged; failures are tracked via
+        # agent_failures.json instead.
+        return (age_seconds > 604800), last_seen_str
     except Exception as e:
         log(f"Error checking health for {agent_key}: {e}")
         return True, "Error"
@@ -893,6 +899,10 @@ def run_sync_scripts(force_gh=False):
 
 def main():
     log("Dispatcher v5 started — parallel agent dispatch")
+    # In the dispatcher-led model agents only post heartbeats when dispatched,
+    # so stale heartbeat timestamps are not a reliable offline signal.
+    # Start clean; actual failures will repopulate this file.
+    save_offline_agents({})
     cycle_count = 0
     while True:
         _collect_finished_agents()
@@ -954,6 +964,8 @@ def main():
 
                 if agent and agent not in offline_agents:
                     run_agent(agent, task)
+                elif agent and agent in offline_agents:
+                    log(f"Skipping task '{task['title']}' — agent {agent} is offline")
             
             check_waiting_human()
         else:
