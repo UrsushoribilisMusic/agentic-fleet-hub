@@ -10,6 +10,8 @@ import time
 import requests
 import json
 import os
+import signal
+import tempfile
 import hashlib
 from datetime import datetime, timedelta
 
@@ -30,6 +32,8 @@ FLEET_DIR = "/Users/miguelrodriguez/projects/agentic-fleet-hub/fleet"
 CODEX_REPO_DIR = "/Users/miguelrodriguez/projects/agentic-fleet-hub"
 FLEET_META_PATH = os.path.join(CODEX_REPO_DIR, "AGENTS/CONFIG/fleet_meta.json")
 LOG_FILE = f"{FLEET_DIR}/logs/dispatcher.log"
+LOG_MAX_BYTES = 10 * 1024 * 1024  # 10 MB per file
+LOG_BACKUP_COUNT = 5               # keep dispatcher.log.1 … .5
 NOTIF_FILE = f"{FLEET_DIR}/logs/notifications.json"
 OFFLINE_AGENTS_FILE = f"{FLEET_DIR}/logs/offline_agents.json"
 DISPATCHER_CACHE_FILE = f"{FLEET_DIR}/logs/dispatcher_cache.json"
@@ -86,9 +90,20 @@ FORCE_DISPATCH_INTERVAL_SEC = 2 * 3600  # 2 hours
 
 def log(msg):
     ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    line = f"[{ts}] {msg}\n"
+    try:
+        if os.path.exists(LOG_FILE) and os.path.getsize(LOG_FILE) > LOG_MAX_BYTES:
+            for i in range(LOG_BACKUP_COUNT - 1, 0, -1):
+                src = f"{LOG_FILE}.{i}"
+                dst = f"{LOG_FILE}.{i+1}"
+                if os.path.exists(src):
+                    os.rename(src, dst)
+            os.rename(LOG_FILE, f"{LOG_FILE}.1")
+    except OSError:
+        pass
     with open(LOG_FILE, "a") as f:
-        f.write(f"[{ts}] {msg}\n")
-    print(f"[{ts}] {msg}")
+        f.write(line)
+    print(line, end="")
 
 def log_idle_heartbeat(agent_key):
     """Log an 'idle' heartbeat to PocketBase on behalf of a skipped agent."""
@@ -646,16 +661,36 @@ def run_agent(agent_name, task):
         task_prompt = f"\n\nYOUR TASK: {task['title']}\nDescription: {task.get('description', '')}"
         cmd[-1] = cmd[-1] + task_prompt
 
+    out_fd, out_path = tempfile.mkstemp(suffix=f"_{agent_name}.log", prefix="dispatcher_agent_")
+    os.close(out_fd)
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
-        output = result.stdout or result.stderr or "No output"
+        with open(out_path, "w") as out_f:
+            proc = subprocess.Popen(cmd, stdout=out_f, stderr=subprocess.STDOUT,
+                                    start_new_session=True)
+        returncode = None
+        try:
+            returncode = proc.wait(timeout=600)
+        except subprocess.TimeoutExpired:
+            log(f"Agent {agent_name} timed out — killing process group {proc.pid}")
+            try:
+                os.killpg(proc.pid, signal.SIGTERM)
+                time.sleep(3)
+                os.killpg(proc.pid, signal.SIGKILL)
+            except ProcessLookupError:
+                pass
+            proc.wait()
+            returncode = proc.returncode
 
-        if result.returncode == 0:
-            post_comment(task["id"], agent_name, output[:5000])
+        with open(out_path, "r", errors="replace") as f:
+            output = f.read()
+        output = (output or "No output")[-5000:]
+
+        if returncode == 0:
+            post_comment(task["id"], agent_name, output)
             update_task_status(task["id"], "peer_review", from_status="in_progress", agent=agent_name)
         else:
-            log(f"ERROR: Agent {agent_name} failed")
-            post_comment(task["id"], agent_name, f"FAILED with return code {result.returncode}:\n{output[:1000]}", "feedback")
+            log(f"ERROR: Agent {agent_name} failed (exit {returncode})")
+            post_comment(task["id"], agent_name, f"FAILED with return code {returncode}:\n{output[:1000]}", "feedback")
             reason, cooldown = classify_agent_failure(output)
             mark_agent_unavailable(agent_name, reason, cooldown)
             update_task_status(task["id"], "todo", from_status="in_progress", agent=agent_name)
@@ -663,6 +698,11 @@ def run_agent(agent_name, task):
         log(f"ERROR running {agent_name}: {e}")
         mark_agent_unavailable(agent_name, "dispatcher exception", FAILURE_COOLDOWN_SECONDS)
         update_task_status(task["id"], "todo", from_status="in_progress", agent=agent_name)
+    finally:
+        try:
+            os.unlink(out_path)
+        except OSError:
+            pass
 
 def get_notif_data():
     if os.path.exists(NOTIF_FILE):
