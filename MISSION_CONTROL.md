@@ -514,9 +514,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **qbh5ht71** | [LIFELORE] PC-075 [P1]: Style picker UI — per-wiki and global default | clau | in_work | Build the style picker bottom sheet UI. Accessible... |
 | **4zwzcl6s** | [LIFELORE] PC-076 [P1]: Style preview — lead paragraph before regeneration | clau | in_work | StylePreviewService.preview(article:style:) genera... |
 | **fz1qimhh** | [LIFELORE] PC-076-B [P1]: Custom style editor (Pro) | clau | in_work | Build custom style creation UI for Pro users. Voic... |
-| **vkvvwcia** | [LIFELORE] PC-077 [P0]: WikiPDFExporter — core PDF generation | misty | planned | WikiPDFExporter.export(article:style:tier:) render... |
+| **vkvvwcia** | [LIFELORE] PC-077 [P0]: WikiPDFExporter — core PDF generation | misty | in_work | WikiPDFExporter.export(article:style:tier:) render... |
 | **0l0bx0sp** | [LIFELORE] PC-078 [P0]: PDF promotional panel — free tier branding with QR code | misty | planned | Free tier PDF: light grey promo panel appended as ... |
-| **n31fs61z** | [LIFELORE] PC-079 [P1]: Share entry points — header button and footer link | gem | planned | Add share button to wiki article navigation header... |
+| **n31fs61z** | [LIFELORE] PC-079 [P1]: Share entry points — header button and footer link | gem | in_work | Add share button to wiki article navigation header... |
 | **h74ka1e7** | [LIFELORE] PC-080 [P0]: Onboarding flow scaffold and navigation state machine | gem | merged | Create OnboardingView with state machine: .styleSe... |
 | **ugdtluej** | [LIFELORE] PC-081 [P0]: Screen A — welcome and style picker | misty | planned | Full-screen welcome screen. Lifelore Swiss cross i... |
 | **bpdmkgo9** | [LIFELORE] PC-082 [P0]: Screen B — photos permission | gem | merged | Photos permission screen. Honest rationale: OCR, A... |
