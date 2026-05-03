@@ -65,6 +65,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **xz3n51oq**: PC-196 [P0]: Day wiki auto-generation pipeline -- After OCR + VLM batch complete for a given day, auto-trigger generateAndSaveDailyWiki(). -- Clau. Approved.
 - **nrtcom3l**: PC-195 [P2]: Smoke test coverage for Sprint 5 features -- Extend PrivateCore SmokeTests v1 with test cases for all Sprint 5 features. Update the document at ~/Downloads/PrivateCore SmokeTests v1.docx (or create v1.1) and commit a markdown version to agentic-fleet-hub/docs/smoke_tests.md. -- Gem. Approved.
 - **k5h37al4**: PC-194 [P1]: UITest target + privatecore:// deep link scheme -- Add a PrivateCoreUITests XCUITest target to the Xcode project and wire up a basic privatecore:// URL scheme so automated smoke tests can trigger app flows without human interaction. -- Clau. Approved.
+- **jddbug2q**: PC-193 [P0]: Dispatcher-led agent triggering — eliminate idle heartbeat token burn -- Move from timer-based heartbeats to dispatcher-triggered agent waking. Gem has done the architecture analysis — assign to her. -- Gem. Approved.
 - **8hedhdns**: PC-192 [P1]: WikiDayView — navigable day links and debug interface -- (1) Fix WikiNavigationService: parse date-format targets ('Monday 27 Apr 2026') → push WikiDayView instead of .notFound. -- Clau. Approved.
 - **ywrqcxfm**: PC-191 [P1]: Link iOS Photos People to Person records + graph integration -- PersonDetailView: 'Link to Photos People' button opens PHPickerViewController with PHPickerFilter.people (iOS 16+). User selects face group → receive PHAsset IDs for all photos iOS attributes to that person. -- Clau. Approved.
 - **ics2qdkg**: PC-190 [P1]: Similar photos — CLIP cosine search -- Add 'Similar photos' horizontal carousel to PhotoDetailView when clip_embedding_status = done. -- Clau. Approved.
@@ -507,10 +508,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **jddbug2q** | PC-193 [P0]: Dispatcher-led agent triggering — eliminate idle heartbeat token burn | gem | merged | Move from timer-based heartbeats to dispatcher-tri... |
-| **ehs99p0h** | [LIFELORE] PC-072 [P0]: WikiStyle/WikiTheme data models + SQLite migration | misty | planned | Define WikiStyle, WikiTheme, WikiFont, and CustomS... |
-| **coux72q4** | [LIFELORE] PC-073 [P0]: WikiTheme SwiftUI visual rendering (6 themes) | gem | planned | Extend WikiArticleView to apply WikiTheme from the... |
-| **n7gtxbfu** | [LIFELORE] PC-074 [P0]: Style prompt injection in WikiGenerator | clau | planned | Extend WikiGenerator to accept a WikiStyle paramet... |
+| **ehs99p0h** | [LIFELORE] PC-072 [P0]: WikiStyle/WikiTheme data models + SQLite migration | misty | in_work | Define WikiStyle, WikiTheme, WikiFont, and CustomS... |
+| **coux72q4** | [LIFELORE] PC-073 [P0]: WikiTheme SwiftUI visual rendering (6 themes) | clau | planned | Extend WikiArticleView to apply WikiTheme from the... |
+| **n7gtxbfu** | [LIFELORE] PC-074 [P0]: Style prompt injection in WikiGenerator | clau | in_work | Extend WikiGenerator to accept a WikiStyle paramet... |
 | **qbh5ht71** | [LIFELORE] PC-075 [P1]: Style picker UI — per-wiki and global default | misty | planned | Build the style picker bottom sheet UI. Accessible... |
 | **4zwzcl6s** | [LIFELORE] PC-076 [P1]: Style preview — lead paragraph before regeneration | clau | planned | StylePreviewService.preview(article:style:) genera... |
 | **fz1qimhh** | [LIFELORE] PC-076-B [P1]: Custom style editor (Pro) | misty | planned | Build custom style creation UI for Pro users. Voic... |
