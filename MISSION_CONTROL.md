@@ -522,7 +522,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **ugdtluej** | [LIFELORE] PC-081 [P0]: Screen A — welcome and style picker | misty | planned | Full-screen welcome screen. Lifelore Swiss cross i... |
 | **3wpatmsj** | [LIFELORE] PC-083 [P0]: Screen C — calendar permission | clau | in_work | Calendar permission screen. Shows concrete example... |
 | **ltdkzlw1** | [LIFELORE] PC-084 [P0]: Screen D — feature carousel with generation interrupt | clau | in_work | 8-card feature carousel, auto-advances every 4 sec... |
-| **nzghcntv** | [LIFELORE] PC-085 [P0]: WikiGenerationCounter — weekly quota tracking | gem | in_work | WikiGenerationCounter struct: count (Int), weekSta... |
+| **nzghcntv** | [LIFELORE] PC-085 [P0]: WikiGenerationCounter — weekly quota tracking | gem | merged | WikiGenerationCounter struct: count (Int), weekSta... |
 | **dt0v05a4** | [LIFELORE] PC-086 [P0]: StoreKit 2 — products and purchase flow | gem | planned | Three products: wiki.lifelore.pro.monthly (€5.99),... |
 | **a4ew7vp4** | [LIFELORE] PC-087 [P0]: Paywall — contextual paywall screen | misty | planned | PaywallView with PaywallTrigger enum: .generationL... |
 | **lapt2cgc** | [LIFELORE] PC-088 [P1]: Pro feature gating throughout the app | misty | planned | Apply EntitlementManager.isPro checks at all Pro e... |
