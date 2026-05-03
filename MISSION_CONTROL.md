@@ -521,11 +521,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **fz1qimhh** | [LIFELORE] PC-076-B [P1]: Custom style editor (Pro) | misty | in_work | Build custom style creation UI for Pro users. Voic... |
 | **vkvvwcia** | [LIFELORE] PC-077 [P0]: WikiPDFExporter — core PDF generation | gem | in_work | WikiPDFExporter.export(article:style:tier:) render... |
 | **0l0bx0sp** | [LIFELORE] PC-078 [P0]: PDF promotional panel — free tier branding with QR code | gem | in_work | Free tier PDF: light grey promo panel appended as ... |
-| **n31fs61z** | [LIFELORE] PC-079 [P1]: Share entry points — header button and footer link | gem | todo | Reopened: WikiPDFExporter missing, no Share buttons implemented. |
-| **ugdtluej** | [LIFELORE] PC-081 [P0]: Screen A — welcome and style picker | misty | todo | Reopened: WORKLOG only, no SwiftUI code. WikiStyle stub now on main. |
+| **n31fs61z** | [LIFELORE] PC-079 [P1]: Share entry points — header button and footer link | gem | merged | Add share button to wiki article navigation header... |
+| **ugdtluej** | [LIFELORE] PC-081 [P0]: Screen A — welcome and style picker | misty | merged | Full-screen welcome screen. Lifelore Swiss cross i... |
 | **3wpatmsj** | [LIFELORE] PC-083 [P0]: Screen C — calendar permission | clau | in_work | Calendar permission screen. Shows concrete example... |
-| **dt0v05a4** | [LIFELORE] PC-086 [P0]: StoreKit 2 — products and purchase flow | gem | todo | Reopened: EntitlementManager is a stub, no product IDs or purchase flow. |
-| **a4ew7vp4** | [LIFELORE] PC-087 [P0]: Paywall — contextual paywall screen | misty | todo | Reopened: never implemented. iOS repo path now in MISTRAL.md. |
-| **lapt2cgc** | [LIFELORE] PC-088 [P1]: Pro feature gating throughout the app | misty | todo | Reopened: never implemented. iOS repo path now in MISTRAL.md. |
+| **dt0v05a4** | [LIFELORE] PC-086 [P0]: StoreKit 2 — products and purchase flow | gem | merged | Three products: wiki.lifelore.pro.monthly (€5.99),... |
+| **a4ew7vp4** | [LIFELORE] PC-087 [P0]: Paywall — contextual paywall screen | misty | merged | PaywallView with PaywallTrigger enum: .generationL... |
+| **lapt2cgc** | [LIFELORE] PC-088 [P1]: Pro feature gating throughout the app | misty | merged | Apply EntitlementManager.isPro checks at all Pro e... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
