@@ -511,9 +511,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **ehs99p0h** | [LIFELORE] PC-072 [P0]: WikiStyle/WikiTheme data models + SQLite migration | clau | in_work | Define WikiStyle, WikiTheme, WikiFont, and CustomS... |
 | **coux72q4** | [LIFELORE] PC-073 [P0]: WikiTheme SwiftUI visual rendering (6 themes) | clau | in_work | Extend WikiArticleView to apply WikiTheme from the... |
 | **n7gtxbfu** | [LIFELORE] PC-074 [P0]: Style prompt injection in WikiGenerator | clau | in_work | Extend WikiGenerator to accept a WikiStyle paramet... |
-| **qbh5ht71** | [LIFELORE] PC-075 [P1]: Style picker UI — per-wiki and global default | misty | in_work | Build the style picker bottom sheet UI. Accessible... |
+| **qbh5ht71** | [LIFELORE] PC-075 [P1]: Style picker UI — per-wiki and global default | clau | in_work | Build the style picker bottom sheet UI. Accessible... |
 | **4zwzcl6s** | [LIFELORE] PC-076 [P1]: Style preview — lead paragraph before regeneration | clau | in_work | StylePreviewService.preview(article:style:) genera... |
-| **fz1qimhh** | [LIFELORE] PC-076-B [P1]: Custom style editor (Pro) | misty | in_work | Build custom style creation UI for Pro users. Voic... |
+| **fz1qimhh** | [LIFELORE] PC-076-B [P1]: Custom style editor (Pro) | clau | in_work | Build custom style creation UI for Pro users. Voic... |
 | **vkvvwcia** | [LIFELORE] PC-077 [P0]: WikiPDFExporter — core PDF generation | misty | planned | WikiPDFExporter.export(article:style:tier:) render... |
 | **0l0bx0sp** | [LIFELORE] PC-078 [P0]: PDF promotional panel — free tier branding with QR code | misty | planned | Free tier PDF: light grey promo panel appended as ... |
 | **n31fs61z** | [LIFELORE] PC-079 [P1]: Share entry points — header button and footer link | gem | planned | Add share button to wiki article navigation header... |
