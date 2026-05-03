@@ -523,7 +523,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **3wpatmsj** | [LIFELORE] PC-083 [P0]: Screen C — calendar permission | clau | in_work | Calendar permission screen. Shows concrete example... |
 | **ltdkzlw1** | [LIFELORE] PC-084 [P0]: Screen D — feature carousel with generation interrupt | clau | in_work | 8-card feature carousel, auto-advances every 4 sec... |
 | **nzghcntv** | [LIFELORE] PC-085 [P0]: WikiGenerationCounter — weekly quota tracking | gem | merged | WikiGenerationCounter struct: count (Int), weekSta... |
-| **dt0v05a4** | [LIFELORE] PC-086 [P0]: StoreKit 2 — products and purchase flow | gem | in_work | Three products: wiki.lifelore.pro.monthly (€5.99),... |
+| **dt0v05a4** | [LIFELORE] PC-086 [P0]: StoreKit 2 — products and purchase flow | gem | merged | Three products: wiki.lifelore.pro.monthly (€5.99),... |
 | **a4ew7vp4** | [LIFELORE] PC-087 [P0]: Paywall — contextual paywall screen | misty | planned | PaywallView with PaywallTrigger enum: .generationL... |
 | **lapt2cgc** | [LIFELORE] PC-088 [P1]: Pro feature gating throughout the app | misty | planned | Apply EntitlementManager.isPro checks at all Pro e... |
 | **uja76pc3** | [LIFELORE] PC-089 [P1]: Settings — subscription management and account screen | gem | planned | Add 'Subscription' section to top of Settings. Fre... |
