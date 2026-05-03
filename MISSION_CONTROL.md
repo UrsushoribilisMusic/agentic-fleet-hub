@@ -526,6 +526,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **dt0v05a4** | [LIFELORE] PC-086 [P0]: StoreKit 2 — products and purchase flow | gem | merged | Three products: wiki.lifelore.pro.monthly (€5.99),... |
 | **a4ew7vp4** | [LIFELORE] PC-087 [P0]: Paywall — contextual paywall screen | misty | planned | PaywallView with PaywallTrigger enum: .generationL... |
 | **lapt2cgc** | [LIFELORE] PC-088 [P1]: Pro feature gating throughout the app | misty | planned | Apply EntitlementManager.isPro checks at all Pro e... |
-| **uja76pc3** | [LIFELORE] PC-089 [P1]: Settings — subscription management and account screen | gem | in_work | Add 'Subscription' section to top of Settings. Fre... |
+| **uja76pc3** | [LIFELORE] PC-089 [P1]: Settings — subscription management and account screen | gem | merged | Add 'Subscription' section to top of Settings. Fre... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
