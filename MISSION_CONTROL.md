@@ -50,6 +50,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **uja76pc3**: [LIFELORE] PC-089 [P1]: Settings — subscription management and account screen -- Add 'Subscription' section to top of Settings. Free: shows tier + counter + 'Upgrade to Pro →'. Pro monthly/annual: shows renewal date + 'Manage subscription →' (itms-apps://). Lifetime: no renewal date. Restore Purchases button for reinstalls. -- Gem. Approved.
+- **nzghcntv**: [LIFELORE] PC-085 [P0]: WikiGenerationCounter — weekly quota tracking -- WikiGenerationCounter struct: count (Int), weekStart (Date), freeLimit=3. checkAndIncrement() resets if new week, checks limit, increments, saves, returns Bool. Pro users bypass entirely via EntitlementManager.isPro. Counter shown in Library for free users: 'N of 3 wikis used this week'. -- Gem. Approved.
 - **bpdmkgo9**: [LIFELORE] PC-082 [P0]: Screen B — photos permission -- Photos permission screen. Honest rationale: OCR, AI description, location/date extraction. Privacy callout card with 3 checkmarks. On grant: start background indexing pipeline (OCR + CLIP + VLM queue). On denial: show alternative message, still proceed to Screen C. -- Gem. Approved.
 - **h74ka1e7**: [LIFELORE] PC-080 [P0]: Onboarding flow scaffold and navigation state machine -- Create OnboardingView with state machine: .styleSelection → .photos → .calendar → .carousel. UserDefaults 'onboardingCompleted' flag. App launch checks flag. OnboardingCoordinator actor manages state and background tasks. Wiki completion interrupts carousel via Combine publisher. -- Gem. Approved.
 - **sln025dz**: PC-208 [P1]: Global knowledge graph — all relationships across wikis, trips, boards -- The graph icon in the Library tab (currently wired to ConceptGraphView / the week graph) should show a full cross-entity knowledge graph, not a weekly scope. -- Gem. Approved.
@@ -522,10 +524,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **ugdtluej** | [LIFELORE] PC-081 [P0]: Screen A — welcome and style picker | misty | planned | Full-screen welcome screen. Lifelore Swiss cross i... |
 | **3wpatmsj** | [LIFELORE] PC-083 [P0]: Screen C — calendar permission | clau | in_work | Calendar permission screen. Shows concrete example... |
 | **ltdkzlw1** | [LIFELORE] PC-084 [P0]: Screen D — feature carousel with generation interrupt | clau | in_work | 8-card feature carousel, auto-advances every 4 sec... |
-| **nzghcntv** | [LIFELORE] PC-085 [P0]: WikiGenerationCounter — weekly quota tracking | gem | merged | WikiGenerationCounter struct: count (Int), weekSta... |
 | **dt0v05a4** | [LIFELORE] PC-086 [P0]: StoreKit 2 — products and purchase flow | gem | merged | Three products: wiki.lifelore.pro.monthly (€5.99),... |
 | **a4ew7vp4** | [LIFELORE] PC-087 [P0]: Paywall — contextual paywall screen | misty | planned | PaywallView with PaywallTrigger enum: .generationL... |
 | **lapt2cgc** | [LIFELORE] PC-088 [P1]: Pro feature gating throughout the app | misty | planned | Apply EntitlementManager.isPro checks at all Pro e... |
-| **uja76pc3** | [LIFELORE] PC-089 [P1]: Settings — subscription management and account screen | gem | merged | Add 'Subscription' section to top of Settings. Fre... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
