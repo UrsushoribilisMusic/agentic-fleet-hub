@@ -39,6 +39,10 @@ OFFLINE_AGENTS_FILE = f"{FLEET_DIR}/logs/offline_agents.json"
 DISPATCHER_CACHE_FILE = f"{FLEET_DIR}/logs/dispatcher_cache.json"
 AGENT_FAILURES_FILE = f"{FLEET_DIR}/logs/agent_failures.json"
 
+# Tracks currently-running agent subprocesses for parallel dispatch.
+# agent_name -> (proc, task_dict, out_path, start_time)
+_active_agents = {}
+
 # Telegram settings from environment (Infisical)
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "997912895")
@@ -643,8 +647,53 @@ def check_agent_health():
     except Exception as e:
         log(f"ERROR in check_agent_health: {e}")
 
+def _collect_finished_agents():
+    """Poll running agent processes; handle output and update PB for completed ones."""
+    for agent_name in list(_active_agents):
+        proc, task, out_path, _ = _active_agents[agent_name]
+        ret = proc.poll()
+        if ret is None:
+            continue  # still running
+        del _active_agents[agent_name]
+        try:
+            with open(out_path, "r", errors="replace") as f:
+                output = (f.read() or "No output")[-5000:]
+        except OSError:
+            output = "No output"
+        finally:
+            try:
+                os.unlink(out_path)
+            except OSError:
+                pass
+        if ret == 0:
+            post_comment(task["id"], agent_name, output)
+            update_task_status(task["id"], "peer_review", from_status="in_progress", agent=agent_name)
+            log(f"Agent {agent_name} finished '{task['title']}' → peer_review")
+        else:
+            log(f"ERROR: Agent {agent_name} failed (exit {ret}) on '{task['title']}'")
+            post_comment(task["id"], agent_name, f"FAILED exit {ret}:\n{output[:1000]}", "feedback")
+            reason, cooldown = classify_agent_failure(output)
+            mark_agent_unavailable(agent_name, reason, cooldown)
+            update_task_status(task["id"], "todo", from_status="in_progress", agent=agent_name)
+
+
+def _kill_timed_out_agents():
+    """SIGTERM agents that have been running longer than 600 s."""
+    now = time.time()
+    for agent_name, (proc, task, _out_path, start_time) in list(_active_agents.items()):
+        if now - start_time > 600:
+            log(f"Agent {agent_name} timed out on '{task['title']}' — killing PG {proc.pid}")
+            try:
+                os.killpg(proc.pid, signal.SIGTERM)
+            except ProcessLookupError:
+                pass
+
+
 def run_agent(agent_name, task):
     if agent_name not in AGENT_COMMANDS:
+        return
+    if agent_name in _active_agents:
+        log(f"Skipping {agent_name} for '{task['title']}': already running a task")
         return
     is_available, reason = is_agent_available(agent_name)
     if not is_available:
@@ -655,8 +704,6 @@ def run_agent(agent_name, task):
     update_task_status(task["id"], "in_progress", from_status=task.get("status"), agent=agent_name)
 
     cmd = list(AGENT_COMMANDS[agent_name])
-
-    # Enrich prompt for LLM agents
     if agent_name in ["clau", "gem", "codi"]:
         task_prompt = f"\n\nYOUR TASK: {task['title']}\nDescription: {task.get('description', '')}"
         cmd[-1] = cmd[-1] + task_prompt
@@ -664,41 +711,16 @@ def run_agent(agent_name, task):
     out_fd, out_path = tempfile.mkstemp(suffix=f"_{agent_name}.log", prefix="dispatcher_agent_")
     os.close(out_fd)
     try:
-        with open(out_path, "w") as out_f:
-            proc = subprocess.Popen(cmd, stdout=out_f, stderr=subprocess.STDOUT,
-                                    start_new_session=True)
-        returncode = None
-        try:
-            returncode = proc.wait(timeout=600)
-        except subprocess.TimeoutExpired:
-            log(f"Agent {agent_name} timed out — killing process group {proc.pid}")
-            try:
-                os.killpg(proc.pid, signal.SIGTERM)
-                time.sleep(3)
-                os.killpg(proc.pid, signal.SIGKILL)
-            except ProcessLookupError:
-                pass
-            proc.wait()
-            returncode = proc.returncode
-
-        with open(out_path, "r", errors="replace") as f:
-            output = f.read()
-        output = (output or "No output")[-5000:]
-
-        if returncode == 0:
-            post_comment(task["id"], agent_name, output)
-            update_task_status(task["id"], "peer_review", from_status="in_progress", agent=agent_name)
-        else:
-            log(f"ERROR: Agent {agent_name} failed (exit {returncode})")
-            post_comment(task["id"], agent_name, f"FAILED with return code {returncode}:\n{output[:1000]}", "feedback")
-            reason, cooldown = classify_agent_failure(output)
-            mark_agent_unavailable(agent_name, reason, cooldown)
-            update_task_status(task["id"], "todo", from_status="in_progress", agent=agent_name)
+        out_f = open(out_path, "w")
+        proc = subprocess.Popen(cmd, stdout=out_f, stderr=subprocess.STDOUT,
+                                start_new_session=True)
+        out_f.close()
+        _active_agents[agent_name] = (proc, task, out_path, time.time())
+        log(f"Agent {agent_name} launched PID {proc.pid}")
     except Exception as e:
-        log(f"ERROR running {agent_name}: {e}")
+        log(f"ERROR launching {agent_name}: {e}")
         mark_agent_unavailable(agent_name, "dispatcher exception", FAILURE_COOLDOWN_SECONDS)
         update_task_status(task["id"], "todo", from_status="in_progress", agent=agent_name)
-    finally:
         try:
             os.unlink(out_path)
         except OSError:
@@ -870,9 +892,11 @@ def run_sync_scripts(force_gh=False):
 
 
 def main():
-    log("Dispatcher v4 started")
+    log("Dispatcher v5 started — parallel agent dispatch")
     cycle_count = 0
     while True:
+        _collect_finished_agents()
+        _kill_timed_out_agents()
         create_daily_standup()
         check_agent_health()
         log_queue_snapshot()
