@@ -518,7 +518,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **fz1qimhh** | [LIFELORE] PC-076-B [P1]: Custom style editor (Pro) | clau | in_work | Build custom style creation UI for Pro users. Voic... |
 | **vkvvwcia** | [LIFELORE] PC-077 [P0]: WikiPDFExporter — core PDF generation | misty | in_work | WikiPDFExporter.export(article:style:tier:) render... |
 | **0l0bx0sp** | [LIFELORE] PC-078 [P0]: PDF promotional panel — free tier branding with QR code | misty | in_work | Free tier PDF: light grey promo panel appended as ... |
-| **n31fs61z** | [LIFELORE] PC-079 [P1]: Share entry points — header button and footer link | gem | in_work | Add share button to wiki article navigation header... |
+| **n31fs61z** | [LIFELORE] PC-079 [P1]: Share entry points — header button and footer link | gem | merged | Add share button to wiki article navigation header... |
 | **ugdtluej** | [LIFELORE] PC-081 [P0]: Screen A — welcome and style picker | misty | planned | Full-screen welcome screen. Lifelore Swiss cross i... |
 | **3wpatmsj** | [LIFELORE] PC-083 [P0]: Screen C — calendar permission | clau | in_work | Calendar permission screen. Shows concrete example... |
 | **ltdkzlw1** | [LIFELORE] PC-084 [P0]: Screen D — feature carousel with generation interrupt | clau | in_work | 8-card feature carousel, auto-advances every 4 sec... |
