@@ -517,9 +517,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **vkvvwcia** | [LIFELORE] PC-077 [P0]: WikiPDFExporter — core PDF generation | misty | planned | WikiPDFExporter.export(article:style:tier:) render... |
 | **0l0bx0sp** | [LIFELORE] PC-078 [P0]: PDF promotional panel — free tier branding with QR code | misty | planned | Free tier PDF: light grey promo panel appended as ... |
 | **n31fs61z** | [LIFELORE] PC-079 [P1]: Share entry points — header button and footer link | gem | planned | Add share button to wiki article navigation header... |
-| **h74ka1e7** | [LIFELORE] PC-080 [P0]: Onboarding flow scaffold and navigation state machine | gem | planned | Create OnboardingView with state machine: .styleSe... |
+| **h74ka1e7** | [LIFELORE] PC-080 [P0]: Onboarding flow scaffold and navigation state machine | gem | merged | Create OnboardingView with state machine: .styleSe... |
 | **ugdtluej** | [LIFELORE] PC-081 [P0]: Screen A — welcome and style picker | misty | planned | Full-screen welcome screen. Lifelore Swiss cross i... |
-| **bpdmkgo9** | [LIFELORE] PC-082 [P0]: Screen B — photos permission | gem | planned | Photos permission screen. Honest rationale: OCR, A... |
+| **bpdmkgo9** | [LIFELORE] PC-082 [P0]: Screen B — photos permission | gem | merged | Photos permission screen. Honest rationale: OCR, A... |
 | **3wpatmsj** | [LIFELORE] PC-083 [P0]: Screen C — calendar permission | clau | planned | Calendar permission screen. Shows concrete example... |
 | **ltdkzlw1** | [LIFELORE] PC-084 [P0]: Screen D — feature carousel with generation interrupt | clau | planned | 8-card feature carousel, auto-advances every 4 sec... |
 | **nzghcntv** | [LIFELORE] PC-085 [P0]: WikiGenerationCounter — weekly quota tracking | gem | planned | WikiGenerationCounter struct: count (Int), weekSta... |
