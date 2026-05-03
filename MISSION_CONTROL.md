@@ -508,24 +508,24 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **jddbug2q** | PC-193 [P0]: Dispatcher-led agent triggering — eliminate idle heartbeat token burn | gem | merged | Move from timer-based heartbeats to dispatcher-tri... |
-| **uja76pc3** | [LIFELORE] PC-089 [P1]: Settings — subscription management and account screen | gem | planned | Add 'Subscription' section to top of Settings. Fre... |
-| **lapt2cgc** | [LIFELORE] PC-088 [P1]: Pro feature gating throughout the app | misty | planned | Apply EntitlementManager.isPro checks at all Pro e... |
-| **a4ew7vp4** | [LIFELORE] PC-087 [P0]: Paywall — contextual paywall screen | misty | planned | PaywallView with PaywallTrigger enum: .generationL... |
-| **dt0v05a4** | [LIFELORE] PC-086 [P0]: StoreKit 2 — products and purchase flow | gem | planned | Three products: wiki.lifelore.pro.monthly (€5.99),... |
-| **nzghcntv** | [LIFELORE] PC-085 [P0]: WikiGenerationCounter — weekly quota tracking | gem | planned | WikiGenerationCounter struct: count (Int), weekSta... |
-| **ltdkzlw1** | [LIFELORE] PC-084 [P0]: Screen D — feature carousel with generation interrupt | clau | planned | 8-card feature carousel, auto-advances every 4 sec... |
-| **3wpatmsj** | [LIFELORE] PC-083 [P0]: Screen C — calendar permission | clau | planned | Calendar permission screen. Shows concrete example... |
-| **bpdmkgo9** | [LIFELORE] PC-082 [P0]: Screen B — photos permission | gem | planned | Photos permission screen. Honest rationale: OCR, A... |
-| **ugdtluej** | [LIFELORE] PC-081 [P0]: Screen A — welcome and style picker | misty | planned | Full-screen welcome screen. Lifelore Swiss cross i... |
-| **h74ka1e7** | [LIFELORE] PC-080 [P0]: Onboarding flow scaffold and navigation state machine | gem | planned | Create OnboardingView with state machine: .styleSe... |
-| **n31fs61z** | [LIFELORE] PC-079 [P1]: Share entry points — header button and footer link | gem | planned | Add share button to wiki article navigation header... |
-| **0l0bx0sp** | [LIFELORE] PC-078 [P0]: PDF promotional panel — free tier branding with QR code | misty | planned | Free tier PDF: light grey promo panel appended as ... |
-| **vkvvwcia** | [LIFELORE] PC-077 [P0]: WikiPDFExporter — core PDF generation | misty | planned | WikiPDFExporter.export(article:style:tier:) render... |
-| **fz1qimhh** | [LIFELORE] PC-076-B [P1]: Custom style editor (Pro) | misty | planned | Build custom style creation UI for Pro users. Voic... |
-| **4zwzcl6s** | [LIFELORE] PC-076 [P1]: Style preview — lead paragraph before regeneration | clau | planned | StylePreviewService.preview(article:style:) genera... |
-| **qbh5ht71** | [LIFELORE] PC-075 [P1]: Style picker UI — per-wiki and global default | misty | planned | Build the style picker bottom sheet UI. Accessible... |
-| **n7gtxbfu** | [LIFELORE] PC-074 [P0]: Style prompt injection in WikiGenerator | clau | planned | Extend WikiGenerator to accept a WikiStyle paramet... |
-| **coux72q4** | [LIFELORE] PC-073 [P0]: WikiTheme SwiftUI visual rendering (6 themes) | gem | planned | Extend WikiArticleView to apply WikiTheme from the... |
 | **ehs99p0h** | [LIFELORE] PC-072 [P0]: WikiStyle/WikiTheme data models + SQLite migration | misty | planned | Define WikiStyle, WikiTheme, WikiFont, and CustomS... |
+| **coux72q4** | [LIFELORE] PC-073 [P0]: WikiTheme SwiftUI visual rendering (6 themes) | gem | planned | Extend WikiArticleView to apply WikiTheme from the... |
+| **n7gtxbfu** | [LIFELORE] PC-074 [P0]: Style prompt injection in WikiGenerator | clau | planned | Extend WikiGenerator to accept a WikiStyle paramet... |
+| **qbh5ht71** | [LIFELORE] PC-075 [P1]: Style picker UI — per-wiki and global default | misty | planned | Build the style picker bottom sheet UI. Accessible... |
+| **4zwzcl6s** | [LIFELORE] PC-076 [P1]: Style preview — lead paragraph before regeneration | clau | planned | StylePreviewService.preview(article:style:) genera... |
+| **fz1qimhh** | [LIFELORE] PC-076-B [P1]: Custom style editor (Pro) | misty | planned | Build custom style creation UI for Pro users. Voic... |
+| **vkvvwcia** | [LIFELORE] PC-077 [P0]: WikiPDFExporter — core PDF generation | misty | planned | WikiPDFExporter.export(article:style:tier:) render... |
+| **0l0bx0sp** | [LIFELORE] PC-078 [P0]: PDF promotional panel — free tier branding with QR code | misty | planned | Free tier PDF: light grey promo panel appended as ... |
+| **n31fs61z** | [LIFELORE] PC-079 [P1]: Share entry points — header button and footer link | gem | planned | Add share button to wiki article navigation header... |
+| **h74ka1e7** | [LIFELORE] PC-080 [P0]: Onboarding flow scaffold and navigation state machine | gem | planned | Create OnboardingView with state machine: .styleSe... |
+| **ugdtluej** | [LIFELORE] PC-081 [P0]: Screen A — welcome and style picker | misty | planned | Full-screen welcome screen. Lifelore Swiss cross i... |
+| **bpdmkgo9** | [LIFELORE] PC-082 [P0]: Screen B — photos permission | gem | planned | Photos permission screen. Honest rationale: OCR, A... |
+| **3wpatmsj** | [LIFELORE] PC-083 [P0]: Screen C — calendar permission | clau | planned | Calendar permission screen. Shows concrete example... |
+| **ltdkzlw1** | [LIFELORE] PC-084 [P0]: Screen D — feature carousel with generation interrupt | clau | planned | 8-card feature carousel, auto-advances every 4 sec... |
+| **nzghcntv** | [LIFELORE] PC-085 [P0]: WikiGenerationCounter — weekly quota tracking | gem | planned | WikiGenerationCounter struct: count (Int), weekSta... |
+| **dt0v05a4** | [LIFELORE] PC-086 [P0]: StoreKit 2 — products and purchase flow | gem | planned | Three products: wiki.lifelore.pro.monthly (€5.99),... |
+| **a4ew7vp4** | [LIFELORE] PC-087 [P0]: Paywall — contextual paywall screen | misty | planned | PaywallView with PaywallTrigger enum: .generationL... |
+| **lapt2cgc** | [LIFELORE] PC-088 [P1]: Pro feature gating throughout the app | misty | planned | Apply EntitlementManager.isPro checks at all Pro e... |
+| **uja76pc3** | [LIFELORE] PC-089 [P1]: Settings — subscription management and account screen | gem | planned | Add 'Subscription' section to top of Settings. Fre... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
