@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-05-03",
+    "summary": "Lifelore Sprint 6 onboarding flow scaffold and Photos permission screen.",
+    "file": "2026-05-03.md"
+  },
+  {
     "date": "2026-05-02",
     "summary": "Clau: PC-204 (MLXQueue), PC-201 (prompt leak removed), PC-203 (stale cache fix), PC-202 (board wiki edit+regen), PC-200 (people picker). Gem: PC-198 (hashtag graph), PC-195 (smoke tests). Build green-2026-05-02-3.",
     "file": "2026-05-02.md"
