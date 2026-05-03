@@ -50,6 +50,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **bpdmkgo9**: [LIFELORE] PC-082 [P0]: Screen B — photos permission -- Photos permission screen. Honest rationale: OCR, AI description, location/date extraction. Privacy callout card with 3 checkmarks. On grant: start background indexing pipeline (OCR + CLIP + VLM queue). On denial: show alternative message, still proceed to Screen C. -- Gem. Approved.
+- **h74ka1e7**: [LIFELORE] PC-080 [P0]: Onboarding flow scaffold and navigation state machine -- Create OnboardingView with state machine: .styleSelection → .photos → .calendar → .carousel. UserDefaults 'onboardingCompleted' flag. App launch checks flag. OnboardingCoordinator actor manages state and background tasks. Wiki completion interrupts carousel via Combine publisher. -- Gem. Approved.
 - **sln025dz**: PC-208 [P1]: Global knowledge graph — all relationships across wikis, trips, boards -- The graph icon in the Library tab (currently wired to ConceptGraphView / the week graph) should show a full cross-entity knowledge graph, not a weekly scope. -- Gem. Approved.
 - **izj6nmgp**: PC-207 [P2]: Remove Insights tab — surface top places in PlacesView header -- The Insights tab in Library is redundant: stats are already in Settings, and place information belongs in Places. Remove it and redistribute its content. -- Clau. Approved.
 - **befyo4kv**: PC-206 [P1]: Documents row in Library Intelligence section -- Documents (PDF cards with type == .document) are a first-class content type but have no entry point in the Library Intelligence section. Add a "Documents" row alongside Wiki, People, Places. -- Clau. Approved.
@@ -515,11 +517,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **4zwzcl6s** | [LIFELORE] PC-076 [P1]: Style preview — lead paragraph before regeneration | clau | in_work | StylePreviewService.preview(article:style:) genera... |
 | **fz1qimhh** | [LIFELORE] PC-076-B [P1]: Custom style editor (Pro) | clau | in_work | Build custom style creation UI for Pro users. Voic... |
 | **vkvvwcia** | [LIFELORE] PC-077 [P0]: WikiPDFExporter — core PDF generation | misty | in_work | WikiPDFExporter.export(article:style:tier:) render... |
-| **0l0bx0sp** | [LIFELORE] PC-078 [P0]: PDF promotional panel — free tier branding with QR code | misty | planned | Free tier PDF: light grey promo panel appended as ... |
+| **0l0bx0sp** | [LIFELORE] PC-078 [P0]: PDF promotional panel — free tier branding with QR code | misty | in_work | Free tier PDF: light grey promo panel appended as ... |
 | **n31fs61z** | [LIFELORE] PC-079 [P1]: Share entry points — header button and footer link | gem | in_work | Add share button to wiki article navigation header... |
-| **h74ka1e7** | [LIFELORE] PC-080 [P0]: Onboarding flow scaffold and navigation state machine | gem | merged | Create OnboardingView with state machine: .styleSe... |
 | **ugdtluej** | [LIFELORE] PC-081 [P0]: Screen A — welcome and style picker | misty | planned | Full-screen welcome screen. Lifelore Swiss cross i... |
-| **bpdmkgo9** | [LIFELORE] PC-082 [P0]: Screen B — photos permission | gem | merged | Photos permission screen. Honest rationale: OCR, A... |
 | **3wpatmsj** | [LIFELORE] PC-083 [P0]: Screen C — calendar permission | clau | in_work | Calendar permission screen. Shows concrete example... |
 | **ltdkzlw1** | [LIFELORE] PC-084 [P0]: Screen D — feature carousel with generation interrupt | clau | in_work | 8-card feature carousel, auto-advances every 4 sec... |
 | **nzghcntv** | [LIFELORE] PC-085 [P0]: WikiGenerationCounter — weekly quota tracking | gem | planned | WikiGenerationCounter struct: count (Int), weekSta... |
