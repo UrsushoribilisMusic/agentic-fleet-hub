@@ -673,20 +673,15 @@ def _collect_finished_agents():
                 pass
         if ret == 0:
             post_comment(task["id"], agent_name, output)
-            # Check what status the agent actually set in PB — only promote to
-            # peer_review if the agent explicitly moved it there. If still
-            # in_progress (agent did heartbeat/WORKLOG but no real work),
-            # reset to todo so it gets dispatched again properly.
+            # Agents own their status. We do not touch PB status on exit-0 —
+            # the agent must explicitly set peer_review (or any other status).
+            # Orphaned in_progress tasks are reclaimed by _reclaim_stale_tasks().
             try:
                 resp = requests.get(f"{PB_URL}/collections/tasks/records/{task['id']}", timeout=10)
                 current_status = resp.json().get("status", "in_progress")
             except Exception:
                 current_status = "in_progress"
-            if current_status == "in_progress":
-                log(f"Agent {agent_name} finished '{task['title']}' but left status in_progress — resetting to todo")
-                update_task_status(task["id"], "todo", from_status="in_progress", agent=agent_name)
-            else:
-                log(f"Agent {agent_name} finished '{task['title']}' → {current_status} (agent-set)")
+            log(f"Agent {agent_name} finished '{task['title']}' → {current_status} (agent-set)")
         else:
             log(f"ERROR: Agent {agent_name} failed (exit {ret}) on '{task['title']}'")
             post_comment(task["id"], agent_name, f"FAILED exit {ret}:\n{output[:1000]}", "feedback")
@@ -705,6 +700,37 @@ def _kill_timed_out_agents():
                 os.killpg(proc.pid, signal.SIGTERM)
             except ProcessLookupError:
                 pass
+
+
+def _reclaim_stale_tasks():
+    """Reset in_progress tasks whose agent process is no longer running.
+
+    An in_progress task with no live agent process means the agent exited
+    without setting a final status. After a 2-hour grace period we reset
+    to todo so the task gets dispatched again.
+    """
+    try:
+        resp = requests.get(f"{PB_URL}/collections/tasks/records",
+                            params={"filter": 'status = "in_progress"', "perPage": 100},
+                            timeout=10)
+        stale_tasks = resp.json().get("items", [])
+    except Exception:
+        return
+    now = time.time()
+    active_task_ids = {task["id"] for _, (_, task, _, _) in _active_agents.items()}
+    for task in stale_tasks:
+        if task["id"] in active_task_ids:
+            continue  # actively running — leave it
+        try:
+            updated_ts = task.get("updated", "")
+            from datetime import datetime, timezone
+            updated_dt = datetime.fromisoformat(updated_ts.replace("Z", "+00:00"))
+            age_hours = (datetime.now(timezone.utc) - updated_dt).total_seconds() / 3600
+        except Exception:
+            continue
+        if age_hours >= 2:
+            log(f"Reclaiming stale in_progress task '{task['title']}' (no active agent, {age_hours:.1f}h old)")
+            update_task_status(task["id"], "todo", from_status="in_progress", agent="dispatcher")
 
 
 def run_agent(agent_name, task):
@@ -910,7 +936,7 @@ def run_sync_scripts(force_gh=False):
 
 
 def main():
-    log("Dispatcher v6 started — agent-owned status transitions")
+    log("Dispatcher v7 started — agent-owned status, stale reclaim after 2h")
     # In the dispatcher-led model agents only post heartbeats when dispatched,
     # so stale heartbeat timestamps are not a reliable offline signal.
     # Start clean; actual failures will repopulate this file.
@@ -919,6 +945,8 @@ def main():
     while True:
         _collect_finished_agents()
         _kill_timed_out_agents()
+        if cycle_count % 10 == 0:
+            _reclaim_stale_tasks()
         create_daily_standup()
         check_agent_health()
         log_queue_snapshot()
