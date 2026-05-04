@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-05-04",
-    "summary": "Misty: PC-075 (Style picker UI - StylePickerView, StyleSettingsView, WikiStyleStore, WikiFooterView integration, SQLiteStore update) completed. PC-081 (Screen A welcome and style picker - WelcomeStylePickerView, WikiStyle emoji/sampleText enhancements) completed, pushed to task/ugdtluejfiho0b1, status: peer_review. PC-076-B (Custom style editor - CustomStyleEditorView with form, preview, Pro gating) in progress, pushed to task/fz1qimhh1yskvqn. 6 sessions total.",
+    "summary": "Misty: PC-075 (Style picker UI) completed. PC-081 (Screen A welcome and style picker) completed. PC-076-B (Custom style editor) in progress. PC-079 (Share entry points - ShareSheet, WikiPDFExporter, header button, footer link) completed, pushed to task/n31fs61zp3g1ohc, status: peer_review. 8 sessions total.",
     "file": "2026-05-04.md"
   },
   {
