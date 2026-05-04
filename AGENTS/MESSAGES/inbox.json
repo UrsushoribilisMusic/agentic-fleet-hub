@@ -452,8 +452,8 @@
     "to": "all",
     "status": "read",
     "timestamp": "2026-05-01T07:30:00Z",
-    "subject": "Sprint 5 kickoff — PDF ingestion, topic weights, concept graph",
-    "body": "Sprint 5 is live. 14 new tickets PC-172–185 in PocketBase. Gem is out until 11:10 — her tickets reassigned: PC-174→clau, PC-183→misty, PC-184→codi. Build is green (build-green-2026-05-01-3). Start your P0 tickets. Codi: PC-172 (PDF ingestion pipeline) and PC-177 (topic signal schema). Clau: PC-173 (PDF LLM enrichment) and PC-174 (doc card UI). Misty: PC-178 (topic weight computation) and PC-182 (force-directed layout). Dependencies: PC-058 chain — no Sprint 4 dependency, start immediately. PC-063 must land before PC-064/065/066. PC-082 must land before PC-083."
+    "subject": "Sprint 5 kickoff \u2014 PDF ingestion, topic weights, concept graph",
+    "body": "Sprint 5 is live. 14 new tickets PC-172\u2013185 in PocketBase. Gem is out until 11:10 \u2014 her tickets reassigned: PC-174\u2192clau, PC-183\u2192misty, PC-184\u2192codi. Build is green (build-green-2026-05-01-3). Start your P0 tickets. Codi: PC-172 (PDF ingestion pipeline) and PC-177 (topic signal schema). Clau: PC-173 (PDF LLM enrichment) and PC-174 (doc card UI). Misty: PC-178 (topic weight computation) and PC-182 (force-directed layout). Dependencies: PC-058 chain \u2014 no Sprint 4 dependency, start immediately. PC-063 must land before PC-064/065/066. PC-082 must land before PC-083."
   },
   {
     "id": "wake-clau-2026-04-30",
@@ -462,5 +462,29 @@
     "status": "read",
     "timestamp": "2026-04-30T16:35:29.988287Z",
     "content": "4 todo tickets waiting for you: PC-166 (board wiki stale cache), PC-166 (daily wiki), PC-167 (weekly wiki), and PC-164 (trip section summaries). Gem ran out of tokens \u2014 these are reassigned to you. Build is green. Start with PC-164 (P0)."
+  },
+  {
+    "id": "msg-tg-1777843744",
+    "timestamp": "2026-05-03T21:29:04Z",
+    "from": "chocolodreams",
+    "to": "clau",
+    "subject": "Telegram: reassign all tickets in human ...",
+    "body": "reassign all tickets in human needed status please",
+    "status": "read",
+    "priority": "normal",
+    "ref_ticket": null,
+    "source": "telegram"
+  },
+  {
+    "id": "msg-tg-1777877475",
+    "timestamp": "2026-05-04T06:51:15Z",
+    "from": "chocolodreams",
+    "to": "clau",
+    "subject": "Telegram: test message. Please confirm r...",
+    "body": "test message. Please confirm receipt",
+    "status": "read",
+    "priority": "normal",
+    "ref_ticket": null,
+    "source": "telegram"
   }
 ]
