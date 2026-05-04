@@ -50,12 +50,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
-- **uja76pc3**: [LIFELORE] PC-089 [P1]: Settings — subscription management and account screen -- Add 'Subscription' section to top of Settings. Free: shows tier + counter + 'Upgrade to Pro →'. Pro monthly/annual: shows renewal date + 'Manage subscription →' (itms-apps://). Lifetime: no renewal date. Restore Purchases button for reinstalls. -- Gem. Approved.
-- **nzghcntv**: [LIFELORE] PC-085 [P0]: WikiGenerationCounter — weekly quota tracking -- WikiGenerationCounter struct: count (Int), weekStart (Date), freeLimit=3. checkAndIncrement() resets if new week, checks limit, increments, saves, returns Bool. Pro users bypass entirely via EntitlementManager.isPro. Counter shown in Library for free users: 'N of 3 wikis used this week'. -- Gem. Approved.
-- **ltdkzlw1**: [LIFELORE] PC-084 [P0]: Screen D — feature carousel with generation interrupt -- 8-card feature carousel, auto-advances every 4 seconds. Thin red progress bar at top. Observe WikiGenerator completion via Combine. On completion: interrupt carousel, show 'Your wiki is ready.' overlay with 'Read your week →' CTA. If wiki ready before Screen D appears, skip after 1s delay. -- Clau. Approved.
-- **bpdmkgo9**: [LIFELORE] PC-082 [P0]: Screen B — photos permission -- Photos permission screen. Honest rationale: OCR, AI description, location/date extraction. Privacy callout card with 3 checkmarks. On grant: start background indexing pipeline (OCR + CLIP + VLM queue). On denial: show alternative message, still proceed to Screen C. -- Gem. Approved.
-- **h74ka1e7**: [LIFELORE] PC-080 [P0]: Onboarding flow scaffold and navigation state machine -- Create OnboardingView with state machine: .styleSelection → .photos → .calendar → .carousel. UserDefaults 'onboardingCompleted' flag. App launch checks flag. OnboardingCoordinator actor manages state and background tasks. Wiki completion interrupts carousel via Combine publisher. -- Gem. Approved.
-- **ehs99p0h**: [LIFELORE] PC-072 [P0]: WikiStyle/WikiTheme data models + SQLite migration -- Define WikiStyle, WikiTheme, WikiFont, and CustomStyle Swift structs. Create the six preset style definitions. Add styleId column to wiki_articles table. Store user's default style in UserDefaults. Create custom_styles SQLite table. Six preset WikiStyle instances: .wikipedia, .shakespeare, .popstar, .childrens, .travelwriter, .hemingway. -- Misty. Approved.
 - **sln025dz**: PC-208 [P1]: Global knowledge graph — all relationships across wikis, trips, boards -- The graph icon in the Library tab (currently wired to ConceptGraphView / the week graph) should show a full cross-entity knowledge graph, not a weekly scope. -- Gem. Approved.
 - **izj6nmgp**: PC-207 [P2]: Remove Insights tab — surface top places in PlacesView header -- The Insights tab in Library is redundant: stats are already in Settings, and place information belongs in Places. Remove it and redistribute its content. -- Clau. Approved.
 - **befyo4kv**: PC-206 [P1]: Documents row in Library Intelligence section -- Documents (PDF cards with type == .document) are a first-class content type but have no entry point in the Library Intelligence section. Add a "Documents" row alongside Wiki, People, Places. -- Clau. Approved.
@@ -514,18 +508,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **coux72q4** | [LIFELORE] PC-073 [P0]: WikiTheme SwiftUI visual rendering (6 themes) | gem | in_work | Extend WikiArticleView to apply WikiTheme from the... |
-| **n7gtxbfu** | [LIFELORE] PC-074 [P0]: Style prompt injection in WikiGenerator | clau | in_work | Extend WikiGenerator to accept a WikiStyle paramet... |
-| **qbh5ht71** | [LIFELORE] PC-075 [P1]: Style picker UI — per-wiki and global default | misty | in_work | Build the style picker bottom sheet UI. Accessible... |
-| **4zwzcl6s** | [LIFELORE] PC-076 [P1]: Style preview — lead paragraph before regeneration | clau | in_work | StylePreviewService.preview(article:style:) genera... |
-| **fz1qimhh** | [LIFELORE] PC-076-B [P1]: Custom style editor (Pro) | misty | in_work | Build custom style creation UI for Pro users. Voic... |
-| **vkvvwcia** | [LIFELORE] PC-077 [P0]: WikiPDFExporter — core PDF generation | gem | in_work | WikiPDFExporter.export(article:style:tier:) render... |
-| **0l0bx0sp** | [LIFELORE] PC-078 [P0]: PDF promotional panel — free tier branding with QR code | gem | in_work | Free tier PDF: light grey promo panel appended as ... |
-| **n31fs61z** | [LIFELORE] PC-079 [P1]: Share entry points — header button and footer link | gem | in_work | Add share button to wiki article navigation header... |
-| **ugdtluej** | [LIFELORE] PC-081 [P0]: Screen A — welcome and style picker | misty | in_work | Full-screen welcome screen. Lifelore Swiss cross i... |
-| **3wpatmsj** | [LIFELORE] PC-083 [P0]: Screen C — calendar permission | clau | in_work | Calendar permission screen. Shows concrete example... |
-| **dt0v05a4** | [LIFELORE] PC-086 [P0]: StoreKit 2 — products and purchase flow | gem | in_work | Three products: wiki.lifelore.pro.monthly (€5.99),... |
-| **a4ew7vp4** | [LIFELORE] PC-087 [P0]: Paywall — contextual paywall screen | misty | merged | PaywallView with PaywallTrigger enum: .generationL... |
-| **lapt2cgc** | [LIFELORE] PC-088 [P1]: Pro feature gating throughout the app | misty | merged | Apply EntitlementManager.isPro checks at all Pro e... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
