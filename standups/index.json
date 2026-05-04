@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-05-04",
-    "summary": "Misty: Heartbeat session - 5 in_progress tasks (PC-073, PC-074, PC-076-B, PC-083, PC-086), 1 peer_review (PC-078). No todo tasks available. No peer reviews from other agents. No new work started per protocol.",
+    "summary": "Misty: Merged PC-073 (WikiTheme SwiftUI visual rendering) and PC-083 (Screen C calendar permission) to main. Both tasks moved to peer_review. Pushed changes to privatecore-ios (f90cfae..66b2de1). 4 peer_review tasks pending (PC-074, PC-076-B, PC-078, PC-086).",
     "file": "2026-05-04.md"
   },
   {
