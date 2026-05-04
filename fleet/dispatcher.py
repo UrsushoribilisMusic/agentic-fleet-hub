@@ -673,8 +673,20 @@ def _collect_finished_agents():
                 pass
         if ret == 0:
             post_comment(task["id"], agent_name, output)
-            update_task_status(task["id"], "peer_review", from_status="in_progress", agent=agent_name)
-            log(f"Agent {agent_name} finished '{task['title']}' → peer_review")
+            # Check what status the agent actually set in PB — only promote to
+            # peer_review if the agent explicitly moved it there. If still
+            # in_progress (agent did heartbeat/WORKLOG but no real work),
+            # reset to todo so it gets dispatched again properly.
+            try:
+                resp = requests.get(f"{PB_URL}/collections/tasks/records/{task['id']}", timeout=10)
+                current_status = resp.json().get("status", "in_progress")
+            except Exception:
+                current_status = "in_progress"
+            if current_status == "in_progress":
+                log(f"Agent {agent_name} finished '{task['title']}' but left status in_progress — resetting to todo")
+                update_task_status(task["id"], "todo", from_status="in_progress", agent=agent_name)
+            else:
+                log(f"Agent {agent_name} finished '{task['title']}' → {current_status} (agent-set)")
         else:
             log(f"ERROR: Agent {agent_name} failed (exit {ret}) on '{task['title']}'")
             post_comment(task["id"], agent_name, f"FAILED exit {ret}:\n{output[:1000]}", "feedback")
@@ -898,7 +910,7 @@ def run_sync_scripts(force_gh=False):
 
 
 def main():
-    log("Dispatcher v5 started — parallel agent dispatch")
+    log("Dispatcher v6 started — agent-owned status transitions")
     # In the dispatcher-led model agents only post heartbeats when dispatched,
     # so stale heartbeat timestamps are not a reliable offline signal.
     # Start clean; actual failures will repopulate this file.
