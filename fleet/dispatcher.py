@@ -690,12 +690,21 @@ def _collect_finished_agents():
             update_task_status(task["id"], "todo", from_status="in_progress", agent=agent_name)
 
 
+AGENT_TIMEOUT_SECONDS = {
+    "clau":  1800,  # 30 min — Claude Code needs time for complex iOS tasks
+    "gem":   1200,  # 20 min
+    "misty": 1200,
+    "codi":  1200,
+}
+_DEFAULT_AGENT_TIMEOUT = 1200
+
 def _kill_timed_out_agents():
-    """SIGTERM agents that have been running longer than 600 s."""
+    """SIGTERM agents that have been running longer than their per-agent timeout."""
     now = time.time()
     for agent_name, (proc, task, _out_path, start_time) in list(_active_agents.items()):
-        if now - start_time > 600:
-            log(f"Agent {agent_name} timed out on '{task['title']}' — killing PG {proc.pid}")
+        limit = AGENT_TIMEOUT_SECONDS.get(agent_name, _DEFAULT_AGENT_TIMEOUT)
+        if now - start_time > limit:
+            log(f"Agent {agent_name} timed out on '{task['title']}' after {limit}s — killing PG {proc.pid}")
             try:
                 os.killpg(proc.pid, signal.SIGTERM)
             except ProcessLookupError:
