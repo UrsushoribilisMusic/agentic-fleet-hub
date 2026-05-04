@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-05-04",
+    "summary": "Misty: PC-075 (Style picker UI - StylePickerView, StyleSettingsView, WikiStyleStore, WikiFooterView integration, SQLiteStore update). Completed implementation, pushed to task/qbh5ht71p0ucm25, status: peer_review.",
+    "file": "2026-05-04.md"
+  },
+  {
     "date": "2026-05-03",
     "summary": "Gem: PC-193 (Trigger v5 rollout), PC-079, PC-085, PC-086, PC-089 (Lifelore Pro features). Misty: PC-072 (WikiStyle data models + SQLite migration), peer review of PC-079/086 (reset to todo).",
     "file": "2026-05-03.md"
