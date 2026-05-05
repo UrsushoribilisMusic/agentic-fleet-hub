@@ -508,5 +508,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **xs2bnroq** | [FLOTILLA v0.5.0][P0] V05-PROFILE-004 Write PROFILE_PACKS.md as Agent Handoff Spec | clau | planned | ## Metadata... |
+| **3z4r1bgw** | [FLOTILLA v0.5.0][P0] V05-PROFILE-001 Create Default Engineering Instruction Profile | codi | planned | ## Metadata... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
