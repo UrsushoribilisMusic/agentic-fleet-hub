@@ -510,8 +510,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **3z4r1bgw** | [FLOTILLA v0.5.0][P0] V05-PROFILE-001 Create Default Engineering Instruction Profile | codi | in_work | ## Metadata... |
 | **xs2bnroq** | [FLOTILLA v0.5.0][P0] V05-PROFILE-004 Write PROFILE_PACKS.md as Agent Handoff Spec | clau | planned | ## Metadata... |
-| **9keh8w6u** | PC-216: Home — suggestions are stale; regenerate every day | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
-| **sd2nwh29** | PC-217: Capture — Ask should allow writing a question before sending | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
+| **9keh8w6u** | PC-216: Home — suggestions are stale; regenerate every day | gem | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
+| **sd2nwh29** | PC-217: Capture — Ask should allow writing a question before sending | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **5ihwuycn** | PC-218: Library wiki — weekly wiki sometimes does not show up | gem | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **fsj216xt** | PC-219: People — hide person should stop them reappearing in suggested groups | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **njsr9yms** | PC-220: People — similar photos added to people should use photo date, not added date | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
