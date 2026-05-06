@@ -511,15 +511,15 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **3z4r1bgw** | [FLOTILLA v0.5.0][P0] V05-PROFILE-001 Create Default Engineering Instruction Profile | codi | planned | ## Metadata... |
 | **xs2bnroq** | [FLOTILLA v0.5.0][P0] V05-PROFILE-004 Write PROFILE_PACKS.md as Agent Handoff Spec | clau | planned | ## Metadata... |
 | **9keh8w6u** | PC-216: Home — suggestions are stale; regenerate every day | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
-| **sd2nwh29** | PC-217: Capture — Ask should allow writing a question before sending | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
-| **5ihwuycn** | PC-218: Library wiki — weekly wiki sometimes does not show up | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
+| **sd2nwh29** | PC-217: Capture — Ask should allow writing a question before sending | misty | planned | Imported from PrivateCore MISSION_CONTROL.md. |
+| **5ihwuycn** | PC-218: Library wiki — weekly wiki sometimes does not show up | misty | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **fsj216xt** | PC-219: People — hide person should stop them reappearing in suggested groups | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **njsr9yms** | PC-220: People — similar photos added to people should use photo date, not added date | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **bi0c5ahp** | PC-221: People — group wiki should show empty-state notice when no notes or photos exist | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **q1vnpora** | PC-222: People — visual/list/timeline selector should be disabled outside content mode | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **a3hhgbqc** | PC-223: People — iOS Photos people link should open People & Pets albums | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **a9ov9kl8** | PC-224: People — empty person view needs focus tab and wiki empty-state notice | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
-| **jqawd67z** | PC-225: Library — documents counter / top icon spacing is clipped | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
+| **jqawd67z** | PC-225: Library — documents counter / top icon spacing is clipped | misty | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **kn9qpy52** | PC-226: Wiki week view — move graph/style/share/regenerate actions into top-right menu | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **hfng2al7** | PC-227: Wiki day view — remove duplicate edit-journal action and clarify rescan photos | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **8d3lyfdm** | PC-228: Wiki day view — generate wiki / AI description actions do not complete | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
