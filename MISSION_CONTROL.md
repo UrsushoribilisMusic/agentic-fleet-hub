@@ -510,11 +510,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **3z4r1bgw** | [FLOTILLA v0.5.0][P0] V05-PROFILE-001 Create Default Engineering Instruction Profile | codi | in_work | ## Metadata... |
 | **xs2bnroq** | [FLOTILLA v0.5.0][P0] V05-PROFILE-004 Write PROFILE_PACKS.md as Agent Handoff Spec | clau | planned | ## Metadata... |
-| **9keh8w6u** | PC-216: Home — suggestions are stale; regenerate every day | gem | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
-| **sd2nwh29** | PC-217: Capture — Ask should allow writing a question before sending | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
+| **9keh8w6u** | PC-216: Home — suggestions are stale; regenerate every day | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
+| **sd2nwh29** | PC-217: Capture — Ask should allow writing a question before sending | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **5ihwuycn** | PC-218: Library wiki — weekly wiki sometimes does not show up | gem | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **fsj216xt** | PC-219: People — hide person should stop them reappearing in suggested groups | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
-| **njsr9yms** | PC-220: People — similar photos added to people should use photo date, not added date | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
+| **njsr9yms** | PC-220: People — similar photos added to people should use photo date, not added date | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **bi0c5ahp** | PC-221: People — group wiki should show empty-state notice when no notes or photos exist | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **q1vnpora** | PC-222: People — visual/list/timeline selector should be disabled outside content mode | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **a3hhgbqc** | PC-223: People — iOS Photos people link should open People & Pets albums | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
