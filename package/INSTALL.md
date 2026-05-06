@@ -28,6 +28,7 @@ The scaffolded project includes:
 - `data/` for local config, standups, inbox, and lessons
 - `scripts/doctor.mjs` for local doctor checks
 - `blueprint/` for the markdown and vault bootstrap templates
+- `profiles/default-engineering/` for a reusable instruction profile pack that can be copied into a target engineering repo
 
 ## First-Run Flow
 
@@ -36,6 +37,10 @@ The scaffolded project includes:
 3. Set repo path, vault provider, and shared links
 4. Optionally write bootstrap files into the target repository
 5. Use `/configure/` to run doctor, review the diff, and explicitly commit the managed files
+
+## Optional: Instruction Profile Bootstrap
+
+For an existing repository that only needs the reusable coordination layer, copy the contents of `profiles/default-engineering/` into that repository root and replace the `{{PLACEHOLDER}}` values. The profile includes shared fleet rules, agent-specific instruction files, sanitized config, starter context, inbox, lessons ledger, and standup scaffolding.
 
 ## CLI Options
 

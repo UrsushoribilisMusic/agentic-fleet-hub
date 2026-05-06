@@ -1,0 +1,19 @@
+{
+  "default_branch": "{{DEFAULT_BRANCH}}",
+  "heartbeat": {
+    "enabled": true,
+    "api_base_url": "http://localhost:8090",
+    "interval_minutes": 10
+  },
+  "task_tracker": {
+    "provider": "pocketbase",
+    "collection": "tasks"
+  },
+  "messages": {
+    "inbox_path": "AGENTS/MESSAGES/inbox.json"
+  },
+  "standups": {
+    "directory": "standups",
+    "index": "standups/index.json"
+  }
+}

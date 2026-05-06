@@ -1,0 +1,9 @@
+{
+  "meta": {
+    "template": "default-engineering",
+    "purpose": "growth",
+    "notes": "Use this file for marketing or growth-demo metadata only. Do not point it at production task data."
+  },
+  "team": [],
+  "projects": []
+}
