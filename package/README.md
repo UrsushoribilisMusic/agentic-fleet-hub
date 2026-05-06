@@ -57,6 +57,8 @@ package/
       agent-fetch.sh        Shell secrets fetcher
       agent-fetch.ps1       PowerShell secrets fetcher
       README.md             Vault setup guide
+  profiles/
+    default-engineering/    Reusable instruction profile pack for bootstrapping a fleet repo
   scripts/                  Fleet automation scripts
     dispatcher.py           Task router with health monitoring
     telegram_bridge.py      Two-way Telegram bridge with dynamic commands
@@ -158,6 +160,14 @@ npx create-flotilla my-fleet --skip-git
 | `engineering` | `/fleet/` | OAuth (optional) | Private team hub |
 | `growth` | `/growth/` | Public | Sales & marketing fleet |
 | `demo` | `/demo/` | Public | Live product demo |
+
+---
+
+## Instruction Profiles
+
+Reusable instruction packs live under `profiles/`. The first pack, `profiles/default-engineering/`, contains sanitized fleet rules, runtime-specific agent files, starter config, context docs, inbox, lessons ledger, and standup scaffolding.
+
+Copy the contents of `profiles/default-engineering/` into a target repository when you want to bootstrap the coordination layer without private local paths or project-specific details. The pack README lists every included file and the placeholder values to replace during setup.
 
 ---
 

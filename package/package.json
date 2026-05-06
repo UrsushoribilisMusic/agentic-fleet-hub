@@ -15,6 +15,7 @@
     "blueprint/",
     "dashboard/",
     "data/",
+    "profiles/",
     "scripts/",
     "server/",
     "tools/",

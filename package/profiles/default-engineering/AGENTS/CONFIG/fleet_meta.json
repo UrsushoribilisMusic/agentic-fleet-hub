@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "installation": {
+      "setup_completed": false,
+      "org_name": "{{ORG_NAME}}",
+      "repo_path": "{{PROJECT_PATH}}",
+      "repo_url": "{{PROJECT_REPO_URL}}",
+      "kanban_url": "{{KANBAN_URL}}",
+      "vault": {
+        "provider": "{{VAULT_PROVIDER}}",
+        "region": "{{VAULT_REGION}}"
+      },
+      "selected_agents": [
+        {
+          "id": "claude_code",
+          "label": "Claude Code",
+          "name": "Clau"
+        },
+        {
+          "id": "gemini_cli",
+          "label": "Gemini CLI",
+          "name": "Gem"
+        },
+        {
+          "id": "codex",
+          "label": "Codex",
+          "name": "Codi"
+        },
+        {
+          "id": "mistral_vibe",
+          "label": "Mistral Vibe",
+          "name": "Misty"
+        }
+      ],
+      "bootstrap": {
+        "last_written_at": null,
+        "last_repo_path": "",
+        "files_written": []
+      },
+      "completed_at": null,
+      "updated_at": null
+    }
+  },
+  "team": [
+    {
+      "name": "Claude Code",
+      "avatar": "CL",
+      "heartbeatKey": "clau",
+      "roleTitle": "Senior Implementation",
+      "roleDesc": "General-purpose engineering, refactors, code review, and complex implementation.",
+      "skills": ["Implementation", "Refactoring", "Code Review"],
+      "fallbackChain": ["gem", "codi"],
+      "runtime": "Claude Code",
+      "memoryLink": "{{PROJECT_REPO_URL}}/blob/{{DEFAULT_BRANCH}}/CLAUDE.md"
+    },
+    {
+      "name": "Gemini CLI",
+      "avatar": "GM",
+      "heartbeatKey": "gem",
+      "roleTitle": "Context Architect",
+      "roleDesc": "Large-context synthesis, architecture mapping, and infrastructure reasoning.",
+      "skills": ["Context Synthesis", "Infrastructure", "Documentation"],
+      "fallbackChain": ["clau", "codi"],
+      "runtime": "Gemini CLI",
+      "memoryLink": "{{PROJECT_REPO_URL}}/blob/{{DEFAULT_BRANCH}}/GEMINI.md"
+    },
+    {
+      "name": "Codex",
+      "avatar": "CX",
+      "heartbeatKey": "codi",
+      "roleTitle": "Delivery Runner",
+      "roleDesc": "Fast scripting, automation, verification, and pragmatic implementation.",
+      "skills": ["Automation", "QA", "Implementation"],
+      "fallbackChain": ["clau", "gem"],
+      "runtime": "Codex",
+      "memoryLink": "{{PROJECT_REPO_URL}}/blob/{{DEFAULT_BRANCH}}/AGENTS.md"
+    },
+    {
+      "name": "Mistral Vibe",
+      "avatar": "MV",
+      "heartbeatKey": "misty",
+      "roleTitle": "Compliance And Documentation",
+      "roleDesc": "Compliance-sensitive writing, auditability, and customer-facing documentation.",
+      "skills": ["Compliance", "Documentation", "Policy Review"],
+      "fallbackChain": ["clau", "gem"],
+      "runtime": "Mistral Vibe",
+      "memoryLink": "{{PROJECT_REPO_URL}}/blob/{{DEFAULT_BRANCH}}/MISTRAL.md"
+    }
+  ],
+  "projects": [
+    {
+      "title": "{{PROJECT_NAME}}",
+      "owners": "{{ORG_NAME}}",
+      "repo_path": ".",
+      "summary": "{{PROJECT_DESCRIPTION}}",
+      "docs": ["{{PROJECT_REPO_URL}}/blob/{{DEFAULT_BRANCH}}/MISSION_CONTROL.md"],
+      "kanban": "{{KANBAN_URL}}",
+      "is_active": true
+    }
+  ]
+}
