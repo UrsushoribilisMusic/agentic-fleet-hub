@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-05-07",
+    "summary": "Misty: Completed 2 PrivateCore tasks (PC-217 Capture Ask question flow, PC-225 Library badge clipping fix). Both tasks: branches created per protocol, build-green tags verified, status set to peer_review.",
+    "file": "2026-05-07.md"
+  },
+  {
     "date": "2026-05-06",
     "summary": "Codi: V05-PROFILE-001 + PC-220/PC-223. Clau: PC-083 Screen C calendar permission — Skip button, style param, nav fix, merged approved PC-074, fixed build blockers.",
     "file": "2026-05-06.md"
