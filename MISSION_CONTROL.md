@@ -510,7 +510,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **3z4r1bgw** | [FLOTILLA v0.5.0][P0] V05-PROFILE-001 Create Default Engineering Instruction Profile | codi | in_work | ## Metadata... |
+| **3z4r1bgw** | [FLOTILLA v0.5.0][P0] V05-PROFILE-001 Create Default Engineering Instruction Profile | codi | planned | ## Metadata... |
 | **9keh8w6u** | PC-216: Home — suggestions are stale; regenerate every day | gem | merged | Imported from PrivateCore MISSION_CONTROL.md. |
 | **sd2nwh29** | PC-217: Capture — Ask should allow writing a question before sending | misty | merged | Imported from PrivateCore MISSION_CONTROL.md. |
 | **fsj216xt** | PC-219: People — hide person should stop them reappearing in suggested groups | gem | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
@@ -521,8 +521,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **a9ov9kl8** | PC-224: People — empty person view needs focus tab and wiki empty-state notice | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **jqawd67z** | PC-225: Library — documents counter / top icon spacing is clipped | misty | merged | Imported from PrivateCore MISSION_CONTROL.md. |
 | **kn9qpy52** | PC-226: Wiki week view — move graph/style/share/regenerate actions into top-right menu | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
-| **hfng2al7** | PC-227: Wiki day view — remove duplicate edit-journal action and clarify rescan photos | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
-| **8d3lyfdm** | PC-228: Wiki day view — generate wiki / AI description actions do not complete | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
+| **hfng2al7** | PC-227: Wiki day view — remove duplicate edit-journal action and clarify rescan photos | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
+| **8d3lyfdm** | PC-228: Wiki day view — generate wiki / AI description actions do not complete | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **1zkocl7q** | PC-229: Trips — wiki regeneration hits paywall after reset; retries still fail after 3 attempts | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **u5elcijk** | PC-230: Places — visit counts underreport multi-day place photos | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **zijydzkk** | PC-231: Boards — focus note dialog flickers while typing | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
