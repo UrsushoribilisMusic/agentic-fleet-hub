@@ -50,6 +50,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **jqawd67z**: PC-225: Library — documents counter / top icon spacing is clipped -- Imported from PrivateCore MISSION_CONTROL.md. -- Misty. Approved.
 - **fsj216xt**: PC-219: People — hide person should stop them reappearing in suggested groups -- Imported from PrivateCore MISSION_CONTROL.md. -- Gem. Approved.
 - **5ihwuycn**: PC-218: Library wiki — weekly wiki sometimes does not show up -- Imported from PrivateCore MISSION_CONTROL.md. -- Misty. Approved.
 - **xs2bnroq**: [FLOTILLA v0.5.0][P0] V05-PROFILE-004 Write PROFILE_PACKS.md as Agent Handoff Spec -- ## Metadata -- Clau. Approved.
@@ -519,7 +520,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **q1vnpora** | PC-222: People — visual/list/timeline selector should be disabled outside content mode | gem | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **a3hhgbqc** | PC-223: People — iOS Photos people link should open People & Pets albums | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **a9ov9kl8** | PC-224: People — empty person view needs focus tab and wiki empty-state notice | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
-| **jqawd67z** | PC-225: Library — documents counter / top icon spacing is clipped | misty | merged | Imported from PrivateCore MISSION_CONTROL.md. |
 | **kn9qpy52** | PC-226: Wiki week view — move graph/style/share/regenerate actions into top-right menu | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **hfng2al7** | PC-227: Wiki day view — remove duplicate edit-journal action and clarify rescan photos | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **8d3lyfdm** | PC-228: Wiki day view — generate wiki / AI description actions do not complete | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
