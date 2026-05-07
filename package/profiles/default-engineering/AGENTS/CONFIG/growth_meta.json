@@ -1,9 +1,54 @@
 {
   "meta": {
     "template": "default-engineering",
-    "purpose": "growth",
-    "notes": "Use this file for marketing or growth-demo metadata only. Do not point it at production task data."
+    "purpose": "growth-fleet",
+    "notes": "Optional preset for a marketing and sales-focused fleet. Replace {{MAIN_REPO}}, {{CRM_URL}}, and {{KANBAN_URL}} during installation. Remove this file if you do not need a growth/marketing fleet."
   },
-  "team": [],
-  "projects": []
+  "team": [
+    {
+      "name": "Scout",
+      "avatar": "SC",
+      "roleTitle": "Lead Discovery and Trends",
+      "roleDesc": "Monitors industry news and competitor activity to identify high-value opportunities. The front-line eyes of the fleet.",
+      "skills": ["Web Research", "Trend Analysis", "Lead Enrichment"],
+      "runtime": "Cloud Runner",
+      "memoryLink": "{{MAIN_REPO}}/blob/{{DEFAULT_BRANCH}}/AGENTS/RULES.md"
+    },
+    {
+      "name": "Echo",
+      "avatar": "EC",
+      "roleTitle": "Social Media Manager",
+      "roleDesc": "Drafts high-engagement posts, suggests content for video platforms, and manages the social calendar. Amplifies the brand voice.",
+      "skills": ["Content Writing", "Social Strategy", "Viral Loops"],
+      "runtime": "Cloud VPS",
+      "memoryLink": "{{MAIN_REPO}}/blob/{{DEFAULT_BRANCH}}/AGENTS/RULES.md"
+    },
+    {
+      "name": "Closer",
+      "avatar": "CL",
+      "roleTitle": "Sales and CRM Architect",
+      "roleDesc": "Inputs leads into the CRM, drafts personalized outreach emails, and coordinates follow-ups with humans-in-the-loop.",
+      "skills": ["CRM Automation", "Personalized Outreach", "Pipeline Management"],
+      "runtime": "Hybrid (Vault-Backed)",
+      "memoryLink": "{{MAIN_REPO}}/blob/{{DEFAULT_BRANCH}}/AGENTS/RULES.md"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Lead Pipeline (CRM)",
+      "owners": "Closer",
+      "summary": "Autonomous lead discovery and CRM synchronization. A fleet-managed prototype for inbound pipeline automation.",
+      "crmLink": "{{CRM_URL}}",
+      "docs": ["{{MAIN_REPO}}/blob/{{DEFAULT_BRANCH}}/AGENTS/CONTEXT/fleet_steering_architecture.md"],
+      "kanban": "{{KANBAN_URL}}"
+    },
+    {
+      "title": "Content Calendar",
+      "owners": "Echo",
+      "summary": "Autonomous content planning. Echo suggests the posts, the human publishes.",
+      "statsLink": "{{CRM_URL}}?tab=calendar",
+      "docs": ["{{MAIN_REPO}}/blob/{{DEFAULT_BRANCH}}/AGENTS/RULES.md"],
+      "kanban": "{{KANBAN_URL}}"
+    }
+  ]
 }
