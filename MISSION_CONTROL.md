@@ -41,7 +41,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 
 ---
 
-## Ticket Status (as of 2026-05-06)
+## Ticket Status (as of 2026-05-07)
 
 ### ENVIRONMENT NOTE — Mac Mini migration complete (2026-03-14)
 All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users/miguel/` → `/Users/miguelrodriguez/`. Repos cloned to `~/projects/`. Python 3.12 venv at `~/projects/music-video-tool/.venv312`. OpenClaw at `/opt/homebrew/bin/openclaw`. Fleet always-on infrastructure build in progress — see tickets #34–#43.
@@ -50,6 +50,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **5ihwuycn**: PC-218: Library wiki — weekly wiki sometimes does not show up -- Imported from PrivateCore MISSION_CONTROL.md. -- Misty. Approved.
+- **xs2bnroq**: [FLOTILLA v0.5.0][P0] V05-PROFILE-004 Write PROFILE_PACKS.md as Agent Handoff Spec -- ## Metadata -- Clau. Approved.
 - **sln025dz**: PC-208 [P1]: Global knowledge graph — all relationships across wikis, trips, boards -- The graph icon in the Library tab (currently wired to ConceptGraphView / the week graph) should show a full cross-entity knowledge graph, not a weekly scope. -- Gem. Approved.
 - **izj6nmgp**: PC-207 [P2]: Remove Insights tab — surface top places in PlacesView header -- The Insights tab in Library is redundant: stats are already in Settings, and place information belongs in Places. Remove it and redistribute its content. -- Clau. Approved.
 - **befyo4kv**: PC-206 [P1]: Documents row in Library Intelligence section -- Documents (PDF cards with type == .document) are a first-class content type but have no entry point in the Library Intelligence section. Add a "Documents" row alongside Wiki, People, Places. -- Clau. Approved.
@@ -509,10 +511,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **3z4r1bgw** | [FLOTILLA v0.5.0][P0] V05-PROFILE-001 Create Default Engineering Instruction Profile | codi | in_work | ## Metadata... |
-| **xs2bnroq** | [FLOTILLA v0.5.0][P0] V05-PROFILE-004 Write PROFILE_PACKS.md as Agent Handoff Spec | clau | in_work | ## Metadata... |
-| **9keh8w6u** | PC-216: Home — suggestions are stale; regenerate every day | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
+| **9keh8w6u** | PC-216: Home — suggestions are stale; regenerate every day | gem | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **sd2nwh29** | PC-217: Capture — Ask should allow writing a question before sending | misty | merged | Imported from PrivateCore MISSION_CONTROL.md. |
-| **5ihwuycn** | PC-218: Library wiki — weekly wiki sometimes does not show up | misty | merged | Imported from PrivateCore MISSION_CONTROL.md. |
 | **fsj216xt** | PC-219: People — hide person should stop them reappearing in suggested groups | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **njsr9yms** | PC-220: People — similar photos added to people should use photo date, not added date | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **bi0c5ahp** | PC-221: People — group wiki should show empty-state notice when no notes or photos exist | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
@@ -521,8 +521,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **a9ov9kl8** | PC-224: People — empty person view needs focus tab and wiki empty-state notice | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **jqawd67z** | PC-225: Library — documents counter / top icon spacing is clipped | misty | merged | Imported from PrivateCore MISSION_CONTROL.md. |
 | **kn9qpy52** | PC-226: Wiki week view — move graph/style/share/regenerate actions into top-right menu | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
-| **hfng2al7** | PC-227: Wiki day view — remove duplicate edit-journal action and clarify rescan photos | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
-| **8d3lyfdm** | PC-228: Wiki day view — generate wiki / AI description actions do not complete | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
+| **hfng2al7** | PC-227: Wiki day view — remove duplicate edit-journal action and clarify rescan photos | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
+| **8d3lyfdm** | PC-228: Wiki day view — generate wiki / AI description actions do not complete | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **1zkocl7q** | PC-229: Trips — wiki regeneration hits paywall after reset; retries still fail after 3 attempts | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **u5elcijk** | PC-230: Places — visit counts underreport multi-day place photos | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **zijydzkk** | PC-231: Boards — focus note dialog flickers while typing | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
