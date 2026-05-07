@@ -53,7 +53,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **jqawd67z**: PC-225: Library — documents counter / top icon spacing is clipped -- Imported from PrivateCore MISSION_CONTROL.md. -- Misty. Approved.
 - **fsj216xt**: PC-219: People — hide person should stop them reappearing in suggested groups -- Imported from PrivateCore MISSION_CONTROL.md. -- Gem. Approved.
 - **5ihwuycn**: PC-218: Library wiki — weekly wiki sometimes does not show up -- Imported from PrivateCore MISSION_CONTROL.md. -- Misty. Approved.
+- **sd2nwh29**: PC-217: Capture — Ask should allow writing a question before sending -- Imported from PrivateCore MISSION_CONTROL.md. -- Misty. Approved.
 - **xs2bnroq**: [FLOTILLA v0.5.0][P0] V05-PROFILE-004 Write PROFILE_PACKS.md as Agent Handoff Spec -- ## Metadata -- Clau. Approved.
+- **3z4r1bgw**: [FLOTILLA v0.5.0][P0] V05-PROFILE-001 Create Default Engineering Instruction Profile -- ## Metadata -- Clau. Approved.
 - **sln025dz**: PC-208 [P1]: Global knowledge graph — all relationships across wikis, trips, boards -- The graph icon in the Library tab (currently wired to ConceptGraphView / the week graph) should show a full cross-entity knowledge graph, not a weekly scope. -- Gem. Approved.
 - **izj6nmgp**: PC-207 [P2]: Remove Insights tab — surface top places in PlacesView header -- The Insights tab in Library is redundant: stats are already in Settings, and place information belongs in Places. Remove it and redistribute its content. -- Clau. Approved.
 - **befyo4kv**: PC-206 [P1]: Documents row in Library Intelligence section -- Documents (PDF cards with type == .document) are a first-class content type but have no entry point in the Library Intelligence section. Add a "Documents" row alongside Wiki, People, Places. -- Clau. Approved.
@@ -512,9 +514,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **3z4r1bgw** | [FLOTILLA v0.5.0][P0] V05-PROFILE-001 Create Default Engineering Instruction Profile | clau | merged | ## Metadata... |
 | **9keh8w6u** | PC-216: Home — suggestions are stale; regenerate every day | gem | merged | Imported from PrivateCore MISSION_CONTROL.md. |
-| **sd2nwh29** | PC-217: Capture — Ask should allow writing a question before sending | misty | merged | Imported from PrivateCore MISSION_CONTROL.md. |
 | **njsr9yms** | PC-220: People — similar photos added to people should use photo date, not added date | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **bi0c5ahp** | PC-221: People — group wiki should show empty-state notice when no notes or photos exist | gem | merged | Imported from PrivateCore MISSION_CONTROL.md. |
 | **q1vnpora** | PC-222: People — visual/list/timeline selector should be disabled outside content mode | gem | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
