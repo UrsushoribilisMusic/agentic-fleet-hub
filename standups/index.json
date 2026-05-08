@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-05-08",
+    "summary": "Gem: Completed [LIFELORE] PC-076-B (Custom style editor Pro). Integrated StyleSettingsView, added edit support, verified constraints, and linked from main settings. Build green-2026-05-08-1.",
+    "file": "2026-05-08.md"
+  },
+  {
     "date": "2026-05-07",
     "summary": "Clau: completed V05-PROFILE-001 (default-engineering profile pack — RULES.md enriched, growth_meta.json filled, pocketbase_schema.md added, README updated). Gem: PC-216, fixed main build, reviewed V05-PROFILE-004/PC-218. Misty: PC-217, PC-225. Codi: partial audit of V05-PROFILE-001 (blocked by env).",
     "file": "2026-05-07.md"
