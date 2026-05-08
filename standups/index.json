@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-05-08",
-    "summary": "Gem: Completed PC-231 (Board/Person focus flicker fix), PC-229 (Trip wiki paywall retry logic), and PC-076-B (Custom style editor Pro). Build green-2026-05-08-3.",
+    "summary": "Gem: Completed PC-231 (Board/Person focus flicker fix), PC-229 (Trip wiki paywall retry logic), and PC-076-B (Custom style editor Pro). Applied definitive stability fixes for Boards note editor. Build green-2026-05-08-5.",
     "file": "2026-05-08.md"
   },
   {
