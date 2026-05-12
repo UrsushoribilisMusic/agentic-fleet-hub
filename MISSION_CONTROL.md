@@ -524,7 +524,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **hfng2al7** | PC-227: Wiki day view — remove duplicate edit-journal action and clarify rescan photos | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **8d3lyfdm** | PC-228: Wiki day view — generate wiki / AI description actions do not complete | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **1zkocl7q** | PC-229: Trips — wiki regeneration hits paywall after reset; retries still fail after 3 attempts | gem | merged | Imported from PrivateCore MISSION_CONTROL.md. |
-| **u5elcijk** | PC-230: Places — visit counts underreport multi-day place photos | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
+| **u5elcijk** | PC-230: Places — visit counts underreport multi-day place photos | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **zijydzkk** | PC-231: Boards — focus note dialog flickers while typing | gem | merged | Imported from PrivateCore MISSION_CONTROL.md. |
 | **qrulqkkh** | PC-232: Concept graph — missing lines in graph view | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 
