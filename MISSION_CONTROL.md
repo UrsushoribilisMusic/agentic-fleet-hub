@@ -515,7 +515,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **9keh8w6u** | PC-216: Home — suggestions are stale; regenerate every day | gem | merged | Imported from PrivateCore MISSION_CONTROL.md. |
-| **njsr9yms** | PC-220: People — similar photos added to people should use photo date, not added date | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
+| **njsr9yms** | PC-220: People — similar photos added to people should use photo date, not added date | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **bi0c5ahp** | PC-221: People — group wiki should show empty-state notice when no notes or photos exist | gem | merged | Imported from PrivateCore MISSION_CONTROL.md. |
 | **q1vnpora** | PC-222: People — visual/list/timeline selector should be disabled outside content mode | gem | merged | Imported from PrivateCore MISSION_CONTROL.md. |
 | **a3hhgbqc** | PC-223: People — iOS Photos people link should open People & Pets albums | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
