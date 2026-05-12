@@ -518,7 +518,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **njsr9yms** | PC-220: People — similar photos added to people should use photo date, not added date | clau | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **bi0c5ahp** | PC-221: People — group wiki should show empty-state notice when no notes or photos exist | gem | merged | Imported from PrivateCore MISSION_CONTROL.md. |
 | **q1vnpora** | PC-222: People — visual/list/timeline selector should be disabled outside content mode | gem | merged | Imported from PrivateCore MISSION_CONTROL.md. |
-| **a3hhgbqc** | PC-223: People — iOS Photos people link should open People & Pets albums | clau | planned | Imported from PrivateCore MISSION_CONTROL.md. |
+| **a3hhgbqc** | PC-223: People — iOS Photos people link should open People & Pets albums | clau | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **a9ov9kl8** | PC-224: People — empty person view needs focus tab and wiki empty-state notice | gem | merged | Imported from PrivateCore MISSION_CONTROL.md. |
 | **kn9qpy52** | PC-226: Wiki week view — move graph/style/share/regenerate actions into top-right menu | clau | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **hfng2al7** | PC-227: Wiki day view — remove duplicate edit-journal action and clarify rescan photos | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
