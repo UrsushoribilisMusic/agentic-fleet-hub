@@ -515,7 +515,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **9keh8w6u** | PC-216: Home — suggestions are stale; regenerate every day | gem | merged | Imported from PrivateCore MISSION_CONTROL.md. |
-| **njsr9yms** | PC-220: People — similar photos added to people should use photo date, not added date | clau | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
+| **njsr9yms** | PC-220: People — similar photos added to people should use photo date, not added date | clau | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **bi0c5ahp** | PC-221: People — group wiki should show empty-state notice when no notes or photos exist | gem | merged | Imported from PrivateCore MISSION_CONTROL.md. |
 | **q1vnpora** | PC-222: People — visual/list/timeline selector should be disabled outside content mode | gem | merged | Imported from PrivateCore MISSION_CONTROL.md. |
 | **a3hhgbqc** | PC-223: People — iOS Photos people link should open People & Pets albums | clau | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
@@ -526,6 +526,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **1zkocl7q** | PC-229: Trips — wiki regeneration hits paywall after reset; retries still fail after 3 attempts | gem | merged | Imported from PrivateCore MISSION_CONTROL.md. |
 | **u5elcijk** | PC-230: Places — visit counts underreport multi-day place photos | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **zijydzkk** | PC-231: Boards — focus note dialog flickers while typing | gem | merged | Imported from PrivateCore MISSION_CONTROL.md. |
-| **qrulqkkh** | PC-232: Concept graph — missing lines in graph view | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
+| **qrulqkkh** | PC-232: Concept graph — missing lines in graph view | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
