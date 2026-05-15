@@ -530,7 +530,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **4kw5fcyr** | PC-215: Similar Photos — broken/missing thumbnail for deleted photos | clau | in_work | Partial fix: filter rawSimilar assetIds at load ti... |
 | **677f7447** | PC-212: VLM rate-limit — skip new image description cycle if app entered foreground less than N seconds ago to prevent Metal crash on rapid background/foreground transitions | clau | in_work | Add foregroundSince timestamp in BackgroundSchedul... |
 | **88867svm** | PC-209: Deleted photo cleanup — cascade-delete cards, wiki refs, board items, person-photos, embeddings when PHAsset removed from library | clau | in_work | PHPhotoLibraryChangeObserver detects removals; nee... |
-| **7zdybyvh** | PC-210: Library-People groups — boxes should be smaller and show a linked photo thumbnail instead of blank white | clau | planned | PeopleView group cell redesign. |
+| **7zdybyvh** | PC-210: Library-People groups — boxes should be smaller and show a linked photo thumbnail instead of blank white | clau | in_work | PeopleView group cell redesign. |
 | **wtb44nhk** | PC-081: Trips — tap photo opens blank detail page, no actions (add to people/board/hashtags) | clau | planned | Returned to todo after review: routes through synt... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
