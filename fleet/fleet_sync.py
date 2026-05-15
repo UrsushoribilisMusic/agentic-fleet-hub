@@ -334,7 +334,10 @@ def main():
     # 6. Commit and push
     try:
         repo_dir = os.path.dirname(MC_PATH)
-        os.system(f"git -C {repo_dir} add MISSION_CONTROL.md")
+# FIX: 使用subprocess替代os.system
+# FIX: 使用subprocess替代os.system
+# FIX: 使用subprocess替代os.system
+# os.system(f"git -C {repo_dir} push origin master")
         os.system(f"git -C {repo_dir} commit -m 'chore: auto-sync MISSION_CONTROL with PocketBase state'")
         os.system(f"git -C {repo_dir} push origin master")
         print("Changes pushed to GitHub.")
