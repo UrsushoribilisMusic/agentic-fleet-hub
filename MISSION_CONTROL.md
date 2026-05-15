@@ -528,8 +528,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **zijydzkk** | PC-231: Boards — focus note dialog flickers while typing | gem | merged | Imported from PrivateCore MISSION_CONTROL.md. |
 | **qrulqkkh** | PC-232: Concept graph — missing lines in graph view | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **4kw5fcyr** | PC-215: Similar Photos — broken/missing thumbnail for deleted photos | clau | in_work | Partial fix: filter rawSimilar assetIds at load ti... |
-| **677f7447** | PC-212: VLM rate-limit — skip new image description cycle if app entered foreground less than N seconds ago to prevent Metal crash on rapid background/foreground transitions | clau | in_work | Add foregroundSince timestamp in BackgroundSchedul... |
-| **88867svm** | PC-209: Deleted photo cleanup — cascade-delete cards, wiki refs, board items, person-photos, embeddings when PHAsset removed from library | clau | in_work | PHPhotoLibraryChangeObserver detects removals; nee... |
+| **677f7447** | PC-212: VLM rate-limit — skip new image description cycle if app entered foreground less than N seconds ago to prevent Metal crash on rapid background/foreground transitions | clau | planned | Add foregroundSince timestamp in BackgroundSchedul... |
+| **88867svm** | PC-209: Deleted photo cleanup — cascade-delete cards, wiki refs, board items, person-photos, embeddings when PHAsset removed from library | clau | planned | PHPhotoLibraryChangeObserver detects removals; nee... |
 | **7zdybyvh** | PC-210: Library-People groups — boxes should be smaller and show a linked photo thumbnail instead of blank white | clau | in_work | PeopleView group cell redesign. |
 | **wtb44nhk** | PC-081: Trips — tap photo opens blank detail page, no actions (add to people/board/hashtags) | clau | in_work | Returned to todo after review: routes through synt... |
 
