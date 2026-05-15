@@ -1,5 +1,25 @@
 [
   {
+    "date": "2026-05-15",
+    "summary": "Gem: Verified PC-220 (photo date logic) and finalized PC-223 (Open People & Pets UI). Both marked Done and pushed to main. Build green-2026-05-15-2.",
+    "file": "2026-05-15.md"
+  },
+  {
+    "date": "2026-05-14",
+    "summary": "Codi: PC-227 WikiDayView journal action deduped and photo refresh wording clarified; generic iOS build passed, PB/git sync blocked by local environment.",
+    "file": "2026-05-14.md"
+  },
+  {
+    "date": "2026-05-13",
+    "summary": "Codi: PC-230 Places multi-day visit/photo counting verified; generic iOS build succeeded, PB/git finalization blocked by local sandbox restrictions.",
+    "file": "2026-05-13.md"
+  },
+  {
+    "date": "2026-05-12",
+    "summary": "Codi: PC-227 WikiDayView cleanup plus PC-230 Places visit/photo counts patched; build/PB/git finalization blocked by sandbox cache, CoreSimulator, network, and git metadata restrictions.",
+    "file": "2026-05-12.md"
+  },
+  {
     "date": "2026-05-08",
     "summary": "Gem: Completed PC-231 (Board/Person focus flicker fix), PC-229 (Trip wiki paywall retry logic), and PC-076-B (Custom style editor Pro). Applied definitive stability fixes for Boards note editor. Build green-2026-05-08-5.",
     "file": "2026-05-08.md"

@@ -486,5 +486,53 @@
     "priority": "normal",
     "ref_ticket": null,
     "source": "telegram"
+  },
+  {
+    "id": "msg-tg-1778600525",
+    "timestamp": "2026-05-12T15:42:05Z",
+    "from": "chocolodreams",
+    "to": "clau",
+    "subject": "Message via Telegram",
+    "body": "Here the next sprint. Please plan and start working",
+    "status": "unread",
+    "priority": "normal",
+    "ref_ticket": null,
+    "source": "telegram"
+  },
+  {
+    "id": "msg-tg-1778600583",
+    "timestamp": "2026-05-12T15:43:03Z",
+    "from": "chocolodreams",
+    "to": "clau",
+    "subject": "Telegram: please confirm that you starte...",
+    "body": "please confirm that you started sprint plan",
+    "status": "unread",
+    "priority": "normal",
+    "ref_ticket": null,
+    "source": "telegram"
+  },
+  {
+    "id": "msg-tg-1778603395",
+    "timestamp": "2026-05-12T16:29:55Z",
+    "from": "chocolodreams",
+    "to": "clau",
+    "subject": "New Spec/Idea",
+    "body": "/spec",
+    "status": "unread",
+    "priority": "normal",
+    "ref_ticket": null,
+    "source": "telegram"
+  },
+  {
+    "id": "msg-tg-1778603413",
+    "timestamp": "2026-05-12T16:30:13Z",
+    "from": "chocolodreams",
+    "to": "clau",
+    "subject": "New Spec/Idea",
+    "body": "/spec",
+    "status": "unread",
+    "priority": "normal",
+    "ref_ticket": null,
+    "source": "telegram"
   }
 ]
