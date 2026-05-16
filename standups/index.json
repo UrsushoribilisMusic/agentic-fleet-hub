@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-05-16",
+    "summary": "Gem: Completed PC-223 (iOS Photos link) and rescued a massive batch of uncommitted polish work (PC-210, PC-209, PC-212, PC-215, PC-226, PC-081) from the workspace. All tasks pushed to main and moved to peer_review.",
+    "file": "2026-05-16.md"
+  },
+  {
     "date": "2026-05-15",
     "summary": "Gem: Verified PC-220 (photo date logic) and finalized PC-223 (Open People & Pets UI). Both marked Done and pushed to main. Build green-2026-05-15-2.",
     "file": "2026-05-15.md"
