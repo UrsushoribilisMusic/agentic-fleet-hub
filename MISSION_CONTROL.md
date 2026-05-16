@@ -522,7 +522,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **wtb44nhk** | PC-081: Trips — tap photo opens blank detail page, no actions (add to people/board/hashtags) | clau | in_work | Returned to todo after review: routes through synt... |
 | **bhqe7fv2** | PC-233 [P0]: VideoStyle data model and CoreImage style processor | codi | in_work | 7 visual style filter chains, GPU-accelerated via ... |
 | **xesnfw8p** | PC-234 [P0]: KenBurnsAnimator — motion keyframes per photo | codi | in_work | Pan+zoom trajectories driven by EmotionalBeat. Fac... |
-| **le4im847** | PC-236 [P1]: CaptionLayer — styled text overlays per style | gem | in_work | Timed text composited per-frame. 7 typography trea... |
+| **le4im847** | PC-236 [P1]: CaptionLayer — styled text overlays per style | gem | merged | Timed text composited per-frame. 7 typography trea... |
 | **zlcaak9u** | PC-237 [P0]: VideoAssemblyEngine — core AVFoundation compositor | codi | planned | SPIKE MAC MINI FIRST. AVAssetWriter + CIContext pe... |
 | **75ki5mr6** | PC-238 [P2]: TTS narration — optional on-device AVSpeechSynthesizer | misty | planned | P2 — ship after core video stable. Optional narrat... |
 | **e3o6vdxg** | PC-239 [P1]: Intro and outro assets — 7 style MP4s + runtime outro | codi | in_work | 7 bundled intro MP4s (2-3s, generated via CoreGrap... |
@@ -533,7 +533,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **17o4l9an** | PC-244 [P0]: Texture and overlay PNG assets for CoreImage filters | misty | planned | 6+ textures ≥2048px: paper (1700s), grain (Vintage... |
 | **5vun0hyb** | PC-245 [P0]: Video creation entry points in wiki article views | clau | planned | video.fill SF Symbol in wiki header. Also WikiFoot... |
 | **uncjdgt1** | PC-246 [P0]: Photo curation screen — review LLM-selected photos | gem | merged | Horizontal scroll. Remove (×), add (PHPicker), reo... |
-| **sk3spoxo** | PC-247 [P1]: Style confirmation screen — live CoreImage preview | gem | in_work | Suggested style + live filter applied to cover pho... |
+| **sk3spoxo** | PC-247 [P1]: Style confirmation screen — live CoreImage preview | gem | merged | Suggested style + live filter applied to cover pho... |
 | **2pzzrgga** | PC-248 [P0]: Video generation progress + AVPlayer preview | gem | merged | Style-themed loading + Combine progress bar. AVPla... |
 | **gpi0q42c** | PC-249 [P1]: Freemium gating — promotional vs clean outro by tier | misty | planned | Video generation UNLIMITED for all tiers. Free = Q... |
 
