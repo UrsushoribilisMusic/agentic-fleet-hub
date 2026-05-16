@@ -50,6 +50,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **0aieglgj**: PC-235 [P1]: TransitionEngine — 7 style-appropriate cut types -- Build TransitionEngine with 7 style-appropriate cut types for the in-app video generation sprint (Sprint 7). AVFoundation-based, on-device only. -- Gem. Approved.
 - **jqawd67z**: PC-225: Library — documents counter / top icon spacing is clipped -- Imported from PrivateCore MISSION_CONTROL.md. -- Misty. Approved.
 - **fsj216xt**: PC-219: People — hide person should stop them reappearing in suggested groups -- Imported from PrivateCore MISSION_CONTROL.md. -- Gem. Approved.
 - **5ihwuycn**: PC-218: Library wiki — weekly wiki sometimes does not show up -- Imported from PrivateCore MISSION_CONTROL.md. -- Misty. Approved.
@@ -531,7 +532,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **8eknrrkr** | PC-243 [P1]: Music track integration and automatic selection | misty | planned | 21 AAC tracks (3/style) as ODR. Auto-select by emo... |
 | **17o4l9an** | PC-244 [P0]: Texture and overlay PNG assets for CoreImage filters | misty | planned | 6+ textures ≥2048px: paper (1700s), grain (Vintage... |
 | **5vun0hyb** | PC-245 [P0]: Video creation entry points in wiki article views | clau | planned | video.fill SF Symbol in wiki header. Also WikiFoot... |
-| **uncjdgt1** | PC-246 [P0]: Photo curation screen — review LLM-selected photos | gem | planned | Horizontal scroll. Remove (×), add (PHPicker), reo... |
+| **uncjdgt1** | PC-246 [P0]: Photo curation screen — review LLM-selected photos | gem | in_work | Horizontal scroll. Remove (×), add (PHPicker), reo... |
 | **sk3spoxo** | PC-247 [P1]: Style confirmation screen — live CoreImage preview | gem | planned | Suggested style + live filter applied to cover pho... |
 | **2pzzrgga** | PC-248 [P0]: Video generation progress + AVPlayer preview | gem | planned | Style-themed loading + Combine progress bar. AVPla... |
 | **gpi0q42c** | PC-249 [P1]: Freemium gating — promotional vs clean outro by tier | misty | planned | Video generation UNLIMITED for all tiers. Free = Q... |
