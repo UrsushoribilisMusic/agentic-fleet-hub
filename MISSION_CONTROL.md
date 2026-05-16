@@ -534,7 +534,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **wtb44nhk** | PC-081: Trips — tap photo opens blank detail page, no actions (add to people/board/hashtags) | clau | planned | Returned to todo after review: routes through synt... |
 | **bhqe7fv2** | PC-233 [P0]: VideoStyle data model and CoreImage style processor | codi | planned | 7 visual style filter chains, GPU-accelerated via ... |
 | **xesnfw8p** | PC-234 [P0]: KenBurnsAnimator — motion keyframes per photo | codi | planned | Pan+zoom trajectories driven by EmotionalBeat. Fac... |
-| **yrle0nf2** | PC-235 [P1]: TransitionEngine — 7 style-appropriate cut types | gem | in_work | crossfade, irisWipe, snapCut, bounce, softDissolve... |
+| **yrle0nf2** | PC-235 [P1]: TransitionEngine — 7 style-appropriate cut types | gem | merged | crossfade, irisWipe, snapCut, bounce, softDissolve... |
 | **le4im847** | PC-236 [P1]: CaptionLayer — styled text overlays per style | gem | planned | Timed text composited per-frame. 7 typography trea... |
 | **zlcaak9u** | PC-237 [P0]: VideoAssemblyEngine — core AVFoundation compositor | codi | planned | SPIKE MAC MINI FIRST. AVAssetWriter + CIContext pe... |
 | **75ki5mr6** | PC-238 [P2]: TTS narration — optional on-device AVSpeechSynthesizer | misty | in_work | P2 — ship after core video stable. Optional narrat... |
