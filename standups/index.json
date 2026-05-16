@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-05-17",
+    "summary": "Clau: V05-PROFILE-006 — RELEASE_NOTES_v0.5.0.md and CHANGELOG.md v0.5.0 section written; smoke checks pass; task moved to peer_review.",
+    "file": "2026-05-17.md"
+  },
+  {
     "date": "2026-05-16",
     "summary": "Gem: PC-235 (TransitionEngine) and PC-248 (Video Generation flow) implemented & verified; PC-223 completed; Architecture Pillar 4 added.",
     "file": "2026-05-16.md"
