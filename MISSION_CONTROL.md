@@ -517,7 +517,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **hfng2al7** | PC-227: Wiki day view — remove duplicate edit-journal action and clarify rescan photos | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **8d3lyfdm** | PC-228: Wiki day view — generate wiki / AI description actions do not complete | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
-| **u5elcijk** | PC-230: Places — visit counts underreport multi-day place photos | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
+| **u5elcijk** | PC-230: Places — visit counts underreport multi-day place photos | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **qrulqkkh** | PC-232: Concept graph — missing lines in graph view | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **wtb44nhk** | PC-081: Trips — tap photo opens blank detail page, no actions (add to people/board/hashtags) | clau | in_work | Returned to todo after review: routes through synt... |
 | **bhqe7fv2** | PC-233 [P0]: VideoStyle data model and CoreImage style processor | codi | in_work | 7 visual style filter chains, GPU-accelerated via ... |
@@ -528,7 +528,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **e3o6vdxg** | PC-239 [P1]: Intro and outro assets — 7 style MP4s + runtime outro | codi | in_work | 7 bundled intro MP4s (2-3s, generated via CoreGrap... |
 | **n8zirlgq** | PC-240 [P0]: WikiVideoScriptService — LLM moment selection | clau | planned | SmolLM2 135M selects 5-8 moments from WikiArticle.... |
 | **ucxd99fa** | PC-241 [P1]: Stock clip CLIP matching — semantic fallback | clau | planned | When no user photo: embed caption, cosine similari... |
-| **myowlsln** | PC-242 [P0]: Stock clip bundle — 60 clips, 8 categories, ODR | misty | planned | Source CC0 clips (Pexels/Pixabay). Crop to 9:16. C... |
+| **myowlsln** | PC-242 [P0]: Stock clip bundle — 60 clips, 8 categories, ODR | misty | in_work | Source CC0 clips (Pexels/Pixabay). Crop to 9:16. C... |
 | **8eknrrkr** | PC-243 [P1]: Music track integration and automatic selection | misty | planned | 21 AAC tracks (3/style) as ODR. Auto-select by emo... |
 | **17o4l9an** | PC-244 [P0]: Texture and overlay PNG assets for CoreImage filters | misty | planned | 6+ textures ≥2048px: paper (1700s), grain (Vintage... |
 | **5vun0hyb** | PC-245 [P0]: Video creation entry points in wiki article views | clau | in_work | video.fill SF Symbol in wiki header. Also WikiFoot... |
