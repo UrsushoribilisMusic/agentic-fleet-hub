@@ -534,7 +534,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **5vun0hyb** | PC-245 [P0]: Video creation entry points in wiki article views | clau | planned | video.fill SF Symbol in wiki header. Also WikiFoot... |
 | **uncjdgt1** | PC-246 [P0]: Photo curation screen — review LLM-selected photos | gem | merged | Horizontal scroll. Remove (×), add (PHPicker), reo... |
 | **sk3spoxo** | PC-247 [P1]: Style confirmation screen — live CoreImage preview | gem | in_work | Suggested style + live filter applied to cover pho... |
-| **2pzzrgga** | PC-248 [P0]: Video generation progress + AVPlayer preview | gem | planned | Style-themed loading + Combine progress bar. AVPla... |
+| **2pzzrgga** | PC-248 [P0]: Video generation progress + AVPlayer preview | gem | in_work | Style-themed loading + Combine progress bar. AVPla... |
 | **gpi0q42c** | PC-249 [P1]: Freemium gating — promotional vs clean outro by tier | misty | planned | Video generation UNLIMITED for all tiers. Free = Q... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
