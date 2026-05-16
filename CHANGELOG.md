@@ -1,5 +1,32 @@
 # Changelog
 
+## [0.5.0] - 2026-05-17
+
+### Added
+- **Profile Pack System**: `package/profiles/default-engineering/` — first official Flotilla profile pack. Contains fully sanitized AGENTS/RULES.md, all five agent mandate templates (CLAUDE.md, GEMINI.md, AGENTS.md, MISTRAL.md, GEMMA.md), fleet_meta.json template, MISSION_CONTROL.md and ARCHITECTURE.md scaffolds, and empty inbox/lessons starters.
+- **PROFILE_PACKS.md**: Agent handoff spec covering the four instruction layers, what profile packs cannot transfer (PB execution state), inspect/compare/export/install workflows, and a prompt template for agent-assisted profile export.
+- **Per-agent timeout map**: `clau=1800s`, others=`1200s`. Previous uniform 600s was killing Clau mid-task (exit 143). Configurable via `AGENT_TIMEOUT_SECONDS` dict in dispatcher.
+- **`_reclaim_stale_tasks()`**: Runs every 10 dispatcher cycles. Any `in_progress` task with no live agent process and `updated > 2h ago` is reset to `todo`.
+- **Multi-repo GitHub sync**: `EXTRA_REPO_PREFIXES` in `fleet_sync.py` enables importing issues from multiple GitHub repos into a single PocketBase instance.
+- **Log rotation**: Dispatcher log capped at 10 MB with 5 rotating backups.
+- **Canonical runtime path guard**: Dispatcher warns if executed from the repo checkout instead of `~/fleet/dispatcher.py`.
+
+### Changed
+- **Parallel agent dispatch (v5)**: All agents now run concurrently via non-blocking `Popen` tracked in `_active_agents`. Main loop collects finished agents and dispatches new ones each cycle without blocking. Replaces the blocking `subprocess.run()` model from v4.
+- **Agent-owned status transitions (v6→v7)**: Dispatcher no longer auto-promotes exit-0 runs to `peer_review`. On exit-0, PB status is untouched — agents must explicitly set it. On exit-nonzero, task resets to `todo` (crash/quota recovery).
+- **Mission Control is overview only**: `fleet_sync.py` no longer overwrites PocketBase task status from MC. PB is the authoritative execution state; MC is the human-readable project board (dispatcher writes MC from PB, not the reverse).
+- **GitHub sync `--state all`**: `get_new_human_issues()` changed from `--state open` to include closed issues so none are silently dropped.
+- **Heartbeat protocol consolidation**: All 6-phase protocol docs moved to `AGENTS/RULES.md`. Agent mandate files are now thin identity cards.
+
+### Fixed
+- Parallel dispatch restored after v4 accidentally serialized all agents through blocking subprocess calls.
+- `misty` AGENT_COMMAND used `-C` (invalid vibe flag) → exit 2; fixed to `--workdir`.
+- `gem` AGENT_COMMAND missing `--skip-trust` → exit 55 trust error; flag added.
+- `capture_output` pipe deadlock in dispatcher when agent stdout/stderr buffers filled before exit.
+- GitHub sync: duplicate outbound issue creation when a PB task had no `gh_issue_id`.
+- GitHub sync: non-atomic inbound import where `gh issue edit` failure left issues in inconsistent state.
+- `fleet_sync.py` MC→PB sync was resetting `todo` tasks to `in_progress` every cycle, blocking dispatch.
+
 ## [0.4.0] - 2026-04-06
 
 ### Added
