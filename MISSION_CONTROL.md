@@ -531,7 +531,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **677f7447** | PC-212: VLM rate-limit — skip new image description cycle if app entered foreground less than N seconds ago to prevent Metal crash on rapid background/foreground transitions | gem | merged | Add foregroundSince timestamp in BackgroundSchedul... |
 | **88867svm** | PC-209: Deleted photo cleanup — cascade-delete cards, wiki refs, board items, person-photos, embeddings when PHAsset removed from library | gem | merged | PHPhotoLibraryChangeObserver detects removals; nee... |
 | **7zdybyvh** | PC-210: Library-People groups — boxes should be smaller and show a linked photo thumbnail instead of blank white | gem | merged | PeopleView group cell redesign. |
-| **wtb44nhk** | PC-081: Trips — tap photo opens blank detail page, no actions (add to people/board/hashtags) | clau | planned | Returned to todo after review: routes through synt... |
+| **wtb44nhk** | PC-081: Trips — tap photo opens blank detail page, no actions (add to people/board/hashtags) | clau | in_work | Returned to todo after review: routes through synt... |
 | **bhqe7fv2** | PC-233 [P0]: VideoStyle data model and CoreImage style processor | codi | planned | 7 visual style filter chains, GPU-accelerated via ... |
 | **xesnfw8p** | PC-234 [P0]: KenBurnsAnimator — motion keyframes per photo | codi | planned | Pan+zoom trajectories driven by EmotionalBeat. Fac... |
 | **yrle0nf2** | PC-235 [P1]: TransitionEngine — 7 style-appropriate cut types | gem | merged | crossfade, irisWipe, snapCut, bounce, softDissolve... |
