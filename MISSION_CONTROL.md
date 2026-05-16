@@ -531,15 +531,15 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **677f7447** | PC-212: VLM rate-limit — skip new image description cycle if app entered foreground less than N seconds ago to prevent Metal crash on rapid background/foreground transitions | gem | merged | Add foregroundSince timestamp in BackgroundSchedul... |
 | **88867svm** | PC-209: Deleted photo cleanup — cascade-delete cards, wiki refs, board items, person-photos, embeddings when PHAsset removed from library | gem | merged | PHPhotoLibraryChangeObserver detects removals; nee... |
 | **7zdybyvh** | PC-210: Library-People groups — boxes should be smaller and show a linked photo thumbnail instead of blank white | gem | merged | PeopleView group cell redesign. |
-| **wtb44nhk** | PC-081: Trips — tap photo opens blank detail page, no actions (add to people/board/hashtags) | clau | in_work | Returned to todo after review: routes through synt... |
+| **wtb44nhk** | PC-081: Trips — tap photo opens blank detail page, no actions (add to people/board/hashtags) | clau | planned | Returned to todo after review: routes through synt... |
 | **bhqe7fv2** | PC-233 [P0]: VideoStyle data model and CoreImage style processor | codi | planned | 7 visual style filter chains, GPU-accelerated via ... |
 | **xesnfw8p** | PC-234 [P0]: KenBurnsAnimator — motion keyframes per photo | codi | planned | Pan+zoom trajectories driven by EmotionalBeat. Fac... |
-| **yrle0nf2** | PC-235 [P1]: TransitionEngine — 7 style-appropriate cut types | gem | planned | crossfade, irisWipe, snapCut, bounce, softDissolve... |
+| **yrle0nf2** | PC-235 [P1]: TransitionEngine — 7 style-appropriate cut types | gem | in_work | crossfade, irisWipe, snapCut, bounce, softDissolve... |
 | **le4im847** | PC-236 [P1]: CaptionLayer — styled text overlays per style | gem | planned | Timed text composited per-frame. 7 typography trea... |
 | **zlcaak9u** | PC-237 [P0]: VideoAssemblyEngine — core AVFoundation compositor | codi | planned | SPIKE MAC MINI FIRST. AVAssetWriter + CIContext pe... |
-| **75ki5mr6** | PC-238 [P2]: TTS narration — optional on-device AVSpeechSynthesizer | misty | planned | P2 — ship after core video stable. Optional narrat... |
+| **75ki5mr6** | PC-238 [P2]: TTS narration — optional on-device AVSpeechSynthesizer | misty | in_work | P2 — ship after core video stable. Optional narrat... |
 | **e3o6vdxg** | PC-239 [P1]: Intro and outro assets — 7 style MP4s + runtime outro | codi | planned | 7 bundled intro MP4s (2-3s, generated via CoreGrap... |
-| **n8zirlgq** | PC-240 [P0]: WikiVideoScriptService — LLM moment selection | clau | planned | SmolLM2 135M selects 5-8 moments from WikiArticle.... |
+| **n8zirlgq** | PC-240 [P0]: WikiVideoScriptService — LLM moment selection | clau | in_work | SmolLM2 135M selects 5-8 moments from WikiArticle.... |
 | **ucxd99fa** | PC-241 [P1]: Stock clip CLIP matching — semantic fallback | clau | planned | When no user photo: embed caption, cosine similari... |
 | **myowlsln** | PC-242 [P0]: Stock clip bundle — 60 clips, 8 categories, ODR | misty | planned | Source CC0 clips (Pexels/Pixabay). Crop to 9:16. C... |
 | **8eknrrkr** | PC-243 [P1]: Music track integration and automatic selection | misty | planned | 21 AAC tracks (3/style) as ODR. Auto-select by emo... |
