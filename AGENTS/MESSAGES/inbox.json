@@ -494,7 +494,7 @@
     "to": "clau",
     "subject": "Message via Telegram",
     "body": "Here the next sprint. Please plan and start working",
-    "status": "unread",
+    "status": "read",
     "priority": "normal",
     "ref_ticket": null,
     "source": "telegram"
@@ -506,7 +506,7 @@
     "to": "clau",
     "subject": "Telegram: please confirm that you starte...",
     "body": "please confirm that you started sprint plan",
-    "status": "unread",
+    "status": "read",
     "priority": "normal",
     "ref_ticket": null,
     "source": "telegram"
@@ -518,7 +518,7 @@
     "to": "clau",
     "subject": "New Spec/Idea",
     "body": "/spec",
-    "status": "unread",
+    "status": "read",
     "priority": "normal",
     "ref_ticket": null,
     "source": "telegram"
@@ -530,7 +530,7 @@
     "to": "clau",
     "subject": "New Spec/Idea",
     "body": "/spec",
-    "status": "unread",
+    "status": "read",
     "priority": "normal",
     "ref_ticket": null,
     "source": "telegram"
