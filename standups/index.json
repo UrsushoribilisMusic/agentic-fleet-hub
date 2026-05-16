@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-05-16",
-    "summary": "Gem: Completed PC-223 (iOS Photos link) and rescued a massive batch of uncommitted polish work (PC-210, PC-209, PC-212, PC-215, PC-226, PC-081) from the workspace. All tasks pushed to main and moved to peer_review.",
+    "summary": "Gem: PC-235 (TransitionEngine) and PC-248 (Video Generation flow) implemented & verified; PC-223 completed; Architecture Pillar 4 added.",
     "file": "2026-05-16.md"
   },
   {
