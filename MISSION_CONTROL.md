@@ -518,19 +518,19 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **njsr9yms** | PC-220: People — similar photos added to people should use photo date, not added date | gem | merged | Imported from PrivateCore MISSION_CONTROL.md. |
 | **bi0c5ahp** | PC-221: People — group wiki should show empty-state notice when no notes or photos exist | gem | merged | Imported from PrivateCore MISSION_CONTROL.md. |
 | **q1vnpora** | PC-222: People — visual/list/timeline selector should be disabled outside content mode | gem | merged | Imported from PrivateCore MISSION_CONTROL.md. |
-| **a3hhgbqc** | PC-223: People — iOS Photos people link should open People & Pets albums | clau | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
+| **a3hhgbqc** | PC-223: People — iOS Photos people link should open People & Pets albums | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **a9ov9kl8** | PC-224: People — empty person view needs focus tab and wiki empty-state notice | gem | merged | Imported from PrivateCore MISSION_CONTROL.md. |
-| **kn9qpy52** | PC-226: Wiki week view — move graph/style/share/regenerate actions into top-right menu | clau | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
+| **kn9qpy52** | PC-226: Wiki week view — move graph/style/share/regenerate actions into top-right menu | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **hfng2al7** | PC-227: Wiki day view — remove duplicate edit-journal action and clarify rescan photos | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **8d3lyfdm** | PC-228: Wiki day view — generate wiki / AI description actions do not complete | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **1zkocl7q** | PC-229: Trips — wiki regeneration hits paywall after reset; retries still fail after 3 attempts | gem | merged | Imported from PrivateCore MISSION_CONTROL.md. |
 | **u5elcijk** | PC-230: Places — visit counts underreport multi-day place photos | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **zijydzkk** | PC-231: Boards — focus note dialog flickers while typing | gem | merged | Imported from PrivateCore MISSION_CONTROL.md. |
 | **qrulqkkh** | PC-232: Concept graph — missing lines in graph view | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
-| **4kw5fcyr** | PC-215: Similar Photos — broken/missing thumbnail for deleted photos | clau | in_work | Partial fix: filter rawSimilar assetIds at load ti... |
-| **677f7447** | PC-212: VLM rate-limit — skip new image description cycle if app entered foreground less than N seconds ago to prevent Metal crash on rapid background/foreground transitions | clau | in_work | Add foregroundSince timestamp in BackgroundSchedul... |
-| **88867svm** | PC-209: Deleted photo cleanup — cascade-delete cards, wiki refs, board items, person-photos, embeddings when PHAsset removed from library | clau | in_work | PHPhotoLibraryChangeObserver detects removals; nee... |
-| **7zdybyvh** | PC-210: Library-People groups — boxes should be smaller and show a linked photo thumbnail instead of blank white | clau | in_work | PeopleView group cell redesign. |
-| **wtb44nhk** | PC-081: Trips — tap photo opens blank detail page, no actions (add to people/board/hashtags) | clau | in_work | Returned to todo after review: routes through synt... |
+| **4kw5fcyr** | PC-215: Similar Photos — broken/missing thumbnail for deleted photos | gem | planned | Partial fix: filter rawSimilar assetIds at load ti... |
+| **677f7447** | PC-212: VLM rate-limit — skip new image description cycle if app entered foreground less than N seconds ago to prevent Metal crash on rapid background/foreground transitions | gem | planned | Add foregroundSince timestamp in BackgroundSchedul... |
+| **88867svm** | PC-209: Deleted photo cleanup — cascade-delete cards, wiki refs, board items, person-photos, embeddings when PHAsset removed from library | gem | planned | PHPhotoLibraryChangeObserver detects removals; nee... |
+| **7zdybyvh** | PC-210: Library-People groups — boxes should be smaller and show a linked photo thumbnail instead of blank white | gem | planned | PeopleView group cell redesign. |
+| **wtb44nhk** | PC-081: Trips — tap photo opens blank detail page, no actions (add to people/board/hashtags) | clau | planned | Returned to todo after review: routes through synt... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
