@@ -1,3 +1,135 @@
+# WORKLOG — V05-PROFILE-002: Add Installer Support for Profile Directory and Zip Overlay
+
+**Task ID**: fwxfhcprzb6g2oc
+**Branch**: task/fwxfhcprzb6g2oc requested; branch creation blocked by `.git` write permissions
+**Agent**: Codi
+**Date**: 2026-05-17
+
+---
+
+## Objective
+
+Allow `create-flotilla` installation/bootstrap to select an instruction profile pack from a local directory or local zip archive, while falling back to the built-in default profile.
+
+## Plan
+
+1. Add CLI flags for `--profile-dir <path>` and `--profile-zip <path>`.
+2. Resolve and validate the selected profile before creating the target install directory.
+3. Overlay profile files only into the intended instruction/config destinations.
+4. Print clear installer output naming the selected profile and overlay result.
+5. Document CLI help and installer docs for default, directory, and zip profile usage.
+6. Verify with dry-run and smoke coverage.
+
+## Results
+
+- Updated `package/bin/create-flotilla.mjs` with profile argument parsing, mutual-exclusion checks, default profile fallback, zip extraction, profile overlay, and user-facing installer output.
+- Reused `package/lib/profile-validator.mjs` for required file checks, safe relative paths, JSON parsing, symlink rejection, zip entry traversal checks, and allowed overlay destinations.
+- Updated `package/tools/verify-dry-run.mjs` to exercise default, directory, zip, skipped unsafe paths, invalid profile path, missing required files, invalid JSON, symlink rejection, and zip traversal rejection.
+- Updated `package/INSTALL.md`, `package/README.md`, and `package/PROFILE_PACKS.md` with the new CLI flags and safe overlay behavior.
+
+## Verification
+
+- [x] `PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin node --check package/bin/create-flotilla.mjs`
+- [x] `PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin node --check package/lib/profile-validator.mjs`
+- [x] `PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin node --check package/tools/verify-dry-run.mjs`
+- [x] `PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin node --check package/tools/smoke-profile-install.mjs`
+- [x] `PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin node package/bin/create-flotilla.mjs --help`
+- [x] `PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin npm --prefix package run verify:dry-run`
+- [x] `PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin npm --prefix package run smoke:profile-install`
+
+## Blockers
+
+- PocketBase unavailable on `localhost:8090`; could not post heartbeat, output comment, or move task to `peer_review`.
+- Git metadata writes blocked; could not pull, create the task branch, commit, or push.
+
+---
+
+# WORKLOG — V05-PROFILE-003: Add Profile Validator and Safe Overlay Rules
+
+**Task ID**: j5hbqnn05s7niwv
+**Branch**: task/j5hbqnn05s7niwv requested; branch creation blocked by `.git` write permissions
+**Agent**: Codi
+**Date**: 2026-05-17
+
+---
+
+## Objective
+
+Prevent malformed or unsafe profile packs from damaging the generated install layout.
+
+## Plan
+
+1. Add a reusable profile validator module with required files, optional files, safe path rules, JSON parsing, symlink rejection, and zip entry traversal checks.
+2. Wire `create-flotilla` so validation runs before target install writes begin.
+3. Add profile fixtures and dry-run assertions for valid/default, missing required, invalid JSON, path escape, and extension-area behavior.
+4. Document the strict overlay rules in `PROFILE_PACKS.md`.
+
+## Results
+
+- Added `package/lib/profile-validator.mjs`.
+- Updated `package/bin/create-flotilla.mjs` to call validation before scaffold writes and before zip extraction.
+- Added fixtures under `package/test-fixtures/profiles/`.
+- Extended `package/tools/verify-dry-run.mjs`.
+- Updated `package/PROFILE_PACKS.md` and package file allowlist.
+
+## Verification
+
+- [x] `PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin npm run verify:dry-run`
+- [x] `PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin node --check package/lib/profile-validator.mjs`
+- [x] `PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin node --check package/bin/create-flotilla.mjs`
+- [x] `PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin node --check package/tools/verify-dry-run.mjs`
+
+## Blockers
+
+- PocketBase unavailable on `localhost:8090`; could not post heartbeat, output comment, or move task to peer_review.
+- Git metadata writes blocked; could not pull, create the task branch, commit, or push.
+- `~/fleet/codi/PROGRESS.md` outside writable roots; update attempt failed with `operation not permitted`.
+
+---
+
+# WORKLOG — V05-PROFILE-005: Add Smoke Tests for Profile-Pack Install Flow
+
+**Task ID**: weekr00w2dscsse
+**Branch**: task/weekr00w2dscsse requested; branch creation blocked by `.git` write permissions
+**Agent**: Codi
+**Date**: 2026-05-17
+
+---
+
+## Objective
+
+Add release smoke coverage for the profile-pack install paths before v0.5.0.
+
+## Plan
+
+1. Add a focused smoke script that invokes the real `create-flotilla` CLI in temporary directories.
+2. Verify default built-in profile install writes the expected instruction files.
+3. Verify custom `--profile-dir` install overlays expected files.
+4. Verify invalid profiles fail before leaving partial install state.
+5. Verify `--profile-zip` install while zip support is present.
+6. Wire the script into npm scripts and document the release command.
+
+## Results
+
+- Added `package/tools/smoke-profile-install.mjs`.
+- Added `npm run smoke:profile-install`.
+- Added the profile smoke command to `prepublishOnly` after `verify:dry-run`.
+- Documented the command in `package/README.md` and `package/INSTALL.md`.
+
+## Verification
+
+- [x] `PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin node --check package/tools/smoke-profile-install.mjs`
+- [x] `PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin npm --prefix package run smoke:profile-install`
+- [x] `PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin npm --prefix package run verify:dry-run`
+
+## Blockers
+
+- PocketBase unavailable on `localhost:8090`; could not post heartbeat, output comment, or move task to peer_review.
+- Git metadata writes blocked; could not pull, create the task branch, commit, or push.
+- `~/fleet/codi/PROGRESS.md` outside writable roots; update not attempted because prior attempt in this session failed with `operation not permitted`.
+
+---
+
 # WORKLOG — V05-PROFILE-006: Final v0.5.0 Release Prep
 
 **Task ID**: qqivywhl6ehwd6w  

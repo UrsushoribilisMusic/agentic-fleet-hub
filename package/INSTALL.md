@@ -65,7 +65,10 @@ npm start
 npm run dev
 npm run doctor
 npm run verify:dry-run
+npm run smoke:profile-install
 ```
+
+`npm run smoke:profile-install` is the release smoke test for profile-pack installation. It exercises default profile install, custom `--profile-dir`, invalid profile rejection, and zipped profile install, then checks the expected instruction files were written.
 
 ## Optional: Hybrid Scenario 3
 
