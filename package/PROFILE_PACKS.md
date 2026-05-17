@@ -243,7 +243,20 @@ npx create-flotilla my-fleet --profile-dir ~/my-fleet-profile
 npx create-flotilla my-fleet --profile-zip ~/my-fleet-profile.zip
 ```
 
-If no profile flag is provided, `create-flotilla` uses the built-in `profiles/default-engineering/` pack. Profile overlays are constrained to the instruction/config layer: root agent mandate files, `MISSION_CONTROL.md`, `ARCHITECTURE.md`, `AGENTS/RULES.md`, `AGENTS/KEYVAULT.md`, `AGENTS/CONFIG/*.json`, `AGENTS/CONTEXT/*.md`, starter inbox/lessons files, standup starters, and `.gitignore`. Other files in the pack are skipped and counted in the installer output.
+If no profile flag is provided, `create-flotilla` uses the built-in `profiles/default-engineering/` pack. Profile overlays are validated before the scaffold writes install state. A valid pack must include:
+
+- `MISSION_CONTROL.md`
+- `AGENTS.md`
+- `AGENTS/RULES.md`
+- `AGENTS/KEYVAULT.md`
+- `AGENTS/CONFIG/fleet_meta.json`
+- `AGENTS/MESSAGES/inbox.json`
+- `AGENTS/LESSONS/ledger.json`
+- `standups/index.json`
+
+Profile overlays are constrained to the instruction/config layer: root agent mandate files, `MISSION_CONTROL.md`, `ARCHITECTURE.md`, `AGENTS/RULES.md`, `AGENTS/KEYVAULT.md`, `AGENTS/CONFIG/*.json`, `AGENTS/CONTEXT/*.md`, starter inbox/lessons files, standup starters, and `.gitignore`. All JSON files in these destinations must parse before install writes begin. Paths must be relative and cannot use absolute paths, `..` traversal, or symlinks.
+
+`README.md` is treated as profile documentation and is not overlaid onto the generated package README. Files under `extensions/` are accepted for manual review but are not copied into the install tree. Other files in the pack are skipped and counted in the installer output.
 
 For an existing repo, use a manual merge only after reviewing the diff:
 

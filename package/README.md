@@ -92,9 +92,12 @@ Before publishing package changes, run:
 
 ```bash
 npm run verify:dry-run
+npm run smoke:profile-install
 ```
 
 That smoke test scaffolds a temporary fleet, bootstraps the current wizard profile, runs the generated doctor, and verifies the engineering dashboard files expose the expected sections, theme toggle, and Add Agent hooks.
+
+`smoke:profile-install` is the focused release check for profile packs. It verifies the built-in default profile, a custom `--profile-dir` install, invalid profile rejection, and a zipped profile install, then confirms the expected instruction files exist in each generated target.
 
 ## Telegram Control
 
