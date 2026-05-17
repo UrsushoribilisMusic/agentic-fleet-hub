@@ -531,14 +531,14 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **zlcaak9u** | PC-237 [P0]: VideoAssemblyEngine — core AVFoundation compositor | codi | planned | SPIKE MAC MINI FIRST. AVAssetWriter + CIContext pe... |
 | **75ki5mr6** | PC-238 [P2]: TTS narration — optional on-device AVSpeechSynthesizer | codi | planned | P2 — ship after core video stable. Optional narrat... |
 | **e3o6vdxg** | PC-239 [P1]: Intro and outro assets — 7 style MP4s + runtime outro | codi | planned | 7 bundled intro MP4s (2-3s, generated via CoreGrap... |
-| **n8zirlgq** | PC-240 [P0]: WikiVideoScriptService — LLM moment selection | clau | in_work | SmolLM2 135M selects 5-8 moments from WikiArticle.... |
-| **ucxd99fa** | PC-241 [P1]: Stock clip CLIP matching — semantic fallback | clau | in_work | When no user photo: embed caption, cosine similari... |
+| **n8zirlgq** | PC-240 [P0]: WikiVideoScriptService — LLM moment selection | clau | planned | SmolLM2 135M selects 5-8 moments from WikiArticle.... |
+| **ucxd99fa** | PC-241 [P1]: Stock clip CLIP matching — semantic fallback | clau | planned | When no user photo: embed caption, cosine similari... |
 | **myowlsln** | PC-242 [P0]: Stock clip bundle — 60 clips, 8 categories, ODR | gem | in_work | Source CC0 clips (Pexels/Pixabay). Crop to 9:16. C... |
 | **8eknrrkr** | PC-243 [P1]: Music track integration and automatic selection | clau | in_work | 21 AAC tracks (3/style) as ODR. Auto-select by emo... |
 | **17o4l9an** | PC-244 [P0]: Texture and overlay PNG assets for CoreImage filters | gem | merged | 6+ textures ≥2048px: paper (1700s), grain (Vintage... |
 | **5vun0hyb** | PC-245 [P0]: Video creation entry points in wiki article views | clau | in_work | video.fill SF Symbol in wiki header. Also WikiFoot... |
 | **sk3spoxo** | PC-247 [P1]: Style confirmation screen — live CoreImage preview | gem | merged | Suggested style + live filter applied to cover pho... |
 | **2pzzrgga** | PC-248 [P0]: Video generation progress + AVPlayer preview | gem | merged | Style-themed loading + Combine progress bar. AVPla... |
-| **gpi0q42c** | PC-249 [P1]: Freemium gating — promotional vs clean outro by tier | clau | in_work | Video generation UNLIMITED for all tiers. Free = Q... |
+| **gpi0q42c** | PC-249 [P1]: Freemium gating — promotional vs clean outro by tier | clau | planned | Video generation UNLIMITED for all tiers. Free = Q... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
