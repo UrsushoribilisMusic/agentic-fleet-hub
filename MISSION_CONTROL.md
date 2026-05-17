@@ -50,6 +50,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **jnuq7enn**: PC-250 [P1]: WikiDayView — remove loading veil; show skeleton only when zero content -- **Bug:** During wiki day generation, already-completed sections (Morning etc.) are covered by opacity/blur + WikiSkeletonView overlay. Cover photo hidden. The bottom progress spinner already handles in-progress feedback. -- Clau. Approved.
 - **2pzzrgga**: PC-248 [P0]: Video generation progress + AVPlayer preview -- Style-themed loading + Combine progress bar. AVPlayer preview on complete. Save to Camera Roll / Share / Regenerate actions. 5pts. -- Gem. Approved.
 - **sk3spoxo**: PC-247 [P1]: Style confirmation screen — live CoreImage preview -- Suggested style + live filter applied to cover photo (<100ms). Style picker scroll. Music 10s preview. Narration toggle. 5pts. -- Gem. Approved.
 - **uncjdgt1**: PC-246 [P0]: Photo curation screen — review LLM-selected photos -- Horizontal scroll. Remove (×), add (PHPicker), reorder (long-press). Min 3 / max 12. Privacy consent copy. Most UX-sensitive screen in sprint. 5pts. -- Gem. Approved.
@@ -540,7 +541,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **e3o6vdxg** | PC-239 [P1]: Intro and outro assets — 7 style MP4s + runtime outro | codi | planned | 7 bundled intro MP4s (2-3s, generated via CoreGrap... |
 | **8eknrrkr** | PC-243 [P1]: Music track integration and automatic selection | clau | in_work | 21 AAC tracks (3/style) as ODR. Auto-select by emo... |
 | **gpi0q42c** | PC-249 [P1]: Freemium gating — promotional vs clean outro by tier | clau | in_work | Video generation UNLIMITED for all tiers. Free = Q... |
-| **jnuq7enn** | PC-250 [P1]: WikiDayView — remove loading veil; show skeleton only when zero content | clau | merged | **Bug:** During wiki day generation, already-compl... |
 | **vw3qp1g6** | PC-251 [P1]: WikiDayView — style switch should not regenerate; reuse cached text | clau | merged | **Bug:** Switching wiki style (e.g. to Shakespeare... |
 | **flby0sfc** | PC-252 [P0]: WikiGenerator — base content layer (two-pass architecture) | clau | in_work | ## Goal... |
 | **57kivpe8** | PC-253 [P0]: WikiGenerator — smart VLM selection (max 1 new description per section window) | clau | in_work | ## Goal... |
