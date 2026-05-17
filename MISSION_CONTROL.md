@@ -547,5 +547,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **n3r0mzz4** | PC-254 [P1]: WikiGenerator — style application uses base sections + journaling (Step 3) | clau | in_work | ## Goal... |
 | **uweus0mq** | PC-255 [P1]: WikiBrowserView — day navigation broken for ungenerated days | clau | in_work |  |
 | **hc1iggo2** | PC-256 [P1]: Video gen — com.apple.accounts Code=7 permission denied | codi | in_work |  |
+| **erwhktny** | RT-001 [P1]: pipeline_runner.py — detect product ID and pass format flag (fable|modern) | clau | planned | ## Goal... |
+| **w16ivb3k** | RT-002 [P0]: gen_story_modern.py — context-driven Runway prompts + hook question | clau | planned | ## Goal... |
+| **n4arcx7y** | RT-003 [P0]: assemble_modern.py — modern assembly with hook intro + subscribe outro | clau | planned | ## Goal... |
+| **7y2i94o3** | RT-004 [P1]: End-to-end test — Modern Story path with dummy order | clau | planned | ## Goal... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
