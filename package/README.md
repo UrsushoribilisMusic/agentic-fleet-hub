@@ -146,10 +146,14 @@ The remote Fleet server caches that snapshot and uses it as a fallback for `/fle
 ```bash
 npx create-flotilla my-fleet --install
 npx create-flotilla my-fleet --skip-git
+npx create-flotilla my-fleet --profile-dir ./my-profile
+npx create-flotilla my-fleet --profile-zip ./my-profile.zip
 ```
 
 - `--install`: runs `npm install` in the generated project.
 - `--skip-git`: does not initialize a git repository.
+- `--profile-dir <path>`: overlays a local instruction profile directory.
+- `--profile-zip <path>`: extracts and overlays a local zipped instruction profile pack.
 
 ---
 
@@ -167,7 +171,7 @@ npx create-flotilla my-fleet --skip-git
 
 Reusable instruction packs live under `profiles/`. The first pack, `profiles/default-engineering/`, contains sanitized fleet rules, runtime-specific agent files, starter config, context docs, inbox, lessons ledger, and standup scaffolding.
 
-Copy the contents of `profiles/default-engineering/` into a target repository when you want to bootstrap the coordination layer without private local paths or project-specific details. The pack README lists every included file and the placeholder values to replace during setup.
+`create-flotilla` uses `profiles/default-engineering/` automatically when no profile flag is provided. Use `--profile-dir` or `--profile-zip` when you want a custom pack at install time. The installer only overlays intended instruction/config destinations and reports the selected profile plus the number of files written. The pack README lists every included file and the placeholder values to replace during setup.
 
 ---
 
