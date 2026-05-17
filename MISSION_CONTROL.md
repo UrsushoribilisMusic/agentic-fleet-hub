@@ -525,7 +525,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **u5elcijk** | PC-230: Places — visit counts underreport multi-day place photos | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **qrulqkkh** | PC-232: Concept graph — missing lines in graph view | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **wtb44nhk** | PC-081: Trips — tap photo opens blank detail page, no actions (add to people/board/hashtags) | clau | in_work | Returned to todo after review: routes through synt... |
-| **bhqe7fv2** | PC-233 [P0]: VideoStyle data model and CoreImage style processor | codi | planned | 7 visual style filter chains, GPU-accelerated via ... |
+| **bhqe7fv2** | PC-233 [P0]: VideoStyle data model and CoreImage style processor | codi | in_work | 7 visual style filter chains, GPU-accelerated via ... |
 | **xesnfw8p** | PC-234 [P0]: KenBurnsAnimator — motion keyframes per photo | codi | planned | Pan+zoom trajectories driven by EmotionalBeat. Fac... |
 | **le4im847** | PC-236 [P1]: CaptionLayer — styled text overlays per style | gem | merged | Timed text composited per-frame. 7 typography trea... |
 | **zlcaak9u** | PC-237 [P0]: VideoAssemblyEngine — core AVFoundation compositor | codi | planned | SPIKE MAC MINI FIRST. AVAssetWriter + CIContext pe... |
@@ -539,6 +539,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **5vun0hyb** | PC-245 [P0]: Video creation entry points in wiki article views | clau | in_work | video.fill SF Symbol in wiki header. Also WikiFoot... |
 | **sk3spoxo** | PC-247 [P1]: Style confirmation screen — live CoreImage preview | gem | merged | Suggested style + live filter applied to cover pho... |
 | **2pzzrgga** | PC-248 [P0]: Video generation progress + AVPlayer preview | gem | merged | Style-themed loading + Combine progress bar. AVPla... |
-| **gpi0q42c** | PC-249 [P1]: Freemium gating — promotional vs clean outro by tier | clau | planned | Video generation UNLIMITED for all tiers. Free = Q... |
+| **gpi0q42c** | PC-249 [P1]: Freemium gating — promotional vs clean outro by tier | clau | in_work | Video generation UNLIMITED for all tiers. Free = Q... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
