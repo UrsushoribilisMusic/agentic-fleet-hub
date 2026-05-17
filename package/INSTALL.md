@@ -47,10 +47,16 @@ For an existing repository that only needs the reusable coordination layer, copy
 ```bash
 npx create-flotilla my-fleet --install
 npx create-flotilla my-fleet --skip-git
+npx create-flotilla my-fleet --profile-dir ./my-profile
+npx create-flotilla my-fleet --profile-zip ./my-profile.zip
 ```
 
 - `--install`: runs `npm install` in the generated project
 - `--skip-git`: skips `git init`
+- `--profile-dir <path>`: overlays instruction/config files from a local profile directory
+- `--profile-zip <path>`: extracts and overlays instruction/config files from a local zip profile pack
+
+If no profile option is provided, the installer uses the built-in `profiles/default-engineering/` profile. Profile overlays are constrained to Flotilla instruction/config destinations such as root agent mandate files, `MISSION_CONTROL.md`, `ARCHITECTURE.md`, `AGENTS/RULES.md`, `AGENTS/KEYVAULT.md`, `AGENTS/CONFIG/*.json`, `AGENTS/CONTEXT/*.md`, starter inbox/lessons files, standup starters, and `.gitignore`. Files outside those destinations are skipped and reported in the installer output.
 
 ## Local Commands
 

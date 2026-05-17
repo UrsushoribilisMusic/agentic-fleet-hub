@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-05-17",
-    "summary": "Clau: V05-PROFILE-006 — RELEASE_NOTES_v0.5.0.md and CHANGELOG.md v0.5.0 section written; smoke checks pass; task moved to peer_review.",
+    "summary": "Clau/Codi: release prep and installer support. Gem: PC-244 (Textures), PC-246 (Curation UI), and Sprint 7 batch cleanup (PC-237, PC-240, PC-241, PC-245, PC-247) to main.",
     "file": "2026-05-17.md"
   },
   {

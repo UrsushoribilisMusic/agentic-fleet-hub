@@ -236,15 +236,21 @@ Or commit it to a public repo under `profiles/my-team-name/`.
 
 ## Installing a Profile Pack into a Flotilla Install
 
-After running `npx create-flotilla my-fleet` (or in an existing repo), copy the profile pack contents into the repository root:
+For a new install, pass the profile directly to `create-flotilla`:
 
 ```bash
-# Scaffold a new fleet (or navigate to an existing one)
-npx create-flotilla my-fleet --skip-git
-cd my-fleet
+npx create-flotilla my-fleet --profile-dir ~/my-fleet-profile
+npx create-flotilla my-fleet --profile-zip ~/my-fleet-profile.zip
+```
 
-# Unzip and merge the profile pack
+If no profile flag is provided, `create-flotilla` uses the built-in `profiles/default-engineering/` pack. Profile overlays are constrained to the instruction/config layer: root agent mandate files, `MISSION_CONTROL.md`, `ARCHITECTURE.md`, `AGENTS/RULES.md`, `AGENTS/KEYVAULT.md`, `AGENTS/CONFIG/*.json`, `AGENTS/CONTEXT/*.md`, starter inbox/lessons files, standup starters, and `.gitignore`. Other files in the pack are skipped and counted in the installer output.
+
+For an existing repo, use a manual merge only after reviewing the diff:
+
+```bash
+cd my-fleet
 unzip ../my-fleet-profile.zip -d ./profile-import
+diff -r ./profile-import .
 cp -r ./profile-import/* .
 rm -r ./profile-import
 ```

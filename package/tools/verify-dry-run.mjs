@@ -58,6 +58,26 @@ function verifyDashboard(targetPath) {
   assert(styleCss.includes('[data-theme="dark"]'), "engineering style.css missing dark theme support");
 }
 
+function makeProfile(profileRoot, marker) {
+  fs.mkdirSync(path.join(profileRoot, "AGENTS"), { recursive: true });
+  fs.mkdirSync(path.join(profileRoot, "AGENTS", "CONFIG"), { recursive: true });
+  fs.mkdirSync(path.join(profileRoot, "scripts"), { recursive: true });
+  fs.writeFileSync(path.join(profileRoot, "AGENTS", "RULES.md"), `# Custom Rules\n\n${marker}\n`);
+  fs.writeFileSync(path.join(profileRoot, "AGENTS", "CONFIG", "custom_profile.json"), JSON.stringify({ marker }, null, 2));
+  fs.writeFileSync(path.join(profileRoot, "README.md"), "This profile README must not overwrite the package README.\n");
+  fs.writeFileSync(path.join(profileRoot, "scripts", "evil.py"), "print('not allowed')\n");
+}
+
+function verifyProfileOverlay(targetPath, marker) {
+  const rules = fs.readFileSync(path.join(targetPath, "AGENTS", "RULES.md"), "utf8");
+  const customJson = JSON.parse(fs.readFileSync(path.join(targetPath, "AGENTS", "CONFIG", "custom_profile.json"), "utf8"));
+  const packageReadme = fs.readFileSync(path.join(targetPath, "README.md"), "utf8");
+  assert(rules.includes(marker), "profile overlay did not write AGENTS/RULES.md");
+  assert(customJson.marker === marker, "profile overlay did not write AGENTS/CONFIG/custom_profile.json");
+  assert(!fs.existsSync(path.join(targetPath, "scripts", "evil.py")), "profile overlay wrote outside allowed instruction/config paths");
+  assert(!packageReadme.includes("must not overwrite"), "profile README overwrote package README");
+}
+
 async function main() {
   const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "flotilla-dry-run-"));
   const targetPath = path.join(tempRoot, "smoke-fleet");
@@ -88,6 +108,8 @@ async function main() {
     for (const relativePath of expectedFiles) {
       assert(fs.existsSync(path.join(targetPath, relativePath)), `Scaffold missing ${relativePath}`);
     }
+    assert(fs.existsSync(path.join(targetPath, "profiles", "default-engineering", "AGENTS", "RULES.md")), "Scaffold missing bundled default profile");
+    assert(fs.readFileSync(path.join(targetPath, "MISSION_CONTROL.md"), "utf8").includes("default-engineering"), "Default profile did not overlay MISSION_CONTROL.md");
 
     const setupLib = await import(pathToFileURL(path.join(targetPath, "server", "setup-lib.mjs")).href);
     let meta = setupLib.buildSetupPayload(setupLib.getDefaultFleetMeta(), {
@@ -130,6 +152,29 @@ async function main() {
 
     run("git", ["rev-parse", "--is-inside-work-tree"], { cwd: targetPath });
     verifyDashboard(targetPath);
+
+    const dirProfile = path.join(tempRoot, "custom-profile");
+    const dirTarget = path.join(tempRoot, "dir-profile-fleet");
+    makeProfile(dirProfile, "dir-profile-marker");
+    const dirOutput = run(process.execPath, [SCAFFOLDER, dirTarget, "--skip-git", "--profile-dir", dirProfile]);
+    assert(dirOutput.includes(`Profile: ${dirProfile}`), "profile-dir output did not name the selected profile");
+    verifyProfileOverlay(dirTarget, "dir-profile-marker");
+
+    const zipProfile = path.join(tempRoot, "zip-profile");
+    const zipTarget = path.join(tempRoot, "zip-profile-fleet");
+    const zipPath = path.join(tempRoot, "zip-profile.zip");
+    makeProfile(zipProfile, "zip-profile-marker");
+    run("zip", ["-qr", zipPath, "."], { cwd: zipProfile });
+    const zipOutput = run(process.execPath, [SCAFFOLDER, zipTarget, "--skip-git", "--profile-zip", zipPath]);
+    assert(zipOutput.includes(`Profile: ${zipPath}`), "profile-zip output did not name the selected profile");
+    verifyProfileOverlay(zipTarget, "zip-profile-marker");
+
+    const invalid = spawnSync(process.execPath, [SCAFFOLDER, path.join(tempRoot, "invalid-profile-fleet"), "--profile-dir", path.join(tempRoot, "missing-profile")], {
+      encoding: "utf8",
+      windowsHide: true,
+    });
+    assert(invalid.status !== 0, "invalid profile directory unexpectedly succeeded");
+    assert((invalid.stderr || "").includes("Profile directory does not exist"), "invalid profile directory error was not useful");
 
     console.log("verify:dry-run passed");
     console.log(`Scaffolded: ${targetPath}`);
