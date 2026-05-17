@@ -9,6 +9,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PACKAGE_ROOT = path.join(__dirname, "..");
 const SCAFFOLDER = path.join(PACKAGE_ROOT, "bin", "create-flotilla.mjs");
+const FIXTURE_ROOT = path.join(PACKAGE_ROOT, "test-fixtures", "profiles");
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -61,10 +62,22 @@ function verifyDashboard(targetPath) {
 function makeProfile(profileRoot, marker) {
   fs.mkdirSync(path.join(profileRoot, "AGENTS"), { recursive: true });
   fs.mkdirSync(path.join(profileRoot, "AGENTS", "CONFIG"), { recursive: true });
+  fs.mkdirSync(path.join(profileRoot, "AGENTS", "MESSAGES"), { recursive: true });
+  fs.mkdirSync(path.join(profileRoot, "AGENTS", "LESSONS"), { recursive: true });
+  fs.mkdirSync(path.join(profileRoot, "standups"), { recursive: true });
+  fs.mkdirSync(path.join(profileRoot, "extensions"), { recursive: true });
   fs.mkdirSync(path.join(profileRoot, "scripts"), { recursive: true });
+  fs.writeFileSync(path.join(profileRoot, "MISSION_CONTROL.md"), `# Mission\n\n${marker}\n`);
+  fs.writeFileSync(path.join(profileRoot, "AGENTS.md"), `# Agent Mandate\n\n${marker}\n`);
+  fs.writeFileSync(path.join(profileRoot, "AGENTS", "KEYVAULT.md"), `# Keyvault\n\n${marker}\n`);
   fs.writeFileSync(path.join(profileRoot, "AGENTS", "RULES.md"), `# Custom Rules\n\n${marker}\n`);
   fs.writeFileSync(path.join(profileRoot, "AGENTS", "CONFIG", "custom_profile.json"), JSON.stringify({ marker }, null, 2));
+  fs.writeFileSync(path.join(profileRoot, "AGENTS", "CONFIG", "fleet_meta.json"), JSON.stringify({ marker }, null, 2));
+  fs.writeFileSync(path.join(profileRoot, "AGENTS", "MESSAGES", "inbox.json"), "[]\n");
+  fs.writeFileSync(path.join(profileRoot, "AGENTS", "LESSONS", "ledger.json"), "[]\n");
+  fs.writeFileSync(path.join(profileRoot, "standups", "index.json"), "[]\n");
   fs.writeFileSync(path.join(profileRoot, "README.md"), "This profile README must not overwrite the package README.\n");
+  fs.writeFileSync(path.join(profileRoot, "extensions", "custom-note.md"), "Manual extension area.\n");
   fs.writeFileSync(path.join(profileRoot, "scripts", "evil.py"), "print('not allowed')\n");
 }
 
@@ -75,6 +88,7 @@ function verifyProfileOverlay(targetPath, marker) {
   assert(rules.includes(marker), "profile overlay did not write AGENTS/RULES.md");
   assert(customJson.marker === marker, "profile overlay did not write AGENTS/CONFIG/custom_profile.json");
   assert(!fs.existsSync(path.join(targetPath, "scripts", "evil.py")), "profile overlay wrote outside allowed instruction/config paths");
+  assert(!fs.existsSync(path.join(targetPath, "extensions", "custom-note.md")), "profile overlay wrote extension files into install tree");
   assert(!packageReadme.includes("must not overwrite"), "profile README overwrote package README");
 }
 
@@ -84,6 +98,24 @@ async function main() {
 
   try {
     run(process.execPath, [SCAFFOLDER, targetPath]);
+    const validator = await import(pathToFileURL(path.join(PACKAGE_ROOT, "lib", "profile-validator.mjs")).href);
+    const defaultValidation = validator.validateProfileDirectory(path.join(PACKAGE_ROOT, "profiles", "default-engineering"));
+    assert(defaultValidation.allowedFiles.length > 0, "default profile validator returned no allowed files");
+    assert(defaultValidation.unknownFiles.includes("gitignore.template") === false, "gitignore.template should be a known optional file");
+    const fixtureValidation = validator.validateProfileDirectory(path.join(FIXTURE_ROOT, "valid-minimal"));
+    assert(fixtureValidation.extensionFiles.includes("extensions/README.md"), "valid fixture extension file was not recognized");
+    const traversalZipRoot = path.join(tempRoot, "zip-traversal-root");
+    const traversalZipPath = path.join(tempRoot, "zip-traversal.zip");
+    fs.mkdirSync(traversalZipRoot, { recursive: true });
+    fs.writeFileSync(path.join(tempRoot, "zip-escape.txt"), "escape\n");
+    run("zip", ["-q", traversalZipPath, "../zip-escape.txt"], { cwd: traversalZipRoot });
+    let zipTraversalRejected = false;
+    try {
+      validator.assertSafeZipEntries(traversalZipPath);
+    } catch (error) {
+      zipTraversalRejected = error.message.includes("unsafe path");
+    }
+    assert(zipTraversalRejected, "zip traversal entry was not rejected");
 
     const expectedFiles = [
       "package.json",
@@ -175,6 +207,32 @@ async function main() {
     });
     assert(invalid.status !== 0, "invalid profile directory unexpectedly succeeded");
     assert((invalid.stderr || "").includes("Profile directory does not exist"), "invalid profile directory error was not useful");
+
+    const missingRequired = spawnSync(process.execPath, [SCAFFOLDER, path.join(tempRoot, "missing-required-fleet"), "--profile-dir", path.join(FIXTURE_ROOT, "missing-required")], {
+      encoding: "utf8",
+      windowsHide: true,
+    });
+    assert(missingRequired.status !== 0, "missing required profile unexpectedly succeeded");
+    assert((missingRequired.stderr || "").includes("missing required file(s): AGENTS/RULES.md"), "missing required error was not useful");
+
+    const invalidJsonTarget = path.join(tempRoot, "invalid-json-fleet");
+    const invalidJson = spawnSync(process.execPath, [SCAFFOLDER, invalidJsonTarget, "--profile-dir", path.join(FIXTURE_ROOT, "invalid-json")], {
+      encoding: "utf8",
+      windowsHide: true,
+    });
+    assert(invalidJson.status !== 0, "invalid JSON profile unexpectedly succeeded");
+    assert((invalidJson.stderr || "").includes("Invalid JSON in profile file AGENTS/CONFIG/fleet_meta.json"), "invalid JSON error was not useful");
+    assert(!fs.existsSync(invalidJsonTarget), "invalid JSON profile created a partial install directory");
+
+    const symlinkProfile = path.join(tempRoot, "symlink-profile");
+    makeProfile(symlinkProfile, "symlink-marker");
+    fs.symlinkSync(tempRoot, path.join(symlinkProfile, "extensions", "escape"));
+    const traversal = spawnSync(process.execPath, [SCAFFOLDER, path.join(tempRoot, "path-traversal-fleet"), "--profile-dir", symlinkProfile], {
+      encoding: "utf8",
+      windowsHide: true,
+    });
+    assert(traversal.status !== 0, "path traversal profile unexpectedly succeeded");
+    assert((traversal.stderr || "").includes("symbolic link"), "path traversal error was not useful");
 
     console.log("verify:dry-run passed");
     console.log(`Scaffolded: ${targetPath}`);

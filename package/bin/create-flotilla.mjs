@@ -5,6 +5,14 @@ import path from "node:path";
 import os from "node:os";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import {
+  assertSafeZipEntries,
+  isAllowedProfilePath,
+  isProfileDocumentationOnlyPath,
+  isProfileExtensionPath,
+  validateProfileDirectory,
+  walkProfileDirectory,
+} from "../lib/profile-validator.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PACKAGE_ROOT = path.join(__dirname, "..");
@@ -136,38 +144,13 @@ function copyDirectory(sourceDir, targetDir) {
   }
 }
 
-function isAllowedProfilePath(relativePath) {
-  const clean = relativePath.replace(/\\/g, "/");
-  if (!clean || clean.startsWith("/") || clean.includes("../") || clean === "..") return false;
-  if (clean === ".gitignore" || clean === "gitignore.template") return true;
-  if (["AGENTS.md", "CLAUDE.md", "GEMINI.md", "GEMMA.md", "MISTRAL.md", "MISSION_CONTROL.md", "ARCHITECTURE.md"].includes(clean)) return true;
-  if (clean === "AGENTS/RULES.md" || clean === "AGENTS/KEYVAULT.md") return true;
-  if (clean === "AGENTS/MESSAGES/inbox.json" || clean === "AGENTS/LESSONS/ledger.json") return true;
-  if (clean === "standups/index.json" || clean === "standups/README.md") return true;
-  if (/^AGENTS\/CONFIG\/[A-Za-z0-9._-]+\.json$/.test(clean)) return true;
-  if (/^AGENTS\/CONTEXT\/[A-Za-z0-9._/-]+\.md$/.test(clean) && !clean.includes("..")) return true;
-  return false;
-}
-
 function hasProfileFiles(profileDir) {
   if (!fs.existsSync(profileDir) || !fs.statSync(profileDir).isDirectory()) return false;
-  return walkDirectory(profileDir).some(filePath => isAllowedProfilePath(path.relative(profileDir, filePath)));
-}
-
-function walkDirectory(rootPath) {
-  const entries = [];
-  for (const dirent of fs.readdirSync(rootPath, { withFileTypes: true })) {
-    const fullPath = path.join(rootPath, dirent.name);
-    if (dirent.isSymbolicLink()) {
-      fail(`Profile pack contains a symbolic link, which is not allowed: ${path.relative(rootPath, fullPath)}`);
-    }
-    if (dirent.isDirectory()) {
-      entries.push(...walkDirectory(fullPath));
-    } else if (dirent.isFile()) {
-      entries.push(fullPath);
-    }
+  try {
+    return validateProfileDirectory(profileDir).allowedFiles.length > 0;
+  } catch {
+    return false;
   }
-  return entries;
 }
 
 function findProfileRoot(candidateDir) {
@@ -187,6 +170,12 @@ function unzipProfile(zipPath) {
   }
   if (!fs.statSync(resolved).isFile()) {
     fail(`Profile zip is not a file: ${resolved}`);
+  }
+
+  try {
+    assertSafeZipEntries(resolved);
+  } catch (error) {
+    fail(error.message);
   }
 
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "flotilla-profile-"));
@@ -211,14 +200,10 @@ function unzipProfile(zipPath) {
 function resolveProfile(options) {
   if (options.profileDir) {
     const profileRoot = path.resolve(options.profileDir);
-    if (!fs.existsSync(profileRoot)) {
-      fail(`Profile directory does not exist: ${profileRoot}`);
-    }
-    if (!fs.statSync(profileRoot).isDirectory()) {
-      fail(`Profile directory is not a directory: ${profileRoot}`);
-    }
-    if (!hasProfileFiles(profileRoot)) {
-      fail(`Profile directory does not contain supported instruction/config files: ${profileRoot}`);
+    try {
+      validateProfileDirectory(profileRoot);
+    } catch (error) {
+      fail(error.message);
     }
     return { profileRoot, label: profileRoot, tempDir: "" };
   }
@@ -228,19 +213,26 @@ function resolveProfile(options) {
     return { ...extracted, label: path.resolve(options.profileZip) };
   }
 
-  if (!hasProfileFiles(DEFAULT_PROFILE_DIR)) {
-    fail(`Built-in default profile is missing or invalid: ${DEFAULT_PROFILE_DIR}`);
+  try {
+    validateProfileDirectory(DEFAULT_PROFILE_DIR);
+  } catch (error) {
+    fail(`Built-in default profile is missing or invalid: ${DEFAULT_PROFILE_DIR}\n${error.message}`);
   }
   return { profileRoot: DEFAULT_PROFILE_DIR, label: "default-engineering (built-in)", tempDir: "" };
 }
 
 function applyProfileOverlay(profileRoot, targetPath) {
+  const validation = validateProfileDirectory(profileRoot);
   const filesWritten = [];
   const skipped = [];
+  const extensionFiles = [...validation.extensionFiles];
 
-  for (const sourcePath of walkDirectory(profileRoot)) {
+  for (const sourcePath of walkProfileDirectory(profileRoot)) {
     const relativePath = path.relative(profileRoot, sourcePath).replace(/\\/g, "/");
     if (!isAllowedProfilePath(relativePath)) {
+      if (isProfileExtensionPath(relativePath) || isProfileDocumentationOnlyPath(relativePath)) {
+        continue;
+      }
       skipped.push(relativePath);
       continue;
     }
@@ -257,6 +249,7 @@ function applyProfileOverlay(profileRoot, targetPath) {
   return {
     filesWritten: Array.from(new Set(filesWritten)).sort(),
     skipped: skipped.sort(),
+    extensionFiles,
   };
 }
 
@@ -335,6 +328,9 @@ function printNextSteps(targetPath, options, profileResult) {
   log(`Profile files overlaid: ${profileResult.filesWritten.length}`);
   if (profileResult.skipped.length) {
     log(`Profile files skipped outside instruction/config destinations: ${profileResult.skipped.length}`);
+  }
+  if (profileResult.extensionFiles.length) {
+    log(`Profile extension files kept for manual review under extensions/: ${profileResult.extensionFiles.length}`);
   }
   log("");
   log("Next steps:");
