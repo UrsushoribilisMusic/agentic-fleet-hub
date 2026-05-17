@@ -56,6 +56,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **fsj216xt**: PC-219: People — hide person should stop them reappearing in suggested groups -- Imported from PrivateCore MISSION_CONTROL.md. -- Gem. Approved.
 - **5ihwuycn**: PC-218: Library wiki — weekly wiki sometimes does not show up -- Imported from PrivateCore MISSION_CONTROL.md. -- Misty. Approved.
 - **sd2nwh29**: PC-217: Capture — Ask should allow writing a question before sending -- Imported from PrivateCore MISSION_CONTROL.md. -- Misty. Approved.
+- **qqivywhl**: [FLOTILLA v0.5.0][P1] V05-PROFILE-006 Final v0.5.0 Release Prep -- ## Metadata -- Clau. Approved.
 - **xs2bnroq**: [FLOTILLA v0.5.0][P0] V05-PROFILE-004 Write PROFILE_PACKS.md as Agent Handoff Spec -- ## Metadata -- Clau. Approved.
 - **3z4r1bgw**: [FLOTILLA v0.5.0][P0] V05-PROFILE-001 Create Default Engineering Instruction Profile -- ## Metadata -- Clau. Approved.
 - **sln025dz**: PC-208 [P1]: Global knowledge graph — all relationships across wikis, trips, boards -- The graph icon in the Library tab (currently wired to ConceptGraphView / the week graph) should show a full cross-entity knowledge graph, not a weekly scope. -- Gem. Approved.
@@ -519,7 +520,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **fwxfhcpr** | [FLOTILLA v0.5.0][P0] V05-PROFILE-002 Add Installer Support for Profile Directory and Zip Overlay | codi | planned | ## Metadata... |
 | **j5hbqnn0** | [FLOTILLA v0.5.0][P0] V05-PROFILE-003 Add Profile Validator and Safe Overlay Rules | codi | planned | ## Metadata... |
 | **weekr00w** | [FLOTILLA v0.5.0][P1] V05-PROFILE-005 Add Smoke Tests for Profile-Pack Install Flow | codi | planned | ## Metadata... |
-| **qqivywhl** | [FLOTILLA v0.5.0][P1] V05-PROFILE-006 Final v0.5.0 Release Prep | clau | merged | ## Metadata... |
 | **hfng2al7** | PC-227: Wiki day view — remove duplicate edit-journal action and clarify rescan photos | clau | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **8d3lyfdm** | PC-228: Wiki day view — generate wiki / AI description actions do not complete | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **u5elcijk** | PC-230: Places — visit counts underreport multi-day place photos | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
@@ -534,8 +534,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **n8zirlgq** | PC-240 [P0]: WikiVideoScriptService — LLM moment selection | clau | in_work | SmolLM2 135M selects 5-8 moments from WikiArticle.... |
 | **ucxd99fa** | PC-241 [P1]: Stock clip CLIP matching — semantic fallback | clau | in_work | When no user photo: embed caption, cosine similari... |
 | **myowlsln** | PC-242 [P0]: Stock clip bundle — 60 clips, 8 categories, ODR | gem | in_work | Source CC0 clips (Pexels/Pixabay). Crop to 9:16. C... |
-| **8eknrrkr** | PC-243 [P1]: Music track integration and automatic selection | clau | planned | 21 AAC tracks (3/style) as ODR. Auto-select by emo... |
-| **17o4l9an** | PC-244 [P0]: Texture and overlay PNG assets for CoreImage filters | gem | planned | 6+ textures ≥2048px: paper (1700s), grain (Vintage... |
+| **8eknrrkr** | PC-243 [P1]: Music track integration and automatic selection | clau | in_work | 21 AAC tracks (3/style) as ODR. Auto-select by emo... |
+| **17o4l9an** | PC-244 [P0]: Texture and overlay PNG assets for CoreImage filters | gem | in_work | 6+ textures ≥2048px: paper (1700s), grain (Vintage... |
 | **5vun0hyb** | PC-245 [P0]: Video creation entry points in wiki article views | clau | in_work | video.fill SF Symbol in wiki header. Also WikiFoot... |
 | **sk3spoxo** | PC-247 [P1]: Style confirmation screen — live CoreImage preview | gem | merged | Suggested style + live filter applied to cover pho... |
 | **2pzzrgga** | PC-248 [P0]: Video generation progress + AVPlayer preview | gem | merged | Style-themed loading + Combine progress bar. AVPla... |
