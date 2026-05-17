@@ -526,7 +526,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **qrulqkkh** | PC-232: Concept graph — missing lines in graph view | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **wtb44nhk** | PC-081: Trips — tap photo opens blank detail page, no actions (add to people/board/hashtags) | clau | in_work | Returned to todo after review: routes through synt... |
 | **bhqe7fv2** | PC-233 [P0]: VideoStyle data model and CoreImage style processor | codi | in_work | 7 visual style filter chains, GPU-accelerated via ... |
-| **xesnfw8p** | PC-234 [P0]: KenBurnsAnimator — motion keyframes per photo | codi | planned | Pan+zoom trajectories driven by EmotionalBeat. Fac... |
+| **xesnfw8p** | PC-234 [P0]: KenBurnsAnimator — motion keyframes per photo | codi | in_work | Pan+zoom trajectories driven by EmotionalBeat. Fac... |
 | **le4im847** | PC-236 [P1]: CaptionLayer — styled text overlays per style | gem | merged | Timed text composited per-frame. 7 typography trea... |
 | **zlcaak9u** | PC-237 [P0]: VideoAssemblyEngine — core AVFoundation compositor | codi | planned | SPIKE MAC MINI FIRST. AVAssetWriter + CIContext pe... |
 | **75ki5mr6** | PC-238 [P2]: TTS narration — optional on-device AVSpeechSynthesizer | codi | planned | P2 — ship after core video stable. Optional narrat... |
