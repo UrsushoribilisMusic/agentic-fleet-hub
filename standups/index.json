@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-05-17",
+    "summary": "Teddy: WikiGenerator section wiki ordering fix (moved after main save to prevent thermal cascade), partial JSON recovery (salvage lead from truncated Ministral 3B responses), PC-255 nav fix, MLXEngine background crash mitigation, music track ODR integration guide. Build succeeded.",
+    "file": "2026-05-17-teddy.md"
+  },
+  {
+    "date": "2026-05-17",
     "summary": "Clau: RT-001 — pipeline_runner.py product ID detection + fable/modern format routing. Commit 44128b5. Task to peer_review.",
     "file": "2026-05-17-clau-rt001.md"
   },
