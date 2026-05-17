@@ -532,7 +532,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **hfng2al7** | PC-227: Wiki day view — remove duplicate edit-journal action and clarify rescan photos | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
-| **8d3lyfdm** | PC-228: Wiki day view — generate wiki / AI description actions do not complete | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
+| **8d3lyfdm** | PC-228: Wiki day view — generate wiki / AI description actions do not complete | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **u5elcijk** | PC-230: Places — visit counts underreport multi-day place photos | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **qrulqkkh** | PC-232: Concept graph — missing lines in graph view | clau | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **bhqe7fv2** | PC-233 [P0]: VideoStyle data model and CoreImage style processor | clau | in_work | 7 visual style filter chains, GPU-accelerated via ... |
@@ -540,7 +540,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **75ki5mr6** | PC-238 [P2]: TTS narration — optional on-device AVSpeechSynthesizer | codi | in_work | P2 — ship after core video stable. Optional narrat... |
 | **e3o6vdxg** | PC-239 [P1]: Intro and outro assets — 7 style MP4s + runtime outro | codi | in_work | 7 bundled intro MP4s (2-3s, generated via CoreGrap... |
 | **8eknrrkr** | PC-243 [P1]: Music track integration and automatic selection | clau | planned | 21 AAC tracks (3/style) as ODR. Auto-select by emo... |
-| **gpi0q42c** | PC-249 [P1]: Freemium gating — promotional vs clean outro by tier | clau | in_work | Video generation UNLIMITED for all tiers. Free = Q... |
+| **gpi0q42c** | PC-249 [P1]: Freemium gating — promotional vs clean outro by tier | clau | planned | Video generation UNLIMITED for all tiers. Free = Q... |
 | **vw3qp1g6** | PC-251 [P1]: WikiDayView — style switch should not regenerate; reuse cached text | clau | in_work | **Bug:** Switching wiki style (e.g. to Shakespeare... |
 | **flby0sfc** | PC-252 [P0]: WikiGenerator — base content layer (two-pass architecture) | clau | in_work | ## Goal... |
 | **57kivpe8** | PC-253 [P0]: WikiGenerator — smart VLM selection (max 1 new description per section window) | clau | in_work | ## Goal... |
