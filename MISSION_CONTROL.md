@@ -543,7 +543,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **jnuq7enn** | PC-250 [P1]: WikiDayView — remove loading veil; show skeleton only when zero content | clau | merged | **Bug:** During wiki day generation, already-compl... |
 | **vw3qp1g6** | PC-251 [P1]: WikiDayView — style switch should not regenerate; reuse cached text | clau | merged | **Bug:** Switching wiki style (e.g. to Shakespeare... |
 | **flby0sfc** | PC-252 [P0]: WikiGenerator — base content layer (two-pass architecture) | clau | in_work | ## Goal... |
-| **57kivpe8** | PC-253 [P0]: WikiGenerator — smart VLM selection (max 1 new description per section window) | clau | planned | ## Goal... |
+| **57kivpe8** | PC-253 [P0]: WikiGenerator — smart VLM selection (max 1 new description per section window) | clau | in_work | ## Goal... |
 | **n3r0mzz4** | PC-254 [P1]: WikiGenerator — style application uses base sections + journaling (Step 3) | clau | planned | ## Goal... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
