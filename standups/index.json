@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-05-17",
+    "summary": "Misty: peer review session - approved 9 tasks (V05-PROFILE-002/003/005, PC-081, PC-237, PC-240, PC-241, PC-245, PC-250), reset PC-251 to todo (reverted).",
+    "file": "2026-05-17-misty.md"
+  },
+  {
+    "date": "2026-05-17",
     "summary": "Clau/Codi: release prep, installer support, profile validator, and profile install smoke tests. Gem: PC-244 (Textures), PC-246 (Curation UI), and Sprint 7 batch cleanup (PC-237, PC-240, PC-241, PC-245, PC-247) to main.",
     "file": "2026-05-17.md"
   },
