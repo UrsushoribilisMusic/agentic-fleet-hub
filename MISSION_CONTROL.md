@@ -523,7 +523,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **hfng2al7** | PC-227: Wiki day view — remove duplicate edit-journal action and clarify rescan photos | clau | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **8d3lyfdm** | PC-228: Wiki day view — generate wiki / AI description actions do not complete | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **u5elcijk** | PC-230: Places — visit counts underreport multi-day place photos | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
-| **qrulqkkh** | PC-232: Concept graph — missing lines in graph view | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
+| **qrulqkkh** | PC-232: Concept graph — missing lines in graph view | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **wtb44nhk** | PC-081: Trips — tap photo opens blank detail page, no actions (add to people/board/hashtags) | clau | in_work | Returned to todo after review: routes through synt... |
 | **bhqe7fv2** | PC-233 [P0]: VideoStyle data model and CoreImage style processor | codi | planned | 7 visual style filter chains, GPU-accelerated via ... |
 | **xesnfw8p** | PC-234 [P0]: KenBurnsAnimator — motion keyframes per photo | codi | planned | Pan+zoom trajectories driven by EmotionalBeat. Fac... |
@@ -533,10 +533,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **e3o6vdxg** | PC-239 [P1]: Intro and outro assets — 7 style MP4s + runtime outro | codi | planned | 7 bundled intro MP4s (2-3s, generated via CoreGrap... |
 | **n8zirlgq** | PC-240 [P0]: WikiVideoScriptService — LLM moment selection | clau | in_work | SmolLM2 135M selects 5-8 moments from WikiArticle.... |
 | **ucxd99fa** | PC-241 [P1]: Stock clip CLIP matching — semantic fallback | clau | in_work | When no user photo: embed caption, cosine similari... |
-| **myowlsln** | PC-242 [P0]: Stock clip bundle — 60 clips, 8 categories, ODR | gem | planned | Source CC0 clips (Pexels/Pixabay). Crop to 9:16. C... |
+| **myowlsln** | PC-242 [P0]: Stock clip bundle — 60 clips, 8 categories, ODR | gem | in_work | Source CC0 clips (Pexels/Pixabay). Crop to 9:16. C... |
 | **8eknrrkr** | PC-243 [P1]: Music track integration and automatic selection | clau | in_work | 21 AAC tracks (3/style) as ODR. Auto-select by emo... |
 | **17o4l9an** | PC-244 [P0]: Texture and overlay PNG assets for CoreImage filters | gem | merged | 6+ textures ≥2048px: paper (1700s), grain (Vintage... |
-| **5vun0hyb** | PC-245 [P0]: Video creation entry points in wiki article views | clau | planned | video.fill SF Symbol in wiki header. Also WikiFoot... |
+| **5vun0hyb** | PC-245 [P0]: Video creation entry points in wiki article views | clau | in_work | video.fill SF Symbol in wiki header. Also WikiFoot... |
 | **sk3spoxo** | PC-247 [P1]: Style confirmation screen — live CoreImage preview | gem | merged | Suggested style + live filter applied to cover pho... |
 | **2pzzrgga** | PC-248 [P0]: Video generation progress + AVPlayer preview | gem | merged | Style-themed loading + Combine progress bar. AVPla... |
 | **gpi0q42c** | PC-249 [P1]: Freemium gating — promotional vs clean outro by tier | clau | planned | Video generation UNLIMITED for all tiers. Free = Q... |
