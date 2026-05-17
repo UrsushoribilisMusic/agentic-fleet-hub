@@ -520,7 +520,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **fwxfhcpr** | [FLOTILLA v0.5.0][P0] V05-PROFILE-002 Add Installer Support for Profile Directory and Zip Overlay | codi | in_work | ## Metadata... |
 | **j5hbqnn0** | [FLOTILLA v0.5.0][P0] V05-PROFILE-003 Add Profile Validator and Safe Overlay Rules | codi | in_work | ## Metadata... |
 | **weekr00w** | [FLOTILLA v0.5.0][P1] V05-PROFILE-005 Add Smoke Tests for Profile-Pack Install Flow | codi | in_work | ## Metadata... |
-| **hfng2al7** | PC-227: Wiki day view — remove duplicate edit-journal action and clarify rescan photos | clau | planned | Imported from PrivateCore MISSION_CONTROL.md. |
+| **hfng2al7** | PC-227: Wiki day view — remove duplicate edit-journal action and clarify rescan photos | clau | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **8d3lyfdm** | PC-228: Wiki day view — generate wiki / AI description actions do not complete | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **u5elcijk** | PC-230: Places — visit counts underreport multi-day place photos | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **qrulqkkh** | PC-232: Concept graph — missing lines in graph view | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
@@ -528,7 +528,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **bhqe7fv2** | PC-233 [P0]: VideoStyle data model and CoreImage style processor | codi | in_work | 7 visual style filter chains, GPU-accelerated via ... |
 | **xesnfw8p** | PC-234 [P0]: KenBurnsAnimator — motion keyframes per photo | codi | in_work | Pan+zoom trajectories driven by EmotionalBeat. Fac... |
 | **le4im847** | PC-236 [P1]: CaptionLayer — styled text overlays per style | gem | merged | Timed text composited per-frame. 7 typography trea... |
-| **zlcaak9u** | PC-237 [P0]: VideoAssemblyEngine — core AVFoundation compositor | codi | planned | SPIKE MAC MINI FIRST. AVAssetWriter + CIContext pe... |
+| **zlcaak9u** | PC-237 [P0]: VideoAssemblyEngine — core AVFoundation compositor | codi | in_work | SPIKE MAC MINI FIRST. AVAssetWriter + CIContext pe... |
 | **75ki5mr6** | PC-238 [P2]: TTS narration — optional on-device AVSpeechSynthesizer | codi | planned | P2 — ship after core video stable. Optional narrat... |
 | **e3o6vdxg** | PC-239 [P1]: Intro and outro assets — 7 style MP4s + runtime outro | codi | planned | 7 bundled intro MP4s (2-3s, generated via CoreGrap... |
 | **n8zirlgq** | PC-240 [P0]: WikiVideoScriptService — LLM moment selection | clau | in_work | SmolLM2 135M selects 5-8 moments from WikiArticle.... |
