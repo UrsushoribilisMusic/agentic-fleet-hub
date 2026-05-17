@@ -53,8 +53,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **2pzzrgga**: PC-248 [P0]: Video generation progress + AVPlayer preview -- Style-themed loading + Combine progress bar. AVPlayer preview on complete. Save to Camera Roll / Share / Regenerate actions. 5pts. -- Gem. Approved.
 - **sk3spoxo**: PC-247 [P1]: Style confirmation screen — live CoreImage preview -- Suggested style + live filter applied to cover photo (<100ms). Style picker scroll. Music 10s preview. Narration toggle. 5pts. -- Gem. Approved.
 - **uncjdgt1**: PC-246 [P0]: Photo curation screen — review LLM-selected photos -- Horizontal scroll. Remove (×), add (PHPicker), reorder (long-press). Min 3 / max 12. Privacy consent copy. Most UX-sensitive screen in sprint. 5pts. -- Gem. Approved.
+- **5vun0hyb**: PC-245 [P0]: Video creation entry points in wiki article views -- video.fill SF Symbol in wiki header. Also WikiFooterView link. Opens VideoCreationFlowView as sheet. All wiki types. 3pts. -- Clau. Approved.
 - **17o4l9an**: PC-244 [P0]: Texture and overlay PNG assets for CoreImage filters -- 6+ textures ≥2048px: paper (1700s), grain (Vintage), halftone dots (Manga), neon glow (Cyberpunk), speed lines (Manga), watercolour paper. CC0. Miguel approves. 3pts. -- Gem. Approved.
 - **myowlsln**: PC-242 [P0]: Stock clip bundle — 60 clips, 8 categories, ODR -- Source CC0 clips (Pexels/Pixabay). Crop to 9:16. CLIP embedding per clip. SQLite index. ODR per style pack. Miguel approves selection. 5pts. -- Gem. Approved.
+- **ucxd99fa**: PC-241 [P1]: Stock clip CLIP matching — semantic fallback -- When no user photo: embed caption, cosine similarity vs precomputed stock clip embeddings in SQLite. Min confidence 0.4. 3pts. -- Clau. Approved.
+- **n8zirlgq**: PC-240 [P0]: WikiVideoScriptService — LLM moment selection -- SmolLM2 135M selects 5-8 moments from WikiArticle. Each moment: photoAssetId, captionText ≤60 chars, emotionalBeat. Test on Mac Mini first. 5pts. -- Clau. Approved.
 - **zlcaak9u**: PC-237 [P0]: VideoAssemblyEngine — core AVFoundation compositor -- SPIKE MAC MINI FIRST. AVAssetWriter + CIContext per-frame pipeline. Ken Burns + transitions + captions + audio mix + intro/outro. Target < 30s for 5-photo video. 13pts. -- Clau. Approved.
 - **le4im847**: PC-236 [P1]: CaptionLayer — styled text overlays per style -- Timed text composited per-frame. 7 typography treatments (Cinematic/Engraving/PopStar/Cartoon/Watercolour/Vintage/Manga). 5pts. -- Gem. Approved.
 - **0aieglgj**: PC-235 [P1]: TransitionEngine — 7 style-appropriate cut types -- Build TransitionEngine with 7 style-appropriate cut types for the in-app video generation sprint (Sprint 7). AVFoundation-based, on-device only. -- Gem. Approved.
@@ -535,15 +538,12 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **xesnfw8p** | PC-234 [P0]: KenBurnsAnimator — motion keyframes per photo | codi | in_work | Pan+zoom trajectories driven by EmotionalBeat. Fac... |
 | **75ki5mr6** | PC-238 [P2]: TTS narration — optional on-device AVSpeechSynthesizer | codi | in_work | P2 — ship after core video stable. Optional narrat... |
 | **e3o6vdxg** | PC-239 [P1]: Intro and outro assets — 7 style MP4s + runtime outro | codi | planned | 7 bundled intro MP4s (2-3s, generated via CoreGrap... |
-| **n8zirlgq** | PC-240 [P0]: WikiVideoScriptService — LLM moment selection | clau | merged | SmolLM2 135M selects 5-8 moments from WikiArticle.... |
-| **ucxd99fa** | PC-241 [P1]: Stock clip CLIP matching — semantic fallback | clau | merged | When no user photo: embed caption, cosine similari... |
 | **8eknrrkr** | PC-243 [P1]: Music track integration and automatic selection | clau | in_work | 21 AAC tracks (3/style) as ODR. Auto-select by emo... |
-| **5vun0hyb** | PC-245 [P0]: Video creation entry points in wiki article views | clau | merged | video.fill SF Symbol in wiki header. Also WikiFoot... |
 | **gpi0q42c** | PC-249 [P1]: Freemium gating — promotional vs clean outro by tier | clau | in_work | Video generation UNLIMITED for all tiers. Free = Q... |
 | **jnuq7enn** | PC-250 [P1]: WikiDayView — remove loading veil; show skeleton only when zero content | clau | merged | **Bug:** During wiki day generation, already-compl... |
 | **vw3qp1g6** | PC-251 [P1]: WikiDayView — style switch should not regenerate; reuse cached text | clau | merged | **Bug:** Switching wiki style (e.g. to Shakespeare... |
 | **flby0sfc** | PC-252 [P0]: WikiGenerator — base content layer (two-pass architecture) | clau | in_work | ## Goal... |
 | **57kivpe8** | PC-253 [P0]: WikiGenerator — smart VLM selection (max 1 new description per section window) | clau | in_work | ## Goal... |
-| **n3r0mzz4** | PC-254 [P1]: WikiGenerator — style application uses base sections + journaling (Step 3) | clau | planned | ## Goal... |
+| **n3r0mzz4** | PC-254 [P1]: WikiGenerator — style application uses base sections + journaling (Step 3) | clau | in_work | ## Goal... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
