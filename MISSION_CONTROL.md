@@ -542,11 +542,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **8eknrrkr** | PC-243 [P1]: Music track integration and automatic selection | clau | in_work | 21 AAC tracks (3/style) as ODR. Auto-select by emo... |
 | **gpi0q42c** | PC-249 [P1]: Freemium gating — promotional vs clean outro by tier | clau | in_work | Video generation UNLIMITED for all tiers. Free = Q... |
 | **vw3qp1g6** | PC-251 [P1]: WikiDayView — style switch should not regenerate; reuse cached text | clau | in_work | **Bug:** Switching wiki style (e.g. to Shakespeare... |
-| **flby0sfc** | PC-252 [P0]: WikiGenerator — base content layer (two-pass architecture) | clau | in_work | ## Goal... |
+| **flby0sfc** | PC-252 [P0]: WikiGenerator — base content layer (two-pass architecture) | clau | planned | ## Goal... |
 | **57kivpe8** | PC-253 [P0]: WikiGenerator — smart VLM selection (max 1 new description per section window) | clau | in_work | ## Goal... |
 | **n3r0mzz4** | PC-254 [P1]: WikiGenerator — style application uses base sections + journaling (Step 3) | clau | in_work | ## Goal... |
 | **uweus0mq** | PC-255 [P1]: WikiBrowserView — day navigation broken for ungenerated days | clau | in_work |  |
-| **hc1iggo2** | PC-256 [P1]: Video gen — com.apple.accounts Code=7 permission denied | codi | in_work |  |
+| **hc1iggo2** | PC-256 [P1]: Video gen — com.apple.accounts Code=7 permission denied | codi | planned |  |
 | **erwhktny** | RT-001 [P1]: pipeline_runner.py — detect product ID and pass format flag (fable|modern) | clau | merged | ## Goal... |
 | **w16ivb3k** | RT-002 [P0]: gen_story_modern.py — context-driven Runway prompts + hook question | clau | in_work | ## Goal... |
 | **n4arcx7y** | RT-003 [P0]: assemble_modern.py — modern assembly with hook intro + subscribe outro | clau | in_work | ## Goal... |
