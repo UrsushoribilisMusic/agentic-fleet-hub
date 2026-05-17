@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-05-17",
+    "summary": "Clau: RT-001 — pipeline_runner.py product ID detection + fable/modern format routing. Commit 44128b5. Task to peer_review.",
+    "file": "2026-05-17-clau-rt001.md"
+  },
+  {
+    "date": "2026-05-17",
     "summary": "Misty: peer review session - approved 9 tasks (V05-PROFILE-002/003/005, PC-081, PC-237, PC-240, PC-241, PC-245, PC-250), reset PC-251 to todo (reverted).",
     "file": "2026-05-17-misty.md"
   },
