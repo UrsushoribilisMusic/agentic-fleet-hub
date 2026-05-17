@@ -55,6 +55,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **uncjdgt1**: PC-246 [P0]: Photo curation screen — review LLM-selected photos -- Horizontal scroll. Remove (×), add (PHPicker), reorder (long-press). Min 3 / max 12. Privacy consent copy. Most UX-sensitive screen in sprint. 5pts. -- Gem. Approved.
 - **17o4l9an**: PC-244 [P0]: Texture and overlay PNG assets for CoreImage filters -- 6+ textures ≥2048px: paper (1700s), grain (Vintage), halftone dots (Manga), neon glow (Cyberpunk), speed lines (Manga), watercolour paper. CC0. Miguel approves. 3pts. -- Gem. Approved.
 - **myowlsln**: PC-242 [P0]: Stock clip bundle — 60 clips, 8 categories, ODR -- Source CC0 clips (Pexels/Pixabay). Crop to 9:16. CLIP embedding per clip. SQLite index. ODR per style pack. Miguel approves selection. 5pts. -- Gem. Approved.
+- **zlcaak9u**: PC-237 [P0]: VideoAssemblyEngine — core AVFoundation compositor -- SPIKE MAC MINI FIRST. AVAssetWriter + CIContext per-frame pipeline. Ken Burns + transitions + captions + audio mix + intro/outro. Target < 30s for 5-photo video. 13pts. -- Clau. Approved.
 - **le4im847**: PC-236 [P1]: CaptionLayer — styled text overlays per style -- Timed text composited per-frame. 7 typography treatments (Cinematic/Engraving/PopStar/Cartoon/Watercolour/Vintage/Manga). 5pts. -- Gem. Approved.
 - **0aieglgj**: PC-235 [P1]: TransitionEngine — 7 style-appropriate cut types -- Build TransitionEngine with 7 style-appropriate cut types for the in-app video generation sprint (Sprint 7). AVFoundation-based, on-device only. -- Gem. Approved.
 - **wtb44nhk**: PC-081: Trips — tap photo opens blank detail page, no actions (add to people/board/hashtags) -- Returned to todo after review: routes through synthetic card/add-to-board only, but does not correctly implement photo-backed add-to-people / add-hashtag. -- Clau. Approved.
@@ -532,7 +533,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **qrulqkkh** | PC-232: Concept graph — missing lines in graph view | clau | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **bhqe7fv2** | PC-233 [P0]: VideoStyle data model and CoreImage style processor | clau | in_work | 7 visual style filter chains, GPU-accelerated via ... |
 | **xesnfw8p** | PC-234 [P0]: KenBurnsAnimator — motion keyframes per photo | codi | in_work | Pan+zoom trajectories driven by EmotionalBeat. Fac... |
-| **zlcaak9u** | PC-237 [P0]: VideoAssemblyEngine — core AVFoundation compositor | clau | merged | SPIKE MAC MINI FIRST. AVAssetWriter + CIContext pe... |
 | **75ki5mr6** | PC-238 [P2]: TTS narration — optional on-device AVSpeechSynthesizer | codi | in_work | P2 — ship after core video stable. Optional narrat... |
 | **e3o6vdxg** | PC-239 [P1]: Intro and outro assets — 7 style MP4s + runtime outro | codi | planned | 7 bundled intro MP4s (2-3s, generated via CoreGrap... |
 | **n8zirlgq** | PC-240 [P0]: WikiVideoScriptService — LLM moment selection | clau | merged | SmolLM2 135M selects 5-8 moments from WikiArticle.... |
