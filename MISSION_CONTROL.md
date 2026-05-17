@@ -525,7 +525,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **fwxfhcpr** | [FLOTILLA v0.5.0][P0] V05-PROFILE-002 Add Installer Support for Profile Directory and Zip Overlay | clau | merged | ## Metadata... |
 | **j5hbqnn0** | [FLOTILLA v0.5.0][P0] V05-PROFILE-003 Add Profile Validator and Safe Overlay Rules | clau | merged | ## Metadata... |
 | **weekr00w** | [FLOTILLA v0.5.0][P1] V05-PROFILE-005 Add Smoke Tests for Profile-Pack Install Flow | clau | merged | ## Metadata... |
-| **hfng2al7** | PC-227: Wiki day view — remove duplicate edit-journal action and clarify rescan photos | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
+| **hfng2al7** | PC-227: Wiki day view — remove duplicate edit-journal action and clarify rescan photos | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **8d3lyfdm** | PC-228: Wiki day view — generate wiki / AI description actions do not complete | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **u5elcijk** | PC-230: Places — visit counts underreport multi-day place photos | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **qrulqkkh** | PC-232: Concept graph — missing lines in graph view | clau | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
@@ -537,7 +537,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **e3o6vdxg** | PC-239 [P1]: Intro and outro assets — 7 style MP4s + runtime outro | codi | planned | 7 bundled intro MP4s (2-3s, generated via CoreGrap... |
 | **n8zirlgq** | PC-240 [P0]: WikiVideoScriptService — LLM moment selection | clau | merged | SmolLM2 135M selects 5-8 moments from WikiArticle.... |
 | **ucxd99fa** | PC-241 [P1]: Stock clip CLIP matching — semantic fallback | clau | merged | When no user photo: embed caption, cosine similari... |
-| **8eknrrkr** | PC-243 [P1]: Music track integration and automatic selection | clau | planned | 21 AAC tracks (3/style) as ODR. Auto-select by emo... |
+| **8eknrrkr** | PC-243 [P1]: Music track integration and automatic selection | clau | in_work | 21 AAC tracks (3/style) as ODR. Auto-select by emo... |
 | **5vun0hyb** | PC-245 [P0]: Video creation entry points in wiki article views | clau | merged | video.fill SF Symbol in wiki header. Also WikiFoot... |
 | **gpi0q42c** | PC-249 [P1]: Freemium gating — promotional vs clean outro by tier | clau | planned | Video generation UNLIMITED for all tiers. Free = Q... |
 
