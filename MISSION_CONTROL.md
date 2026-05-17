@@ -533,7 +533,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **hfng2al7** | PC-227: Wiki day view — remove duplicate edit-journal action and clarify rescan photos | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **8d3lyfdm** | PC-228: Wiki day view — generate wiki / AI description actions do not complete | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
-| **u5elcijk** | PC-230: Places — visit counts underreport multi-day place photos | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
+| **u5elcijk** | PC-230: Places — visit counts underreport multi-day place photos | codi | planned | Imported from PrivateCore MISSION_CONTROL.md. |
 | **qrulqkkh** | PC-232: Concept graph — missing lines in graph view | clau | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **bhqe7fv2** | PC-233 [P0]: VideoStyle data model and CoreImage style processor | clau | in_work | 7 visual style filter chains, GPU-accelerated via ... |
 | **xesnfw8p** | PC-234 [P0]: KenBurnsAnimator — motion keyframes per photo | codi | in_work | Pan+zoom trajectories driven by EmotionalBeat. Fac... |
@@ -545,11 +545,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **flby0sfc** | PC-252 [P0]: WikiGenerator — base content layer (two-pass architecture) | clau | in_work | ## Goal... |
 | **57kivpe8** | PC-253 [P0]: WikiGenerator — smart VLM selection (max 1 new description per section window) | clau | in_work | ## Goal... |
 | **n3r0mzz4** | PC-254 [P1]: WikiGenerator — style application uses base sections + journaling (Step 3) | clau | in_work | ## Goal... |
-| **uweus0mq** | PC-255 [P1]: WikiBrowserView — day navigation broken for ungenerated days | clau | in_work |  |
+| **uweus0mq** | PC-255 [P1]: WikiBrowserView — day navigation broken for ungenerated days | clau | planned |  |
 | **hc1iggo2** | PC-256 [P1]: Video gen — com.apple.accounts Code=7 permission denied | codi | in_work |  |
 | **erwhktny** | RT-001 [P1]: pipeline_runner.py — detect product ID and pass format flag (fable|modern) | clau | merged | ## Goal... |
 | **w16ivb3k** | RT-002 [P0]: gen_story_modern.py — context-driven Runway prompts + hook question | clau | in_work | ## Goal... |
-| **n4arcx7y** | RT-003 [P0]: assemble_modern.py — modern assembly with hook intro + subscribe outro | clau | planned | ## Goal... |
+| **n4arcx7y** | RT-003 [P0]: assemble_modern.py — modern assembly with hook intro + subscribe outro | clau | in_work | ## Goal... |
 | **7y2i94o3** | RT-004 [P1]: End-to-end test — Modern Story path with dummy order | clau | planned | ## Goal... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
