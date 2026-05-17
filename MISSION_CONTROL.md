@@ -540,7 +540,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **8eknrrkr** | PC-243 [P1]: Music track integration and automatic selection | clau | in_work | 21 AAC tracks (3/style) as ODR. Auto-select by emo... |
 | **5vun0hyb** | PC-245 [P0]: Video creation entry points in wiki article views | clau | merged | video.fill SF Symbol in wiki header. Also WikiFoot... |
 | **gpi0q42c** | PC-249 [P1]: Freemium gating — promotional vs clean outro by tier | clau | in_work | Video generation UNLIMITED for all tiers. Free = Q... |
-| **jnuq7enn** | PC-250 [P1]: WikiDayView — remove loading veil; show skeleton only when zero content | clau | planned | **Bug:** During wiki day generation, already-compl... |
-| **vw3qp1g6** | PC-251 [P1]: WikiDayView — style switch should not regenerate; reuse cached text | clau | planned | **Bug:** Switching wiki style (e.g. to Shakespeare... |
+| **jnuq7enn** | PC-250 [P1]: WikiDayView — remove loading veil; show skeleton only when zero content | clau | merged | **Bug:** During wiki day generation, already-compl... |
+| **vw3qp1g6** | PC-251 [P1]: WikiDayView — style switch should not regenerate; reuse cached text | clau | merged | **Bug:** Switching wiki style (e.g. to Shakespeare... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
