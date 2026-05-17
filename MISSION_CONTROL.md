@@ -62,7 +62,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **5ihwuycn**: PC-218: Library wiki — weekly wiki sometimes does not show up -- Imported from PrivateCore MISSION_CONTROL.md. -- Misty. Approved.
 - **sd2nwh29**: PC-217: Capture — Ask should allow writing a question before sending -- Imported from PrivateCore MISSION_CONTROL.md. -- Misty. Approved.
 - **qqivywhl**: [FLOTILLA v0.5.0][P1] V05-PROFILE-006 Final v0.5.0 Release Prep -- ## Metadata -- Clau. Approved.
+- **weekr00w**: [FLOTILLA v0.5.0][P1] V05-PROFILE-005 Add Smoke Tests for Profile-Pack Install Flow -- ## Metadata -- Clau. Approved.
 - **xs2bnroq**: [FLOTILLA v0.5.0][P0] V05-PROFILE-004 Write PROFILE_PACKS.md as Agent Handoff Spec -- ## Metadata -- Clau. Approved.
+- **j5hbqnn0**: [FLOTILLA v0.5.0][P0] V05-PROFILE-003 Add Profile Validator and Safe Overlay Rules -- ## Metadata -- Clau. Approved.
+- **fwxfhcpr**: [FLOTILLA v0.5.0][P0] V05-PROFILE-002 Add Installer Support for Profile Directory and Zip Overlay -- ## Metadata -- Clau. Approved.
 - **3z4r1bgw**: [FLOTILLA v0.5.0][P0] V05-PROFILE-001 Create Default Engineering Instruction Profile -- ## Metadata -- Clau. Approved.
 - **sln025dz**: PC-208 [P1]: Global knowledge graph — all relationships across wikis, trips, boards -- The graph icon in the Library tab (currently wired to ConceptGraphView / the week graph) should show a full cross-entity knowledge graph, not a weekly scope. -- Gem. Approved.
 - **izj6nmgp**: PC-207 [P2]: Remove Insights tab — surface top places in PlacesView header -- The Insights tab in Library is redundant: stats are already in Settings, and place information belongs in Places. Remove it and redistribute its content. -- Clau. Approved.
@@ -522,9 +525,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **fwxfhcpr** | [FLOTILLA v0.5.0][P0] V05-PROFILE-002 Add Installer Support for Profile Directory and Zip Overlay | clau | merged | ## Metadata... |
-| **j5hbqnn0** | [FLOTILLA v0.5.0][P0] V05-PROFILE-003 Add Profile Validator and Safe Overlay Rules | clau | merged | ## Metadata... |
-| **weekr00w** | [FLOTILLA v0.5.0][P1] V05-PROFILE-005 Add Smoke Tests for Profile-Pack Install Flow | clau | merged | ## Metadata... |
 | **hfng2al7** | PC-227: Wiki day view — remove duplicate edit-journal action and clarify rescan photos | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **8d3lyfdm** | PC-228: Wiki day view — generate wiki / AI description actions do not complete | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **u5elcijk** | PC-230: Places — visit counts underreport multi-day place photos | codi | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
