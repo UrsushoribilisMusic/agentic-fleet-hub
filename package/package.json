@@ -4,8 +4,9 @@
   "description": "Scaffold a self-hosted AgentFleet workspace with setup, configure, demo, and growth dashboards.",
   "type": "module",
   "scripts": {
+    "smoke:profile-install": "node ./tools/smoke-profile-install.mjs",
     "verify:dry-run": "node ./tools/verify-dry-run.mjs",
-    "prepublishOnly": "npm run verify:dry-run"
+    "prepublishOnly": "npm run verify:dry-run && npm run smoke:profile-install"
   },
   "bin": {
     "create-flotilla": "bin/create-flotilla.mjs"
@@ -15,9 +16,11 @@
     "blueprint/",
     "dashboard/",
     "data/",
+    "lib/",
     "profiles/",
     "scripts/",
     "server/",
+    "test-fixtures/",
     "tools/",
     "INSTALL.md",
     "LICENSE",
