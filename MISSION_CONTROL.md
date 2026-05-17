@@ -50,6 +50,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **erwhktny**: RT-001 [P1]: pipeline_runner.py — detect product ID and pass format flag (fable|modern) -- ## Goal -- Clau. Approved.
+- **n3r0mzz4**: PC-254 [P1]: WikiGenerator — style application uses base sections + journaling (Step 3) -- ## Goal -- Clau. Approved.
+- **57kivpe8**: PC-253 [P0]: WikiGenerator — smart VLM selection (max 1 new description per section window) -- ## Goal -- Clau. Approved.
+- **flby0sfc**: PC-252 [P0]: WikiGenerator — base content layer (two-pass architecture) -- ## Goal -- Clau. Approved.
+- **vw3qp1g6**: PC-251 [P1]: WikiDayView — style switch should not regenerate; reuse cached text -- **Bug:** Switching wiki style (e.g. to Shakespeare) triggers full LLM regeneration of all day sections. Unnecessary — the text can be reused; only the visual presentation changes. -- Clau. Approved.
 - **jnuq7enn**: PC-250 [P1]: WikiDayView — remove loading veil; show skeleton only when zero content -- **Bug:** During wiki day generation, already-completed sections (Morning etc.) are covered by opacity/blur + WikiSkeletonView overlay. Cover photo hidden. The bottom progress spinner already handles in-progress feedback. -- Clau. Approved.
 - **2pzzrgga**: PC-248 [P0]: Video generation progress + AVPlayer preview -- Style-themed loading + Combine progress bar. AVPlayer preview on complete. Save to Camera Roll / Share / Regenerate actions. 5pts. -- Gem. Approved.
 - **sk3spoxo**: PC-247 [P1]: Style confirmation screen — live CoreImage preview -- Suggested style + live filter applied to cover photo (<100ms). Style picker scroll. Music 10s preview. Narration toggle. 5pts. -- Gem. Approved.
@@ -541,13 +546,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **e3o6vdxg** | PC-239 [P1]: Intro and outro assets — 7 style MP4s + runtime outro | codi | planned | 7 bundled intro MP4s (2-3s, generated via CoreGrap... |
 | **8eknrrkr** | PC-243 [P1]: Music track integration and automatic selection | clau | in_work | 21 AAC tracks (3/style) as ODR. Auto-select by emo... |
 | **gpi0q42c** | PC-249 [P1]: Freemium gating — promotional vs clean outro by tier | clau | in_work | Video generation UNLIMITED for all tiers. Free = Q... |
-| **vw3qp1g6** | PC-251 [P1]: WikiDayView — style switch should not regenerate; reuse cached text | clau | merged | **Bug:** Switching wiki style (e.g. to Shakespeare... |
-| **flby0sfc** | PC-252 [P0]: WikiGenerator — base content layer (two-pass architecture) | clau | merged | ## Goal... |
-| **57kivpe8** | PC-253 [P0]: WikiGenerator — smart VLM selection (max 1 new description per section window) | clau | merged | ## Goal... |
-| **n3r0mzz4** | PC-254 [P1]: WikiGenerator — style application uses base sections + journaling (Step 3) | clau | merged | ## Goal... |
 | **uweus0mq** | PC-255 [P1]: WikiBrowserView — day navigation broken for ungenerated days | clau | merged |  |
 | **hc1iggo2** | PC-256 [P1]: Video gen — com.apple.accounts Code=7 permission denied | codi | planned |  |
-| **erwhktny** | RT-001 [P1]: pipeline_runner.py — detect product ID and pass format flag (fable|modern) | clau | merged | ## Goal... |
 | **w16ivb3k** | RT-002 [P0]: gen_story_modern.py — context-driven Runway prompts + hook question | clau | in_work | ## Goal... |
 | **n4arcx7y** | RT-003 [P0]: assemble_modern.py — modern assembly with hook intro + subscribe outro | clau | in_work | ## Goal... |
 | **7y2i94o3** | RT-004 [P1]: End-to-end test — Modern Story path with dummy order | clau | planned | ## Goal... |
