@@ -546,7 +546,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **e3o6vdxg** | PC-239 [P1]: Intro and outro assets — 7 style MP4s + runtime outro | codi | in_work | 7 bundled intro MP4s (2-3s, generated via CoreGrap... |
 | **8eknrrkr** | PC-243 [P1]: Music track integration and automatic selection | clau | in_work | 21 AAC tracks (3/style) as ODR. Auto-select by emo... |
 | **gpi0q42c** | PC-249 [P1]: Freemium gating — promotional vs clean outro by tier | clau | in_work | Video generation UNLIMITED for all tiers. Free = Q... |
-| **uweus0mq** | PC-255 [P1]: WikiBrowserView — day navigation broken for ungenerated days | clau | planned |  |
+| **uweus0mq** | PC-255 [P1]: WikiBrowserView — day navigation broken for ungenerated days | clau | in_work |  |
 | **hc1iggo2** | PC-256 [P1]: Video gen — com.apple.accounts Code=7 permission denied | codi | planned |  |
 | **w16ivb3k** | RT-002 [P0]: gen_story_modern.py — context-driven Runway prompts + hook question | clau | planned | ## Goal... |
 | **n4arcx7y** | RT-003 [P0]: assemble_modern.py — modern assembly with hook intro + subscribe outro | clau | in_work | ## Goal... |
