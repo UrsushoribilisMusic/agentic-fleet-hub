@@ -73,6 +73,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **le4im847**: PC-236 [P1]: CaptionLayer — styled text overlays per style -- Timed text composited per-frame. 7 typography treatments (Cinematic/Engraving/PopStar/Cartoon/Watercolour/Vintage/Manga). 5pts. -- Gem. Approved.
 - **0aieglgj**: PC-235 [P1]: TransitionEngine — 7 style-appropriate cut types -- Build TransitionEngine with 7 style-appropriate cut types for the in-app video generation sprint (Sprint 7). AVFoundation-based, on-device only. -- Gem. Approved.
 - **xesnfw8p**: PC-234 [P0]: KenBurnsAnimator — motion keyframes per photo -- Pan+zoom trajectories driven by EmotionalBeat. Face detection via CIDetector to prevent cropping. Pre-compute during photo curation screen. 5pts. -- Codi. Approved.
+- **bhqe7fv2**: PC-233 [P0]: VideoStyle data model and CoreImage style processor -- 7 visual style filter chains, GPU-accelerated via Metal CIContext. Foundation of entire video system — must land first. 5pts. -- Codi. Approved.
 - **wtb44nhk**: PC-081: Trips — tap photo opens blank detail page, no actions (add to people/board/hashtags) -- Returned to todo after review: routes through synthetic card/add-to-board only, but does not correctly implement photo-backed add-to-people / add-hashtag. -- Clau. Approved.
 - **qrulqkkh**: PC-232: Concept graph — missing lines in graph view -- Imported from PrivateCore MISSION_CONTROL.md. -- Clau. Approved.
 - **u5elcijk**: PC-230: Places — visit counts underreport multi-day place photos -- Imported from PrivateCore MISSION_CONTROL.md. -- Gem. Approved.
@@ -546,7 +547,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **bhqe7fv2** | PC-233 [P0]: VideoStyle data model and CoreImage style processor | codi | planned | 7 visual style filter chains, GPU-accelerated via ... |
 | **gpi0q42c** | PC-249 [P1]: Freemium gating — promotional vs clean outro by tier | clau | in_work | Video generation UNLIMITED for all tiers. Free = Q... |
 | **w16ivb3k** | RT-002 [P0]: gen_story_modern.py — context-driven Runway prompts + hook question | clau | in_work | ## Goal... |
 | **n4arcx7y** | RT-003 [P0]: assemble_modern.py — modern assembly with hook intro + subscribe outro | clau | in_work | ## Goal... |
