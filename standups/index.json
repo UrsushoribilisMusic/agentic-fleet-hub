@@ -1,12 +1,17 @@
 [
   {
+    "date": "2026-05-18",
+    "summary": "Misty: Peer review session - approved 3 PrivateCore tasks (PC-228 MLXQueue cancellation, PC-234 KenBurnsAnimator emotional keyframes, PC-256 VideoAssemblyEngine PhotoKit asset handling). All builds green.",
+    "file": "2026-05-18-misty.md"
+  },
+  {
     "date": "2026-05-17",
     "summary": "Teddy: WikiGenerator section wiki ordering fix (moved after main save to prevent thermal cascade), partial JSON recovery (salvage lead from truncated Ministral 3B responses), PC-255 nav fix, MLXEngine background crash mitigation, music track ODR integration guide. Build succeeded.",
     "file": "2026-05-17-teddy.md"
   },
   {
     "date": "2026-05-17",
-    "summary": "Clau: RT-001 — pipeline_runner.py product ID detection + fable/modern format routing. Commit 44128b5. Task to peer_review.",
+    "summary": "Clau: RT-001 \u2014 pipeline_runner.py product ID detection + fable/modern format routing. Commit 44128b5. Task to peer_review.",
     "file": "2026-05-17-clau-rt001.md"
   },
   {
@@ -51,12 +56,12 @@
   },
   {
     "date": "2026-05-07",
-    "summary": "Clau: completed V05-PROFILE-001 (default-engineering profile pack — RULES.md enriched, growth_meta.json filled, pocketbase_schema.md added, README updated). Gem: PC-216, fixed main build, reviewed V05-PROFILE-004/PC-218. Misty: PC-217, PC-225. Codi: partial audit of V05-PROFILE-001 (blocked by env).",
+    "summary": "Clau: completed V05-PROFILE-001 (default-engineering profile pack \u2014 RULES.md enriched, growth_meta.json filled, pocketbase_schema.md added, README updated). Gem: PC-216, fixed main build, reviewed V05-PROFILE-004/PC-218. Misty: PC-217, PC-225. Codi: partial audit of V05-PROFILE-001 (blocked by env).",
     "file": "2026-05-07.md"
   },
   {
     "date": "2026-05-06",
-    "summary": "Codi: V05-PROFILE-001 + PC-220/PC-223. Clau: PC-083 Screen C calendar permission — Skip button, style param, nav fix, merged approved PC-074, fixed build blockers.",
+    "summary": "Codi: V05-PROFILE-001 + PC-220/PC-223. Clau: PC-083 Screen C calendar permission \u2014 Skip button, style param, nav fix, merged approved PC-074, fixed build blockers.",
     "file": "2026-05-06.md"
   },
   {
