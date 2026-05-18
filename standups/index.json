@@ -11,7 +11,7 @@
   },
   {
     "date": "2026-05-18",
-    "summary": "Misty: Peer review session - approved 3 PrivateCore tasks (PC-228 MLXQueue cancellation, PC-234 KenBurnsAnimator emotional keyframes, PC-256 VideoAssemblyEngine PhotoKit asset handling). All builds green.",
+    "summary": "Misty: Peer review sessions - approved 8 PrivateCore tasks across 4 sessions: PC-228/234/256 (session 1), PC-227 (session 2), PC-230 (session 3), PC-239/243 (session 4). All builds green.",
     "file": "2026-05-18-misty.md"
   },
   {
