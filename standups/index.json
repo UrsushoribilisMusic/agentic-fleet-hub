@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-05-18",
+    "summary": "Gem: PC-227 Wiki day view clarified rescan photos loading text (\"Rescanning Photos...\") and verified journal action de-dup. Updated Mission Control in Hub and PrivateCore.",
+    "file": "2026-05-18-hfng2al7-gem.md"
+  },
+  {
+    "date": "2026-05-18",
     "summary": "Gem: Completed PC-230 (Places visit counts) by restoring trip-day grouping fix. Peer reviewed PC-238 (TTS narration). Build verified (build-green-2026-05-18-12).",
     "file": "2026-05-18-gem.md"
   },
