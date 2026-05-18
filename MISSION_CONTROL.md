@@ -549,7 +549,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **gpi0q42c** | PC-249 [P1]: Freemium gating — promotional vs clean outro by tier | clau | in_work | Video generation UNLIMITED for all tiers. Free = Q... |
 | **uweus0mq** | PC-255 [P1]: WikiBrowserView — day navigation broken for ungenerated days | clau | in_work |  |
 | **w16ivb3k** | RT-002 [P0]: gen_story_modern.py — context-driven Runway prompts + hook question | clau | in_work | ## Goal... |
-| **n4arcx7y** | RT-003 [P0]: assemble_modern.py — modern assembly with hook intro + subscribe outro | clau | planned | ## Goal... |
+| **n4arcx7y** | RT-003 [P0]: assemble_modern.py — modern assembly with hook intro + subscribe outro | clau | in_work | ## Goal... |
 | **7y2i94o3** | RT-004 [P1]: End-to-end test — Modern Story path with dummy order | clau | planned | ## Goal... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
