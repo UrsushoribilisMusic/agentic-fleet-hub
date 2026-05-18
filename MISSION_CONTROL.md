@@ -547,14 +547,14 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **gpi0q42c** | PC-249 [P1]: Freemium gating — promotional vs clean outro by tier | clau | in_work | Video generation UNLIMITED for all tiers. Free = Q... |
+| **gpi0q42c** | PC-249 [P1]: Freemium gating — promotional vs clean outro by tier | clau | planned | Video generation UNLIMITED for all tiers. Free = Q... |
 | **w16ivb3k** | RT-002 [P0]: gen_story_modern.py — context-driven Runway prompts + hook question | clau | in_work | ## Goal... |
 | **n4arcx7y** | RT-003 [P0]: assemble_modern.py — modern assembly with hook intro + subscribe outro | clau | in_work | ## Goal... |
 | **7y2i94o3** | RT-004 [P1]: End-to-end test — Modern Story path with dummy order | clau | in_work | ## Goal... |
 | **qqiv4uw5** | RT-005 [P1]: pipeline_runner.py — add PRODUCT_LANGUAGE_MAP and detect_language() | clau | in_work | Add PRODUCT_LANGUAGE_MAP dict alongside PRODUCT_FO... |
 | **kdn4oz0v** | RT-006 [P1]: gen_story_modern.py — Apertus 70B client for Swiss-language story generation | clau | in_work | Add --language arg to gen_story_modern.py. When la... |
 | **2h1z41v5** | RT-007 [P2]: Shopify — create Swiss-language Modern Reel products and wire PRODUCT_LANGUAGE_MAP | clau | planned | WAITING ON MIGUEL: needs Shopify product IDs for S... |
-| **ugx23pr3** | PC-257 [P0]: LibraryView — day navigation broken due to mixed NavigationLink patterns | clau | in_work | Tapping empty day links on the library main page d... |
+| **ugx23pr3** | PC-257 [P0]: LibraryView — day navigation broken due to mixed NavigationLink patterns | clau | planned | Tapping empty day links on the library main page d... |
 | **itypd3kg** | PC-258 [P1]: WikiDayView — Add note sheet flashes and dismisses immediately | clau | in_work | Tapping Add Journal Entry in WikiDayView causes th... |
 | **0c981qnx** | PC-259 [P1]: WikiBrowserView — generated week wikis disappear after reload | clau | in_work | Generated week wikis appear in the browser momenta... |
 
