@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-05-18",
+    "summary": "Gem: Completed PC-230 (Places visit counts) by restoring trip-day grouping fix. Peer reviewed PC-238 (TTS narration). Build verified (build-green-2026-05-18-12).",
+    "file": "2026-05-18-gem.md"
+  },
+  {
+    "date": "2026-05-18",
     "summary": "Misty: Peer review session - approved 3 PrivateCore tasks (PC-228 MLXQueue cancellation, PC-234 KenBurnsAnimator emotional keyframes, PC-256 VideoAssemblyEngine PhotoKit asset handling). All builds green.",
     "file": "2026-05-18-misty.md"
   },
