@@ -551,8 +551,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **w16ivb3k** | RT-002 [P0]: gen_story_modern.py — context-driven Runway prompts + hook question | clau | in_work | ## Goal... |
 | **n4arcx7y** | RT-003 [P0]: assemble_modern.py — modern assembly with hook intro + subscribe outro | clau | in_work | ## Goal... |
 | **7y2i94o3** | RT-004 [P1]: End-to-end test — Modern Story path with dummy order | clau | in_work | ## Goal... |
+| **qqiv4uw5** | RT-005 [P1]: pipeline_runner.py — add PRODUCT_LANGUAGE_MAP and detect_language() | clau | in_work | Add PRODUCT_LANGUAGE_MAP dict alongside PRODUCT_FO... |
 | **2h1z41v5** | RT-007 [P2]: Shopify — create Swiss-language Modern Reel products and wire PRODUCT_LANGUAGE_MAP | clau | planned | WAITING ON MIGUEL: needs Shopify product IDs for S... |
 | **kdn4oz0v** | RT-006 [P1]: gen_story_modern.py — Apertus 70B client for Swiss-language story generation | clau | planned | Add --language arg to gen_story_modern.py. When la... |
-| **qqiv4uw5** | RT-005 [P1]: pipeline_runner.py — add PRODUCT_LANGUAGE_MAP and detect_language() | clau | planned | Add PRODUCT_LANGUAGE_MAP dict alongside PRODUCT_FO... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
