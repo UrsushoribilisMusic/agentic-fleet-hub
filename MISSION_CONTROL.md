@@ -72,6 +72,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **xesnfw8p**: PC-234 [P0]: KenBurnsAnimator — motion keyframes per photo -- Pan+zoom trajectories driven by EmotionalBeat. Face detection via CIDetector to prevent cropping. Pre-compute during photo curation screen. 5pts. -- Codi. Approved.
 - **wtb44nhk**: PC-081: Trips — tap photo opens blank detail page, no actions (add to people/board/hashtags) -- Returned to todo after review: routes through synthetic card/add-to-board only, but does not correctly implement photo-backed add-to-people / add-hashtag. -- Clau. Approved.
 - **qrulqkkh**: PC-232: Concept graph — missing lines in graph view -- Imported from PrivateCore MISSION_CONTROL.md. -- Clau. Approved.
+- **u5elcijk**: PC-230: Places — visit counts underreport multi-day place photos -- Imported from PrivateCore MISSION_CONTROL.md. -- Gem. Approved.
 - **8d3lyfdm**: PC-228: Wiki day view — generate wiki / AI description actions do not complete -- Imported from PrivateCore MISSION_CONTROL.md. -- Codi. Approved.
 - **jqawd67z**: PC-225: Library — documents counter / top icon spacing is clipped -- Imported from PrivateCore MISSION_CONTROL.md. -- Misty. Approved.
 - **fsj216xt**: PC-219: People — hide person should stop them reappearing in suggested groups -- Imported from PrivateCore MISSION_CONTROL.md. -- Gem. Approved.
@@ -542,7 +543,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **hfng2al7** | PC-227: Wiki day view — remove duplicate edit-journal action and clarify rescan photos | gem | planned | Imported from PrivateCore MISSION_CONTROL.md. |
-| **u5elcijk** | PC-230: Places — visit counts underreport multi-day place photos | gem | merged | Imported from PrivateCore MISSION_CONTROL.md. |
 | **bhqe7fv2** | PC-233 [P0]: VideoStyle data model and CoreImage style processor | codi | planned | 7 visual style filter chains, GPU-accelerated via ... |
 | **e3o6vdxg** | PC-239 [P1]: Intro and outro assets — 7 style MP4s + runtime outro | gem | planned | 7 bundled intro MP4s (2-3s, generated via CoreGrap... |
 | **8eknrrkr** | PC-243 [P1]: Music track integration and automatic selection | gem | in_work | 21 AAC tracks (3/style) as ODR. Auto-select by emo... |
