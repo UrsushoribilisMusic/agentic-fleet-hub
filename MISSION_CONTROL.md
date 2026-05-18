@@ -52,6 +52,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
 - **erwhktny**: RT-001 [P1]: pipeline_runner.py — detect product ID and pass format flag (fable|modern) -- ## Goal -- Clau. Approved.
 - **hc1iggo2**: PC-256 [P1]: Video gen — com.apple.accounts Code=7 permission denied -- Codi. Approved.
+- **uweus0mq**: PC-255 [P1]: WikiBrowserView — day navigation broken for ungenerated days -- Clau. Approved.
 - **n3r0mzz4**: PC-254 [P1]: WikiGenerator — style application uses base sections + journaling (Step 3) -- ## Goal -- Clau. Approved.
 - **57kivpe8**: PC-253 [P0]: WikiGenerator — smart VLM selection (max 1 new description per section window) -- ## Goal -- Clau. Approved.
 - **flby0sfc**: PC-252 [P0]: WikiGenerator — base content layer (two-pass architecture) -- ## Goal -- Clau. Approved.
@@ -547,7 +548,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **bhqe7fv2** | PC-233 [P0]: VideoStyle data model and CoreImage style processor | codi | planned | 7 visual style filter chains, GPU-accelerated via ... |
 | **gpi0q42c** | PC-249 [P1]: Freemium gating — promotional vs clean outro by tier | clau | in_work | Video generation UNLIMITED for all tiers. Free = Q... |
-| **uweus0mq** | PC-255 [P1]: WikiBrowserView — day navigation broken for ungenerated days | clau | in_work |  |
 | **w16ivb3k** | RT-002 [P0]: gen_story_modern.py — context-driven Runway prompts + hook question | clau | in_work | ## Goal... |
 | **n4arcx7y** | RT-003 [P0]: assemble_modern.py — modern assembly with hook intro + subscribe outro | clau | in_work | ## Goal... |
 | **7y2i94o3** | RT-004 [P1]: End-to-end test — Modern Story path with dummy order | clau | in_work | ## Goal... |
