@@ -554,5 +554,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **qqiv4uw5** | RT-005 [P1]: pipeline_runner.py — add PRODUCT_LANGUAGE_MAP and detect_language() | clau | in_work | Add PRODUCT_LANGUAGE_MAP dict alongside PRODUCT_FO... |
 | **kdn4oz0v** | RT-006 [P1]: gen_story_modern.py — Apertus 70B client for Swiss-language story generation | clau | in_work | Add --language arg to gen_story_modern.py. When la... |
 | **2h1z41v5** | RT-007 [P2]: Shopify — create Swiss-language Modern Reel products and wire PRODUCT_LANGUAGE_MAP | clau | in_work | WAITING ON MIGUEL: needs Shopify product IDs for S... |
+| **0c981qnx** | PC-259 [P1]: WikiBrowserView — generated week wikis disappear after reload | clau | planned | Generated week wikis appear in the browser momenta... |
+| **itypd3kg** | PC-258 [P1]: WikiDayView — Add note sheet flashes and dismisses immediately | clau | planned | Tapping Add Journal Entry in WikiDayView causes th... |
+| **ugx23pr3** | PC-257 [P0]: LibraryView — day navigation broken due to mixed NavigationLink patterns | clau | planned | Tapping empty day links on the library main page d... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
