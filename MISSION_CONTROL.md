@@ -49,6 +49,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ---
 
 ### CLOSED
+- **hfng2al7**: PC-227: Wiki day view — clarify rescan photos loading text; verify journal action de-dup -- Gem. Approved.
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
 - **erwhktny**: RT-001 [P1]: pipeline_runner.py — detect product ID and pass format flag (fable|modern) -- ## Goal -- Clau. Approved.
 - **hc1iggo2**: PC-256 [P1]: Video gen — com.apple.accounts Code=7 permission denied -- Codi. Approved.
@@ -542,7 +543,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **hfng2al7** | PC-227: Wiki day view — remove duplicate edit-journal action and clarify rescan photos | gem | in_work | Imported from PrivateCore MISSION_CONTROL.md. |
 | **bhqe7fv2** | PC-233 [P0]: VideoStyle data model and CoreImage style processor | codi | planned | 7 visual style filter chains, GPU-accelerated via ... |
 | **e3o6vdxg** | PC-239 [P1]: Intro and outro assets — 7 style MP4s + runtime outro | gem | planned | 7 bundled intro MP4s (2-3s, generated via CoreGrap... |
 | **8eknrrkr** | PC-243 [P1]: Music track integration and automatic selection | gem | in_work | 21 AAC tracks (3/style) as ODR. Auto-select by emo... |
