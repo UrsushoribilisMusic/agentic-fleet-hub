@@ -74,6 +74,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **qrulqkkh**: PC-232: Concept graph — missing lines in graph view -- Imported from PrivateCore MISSION_CONTROL.md. -- Clau. Approved.
 - **u5elcijk**: PC-230: Places — visit counts underreport multi-day place photos -- Imported from PrivateCore MISSION_CONTROL.md. -- Gem. Approved.
 - **8d3lyfdm**: PC-228: Wiki day view — generate wiki / AI description actions do not complete -- Imported from PrivateCore MISSION_CONTROL.md. -- Codi. Approved.
+- **hfng2al7**: PC-227: Wiki day view — remove duplicate edit-journal action and clarify rescan photos -- Imported from PrivateCore MISSION_CONTROL.md. -- Gem. Approved.
 - **jqawd67z**: PC-225: Library — documents counter / top icon spacing is clipped -- Imported from PrivateCore MISSION_CONTROL.md. -- Misty. Approved.
 - **fsj216xt**: PC-219: People — hide person should stop them reappearing in suggested groups -- Imported from PrivateCore MISSION_CONTROL.md. -- Gem. Approved.
 - **5ihwuycn**: PC-218: Library wiki — weekly wiki sometimes does not show up -- Imported from PrivateCore MISSION_CONTROL.md. -- Misty. Approved.
@@ -542,7 +543,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **hfng2al7** | PC-227: Wiki day view — remove duplicate edit-journal action and clarify rescan photos | gem | merged | Imported from PrivateCore MISSION_CONTROL.md. |
 | **bhqe7fv2** | PC-233 [P0]: VideoStyle data model and CoreImage style processor | codi | planned | 7 visual style filter chains, GPU-accelerated via ... |
 | **e3o6vdxg** | PC-239 [P1]: Intro and outro assets — 7 style MP4s + runtime outro | gem | in_work | 7 bundled intro MP4s (2-3s, generated via CoreGrap... |
 | **8eknrrkr** | PC-243 [P1]: Music track integration and automatic selection | gem | in_work | 21 AAC tracks (3/style) as ODR. Auto-select by emo... |
