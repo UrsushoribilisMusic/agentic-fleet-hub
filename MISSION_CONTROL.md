@@ -555,7 +555,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **w16ivb3k** | RT-002 [P0]: gen_story_modern.py — context-driven Runway prompts + hook question | clau | in_work | ## Goal... |
 | **n4arcx7y** | RT-003 [P0]: assemble_modern.py — modern assembly with hook intro + subscribe outro | clau | in_work | ## Goal... |
 | **qqiv4uw5** | RT-005 [P1]: pipeline_runner.py — add PRODUCT_LANGUAGE_MAP and detect_language() | codi | planned | Add PRODUCT_LANGUAGE_MAP dict alongside PRODUCT_FO... |
-| **2h1z41v5** | RT-007 [P2]: Shopify — create Swiss-language Modern Reel products and wire PRODUCT_LANGUAGE_MAP | clau | in_work | Shopify product IDs (robot-ross store):... |
+| **2h1z41v5** | RT-007 [P2]: Shopify — create Swiss-language Modern Reel products and wire PRODUCT_LANGUAGE_MAP | clau | peer_review | All 4 Swiss product IDs wired in pipeline_runner.py. PRODUCT_LANGUAGE_MAP + MODERN_PRODUCT_IDS + LANGUAGES_WITHOUT_VOICEOVER complete. |
 | **0c981qnx** | PC-259 [P1]: WikiBrowserView — generated week wikis disappear after reload | codi | planned | Generated week wikis appear in the browser momenta... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
