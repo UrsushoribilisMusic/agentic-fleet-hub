@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-05-19",
+    "summary": "Clau: RT-006 (gen_story_modern.py Apertus 70B Swiss-language client) verified committed in 5abbc57; status → peer_review.",
+    "file": "2026-05-19.md"
+  },
+  {
     "date": "2026-05-18",
     "summary": "Gem: PC-227 Wiki day view clarified rescan photos loading text (\"Rescanning Photos...\") and verified journal action de-dup. Updated Mission Control in Hub and PrivateCore.",
     "file": "2026-05-18-hfng2al7-gem.md"
