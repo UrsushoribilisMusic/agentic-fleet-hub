@@ -50,6 +50,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **kdn4oz0v**: RT-006 [P1]: gen_story_modern.py — Apertus 70B client for Swiss-language story generation -- Add --language arg to gen_story_modern.py. When language != "en": call swiss-ai/apertus-70b-instruct via https://api.publicai.co/v1/chat/completions (OpenAI-compat) using APERTUS_API_KEY from env (injected by Infisical). When language == "en": use existing LLM unchanged. Inject the target language/locale into the story generation prompt (e.g. "Write in Swiss German (Schweizerdeutsch)"). The APERTUS_API_KEY is already stored in Infisical EU project 3233b7c1-8309-447d-af5a-6541e38dc1b3 env=dev. Supported languages: de-CH (Schweizerdeutsch), fr-CH (Swiss French), it-CH (Swiss Italian). -- Clau. Approved.
 - **erwhktny**: RT-001 [P1]: pipeline_runner.py — detect product ID and pass format flag (fable|modern) -- ## Goal -- Clau. Approved.
 - **hc1iggo2**: PC-256 [P1]: Video gen — com.apple.accounts Code=7 permission denied -- Codi. Approved.
 - **uweus0mq**: PC-255 [P1]: WikiBrowserView — day navigation broken for ungenerated days -- Clau. Approved.
@@ -552,7 +553,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **n4arcx7y** | RT-003 [P0]: assemble_modern.py — modern assembly with hook intro + subscribe outro | clau | in_work | ## Goal... |
 | **7y2i94o3** | RT-004 [P1]: End-to-end test — Modern Story path with dummy order | clau | in_work | ## Goal... |
 | **qqiv4uw5** | RT-005 [P1]: pipeline_runner.py — add PRODUCT_LANGUAGE_MAP and detect_language() | clau | in_work | Add PRODUCT_LANGUAGE_MAP dict alongside PRODUCT_FO... |
-| **kdn4oz0v** | RT-006 [P1]: gen_story_modern.py — Apertus 70B client for Swiss-language story generation | clau | merged | Add --language arg to gen_story_modern.py. When la... |
 | **2h1z41v5** | RT-007 [P2]: Shopify — create Swiss-language Modern Reel products and wire PRODUCT_LANGUAGE_MAP | clau | in_work | WAITING ON MIGUEL: needs Shopify product IDs for S... |
 | **ugx23pr3** | PC-257 [P0]: LibraryView — day navigation broken due to mixed NavigationLink patterns | clau | in_work | Tapping empty day links on the library main page d... |
 | **itypd3kg** | PC-258 [P1]: WikiDayView — Add note sheet flashes and dismisses immediately | clau | in_work | Tapping Add Journal Entry in WikiDayView causes th... |
