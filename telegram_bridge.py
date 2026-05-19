@@ -18,12 +18,14 @@ CODEX_REPO_DIR = "/Users/miguelrodriguez/projects/agentic-fleet-hub"
 LOG_FILE = f"{FLEET_DIR}/logs/telegram_bridge.log"
 OFFSET_FILE = f"{FLEET_DIR}/logs/tg_offset.json"
 OUTBOUND_OFFSET_FILE = f"{FLEET_DIR}/logs/tg_outbound_offset.json"
+MESSAGES_DIR = f"{CODEX_REPO_DIR}/standups/messages"
 
 # Telegram settings from environment (Infisical)
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "997912895")
 
 os.makedirs(f"{FLEET_DIR}/logs", exist_ok=True)
+os.makedirs(MESSAGES_DIR, exist_ok=True)
 
 TASK_CACHE = {}
 
@@ -54,6 +56,27 @@ def log(msg):
     with open(LOG_FILE, "a") as f:
         f.write(f"[{ts}] {msg}\n")
     print(f"[{ts}] {msg}")
+
+def log_tg_message(direction, sender, recipient, text, task_context=None):
+    """Append a message to the daily markdown log in standups/messages/."""
+    today = datetime.now().strftime("%Y-%m-%d")
+    ts = datetime.now().strftime("%H:%M")
+    path = os.path.join(MESSAGES_DIR, f"{today}.md")
+
+    # Write header if file is new
+    if not os.path.exists(path):
+        with open(path, "w") as f:
+            f.write(f"# Telegram Messages — {today}\n\n")
+
+    arrow = "→"
+    prefix = "🤖" if direction == "outbound" else "👤"
+    context = f" ({task_context})" if task_context else ""
+    header = f"## [{ts}] {prefix} {sender} {arrow} {recipient}{context}\n"
+
+    with open(path, "a") as f:
+        f.write(header)
+        f.write(text.strip() + "\n\n")
+
 
 def get_offset():
     if os.path.exists(OFFSET_FILE):
@@ -240,6 +263,7 @@ def poll_outbound_comments():
 
             if send_to_tg(f"{header}:\n{content}"):
                 log(f"Sent outbound comment from {agent} to TG")
+                log_tg_message("outbound", agent, "Teddy", content, task_context=title)
                 last_ts = item.get("created")
                 save_outbound_offset(last_ts)
             else:
@@ -343,6 +367,8 @@ def process_updates(updates):
             continue
 
         log(f"Received from {from_user}: {text}")
+        if text:
+            log_tg_message("inbound", from_user, "fleet", text)
 
         # Check for reply to HUMAN NEEDED
         reply_to = msg.get("reply_to_message")
