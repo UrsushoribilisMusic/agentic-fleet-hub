@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-05-19",
-    "summary": "Clau: RT-006 (gen_story_modern.py 70B) status \u2192 peer_review. Gem: RT-004 (Modern Story e2e) success, unlisted test video uploaded; PC-249 (Freemium gating) refined Pro outro 'clean credit' and UI feedback; status \u2192 peer_review. Misty: peer review RT-004 approved (commit 08c6909f verified).",
+    "summary": "Clau: RT-006 (gen_story_modern.py 70B) status \u2192 peer_review. Gem: RT-004 (Modern Story e2e) success, unlisted test video uploaded; PC-249 (Freemium gating) refined Pro outro 'clean credit' and UI feedback; status \u2192 peer_review. Misty: peer review RT-004 (commit 08c6909f) and RT-007 (commit ba6a1ad2) approved.",
     "file": "2026-05-19.md"
   },
   {
