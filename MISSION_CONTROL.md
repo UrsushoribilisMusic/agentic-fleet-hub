@@ -59,6 +59,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **flby0sfc**: PC-252 [P0]: WikiGenerator — base content layer (two-pass architecture) -- ## Goal -- Clau. Approved.
 - **vw3qp1g6**: PC-251 [P1]: WikiDayView — style switch should not regenerate; reuse cached text -- **Bug:** Switching wiki style (e.g. to Shakespeare) triggers full LLM regeneration of all day sections. Unnecessary — the text can be reused; only the visual presentation changes. -- Clau. Approved.
 - **jnuq7enn**: PC-250 [P1]: WikiDayView — remove loading veil; show skeleton only when zero content -- **Bug:** During wiki day generation, already-completed sections (Morning etc.) are covered by opacity/blur + WikiSkeletonView overlay. Cover photo hidden. The bottom progress spinner already handles in-progress feedback. -- Clau. Approved.
+- **gpi0q42c**: PC-249 [P1]: Freemium gating — promotional vs clean outro by tier -- Video generation UNLIMITED for all tiers. Free = QR code outro. Pro = clean credit. Upgrade prompt in style confirm screen. 3pts. -- Gem. Approved.
 - **2pzzrgga**: PC-248 [P0]: Video generation progress + AVPlayer preview -- Style-themed loading + Combine progress bar. AVPlayer preview on complete. Save to Camera Roll / Share / Regenerate actions. 5pts. -- Gem. Approved.
 - **sk3spoxo**: PC-247 [P1]: Style confirmation screen — live CoreImage preview -- Suggested style + live filter applied to cover photo (<100ms). Style picker scroll. Music 10s preview. Narration toggle. 5pts. -- Gem. Approved.
 - **uncjdgt1**: PC-246 [P0]: Photo curation screen — review LLM-selected photos -- Horizontal scroll. Remove (×), add (PHPicker), reorder (long-press). Min 3 / max 12. Privacy consent copy. Most UX-sensitive screen in sprint. 5pts. -- Gem. Approved.
@@ -548,7 +549,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **gpi0q42c** | PC-249 [P1]: Freemium gating — promotional vs clean outro by tier | gem | merged | Video generation UNLIMITED for all tiers. Free = Q... |
 | **w16ivb3k** | RT-002 [P0]: gen_story_modern.py — context-driven Runway prompts + hook question | gem | in_work | ## Goal... |
 | **n4arcx7y** | RT-003 [P0]: assemble_modern.py — modern assembly with hook intro + subscribe outro | clau | planned | ## Goal... |
 | **7y2i94o3** | RT-004 [P1]: End-to-end test — Modern Story path with dummy order | gem | planned | ## Goal... |
