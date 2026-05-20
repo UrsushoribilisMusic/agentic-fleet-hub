@@ -57,6 +57,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **kdn4oz0v**: RT-006 [P1]: gen_story_modern.py — Apertus 70B client for Swiss-language story generation -- Add --language arg to gen_story_modern.py. When language != "en": call swiss-ai/apertus-70b-instruct via https://api.publicai.co/v1/chat/completions (OpenAI-compat) using APERTUS_API_KEY from env (injected by Infisical). When language == "en": use existing LLM unchanged. Inject the target language/locale into the story generation prompt (e.g. "Write in Swiss German (Schweizerdeutsch)"). The APERTUS_API_KEY is already stored in Infisical EU project 3233b7c1-8309-447d-af5a-6541e38dc1b3 env=dev. Supported languages: de-CH (Schweizerdeutsch), fr-CH (Swiss French), it-CH (Swiss Italian). -- Clau. Approved.
 - **qqiv4uw5**: RT-005 [P1]: pipeline_runner.py — add PRODUCT_LANGUAGE_MAP and detect_language() -- Add PRODUCT_LANGUAGE_MAP dict alongside PRODUCT_FORMAT_MAP in pipeline_runner.py. Implement detect_language(order) that reads product_id and returns a BCP-47 language code (default: "en"). Pass --language <code> as a CLI arg to gen_story_modern.py when fmt == "modern". Fable path unchanged — language is ignored there. Language codes to support: en, de-CH, fr-CH, it-CH. Add --language override arg to pipeline_runner.py CLI (like --format). Log the detected language alongside format. -- Codi. Approved.
 - **7y2i94o3**: RT-004 [P1]: End-to-end test — Modern Story path with dummy order -- ## Goal -- Gem. Approved.
+- **n4arcx7y**: RT-003 [P0]: assemble_modern.py — modern assembly with hook intro + subscribe outro -- ## Goal -- Clau. Approved.
+- **w16ivb3k**: RT-002 [P0]: gen_story_modern.py — context-driven Runway prompts + hook question -- ## Goal -- Clau. Approved.
 - **erwhktny**: RT-001 [P1]: pipeline_runner.py — detect product ID and pass format flag (fable|modern) -- ## Goal -- Clau. Approved.
 - **hc1iggo2**: PC-256 [P1]: Video gen — com.apple.accounts Code=7 permission denied -- Codi. Approved.
 - **uweus0mq**: PC-255 [P1]: WikiBrowserView — day navigation broken for ungenerated days -- Clau. Approved.
@@ -555,7 +557,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **w16ivb3k** | RT-002 [P0]: gen_story_modern.py — context-driven Runway prompts + hook question | clau | merged | ## Goal... |
-| **n4arcx7y** | RT-003 [P0]: assemble_modern.py — modern assembly with hook intro + subscribe outro | clau | merged | ## Goal... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
