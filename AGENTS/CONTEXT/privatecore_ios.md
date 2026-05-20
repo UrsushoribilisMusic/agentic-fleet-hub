@@ -1,16 +1,16 @@
-# PrivateCore iOS — Agent Context
+# Lifelore iOS — Agent Context
 
-*Read this before picking up any PC-* ticket. Updated April 2026.*
+*Previously named PrivateCore. App renamed to Lifelore on 2026-05-03. Xcode target still named `PrivateCore` until an authorised rename. Read this before picking up any PC-* ticket. Updated May 2026.*
 
 ---
 
-## What is PrivateCore?
+## What is Lifelore?
 
-A reusable on-device AI platform for iPhone. Three technical pillars — local LLM inference, iOS data access, vision pipeline — that multiple consumer apps can launch on top of without rebuilding the core.
+A privacy-first on-device AI life journal for iPhone. The app turns your photos, calendar, trips, and notes into a searchable personal narrative — all processed locally, no cloud required.
 
-**The gap it fills:** No existing app combines a truly local open-weights LLM with deep iOS data integration (Photos, Calendar, Health) and offline-capable vision. European users are privacy-conscious and frequently offline. This is the target.
+**Sprint 6 (active as of May 2026):** Styles system, PDF export, onboarding flow, StoreKit 2 freemium model.
 
-**Phase 1 goal:** Working internal demo on a physical iPhone 15 Pro. A user asks "What was I doing near Kyoto in March?" and gets a coherent answer from their on-device photos and calendar — no internet required.
+**Phase 1 goal (complete):** Working app installed on physical iPhone. Semantic photo/calendar search, wiki-style auto-generated day summaries, trip detection. v0.1.0 shipped.
 
 ---
 
@@ -139,4 +139,15 @@ Agents draft Swift files and push to the repo. Miguel wires them into Xcode targ
 
 ---
 
-*BigBear Engineering GmbH · PrivateCore iOS · April 2026*
+## Sprint 6 Focus Areas
+
+| Area | What's being built |
+|---|---|
+| Styles | Per-view visual style switching (day/wiki/trip views) |
+| PDF export | Export day summaries and trip reports as shareable PDFs |
+| Onboarding | First-launch flow: permissions, style selection, first sync |
+| StoreKit 2 | Freemium gating — free tier limited, Pro unlocks everything |
+
+---
+
+*BigBear Engineering GmbH · Lifelore iOS (formerly PrivateCore) · May 2026*
