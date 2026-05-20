@@ -182,6 +182,18 @@
       "is_active": true
     },
     {
+      "title": "ReelTales",
+      "owners": "Ursus Fleet",
+      "repo_path": "../music-video-tool",
+      "summary": "Shopify-to-YouTube story video pipeline. Customers submit a personal story; the pipeline generates AI visuals, captions, narration, and uploads the final video to YouTube automatically.",
+      "docs": [
+        "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/reeltales.md"
+      ],
+      "kanban": "https://github.com/users/UrsushoribilisMusic/projects/3/views/1",
+      "statsLink": "https://api.robotross.art/reeltales/",
+      "is_active": true
+    },
+    {
       "title": "Agentic Fleet Hub (Flotilla)",
       "owners": "Ursus Fleet",
       "repo_path": ".",
