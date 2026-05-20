@@ -54,7 +54,11 @@ The PrivateCore iOS project does **not** use GitHub Pull Requests. All work is c
 2. Do the work. Follow the Task Branch Protocol (Rule #6 under Kanban & Reporting).
 3. Before claiming success, run any project build-verifier (e.g. `scripts/build-tag.sh` in PrivateCore). Only claim "BUILD SUCCEEDED" if it exits 0 — see Rule #6 under GitHub & Commits.
 4. POST output to `/api/collections/comments/records` `{"task_id": "...", "agent": "<agent>", "content": "...", "type": "output"}`.
-5. Set task status to `peer_review`.
+5. **PATCH status to `peer_review` — this is mandatory.** A comment alone does not advance the task. If you skip this, the dispatcher will keep re-dispatching the same task every heartbeat, wasting everyone's tokens.
+   ```
+   PATCH /api/collections/tasks/records/<id>   {"status": "peer_review"}
+   ```
+   This applies equally when you verify that a task was already completed in a previous session — confirm it, comment it, then patch it. Do not just describe the state and move on.
 
 ### Phase 4 — Blockers
 - If blocked: POST comment `type: "question"`, mention `"@miguel"` or `"@<peer-agent>"`.
