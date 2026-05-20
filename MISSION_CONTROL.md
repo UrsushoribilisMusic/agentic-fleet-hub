@@ -50,6 +50,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **0hg403g0**: RT-011: ReelTales order dashboard -- ## Summary -- Clau. Approved.
 - **0c981qnx**: PC-259 [P1]: WikiBrowserView — generated week wikis disappear after reload -- Generated week wikis appear in the browser momentarily but disappear when load() re-fires (on every view appear via .task). load() calls SQLiteStore.shared.fetchAllWikiArticles() — if the SQLite upsert failed silently the week wiki is gone after reload. Also: user wants all previously generated week wikis to remain visible in the Wiki section, not just the current week. Fix: (1) Add error logging to WikiArticleStore.save() so silent write failures surface. (2) Ensure WikiBrowserView shows ALL stored week articles (not just recent 5 weeks). (3) The .task re-fires on every appear — consider caching or only reloading on explicit pull-to-refresh. -- Codi. Approved.
 - **itypd3kg**: PC-258 [P1]: WikiDayView — Add note sheet flashes and dismisses immediately -- Tapping Add Journal Entry in WikiDayView causes the JournalingView sheet to appear then immediately dismiss. Root cause: navigation to WikiDayView itself is unstable (see PC-257 — conflicting NavigationLink patterns in LibraryView cause the view to be pushed then popped). When the parent navigation unwinds, the sheet in the child view closes with it. Fix PC-257 first; this should resolve as a side effect. If it persists after PC-257, add .onChange(of: showingJournalEditor) { print("[WikiDayView] journal editor: \($0)") } to trace whether the state is being reset externally. -- Clau. Approved.
 - **ugx23pr3**: PC-257 [P0]: LibraryView — day navigation broken due to mixed NavigationLink patterns -- Tapping empty day links on the library main page does not navigate. Root causes: (1) Deprecated NavigationLink(isActive:) in .background (line 87-94, document import nav) coexists with both NavigationLink(destination:) links AND .navigationDestination(isPresented:) modifiers — SwiftUI navigation stack conflicts when these mix. (2) The today + stalled day NavigationLinks (lines 304, 327) are in ScrollView > VStack without .buttonStyle(.plain), so scroll view can swallow taps. Fix: replace the NavigationLink(isActive:) in .background with a .navigationDestination(isPresented: $showCardDetail) equivalent; add .buttonStyle(.plain) to today/stalled day links. This is also the root cause of the Add note sheet flashing (PC-258). -- Clau. Approved.
@@ -557,6 +558,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **0hg403g0** | RT-011: ReelTales order dashboard | clau | merged | ## Summary... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
