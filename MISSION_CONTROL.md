@@ -557,6 +557,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **0hg403g0** | RT-011: ReelTales order dashboard | clau | in_work | ## Summary... |
+| **0hg403g0** | RT-011: ReelTales order dashboard | clau | planned | ## Summary... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
