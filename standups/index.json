@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-05-24",
-    "summary": "Gem: Completed PC-261 (VideoAssemblyEngine captions). Refactored CaptionLayer for robust CIImage creation and updated CIContext for correct alpha blending. Verified build build-green-2026-05-24-3.",
+    "summary": "Gem: Completed PC-261 captions. Codi: Completed PC-263 synced narration with AVSpeechSynthesizer and music ducking; build-green-2026-05-24-4.",
     "file": "2026-05-24.md"
   },
   {
