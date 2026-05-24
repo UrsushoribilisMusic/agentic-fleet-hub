@@ -558,9 +558,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **p0yuhcav** | PC-261 [P1]: VideoAssemblyEngine — no subtitles/captions appear in generated video | gem | in_work | ## Bug... |
 | **5971yzfq** | PC-260 [P1]: VideoAssemblyEngine — Ken Burns effect too tight, photos over-zoomed | codi | in_work | ## Bug... |
-| **x42bo7ha** | PC-263 [P1]: VideoAssemblyEngine — no narration in generated video | codi | planned | ## Bug... |
+| **p0yuhcav** | PC-261 [P1]: VideoAssemblyEngine — no subtitles/captions appear in generated video | gem | in_work | ## Bug... |
 | **7d5y61ua** | PC-262 [P1]: VideoAssemblyEngine — no music plays in generated video | gem | planned | ## Bug... |
+| **x42bo7ha** | PC-263 [P1]: VideoAssemblyEngine — no narration in generated video | codi | planned | ## Bug... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
