@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-05-24",
+    "summary": "Gem: Completed PC-261 (VideoAssemblyEngine captions). Refactored CaptionLayer for robust CIImage creation and updated CIContext for correct alpha blending. Verified build build-green-2026-05-24-3.",
+    "file": "2026-05-24.md"
+  },
+  {
     "date": "2026-05-20",
     "summary": "Misty: Peer reviewed and approved RT-002 (gen_story_modern.py) and RT-003 (assemble_modern.py) in music-video-tool repo.",
     "file": "2026-05-20.md"
