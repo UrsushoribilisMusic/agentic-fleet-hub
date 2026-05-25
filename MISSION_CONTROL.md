@@ -562,6 +562,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **7d5y61ua** | PC-262 [P1]: VideoAssemblyEngine — no music plays in generated video | gem | in_work | ## Bug... |
+| **7d5y61ua** | PC-262 [P1]: VideoAssemblyEngine — no music plays in generated video | gem | planned | ## Bug... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
