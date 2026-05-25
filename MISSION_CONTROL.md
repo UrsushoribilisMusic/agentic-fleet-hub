@@ -562,5 +562,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **7d5y61ua** | PC-262 [P1]: VideoAssemblyEngine — no music plays in generated video | gem | in_work | ## Bug... |
+| **3lbwwa3s** | Security scan results: 5 shell injection risks in fleet_sync.py + 9 other findings | clau | in_work | Hey Miguel and the Flotilla crew — I've been follo... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
