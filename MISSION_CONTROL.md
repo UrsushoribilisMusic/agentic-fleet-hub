@@ -50,6 +50,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **3lbwwa3s**: Security scan results: 5 shell injection risks in fleet_sync.py + 9 other findings -- Hey Miguel and the Flotilla crew — I've been following the project and really dig the vault-first approach and multi-agent architecture. -- Clau. Approved.
 - **x42bo7ha**: PC-263 [P1]: VideoAssemblyEngine — no narration in generated video -- ## Bug -- Codi. Approved.
 - **p0yuhcav**: PC-261 [P1]: VideoAssemblyEngine — no subtitles/captions appear in generated video -- ## Bug -- Gem. Approved.
 - **5971yzfq**: PC-260 [P1]: VideoAssemblyEngine — Ken Burns effect too tight, photos over-zoomed -- ## Bug -- Codi. Approved.
@@ -562,6 +563,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **7d5y61ua** | PC-262 [P1]: VideoAssemblyEngine — no music plays in generated video | gem | in_work | ## Bug... |
-| **3lbwwa3s** | Security scan results: 5 shell injection risks in fleet_sync.py + 9 other findings | clau | merged | Hey Miguel and the Flotilla crew — I've been follo... |
 
 **Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
