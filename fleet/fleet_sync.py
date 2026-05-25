@@ -1,6 +1,7 @@
 import requests
 import re
 import os
+import subprocess
 from datetime import datetime
 
 PB_URL = "http://localhost:8090/api"
@@ -273,7 +274,7 @@ def main():
     # 1. Read current MISSION_CONTROL.md
     print(f"Reading {MC_PATH}...")
     try:
-        with os.popen(f"cat {MC_PATH}") as f:
+        with open(MC_PATH, "r", encoding="utf-8") as f:
             content = f.read()
     except Exception as e:
         print(f"Error reading {MC_PATH}: {e}")
@@ -332,14 +333,18 @@ def main():
     print(f"MISSION_CONTROL.md updated.")
     
     # 6. Commit and push
-    try:
-        repo_dir = os.path.dirname(MC_PATH)
-        os.system(f"git -C {repo_dir} add MISSION_CONTROL.md")
-        os.system(f"git -C {repo_dir} commit -m 'chore: auto-sync MISSION_CONTROL with PocketBase state'")
-        os.system(f"git -C {repo_dir} push origin master")
+    repo_dir = os.path.dirname(MC_PATH)
+    for git_cmd in [
+        ["git", "-C", repo_dir, "add", "MISSION_CONTROL.md"],
+        ["git", "-C", repo_dir, "commit", "-m", "chore: auto-sync MISSION_CONTROL with PocketBase state"],
+        ["git", "-C", repo_dir, "push", "origin", "master"],
+    ]:
+        result = subprocess.run(git_cmd, capture_output=True, text=True)
+        if result.returncode != 0:
+            print(f"git command failed: {' '.join(git_cmd[2:])}\n{result.stderr.strip()}")
+            break
+    else:
         print("Changes pushed to GitHub.")
-    except Exception as e:
-        print(f"Failed to push changes: {e}")
 
 if __name__ == "__main__":
     main()
