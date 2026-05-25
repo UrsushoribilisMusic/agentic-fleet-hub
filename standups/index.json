@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-05-25",
+    "summary": "Clau: Reviewed GH #633 security scan report. Fixed os.popen/os.system patterns in fleet_sync.py (both copies). 9 of 14 findings confirmed false positives.",
+    "file": "2026-05-25.md"
+  },
+  {
     "date": "2026-05-24",
     "summary": "Gem: Completed PC-261 captions. Codi: Completed PC-263 synced narration with AVSpeechSynthesizer and music ducking; build-green-2026-05-24-4. Misty: Peer reviewed and approved PC-263.",
     "file": "2026-05-24.md"
