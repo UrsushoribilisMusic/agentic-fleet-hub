@@ -637,7 +637,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **qkhuhnde** | [CR-001][P0] Financial Ops tab — new top-level nav and three sub-views in Fleet Hub | codi | planned | Add Financial Ops tab to salesman-cloud-infra/opt/... |
+| **qkhuhnde** | [CR-001][P0] Financial Ops tab — new top-level nav and three sub-views in Fleet Hub | codi | in_work | Add Financial Ops tab to salesman-cloud-infra/opt/... |
 | **4mg0akd2** | [CR-002][P0] Watch hours ingestion — daily YouTube Analytics pull with campaign-phase annotation | gem | in_work | Daily job (~10:00 CET) pulls valid public watch ho... |
 | **lov0tnox** | [CR-003][P0] Active campaigns viewer — read-only Google Ads campaign state snapshot | gem | planned | Daily job (~10:00 CET) reads Google Ads campaign s... |
 | **9uh4f66u** | [CR-004][P0] Shopify ingestion — daily orders with per-content-line attribution | codi | planned | Daily job pulls orders from Shopify Admin API (rob... |
