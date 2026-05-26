@@ -641,10 +641,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **4mg0akd2** | [CR-002][P0] Watch hours ingestion — daily YouTube Analytics pull with campaign-phase annotation | gem | in_work | Daily job (~10:00 CET) pulls valid public watch ho... |
 | **lov0tnox** | [CR-003][P0] Active campaigns viewer — read-only Google Ads campaign state snapshot | gem | in_work | Daily job (~10:00 CET) reads Google Ads campaign s... |
-| **9uh4f66u** | [CR-004][P0] Shopify ingestion — daily orders with per-content-line attribution | codi | in_work | Daily job pulls orders from Shopify Admin API (rob... |
+| **9uh4f66u** | [CR-004][P0] Shopify ingestion — daily orders with per-content-line attribution | codi | merged | Daily job pulls orders from Shopify Admin API (rob... |
 | **zond8lre** | [CR-005][P0] Content tagging system — per-publish line tags on Classical Reels assets | codi | planned | Extend Classical Reels publishing pipeline (~/proj... |
 | **m1jqviy7** | [CR-006][P1] Cost ingestion — Google Ads spend, ElevenLabs, Runway (automated sources only) | gem | planned | Daily job fetches automated cost sources and write... |
-| **jtugl100** | [CR-008][P0] Spending rule engine — enforcement and fail-closed alerts on breach | clau | in_work | Security-critical. Implement spending rule as call... |
+| **jtugl100** | [CR-008][P0] Spending rule engine — enforcement and fail-closed alerts on breach | clau | merged | Security-critical. Implement spending rule as call... |
 | **cnkffhmb** | [CR-009][P1] Manual entry form — Kindle, DistroKid, DigitalOcean, monthly bank statement | codi | planned | Simple form in Financial Ops tab (≤3 clicks from P... |
 | **du4xz6de** | [CR-010][P0] Classical Remix sub-view — chart, daily ledger, campaign phases, active ads | codi | planned | Classical Remix sub-view inside Financial Ops tab.... |
 | **146l3tu6** | [CR-011][P1] Classical Reels sub-view — four content lines, Shopify attribution | codi | planned | Classical Reels sub-view inside Financial Ops tab.... |
