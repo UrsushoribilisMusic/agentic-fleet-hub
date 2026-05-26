@@ -123,6 +123,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **gv6vhzz2**: [CR-013][P0] MISSION_CONTROL update — spending rule, fleet boundaries, refresh cadence -- Review and verify the Financial Ops fleet boundaries added to MISSION_CONTROL.md (2026-05-26). The update has already been applied by Claude Code. Clau reads it, checks accuracy and completeness, corrects anything unclear, then marks peer_review. Hard prerequisite: must merge before any other CR ticket starts. Full spec in AGENTS/CONTEXT/classical_remix_financial_ops.md. GitHub: #634 -- Clau. Approved.
 - **3lbwwa3s**: Security scan results: 5 shell injection risks in fleet_sync.py + 9 other findings -- Hey Miguel and the Flotilla crew — I've been following the project and really dig the vault-first approach and multi-agent architecture. -- Clau. Approved.
 - **x42bo7ha**: PC-263 [P1]: VideoAssemblyEngine — no narration in generated video -- ## Bug -- Codi. Approved.
 - **7d5y61ua**: PC-262 [P1]: VideoAssemblyEngine — no music plays in generated video -- ## Bug -- Gem. Approved.
@@ -636,8 +637,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **gv6vhzz2** | [CR-013][P0] MISSION_CONTROL update — spending rule, fleet boundaries, refresh cadence | clau | merged | Review and verify the Financial Ops fleet boundari... |
-| **mlx7omw9** | [CR-000][P0] Pre-sprint credential verification — YouTube Analytics, Shopify Admin, Google Ads | codi | in_work | Sprint gate — nothing else in the CR sprint starts... |
 | **qkhuhnde** | [CR-001][P0] Financial Ops tab — new top-level nav and three sub-views in Fleet Hub | codi | planned | Add Financial Ops tab to salesman-cloud-infra/opt/... |
 | **4mg0akd2** | [CR-002][P0] Watch hours ingestion — daily YouTube Analytics pull with campaign-phase annotation | gem | in_work | Daily job (~10:00 CET) pulls valid public watch ho... |
 | **lov0tnox** | [CR-003][P0] Active campaigns viewer — read-only Google Ads campaign state snapshot | gem | planned | Daily job (~10:00 CET) reads Google Ads campaign s... |
