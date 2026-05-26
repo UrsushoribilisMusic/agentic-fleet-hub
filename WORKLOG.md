@@ -14,22 +14,27 @@ Fields: `snapshot_date`, `campaign_name`, `status`, `daily_budget_chf`, `spend_7
 
 ## Plan
 1. **Research & Discovery**
-    - [ ] Inspect existing Google Ads scripts in `music-video-tool` (`tcr_ads_live_executor.py`, etc.) for API usage patterns.
-    - [ ] Verify PocketBase `campaigns_snapshot` collection schema.
-    - [ ] Locate Google Ads credentials in Infisical via `vault/agent-fetch.sh`.
+    - [x] Inspect existing Google Ads scripts in `music-video-tool` (`tcr_ads_live_executor.py`, etc.) for API usage patterns.
+    - [x] Verify PocketBase `campaigns_snapshot` collection schema.
+    - [x] Locate Google Ads credentials in Infisical via `vault/agent-fetch.sh`.
 2. **Implementation**
-    - [ ] Develop `cr_ads_snapshot.py` in `music-video-tool/scripts/` (or similar).
-    - [ ] Implement `GoogleAdsClient` initialization (read-only).
-    - [ ] Fetch active campaigns and their metrics.
-    - [ ] Map metrics to PocketBase fields.
-    - [ ] Ensure idempotency (snapshot per day).
+    - [x] Develop `cr_ads_snapshot.py` in `music-video-tool/scripts/` (or similar).
+    - [x] Implement `GoogleAdsClient` initialization (read-only).
+    - [x] Fetch active campaigns and their metrics.
+    - [x] Map metrics to PocketBase fields.
+    - [x] Ensure idempotency (snapshot per day).
 3. **Verification**
-    - [ ] Dry-run to verify data fetching without writing to PB.
-    - [ ] Full-run and verify PB records.
+    - [x] Dry-run to verify data fetching without writing to PB.
+    - [x] Full-run and verify PB records.
     - [ ] Code review for any potential write paths (mandatory).
 
 ## Progress
 - [x] Initialized task branch and WORKLOG.
+- [x] Researched Google Ads API usage and PocketBase schema.
+- [x] Located and verified Google Ads credentials via Infisical.
+- [x] Implemented `cr_ads_snapshot.py` in `music-video-tool/scripts/financial_ops/`.
+- [x] Verified read-only data fetching and SQLite-based idempotency.
+- [x] Completed full run and verified PocketBase records.
 
 ---
 
