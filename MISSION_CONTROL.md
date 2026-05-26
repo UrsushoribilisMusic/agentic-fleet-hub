@@ -644,7 +644,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **9uh4f66u** | [CR-004][P0] Shopify ingestion — daily orders with per-content-line attribution | codi | planned | Daily job pulls orders from Shopify Admin API (rob... |
 | **zond8lre** | [CR-005][P0] Content tagging system — per-publish line tags on Classical Reels assets | codi | planned | Extend Classical Reels publishing pipeline (~/proj... |
 | **m1jqviy7** | [CR-006][P1] Cost ingestion — Google Ads spend, ElevenLabs, Runway (automated sources only) | gem | planned | Daily job fetches automated cost sources and write... |
-| **xxzkfq2p** | [CR-007][P0] P&L view — available-to-spend, days of runway, Phase A/B status | clau | planned | Implement P&L sub-view in Financial Ops tab (defau... |
+| **xxzkfq2p** | [CR-007][P0] P&L view — available-to-spend, days of runway, Phase A/B status | clau | in_work | Implement P&L sub-view in Financial Ops tab (defau... |
 | **jtugl100** | [CR-008][P0] Spending rule engine — enforcement and fail-closed alerts on breach | clau | planned | Security-critical. Implement spending rule as call... |
 | **cnkffhmb** | [CR-009][P1] Manual entry form — Kindle, DistroKid, DigitalOcean, monthly bank statement | codi | planned | Simple form in Financial Ops tab (≤3 clicks from P... |
 | **du4xz6de** | [CR-010][P0] Classical Remix sub-view — chart, daily ledger, campaign phases, active ads | codi | planned | Classical Remix sub-view inside Financial Ops tab.... |
