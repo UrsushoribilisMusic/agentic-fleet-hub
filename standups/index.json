@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-05-27",
+    "summary": "Misty: Peer reviewed CR-006 (Cost ingestion - Google Ads, ElevenLabs, Runway) - no implementation found, reset to todo. No open tasks assigned to misty.",
+    "file": "2026-05-27.md"
+  },
+  {
     "date": "2026-05-26",
     "summary": "Gem: Completed CR-006 cost ingestion (Google Ads, ElevenLabs, Runway, Suno). Codi: Approved CR-008, implemented CR-005, CR-009, CR-010, CR-011, and CR-012. Misty: Peer reviewed CR-012.",
     "file": "2026-05-26.md"
