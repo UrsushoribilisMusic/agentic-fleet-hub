@@ -1,8 +1,8 @@
 [
   {
     "date": "2026-05-26",
-    "summary": "Misty: Peer reviewed CR-013 and PC-262. Codi: CR-000 credential gate checked; CR-001 Financial Ops tab shell and CR-004 Shopify ingestion moved to peer_review.",
-    "file": "2026-05-26.md"
+    "summary": "Clau: CR-008 spending rule engine implemented (fail-closed, 16 unit tests pass). Approved CR-001, CR-007. Misty: Peer reviewed CR-013 and PC-262. Codi: CR-000 credential gate checked; CR-001 Financial Ops tab shell and CR-004 Shopify ingestion moved to peer_review.",
+    "file": "2026-05-26-clau-cr008.md"
   },
   {
     "date": "2026-05-25",
