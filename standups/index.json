@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-05-26",
-    "summary": "Misty: Peer reviewed and approved PC-262 (VideoAssemblyEngine — no music plays in generated video). Reviewed commit 17eee0d with comprehensive fix: MusicLibrary .aac extension support, ODR force-download, VideoAssemblyEngine robust audio insertion with retry logic. Build verified with build-green-2026-05-26-2.",
+    "summary": "Misty: Peer reviewed and approved PC-262. Codi: CR-000 credential gate checked; YouTube Analytics and DigitalOcean pass, Shopify Admin token and Google Ads client secret blocked, task waiting_human.",
     "file": "2026-05-26.md"
   },
   {
