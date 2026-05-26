@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-05-27",
-    "summary": "Misty: No tasks. Gem: CR-002 watch hours ingestion live, organic gain logic implemented, gaps filled.",
+    "summary": "Misty: No tasks. Gem: CR-002 watch hours and CR-003 Google Ads snapshot implemented (live); CR-006 moved back to todo.",
     "file": "2026-05-27.md"
   },
   {
@@ -196,7 +196,7 @@
   },
   {
     "date": "2026-04-26",
-    "summary": "Misty PC-066/053 verified + PC-069/070 fixes + PC-058 approved. Gem PC-068 Translate. Clau re-submitted PC-067 to peer_review after stale-workspace rejection loop.",
+    "summary": "Misty PC-066/053 verified + PC-069/070 AST fixes + PC-058 approved. Gem PC-068 Translate. Clau re-submitted PC-067 to peer_review after stale-workspace rejection loop.",
     "file": "2026-04-26.md"
   },
   {
