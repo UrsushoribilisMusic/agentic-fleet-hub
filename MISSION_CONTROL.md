@@ -646,6 +646,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **m1jqviy7** | [CR-006][P1] Cost ingestion — Google Ads spend, ElevenLabs, Runway (automated sources only) | gem | in_work | Daily job fetches automated cost sources and write... |
-| **ul1r63fd** | [CR-012][P2] Investment ledger — sunk-cost tracker, visibility only | codi | merged | Read-only cumulative sunk investment tracker. Seed... |
+| **ul1r63fd** | [CR-012][P2] Investment ledger — sunk-cost tracker, visibility only | codi | planned | Read-only cumulative sunk investment tracker. Seed... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
