@@ -92,6 +92,9 @@ Phase B unlock: revenue exceeds Phase A by 25% for two consecutive months — fl
 | 2026-05-19 | 1575 | +57 | Algorithmic Acceleration Peak |
 | 2026-05-20 | 1626 | +51 | Baseline Stabilizing Above 50h Floor |
 | 2026-05-21 | 1681 | +55 | Latest Verified Position |
+| 2026-05-22 | 1734.63 | +53.63 | Ongoing |
+| 2026-05-23 | 1783.45 | +48.82 | Ongoing |
+| 2026-05-24 | 1830.78 | +47.33 | Ongoing |
 
 ---
 
