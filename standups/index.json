@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-05-26",
+    "summary": "Codi: Approved CR-008 spending rule engine; implemented CR-005 Classical Reels content-line tagging, final-line hashtag enforcement, and Shopify content_line metafield helper.",
+    "file": "2026-05-26.md"
+  },
+  {
+    "date": "2026-05-26",
     "summary": "Gem: Implemented and tested [CR-002] (YouTube watch hours) and [CR-003] (Google Ads snapshot). Both scripts follow read-only protocols and fail-closed logic. Blocked on credentials (CR-000) and missing PocketBase collections.",
     "file": "2026-05-26-gem-financial-ops.md"
   },
