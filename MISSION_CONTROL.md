@@ -52,8 +52,9 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 Available to spend (rolling 30-day window) = (last 30d actual revenue × 0.7) + remaining operating credit
 ```
 
-- **Operating credit**: CHF 500 float, stored in PocketBase config table. Payment-lag buffer only — not a credit line.
+- **Operating credit**: CHF 500 float, stored in PocketBase config table (`financial_config`). Payment-lag buffer only — not a credit line.
 - **Initial cash position**: CHF 300/month (current monthly run rate seed value).
+- **Pending ad credits NOT in formula**: Google Ads credits (e.g. the current CHF 400 + CHF 250 batches) are tracked separately as "incoming" — do not include them in available-to-spend.
 - **Hard ceiling**: planned monthly spend must never exceed available-to-spend. If a proposed action would breach the ceiling, the fleet **declines and posts an alert**. Never silently overspend.
 - **Data missing → fail closed**: if available-to-spend cannot be computed, surface "DATA UNAVAILABLE — spending blocked". Never treat missing data as zero budget.
 
