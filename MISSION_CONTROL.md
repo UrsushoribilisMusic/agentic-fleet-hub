@@ -644,7 +644,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **m1jqviy7** | [CR-006][P1] Cost ingestion — Google Ads spend, ElevenLabs, Runway (automated sources only) | gem | in_work | Daily job fetches automated cost sources and write... |
-| **du4xz6de** | [CR-010][P0] Classical Remix sub-view — chart, daily ledger, campaign phases, active ads | codi | planned | Classical Remix sub-view inside Financial Ops tab.... |
+| **du4xz6de** | [CR-010][P0] Classical Remix sub-view — chart, daily ledger, campaign phases, active ads | codi | in_work | Classical Remix sub-view inside Financial Ops tab.... |
 | **146l3tu6** | [CR-011][P1] Classical Reels sub-view — four content lines, Shopify attribution | codi | planned | Classical Reels sub-view inside Financial Ops tab.... |
 | **ul1r63fd** | [CR-012][P2] Investment ledger — sunk-cost tracker, visibility only | codi | planned | Read-only cumulative sunk investment tracker. Seed... |
 
