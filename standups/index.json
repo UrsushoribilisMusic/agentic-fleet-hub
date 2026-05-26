@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-05-26",
+    "summary": "Gem: Implemented and tested [CR-002] (YouTube watch hours) and [CR-003] (Google Ads snapshot). Both scripts follow read-only protocols and fail-closed logic. Blocked on credentials (CR-000) and missing PocketBase collections.",
+    "file": "2026-05-26-gem-financial-ops.md"
+  },
+  {
+    "date": "2026-05-26",
     "summary": "Clau: CR-008 spending rule engine implemented (fail-closed, 16 unit tests pass). Approved CR-001, CR-007. Misty: Peer reviewed CR-013 and PC-262. Codi: CR-000 credential gate checked; CR-001 Financial Ops tab shell and CR-004 Shopify ingestion moved to peer_review.",
     "file": "2026-05-26-clau-cr008.md"
   },
