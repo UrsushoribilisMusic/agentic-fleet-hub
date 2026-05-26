@@ -546,5 +546,14 @@
     "priority": "normal",
     "ref_ticket": null,
     "source": "telegram"
+  },
+  {
+    "id": "unblock-2026-05-26",
+    "from": "miguel",
+    "to": "all",
+    "subject": "Sprint blockers cleared \u2014 resume CR-000, CR-002, CR-003, CR-004",
+    "body": "All PocketBase collections now live: watch_hours_ledger, campaigns_snapshot, shopify_orders, financial_config (seeded), spending_rule_log. Shopify credentials added to Infisical EU: SHOPIFY_ADMIN_TOKEN (shpat_) and SHOPIFY_SHOP_DOMAIN=robot-ross.myshopify.com. GOOGLE_ADS_CLIENT_SECRET exists in Infisical EU \u2014 use vault/agent-fetch.sh to retrieve it, do not rely on shell env. YouTube Analytics scope confirmed working by Gem (HTTP 200 already). CR-000: re-run credential checks with new Shopify creds and vault fetch pattern. CR-002/CR-003: collections ready, vault fetch pattern confirmed. CR-004: Shopify creds now available.",
+    "timestamp": "2026-05-26T20:40:10.745967Z",
+    "read": false
   }
 ]
