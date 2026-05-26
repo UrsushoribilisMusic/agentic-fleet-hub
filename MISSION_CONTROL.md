@@ -123,6 +123,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **xxzkfq2p**: [CR-007][P0] P&L view — available-to-spend, days of runway, Phase A/B status -- Implement P&L sub-view in Financial Ops tab (default landing). Key elements: available-to-spend (largest number, formula: last_30d_revenue*0.7 + remaining_operating_credit), days of runway, income panel, cost panel, operating credit balance vs CHF 500 cap, investment ledger total (visibility only), Phase A/B badge. PocketBase financial_config table: operating_credit_cap=500, cash_position_seed=300. Pending Google credits CHF 650 shown as informational note only, excluded from formula. Clau verifies math before merge. Depends on CR-001. GitHub: #642 -- Clau. Approved.
+- **qkhuhnde**: [CR-001][P0] Financial Ops tab — new top-level nav and three sub-views in Fleet Hub -- Add Financial Ops tab to salesman-cloud-infra/opt/salesman-api/fleet/dashboard.html. Position between Projects and Kanban in sidebar nav (data-section-button pattern). Three sub-views: P&L (default landing), Classical Remix, Classical Reels. Follow existing visual language. Mobile-responsive at 390px. No regressions. Clau does design review before merge. Blocking dep for CR-007, CR-010, CR-011. GitHub: #636 -- Codi. Approved.
 - **gv6vhzz2**: [CR-013][P0] MISSION_CONTROL update — spending rule, fleet boundaries, refresh cadence -- Review and verify the Financial Ops fleet boundaries added to MISSION_CONTROL.md (2026-05-26). The update has already been applied by Claude Code. Clau reads it, checks accuracy and completeness, corrects anything unclear, then marks peer_review. Hard prerequisite: must merge before any other CR ticket starts. Full spec in AGENTS/CONTEXT/classical_remix_financial_ops.md. GitHub: #634 -- Clau. Approved.
 - **3lbwwa3s**: Security scan results: 5 shell injection risks in fleet_sync.py + 9 other findings -- Hey Miguel and the Flotilla crew — I've been following the project and really dig the vault-first approach and multi-agent architecture. -- Clau. Approved.
 - **x42bo7ha**: PC-263 [P1]: VideoAssemblyEngine — no narration in generated video -- ## Bug -- Codi. Approved.
@@ -637,13 +639,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **qkhuhnde** | [CR-001][P0] Financial Ops tab — new top-level nav and three sub-views in Fleet Hub | codi | merged | Add Financial Ops tab to salesman-cloud-infra/opt/... |
 | **4mg0akd2** | [CR-002][P0] Watch hours ingestion — daily YouTube Analytics pull with campaign-phase annotation | gem | in_work | Daily job (~10:00 CET) pulls valid public watch ho... |
 | **lov0tnox** | [CR-003][P0] Active campaigns viewer — read-only Google Ads campaign state snapshot | gem | planned | Daily job (~10:00 CET) reads Google Ads campaign s... |
 | **9uh4f66u** | [CR-004][P0] Shopify ingestion — daily orders with per-content-line attribution | codi | planned | Daily job pulls orders from Shopify Admin API (rob... |
 | **zond8lre** | [CR-005][P0] Content tagging system — per-publish line tags on Classical Reels assets | codi | planned | Extend Classical Reels publishing pipeline (~/proj... |
 | **m1jqviy7** | [CR-006][P1] Cost ingestion — Google Ads spend, ElevenLabs, Runway (automated sources only) | gem | planned | Daily job fetches automated cost sources and write... |
-| **xxzkfq2p** | [CR-007][P0] P&L view — available-to-spend, days of runway, Phase A/B status | clau | merged | Implement P&L sub-view in Financial Ops tab (defau... |
 | **jtugl100** | [CR-008][P0] Spending rule engine — enforcement and fail-closed alerts on breach | clau | in_work | Security-critical. Implement spending rule as call... |
 | **cnkffhmb** | [CR-009][P1] Manual entry form — Kindle, DistroKid, DigitalOcean, monthly bank statement | codi | planned | Simple form in Financial Ops tab (≤3 clicks from P... |
 | **du4xz6de** | [CR-010][P0] Classical Remix sub-view — chart, daily ledger, campaign phases, active ads | codi | planned | Classical Remix sub-view inside Financial Ops tab.... |
