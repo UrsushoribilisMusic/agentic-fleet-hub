@@ -4,7 +4,7 @@
 
 **Version**: 0.5.0  
 **Date**: 2026-05-17  
-**Status**: Release Candidate  
+**Status**: Released  
 
 This release focuses on **Fleet Reliability & Profile Portability**. The dispatcher has been rewritten through four successive fix passes (v5–v7) to run all agents concurrently, make agents own their own status transitions, and reclaim stale work automatically. A first-class profile pack system ships `default-engineering` as a portable, sanitizable snapshot of the fleet instruction layer.
 
@@ -127,13 +127,7 @@ Options for multi-machine teams (none automated in this release):
 1. Host PocketBase on a shared server accessible to all machines.
 2. Use the `fleet_push.py` hybrid connector (local PB → remote Fleet Hub).
 
-### Profile Pack Install Is Manual
-
-The `create-flotilla` setup wizard does not yet support installing from a profile pack via a directory or zip overlay. To apply a profile pack, copy files manually into the repo root (see `PROFILE_PACKS.md` for the step-by-step). Installer automation is tracked in V05-PROFILE-002 (pending, assigned to Codi).
-
-### No Profile Validator
-
-There is no automated check that a profile pack is well-formed, contains required files, or has had all `{{PLACEHOLDER}}` values replaced. Validation tooling is tracked in V05-PROFILE-003 (pending, assigned to Codi).
+### Multi-Computer Fleet Only — see above.
 
 ### Dispatcher Internal Label
 
@@ -152,11 +146,11 @@ The docstring in `dispatcher.py` still reads "Fleet Dispatcher v4" — a cosmeti
 - [x] Default engineering profile pack at `package/profiles/default-engineering/`
 - [x] `PROFILE_PACKS.md` agent handoff spec written
 - [x] Smoke checks pass (PB healthy, profile pack structure verified, heartbeat check exit-0)
-- [ ] `package/package.json` version bumped to `0.5.0` (before npm publish)
-- [ ] V05-PROFILE-002: installer zip overlay support (pending, Codi)
-- [ ] V05-PROFILE-003: profile validator (pending, Codi)
-- [ ] V05-PROFILE-005: profile-pack install smoke tests (pending, Codi)
-- [ ] npm publish: `npx create-flotilla@0.5.0` (after checklist items above)
+- [x] `package/package.json` version bumped to `0.5.0`
+- [x] V05-PROFILE-002: `--profile-dir` / `--profile-zip` installer support (Codi)
+- [x] V05-PROFILE-003: profile validator + safe overlay rules (Codi)
+- [x] V05-PROFILE-005: profile-pack install smoke tests — all 4 pass (Codi)
+- [x] npm publish: `npx create-flotilla@0.5.0`
 
 ---
 
