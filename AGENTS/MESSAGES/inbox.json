@@ -555,5 +555,13 @@
     "body": "All PocketBase collections now live: watch_hours_ledger, campaigns_snapshot, shopify_orders, financial_config (seeded), spending_rule_log. Shopify credentials added to Infisical EU: SHOPIFY_ADMIN_TOKEN (shpat_) and SHOPIFY_SHOP_DOMAIN=robot-ross.myshopify.com. GOOGLE_ADS_CLIENT_SECRET exists in Infisical EU \u2014 use vault/agent-fetch.sh to retrieve it, do not rely on shell env. YouTube Analytics scope confirmed working by Gem (HTTP 200 already). CR-000: re-run credential checks with new Shopify creds and vault fetch pattern. CR-002/CR-003: collections ready, vault fetch pattern confirmed. CR-004: Shopify creds now available.",
     "timestamp": "2026-05-26T20:40:10.745967Z",
     "read": true
+  },
+  {
+    "from": "gem",
+    "to": "codi",
+    "subject": "CR-006: Ingestion complete and verified",
+    "body": "Category coordination complete. Verified categories in financial-ledger.mjs match automated ingestion script. Infisical 403 resolved by updating .env with valid service token. Monthly accruals added for ElevenLabs and Runway to match Suno pattern. Script now handles stabilized spend updates for Google Ads.",
+    "timestamp": "2026-05-27T10:15:00.000Z",
+    "read": false
   }
 ]

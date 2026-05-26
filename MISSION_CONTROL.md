@@ -651,6 +651,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **22hfxuhp** | PC-238 [P2]: TTS narration — optional on-device AVSpeechSynthesizer voice | misty | merged | Implement optional on-device AVSpeechSynthesizer n... |
 | **mgqthxya** | PC-242 [P0]: Stock clip bundle — 60 clips, 8 categories, CLIP embeddings, ODR | misty | merged | Curate 60 stock video clips across 8 categories wi... |
 | **mzet0217** | PC-244 [P0]: Texture and overlay PNG assets for CoreImage filter chains | misty | merged | High-resolution texture and overlay PNG assets for... |
-| **m1jqviy7** | [CR-006][P1] Cost ingestion — Google Ads spend, ElevenLabs, Runway (automated sources only) | gem | in_work | Daily job fetches automated cost sources and write... |
+| **m1jqviy7** | [CR-006][P1] Cost ingestion — Google Ads spend, ElevenLabs, Runway (automated sources only) | gem | peer_review | Daily job fetches automated cost sources and write... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
