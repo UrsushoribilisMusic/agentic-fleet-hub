@@ -646,6 +646,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **m1jqviy7** | [CR-006][P1] Cost ingestion — Google Ads spend, ElevenLabs, Runway (automated sources only) | gem | planned | Daily job fetches automated cost sources and write... |
+| **m1jqviy7** | [CR-006][P1] Cost ingestion — Google Ads spend, ElevenLabs, Runway (automated sources only) | gem | in_work | Daily job fetches automated cost sources and write... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
