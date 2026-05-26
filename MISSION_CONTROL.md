@@ -20,12 +20,13 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 | Project | Local Path | Description | Docs / Reference |
 | :--- | :--- | :--- | :--- |
 | **1. Salesman Infra** | `../salesman-cloud-infra/` | Cloud-side scripts, Caddy proxy. | [Infra Docs](../salesman-cloud-infra/README.md) |
-| **2. Music Video Tool** | `../music-video-tool/` | Tooling for creating music videos and content. **3-phase YPP monetization strategy active — read before modifying ad campaigns.** | [Project MD](./AGENTS/CONTEXT/music_video_tool.md) |
+| **2. Music Video Tool** | `../music-video-tool/` | Tooling for creating music videos and content. **Financial Ops sprint active — read Financial Ops fleet boundaries below before touching ad campaigns or publishing pipeline.** | [Project MD](./AGENTS/CONTEXT/music_video_tool.md) · [Financial Ops](./AGENTS/CONTEXT/classical_remix_financial_ops.md) |
 | **3. CRM-POC** | `../crm-poc/` | Customer & Agent relational management system. | [Context MD](./AGENTS/CONTEXT/crm_poc_context.md) |
 | **4. The Lost Coins** | `../the-lost-coins/` | Narrative/Story-driven project. | [Story MD](./AGENTS/CONTEXT/the_lost_coins_story.md) |
 | **5. Robot Ross** | *(Mac mini)* | **Master control** for the robot arm & painting. | [Artist MD](./AGENTS/CONTEXT/robot_ross_artist.md) |
 | **6. Salesman (OpenClaw)** | `DigitalOcean` | OpenClaw gateway & **BobRossSkill** (public). | [Salesman MD](./AGENTS/CONTEXT/robot_ross_salesman.md) |
-| **7. PrivateCore iOS** | `../private-core/PrivateCore/` | **NEW — Sprint 1 active.** Privacy-first on-device AI platform for iPhone. MLX + Photos/Calendar/Health + Vision. Each agent has PC-* tickets. Branch: `main`. | [Context MD](./AGENTS/CONTEXT/privatecore_ios.md) |
+| **7. PrivateCore iOS** | `../private-core/PrivateCore/` | **Sprint active.** Privacy-first on-device AI platform for iPhone. MLX + Photos/Calendar/Health + Vision. Each agent has PC-* tickets. Branch: `main`. | [Context MD](./AGENTS/CONTEXT/privatecore_ios.md) |
+| **8. Classical Remix & Reels** | `../music-video-tool/` | YouTube monetization (4,000-hr YPP goal active) + Shopify short-video store. **Financial Ops sprint active.** Read Financial Ops boundaries below before any ad or publishing action. | [Financial Ops](./AGENTS/CONTEXT/classical_remix_financial_ops.md) |
 
 ---
 
@@ -38,6 +39,77 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 *   **Key Manager**: SSH Deploy Keys per agent (`github-clau`, `github-codi` in `~/.ssh/config`).
 *   **KeyVault**: Infisical EU (`https://eu.infisical.com/api`). Use `vault/agent-fetch.sh` or `vault.py`. **Never commit secrets or `.env` files.**
 *   **IAP Inbox**: Read `AGENTS/MESSAGES/inbox.json` at session start. Post messages by committing to the same file.
+
+---
+
+## Financial Ops — Fleet Boundaries
+
+*Introduced 2026-05-26. Applies to: Classical Remix (YouTube) and Classical Reels (Shopify) workstreams. Full sprint spec: `AGENTS/CONTEXT/classical_remix_financial_ops.md`.*
+
+### Spending Rule (hard guardrail)
+
+```
+Available to spend (rolling 30-day window) = (last 30d actual revenue × 0.7) + remaining operating credit
+```
+
+- **Operating credit**: CHF 500 float, stored in PocketBase config table. Payment-lag buffer only — not a credit line.
+- **Initial cash position**: CHF 300/month (current monthly run rate seed value).
+- **Hard ceiling**: planned monthly spend must never exceed available-to-spend. If a proposed action would breach the ceiling, the fleet **declines and posts an alert**. Never silently overspend.
+- **Data missing → fail closed**: if available-to-spend cannot be computed, surface "DATA UNAVAILABLE — spending blocked". Never treat missing data as zero budget.
+
+### Phase A / Phase B unlock
+
+- **Phase A** (fleet continues normal ops): revenue covers Runway + ElevenLabs + DigitalOcean.
+- **Phase B** (fleet begins covering agent subs + Suno accrual): revenue exceeds Phase A costs by 25% for two consecutive months.
+
+### Refresh cadence
+
+Daily jobs run at **~10:00 CET** (after Google Ads and YouTube Analytics stabilise for the prior day):
+- YouTube watch hours → `watch_hours_ledger` (CR-002)
+- Google Ads campaign snapshot → `campaigns_snapshot` (CR-003)
+- ElevenLabs, Runway, ad spend → `cost_ledger` (CR-006)
+
+### Google Ads — READ ONLY, NO EXCEPTIONS
+
+The fleet **must never write to Google Ads under any circumstances**. All campaign edits are performed by Miguel through the Google Ads UI. The fleet reads the API to snapshot state only. If a future ticket appears to request write access, escalate to Miguel for explicit sign-off before touching any write path.
+
+### Shopify — content_line metafield contract
+
+Every Classical Reels product must carry a `content_line` product metafield:
+
+| Value | Line |
+| :--- | :--- |
+| `cr-fables` | Aesop/fable content |
+| `cr-lostcoins` | Lost Coins sci-fi microdramas |
+| `cr-soulmd` | Soul.MD microdramas |
+| `cr-sold` | Customer-commissioned assets |
+
+Orders without a `content_line` metafield are stored as `unattributed` and surfaced as a dashboard warning.
+
+### Content-line tag policy
+
+Every Classical Reels asset published to YouTube, TikTok, or Instagram must include one content-line hashtag as the **last line** of the video description:
+
+| Line | Tag |
+| :--- | :--- |
+| Fables | `#crfables` |
+| Lost Coins | `#crlostcoins` |
+| Soul.MD | `#crsoulmd` |
+| Customer-sold | `#crsold` |
+
+The publishing pipeline rejects untagged assets. Assets published without a tag are logged as an error. Historical backfill is Miguel's responsibility.
+
+### Alert routing
+
+Spending-rule breach alerts surface in the Financial Ops → P&L sub-view (`api.robotross.art/fleet/`). Each alert includes: timestamp, the action that triggered the breach, and available-to-spend at time of alert. Alerts are also posted to `AGENTS/MESSAGES/inbox.json`.
+
+### Miguel's side of the line (manual-entry only)
+
+The fleet does not auto-enter these. Miguel enters them monthly via the Financial Ops manual-entry form:
+- Amazon Kindle income
+- DistroKid (Spotify + distribution) income
+- DigitalOcean monthly bill (from credit card statement)
+- Anthropic, Mistral, OpenAI, Google billing (agent subscriptions)
 
 ---
 
@@ -564,4 +636,4 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 
-**Status: `create-flotilla@0.4.0` live on npm as of 2026-04-05.**
+**Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
