@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-05-26",
-    "summary": "Codi: Approved CR-008 spending rule engine; implemented CR-005 Classical Reels content-line tagging, final-line hashtag enforcement, and Shopify content_line metafield helper.",
+    "summary": "Codi: Approved CR-008, implemented CR-005 content-line tagging, and completed CR-009 Financial Ops manual ledger entry form/API.",
     "file": "2026-05-26.md"
   },
   {
