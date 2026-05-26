@@ -638,7 +638,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **gv6vhzz2** | [CR-013][P0] MISSION_CONTROL update — spending rule, fleet boundaries, refresh cadence | clau | in_work | Review and verify the Financial Ops fleet boundari... |
 | **mlx7omw9** | [CR-000][P0] Pre-sprint credential verification — YouTube Analytics, Shopify Admin, Google Ads | codi | in_work | Sprint gate — nothing else in the CR sprint starts... |
 | **qkhuhnde** | [CR-001][P0] Financial Ops tab — new top-level nav and three sub-views in Fleet Hub | codi | planned | Add Financial Ops tab to salesman-cloud-infra/opt/... |
-| **4mg0akd2** | [CR-002][P0] Watch hours ingestion — daily YouTube Analytics pull with campaign-phase annotation | gem | planned | Daily job (~10:00 CET) pulls valid public watch ho... |
+| **4mg0akd2** | [CR-002][P0] Watch hours ingestion — daily YouTube Analytics pull with campaign-phase annotation | gem | in_work | Daily job (~10:00 CET) pulls valid public watch ho... |
 | **lov0tnox** | [CR-003][P0] Active campaigns viewer — read-only Google Ads campaign state snapshot | gem | planned | Daily job (~10:00 CET) reads Google Ads campaign s... |
 | **9uh4f66u** | [CR-004][P0] Shopify ingestion — daily orders with per-content-line attribution | codi | planned | Daily job pulls orders from Shopify Admin API (rob... |
 | **zond8lre** | [CR-005][P0] Content tagging system — per-publish line tags on Classical Reels assets | codi | planned | Extend Classical Reels publishing pipeline (~/proj... |
@@ -647,5 +647,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **jtugl100** | [CR-008][P0] Spending rule engine — enforcement and fail-closed alerts on breach | clau | planned | Security-critical. Implement spending rule as call... |
 | **cnkffhmb** | [CR-009][P1] Manual entry form — Kindle, DistroKid, DigitalOcean, monthly bank statement | codi | planned | Simple form in Financial Ops tab (≤3 clicks from P... |
 | **du4xz6de** | [CR-010][P0] Classical Remix sub-view — chart, daily ledger, campaign phases, active ads | codi | planned | Classical Remix sub-view inside Financial Ops tab.... |
+| **146l3tu6** | [CR-011][P1] Classical Reels sub-view — four content lines, Shopify attribution | codi | planned | Classical Reels sub-view inside Financial Ops tab.... |
+| **ul1r63fd** | [CR-012][P2] Investment ledger — sunk-cost tracker, visibility only | codi | planned | Read-only cumulative sunk investment tracker. Seed... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
