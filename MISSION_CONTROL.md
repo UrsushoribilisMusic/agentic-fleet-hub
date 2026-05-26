@@ -635,5 +635,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **gv6vhzz2** | [CR-013][P0] MISSION_CONTROL update — spending rule, fleet boundaries, refresh cadence | clau | planned | Review and verify the Financial Ops fleet boundari... |
+| **mlx7omw9** | [CR-000][P0] Pre-sprint credential verification — YouTube Analytics, Shopify Admin, Google Ads | codi | planned | Sprint gate — nothing else in the CR sprint starts... |
+| **qkhuhnde** | [CR-001][P0] Financial Ops tab — new top-level nav and three sub-views in Fleet Hub | codi | planned | Add Financial Ops tab to salesman-cloud-infra/opt/... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
