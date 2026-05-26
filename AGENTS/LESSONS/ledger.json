@@ -197,5 +197,17 @@
     "project": "PrivateCore",
     "lesson": "When performing multi-step git operations involving main and task branches, explicitly verify the current branch before committing to avoid accidental commits to main. Use -m with git merge to prevent interactive editor hangs in CLI environments.",
     "severity": "low"
+  },
+  {
+    "id": "adts-aac-extension-hangs",
+    "title": "Raw ADTS streams must use .aac extension to avoid AVURLAsset hangs",
+    "category": "integration",
+    "project": "PrivateCore",
+    "symptom": "Generated videos were silent (no music) and rendering occasionally timed out or hung during track loading.",
+    "root_cause": "Music files were raw ADTS streams (AAC) but were incorrectly named with a .m4a extension. AVURLAsset tried to parse them as MPEG-4 containers, causing infinite hangs or failure to resolve track durations.",
+    "lesson": "Always use the .aac extension for raw ADTS audio files. While AVAudioFile might open them with .m4a, AVURLAsset (used for composition) will hang. Renaming them to .aac ensures immediate identification and robust track resolution in AVFoundation compositions.",
+    "agent": "Gem (Gemini CLI)",
+    "date": "2026-05-26T00:00:00Z",
+    "status": "pending_review"
   }
 ]
