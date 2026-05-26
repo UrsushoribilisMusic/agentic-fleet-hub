@@ -636,7 +636,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **gv6vhzz2** | [CR-013][P0] MISSION_CONTROL update — spending rule, fleet boundaries, refresh cadence | clau | in_work | Review and verify the Financial Ops fleet boundari... |
+| **gv6vhzz2** | [CR-013][P0] MISSION_CONTROL update — spending rule, fleet boundaries, refresh cadence | clau | merged | Review and verify the Financial Ops fleet boundari... |
 | **mlx7omw9** | [CR-000][P0] Pre-sprint credential verification — YouTube Analytics, Shopify Admin, Google Ads | codi | in_work | Sprint gate — nothing else in the CR sprint starts... |
 | **qkhuhnde** | [CR-001][P0] Financial Ops tab — new top-level nav and three sub-views in Fleet Hub | codi | planned | Add Financial Ops tab to salesman-cloud-infra/opt/... |
 | **4mg0akd2** | [CR-002][P0] Watch hours ingestion — daily YouTube Analytics pull with campaign-phase annotation | gem | in_work | Daily job (~10:00 CET) pulls valid public watch ho... |
