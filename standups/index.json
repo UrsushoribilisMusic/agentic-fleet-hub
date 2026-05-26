@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-05-26",
-    "summary": "Codi: Approved CR-008, implemented CR-005 content-line tagging, completed CR-009 manual ledger entry, shipped CR-010/CR-011 views, and completed CR-012 investment ledger visibility.",
+    "summary": "Codi: Approved CR-008, implemented CR-005 content-line tagging, completed CR-009 manual ledger entry, shipped CR-010/CR-011 views, and completed CR-012 investment ledger visibility. Misty: Peer reviewed and approved CR-012 (commit 3ce6d63).",
     "file": "2026-05-26.md"
   },
   {
