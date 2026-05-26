@@ -641,7 +641,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **4mg0akd2** | [CR-002][P0] Watch hours ingestion — daily YouTube Analytics pull with campaign-phase annotation | gem | in_work | Daily job (~10:00 CET) pulls valid public watch ho... |
 | **9uh4f66u** | [CR-004][P0] Shopify ingestion — daily orders with per-content-line attribution | codi | merged | Daily job pulls orders from Shopify Admin API (rob... |
-| **zond8lre** | [CR-005][P0] Content tagging system — per-publish line tags on Classical Reels assets | codi | planned | Extend Classical Reels publishing pipeline (~/proj... |
+| **zond8lre** | [CR-005][P0] Content tagging system — per-publish line tags on Classical Reels assets | codi | in_work | Extend Classical Reels publishing pipeline (~/proj... |
 | **m1jqviy7** | [CR-006][P1] Cost ingestion — Google Ads spend, ElevenLabs, Runway (automated sources only) | gem | planned | Daily job fetches automated cost sources and write... |
 | **jtugl100** | [CR-008][P0] Spending rule engine — enforcement and fail-closed alerts on breach | clau | merged | Security-critical. Implement spending rule as call... |
 | **cnkffhmb** | [CR-009][P1] Manual entry form — Kindle, DistroKid, DigitalOcean, monthly bank statement | codi | planned | Simple form in Financial Ops tab (≤3 clicks from P... |
