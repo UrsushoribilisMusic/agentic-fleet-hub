@@ -641,7 +641,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **zond8lre** | [CR-005][P0] Content tagging system — per-publish line tags on Classical Reels assets | codi | in_work | Extend Classical Reels publishing pipeline (~/proj... |
+| **zond8lre** | [CR-005][P0] Content tagging system — per-publish line tags on Classical Reels assets | codi | merged | Extend Classical Reels publishing pipeline (~/proj... |
 | **m1jqviy7** | [CR-006][P1] Cost ingestion — Google Ads spend, ElevenLabs, Runway (automated sources only) | gem | planned | Daily job fetches automated cost sources and write... |
 | **cnkffhmb** | [CR-009][P1] Manual entry form — Kindle, DistroKid, DigitalOcean, monthly bank statement | codi | planned | Simple form in Financial Ops tab (≤3 clicks from P... |
 | **du4xz6de** | [CR-010][P0] Classical Remix sub-view — chart, daily ledger, campaign phases, active ads | codi | planned | Classical Remix sub-view inside Financial Ops tab.... |
