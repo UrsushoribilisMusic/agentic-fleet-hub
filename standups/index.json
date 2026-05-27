@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-05-27",
-    "summary": "Gem: Finalized and verified CR-006 cost ingestion (Google Ads, ElevenLabs, Runway, Suno); CR-002 and CR-003 live. Misty: Pushed 3 commits (PC-238/260/262 fixes), verified 3 peer_review tasks.",
+    "summary": "Gem: Finalized and verified CR-006 cost ingestion (Google Ads, ElevenLabs, Runway, Suno); CR-002 and CR-003 live. Misty: Pushed 3 commits (PC-238/260/262 fixes), verified 3 peer_review tasks. Session 2: Peer reviewed and approved CR-006 (Cost ingestion implementation verified in music-video-tool).",
     "file": "2026-05-27.md"
   },
   {
