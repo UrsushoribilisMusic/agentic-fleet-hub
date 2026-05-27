@@ -651,7 +651,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **22hfxuhp** | PC-238 [P2]: TTS narration — optional on-device AVSpeechSynthesizer voice | misty | merged | Implement optional on-device AVSpeechSynthesizer n... |
-| **mgqthxya** | PC-242 [P0]: Stock clip bundle — 60 clips, 8 categories, CLIP embeddings, ODR | misty | planned | Curate 60 stock video clips across 8 categories wi... |
+| **mgqthxya** | PC-242 [P0]: Stock clip bundle — 60 clips, 8 categories, CLIP embeddings, ODR | misty | in_work | Curate 60 stock video clips across 8 categories wi... |
 | **mlx7omw9** | [CR-000][P0] Pre-sprint credential verification — YouTube Analytics, Shopify Admin, Google Ads | codi | merged | Sprint gate — nothing else in the CR sprint starts... |
 | **5y8rlwdc** | [CR-014][P1] Subscriber count — fetch from YouTube Data API v3 on DO server | clau | in_work | Add YOUTUBE_API_KEY to DO server env. In server.mj... |
 | **9opvgvso** | [CR-015][P1] fleet_push financial sync — push watch_hours_ledger + cost/income ledgers to DO | codi | in_work | Add watch_hours_ledger, cost_ledger, income_ledger... |
