@@ -92,7 +92,7 @@ A single-binary database and REST API that handles:
 
 ### 2b. Hybrid Snapshot Connector (`fleet_push.py`)
 For Scenario 3 deployments, PocketBase remains local and the public dashboard consumes a pushed cache instead of direct database access.
-- The local connector reads `heartbeats`, `tasks`, and `comments` from PocketBase.
+- The local connector reads `heartbeats`, `tasks`, `comments`, `watch_hours_ledger`, `cost_ledger`, `income_ledger`, and `campaigns_snapshot` from PocketBase.
 - Every 60 seconds it sends a signed snapshot to the public Fleet Hub via `POST /fleet/snapshot`.
 - The public server caches that payload and falls back to it for `/fleet/api/heartbeats`, `/fleet/api/tasks`, and `/fleet/api/activity`.
 - Auth is write-only and runtime-injected with `FLEET_SYNC_TOKEN`.
@@ -148,7 +148,7 @@ A web-based UI at `api.robotross.art/fleet/` providing a "God view" of the fleet
 
 ### 5b. Hybrid Snapshot Architecture
 Because PocketBase runs on the Mac Mini (not exposed publicly), the Fleet Hub on the DO server uses a push-cache pattern:
-- `fleet_push.py` reads `heartbeats`, `tasks`, and `comments` from local PocketBase every 60s and POSTs a signed snapshot to `POST /fleet/snapshot` on the DO server.
+- `fleet_push.py` reads `heartbeats`, `tasks`, `comments`, `watch_hours_ledger`, `cost_ledger`, `income_ledger`, and `campaigns_snapshot` from local PocketBase every 60s and POSTs a signed snapshot to `POST /fleet/snapshot` on the DO server.
 - All `/fleet/api/*` endpoints try PocketBase first; on failure they fall back to the cached snapshot at `/var/lib/salesman-api/fleet_snapshot.json`.
 - New endpoints (`/fleet/api/heartbeats/timeline`, `/fleet/api/agent-stats`) follow the same pattern.
 - `/fleet/api/heartbeats/timeline` should prefer pre-aggregated `timeline_segments` from the snapshot over raw heartbeats. This is the source that preserves archive-backed history, dispatcher offline overlays, and derived task/comment activity such as Gemma work bursts that do not always emit first-class `working` heartbeats.

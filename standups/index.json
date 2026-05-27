@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-05-27",
-    "summary": "Gem: Finalized and verified CR-006 cost ingestion (Google Ads, ElevenLabs, Runway, Suno); CR-002 and CR-003 live. Misty: Pushed 3 commits (PC-238/260/262 fixes), verified 3 peer_review tasks. Session 2: Peer reviewed and approved CR-006. Clau: CR-014 YouTube subscriber count — added to /fleet/api/financial/classical-remix via channels.list API with 1h cache.",
+    "summary": "Gem: Finalized and verified CR-006 cost ingestion (Google Ads, ElevenLabs, Runway, Suno); CR-002 and CR-003 live. Misty: Pushed 3 commits (PC-238/260/262 fixes), verified 3 peer_review tasks. Session 2: Peer reviewed and approved CR-006. Clau: CR-014 YouTube subscriber count via channels.list API. Codi: CR-015 fleet_push now syncs Financial Ops ledgers/snapshots to DO and restored youtube_watch_hours.py source.",
     "file": "2026-05-27.md"
   },
   {

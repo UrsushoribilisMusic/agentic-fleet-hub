@@ -112,7 +112,7 @@ Everything runs on a single cloud VPS (like DigitalOcean or AWS EC2). The dashbo
 
 ### Scenario 3 — Hybrid (Agents Local, Dashboard Remote)
 Agents and PocketBase run on a local machine (e.g., Mac Mini, on-prem server), while the Fleet Hub is hosted publicly on a separate cloud server. This requires the push connector (`fleet_push.py`). Best for hardware-connected agents (robot arms, local files) where you need enterprise privacy but public visibility.
-The connector pushes a read-only PocketBase snapshot (`heartbeats`, `tasks`, `comments`) to the remote Fleet Hub every 60 seconds using `FLEET_SYNC_TOKEN`, and the remote `server.mjs` serves that cached snapshot whenever it cannot reach PocketBase directly.
+The connector pushes a read-only PocketBase snapshot (`heartbeats`, `tasks`, `comments`, and Financial Ops ledgers/snapshots) to the remote Fleet Hub every 60 seconds using `FLEET_SYNC_TOKEN`, and the remote `server.mjs` serves that cached snapshot whenever it cannot reach PocketBase directly.
 Required runtime secrets:
 - `FLEET_SYNC_TOKEN` on both the local connector and the remote Fleet Hub server
 - `FLEET_SYNC_URL` on the local connector if the public dashboard is not `https://api.robotross.art/fleet/snapshot`

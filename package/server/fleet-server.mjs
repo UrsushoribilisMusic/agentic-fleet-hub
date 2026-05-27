@@ -59,6 +59,15 @@ const STANDUPS_DIR     = path.join(FLEET_DATA_DIR, "standups");
 const STANDUPS_INDEX   = path.join(STANDUPS_DIR, "index.json");
 const FLEET_SNAPSHOT_PATH = path.join(FLEET_DATA_DIR, "cache", "fleet_snapshot.json");
 const WORKSPACE_ROOT   = path.resolve(__dirname, "..", "..");
+const SNAPSHOT_COLLECTIONS = [
+  "heartbeats",
+  "tasks",
+  "comments",
+  "watch_hours_ledger",
+  "cost_ledger",
+  "income_ledger",
+  "campaigns_snapshot",
+];
 
 // GitHub live standup sync (optional)
 const GITHUB_REPO          = process.env.GITHUB_REPO || "";
@@ -185,15 +194,15 @@ function getContentPaths(fleetMeta) {
 function normalizeFleetSnapshot(input) {
   const snapshot = input && typeof input === "object" ? input : {};
   const collections = snapshot.collections && typeof snapshot.collections === "object" ? snapshot.collections : {};
+  const normalizedCollections = {};
+  for (const name of SNAPSHOT_COLLECTIONS) {
+    normalizedCollections[name] = Array.isArray(collections[name]) ? collections[name] : [];
+  }
   return {
     source: typeof snapshot.source === "string" ? snapshot.source : "unknown",
     generated_at: typeof snapshot.generated_at === "string" ? snapshot.generated_at : new Date().toISOString(),
     received_at: new Date().toISOString(),
-    collections: {
-      heartbeats: Array.isArray(collections.heartbeats) ? collections.heartbeats : [],
-      tasks: Array.isArray(collections.tasks) ? collections.tasks : [],
-      comments: Array.isArray(collections.comments) ? collections.comments : [],
-    },
+    collections: normalizedCollections,
   };
 }
 
@@ -360,11 +369,9 @@ async function handler(req, res) {
         {
           ok: true,
           received_at: snapshot.received_at,
-          counts: {
-            heartbeats: snapshot.collections.heartbeats.length,
-            tasks: snapshot.collections.tasks.length,
-            comments: snapshot.collections.comments.length,
-          },
+          counts: Object.fromEntries(
+            SNAPSHOT_COLLECTIONS.map((name) => [name, snapshot.collections[name].length])
+          ),
         },
         requestId
       );

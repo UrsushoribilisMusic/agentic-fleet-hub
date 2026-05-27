@@ -26,6 +26,19 @@ FLEET_SYNC_SOURCE = os.environ.get("FLEET_SYNC_SOURCE", "mac-mini")
 FLEET_DIR = os.environ.get("FLEET_DIR", "/Users/miguelrodriguez/fleet")
 LOG_FILE = os.path.join(FLEET_DIR, "logs", "fleet_push.log")
 
+CORE_COLLECTION_QUERIES = {
+    "heartbeats": {"sort": "-updated", "perPage": 50},
+    "tasks": {"sort": "-updated", "perPage": 100},
+    "comments": {"sort": "-created", "perPage": 50},
+}
+
+FINANCIAL_COLLECTION_QUERIES = {
+    "watch_hours_ledger": {"sort": "-audit_date", "perPage": 200},
+    "cost_ledger": {"sort": "-date", "perPage": 500},
+    "income_ledger": {"sort": "-date", "perPage": 500},
+    "campaigns_snapshot": {"sort": "-snapshot_date", "perPage": 200},
+}
+
 
 def ensure_logs():
     os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
@@ -49,15 +62,29 @@ def fetch_collection(name, query):
     return payload.get("items", [])
 
 
+def fetch_optional_collection(name, query):
+    try:
+        return fetch_collection(name, query)
+    except urllib.error.HTTPError as exc:
+        if exc.code == 404:
+            log(f"optional collection missing: {name}")
+            return []
+        raise
+
+
 def build_snapshot():
+    collections = {
+        name: fetch_collection(name, query)
+        for name, query in CORE_COLLECTION_QUERIES.items()
+    }
+    collections.update({
+        name: fetch_optional_collection(name, query)
+        for name, query in FINANCIAL_COLLECTION_QUERIES.items()
+    })
     return {
         "source": FLEET_SYNC_SOURCE,
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "collections": {
-            "heartbeats": fetch_collection("heartbeats", {"sort": "-updated", "perPage": 50}),
-            "tasks": fetch_collection("tasks", {"sort": "-updated", "perPage": 100}),
-            "comments": fetch_collection("comments", {"sort": "-created", "perPage": 50}),
-        },
+        "collections": collections,
     }
 
 
@@ -88,6 +115,10 @@ def run_once():
         f"hb={len(counts['heartbeats'])} "
         f"tasks={len(counts['tasks'])} "
         f"comments={len(counts['comments'])} "
+        f"watch_hours={len(counts['watch_hours_ledger'])} "
+        f"costs={len(counts['cost_ledger'])} "
+        f"income={len(counts['income_ledger'])} "
+        f"campaigns={len(counts['campaigns_snapshot'])} "
         f"remote={result.get('received_at', 'unknown')}"
     )
 
