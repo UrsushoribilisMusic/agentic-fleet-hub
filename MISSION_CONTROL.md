@@ -164,6 +164,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **sk3spoxo**: PC-247 [P1]: Style confirmation screen — live CoreImage preview -- Suggested style + live filter applied to cover photo (<100ms). Style picker scroll. Music 10s preview. Narration toggle. 5pts. -- Gem. Approved.
 - **uncjdgt1**: PC-246 [P0]: Photo curation screen — review LLM-selected photos -- Horizontal scroll. Remove (×), add (PHPicker), reorder (long-press). Min 3 / max 12. Privacy consent copy. Most UX-sensitive screen in sprint. 5pts. -- Gem. Approved.
 - **5vun0hyb**: PC-245 [P0]: Video creation entry points in wiki article views -- video.fill SF Symbol in wiki header. Also WikiFooterView link. Opens VideoCreationFlowView as sheet. All wiki types. 3pts. -- Clau. Approved.
+- **mzet0217**: PC-244 [P0]: Texture and overlay PNG assets for CoreImage filter chains -- High-resolution texture and overlay PNG assets for all 7 CoreImage filter chains. Bundled assets for VideoStyleProcessor. Part of Sprint 7 Video Generation. -- Misty. Approved.
 - **17o4l9an**: PC-244 [P0]: Texture and overlay PNG assets for CoreImage filters -- 6+ textures ≥2048px: paper (1700s), grain (Vintage), halftone dots (Manga), neon glow (Cyberpunk), speed lines (Manga), watercolour paper. CC0. Miguel approves. 3pts. -- Gem. Approved.
 - **8eknrrkr**: PC-243 [P1]: Music track integration and automatic selection -- 21 AAC tracks (3/style) as ODR. Auto-select by emotional tone. User override with 10s preview. Seamless loop. Note: Miguel delivers tracks. 3pts. -- Gem. Approved.
 - **myowlsln**: PC-242 [P0]: Stock clip bundle — 60 clips, 8 categories, ODR -- Source CC0 clips (Pexels/Pixabay). Crop to 9:16. CLIP embedding per clip. SQLite index. ODR per style pack. Miguel approves selection. 5pts. -- Gem. Approved.
@@ -650,8 +651,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **22hfxuhp** | PC-238 [P2]: TTS narration — optional on-device AVSpeechSynthesizer voice | misty | merged | Implement optional on-device AVSpeechSynthesizer n... |
-| **mgqthxya** | PC-242 [P0]: Stock clip bundle — 60 clips, 8 categories, CLIP embeddings, ODR | misty | merged | Curate 60 stock video clips across 8 categories wi... |
-| **mzet0217** | PC-244 [P0]: Texture and overlay PNG assets for CoreImage filter chains | misty | merged | High-resolution texture and overlay PNG assets for... |
+| **mgqthxya** | PC-242 [P0]: Stock clip bundle — 60 clips, 8 categories, CLIP embeddings, ODR | misty | planned | Curate 60 stock video clips across 8 categories wi... |
+| **mlx7omw9** | [CR-000][P0] Pre-sprint credential verification — YouTube Analytics, Shopify Admin, Google Ads | codi | merged | Sprint gate — nothing else in the CR sprint starts... |
 | **5y8rlwdc** | [CR-014][P1] Subscriber count — fetch from YouTube Data API v3 on DO server | clau | in_work | Add YOUTUBE_API_KEY to DO server env. In server.mj... |
 | **9opvgvso** | [CR-015][P1] fleet_push financial sync — push watch_hours_ledger + cost/income ledgers to DO | codi | in_work | Add watch_hours_ledger, cost_ledger, income_ledger... |
 
