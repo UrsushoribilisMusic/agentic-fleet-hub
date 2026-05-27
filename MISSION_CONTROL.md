@@ -174,6 +174,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **ucxd99fa**: PC-241 [P1]: Stock clip CLIP matching — semantic fallback -- When no user photo: embed caption, cosine similarity vs precomputed stock clip embeddings in SQLite. Min confidence 0.4. 3pts. -- Clau. Approved.
 - **n8zirlgq**: PC-240 [P0]: WikiVideoScriptService — LLM moment selection -- SmolLM2 135M selects 5-8 moments from WikiArticle. Each moment: photoAssetId, captionText ≤60 chars, emotionalBeat. Test on Mac Mini first. 5pts. -- Clau. Approved.
 - **e3o6vdxg**: PC-239 [P1]: Intro and outro assets — 7 style MP4s + runtime outro -- 7 bundled intro MP4s (2-3s, generated via CoreGraphics). Runtime outro renderer with QR code (free) or clean credit (Pro). 5pts. -- Gem. Approved.
+- **22hfxuhp**: PC-238 [P2]: TTS narration — optional on-device AVSpeechSynthesizer voice -- Implement optional on-device AVSpeechSynthesizer narration for video generation. Narration track mixed at 1.0, music ducked to 0.4. P2 — ship after core video stable. -- Codi. Approved.
 - **75ki5mr6**: PC-238 [P2]: TTS narration — optional on-device AVSpeechSynthesizer -- P2 — ship after core video stable. Optional narration track mixed at 1.0, music ducked to 0.4. 3pts. -- Codi. Approved.
 - **zlcaak9u**: PC-237 [P0]: VideoAssemblyEngine — core AVFoundation compositor -- SPIKE MAC MINI FIRST. AVAssetWriter + CIContext per-frame pipeline. Ken Burns + transitions + captions + audio mix + intro/outro. Target < 30s for 5-photo video. 13pts. -- Clau. Approved.
 - **le4im847**: PC-236 [P1]: CaptionLayer — styled text overlays per style -- Timed text composited per-frame. 7 typography treatments (Cinematic/Engraving/PopStar/Cartoon/Watercolour/Vintage/Manga). 5pts. -- Gem. Approved.
@@ -653,7 +654,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **22hfxuhp** | PC-238 [P2]: TTS narration — optional on-device AVSpeechSynthesizer voice | codi | merged | Implement optional on-device AVSpeechSynthesizer n... |
 | **mgqthxya** | PC-242 [P0]: Stock clip bundle — 60 clips, 8 categories, CLIP embeddings, ODR |  | merged | Curate 60 stock video clips across 8 categories wi... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
