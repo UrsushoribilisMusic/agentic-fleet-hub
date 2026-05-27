@@ -653,7 +653,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **22hfxuhp** | PC-238 [P2]: TTS narration — optional on-device AVSpeechSynthesizer voice | misty | merged | Implement optional on-device AVSpeechSynthesizer n... |
-| **mgqthxya** | PC-242 [P0]: Stock clip bundle — 60 clips, 8 categories, CLIP embeddings, ODR | misty | in_work | Curate 60 stock video clips across 8 categories wi... |
+| **mgqthxya** | PC-242 [P0]: Stock clip bundle — 60 clips, 8 categories, CLIP embeddings, ODR | misty | merged | Curate 60 stock video clips across 8 categories wi... |
 | **9opvgvso** | [CR-015][P1] fleet_push financial sync — push watch_hours_ledger + cost/income ledgers to DO | codi | in_work | Add watch_hours_ledger, cost_ledger, income_ledger... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
