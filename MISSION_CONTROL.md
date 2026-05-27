@@ -123,6 +123,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **9opvgvso**: [CR-015][P1] fleet_push financial sync — push watch_hours_ledger + cost/income ledgers to DO -- Add watch_hours_ledger, cost_ledger, income_ledger, campaigns_snapshot to fleet_push.py build_snapshot(). Add handler on DO server to accept and cache financial collections from snapshot POST. Also: re-commit youtube_watch_hours.py source to master (currently only .pyc in __pycache__). -- Codi. Approved.
 - **5y8rlwdc**: [CR-014][P1] Subscriber count — fetch from YouTube Data API v3 on DO server -- Add YOUTUBE_API_KEY to DO server env. In server.mjs, fetch channels.list from YouTube Data API v3 (no OAuth, API key only). Inject subscriber count into /fleet/api/financial/classical-remix response. Cache 1h to avoid quota burn. Read-only, no re-auth needed. -- Clau. Approved.
 - **ul1r63fd**: [CR-012][P2] Investment ledger — sunk-cost tracker, visibility only -- Read-only cumulative sunk investment tracker. Seed investment_ledger PocketBase collection with CHF 300 (Miguel-confirmed 2026-05-26). Cumulative total shown on P&L view labelled: Total invested (visibility only — not a constraint). Updates automatically when cost_ledger entries are added. Does NOT affect spending rule. P2 — ship after P0/P1 stable. GitHub: #647 -- Codi. Approved.
 - **146l3tu6**: [CR-011][P1] Classical Reels sub-view — four content lines, Shopify attribution -- Classical Reels sub-view inside Financial Ops tab. Four panels (Fables/Lost Coins/Soul.MD/Customer-sold), each showing: assets published last 30d, views (organic vs ad split), Shopify conversions. Aggregate Shopify orders row at top. Ad performance empty placeholder until campaigns launch. DEPENDENCY: CR-005 must ship first for per-line attribution. If CR-005 slips, ship aggregate-only view with banner: Per-line attribution pending — content tagging system (CR-005) not yet deployed. Depends on CR-001, CR-005. GitHub: #646 -- Codi. Approved.
@@ -654,6 +655,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **22hfxuhp** | PC-238 [P2]: TTS narration — optional on-device AVSpeechSynthesizer voice | misty | merged | Implement optional on-device AVSpeechSynthesizer n... |
 | **mgqthxya** | PC-242 [P0]: Stock clip bundle — 60 clips, 8 categories, CLIP embeddings, ODR | misty | merged | Curate 60 stock video clips across 8 categories wi... |
-| **9opvgvso** | [CR-015][P1] fleet_push financial sync — push watch_hours_ledger + cost/income ledgers to DO | codi | merged | Add watch_hours_ledger, cost_ledger, income_ledger... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
