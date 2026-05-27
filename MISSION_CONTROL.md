@@ -653,7 +653,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **22hfxuhp** | PC-238 [P2]: TTS narration — optional on-device AVSpeechSynthesizer voice | misty | merged | Implement optional on-device AVSpeechSynthesizer n... |
-| **mgqthxya** | PC-242 [P0]: Stock clip bundle — 60 clips, 8 categories, CLIP embeddings, ODR | misty | merged | Curate 60 stock video clips across 8 categories wi... |
+| **22hfxuhp** | PC-238 [P2]: TTS narration — optional on-device AVSpeechSynthesizer voice | codi | merged | Implement optional on-device AVSpeechSynthesizer n... |
+| **mgqthxya** | PC-242 [P0]: Stock clip bundle — 60 clips, 8 categories, CLIP embeddings, ODR |  | merged | Curate 60 stock video clips across 8 categories wi... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
