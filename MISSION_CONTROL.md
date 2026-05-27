@@ -170,6 +170,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **mzet0217**: PC-244 [P0]: Texture and overlay PNG assets for CoreImage filter chains -- High-resolution texture and overlay PNG assets for all 7 CoreImage filter chains. Bundled assets for VideoStyleProcessor. Part of Sprint 7 Video Generation. -- Misty. Approved.
 - **17o4l9an**: PC-244 [P0]: Texture and overlay PNG assets for CoreImage filters -- 6+ textures ≥2048px: paper (1700s), grain (Vintage), halftone dots (Manga), neon glow (Cyberpunk), speed lines (Manga), watercolour paper. CC0. Miguel approves. 3pts. -- Gem. Approved.
 - **8eknrrkr**: PC-243 [P1]: Music track integration and automatic selection -- 21 AAC tracks (3/style) as ODR. Auto-select by emotional tone. User override with 10s preview. Seamless loop. Note: Miguel delivers tracks. 3pts. -- Gem. Approved.
+- **mgqthxya**: PC-242 [P0]: Stock clip bundle — 60 clips, 8 categories, CLIP embeddings, ODR -- Curate 60 stock video clips across 8 categories with CLIP embeddings for semantic matching fallback. ODR-backed bundle distribution. Part of Sprint 7 Video Generation. -- . Approved.
 - **myowlsln**: PC-242 [P0]: Stock clip bundle — 60 clips, 8 categories, ODR -- Source CC0 clips (Pexels/Pixabay). Crop to 9:16. CLIP embedding per clip. SQLite index. ODR per style pack. Miguel approves selection. 5pts. -- Gem. Approved.
 - **ucxd99fa**: PC-241 [P1]: Stock clip CLIP matching — semantic fallback -- When no user photo: embed caption, cosine similarity vs precomputed stock clip embeddings in SQLite. Min confidence 0.4. 3pts. -- Clau. Approved.
 - **n8zirlgq**: PC-240 [P0]: WikiVideoScriptService — LLM moment selection -- SmolLM2 135M selects 5-8 moments from WikiArticle. Each moment: photoAssetId, captionText ≤60 chars, emotionalBeat. Test on Mac Mini first. 5pts. -- Clau. Approved.
@@ -654,6 +655,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **mgqthxya** | PC-242 [P0]: Stock clip bundle — 60 clips, 8 categories, CLIP embeddings, ODR |  | merged | Curate 60 stock video clips across 8 categories wi... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
