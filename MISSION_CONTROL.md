@@ -664,7 +664,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **gkkr4pij** | [SC-007][P2] Oracle cosmology graph — Sun + Saturn, cosmetic, day/week | codi | planned | Reskin concept graph into a decorative day/week co... |
 | **g84mn08f** | [SC-008][P1] Reimagine Home as Journal cast surface + readings feed | codi | planned | Fold old Home/Briefing concept into Journal: one p... |
 | **76lps5nd** | [SC-009][P1] Pricing: 3 free generations then one-time StoreKit unlock | codi | planned | One-time non-consumable StoreKit unlock. Free user... |
-| **1tlq85vo** | [SC-010][P1] Branding & oracle voice pass — SiliconOracle, Delphi framing | misty | in_work | Apply SiliconOracle identity and Delphic voice thr... |
+| **1tlq85vo** | [SC-010][P1] Branding & oracle voice pass — SiliconOracle, Delphi framing | misty | merged | Apply SiliconOracle identity and Delphic voice thr... |
 | **wu9jloyf** | [SC-011][P2] soul.md 'coming soon' easter egg — whisper, not banner | misty | in_work | A tasteful, low-key teaser for the soul.md game. T... |
 | **pj74z1ki** | [SC-012][P1] Settings adaptation — remove cut settings, add generation counter / unlock | codi | planned | Rebuild Settings for the trimmed app: models & dow... |
 
