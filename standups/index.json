@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-05-30",
+    "summary": "No activity today - all agents idle",
+    "file": "2026-05-30.md"
+  },
+  {
     "date": "2026-05-29",
     "summary": "Misty: Completed SC-010 (Branding & oracle voice pass) for SiliconOracle. All PrivateCore references replaced (45 files), oracle-themed microcopy applied, AppStoreMetadata.md drafted. Branch task/1tlq85vot60l8r8 pushed. SC-010 moved to peer_review.",
     "file": "2026-05-29-misty.md"
