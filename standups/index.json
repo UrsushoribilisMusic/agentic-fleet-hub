@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-05-29",
-    "summary": "Misty: Executed full Heartbeat Protocol (Phases 1-6). Started SC-010 SiliconOracle branding pass - renamed PrivateCoreApp to SiliconOracleApp, updated 16 files with SiliconOracle branding and oracle-themed microcopy. Branch task/1tlq85vot60l8r8 pushed with partial completion.",
+    "summary": "Misty: Completed SC-010 (Branding & oracle voice pass) for SiliconOracle. All PrivateCore references replaced (45 files), oracle-themed microcopy applied, AppStoreMetadata.md drafted. Branch task/1tlq85vot60l8r8 pushed. SC-010 moved to peer_review.",
     "file": "2026-05-29-misty.md"
   },
   {
