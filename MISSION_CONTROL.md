@@ -665,8 +665,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **fm2d6bat** | [SC-003][P0] 4-screen navigation: Journal / Wiki / Boards / Settings | misty | merged | Replace the 8-screen shell (inherited PC-019) with... |
-| **v8galy0v** | [SC-005][P1] Text style system reskin — Popstar, Shakespeare, Cartoon, Manga | clau | in_work | Reduce text style set to four: Popstar (Cosmopolit... |
-| **g84mn08f** | [SC-008][P1] Reimagine Home as Journal cast surface + readings feed | clau | in_work | Fold old Home/Briefing concept into Journal: one p... |
+| **v8galy0v** | [SC-005][P1] Text style system reskin — Popstar, Shakespeare, Cartoon, Manga | codi | planned | Reduce text style set to four: Popstar (Cosmopolit... |
+| **g84mn08f** | [SC-008][P1] Reimagine Home as Journal cast surface + readings feed | codi | planned | Fold old Home/Briefing concept into Journal: one p... |
 | **6fjo023z** | [QW-001][P0] Standup parser — extract structured JSON from all daily .md files | misty | merged | Parse all standup markdown files in ~/projects/age... |
 | **j4plm735** | [QW-002][P1] Tickets-per-day chart — color-coded by project prefix | misty | merged | Using standup_data.json from QW-001, produce a gro... |
 | **fbcvpvzi** | [QW-003][P1] Ticket duration stats — longest tickets, standard deviation, histogram | misty | merged | Using the PocketBase task data (created + updated ... |
@@ -674,11 +674,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **iu7fumuc** | [QW-005][P1] Agent workload matrix — heatmap of tickets completed per agent per week | misty | merged | Using standup_data.json from QW-001, produce a hea... |
 | **x0h3h158** | [QW-006][P1] Peer review network — who reviews whose work, collaboration graph | misty | merged | Using standup_data.json from QW-001, parse peer_re... |
 | **msi5mvku** | [QW-007][P0] Fleet analytics index page — wire all QW charts into a single report | misty | merged | After QW-002 through QW-006 are complete, produce ... |
-| **ehygr8de** | [SC-013][P0] Two-model architecture + single-swap sequential pipeline | clau | in_work | Engine · 8 pts... |
-| **erakto7x** | [SC-014][P0] Seven-step foreground generation flow | clau | in_work | Engine · 8 pts... |
-| **c2fa5vgn** | [SC-015][P0] Resumable progressive captioning (one-by-one, checkpointed) | clau | in_work | Engine · 5 pts... |
-| **0tw7v5pt** | [SC-016][P1] Concurrent style-pick overlay during captioning | clau | in_work | App Shell · 3 pts... |
-| **ch7wxnvk** | [SC-017][P0] 12-segment / 60s video timeline (segment model, pan+zoom Ken Burns) | clau | in_work | Engine · 8 pts... |
+| **ehygr8de** | [SC-013][P0] Two-model architecture + single-swap sequential pipeline | codi | planned | Engine · 8 pts... |
+| **erakto7x** | [SC-014][P0] Seven-step foreground generation flow | codi | planned | Engine · 8 pts... |
+| **c2fa5vgn** | [SC-015][P0] Resumable progressive captioning (one-by-one, checkpointed) | codi | planned | Engine · 5 pts... |
+| **0tw7v5pt** | [SC-016][P1] Concurrent style-pick overlay during captioning | codi | planned | App Shell · 3 pts... |
+| **ch7wxnvk** | [SC-017][P0] 12-segment / 60s video timeline (segment model, pan+zoom Ken Burns) | clau | planned | Engine · 8 pts... |
 | **y6in4ml7** | [SC-018][P1] Sparse-day rotation with varied Ken Burns + interleaving | clau | planned | Engine · 5 pts... |
 | **v9ayz4rm** | [SC-019][P0] Visual layer cut: Original (no filter), Engraving, Cinematic only | gem | planned | Engine · 2 pts... |
 | **w9ixcxxq** | [SC-020][P1] Pre-generated backing-track library (forgiving genres) | clau | planned | Content · 5 pts... |
