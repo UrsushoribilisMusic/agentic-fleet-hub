@@ -667,7 +667,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **rtueyqe5** | [SC-006][P1] Video style reskin — Cinematic, Engraving-Vintage, Manga | clau | merged | Reduce video/reel styles to three: Cinematic (film... |
 | **g84mn08f** | [SC-008][P1] Reimagine Home as Journal cast surface + readings feed | clau | planned | Fold old Home/Briefing concept into Journal: one p... |
 | **pj74z1ki** | [SC-012][P1] Settings adaptation — remove cut settings, add generation counter / unlock | clau | planned | Rebuild Settings for the trimmed app: models & dow... |
-| **iu7fumuc** | [QW-005][P1] Agent workload matrix — heatmap of tickets completed per agent per week | qwen | in_work | Using standup_data.json from QW-001, produce a hea... |
 | **x0h3h158** | [QW-006][P1] Peer review network — who reviews whose work, collaboration graph | qwen | in_work | Using standup_data.json from QW-001, parse peer_re... |
 | **msi5mvku** | [QW-007][P0] Fleet analytics index page — wire all QW charts into a single report | qwen | in_work | After QW-002 through QW-006 are complete, produce ... |
 
