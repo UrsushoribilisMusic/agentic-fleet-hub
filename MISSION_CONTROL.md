@@ -421,6 +421,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#131**: [ATF-8] Build local model runtime adapter for Gemma/Apertus -- ## Context... -- Clau. Approved.
 - **#131**: [ATF-8] Build local model runtime adapter for Gemma/Apertus -- Runtime adapter verification and cleanup after prior ticket drift. -- Clau. Approved.
 - **#130**: [ATF-7] Add EU AI Act mapping metadata for wiki pages -- ## Context -- Misty. Approved.
+- **#129**: [ATF-6] Scaffold wiki index/log and page templates -- ## Context -- Clau. Approved.
 - **#128**: [ATF-5] Generate initial compiled wiki from RobotRoss code/docs -- ## Context -- Gem. Approved.
 - **#127**: [ATF-4] Build Mexico log parser and normalized event schema -- ## Context -- Misty. Approved.
 - **#126**: [ATF-3] Scaffold Mexico raw-log dropzone and manifest template -- ## Context -- Qwen. Approved.
@@ -656,9 +657,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **#129** | [ATF-6] Scaffold wiki index/log and page templates | clau | in_work | ## Context... |
 | **snfxf8k2** | [SC-002][P0] Strip cut modules — People, Places, Trips, Dashboard, Contacts, Notifications, Capture, Search, Library | clau | in_work | Remove from SiliconOracle all modules reserved for... |
-| **fm2d6bat** | [SC-003][P0] 4-screen navigation: Journal / Wiki / Boards / Settings | clau | planned | Replace the 8-screen shell (inherited PC-019) with... |
+| **fm2d6bat** | [SC-003][P0] 4-screen navigation: Journal / Wiki / Boards / Settings | clau | in_work | Replace the 8-screen shell (inherited PC-019) with... |
 | **r5cdiqbo** | [SC-004][P1] De-factualize Journal & Wiki — remove date/location/season chrome | clau | planned | Keep day/week as the generation unit but strip fac... |
 | **v8galy0v** | [SC-005][P1] Text style system reskin — Popstar, Shakespeare, Cartoon, Manga | clau | in_work | Reduce text style set to four: Popstar (Cosmopolit... |
 | **rtueyqe5** | [SC-006][P1] Video style reskin — Cinematic, Engraving-Vintage, Manga | clau | planned | Reduce video/reel styles to three: Cinematic (film... |
