@@ -657,12 +657,12 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **snfxf8k2** | [SC-002][P0] Strip cut modules — People, Places, Trips, Dashboard, Contacts, Notifications, Capture, Search, Library | clau | in_work | Remove from SiliconOracle all modules reserved for... |
+| **snfxf8k2** | [SC-002][P0] Strip cut modules — People, Places, Trips, Dashboard, Contacts, Notifications, Capture, Search, Library | clau | planned | Remove from SiliconOracle all modules reserved for... |
 | **fm2d6bat** | [SC-003][P0] 4-screen navigation: Journal / Wiki / Boards / Settings | clau | in_work | Replace the 8-screen shell (inherited PC-019) with... |
 | **r5cdiqbo** | [SC-004][P1] De-factualize Journal & Wiki — remove date/location/season chrome | clau | in_work | Keep day/week as the generation unit but strip fac... |
 | **v8galy0v** | [SC-005][P1] Text style system reskin — Popstar, Shakespeare, Cartoon, Manga | clau | planned | Reduce text style set to four: Popstar (Cosmopolit... |
 | **rtueyqe5** | [SC-006][P1] Video style reskin — Cinematic, Engraving-Vintage, Manga | clau | planned | Reduce video/reel styles to three: Cinematic (film... |
-| **gkkr4pij** | [SC-007][P2] Oracle cosmology graph — Sun + Saturn, cosmetic, day/week | gem | in_work | Reskin concept graph into a decorative day/week co... |
+| **gkkr4pij** | [SC-007][P2] Oracle cosmology graph — Sun + Saturn, cosmetic, day/week | gem | planned | Reskin concept graph into a decorative day/week co... |
 | **g84mn08f** | [SC-008][P1] Reimagine Home as Journal cast surface + readings feed | clau | planned | Fold old Home/Briefing concept into Journal: one p... |
 | **76lps5nd** | [SC-009][P1] Pricing: 3 free generations then one-time StoreKit unlock | gem | in_work | One-time non-consumable StoreKit unlock. Free user... |
 | **1tlq85vo** | [SC-010][P1] Branding & oracle voice pass — SiliconOracle, Delphi framing | misty | merged | Apply SiliconOracle identity and Delphic voice thr... |
