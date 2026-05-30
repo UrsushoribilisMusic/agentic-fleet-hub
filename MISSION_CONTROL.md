@@ -666,7 +666,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **g84mn08f** | [SC-008][P1] Reimagine Home as Journal cast surface + readings feed | codi | in_work | Fold old Home/Briefing concept into Journal: one p... |
+| **g84mn08f** | [SC-008][P1] Reimagine Home as Journal cast surface + readings feed | codi | merged | Fold old Home/Briefing concept into Journal: one p... |
 | **6fjo023z** | [QW-001][P0] Standup parser — extract structured JSON from all daily .md files | misty | merged | Parse all standup markdown files in ~/projects/age... |
 | **j4plm735** | [QW-002][P1] Tickets-per-day chart — color-coded by project prefix | misty | merged | Using standup_data.json from QW-001, produce a gro... |
 | **fbcvpvzi** | [QW-003][P1] Ticket duration stats — longest tickets, standard deviation, histogram | misty | merged | Using the PocketBase task data (created + updated ... |
