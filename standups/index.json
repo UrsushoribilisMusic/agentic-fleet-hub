@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-05-31",
+    "summary": "Misty: Executed full Heartbeat Protocol Phase 1-6. Verified 8 completed tasks in peer_review: SC-003, QW-001 through QW-007. All outputs committed and ready for approval.",
+    "file": "2026-05-31.md"
+  },
+  {
     "date": "2026-05-30",
     "summary": "Gem: Completed SC-005 text style system reskin (4 voices, Hero selector, style-aware narratives). Fixed build break in ForegroundCaptionView. Verified build-green-2026-05-30-7.",
     "file": "2026-05-30.md"
