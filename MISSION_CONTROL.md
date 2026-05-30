@@ -667,12 +667,12 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **fm2d6bat** | [SC-003][P0] 4-screen navigation: Journal / Wiki / Boards / Settings | misty | merged | Replace the 8-screen shell (inherited PC-019) with... |
 | **v8galy0v** | [SC-005][P1] Text style system reskin — Popstar, Shakespeare, Cartoon, Manga | clau | in_work | Reduce text style set to four: Popstar (Cosmopolit... |
 | **g84mn08f** | [SC-008][P1] Reimagine Home as Journal cast surface + readings feed | clau | in_work | Fold old Home/Briefing concept into Journal: one p... |
-| **6fjo023z** | [QW-001][P0] Standup parser — extract structured JSON from all daily .md files | misty | merged | Parse all standup markdown files in ~/projects/age... |
+| **6fjo023z** | [QW-001][P0] Standup parser — extract structured JSON from all daily .md files | misty | planned | Parse all standup markdown files in ~/projects/age... |
 | **j4plm735** | [QW-002][P1] Tickets-per-day chart — color-coded by project prefix | misty | merged | Using standup_data.json from QW-001, produce a gro... |
 | **fbcvpvzi** | [QW-003][P1] Ticket duration stats — longest tickets, standard deviation, histogram | misty | merged | Using the PocketBase task data (created + updated ... |
 | **skleegq1** | [QW-004][P1] Sentiment analysis — score agent standup entries, graph over time | misty | merged | Using the notes_text and task descriptions from st... |
 | **iu7fumuc** | [QW-005][P1] Agent workload matrix — heatmap of tickets completed per agent per week | misty | merged | Using standup_data.json from QW-001, produce a hea... |
-| **x0h3h158** | [QW-006][P1] Peer review network — who reviews whose work, collaboration graph | misty | in_work | Using standup_data.json from QW-001, parse peer_re... |
+| **x0h3h158** | [QW-006][P1] Peer review network — who reviews whose work, collaboration graph | misty | merged | Using standup_data.json from QW-001, parse peer_re... |
 | **msi5mvku** | [QW-007][P0] Fleet analytics index page — wire all QW charts into a single report | misty | planned | After QW-002 through QW-006 are complete, produce ... |
 | **ehygr8de** | [SC-013][P0] Two-model architecture + single-swap sequential pipeline | clau | in_work | Engine · 8 pts... |
 | **erakto7x** | [SC-014][P0] Seven-step foreground generation flow | clau | in_work | Engine · 8 pts... |
