@@ -672,7 +672,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **fbcvpvzi** | [QW-003][P1] Ticket duration stats — longest tickets, standard deviation, histogram | qwen | in_work | Using the PocketBase task data (created + updated ... |
 | **skleegq1** | [QW-004][P1] Sentiment analysis — score agent standup entries, graph over time | qwen | in_work | Using the notes_text and task descriptions from st... |
 | **iu7fumuc** | [QW-005][P1] Agent workload matrix — heatmap of tickets completed per agent per week | qwen | in_work | Using standup_data.json from QW-001, produce a hea... |
-| **x0h3h158** | [QW-006][P1] Peer review network — who reviews whose work, collaboration graph | qwen | planned | Using standup_data.json from QW-001, parse peer_re... |
+| **x0h3h158** | [QW-006][P1] Peer review network — who reviews whose work, collaboration graph | qwen | in_work | Using standup_data.json from QW-001, parse peer_re... |
 | **msi5mvku** | [QW-007][P0] Fleet analytics index page — wire all QW charts into a single report | qwen | planned | After QW-002 through QW-006 are complete, produce ... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
