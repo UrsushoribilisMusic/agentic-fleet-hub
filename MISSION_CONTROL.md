@@ -123,6 +123,13 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **msi5mvku**: [QW-007][P0] Fleet analytics index page — wire all QW charts into a single report -- After QW-002 through QW-006 are complete, produce a single index HTML page that embeds or links all charts into one fleet analytics report. -- Misty. Approved.
+- **x0h3h158**: [QW-006][P1] Peer review network — who reviews whose work, collaboration graph -- Using standup_data.json from QW-001, parse peer_reviews to build a directed collaboration graph: node = agent, directed edge A->B = 'A reviewed B's ticket', edge weight = review count. -- Misty. Approved.
+- **iu7fumuc**: [QW-005][P1] Agent workload matrix — heatmap of tickets completed per agent per week -- Using standup_data.json from QW-001, produce a heatmap showing how many tickets each agent completed per calendar week. -- Misty. Approved.
+- **skleegq1**: [QW-004][P1] Sentiment analysis — score agent standup entries, graph over time -- Using the notes_text and task descriptions from standup_data.json (QW-001), run sentiment scoring on each agent entry per day. -- Misty. Approved.
+- **fbcvpvzi**: [QW-003][P1] Ticket duration stats — longest tickets, standard deviation, histogram -- Using the PocketBase task data (created + updated timestamps) and standup_data.json from QW-001, compute ticket resolution time statistics. -- Misty. Approved.
+- **j4plm735**: [QW-002][P1] Tickets-per-day chart — color-coded by project prefix -- Using standup_data.json from QW-001, produce a grouped bar chart of tickets worked on per day, color-coded by project prefix (SC, PC, CR, fleet, QW, other). -- Misty. Approved.
+- **6fjo023z**: [QW-001][P0] Standup parser — extract structured JSON from all daily .md files -- Parse all standup markdown files in ~/projects/agentic-fleet-hub/standups/ into a single structured JSON dataset that all other QW- tickets depend on. -- Misty. Approved.
 - **pj74z1ki**: [SC-012][P1] Settings adaptation — remove cut settings, add generation counter / unlock -- Rebuild Settings for the trimmed app: models & downloads, style defaults, share options, generation counter + unlock/restore. Remove home-location, person, trip, dashboard and notification settings. -- Clau. Approved.
 - **1tlq85vo**: [SC-010][P1] Branding & oracle voice pass — SiliconOracle, Delphi framing -- Apply SiliconOracle identity and Delphic voice throughout: app name, icon, accent palette, microcopy ('consult the oracle', 'the oracle has spoken', generations as 'prophecies'). Never use word 'hallucination' in first-party copy. -- Misty. Approved.
 - **76lps5nd**: [SC-009][P1] Pricing: 3 free generations then one-time StoreKit unlock -- One-time non-consumable StoreKit unlock. Free users get 3 generations total, then paywalled on further generation. Sharing/viewing artifacts never gated. Unlock grants: unlimited generation, all styles, Boards, graph export, video export. -- Gem. Approved.
@@ -667,13 +674,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **g84mn08f** | [SC-008][P1] Reimagine Home as Journal cast surface + readings feed | codi | in_work | Fold old Home/Briefing concept into Journal: one p... |
-| **6fjo023z** | [QW-001][P0] Standup parser — extract structured JSON from all daily .md files | misty | merged | Parse all standup markdown files in ~/projects/age... |
-| **j4plm735** | [QW-002][P1] Tickets-per-day chart — color-coded by project prefix | misty | merged | Using standup_data.json from QW-001, produce a gro... |
-| **fbcvpvzi** | [QW-003][P1] Ticket duration stats — longest tickets, standard deviation, histogram | misty | merged | Using the PocketBase task data (created + updated ... |
-| **skleegq1** | [QW-004][P1] Sentiment analysis — score agent standup entries, graph over time | misty | merged | Using the notes_text and task descriptions from st... |
-| **iu7fumuc** | [QW-005][P1] Agent workload matrix — heatmap of tickets completed per agent per week | misty | merged | Using standup_data.json from QW-001, produce a hea... |
-| **x0h3h158** | [QW-006][P1] Peer review network — who reviews whose work, collaboration graph | misty | merged | Using standup_data.json from QW-001, parse peer_re... |
-| **msi5mvku** | [QW-007][P0] Fleet analytics index page — wire all QW charts into a single report | misty | merged | After QW-002 through QW-006 are complete, produce ... |
 | **ehygr8de** | [SC-013][P0] Two-model architecture + single-swap sequential pipeline | codi | planned | Engine · 8 pts... |
 | **erakto7x** | [SC-014][P0] Seven-step foreground generation flow | codi | planned | Engine · 8 pts... |
 | **c2fa5vgn** | [SC-015][P0] Resumable progressive captioning (one-by-one, checkpointed) | codi | planned | Engine · 5 pts... |
