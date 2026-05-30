@@ -665,7 +665,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **fm2d6bat** | [SC-003][P0] 4-screen navigation: Journal / Wiki / Boards / Settings | misty | merged | Replace the 8-screen shell (inherited PC-019) with... |
-| **v8galy0v** | [SC-005][P1] Text style system reskin — Popstar, Shakespeare, Cartoon, Manga | clau | in_work | Reduce text style set to four: Popstar (Cosmopolit... |
+| **v8galy0v** | [SC-005][P1] Text style system reskin — Popstar, Shakespeare, Cartoon, Manga | clau | planned | Reduce text style set to four: Popstar (Cosmopolit... |
 | **g84mn08f** | [SC-008][P1] Reimagine Home as Journal cast surface + readings feed | clau | in_work | Fold old Home/Briefing concept into Journal: one p... |
 | **6fjo023z** | [QW-001][P0] Standup parser — extract structured JSON from all daily .md files | clau | merged | Parse all standup markdown files in ~/projects/age... |
 | **j4plm735** | [QW-002][P1] Tickets-per-day chart — color-coded by project prefix | misty | merged | Using standup_data.json from QW-001, produce a gro... |
