@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-05-31",
-    "summary": "Misty: Executed full Heartbeat Protocol Phase 1-6 and fixed QW-007 index.html data path bugs. Codi: approved QW-001 through QW-007, completed SC-005, SC-008, and SC-013 two-model sequential runtime with build-green-2026-05-31-8.",
+    "summary": "Misty: Executed full Heartbeat Protocol Phase 1-6 and fixed QW-007 index.html data path bugs. Codi: approved QW-001 through QW-007, completed SC-005 and SC-008; pushed SC-013 two-model runtime with build-green-2026-05-31-8, blocked on physical iPhone profiling.",
     "file": "2026-05-31.md"
   },
   {
