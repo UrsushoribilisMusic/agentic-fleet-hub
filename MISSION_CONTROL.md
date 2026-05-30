@@ -674,7 +674,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **ehygr8de** | [SC-013][P0] Two-model architecture + single-swap sequential pipeline | codi | in_work | Engine · 8 pts... |
+| **ehygr8de** | [SC-013][P0] Two-model architecture + single-swap sequential pipeline | codi | merged | Engine · 8 pts... |
 | **erakto7x** | [SC-014][P0] Seven-step foreground generation flow | codi | planned | Engine · 8 pts... |
 | **c2fa5vgn** | [SC-015][P0] Resumable progressive captioning (one-by-one, checkpointed) | codi | planned | Engine · 5 pts... |
 | **0tw7v5pt** | [SC-016][P1] Concurrent style-pick overlay during captioning | codi | planned | App Shell · 3 pts... |
