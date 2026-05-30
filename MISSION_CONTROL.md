@@ -673,7 +673,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **g84mn08f** | [SC-008][P1] Reimagine Home as Journal cast surface + readings feed | codi | in_work | Fold old Home/Briefing concept into Journal: one p... |
+| **g84mn08f** | [SC-008][P1] Reimagine Home as Journal cast surface + readings feed | codi | merged | Fold old Home/Briefing concept into Journal: one p... |
 | **ehygr8de** | [SC-013][P0] Two-model architecture + single-swap sequential pipeline | codi | planned | Engine · 8 pts... |
 | **erakto7x** | [SC-014][P0] Seven-step foreground generation flow | codi | planned | Engine · 8 pts... |
 | **c2fa5vgn** | [SC-015][P0] Resumable progressive captioning (one-by-one, checkpointed) | codi | planned | Engine · 5 pts... |
