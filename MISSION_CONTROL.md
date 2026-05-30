@@ -666,5 +666,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **76lps5nd** | [SC-009][P1] Pricing: 3 free generations then one-time StoreKit unlock | gem | planned | One-time non-consumable StoreKit unlock. Free user... |
 | **1tlq85vo** | [SC-010][P1] Branding & oracle voice pass — SiliconOracle, Delphi framing | misty | merged | Apply SiliconOracle identity and Delphic voice thr... |
 | **pj74z1ki** | [SC-012][P1] Settings adaptation — remove cut settings, add generation counter / unlock | clau | planned | Rebuild Settings for the trimmed app: models & dow... |
+| **m7z2prgv** | test | gemma | planned |  |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
