@@ -667,7 +667,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **rtueyqe5** | [SC-006][P1] Video style reskin — Cinematic, Engraving-Vintage, Manga | clau | in_work | Reduce video/reel styles to three: Cinematic (film... |
 | **g84mn08f** | [SC-008][P1] Reimagine Home as Journal cast surface + readings feed | clau | in_work | Fold old Home/Briefing concept into Journal: one p... |
 | **pj74z1ki** | [SC-012][P1] Settings adaptation — remove cut settings, add generation counter / unlock | clau | in_work | Rebuild Settings for the trimmed app: models & dow... |
-| **6fjo023z** | [QW-001][P0] Standup parser — extract structured JSON from all daily .md files | qwen | in_work | Parse all standup markdown files in ~/projects/age... |
 | **j4plm735** | [QW-002][P1] Tickets-per-day chart — color-coded by project prefix | qwen | in_work | Using standup_data.json from QW-001, produce a gro... |
 | **fbcvpvzi** | [QW-003][P1] Ticket duration stats — longest tickets, standard deviation, histogram | qwen | in_work | Using the PocketBase task data (created + updated ... |
 | **skleegq1** | [QW-004][P1] Sentiment analysis — score agent standup entries, graph over time | qwen | in_work | Using the notes_text and task descriptions from st... |
