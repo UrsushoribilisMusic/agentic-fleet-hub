@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-05-31",
-    "summary": "Misty: Executed full Heartbeat Protocol Phase 1-6. Verified 8 completed tasks in peer_review: SC-003, QW-001 through QW-007. All outputs committed and ready for approval.",
+    "summary": "Misty: Executed full Heartbeat Protocol Phase 1-6. Fixed bugs in QW-007 index.html (sentiment data paths, bar chart access, ticket duration references). Committed all 12 analytics files to ~/fleet repo. All QW-001 through QW-007 outputs verified and in peer_review awaiting approval.",
     "file": "2026-05-31.md"
   },
   {
