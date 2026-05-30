@@ -677,8 +677,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **ehygr8de** | [SC-013][P0] Two-model architecture + single-swap sequential pipeline | clau | in_work | Engine · 8 pts... |
 | **erakto7x** | [SC-014][P0] Seven-step foreground generation flow | clau | in_work | Engine · 8 pts... |
 | **c2fa5vgn** | [SC-015][P0] Resumable progressive captioning (one-by-one, checkpointed) | clau | in_work | Engine · 5 pts... |
-| **0tw7v5pt** | [SC-016][P1] Concurrent style-pick overlay during captioning | clau | planned | App Shell · 3 pts... |
-| **ch7wxnvk** | [SC-017][P0] 12-segment / 60s video timeline (segment model, pan+zoom Ken Burns) | clau | in_work | Engine · 8 pts... |
+| **0tw7v5pt** | [SC-016][P1] Concurrent style-pick overlay during captioning | clau | in_work | App Shell · 3 pts... |
+| **ch7wxnvk** | [SC-017][P0] 12-segment / 60s video timeline (segment model, pan+zoom Ken Burns) | clau | planned | Engine · 8 pts... |
 | **y6in4ml7** | [SC-018][P1] Sparse-day rotation with varied Ken Burns + interleaving | clau | in_work | Engine · 5 pts... |
 | **v9ayz4rm** | [SC-019][P0] Visual layer cut: Original (no filter), Engraving, Cinematic only | gem | planned | Engine · 2 pts... |
 | **w9ixcxxq** | [SC-020][P1] Pre-generated backing-track library (forgiving genres) | clau | planned | Content · 5 pts... |
