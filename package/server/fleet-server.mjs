@@ -22,6 +22,7 @@
 import http from "node:http";
 import fs from "node:fs";
 import path from "node:path";
+import os from "node:os";
 import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
 import {
@@ -104,6 +105,7 @@ const ALLOWED_EMAILS_RAW   = (process.env.GOOGLE_AUTH_ALLOWED_EMAILS || "").spli
 // Static roots: map URL prefix → local directory
 const STATIC_ROOTS = {
   "/fleet":     path.join(__dirname, "..", "dashboard", "engineering"),
+  "/fleet/analytics": path.join(os.homedir(), "fleet", "analytics"),
   "/demo":      path.join(__dirname, "..", "dashboard", "demo"),
   "/growth":    path.join(__dirname, "..", "dashboard", "growth"),
   "/setup":     path.join(__dirname, "..", "dashboard", "setup"),
