@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-05-30",
+    "summary": "Gem: Completed SC-007 (Oracle cosmology graph). Finalized and committed SC-002 stripping pass (97+ files). Repaired build failures in SC-010 branding pass and SC-009 pricing. SiliconOracle build is now green.",
+    "file": "2026-05-30-gem.md"
+  },
+  {
+    "date": "2026-05-30",
     "summary": "Misty: Executed full 6-Phase Heartbeat Protocol. Discovered SC-010 work local-only, pushed 3 commits (9e6ff39,c19d7a7,48605c7) to silicon-oracle/origin/main. SC-010 remains in peer_review awaiting approval. SC-011 blocked by SC-008.",
     "file": "2026-05-30-misty.md"
   },
