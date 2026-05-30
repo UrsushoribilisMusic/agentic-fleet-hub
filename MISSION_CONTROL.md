@@ -673,7 +673,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **skleegq1** | [QW-004][P1] Sentiment analysis — score agent standup entries, graph over time | misty | merged | Using the notes_text and task descriptions from st... |
 | **iu7fumuc** | [QW-005][P1] Agent workload matrix — heatmap of tickets completed per agent per week | misty | merged | Using standup_data.json from QW-001, produce a hea... |
 | **x0h3h158** | [QW-006][P1] Peer review network — who reviews whose work, collaboration graph | misty | merged | Using standup_data.json from QW-001, parse peer_re... |
-| **msi5mvku** | [QW-007][P0] Fleet analytics index page — wire all QW charts into a single report | clau | planned | After QW-002 through QW-006 are complete, produce ... |
+| **msi5mvku** | [QW-007][P0] Fleet analytics index page — wire all QW charts into a single report | clau | in_work | After QW-002 through QW-006 are complete, produce ... |
 | **ehygr8de** | [SC-013][P0] Two-model architecture + single-swap sequential pipeline | clau | in_work | Engine · 8 pts... |
 | **erakto7x** | [SC-014][P0] Seven-step foreground generation flow | clau | in_work | Engine · 8 pts... |
 | **c2fa5vgn** | [SC-015][P0] Resumable progressive captioning (one-by-one, checkpointed) | clau | in_work | Engine · 5 pts... |
