@@ -661,7 +661,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **fm2d6bat** | [SC-003][P0] 4-screen navigation: Journal / Wiki / Boards / Settings | clau | planned | Replace the 8-screen shell (inherited PC-019) with... |
+| **fm2d6bat** | [SC-003][P0] 4-screen navigation: Journal / Wiki / Boards / Settings | clau | in_work | Replace the 8-screen shell (inherited PC-019) with... |
 | **r5cdiqbo** | [SC-004][P1] De-factualize Journal & Wiki — remove date/location/season chrome | clau | planned | Keep day/week as the generation unit but strip fac... |
 | **v8galy0v** | [SC-005][P1] Text style system reskin — Popstar, Shakespeare, Cartoon, Manga | clau | in_work | Reduce text style set to four: Popstar (Cosmopolit... |
 | **rtueyqe5** | [SC-006][P1] Video style reskin — Cinematic, Engraving-Vintage, Manga | clau | in_work | Reduce video/reel styles to three: Cinematic (film... |
