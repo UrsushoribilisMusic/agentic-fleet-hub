@@ -667,7 +667,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **1tlq85vo** | [SC-010][P1] Branding & oracle voice pass — SiliconOracle, Delphi framing | misty | merged | Apply SiliconOracle identity and Delphic voice thr... |
 | **pj74z1ki** | [SC-012][P1] Settings adaptation — remove cut settings, add generation counter / unlock | clau | planned | Rebuild Settings for the trimmed app: models & dow... |
 | **6fjo023z** | [QW-001][P0] Standup parser — extract structured JSON from all daily .md files | gemma | in_work | Parse all standup markdown files in ~/projects/age... |
-| **j4plm735** | [QW-002][P1] Tickets-per-day chart — color-coded by project prefix | gemma | planned | Using standup_data.json from QW-001, produce a gro... |
+| **j4plm735** | [QW-002][P1] Tickets-per-day chart — color-coded by project prefix | gemma | in_work | Using standup_data.json from QW-001, produce a gro... |
 | **fbcvpvzi** | [QW-003][P1] Ticket duration stats — longest tickets, standard deviation, histogram | gemma | planned | Using the PocketBase task data (created + updated ... |
 | **skleegq1** | [QW-004][P1] Sentiment analysis — score agent standup entries, graph over time | gemma | planned | Using the notes_text and task descriptions from st... |
 | **iu7fumuc** | [QW-005][P1] Agent workload matrix — heatmap of tickets completed per agent per week | gemma | planned | Using standup_data.json from QW-001, produce a hea... |
