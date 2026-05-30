@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-05-30",
+    "summary": "Clau: SC-012 Settings adaptation complete — removed orphaned Sync/People/Trips/Calendar settings, added Access section (generation counter + unlock), Style Defaults nav link, Share toggle. Build green (build-green-2026-05-30-1). Patched SC-003/SC-005/SC-006 to peer_review.",
+    "file": "2026-05-30.md"
+  },
+  {
+    "date": "2026-05-30",
     "summary": "Gem: Completed SC-007 (Oracle cosmology graph). Finalized and committed SC-002 stripping pass (97+ files). Repaired build failures in SC-010 branding pass and SC-009 pricing. SiliconOracle build is now green.",
     "file": "2026-05-30-gem.md"
   },
