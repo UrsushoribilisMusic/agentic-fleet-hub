@@ -668,7 +668,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **rtueyqe5** | [SC-006][P1] Video style reskin — Cinematic, Engraving-Vintage, Manga | clau | in_work | Reduce video/reel styles to three: Cinematic (film... |
 | **g84mn08f** | [SC-008][P1] Reimagine Home as Journal cast surface + readings feed | codi | planned | Fold old Home/Briefing concept into Journal: one p... |
 | **msi5mvku** | [QW-007][P0] Fleet analytics index page — wire all QW charts into a single report | qwen | in_work | After QW-002 through QW-006 are complete, produce ... |
-| **ehygr8de** | [SC-013][P0] Two-model architecture + single-swap sequential pipeline | clau | in_work | Engine · 8 pts... |
+| **ehygr8de** | [SC-013][P0] Two-model architecture + single-swap sequential pipeline | codi | planned | Engine · 8 pts... |
 | **erakto7x** | [SC-014][P0] Seven-step foreground generation flow | clau | planned | Engine · 8 pts... |
 | **c2fa5vgn** | [SC-015][P0] Resumable progressive captioning (one-by-one, checkpointed) | clau | planned | Engine · 5 pts... |
 | **0tw7v5pt** | [SC-016][P1] Concurrent style-pick overlay during captioning | clau | planned | App Shell · 3 pts... |
