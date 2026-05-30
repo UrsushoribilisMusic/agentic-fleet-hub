@@ -663,10 +663,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **fm2d6bat** | [SC-003][P0] 4-screen navigation: Journal / Wiki / Boards / Settings | gem | planned | Replace the 8-screen shell (inherited PC-019) with... |
+| **fm2d6bat** | [SC-003][P0] 4-screen navigation: Journal / Wiki / Boards / Settings | gem | in_work | Replace the 8-screen shell (inherited PC-019) with... |
 | **v8galy0v** | [SC-005][P1] Text style system reskin — Popstar, Shakespeare, Cartoon, Manga | clau | in_work | Reduce text style set to four: Popstar (Cosmopolit... |
 | **rtueyqe5** | [SC-006][P1] Video style reskin — Cinematic, Engraving-Vintage, Manga | clau | in_work | Reduce video/reel styles to three: Cinematic (film... |
-| **g84mn08f** | [SC-008][P1] Reimagine Home as Journal cast surface + readings feed | clau | planned | Fold old Home/Briefing concept into Journal: one p... |
+| **g84mn08f** | [SC-008][P1] Reimagine Home as Journal cast surface + readings feed | clau | in_work | Fold old Home/Briefing concept into Journal: one p... |
 | **msi5mvku** | [QW-007][P0] Fleet analytics index page — wire all QW charts into a single report | qwen | in_work | After QW-002 through QW-006 are complete, produce ... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
