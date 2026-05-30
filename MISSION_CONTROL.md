@@ -676,7 +676,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **msi5mvku** | [QW-007][P0] Fleet analytics index page — wire all QW charts into a single report | misty | merged | After QW-002 through QW-006 are complete, produce ... |
 | **ehygr8de** | [SC-013][P0] Two-model architecture + single-swap sequential pipeline | clau | in_work | Engine · 8 pts... |
 | **erakto7x** | [SC-014][P0] Seven-step foreground generation flow | clau | in_work | Engine · 8 pts... |
-| **c2fa5vgn** | [SC-015][P0] Resumable progressive captioning (one-by-one, checkpointed) | clau | planned | Engine · 5 pts... |
+| **c2fa5vgn** | [SC-015][P0] Resumable progressive captioning (one-by-one, checkpointed) | clau | in_work | Engine · 5 pts... |
 | **0tw7v5pt** | [SC-016][P1] Concurrent style-pick overlay during captioning | clau | planned | App Shell · 3 pts... |
 | **ch7wxnvk** | [SC-017][P0] 12-segment / 60s video timeline (segment model, pan+zoom Ken Burns) | clau | in_work | Engine · 8 pts... |
 | **y6in4ml7** | [SC-018][P1] Sparse-day rotation with varied Ken Burns + interleaving | clau | in_work | Engine · 5 pts... |
