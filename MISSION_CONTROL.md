@@ -656,7 +656,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **#129** | [ATF-6] Scaffold wiki index/log and page templates | clau | planned | ## Context... |
+| **#129** | [ATF-6] Scaffold wiki index/log and page templates | clau | in_work | ## Context... |
 | **snfxf8k2** | [SC-002][P0] Strip cut modules — People, Places, Trips, Dashboard, Contacts, Notifications, Capture, Search, Library | clau | in_work | Remove from SiliconOracle all modules reserved for... |
 | **fm2d6bat** | [SC-003][P0] 4-screen navigation: Journal / Wiki / Boards / Settings | clau | planned | Replace the 8-screen shell (inherited PC-019) with... |
 | **r5cdiqbo** | [SC-004][P1] De-factualize Journal & Wiki — remove date/location/season chrome | clau | planned | Keep day/week as the generation unit but strip fac... |
