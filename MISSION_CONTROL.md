@@ -665,7 +665,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **gkkr4pij** | [SC-007][P2] Oracle cosmology graph — Sun + Saturn, cosmetic, day/week | gem | in_work | Reskin concept graph into a decorative day/week co... |
 | **g84mn08f** | [SC-008][P1] Reimagine Home as Journal cast surface + readings feed | clau | planned | Fold old Home/Briefing concept into Journal: one p... |
 | **76lps5nd** | [SC-009][P1] Pricing: 3 free generations then one-time StoreKit unlock | gem | in_work | One-time non-consumable StoreKit unlock. Free user... |
-| **1tlq85vo** | [SC-010][P1] Branding & oracle voice pass — SiliconOracle, Delphi framing | misty | merged | Apply SiliconOracle identity and Delphic voice thr... |
+| **1tlq85vo** | [SC-010][P1] Branding & oracle voice pass — SiliconOracle, Delphi framing | misty | planned | Apply SiliconOracle identity and Delphic voice thr... |
 | **pj74z1ki** | [SC-012][P1] Settings adaptation — remove cut settings, add generation counter / unlock | clau | planned | Rebuild Settings for the trimmed app: models & dow... |
 | **6fjo023z** | [QW-001][P0] Standup parser — extract structured JSON from all daily .md files | qwen | in_work | Parse all standup markdown files in ~/projects/age... |
 | **j4plm735** | [QW-002][P1] Tickets-per-day chart — color-coded by project prefix | qwen | in_work | Using standup_data.json from QW-001, produce a gro... |
