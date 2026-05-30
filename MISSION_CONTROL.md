@@ -663,9 +663,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **rtueyqe5** | [SC-006][P1] Video style reskin — Cinematic, Engraving-Vintage, Manga | clau | planned | Reduce video/reel styles to three: Cinematic (film... |
 | **gkkr4pij** | [SC-007][P2] Oracle cosmology graph — Sun + Saturn, cosmetic, day/week | gem | in_work | Reskin concept graph into a decorative day/week co... |
 | **g84mn08f** | [SC-008][P1] Reimagine Home as Journal cast surface + readings feed | clau | planned | Fold old Home/Briefing concept into Journal: one p... |
-| **76lps5nd** | [SC-009][P1] Pricing: 3 free generations then one-time StoreKit unlock | gem | planned | One-time non-consumable StoreKit unlock. Free user... |
+| **76lps5nd** | [SC-009][P1] Pricing: 3 free generations then one-time StoreKit unlock | gem | in_work | One-time non-consumable StoreKit unlock. Free user... |
 | **1tlq85vo** | [SC-010][P1] Branding & oracle voice pass — SiliconOracle, Delphi framing | misty | merged | Apply SiliconOracle identity and Delphic voice thr... |
 | **pj74z1ki** | [SC-012][P1] Settings adaptation — remove cut settings, add generation counter / unlock | clau | planned | Rebuild Settings for the trimmed app: models & dow... |
-| **m7z2prgv** | test | gemma | planned |  |
+| **m7z2prgv** | test | gemma | in_work |  |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
