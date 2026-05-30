@@ -655,7 +655,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **#129** | [ATF-6] Scaffold wiki index/log and page templates | clau | planned | ## Context... |
+| **#129** | [ATF-6] Scaffold wiki index/log and page templates | clau | in_work | ## Context... |
 | **snfxf8k2** | [SC-002][P0] Strip cut modules — People, Places, Trips, Dashboard, Contacts, Notifications, Capture, Search, Library | clau | in_work | Remove from SiliconOracle all modules reserved for... |
 | **fm2d6bat** | [SC-003][P0] 4-screen navigation: Journal / Wiki / Boards / Settings | clau | planned | Replace the 8-screen shell (inherited PC-019) with... |
 | **r5cdiqbo** | [SC-004][P1] De-factualize Journal & Wiki — remove date/location/season chrome | clau | planned | Keep day/week as the generation unit but strip fac... |
@@ -670,7 +670,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **j4plm735** | [QW-002][P1] Tickets-per-day chart — color-coded by project prefix | qwen | in_work | Using standup_data.json from QW-001, produce a gro... |
 | **fbcvpvzi** | [QW-003][P1] Ticket duration stats — longest tickets, standard deviation, histogram | qwen | in_work | Using the PocketBase task data (created + updated ... |
 | **skleegq1** | [QW-004][P1] Sentiment analysis — score agent standup entries, graph over time | qwen | in_work | Using the notes_text and task descriptions from st... |
-| **iu7fumuc** | [QW-005][P1] Agent workload matrix — heatmap of tickets completed per agent per week | qwen | planned | Using standup_data.json from QW-001, produce a hea... |
+| **iu7fumuc** | [QW-005][P1] Agent workload matrix — heatmap of tickets completed per agent per week | qwen | in_work | Using standup_data.json from QW-001, produce a hea... |
 | **x0h3h158** | [QW-006][P1] Peer review network — who reviews whose work, collaboration graph | qwen | planned | Using standup_data.json from QW-001, parse peer_re... |
 | **msi5mvku** | [QW-007][P0] Fleet analytics index page — wire all QW charts into a single report | qwen | planned | After QW-002 through QW-006 are complete, produce ... |
 | **m7z2prgv** | test | qwen | in_work |  |
