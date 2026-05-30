@@ -641,6 +641,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **tcr13pbs**: TCR-13: PocketBase to Sheet reporting sync for YouTube metrics -- Sync YouTube metrics from PocketBase back into the reporting worksheet while leaving TikTok and Instagram columns human-owned. -- Codi. Approved.
 - **#5**: #5nkg4da6vgfbj1j: Peer review UI fixes for web page -- Reviewing UI fixes for the web page as described in task #5nkg4da6vgfbj1j -- Misty. Approved.
 - **tejrwdkf**: BBE page fixes: nav consolidation, project links, alignment -- ## What was done (Clau, 2026-03-12) -- Clau. Approved.
+- **m7z2prgv**: test -- Qwen. Approved.
 - **a215p1a4**: [SC-001][P0] Fork PrivateCore to SiliconOracle -- COMPLETE 2026-05-29. Tag fork/siliconoracle-2026-05 on privatecore-ios. Repo silicon-oracle created, xcodeproj renamed, bundle ID com.bigbear.siliconoracle, version 0.1.0, fresh MISSION_CONTROL + README + CLAUDE.md. BUILD SUCCEEDED on simulator. -- Codi. Approved.
 - **d3xr2948**: PC-050: Model download UX — file counter + percentage -- Replace narrow progress bar with bar + text label showing File N/Total and file-level %. Preparing state shows Preparing text. Implemented via ModelDownloadProgress struct. -- Codi. Approved.
 - **w28r4jbj**: [infra] Codi PocketBase sandbox workaround — pre-fetch/flush wrapper -- Codi (Codex) runs in a sandboxed environment (-s workspace-write) where localhost:8090 is unreachable. Gem implemented a wrapper-based workaround: -- Gem. Approved.
@@ -666,13 +667,12 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **76lps5nd** | [SC-009][P1] Pricing: 3 free generations then one-time StoreKit unlock | gem | in_work | One-time non-consumable StoreKit unlock. Free user... |
 | **1tlq85vo** | [SC-010][P1] Branding & oracle voice pass — SiliconOracle, Delphi framing | misty | merged | Apply SiliconOracle identity and Delphic voice thr... |
 | **pj74z1ki** | [SC-012][P1] Settings adaptation — remove cut settings, add generation counter / unlock | clau | planned | Rebuild Settings for the trimmed app: models & dow... |
-| **6fjo023z** | [QW-001][P0] Standup parser — extract structured JSON from all daily .md files | qwen | in_work | Parse all standup markdown files in ~/projects/age... |
-| **j4plm735** | [QW-002][P1] Tickets-per-day chart — color-coded by project prefix | qwen | in_work | Using standup_data.json from QW-001, produce a gro... |
-| **fbcvpvzi** | [QW-003][P1] Ticket duration stats — longest tickets, standard deviation, histogram | qwen | in_work | Using the PocketBase task data (created + updated ... |
-| **skleegq1** | [QW-004][P1] Sentiment analysis — score agent standup entries, graph over time | qwen | in_work | Using the notes_text and task descriptions from st... |
+| **6fjo023z** | [QW-001][P0] Standup parser — extract structured JSON from all daily .md files | qwen | planned | Parse all standup markdown files in ~/projects/age... |
+| **j4plm735** | [QW-002][P1] Tickets-per-day chart — color-coded by project prefix | qwen | planned | Using standup_data.json from QW-001, produce a gro... |
+| **fbcvpvzi** | [QW-003][P1] Ticket duration stats — longest tickets, standard deviation, histogram | qwen | planned | Using the PocketBase task data (created + updated ... |
+| **skleegq1** | [QW-004][P1] Sentiment analysis — score agent standup entries, graph over time | qwen | planned | Using the notes_text and task descriptions from st... |
 | **iu7fumuc** | [QW-005][P1] Agent workload matrix — heatmap of tickets completed per agent per week | qwen | in_work | Using standup_data.json from QW-001, produce a hea... |
-| **x0h3h158** | [QW-006][P1] Peer review network — who reviews whose work, collaboration graph | qwen | planned | Using standup_data.json from QW-001, parse peer_re... |
+| **x0h3h158** | [QW-006][P1] Peer review network — who reviews whose work, collaboration graph | qwen | in_work | Using standup_data.json from QW-001, parse peer_re... |
 | **msi5mvku** | [QW-007][P0] Fleet analytics index page — wire all QW charts into a single report | qwen | planned | After QW-002 through QW-006 are complete, produce ... |
-| **m7z2prgv** | test | qwen | in_work |  |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
