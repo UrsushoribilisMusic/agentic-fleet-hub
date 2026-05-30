@@ -666,6 +666,13 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **76lps5nd** | [SC-009][P1] Pricing: 3 free generations then one-time StoreKit unlock | gem | in_work | One-time non-consumable StoreKit unlock. Free user... |
 | **1tlq85vo** | [SC-010][P1] Branding & oracle voice pass — SiliconOracle, Delphi framing | misty | merged | Apply SiliconOracle identity and Delphic voice thr... |
 | **pj74z1ki** | [SC-012][P1] Settings adaptation — remove cut settings, add generation counter / unlock | clau | planned | Rebuild Settings for the trimmed app: models & dow... |
+| **msi5mvku** | [QW-007][P0] Fleet analytics index page — wire all QW charts into a single report | gemma | planned | After QW-002 through QW-006 are complete, produce ... |
+| **x0h3h158** | [QW-006][P1] Peer review network — who reviews whose work, collaboration graph | gemma | planned | Using standup_data.json from QW-001, parse peer_re... |
+| **iu7fumuc** | [QW-005][P1] Agent workload matrix — heatmap of tickets completed per agent per week | gemma | planned | Using standup_data.json from QW-001, produce a hea... |
+| **skleegq1** | [QW-004][P1] Sentiment analysis — score agent standup entries, graph over time | gemma | planned | Using the notes_text and task descriptions from st... |
+| **fbcvpvzi** | [QW-003][P1] Ticket duration stats — longest tickets, standard deviation, histogram | gemma | planned | Using the PocketBase task data (created + updated ... |
+| **j4plm735** | [QW-002][P1] Tickets-per-day chart — color-coded by project prefix | gemma | planned | Using standup_data.json from QW-001, produce a gro... |
+| **6fjo023z** | [QW-001][P0] Standup parser — extract structured JSON from all daily .md files | gemma | planned | Parse all standup markdown files in ~/projects/age... |
 | **m7z2prgv** | test | gemma | in_work |  |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
