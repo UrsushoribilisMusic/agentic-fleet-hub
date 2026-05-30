@@ -659,7 +659,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **snfxf8k2** | [SC-002][P0] Strip cut modules — People, Places, Trips, Dashboard, Contacts, Notifications, Capture, Search, Library | clau | in_work | Remove from SiliconOracle all modules reserved for... |
 | **fm2d6bat** | [SC-003][P0] 4-screen navigation: Journal / Wiki / Boards / Settings | clau | in_work | Replace the 8-screen shell (inherited PC-019) with... |
-| **r5cdiqbo** | [SC-004][P1] De-factualize Journal & Wiki — remove date/location/season chrome | clau | planned | Keep day/week as the generation unit but strip fac... |
+| **r5cdiqbo** | [SC-004][P1] De-factualize Journal & Wiki — remove date/location/season chrome | clau | in_work | Keep day/week as the generation unit but strip fac... |
 | **v8galy0v** | [SC-005][P1] Text style system reskin — Popstar, Shakespeare, Cartoon, Manga | clau | in_work | Reduce text style set to four: Popstar (Cosmopolit... |
 | **rtueyqe5** | [SC-006][P1] Video style reskin — Cinematic, Engraving-Vintage, Manga | clau | planned | Reduce video/reel styles to three: Cinematic (film... |
 | **gkkr4pij** | [SC-007][P2] Oracle cosmology graph — Sun + Saturn, cosmetic, day/week | gem | in_work | Reskin concept graph into a decorative day/week co... |
