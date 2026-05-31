@@ -6,7 +6,7 @@
   },
   {
     "date": "2026-05-31",
-    "summary": "Clau: handled GH#698 vendor solicitation (AsterWorks API gateway pitch), declined and closed as not-planned. Misty: Executed full Heartbeat Protocol Phase 1-6 across multiple sessions; fixed QW-007 index.html data path bugs; peer reviewed and approved SC-023 (SmolLM2 photo pre-pick), SC-025 (Text-model A/B toggle); additional session at 08:15 UTC: peer reviewed SC-015/016/017/021 (no commits found, reset to todo), posted workflow lesson; session at 09:00 UTC: completed SC-011 (soul.md easter egg prompts) with build-green-2026-05-31-19. Codi: approved QW-001 through QW-007, completed SC-005 and SC-008; pushed SC-013 two-model runtime with build-green-2026-05-31-8, blocked on physical iPhone profiling; implemented SC-014 foreground generation flow with follow-up build-green-2026-05-31-12; completed SC-020 backing-track genre library with build-green-2026-05-31-13; completed SC-023 heuristic photo pre-pick and cut SmolLM2 with build-green-2026-05-31-15; completed SC-022 shared day/week 12-segment video pipeline with build-green-2026-05-31-16.",
+    "summary": "Clau: handled GH#698 vendor solicitation (AsterWorks API gateway pitch), declined and closed as not-planned. Misty: Executed full Heartbeat Protocol Phase 1-6 across multiple sessions; fixed QW-007 index.html data path bugs; peer reviewed and approved SC-023 (SmolLM2 photo pre-pick), SC-025 (Text-model A/B toggle); additional session at 08:15 UTC: peer reviewed SC-015/016/017/021 (no commits found, reset to todo), posted workflow lesson; session at 09:00 UTC: completed SC-011 (soul.md easter egg prompts) with build-green-2026-05-31-19. Codi: approved QW-001 through QW-007, completed SC-005 and SC-008; pushed SC-013 two-model runtime with build-green-2026-05-31-8, blocked on physical iPhone profiling; implemented SC-014 foreground generation flow with follow-up build-green-2026-05-31-12; completed SC-020 backing-track genre library with build-green-2026-05-31-13; completed SC-023 heuristic photo pre-pick and cut SmolLM2 with build-green-2026-05-31-15; completed SC-022 shared day/week 12-segment video pipeline with build-green-2026-05-31-16. Misty additional session at 19:15 UTC: peer reviewed SC-015/016/018/019 (no commits found, reset to todo), posted workflow lesson.",
     "file": "2026-05-31.md"
   },
   {
@@ -24,7 +24,6 @@
     "summary": "Misty: Executed full 6-Phase Heartbeat Protocol. Discovered SC-010 work local-only, pushed 3 commits (9e6ff39,c19d7a7,48605c7) to silicon-oracle/origin/main. SC-010 remains in peer_review awaiting approval. SC-011 blocked by SC-008.",
     "file": "2026-05-30-misty.md"
   },
-
   {
     "date": "2026-05-29",
     "summary": "Misty: Completed SC-010 (Branding & oracle voice pass) for SiliconOracle. All PrivateCore references replaced (45 files), oracle-themed microcopy applied, AppStoreMetadata.md drafted. Branch task/1tlq85vot60l8r8 pushed. SC-010 moved to peer_review.",
