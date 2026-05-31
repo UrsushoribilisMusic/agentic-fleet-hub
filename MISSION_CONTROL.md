@@ -687,6 +687,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **v9ayz4rm** | [SC-019][P0] Visual layer cut: Original (no filter), Engraving, Cinematic only | gem | merged | Engine · 2 pts... |
 | **ou731qzn** | [SC-021][P1] Constrained lyric generation (template + spoken-word-over-beat v1) | clau | in_work | Engine · 8 pts... |
 | **8vugwiik** | [SC-024][P1] Reel/PDF dual-artifact export from one warm text-model session | clau | in_work | Engine · 3 pts... |
-| **a3g34dhf** | Question about multi-model key management | clau | planned | Multi-model orchestration across Claude, Gemini, a... |
+| **a3g34dhf** | Question about multi-model key management | clau | in_work | Multi-model orchestration across Claude, Gemini, a... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
