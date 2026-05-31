@@ -30,6 +30,7 @@ if os.path.realpath(_CANONICAL_RUNTIME) != _THIS_FILE:
 
 FLEET_DIR = "/Users/miguelrodriguez/projects/agentic-fleet-hub/fleet"
 CODEX_REPO_DIR = "/Users/miguelrodriguez/projects/agentic-fleet-hub"
+PRIVATE_CORE_DIR = "/Users/miguelrodriguez/projects/private-core/PrivateCore"
 FLEET_META_PATH = os.path.join(CODEX_REPO_DIR, "AGENTS/CONFIG/fleet_meta.json")
 LOG_FILE = f"{FLEET_DIR}/logs/dispatcher.log"
 LOG_MAX_BYTES = 10 * 1024 * 1024  # 10 MB per file
@@ -68,24 +69,29 @@ AGENT_COMMANDS = {
     "scout": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/scout", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "echo": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/echo", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "closer": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/closer", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
-    "clau": ["/Users/miguelrodriguez/.local/bin/claude", "--dangerously-skip-permissions", "--model", "claude-sonnet-4-6", "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
-    "gem": ["/opt/homebrew/bin/node", "/opt/homebrew/bin/gemini", "--yolo", "--skip-trust", "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
+    "clau": ["/Users/miguelrodriguez/.local/bin/claude", "--dangerously-skip-permissions", "--model", "claude-sonnet-4-6", "--add-dir", PRIVATE_CORE_DIR, "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
+    "gem": ["/opt/homebrew/bin/node", "/opt/homebrew/bin/gemini", "--yolo", "--skip-trust", "--include-directories", PRIVATE_CORE_DIR, "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "misty": ["/opt/homebrew/bin/vibe", "--workdir", CODEX_REPO_DIR, "--trust", "-p", "Run your heartbeat protocol. Read ~/projects/agentic-fleet-hub/MISTRAL.md first, then follow AGENTS/RULES.md. Follow all 6 phases."],
     "codi": [
         "/opt/homebrew/bin/node",
         "/opt/homebrew/bin/codex",
         "exec",
+        "--dangerously-bypass-approvals-and-sandbox",
+        "--skip-git-repo-check",
         "-C",
         CODEX_REPO_DIR,
         "--add-dir",
         FLEET_DIR,
         "--add-dir",
-        "/Users/miguelrodriguez/projects/private-core/PrivateCore",
+        "/Users/miguelrodriguez/projects/private-core",
+        "--add-dir",
+        "/Users/miguelrodriguez/projects/agentic-fleet-hub/.fleet_cache",
         "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
     ],
-    # Legacy key retained for PB/launchd compatibility. The wrapper keeps
-    # peer review and code-task execution disabled until a safe harness exists.
+    # Legacy key retained for PB/launchd compatibility.
     "gemma": ["/bin/bash", f"{FLEET_DIR}/gemma/run_heartbeat.sh"],
+    # Qwen Coder runs through the same gemma wrapper (launchd plist is fleet.gemma).
+    "qwen": ["/bin/bash", f"{FLEET_DIR}/gemma/run_heartbeat.sh"],
 }
 
 # Force a dispatch cycle every N hours even if no changes detected.
@@ -653,10 +659,28 @@ def check_agent_health():
     except Exception as e:
         log(f"ERROR in check_agent_health: {e}")
 
+TRACKED_REPOS = [CODEX_REPO_DIR, PRIVATE_CORE_DIR]
+
+def _has_commit_since(start_time):
+    """Return True if any tracked repo has at least one new commit since start_time (epoch float)."""
+    since = datetime.fromtimestamp(start_time).strftime("%Y-%m-%d %H:%M:%S")
+    for repo in TRACKED_REPOS:
+        try:
+            result = subprocess.run(
+                ["git", "log", "--oneline", f"--since={since}"],
+                cwd=repo, capture_output=True, text=True, timeout=10
+            )
+            if result.returncode == 0 and result.stdout.strip():
+                return True
+        except Exception:
+            pass
+    return False
+
+
 def _collect_finished_agents():
     """Poll running agent processes; handle output and update PB for completed ones."""
     for agent_name in list(_active_agents):
-        proc, task, out_path, _ = _active_agents[agent_name]
+        proc, task, out_path, start_time = _active_agents[agent_name]
         ret = proc.poll()
         if ret is None:
             continue  # still running
@@ -673,20 +697,18 @@ def _collect_finished_agents():
                 pass
         if ret == 0:
             post_comment(task["id"], agent_name, output)
-            # Auto-advance: if the agent exited cleanly but left the task in
-            # in_progress, move it to peer_review. Peer review is the real
-            # quality gate — another agent must verify the build and code before
-            # approval. We don't skip that; we just stop depending on the agent
-            # to remember to call the final PATCH.
             try:
                 resp = requests.get(f"{PB_URL}/collections/tasks/records/{task['id']}", timeout=10)
                 current_status = resp.json().get("status", "in_progress")
             except Exception:
                 current_status = "in_progress"
             if current_status == "in_progress":
-                update_task_status(task["id"], "peer_review", from_status="in_progress", agent=agent_name)
-                current_status = "peer_review"
-                log(f"Agent {agent_name} finished '{task['title']}' → auto-advanced to peer_review")
+                if _has_commit_since(start_time):
+                    update_task_status(task["id"], "peer_review", from_status="in_progress", agent=agent_name)
+                    log(f"Agent {agent_name} finished '{task['title']}' → peer_review (commit found)")
+                else:
+                    update_task_status(task["id"], "todo", from_status="in_progress", agent=agent_name)
+                    log(f"Agent {agent_name} finished '{task['title']}' → todo (clean exit, no commit)")
             else:
                 log(f"Agent {agent_name} finished '{task['title']}' → {current_status} (agent-set)")
         else:
@@ -698,10 +720,11 @@ def _collect_finished_agents():
 
 
 AGENT_TIMEOUT_SECONDS = {
-    "clau":  1800,  # 30 min — Claude Code needs time for complex iOS tasks
+    "clau":  1800,  # 30 min
     "gem":   1200,  # 20 min
     "misty": 1200,
     "codi":  1200,
+    "qwen":  3600,  # 60 min — local 30b model, thinking mode disabled but codegen is slow
 }
 _DEFAULT_AGENT_TIMEOUT = 1200
 
@@ -768,12 +791,21 @@ def run_agent(agent_name, task):
         task_prompt = f"\n\nYOUR TASK: {task['title']}\nDescription: {task.get('description', '')}"
         cmd[-1] = cmd[-1] + task_prompt
 
+    # For qwen the heartbeat is a self-directed scanner; inject the task via
+    # env vars so it skips the PocketBase scan and uses the exact task.
+    env = None
+    if agent_name == "qwen":
+        env = dict(os.environ)
+        env["QWEN_TASK_ID"] = task["id"]
+        env["QWEN_TASK_TITLE"] = task.get("title", "")
+        env["QWEN_TASK_DESC"] = task.get("description", "")
+
     out_fd, out_path = tempfile.mkstemp(suffix=f"_{agent_name}.log", prefix="dispatcher_agent_")
     os.close(out_fd)
     try:
         out_f = open(out_path, "w")
         proc = subprocess.Popen(cmd, stdout=out_f, stderr=subprocess.STDOUT,
-                                start_new_session=True)
+                                start_new_session=True, env=env)
         out_f.close()
         _active_agents[agent_name] = (proc, task, out_path, time.time())
         log(f"Agent {agent_name} launched PID {proc.pid}")
@@ -952,7 +984,7 @@ def run_sync_scripts(force_gh=False):
 
 
 def main():
-    log("Dispatcher v7 started — auto-advance to peer_review on clean exit, stale reclaim after 2h")
+    log("Dispatcher v7 started — agent-owned status, stale reclaim after 2h")
     # In the dispatcher-led model agents only post heartbeats when dispatched,
     # so stale heartbeat timestamps are not a reliable offline signal.
     # Start clean; actual failures will repopulate this file.

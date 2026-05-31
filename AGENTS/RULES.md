@@ -110,6 +110,25 @@ The PrivateCore iOS project does **not** use GitHub Pull Requests. All work is c
 
 ---
 
+## Dispatcher Behavior
+
+The dispatcher (`~/fleet/dispatcher.py`) manages task routing and provides a safety net for status updates. Understand what it does so you know what you are responsible for vs. what is handled automatically.
+
+1. **Workspace directories**: Every Clau and Gem session is launched with `~/projects/private-core/PrivateCore` added to the workspace (`--add-dir` / `--include-directories`). You can read and write PrivateCore Swift files without any extra setup. The PrivateCore `CLAUDE.md` is auto-discovered by Clau when it accesses that directory.
+
+2. **Auto-advance on clean exit (commit-check)**: When your process exits with code 0 and the task status is still `in_progress`, the dispatcher checks `git log --since=<dispatch_time>` across `agentic-fleet-hub` and `private-core/PrivateCore`.
+   - **Commit found** → status promoted to `peer_review` automatically.
+   - **No commit found** → status reset to `todo` (task will be re-dispatched).
+   - **You already set a non-`in_progress` status** → dispatcher respects it and does not touch it.
+
+3. **Implication for non-commit tasks**: If your task produces no git commit (pure analysis, Q&A, documentation-only, answering a question), the dispatcher will reset it to `todo` on exit. **You must manually PATCH to `peer_review`** before your session ends. The commit-check safety net does not help you here.
+
+4. **Failed exit (non-zero)**: The dispatcher resets the task to `todo`, posts a failure comment, and puts the agent in a cooldown period. Do not exit non-zero unless the task genuinely failed — a clean exit with partial work is better than a crash exit.
+
+5. **Stale reclaim**: Any task left in `in_progress` with no active agent process for more than 2 hours is automatically reset to `todo` by the dispatcher. This is the last-resort fallback — do not rely on it.
+
+---
+
 ## Data Integrity
 
 1. **No fake data in real PocketBase**: When generating demo or example content (for `/demo/`, showcases, or testing), write it to static files under `opt/salesman-api/demo/` or to the hardcoded mock blocks in `server.mjs`. Never create fake tasks, heartbeats, or any records in the real PocketBase instance. The real PB is the live operational database — polluting it with hallucinated content breaks the kanban, the Fleet Hub dashboard, and audit logs.
