@@ -128,8 +128,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **8vugwiik**: [SC-024][P1] Reel/PDF dual-artifact export from one warm text-model session -- Engine · 3 pts -- Clau. Approved.
 - **wfay6h0c**: [SC-023][P2] SmolLM2 photo pre-pick (or cut SmolLM2 if not adopted) -- Engine · 5 pts -- Codi. Approved.
 - **x2ubx6qw**: [SC-022][P1] Day/week: one pipeline, two selection surfaces -- Engine · 5 pts -- Codi. Approved.
+- **ou731qzn**: [SC-021][P1] Constrained lyric generation (template + spoken-word-over-beat v1) -- Engine · 8 pts -- Clau. Approved.
 - **w9ixcxxq**: [SC-020][P1] Pre-generated backing-track library (forgiving genres) -- Content · 5 pts -- Codi. Approved.
+- **y6in4ml7**: [SC-018][P1] Sparse-day rotation with varied Ken Burns + interleaving -- Engine · 5 pts -- Gem. Approved.
 - **ch7wxnvk**: [SC-017][P0] 12-segment / 60s video timeline (segment model, pan+zoom Ken Burns) -- Engine · 8 pts -- Clau. Approved.
+- **0tw7v5pt**: [SC-016][P1] Concurrent style-pick overlay during captioning -- App Shell · 3 pts -- Clau. Approved.
 - **c2fa5vgn**: [SC-015][P0] Resumable progressive captioning (one-by-one, checkpointed) -- Engine · 5 pts -- Clau. Approved.
 - **erakto7x**: [SC-014][P0] Seven-step foreground generation flow -- Engine · 8 pts -- Codi. Approved.
 - **msi5mvku**: [QW-007][P0] Fleet analytics index page — wire all QW charts into a single report -- After QW-002 through QW-006 are complete, produce a single index HTML page that embeds or links all charts into one fleet analytics report. -- Misty. Approved.
@@ -684,9 +687,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **0tw7v5pt** | [SC-016][P1] Concurrent style-pick overlay during captioning | clau | merged | App Shell · 3 pts... |
-| **y6in4ml7** | [SC-018][P1] Sparse-day rotation with varied Ken Burns + interleaving | gem | merged | Engine · 5 pts... |
-| **v9ayz4rm** | [SC-019][P0] Visual layer cut: Original (no filter), Engraving, Cinematic only | gem | in_work | Engine · 2 pts... |
-| **ou731qzn** | [SC-021][P1] Constrained lyric generation (template + spoken-word-over-beat v1) | clau | merged | Engine · 8 pts... |
+| **v9ayz4rm** | [SC-019][P0] Visual layer cut: Original (no filter), Engraving, Cinematic only | gem | merged | Engine · 2 pts... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
