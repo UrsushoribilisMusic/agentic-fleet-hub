@@ -123,6 +123,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **a3g34dhf**: Question about multi-model key management -- Multi-model orchestration across Claude, Gemini, and Codex — this is exactly the kind of architecture we built AsterWorks for. Have you looked at centralizing your API key management through a gateway? Happy to chat about what we have learned building one. -- Clau. Approved.
 - **0k1qz3q0**: [SC-025][P0] Text-model A/B toggle (Settings: Qwen vs Ministral for text) + telemetry -- App Shell · 5 pts -- Codi. Approved.
 - **wfay6h0c**: [SC-023][P2] SmolLM2 photo pre-pick (or cut SmolLM2 if not adopted) -- Engine · 5 pts -- Codi. Approved.
 - **x2ubx6qw**: [SC-022][P1] Day/week: one pipeline, two selection surfaces -- Engine · 5 pts -- Codi. Approved.
@@ -682,11 +683,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **c2fa5vgn** | [SC-015][P0] Resumable progressive captioning (one-by-one, checkpointed) | clau | in_work | Engine · 5 pts... |
 | **0tw7v5pt** | [SC-016][P1] Concurrent style-pick overlay during captioning | clau | in_work | App Shell · 3 pts... |
-| **ch7wxnvk** | [SC-017][P0] 12-segment / 60s video timeline (segment model, pan+zoom Ken Burns) | clau | merged | Engine · 8 pts... |
+| **ch7wxnvk** | [SC-017][P0] 12-segment / 60s video timeline (segment model, pan+zoom Ken Burns) | clau | planned | Engine · 8 pts... |
 | **y6in4ml7** | [SC-018][P1] Sparse-day rotation with varied Ken Burns + interleaving | gem | in_work | Engine · 5 pts... |
 | **v9ayz4rm** | [SC-019][P0] Visual layer cut: Original (no filter), Engraving, Cinematic only | gem | in_work | Engine · 2 pts... |
 | **ou731qzn** | [SC-021][P1] Constrained lyric generation (template + spoken-word-over-beat v1) | clau | in_work | Engine · 8 pts... |
-| **8vugwiik** | [SC-024][P1] Reel/PDF dual-artifact export from one warm text-model session | clau | merged | Engine · 3 pts... |
-| **a3g34dhf** | Question about multi-model key management | clau | merged | Multi-model orchestration across Claude, Gemini, a... |
+| **8vugwiik** | [SC-024][P1] Reel/PDF dual-artifact export from one warm text-model session | clau | planned | Engine · 3 pts... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
