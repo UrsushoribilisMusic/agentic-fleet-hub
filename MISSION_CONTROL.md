@@ -687,6 +687,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **v9ayz4rm** | [SC-019][P0] Visual layer cut: Original (no filter), Engraving, Cinematic only | gem | merged | Engine · 2 pts... |
+| **v9ayz4rm** | [SC-019][P0] Visual layer cut: Original (no filter), Engraving, Cinematic only | gem | planned | Engine · 2 pts... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
