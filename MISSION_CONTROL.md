@@ -680,7 +680,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **c2fa5vgn** | [SC-015][P0] Resumable progressive captioning (one-by-one, checkpointed) | gem | planned | Engine · 5 pts... |
+| **c2fa5vgn** | [SC-015][P0] Resumable progressive captioning (one-by-one, checkpointed) | gem | in_work | Engine · 5 pts... |
 | **0tw7v5pt** | [SC-016][P1] Concurrent style-pick overlay during captioning | gem | planned | App Shell · 3 pts... |
 | **ch7wxnvk** | [SC-017][P0] 12-segment / 60s video timeline (segment model, pan+zoom Ken Burns) | gem | planned | Engine · 8 pts... |
 | **y6in4ml7** | [SC-018][P1] Sparse-day rotation with varied Ken Burns + interleaving | gem | in_work | Engine · 5 pts... |
