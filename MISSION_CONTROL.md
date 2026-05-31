@@ -684,7 +684,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **v9ayz4rm** | [SC-019][P0] Visual layer cut: Original (no filter), Engraving, Cinematic only | gem | planned | Engine · 2 pts... |
 | **ou731qzn** | [SC-021][P1] Constrained lyric generation (template + spoken-word-over-beat v1) | clau | in_work | Engine · 8 pts... |
 | **x2ubx6qw** | [SC-022][P1] Day/week: one pipeline, two selection surfaces | gem | planned | Engine · 5 pts... |
-| **8vugwiik** | [SC-024][P1] Reel/PDF dual-artifact export from one warm text-model session | clau | planned | Engine · 3 pts... |
+| **8vugwiik** | [SC-024][P1] Reel/PDF dual-artifact export from one warm text-model session | clau | in_work | Engine · 3 pts... |
 | **0k1qz3q0** | [SC-025][P0] Text-model A/B toggle (Settings: Qwen vs Ministral for text) + telemetry | clau | planned | App Shell · 5 pts... |
 | **a3g34dhf** | Question about multi-model key management | clau | planned | Multi-model orchestration across Claude, Gemini, a... |
 
