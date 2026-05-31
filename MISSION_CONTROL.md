@@ -136,6 +136,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **j4plm735**: [QW-002][P1] Tickets-per-day chart — color-coded by project prefix -- Using standup_data.json from QW-001, produce a grouped bar chart of tickets worked on per day, color-coded by project prefix (SC, PC, CR, fleet, QW, other). -- Misty. Approved.
 - **6fjo023z**: [QW-001][P0] Standup parser — extract structured JSON from all daily .md files -- Parse all standup markdown files in ~/projects/agentic-fleet-hub/standups/ into a single structured JSON dataset that all other QW- tickets depend on. -- Misty. Approved.
 - **pj74z1ki**: [SC-012][P1] Settings adaptation — remove cut settings, add generation counter / unlock -- Rebuild Settings for the trimmed app: models & downloads, style defaults, share options, generation counter + unlock/restore. Remove home-location, person, trip, dashboard and notification settings. -- Clau. Approved.
+- **wu9jloyf**: [SC-011][P2] soul.md 'coming soon' easter egg — whisper, not banner -- A tasteful, low-key teaser for the soul.md game. The oracle occasionally references 'a woman named Monique' / 'a story coming soon' for the curious. A rewarded curiosity — discoverable but never interrupts the core loop. -- Misty. Approved.
 - **1tlq85vo**: [SC-010][P1] Branding & oracle voice pass — SiliconOracle, Delphi framing -- Apply SiliconOracle identity and Delphic voice throughout: app name, icon, accent palette, microcopy ('consult the oracle', 'the oracle has spoken', generations as 'prophecies'). Never use word 'hallucination' in first-party copy. -- Misty. Approved.
 - **76lps5nd**: [SC-009][P1] Pricing: 3 free generations then one-time StoreKit unlock -- One-time non-consumable StoreKit unlock. Free users get 3 generations total, then paywalled on further generation. Sharing/viewing artifacts never gated. Unlock grants: unlimited generation, all styles, Boards, graph export, video export. -- Gem. Approved.
 - **g84mn08f**: [SC-008][P1] Reimagine Home as Journal cast surface + readings feed -- Fold old Home/Briefing concept into Journal: one prominent 'Consult the Oracle' action for today/this week, plus a feed of past readings that can be re-shared. No calendar briefing, no suggestions engine. -- Codi. Approved.
@@ -679,12 +680,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **wu9jloyf** | [SC-011][P2] soul.md 'coming soon' easter egg — whisper, not banner | misty | merged | A tasteful, low-key teaser for the soul.md game. T... |
 | **c2fa5vgn** | [SC-015][P0] Resumable progressive captioning (one-by-one, checkpointed) | clau | in_work | Engine · 5 pts... |
 | **0tw7v5pt** | [SC-016][P1] Concurrent style-pick overlay during captioning | clau | in_work | App Shell · 3 pts... |
 | **ch7wxnvk** | [SC-017][P0] 12-segment / 60s video timeline (segment model, pan+zoom Ken Burns) | clau | in_work | Engine · 8 pts... |
-| **y6in4ml7** | [SC-018][P1] Sparse-day rotation with varied Ken Burns + interleaving | gem | in_work | Engine · 5 pts... |
-| **v9ayz4rm** | [SC-019][P0] Visual layer cut: Original (no filter), Engraving, Cinematic only | gem | planned | Engine · 2 pts... |
+| **y6in4ml7** | [SC-018][P1] Sparse-day rotation with varied Ken Burns + interleaving | gem | merged | Engine · 5 pts... |
+| **v9ayz4rm** | [SC-019][P0] Visual layer cut: Original (no filter), Engraving, Cinematic only | gem | merged | Engine · 2 pts... |
 | **ou731qzn** | [SC-021][P1] Constrained lyric generation (template + spoken-word-over-beat v1) | clau | in_work | Engine · 8 pts... |
 | **8vugwiik** | [SC-024][P1] Reel/PDF dual-artifact export from one warm text-model session | clau | in_work | Engine · 3 pts... |
 | **a3g34dhf** | Question about multi-model key management | clau | planned | Multi-model orchestration across Claude, Gemini, a... |
