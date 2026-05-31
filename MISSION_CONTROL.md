@@ -685,7 +685,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **x2ubx6qw** | [SC-022][P1] Day/week: one pipeline, two selection surfaces | gem | planned | Engine · 5 pts... |
 | **wfay6h0c** | [SC-023][P2] SmolLM2 photo pre-pick (or cut SmolLM2 if not adopted) | codi | in_work | Engine · 5 pts... |
 | **8vugwiik** | [SC-024][P1] Reel/PDF dual-artifact export from one warm text-model session | clau | planned | Engine · 3 pts... |
-| **0k1qz3q0** | [SC-025][P0] Text-model A/B toggle (Settings: Qwen vs Ministral for text) + telemetry | clau | in_work | App Shell · 5 pts... |
+| **0k1qz3q0** | [SC-025][P0] Text-model A/B toggle (Settings: Qwen vs Ministral for text) + telemetry | clau | planned | App Shell · 5 pts... |
 | **a3g34dhf** | Question about multi-model key management | clau | planned | Multi-model orchestration across Claude, Gemini, a... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
