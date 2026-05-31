@@ -123,6 +123,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **w9ixcxxq**: [SC-020][P1] Pre-generated backing-track library (forgiving genres) -- Content · 5 pts -- Codi. Approved.
 - **erakto7x**: [SC-014][P0] Seven-step foreground generation flow -- Engine · 8 pts -- Codi. Approved.
 - **msi5mvku**: [QW-007][P0] Fleet analytics index page — wire all QW charts into a single report -- After QW-002 through QW-006 are complete, produce a single index HTML page that embeds or links all charts into one fleet analytics report. -- Misty. Approved.
 - **x0h3h158**: [QW-006][P1] Peer review network — who reviews whose work, collaboration graph -- Using standup_data.json from QW-001, parse peer_reviews to build a directed collaboration graph: node = agent, directed edge A->B = 'A reviewed B's ticket', edge weight = review count. -- Misty. Approved.
@@ -680,10 +681,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **ch7wxnvk** | [SC-017][P0] 12-segment / 60s video timeline (segment model, pan+zoom Ken Burns) | clau | in_work | Engine · 8 pts... |
 | **y6in4ml7** | [SC-018][P1] Sparse-day rotation with varied Ken Burns + interleaving | gem | planned | Engine · 5 pts... |
 | **v9ayz4rm** | [SC-019][P0] Visual layer cut: Original (no filter), Engraving, Cinematic only | gem | planned | Engine · 2 pts... |
-| **w9ixcxxq** | [SC-020][P1] Pre-generated backing-track library (forgiving genres) | codi | merged | Content · 5 pts... |
 | **ou731qzn** | [SC-021][P1] Constrained lyric generation (template + spoken-word-over-beat v1) | clau | in_work | Engine · 8 pts... |
 | **x2ubx6qw** | [SC-022][P1] Day/week: one pipeline, two selection surfaces | gem | planned | Engine · 5 pts... |
-| **wfay6h0c** | [SC-023][P2] SmolLM2 photo pre-pick (or cut SmolLM2 if not adopted) | codi | in_work | Engine · 5 pts... |
+| **wfay6h0c** | [SC-023][P2] SmolLM2 photo pre-pick (or cut SmolLM2 if not adopted) | codi | merged | Engine · 5 pts... |
 | **8vugwiik** | [SC-024][P1] Reel/PDF dual-artifact export from one warm text-model session | clau | in_work | Engine · 3 pts... |
 | **0k1qz3q0** | [SC-025][P0] Text-model A/B toggle (Settings: Qwen vs Ministral for text) + telemetry | clau | planned | App Shell · 5 pts... |
 | **a3g34dhf** | Question about multi-model key management | clau | planned | Multi-model orchestration across Claude, Gemini, a... |
