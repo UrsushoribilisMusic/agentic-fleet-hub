@@ -673,15 +673,22 @@ def _collect_finished_agents():
                 pass
         if ret == 0:
             post_comment(task["id"], agent_name, output)
-            # Agents own their status. We do not touch PB status on exit-0 —
-            # the agent must explicitly set peer_review (or any other status).
-            # Orphaned in_progress tasks are reclaimed by _reclaim_stale_tasks().
+            # Auto-advance: if the agent exited cleanly but left the task in
+            # in_progress, move it to peer_review. Peer review is the real
+            # quality gate — another agent must verify the build and code before
+            # approval. We don't skip that; we just stop depending on the agent
+            # to remember to call the final PATCH.
             try:
                 resp = requests.get(f"{PB_URL}/collections/tasks/records/{task['id']}", timeout=10)
                 current_status = resp.json().get("status", "in_progress")
             except Exception:
                 current_status = "in_progress"
-            log(f"Agent {agent_name} finished '{task['title']}' → {current_status} (agent-set)")
+            if current_status == "in_progress":
+                update_task_status(task["id"], "peer_review", from_status="in_progress", agent=agent_name)
+                current_status = "peer_review"
+                log(f"Agent {agent_name} finished '{task['title']}' → auto-advanced to peer_review")
+            else:
+                log(f"Agent {agent_name} finished '{task['title']}' → {current_status} (agent-set)")
         else:
             log(f"ERROR: Agent {agent_name} failed (exit {ret}) on '{task['title']}'")
             post_comment(task["id"], agent_name, f"FAILED exit {ret}:\n{output[:1000]}", "feedback")
@@ -945,7 +952,7 @@ def run_sync_scripts(force_gh=False):
 
 
 def main():
-    log("Dispatcher v7 started — agent-owned status, stale reclaim after 2h")
+    log("Dispatcher v7 started — auto-advance to peer_review on clean exit, stale reclaim after 2h")
     # In the dispatcher-led model agents only post heartbeats when dispatched,
     # so stale heartbeat timestamps are not a reliable offline signal.
     # Start clean; actual failures will repopulate this file.

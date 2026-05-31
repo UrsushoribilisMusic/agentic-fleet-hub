@@ -104,9 +104,10 @@ For Scenario 3 deployments, PocketBase remains local and the public dashboard co
 - This avoids two common drift cases: blank rows after heartbeat retention windows and false "idle" tails when the dispatcher already considers an agent stale/offline.
 
 ### 3. The Orchestrator (Dispatcher v4 & Heartbeats)
-- **Dispatcher v4**: A Python script that routes tasks and maintains fleet-wide consistency. Key behaviours:
+- **Dispatcher v7**: A Python script that routes tasks and maintains fleet-wide consistency. Key behaviours:
   - **Checksum gate** (`_state_changed()`): SHA-256 of MISSION_CONTROL.md + inbox.json + PocketBase task timestamp. Only dispatches when state has actually changed — zero idle LLM cycles.
   - **Event logging** (`log_task_event()`): Writes to the `task_events` PocketBase collection on every status transition, reassignment, circuit-breaker trigger, and 60s queue snapshot.
+  - **Auto-advance to `peer_review`** (`_collect_finished_agents()`): When an agent's process exits cleanly (code 0), the dispatcher checks the task's current status. If it is still `in_progress` (i.e. the agent forgot to call the final PATCH), the dispatcher advances it to `peer_review` automatically. Agents that explicitly set a different terminal status (e.g. `waiting_human`) are not overridden. Peer review by a second agent remains mandatory before `approved`.
   - **Reassignment with branch handoff**: When an offline agent's `in_progress` task is reassigned, status resets to `todo` and the dispatcher checks `git ls-remote` for `task/{id}` branch. If found, the branch URL is included in the handoff comment so the new agent can resume mid-work.
   - **MISSION_CONTROL.md auto-sync** (`sync_mission_control()`): Every cycle, approved PocketBase-UUID tasks are dropped from the OPEN table and committed automatically — the kanban never goes stale.
 - **Heartbeat wrappers**: Each agent has a wrapper script that runs `heartbeat_check.py` (Phase 0) before launching any LLM. If nothing changed, the session is skipped entirely — zero tokens spent.
@@ -178,7 +179,8 @@ sequenceDiagram
     A->>PB: Update Status: In Progress
     A->>A: Perform Work
     A->>PB: Post Output (Comment)
-    A->>PB: Update Status: Peer Review
+    Note over D,A: Agent exits (code 0). Dispatcher auto-advances<br/>to Peer Review if agent left status as In Progress.
+    D->>PB: Update Status: Peer Review
     Note over A,C: Cross-Model Peer Review
     C->>PB: Read Task Output
     C->>PB: Post Feedback / Approval
