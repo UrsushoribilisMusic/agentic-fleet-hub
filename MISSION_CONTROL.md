@@ -677,6 +677,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **wu9jloyf** | [SC-011][P2] soul.md 'coming soon' easter egg — whisper, not banner | misty | planned | A tasteful, low-key teaser for the soul.md game. T... |
 | **c2fa5vgn** | [SC-015][P0] Resumable progressive captioning (one-by-one, checkpointed) | clau | in_work | Engine · 5 pts... |
 | **0tw7v5pt** | [SC-016][P1] Concurrent style-pick overlay during captioning | clau | planned | App Shell · 3 pts... |
 | **ch7wxnvk** | [SC-017][P0] 12-segment / 60s video timeline (segment model, pan+zoom Ken Burns) | clau | planned | Engine · 8 pts... |
