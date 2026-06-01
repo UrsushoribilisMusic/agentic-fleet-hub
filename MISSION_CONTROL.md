@@ -129,6 +129,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **kwhbn41i**: SC-033: Journal entries list — browsable past-day entries, add/edit any day -- The Journal tab must become a proper two-way journal, not a write-only daily drop. Without a browsable list a week-wiki is starved of journal input for any day the user didn't journal on the day itself. -- Clau. Approved.
 - **tzhgoay8**: SC-032: Suite E — generation counter and paywall gate tests -- Implement Tier-1 tests for the free-tier gate (3 free generations, then locked). Tests the gate logic only — NOT the StoreKit purchase. -- Clau. Approved.
 - **ldjeku9v**: SC-030: Suite C — Ken Burns / 60s timeline math tests -- Implement Tier-1 tests for per-segment timing arithmetic. Pure math — no rendering. -- Codi. Approved.
+- **6osfrajh**: SC-029: Suite B — geocoding and batch grouping tests (geocoder mocked) -- Implement Tier-1 tests for coordinate→place-name decode and lightweight batch grouping. Geocoder is MOCKED — no network calls. -- Gem. Approved.
 - **g3np7lx6**: SC-028: Suite A — graph node typing and categorisation tests -- Implement Tier-1 tests for the logic that turns raw extraction into typed, colour-coded graph nodes. Captions are fed as fixtures — no model call. -- Codi. Approved.
 - **1rkrpt57**: SC-027: Tier-1 test harness — Swift Testing target, headless via xcodebuild -- Create the Tier-1 unit test infrastructure for SiliconOracle. -- Codi. Approved.
 - **oi5zo4js**: SC-026: Revise fact-as-input contract (supersedes SC-004/SC-016) -- The original SC-004/SC-016 de-factualization rule (strip all dates, places, seasons) is superseded by a 3-rule contract: -- Clau. Approved.
@@ -706,9 +707,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **1ssloqmc** | test | clau | in_work |  |
+| **1ssloqmc** | test | clau | merged |  |
 | **8gpnj8nf** | SC: Carousel — remove deleted photos from journal strip | gem | planned | When a user deletes a photo from their device libr... |
-| **6osfrajh** | SC-029: Suite B — geocoding and batch grouping tests (geocoder mocked) | gem | planned | Implement Tier-1 tests for coordinate→place-name d... |
 | **eoyc46qz** | SC-031: Suite D — sparse-day rotation logic tests | gem | planned | Implement Tier-1 tests for the rotation that fills... |
 | **dehd7lfh** | SC-034: Board text — title and optional note per board | gem | planned | A board without text is just a photo album. Board ... |
 | **7cjoevq5** | SC-038: Oracle prompt assembly — 5-source context + style + constraint blocks | clau | in_work | Implement the structured prompt assembly contract ... |
