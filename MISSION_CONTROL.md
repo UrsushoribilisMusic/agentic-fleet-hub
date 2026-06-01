@@ -692,7 +692,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **1ssloqmc** | test | clau | merged |  |
-| **8gpnj8nf** | SC: Carousel — remove deleted photos from journal strip | gem | in_work | When a user deletes a photo from their device libr... |
+| **8gpnj8nf** | SC: Carousel — remove deleted photos from journal strip | gem | merged | When a user deletes a photo from their device libr... |
 | **duzsa4p0** | SC: Crash on second photo describe — enforce thermal pause | clau | merged | App crashed when the oracle was asked to describe ... |
 | **eit6arnu** | SC: Oracle generation — stream tokens as they are produced | gem | planned | Both 'Consult the Oracle' (journal generation) and... |
 | **2128yg6y** | SC: Video captions — pre-populate existing caption text in editor | clau | planned | In the video caption editor, images that already h... |
@@ -700,7 +700,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **bocg3sgl** | SC: Video player — audio silent in-app, works when shared | gem | planned | The in-app video player produces no sound during p... |
 | **oi5zo4js** | SC-026: Revise fact-as-input contract (supersedes SC-004/SC-016) | clau | planned | The original SC-004/SC-016 de-factualization rule ... |
 | **1rkrpt57** | SC-027: Tier-1 test harness — Swift Testing target, headless via xcodebuild | codi | merged | Create the Tier-1 unit test infrastructure for Sil... |
-| **g3np7lx6** | SC-028: Suite A — graph node typing and categorisation tests | codi | in_work | Implement Tier-1 tests for the logic that turns ra... |
+| **g3np7lx6** | SC-028: Suite A — graph node typing and categorisation tests | codi | merged | Implement Tier-1 tests for the logic that turns ra... |
 | **6osfrajh** | SC-029: Suite B — geocoding and batch grouping tests (geocoder mocked) | gem | planned | Implement Tier-1 tests for coordinate→place-name d... |
 | **ldjeku9v** | SC-030: Suite C — Ken Burns / 60s timeline math tests | codi | planned | Implement Tier-1 tests for per-segment timing arit... |
 | **eoyc46qz** | SC-031: Suite D — sparse-day rotation logic tests | gem | planned | Implement Tier-1 tests for the rotation that fills... |
@@ -714,6 +714,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **d8brv4xa** | SC-039: Journal-as-primary-flavor weighting in oracle context | gem | planned | When a journal entry exists for the day, it must b... |
 | **crtisb5t** | SC-040: Tone-safety constraint block and human-sampling tuning protocol | clau | planned | Journaling introduces real, possibly painful self-... |
 | **z7mf2nu1** | SC-041: Board-scoped oracle generation — board text as user-voice input | gem | planned | Extend oracle generation to boards. When the oracl... |
-| **xw01g8lu** | test | clau | planned |  |
+| **xw01g8lu** | test | clau | in_work |  |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
