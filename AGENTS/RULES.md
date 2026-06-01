@@ -28,19 +28,19 @@ Each agent's runtime-specific file (`CLAUDE.md` / `GEMINI.md` / `AGENTS.md` / `M
 3. Do NOT self-approve — see Rule #7 under Kanban & Reporting. A different agent must approve your own work.
 
 #### Code Review Protocol
-The PrivateCore iOS project does **not** use GitHub Pull Requests. All work is committed directly to `main`. To review a task:
+The SiliconOracle iOS project does **not** use GitHub Pull Requests. All work is committed directly to `main`. To review a task:
 
 1. **Find the commit** — search git log by ticket number:
    ```
-   git -C /Users/miguelrodriguez/projects/private-core/PrivateCore log --oneline --all | grep PC-XXX
+   git -C /Users/miguelrodriguez/projects/silicon-oracle log --oneline --all | grep SC-XXX
    ```
 2. **Inspect the diff**:
    ```
-   git -C /Users/miguelrodriguez/projects/private-core/PrivateCore show <hash>
+   git -C /Users/miguelrodriguez/projects/silicon-oracle show <hash>
    ```
 3. **Verify it compiled** — check for a `build-green-*` tag on that commit, or run the build verifier yourself:
    ```
-   cd /Users/miguelrodriguez/projects/private-core/PrivateCore && ./scripts/build-tag.sh
+   cd /Users/miguelrodriguez/projects/silicon-oracle && ./scripts/build-tag.sh
    ```
 4. **Check for a real commit** — if `git log` shows no commit for the ticket, the task has NOT been implemented. Do NOT approve it. Reset status to `todo` and post a `feedback` comment explaining that no code was found.
 5. **Post your review** to `/api/collections/comments/records`:
@@ -114,9 +114,9 @@ The PrivateCore iOS project does **not** use GitHub Pull Requests. All work is c
 
 The dispatcher (`~/fleet/dispatcher.py`) manages task routing and provides a safety net for status updates. Understand what it does so you know what you are responsible for vs. what is handled automatically.
 
-1. **Workspace directories**: Every Clau and Gem session is launched with `~/projects/private-core/PrivateCore` added to the workspace (`--add-dir` / `--include-directories`). You can read and write PrivateCore Swift files without any extra setup. The PrivateCore `CLAUDE.md` is auto-discovered by Clau when it accesses that directory.
+1. **Workspace directories**: Every Clau and Gem session is launched with `~/projects/silicon-oracle` added to the workspace (`--add-dir` / `--include-directories`). You can read and write SiliconOracle Swift files without any extra setup. The SiliconOracle `CLAUDE.md` is auto-discovered by Clau when it accesses that directory. SiliconOracle is a permanent fork from PrivateCore (diverged 2026-05-29) — do NOT reference or touch PrivateCore.
 
-2. **Auto-advance on clean exit (commit-check)**: When your process exits with code 0 and the task status is still `in_progress`, the dispatcher checks `git log --since=<dispatch_time>` across `agentic-fleet-hub` and `private-core/PrivateCore`.
+2. **Auto-advance on clean exit (commit-check)**: When your process exits with code 0 and the task status is still `in_progress`, the dispatcher checks `git log --since=<dispatch_time>` across `agentic-fleet-hub` and `silicon-oracle`.
    - **Commit found** → status promoted to `peer_review` automatically.
    - **No commit found** → status reset to `todo` (task will be re-dispatched).
    - **You already set a non-`in_progress` status** → dispatcher respects it and does not touch it.

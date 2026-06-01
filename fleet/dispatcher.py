@@ -30,7 +30,7 @@ if os.path.realpath(_CANONICAL_RUNTIME) != _THIS_FILE:
 
 FLEET_DIR = "/Users/miguelrodriguez/projects/agentic-fleet-hub/fleet"
 CODEX_REPO_DIR = "/Users/miguelrodriguez/projects/agentic-fleet-hub"
-PRIVATE_CORE_DIR = "/Users/miguelrodriguez/projects/private-core/PrivateCore"
+SILICON_ORACLE_DIR = "/Users/miguelrodriguez/projects/silicon-oracle"
 FLEET_META_PATH = os.path.join(CODEX_REPO_DIR, "AGENTS/CONFIG/fleet_meta.json")
 LOG_FILE = f"{FLEET_DIR}/logs/dispatcher.log"
 LOG_MAX_BYTES = 10 * 1024 * 1024  # 10 MB per file
@@ -69,8 +69,8 @@ AGENT_COMMANDS = {
     "scout": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/scout", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "echo": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/echo", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "closer": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/closer", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
-    "clau": ["/Users/miguelrodriguez/.local/bin/claude", "--dangerously-skip-permissions", "--model", "claude-sonnet-4-6", "--add-dir", PRIVATE_CORE_DIR, "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
-    "gem": ["/opt/homebrew/bin/node", "/opt/homebrew/bin/gemini", "--yolo", "--skip-trust", "--include-directories", PRIVATE_CORE_DIR, "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
+    "clau": ["/Users/miguelrodriguez/.local/bin/claude", "--dangerously-skip-permissions", "--model", "claude-sonnet-4-6", "--add-dir", SILICON_ORACLE_DIR, "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
+    "gem": ["/opt/homebrew/bin/node", "/opt/homebrew/bin/gemini", "--yolo", "--skip-trust", "--include-directories", SILICON_ORACLE_DIR, "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "misty": ["/opt/homebrew/bin/vibe", "--workdir", CODEX_REPO_DIR, "--trust", "-p", "Run your heartbeat protocol. Read ~/projects/agentic-fleet-hub/MISTRAL.md first, then follow AGENTS/RULES.md. Follow all 6 phases."],
     "codi": [
         "/opt/homebrew/bin/node",
@@ -659,7 +659,7 @@ def check_agent_health():
     except Exception as e:
         log(f"ERROR in check_agent_health: {e}")
 
-TRACKED_REPOS = [CODEX_REPO_DIR, PRIVATE_CORE_DIR]
+TRACKED_REPOS = [CODEX_REPO_DIR, SILICON_ORACLE_DIR]
 
 def _has_commit_since(start_time):
     """Return True if any tracked repo has at least one new commit since start_time (epoch float)."""
