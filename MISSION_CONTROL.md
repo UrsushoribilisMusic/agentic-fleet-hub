@@ -690,7 +690,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **1ssloqmc** | test | clau | merged |  |
 | **8gpnj8nf** | SC: Carousel — remove deleted photos from journal strip | gem | in_work | When a user deletes a photo from their device libr... |
-| **duzsa4p0** | SC: Crash on second photo describe — enforce thermal pause | clau | in_work | App crashed when the oracle was asked to describe ... |
+| **duzsa4p0** | SC: Crash on second photo describe — enforce thermal pause | clau | merged | App crashed when the oracle was asked to describe ... |
 | **eit6arnu** | SC: Oracle generation — stream tokens as they are produced | gem | planned | Both 'Consult the Oracle' (journal generation) and... |
 | **l99pv2is** | SC: Journal tab — show list of past journal entries below the fold | clau | planned | The Journal tab currently shows today's photos and... |
 | **nxge1w5m** | SC: Boards graph — add planetary nodes with random concept links | codi | merged | The knowledge graph in the Boards tab should inclu... |
@@ -698,13 +698,13 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **rt1pzakk** | SC: Video generation — images not rendering, only black frames | codi | in_work | Video generation produces a video where all frames... |
 | **aivmddav** | SC: Video generation — captions not rendered in output video | clau | planned | Caption text is not appearing in the generated vid... |
 | **bocg3sgl** | SC: Video player — audio silent in-app, works when shared | gem | planned | The in-app video player produces no sound during p... |
-| **tzhgoay8** | SC-032: Suite E — generation counter and paywall gate tests | clau | planned | Implement Tier-1 tests for the free-tier gate (3 f... |
-| **eoyc46qz** | SC-031: Suite D — sparse-day rotation logic tests | gem | planned | Implement Tier-1 tests for the rotation that fills... |
-| **ldjeku9v** | SC-030: Suite C — Ken Burns / 60s timeline math tests | codi | planned | Implement Tier-1 tests for per-segment timing arit... |
-| **6osfrajh** | SC-029: Suite B — geocoding and batch grouping tests (geocoder mocked) | gem | planned | Implement Tier-1 tests for coordinate→place-name d... |
-| **g3np7lx6** | SC-028: Suite A — graph node typing and categorisation tests | codi | planned | Implement Tier-1 tests for the logic that turns ra... |
-| **1rkrpt57** | SC-027: Tier-1 test harness — Swift Testing target, headless via xcodebuild | codi | planned | Create the Tier-1 unit test infrastructure for Sil... |
 | **oi5zo4js** | SC-026: Revise fact-as-input contract (supersedes SC-004/SC-016) | clau | planned | The original SC-004/SC-016 de-factualization rule ... |
+| **1rkrpt57** | SC-027: Tier-1 test harness — Swift Testing target, headless via xcodebuild | codi | planned | Create the Tier-1 unit test infrastructure for Sil... |
+| **g3np7lx6** | SC-028: Suite A — graph node typing and categorisation tests | codi | planned | Implement Tier-1 tests for the logic that turns ra... |
+| **6osfrajh** | SC-029: Suite B — geocoding and batch grouping tests (geocoder mocked) | gem | planned | Implement Tier-1 tests for coordinate→place-name d... |
+| **ldjeku9v** | SC-030: Suite C — Ken Burns / 60s timeline math tests | codi | planned | Implement Tier-1 tests for per-segment timing arit... |
+| **eoyc46qz** | SC-031: Suite D — sparse-day rotation logic tests | gem | planned | Implement Tier-1 tests for the rotation that fills... |
+| **tzhgoay8** | SC-032: Suite E — generation counter and paywall gate tests | clau | planned | Implement Tier-1 tests for the free-tier gate (3 f... |
 | **xw01g8lu** | test | clau | merged |  |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
