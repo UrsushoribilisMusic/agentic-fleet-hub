@@ -127,6 +127,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **g3np7lx6**: SC-028: Suite A — graph node typing and categorisation tests -- Implement Tier-1 tests for the logic that turns raw extraction into typed, colour-coded graph nodes. Captions are fed as fixtures — no model call. -- Codi. Approved.
 - **1rkrpt57**: SC-027: Tier-1 test harness — Swift Testing target, headless via xcodebuild -- Create the Tier-1 unit test infrastructure for SiliconOracle. -- Codi. Approved.
 - **rt1pzakk**: SC: Video generation — images not rendering, only black frames -- Video generation produces a video where all frames are black. The 'Made with' end card does appear, so the video pipeline runs to completion but fails to composite the photo frames. -- Codi. Approved.
+- **2128yg6y**: SC: Video captions — pre-populate existing caption text in editor -- In the video caption editor, images that already have a caption stored in SQLite are showing a blank text field instead of their existing caption. The editor should load and display the stored caption text when opening a photo that has already been captioned. -- Clau. Approved.
 - **nxge1w5m**: [SUPERSEDED by SC-036/SC-037] Boards graph — add planetary nodes -- Superseded by SC-036 (graph populate from all five sources, includes Planet category injection) and SC-037 (cosmology layout & edges). The design spec provides a full typed-node + celestial layout model. This ticket is closed. -- Codi. Approved.
 - **l99pv2is**: [SUPERSEDED by SC-033] Journal tab — show list of past journal entries -- Superseded by SC-033 (journal entries list — full add/edit for past days). SC-033 covers everything here plus write access for past days and Reflection node feeds. This ticket is closed. -- Clau. Approved.
 - **duzsa4p0**: SC: Crash on second photo describe — enforce thermal pause -- App crashed when the oracle was asked to describe a second photo in the same session. Suspected cause: MLXEngine not pausing between consecutive inference requests when device is hot. -- Clau. Approved.
@@ -698,7 +699,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **1ssloqmc** | test | clau | merged |  |
 | **8gpnj8nf** | SC: Carousel — remove deleted photos from journal strip | gem | in_work | When a user deletes a photo from their device libr... |
 | **eit6arnu** | SC: Oracle generation — stream tokens as they are produced | gem | planned | Both 'Consult the Oracle' (journal generation) and... |
-| **2128yg6y** | SC: Video captions — pre-populate existing caption text in editor | clau | merged | In the video caption editor, images that already h... |
 | **aivmddav** | SC: Video generation — captions not rendered in output video | clau | in_work | Caption text is not appearing in the generated vid... |
 | **bocg3sgl** | SC: Video player — audio silent in-app, works when shared | gem | planned | The in-app video player produces no sound during p... |
 | **oi5zo4js** | SC-026: Revise fact-as-input contract (supersedes SC-004/SC-016) | clau | planned | The original SC-004/SC-016 de-factualization rule ... |
