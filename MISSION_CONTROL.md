@@ -126,6 +126,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **ldjeku9v**: SC-030: Suite C — Ken Burns / 60s timeline math tests -- Implement Tier-1 tests for per-segment timing arithmetic. Pure math — no rendering. -- Codi. Approved.
 - **g3np7lx6**: SC-028: Suite A — graph node typing and categorisation tests -- Implement Tier-1 tests for the logic that turns raw extraction into typed, colour-coded graph nodes. Captions are fed as fixtures — no model call. -- Codi. Approved.
 - **1rkrpt57**: SC-027: Tier-1 test harness — Swift Testing target, headless via xcodebuild -- Create the Tier-1 unit test infrastructure for SiliconOracle. -- Codi. Approved.
+- **aivmddav**: SC: Video generation — captions not rendered in output video -- Caption text is not appearing in the generated video. The captions exist in the data layer (or are entered by the user) but are not being composited onto the video frames. -- Clau. Approved.
 - **rt1pzakk**: SC: Video generation — images not rendering, only black frames -- Video generation produces a video where all frames are black. The 'Made with' end card does appear, so the video pipeline runs to completion but fails to composite the photo frames. -- Codi. Approved.
 - **2128yg6y**: SC: Video captions — pre-populate existing caption text in editor -- In the video caption editor, images that already have a caption stored in SQLite are showing a blank text field instead of their existing caption. The editor should load and display the stored caption text when opening a photo that has already been captioned. -- Clau. Approved.
 - **nxge1w5m**: [SUPERSEDED by SC-036/SC-037] Boards graph — add planetary nodes -- Superseded by SC-036 (graph populate from all five sources, includes Planet category injection) and SC-037 (cosmology layout & edges). The design spec provides a full typed-node + celestial layout model. This ticket is closed. -- Codi. Approved.
@@ -681,6 +682,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **tcr13pbs**: TCR-13: PocketBase to Sheet reporting sync for YouTube metrics -- Sync YouTube metrics from PocketBase back into the reporting worksheet while leaving TikTok and Instagram columns human-owned. -- Codi. Approved.
 - **#5**: #5nkg4da6vgfbj1j: Peer review UI fixes for web page -- Reviewing UI fixes for the web page as described in task #5nkg4da6vgfbj1j -- Misty. Approved.
 - **tejrwdkf**: BBE page fixes: nav consolidation, project links, alignment -- ## What was done (Clau, 2026-03-12) -- Clau. Approved.
+- **xw01g8lu**: test -- Clau. Approved.
 - **m7z2prgv**: test -- Qwen. Approved.
 - **a215p1a4**: [SC-001][P0] Fork PrivateCore to SiliconOracle -- COMPLETE 2026-05-29. Tag fork/siliconoracle-2026-05 on privatecore-ios. Repo silicon-oracle created, xcodeproj renamed, bundle ID com.bigbear.siliconoracle, version 0.1.0, fresh MISSION_CONTROL + README + CLAUDE.md. BUILD SUCCEEDED on simulator. -- Codi. Approved.
 - **d3xr2948**: PC-050: Model download UX — file counter + percentage -- Replace narrow progress bar with bar + text label showing File N/Total and file-level %. Preparing state shows Preparing text. Implemented via ModelDownloadProgress struct. -- Codi. Approved.
@@ -698,10 +700,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **1ssloqmc** | test | clau | in_work |  |
 | **8gpnj8nf** | SC: Carousel — remove deleted photos from journal strip | gem | in_work | When a user deletes a photo from their device libr... |
-| **eit6arnu** | SC: Oracle generation — stream tokens as they are produced | gem | merged | Both 'Consult the Oracle' (journal generation) and... |
-| **aivmddav** | SC: Video generation — captions not rendered in output video | clau | merged | Caption text is not appearing in the generated vid... |
+| **eit6arnu** | SC: Oracle generation — stream tokens as they are produced | gem | planned | Both 'Consult the Oracle' (journal generation) and... |
 | **bocg3sgl** | SC: Video player — audio silent in-app, works when shared | gem | planned | The in-app video player produces no sound during p... |
-| **oi5zo4js** | SC-026: Revise fact-as-input contract (supersedes SC-004/SC-016) | clau | planned | The original SC-004/SC-016 de-factualization rule ... |
+| **oi5zo4js** | SC-026: Revise fact-as-input contract (supersedes SC-004/SC-016) | clau | in_work | The original SC-004/SC-016 de-factualization rule ... |
 | **6osfrajh** | SC-029: Suite B — geocoding and batch grouping tests (geocoder mocked) | gem | planned | Implement Tier-1 tests for coordinate→place-name d... |
 | **eoyc46qz** | SC-031: Suite D — sparse-day rotation logic tests | gem | planned | Implement Tier-1 tests for the rotation that fills... |
 | **tzhgoay8** | SC-032: Suite E — generation counter and paywall gate tests | clau | planned | Implement Tier-1 tests for the free-tier gate (3 f... |
@@ -714,6 +715,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **d8brv4xa** | SC-039: Journal-as-primary-flavor weighting in oracle context | gem | planned | When a journal entry exists for the day, it must b... |
 | **crtisb5t** | SC-040: Tone-safety constraint block and human-sampling tuning protocol | clau | planned | Journaling introduces real, possibly painful self-... |
 | **z7mf2nu1** | SC-041: Board-scoped oracle generation — board text as user-voice input | gem | planned | Extend oracle generation to boards. When the oracl... |
-| **xw01g8lu** | test | clau | merged |  |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
