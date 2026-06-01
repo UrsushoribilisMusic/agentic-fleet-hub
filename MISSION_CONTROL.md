@@ -698,6 +698,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **rt1pzakk** | SC: Video generation — images not rendering, only black frames | codi | planned | Video generation produces a video where all frames... |
 | **aivmddav** | SC: Video generation — captions not rendered in output video | clau | planned | Caption text is not appearing in the generated vid... |
 | **bocg3sgl** | SC: Video player — audio silent in-app, works when shared | gem | planned | The in-app video player produces no sound during p... |
-| **xw01g8lu** | test | clau | in_work |  |
+| **xw01g8lu** | test | clau | merged |  |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
