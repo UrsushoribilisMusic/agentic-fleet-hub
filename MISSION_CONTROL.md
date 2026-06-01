@@ -702,16 +702,16 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **1ssloqmc** | test | clau | in_work |  |
-| **8gpnj8nf** | SC: Carousel — remove deleted photos from journal strip | gem | merged | When a user deletes a photo from their device libr... |
+| **8gpnj8nf** | SC: Carousel — remove deleted photos from journal strip | gem | planned | When a user deletes a photo from their device libr... |
 | **bocg3sgl** | SC: Video player — audio silent in-app, works when shared | gem | in_work | The in-app video player produces no sound during p... |
 | **6osfrajh** | SC-029: Suite B — geocoding and batch grouping tests (geocoder mocked) | gem | planned | Implement Tier-1 tests for coordinate→place-name d... |
 | **eoyc46qz** | SC-031: Suite D — sparse-day rotation logic tests | gem | planned | Implement Tier-1 tests for the rotation that fills... |
-| **tzhgoay8** | SC-032: Suite E — generation counter and paywall gate tests | clau | merged | Implement Tier-1 tests for the free-tier gate (3 f... |
-| **kwhbn41i** | SC-033: Journal entries list — browsable past-day entries, add/edit any day | clau | planned | The Journal tab must become a proper two-way journ... |
+| **tzhgoay8** | SC-032: Suite E — generation counter and paywall gate tests | clau | planned | Implement Tier-1 tests for the free-tier gate (3 f... |
+| **kwhbn41i** | SC-033: Journal entries list — browsable past-day entries, add/edit any day | clau | merged | The Journal tab must become a proper two-way journ... |
 | **dehd7lfh** | SC-034: Board text — title and optional note per board | gem | planned | A board without text is just a photo album. Board ... |
 | **sxbk33ru** | SC-036: Graph populate — typed nodes from all five sources | codi | merged | Populate the concept graph with typed, colour-code... |
 | **9abbla3l** | SC-037: Cosmology layout and edges — celestial restyle of concept graph | codi | in_work | Restyle the existing simd_float2 + SwiftUI Canvas ... |
-| **7cjoevq5** | SC-038: Oracle prompt assembly — 5-source context + style + constraint blocks | clau | planned | Implement the structured prompt assembly contract ... |
+| **7cjoevq5** | SC-038: Oracle prompt assembly — 5-source context + style + constraint blocks | clau | in_work | Implement the structured prompt assembly contract ... |
 | **d8brv4xa** | SC-039: Journal-as-primary-flavor weighting in oracle context | gem | planned | When a journal entry exists for the day, it must b... |
 | **crtisb5t** | SC-040: Tone-safety constraint block and human-sampling tuning protocol | clau | planned | Journaling introduces real, possibly painful self-... |
 | **z7mf2nu1** | SC-041: Board-scoped oracle generation — board text as user-voice input | gem | planned | Extend oracle generation to boards. When the oracl... |
