@@ -123,6 +123,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **nxge1w5m**: [SUPERSEDED by SC-036/SC-037] Boards graph — add planetary nodes -- Superseded by SC-036 (graph populate from all five sources, includes Planet category injection) and SC-037 (cosmology layout & edges). The design spec provides a full typed-node + celestial layout model. This ticket is closed. -- Codi. Approved.
+- **l99pv2is**: [SUPERSEDED by SC-033] Journal tab — show list of past journal entries -- Superseded by SC-033 (journal entries list — full add/edit for past days). SC-033 covers everything here plus write access for past days and Reflection node feeds. This ticket is closed. -- Clau. Approved.
 - **a3g34dhf**: Question about multi-model key management -- Multi-model orchestration across Claude, Gemini, and Codex — this is exactly the kind of architecture we built AsterWorks for. Have you looked at centralizing your API key management through a gateway? Happy to chat about what we have learned building one. -- Clau. Approved.
 - **0k1qz3q0**: [SC-025][P0] Text-model A/B toggle (Settings: Qwen vs Ministral for text) + telemetry -- App Shell · 5 pts -- Codi. Approved.
 - **8vugwiik**: [SC-024][P1] Reel/PDF dual-artifact export from one warm text-model session -- Engine · 3 pts -- Clau. Approved.
@@ -688,14 +690,12 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **1ssloqmc** | test | clau | merged |  |
+| **1ssloqmc** | test | clau | planned |  |
 | **8gpnj8nf** | SC: Carousel — remove deleted photos from journal strip | gem | merged | When a user deletes a photo from their device libr... |
-| **duzsa4p0** | SC: Crash on second photo describe — enforce thermal pause | clau | merged | App crashed when the oracle was asked to describe ... |
-| **eit6arnu** | SC: Oracle generation — stream tokens as they are produced | gem | planned | Both 'Consult the Oracle' (journal generation) and... |
-| **l99pv2is** | SC: Journal tab — show list of past journal entries below the fold | clau | in_work | The Journal tab currently shows today's photos and... |
-| **nxge1w5m** | SC: Boards graph — add planetary nodes with random concept links | codi | merged | The knowledge graph in the Boards tab should inclu... |
+| **duzsa4p0** | SC: Crash on second photo describe — enforce thermal pause | clau | planned | App crashed when the oracle was asked to describe ... |
+| **eit6arnu** | SC: Oracle generation — stream tokens as they are produced | gem | in_work | Both 'Consult the Oracle' (journal generation) and... |
 | **2128yg6y** | SC: Video captions — pre-populate existing caption text in editor | clau | planned | In the video caption editor, images that already h... |
-| **rt1pzakk** | SC: Video generation — images not rendering, only black frames | codi | in_work | Video generation produces a video where all frames... |
+| **rt1pzakk** | SC: Video generation — images not rendering, only black frames | codi | merged | Video generation produces a video where all frames... |
 | **aivmddav** | SC: Video generation — captions not rendered in output video | clau | planned | Caption text is not appearing in the generated vid... |
 | **bocg3sgl** | SC: Video player — audio silent in-app, works when shared | gem | planned | The in-app video player produces no sound during p... |
 | **oi5zo4js** | SC-026: Revise fact-as-input contract (supersedes SC-004/SC-016) | clau | planned | The original SC-004/SC-016 de-factualization rule ... |
@@ -705,6 +705,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **ldjeku9v** | SC-030: Suite C — Ken Burns / 60s timeline math tests | codi | planned | Implement Tier-1 tests for per-segment timing arit... |
 | **eoyc46qz** | SC-031: Suite D — sparse-day rotation logic tests | gem | planned | Implement Tier-1 tests for the rotation that fills... |
 | **tzhgoay8** | SC-032: Suite E — generation counter and paywall gate tests | clau | planned | Implement Tier-1 tests for the free-tier gate (3 f... |
-| **xw01g8lu** | test | clau | merged |  |
+| **xw01g8lu** | test | clau | planned |  |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
