@@ -696,7 +696,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **1ssloqmc** | test | clau | planned |  |
+| **1ssloqmc** | test | clau | in_work |  |
 | **8gpnj8nf** | SC: Carousel — remove deleted photos from journal strip | gem | in_work | When a user deletes a photo from their device libr... |
 | **eit6arnu** | SC: Oracle generation — stream tokens as they are produced | gem | merged | Both 'Consult the Oracle' (journal generation) and... |
 | **aivmddav** | SC: Video generation — captions not rendered in output video | clau | merged | Caption text is not appearing in the generated vid... |
