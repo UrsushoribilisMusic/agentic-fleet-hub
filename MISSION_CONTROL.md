@@ -688,6 +688,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **1ssloqmc** | test |  | planned |  |
+| **1ssloqmc** | test | clau | in_work |  |
+| **8gpnj8nf** | SC: Carousel — remove deleted photos from journal strip | clau | planned | When a user deletes a photo from their device libr... |
+| **xw01g8lu** | test |  | planned |  |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
