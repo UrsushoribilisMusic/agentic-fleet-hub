@@ -689,15 +689,15 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **1ssloqmc** | test | clau | in_work |  |
-| **8gpnj8nf** | SC: Carousel — remove deleted photos from journal strip | clau | planned | When a user deletes a photo from their device libr... |
+| **8gpnj8nf** | SC: Carousel — remove deleted photos from journal strip | gem | planned | When a user deletes a photo from their device libr... |
 | **duzsa4p0** | SC: Crash on second photo describe — enforce thermal pause | clau | planned | App crashed when the oracle was asked to describe ... |
-| **eit6arnu** | SC: Oracle generation — stream tokens as they are produced | clau | planned | Both 'Consult the Oracle' (journal generation) and... |
+| **eit6arnu** | SC: Oracle generation — stream tokens as they are produced | gem | planned | Both 'Consult the Oracle' (journal generation) and... |
 | **l99pv2is** | SC: Journal tab — show list of past journal entries below the fold | clau | planned | The Journal tab currently shows today's photos and... |
-| **nxge1w5m** | SC: Boards graph — add planetary nodes with random concept links | clau | planned | The knowledge graph in the Boards tab should inclu... |
+| **nxge1w5m** | SC: Boards graph — add planetary nodes with random concept links | codi | planned | The knowledge graph in the Boards tab should inclu... |
 | **2128yg6y** | SC: Video captions — pre-populate existing caption text in editor | clau | planned | In the video caption editor, images that already h... |
-| **rt1pzakk** | SC: Video generation — images not rendering, only black frames | clau | planned | Video generation produces a video where all frames... |
+| **rt1pzakk** | SC: Video generation — images not rendering, only black frames | codi | planned | Video generation produces a video where all frames... |
 | **aivmddav** | SC: Video generation — captions not rendered in output video | clau | planned | Caption text is not appearing in the generated vid... |
-| **bocg3sgl** | SC: Video player — audio silent in-app, works when shared | clau | planned | The in-app video player produces no sound during p... |
+| **bocg3sgl** | SC: Video player — audio silent in-app, works when shared | gem | planned | The in-app video player produces no sound during p... |
 | **xw01g8lu** | test | clau | planned |  |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
