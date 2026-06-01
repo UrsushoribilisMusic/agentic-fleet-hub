@@ -709,7 +709,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **tzhgoay8** | SC-032: Suite E — generation counter and paywall gate tests | clau | merged | Implement Tier-1 tests for the free-tier gate (3 f... |
 | **kwhbn41i** | SC-033: Journal entries list — browsable past-day entries, add/edit any day | clau | planned | The Journal tab must become a proper two-way journ... |
 | **dehd7lfh** | SC-034: Board text — title and optional note per board | gem | planned | A board without text is just a photo album. Board ... |
-| **sxbk33ru** | SC-036: Graph populate — typed nodes from all five sources | codi | in_work | Populate the concept graph with typed, colour-code... |
+| **sxbk33ru** | SC-036: Graph populate — typed nodes from all five sources | codi | merged | Populate the concept graph with typed, colour-code... |
 | **9abbla3l** | SC-037: Cosmology layout and edges — celestial restyle of concept graph | codi | planned | Restyle the existing simd_float2 + SwiftUI Canvas ... |
 | **7cjoevq5** | SC-038: Oracle prompt assembly — 5-source context + style + constraint blocks | clau | planned | Implement the structured prompt assembly contract ... |
 | **d8brv4xa** | SC-039: Journal-as-primary-flavor weighting in oracle context | gem | planned | When a journal entry exists for the day, it must b... |
