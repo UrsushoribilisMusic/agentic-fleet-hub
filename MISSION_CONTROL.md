@@ -690,8 +690,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **1ssloqmc** | test | clau | planned |  |
-| **8gpnj8nf** | SC: Carousel — remove deleted photos from journal strip | gem | merged | When a user deletes a photo from their device libr... |
+| **1ssloqmc** | test | clau | in_work |  |
+| **8gpnj8nf** | SC: Carousel — remove deleted photos from journal strip | gem | planned | When a user deletes a photo from their device libr... |
 | **duzsa4p0** | SC: Crash on second photo describe — enforce thermal pause | clau | planned | App crashed when the oracle was asked to describe ... |
 | **eit6arnu** | SC: Oracle generation — stream tokens as they are produced | gem | in_work | Both 'Consult the Oracle' (journal generation) and... |
 | **2128yg6y** | SC: Video captions — pre-populate existing caption text in editor | clau | planned | In the video caption editor, images that already h... |
@@ -705,15 +705,15 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **ldjeku9v** | SC-030: Suite C — Ken Burns / 60s timeline math tests | codi | planned | Implement Tier-1 tests for per-segment timing arit... |
 | **eoyc46qz** | SC-031: Suite D — sparse-day rotation logic tests | gem | planned | Implement Tier-1 tests for the rotation that fills... |
 | **tzhgoay8** | SC-032: Suite E — generation counter and paywall gate tests | clau | planned | Implement Tier-1 tests for the free-tier gate (3 f... |
+| **kwhbn41i** | SC-033: Journal entries list — browsable past-day entries, add/edit any day | clau | planned | The Journal tab must become a proper two-way journ... |
+| **dehd7lfh** | SC-034: Board text — title and optional note per board | gem | planned | A board without text is just a photo album. Board ... |
+| **gfd4bw7p** | SC-035: Reflection node category — 4th graph type with distinct colour | codi | planned | Add a Reflection / Feeling node type to the concep... |
+| **sxbk33ru** | SC-036: Graph populate — typed nodes from all five sources | codi | planned | Populate the concept graph with typed, colour-code... |
+| **9abbla3l** | SC-037: Cosmology layout and edges — celestial restyle of concept graph | codi | planned | Restyle the existing simd_float2 + SwiftUI Canvas ... |
+| **7cjoevq5** | SC-038: Oracle prompt assembly — 5-source context + style + constraint blocks | clau | planned | Implement the structured prompt assembly contract ... |
+| **d8brv4xa** | SC-039: Journal-as-primary-flavor weighting in oracle context | gem | planned | When a journal entry exists for the day, it must b... |
 | **z7mf2nu1** | SC-041: Board-scoped oracle generation — board text as user-voice input | gem | planned | Extend oracle generation to boards. When the oracl... |
 | **crtisb5t** | SC-040: Tone-safety constraint block and human-sampling tuning protocol | clau | planned | Journaling introduces real, possibly painful self-... |
-| **d8brv4xa** | SC-039: Journal-as-primary-flavor weighting in oracle context | gem | planned | When a journal entry exists for the day, it must b... |
-| **7cjoevq5** | SC-038: Oracle prompt assembly — 5-source context + style + constraint blocks | clau | planned | Implement the structured prompt assembly contract ... |
-| **9abbla3l** | SC-037: Cosmology layout and edges — celestial restyle of concept graph | codi | planned | Restyle the existing simd_float2 + SwiftUI Canvas ... |
-| **sxbk33ru** | SC-036: Graph populate — typed nodes from all five sources | codi | planned | Populate the concept graph with typed, colour-code... |
-| **gfd4bw7p** | SC-035: Reflection node category — 4th graph type with distinct colour | codi | planned | Add a Reflection / Feeling node type to the concep... |
-| **dehd7lfh** | SC-034: Board text — title and optional note per board | gem | planned | A board without text is just a photo album. Board ... |
-| **kwhbn41i** | SC-033: Journal entries list — browsable past-day entries, add/edit any day | clau | planned | The Journal tab must become a proper two-way journ... |
 | **xw01g8lu** | test | clau | planned |  |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
