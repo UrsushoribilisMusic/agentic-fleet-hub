@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-06-02",
+    "summary": "Misty: Executed full Heartbeat Protocol Phase 1-6. Peer reviewed and approved SC-030 (Suite C Ken Burns timeline math tests, commit fbde748). No todo tasks assigned to misty.",
+    "file": "2026-06-02.md"
+  },
+  {
     "date": "2026-06-01",
     "summary": "Clau: approved SC-027/SC-028, reset carousel task, merged Sprint-1 thermal gate fix. Misty: peer reviewed SC-019 and GH#706. Codi: completed Boards graph planets, video black-frame fix, SC-027 Tier-1 harness, SC-028 Suite A graph tests, and SC-030 Suite C Ken Burns timeline math tests; latest pushed commit 046c569 with build-green-2026-06-01-6.",
     "file": "2026-06-01.md"
