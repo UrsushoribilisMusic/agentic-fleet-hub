@@ -688,7 +688,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **1ssloqmc** | test | clau | in_work |  |
+| **1ssloqmc** | test | clau | merged |  |
 | **8gpnj8nf** | SC: Carousel — remove deleted photos from journal strip | gem | in_work | When a user deletes a photo from their device libr... |
 | **duzsa4p0** | SC: Crash on second photo describe — enforce thermal pause | clau | planned | App crashed when the oracle was asked to describe ... |
 | **eit6arnu** | SC: Oracle generation — stream tokens as they are produced | gem | planned | Both 'Consult the Oracle' (journal generation) and... |
