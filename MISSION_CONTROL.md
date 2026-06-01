@@ -708,7 +708,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **tzhgoay8** | SC-032: Suite E — generation counter and paywall gate tests | clau | planned | Implement Tier-1 tests for the free-tier gate (3 f... |
 | **kwhbn41i** | SC-033: Journal entries list — browsable past-day entries, add/edit any day | clau | in_work | The Journal tab must become a proper two-way journ... |
 | **dehd7lfh** | SC-034: Board text — title and optional note per board | gem | planned | A board without text is just a photo album. Board ... |
-| **gfd4bw7p** | SC-035: Reflection node category — 4th graph type with distinct colour | codi | planned | Add a Reflection / Feeling node type to the concep... |
+| **gfd4bw7p** | SC-035: Reflection node category — 4th graph type with distinct colour | codi | in_work | Add a Reflection / Feeling node type to the concep... |
 | **sxbk33ru** | SC-036: Graph populate — typed nodes from all five sources | codi | planned | Populate the concept graph with typed, colour-code... |
 | **9abbla3l** | SC-037: Cosmology layout and edges — celestial restyle of concept graph | codi | planned | Restyle the existing simd_float2 + SwiftUI Canvas ... |
 | **7cjoevq5** | SC-038: Oracle prompt assembly — 5-source context + style + constraint blocks | clau | planned | Implement the structured prompt assembly contract ... |
