@@ -699,12 +699,21 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **aivmddav** | SC: Video generation — captions not rendered in output video | clau | planned | Caption text is not appearing in the generated vid... |
 | **bocg3sgl** | SC: Video player — audio silent in-app, works when shared | gem | planned | The in-app video player produces no sound during p... |
 | **oi5zo4js** | SC-026: Revise fact-as-input contract (supersedes SC-004/SC-016) | clau | planned | The original SC-004/SC-016 de-factualization rule ... |
-| **1rkrpt57** | SC-027: Tier-1 test harness — Swift Testing target, headless via xcodebuild | codi | planned | Create the Tier-1 unit test infrastructure for Sil... |
+| **1rkrpt57** | SC-027: Tier-1 test harness — Swift Testing target, headless via xcodebuild | codi | in_work | Create the Tier-1 unit test infrastructure for Sil... |
 | **g3np7lx6** | SC-028: Suite A — graph node typing and categorisation tests | codi | planned | Implement Tier-1 tests for the logic that turns ra... |
 | **6osfrajh** | SC-029: Suite B — geocoding and batch grouping tests (geocoder mocked) | gem | planned | Implement Tier-1 tests for coordinate→place-name d... |
 | **ldjeku9v** | SC-030: Suite C — Ken Burns / 60s timeline math tests | codi | planned | Implement Tier-1 tests for per-segment timing arit... |
 | **eoyc46qz** | SC-031: Suite D — sparse-day rotation logic tests | gem | planned | Implement Tier-1 tests for the rotation that fills... |
 | **tzhgoay8** | SC-032: Suite E — generation counter and paywall gate tests | clau | planned | Implement Tier-1 tests for the free-tier gate (3 f... |
+| **z7mf2nu1** | SC-041: Board-scoped oracle generation — board text as user-voice input | gem | planned | Extend oracle generation to boards. When the oracl... |
+| **crtisb5t** | SC-040: Tone-safety constraint block and human-sampling tuning protocol | clau | planned | Journaling introduces real, possibly painful self-... |
+| **d8brv4xa** | SC-039: Journal-as-primary-flavor weighting in oracle context | gem | planned | When a journal entry exists for the day, it must b... |
+| **7cjoevq5** | SC-038: Oracle prompt assembly — 5-source context + style + constraint blocks | clau | planned | Implement the structured prompt assembly contract ... |
+| **9abbla3l** | SC-037: Cosmology layout and edges — celestial restyle of concept graph | codi | planned | Restyle the existing simd_float2 + SwiftUI Canvas ... |
+| **sxbk33ru** | SC-036: Graph populate — typed nodes from all five sources | codi | planned | Populate the concept graph with typed, colour-code... |
+| **gfd4bw7p** | SC-035: Reflection node category — 4th graph type with distinct colour | codi | planned | Add a Reflection / Feeling node type to the concep... |
+| **dehd7lfh** | SC-034: Board text — title and optional note per board | gem | planned | A board without text is just a photo album. Board ... |
+| **kwhbn41i** | SC-033: Journal entries list — browsable past-day entries, add/edit any day | clau | planned | The Journal tab must become a proper two-way journ... |
 | **xw01g8lu** | test | clau | planned |  |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
