@@ -710,7 +710,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **eoyc46qz** | SC-031: Suite D — sparse-day rotation logic tests | gem | planned | Implement Tier-1 tests for the rotation that fills... |
 | **tzhgoay8** | SC-032: Suite E — generation counter and paywall gate tests | clau | merged | Implement Tier-1 tests for the free-tier gate (3 f... |
 | **dehd7lfh** | SC-034: Board text — title and optional note per board | gem | planned | A board without text is just a photo album. Board ... |
-| **9abbla3l** | SC-037: Cosmology layout and edges — celestial restyle of concept graph | codi | in_work | Restyle the existing simd_float2 + SwiftUI Canvas ... |
+| **9abbla3l** | SC-037: Cosmology layout and edges — celestial restyle of concept graph | codi | merged | Restyle the existing simd_float2 + SwiftUI Canvas ... |
 | **7cjoevq5** | SC-038: Oracle prompt assembly — 5-source context + style + constraint blocks | clau | in_work | Implement the structured prompt assembly contract ... |
 | **d8brv4xa** | SC-039: Journal-as-primary-flavor weighting in oracle context | gem | planned | When a journal entry exists for the day, it must b... |
 | **crtisb5t** | SC-040: Tone-safety constraint block and human-sampling tuning protocol | clau | in_work | Journaling introduces real, possibly painful self-... |
