@@ -123,6 +123,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **rt1pzakk**: SC: Video generation — images not rendering, only black frames -- Video generation produces a video where all frames are black. The 'Made with' end card does appear, so the video pipeline runs to completion but fails to composite the photo frames. -- Codi. Approved.
 - **nxge1w5m**: [SUPERSEDED by SC-036/SC-037] Boards graph — add planetary nodes -- Superseded by SC-036 (graph populate from all five sources, includes Planet category injection) and SC-037 (cosmology layout & edges). The design spec provides a full typed-node + celestial layout model. This ticket is closed. -- Codi. Approved.
 - **l99pv2is**: [SUPERSEDED by SC-033] Journal tab — show list of past journal entries -- Superseded by SC-033 (journal entries list — full add/edit for past days). SC-033 covers everything here plus write access for past days and Reflection node feeds. This ticket is closed. -- Clau. Approved.
 - **a3g34dhf**: Question about multi-model key management -- Multi-model orchestration across Claude, Gemini, and Codex — this is exactly the kind of architecture we built AsterWorks for. Have you looked at centralizing your API key management through a gateway? Happy to chat about what we have learned building one. -- Clau. Approved.
@@ -690,16 +691,15 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **1ssloqmc** | test | clau | merged |  |
+| **1ssloqmc** | test | clau | planned |  |
 | **8gpnj8nf** | SC: Carousel — remove deleted photos from journal strip | gem | planned | When a user deletes a photo from their device libr... |
-| **duzsa4p0** | SC: Crash on second photo describe — enforce thermal pause | clau | planned | App crashed when the oracle was asked to describe ... |
-| **eit6arnu** | SC: Oracle generation — stream tokens as they are produced | gem | in_work | Both 'Consult the Oracle' (journal generation) and... |
+| **duzsa4p0** | SC: Crash on second photo describe — enforce thermal pause | clau | in_work | App crashed when the oracle was asked to describe ... |
+| **eit6arnu** | SC: Oracle generation — stream tokens as they are produced | gem | merged | Both 'Consult the Oracle' (journal generation) and... |
 | **2128yg6y** | SC: Video captions — pre-populate existing caption text in editor | clau | planned | In the video caption editor, images that already h... |
-| **rt1pzakk** | SC: Video generation — images not rendering, only black frames | codi | merged | Video generation produces a video where all frames... |
 | **aivmddav** | SC: Video generation — captions not rendered in output video | clau | planned | Caption text is not appearing in the generated vid... |
 | **bocg3sgl** | SC: Video player — audio silent in-app, works when shared | gem | planned | The in-app video player produces no sound during p... |
 | **oi5zo4js** | SC-026: Revise fact-as-input contract (supersedes SC-004/SC-016) | clau | planned | The original SC-004/SC-016 de-factualization rule ... |
-| **1rkrpt57** | SC-027: Tier-1 test harness — Swift Testing target, headless via xcodebuild | codi | in_work | Create the Tier-1 unit test infrastructure for Sil... |
+| **1rkrpt57** | SC-027: Tier-1 test harness — Swift Testing target, headless via xcodebuild | codi | merged | Create the Tier-1 unit test infrastructure for Sil... |
 | **g3np7lx6** | SC-028: Suite A — graph node typing and categorisation tests | codi | planned | Implement Tier-1 tests for the logic that turns ra... |
 | **6osfrajh** | SC-029: Suite B — geocoding and batch grouping tests (geocoder mocked) | gem | planned | Implement Tier-1 tests for coordinate→place-name d... |
 | **ldjeku9v** | SC-030: Suite C — Ken Burns / 60s timeline math tests | codi | planned | Implement Tier-1 tests for per-segment timing arit... |
