@@ -705,7 +705,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **bocg3sgl** | SC: Video player — audio silent in-app, works when shared | gem | planned | The in-app video player produces no sound during p... |
 | **6osfrajh** | SC-029: Suite B — geocoding and batch grouping tests (geocoder mocked) | gem | planned | Implement Tier-1 tests for coordinate→place-name d... |
 | **eoyc46qz** | SC-031: Suite D — sparse-day rotation logic tests | gem | planned | Implement Tier-1 tests for the rotation that fills... |
-| **tzhgoay8** | SC-032: Suite E — generation counter and paywall gate tests | clau | planned | Implement Tier-1 tests for the free-tier gate (3 f... |
+| **tzhgoay8** | SC-032: Suite E — generation counter and paywall gate tests | clau | in_work | Implement Tier-1 tests for the free-tier gate (3 f... |
 | **kwhbn41i** | SC-033: Journal entries list — browsable past-day entries, add/edit any day | clau | planned | The Journal tab must become a proper two-way journ... |
 | **dehd7lfh** | SC-034: Board text — title and optional note per board | gem | planned | A board without text is just a photo album. Board ... |
 | **gfd4bw7p** | SC-035: Reflection node category — 4th graph type with distinct colour | codi | merged | Add a Reflection / Feeling node type to the concep... |
