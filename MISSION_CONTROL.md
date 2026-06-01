@@ -698,7 +698,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **1ssloqmc** | test | clau | in_work |  |
 | **8gpnj8nf** | SC: Carousel — remove deleted photos from journal strip | gem | in_work | When a user deletes a photo from their device libr... |
 | **eit6arnu** | SC: Oracle generation — stream tokens as they are produced | gem | planned | Both 'Consult the Oracle' (journal generation) and... |
-| **2128yg6y** | SC: Video captions — pre-populate existing caption text in editor | clau | in_work | In the video caption editor, images that already h... |
+| **2128yg6y** | SC: Video captions — pre-populate existing caption text in editor | clau | merged | In the video caption editor, images that already h... |
 | **aivmddav** | SC: Video generation — captions not rendered in output video | clau | planned | Caption text is not appearing in the generated vid... |
 | **bocg3sgl** | SC: Video player — audio silent in-app, works when shared | gem | planned | The in-app video player produces no sound during p... |
 | **oi5zo4js** | SC-026: Revise fact-as-input contract (supersedes SC-004/SC-016) | clau | planned | The original SC-004/SC-016 de-factualization rule ... |
