@@ -123,9 +123,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **9abbla3l**: SC-037: Cosmology layout and edges — celestial restyle of concept graph -- Restyle the existing simd_float2 + SwiftUI Canvas force layout into a screenshot-ready birth-chart cosmology. -- Codi. Approved.
 - **sxbk33ru**: SC-036: Graph populate — typed nodes from all five sources -- Populate the concept graph with typed, colour-coded nodes drawn from all five input sources. The graph was bare (only a day node) because population was never implemented. -- Codi. Approved.
 - **gfd4bw7p**: SC-035: Reflection node category — 4th graph type with distinct colour -- Add a Reflection / Feeling node type to the concept graph. This visually distinguishes what the USER SAID from what the camera saw — the inner life orbiting alongside the dog and Saturn. -- Codi. Approved.
 - **kwhbn41i**: SC-033: Journal entries list — browsable past-day entries, add/edit any day -- The Journal tab must become a proper two-way journal, not a write-only daily drop. Without a browsable list a week-wiki is starved of journal input for any day the user didn't journal on the day itself. -- Clau. Approved.
+- **tzhgoay8**: SC-032: Suite E — generation counter and paywall gate tests -- Implement Tier-1 tests for the free-tier gate (3 free generations, then locked). Tests the gate logic only — NOT the StoreKit purchase. -- Clau. Approved.
 - **ldjeku9v**: SC-030: Suite C — Ken Burns / 60s timeline math tests -- Implement Tier-1 tests for per-segment timing arithmetic. Pure math — no rendering. -- Codi. Approved.
 - **g3np7lx6**: SC-028: Suite A — graph node typing and categorisation tests -- Implement Tier-1 tests for the logic that turns raw extraction into typed, colour-coded graph nodes. Captions are fed as fixtures — no model call. -- Codi. Approved.
 - **1rkrpt57**: SC-027: Tier-1 test harness — Swift Testing target, headless via xcodebuild -- Create the Tier-1 unit test infrastructure for SiliconOracle. -- Codi. Approved.
@@ -704,16 +706,14 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **1ssloqmc** | test | clau | merged |  |
+| **1ssloqmc** | test | clau | planned |  |
 | **8gpnj8nf** | SC: Carousel — remove deleted photos from journal strip | gem | planned | When a user deletes a photo from their device libr... |
 | **6osfrajh** | SC-029: Suite B — geocoding and batch grouping tests (geocoder mocked) | gem | planned | Implement Tier-1 tests for coordinate→place-name d... |
 | **eoyc46qz** | SC-031: Suite D — sparse-day rotation logic tests | gem | planned | Implement Tier-1 tests for the rotation that fills... |
-| **tzhgoay8** | SC-032: Suite E — generation counter and paywall gate tests | clau | merged | Implement Tier-1 tests for the free-tier gate (3 f... |
 | **dehd7lfh** | SC-034: Board text — title and optional note per board | gem | planned | A board without text is just a photo album. Board ... |
-| **9abbla3l** | SC-037: Cosmology layout and edges — celestial restyle of concept graph | codi | merged | Restyle the existing simd_float2 + SwiftUI Canvas ... |
 | **7cjoevq5** | SC-038: Oracle prompt assembly — 5-source context + style + constraint blocks | clau | in_work | Implement the structured prompt assembly contract ... |
 | **d8brv4xa** | SC-039: Journal-as-primary-flavor weighting in oracle context | gem | planned | When a journal entry exists for the day, it must b... |
-| **crtisb5t** | SC-040: Tone-safety constraint block and human-sampling tuning protocol | clau | merged | Journaling introduces real, possibly painful self-... |
+| **crtisb5t** | SC-040: Tone-safety constraint block and human-sampling tuning protocol | clau | planned | Journaling introduces real, possibly painful self-... |
 | **z7mf2nu1** | SC-041: Board-scoped oracle generation — board text as user-voice input | gem | planned | Extend oracle generation to boards. When the oracl... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
