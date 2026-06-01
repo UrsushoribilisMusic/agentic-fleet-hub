@@ -692,7 +692,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **1ssloqmc** | test | clau | planned |  |
-| **8gpnj8nf** | SC: Carousel — remove deleted photos from journal strip | gem | planned | When a user deletes a photo from their device libr... |
+| **8gpnj8nf** | SC: Carousel — remove deleted photos from journal strip | gem | in_work | When a user deletes a photo from their device libr... |
 | **duzsa4p0** | SC: Crash on second photo describe — enforce thermal pause | clau | in_work | App crashed when the oracle was asked to describe ... |
 | **eit6arnu** | SC: Oracle generation — stream tokens as they are produced | gem | merged | Both 'Consult the Oracle' (journal generation) and... |
 | **2128yg6y** | SC: Video captions — pre-populate existing caption text in editor | clau | planned | In the video caption editor, images that already h... |
@@ -700,7 +700,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **bocg3sgl** | SC: Video player — audio silent in-app, works when shared | gem | planned | The in-app video player produces no sound during p... |
 | **oi5zo4js** | SC-026: Revise fact-as-input contract (supersedes SC-004/SC-016) | clau | planned | The original SC-004/SC-016 de-factualization rule ... |
 | **1rkrpt57** | SC-027: Tier-1 test harness — Swift Testing target, headless via xcodebuild | codi | merged | Create the Tier-1 unit test infrastructure for Sil... |
-| **g3np7lx6** | SC-028: Suite A — graph node typing and categorisation tests | codi | planned | Implement Tier-1 tests for the logic that turns ra... |
+| **g3np7lx6** | SC-028: Suite A — graph node typing and categorisation tests | codi | in_work | Implement Tier-1 tests for the logic that turns ra... |
 | **6osfrajh** | SC-029: Suite B — geocoding and batch grouping tests (geocoder mocked) | gem | planned | Implement Tier-1 tests for coordinate→place-name d... |
 | **ldjeku9v** | SC-030: Suite C — Ken Burns / 60s timeline math tests | codi | planned | Implement Tier-1 tests for per-segment timing arit... |
 | **eoyc46qz** | SC-031: Suite D — sparse-day rotation logic tests | gem | planned | Implement Tier-1 tests for the rotation that fills... |
