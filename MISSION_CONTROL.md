@@ -123,11 +123,14 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **sxbk33ru**: SC-036: Graph populate — typed nodes from all five sources -- Populate the concept graph with typed, colour-coded nodes drawn from all five input sources. The graph was bare (only a day node) because population was never implemented. -- Codi. Approved.
 - **gfd4bw7p**: SC-035: Reflection node category — 4th graph type with distinct colour -- Add a Reflection / Feeling node type to the concept graph. This visually distinguishes what the USER SAID from what the camera saw — the inner life orbiting alongside the dog and Saturn. -- Codi. Approved.
+- **kwhbn41i**: SC-033: Journal entries list — browsable past-day entries, add/edit any day -- The Journal tab must become a proper two-way journal, not a write-only daily drop. Without a browsable list a week-wiki is starved of journal input for any day the user didn't journal on the day itself. -- Clau. Approved.
 - **ldjeku9v**: SC-030: Suite C — Ken Burns / 60s timeline math tests -- Implement Tier-1 tests for per-segment timing arithmetic. Pure math — no rendering. -- Codi. Approved.
 - **g3np7lx6**: SC-028: Suite A — graph node typing and categorisation tests -- Implement Tier-1 tests for the logic that turns raw extraction into typed, colour-coded graph nodes. Captions are fed as fixtures — no model call. -- Codi. Approved.
 - **1rkrpt57**: SC-027: Tier-1 test harness — Swift Testing target, headless via xcodebuild -- Create the Tier-1 unit test infrastructure for SiliconOracle. -- Codi. Approved.
 - **oi5zo4js**: SC-026: Revise fact-as-input contract (supersedes SC-004/SC-016) -- The original SC-004/SC-016 de-factualization rule (strip all dates, places, seasons) is superseded by a 3-rule contract: -- Clau. Approved.
+- **bocg3sgl**: SC: Video player — audio silent in-app, works when shared -- The in-app video player produces no sound during playback. The same video plays audio correctly when exported and opened in Files/Photos or shared. This suggests the AVAudioSession category is not configured for playback. -- Gem. Approved.
 - **aivmddav**: SC: Video generation — captions not rendered in output video -- Caption text is not appearing in the generated video. The captions exist in the data layer (or are entered by the user) but are not being composited onto the video frames. -- Clau. Approved.
 - **rt1pzakk**: SC: Video generation — images not rendering, only black frames -- Video generation produces a video where all frames are black. The 'Made with' end card does appear, so the video pipeline runs to completion but fails to composite the photo frames. -- Codi. Approved.
 - **2128yg6y**: SC: Video captions — pre-populate existing caption text in editor -- In the video caption editor, images that already have a caption stored in SQLite are showing a blank text field instead of their existing caption. The editor should load and display the stored caption text when opening a photo that has already been captioned. -- Clau. Approved.
@@ -703,13 +706,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **1ssloqmc** | test | clau | merged |  |
 | **8gpnj8nf** | SC: Carousel — remove deleted photos from journal strip | gem | in_work | When a user deletes a photo from their device libr... |
-| **bocg3sgl** | SC: Video player — audio silent in-app, works when shared | gem | merged | The in-app video player produces no sound during p... |
 | **6osfrajh** | SC-029: Suite B — geocoding and batch grouping tests (geocoder mocked) | gem | planned | Implement Tier-1 tests for coordinate→place-name d... |
 | **eoyc46qz** | SC-031: Suite D — sparse-day rotation logic tests | gem | planned | Implement Tier-1 tests for the rotation that fills... |
-| **tzhgoay8** | SC-032: Suite E — generation counter and paywall gate tests | clau | in_work | Implement Tier-1 tests for the free-tier gate (3 f... |
-| **kwhbn41i** | SC-033: Journal entries list — browsable past-day entries, add/edit any day | clau | merged | The Journal tab must become a proper two-way journ... |
+| **tzhgoay8** | SC-032: Suite E — generation counter and paywall gate tests | clau | merged | Implement Tier-1 tests for the free-tier gate (3 f... |
 | **dehd7lfh** | SC-034: Board text — title and optional note per board | gem | planned | A board without text is just a photo album. Board ... |
-| **sxbk33ru** | SC-036: Graph populate — typed nodes from all five sources | codi | merged | Populate the concept graph with typed, colour-code... |
 | **9abbla3l** | SC-037: Cosmology layout and edges — celestial restyle of concept graph | codi | in_work | Restyle the existing simd_float2 + SwiftUI Canvas ... |
 | **7cjoevq5** | SC-038: Oracle prompt assembly — 5-source context + style + constraint blocks | clau | in_work | Implement the structured prompt assembly contract ... |
 | **d8brv4xa** | SC-039: Journal-as-primary-flavor weighting in oracle context | gem | planned | When a journal entry exists for the day, it must b... |
