@@ -690,7 +690,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **1ssloqmc** | test | clau | in_work |  |
+| **1ssloqmc** | test | clau | merged |  |
 | **8gpnj8nf** | SC: Carousel — remove deleted photos from journal strip | gem | planned | When a user deletes a photo from their device libr... |
 | **duzsa4p0** | SC: Crash on second photo describe — enforce thermal pause | clau | planned | App crashed when the oracle was asked to describe ... |
 | **eit6arnu** | SC: Oracle generation — stream tokens as they are produced | gem | in_work | Both 'Consult the Oracle' (journal generation) and... |
@@ -712,8 +712,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **9abbla3l** | SC-037: Cosmology layout and edges — celestial restyle of concept graph | codi | planned | Restyle the existing simd_float2 + SwiftUI Canvas ... |
 | **7cjoevq5** | SC-038: Oracle prompt assembly — 5-source context + style + constraint blocks | clau | planned | Implement the structured prompt assembly contract ... |
 | **d8brv4xa** | SC-039: Journal-as-primary-flavor weighting in oracle context | gem | planned | When a journal entry exists for the day, it must b... |
-| **z7mf2nu1** | SC-041: Board-scoped oracle generation — board text as user-voice input | gem | planned | Extend oracle generation to boards. When the oracl... |
 | **crtisb5t** | SC-040: Tone-safety constraint block and human-sampling tuning protocol | clau | planned | Journaling introduces real, possibly painful self-... |
+| **z7mf2nu1** | SC-041: Board-scoped oracle generation — board text as user-voice input | gem | planned | Extend oracle generation to boards. When the oracl... |
 | **xw01g8lu** | test | clau | planned |  |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
