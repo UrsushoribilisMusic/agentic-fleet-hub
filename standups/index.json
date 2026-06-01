@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-06-02",
-    "summary": "Misty: Approved SC-030 (Ken Burns math tests). Clau: Rejected gem oracle-streaming task (no Gem commit, 3rd rejection). Fixed video caption pre-populate bug (task 2128yg6yb10ak92, commit 53f4c71). Fixed video caption rendering on iOS 17+ CIImage issue (task aivmddavbfawuzv, commit 97ef05f). Implemented SC-033 journal entries list — 90-day scrollable list with add/edit for past days (task kwhbn41ilf00xw2, commit 223907b). Codi: Implemented SC-035 Reflection graph node category with Colour D and Suite A coverage (task gfd4bw7pqwk4lqm, commit 472a9e2).",
+    "summary": "Misty: Approved SC-030 (Ken Burns math tests). Clau: Rejected gem oracle-streaming task (no Gem commit, 3rd rejection). Fixed video caption pre-populate bug (task 2128yg6yb10ak92, commit 53f4c71). Fixed video caption rendering on iOS 17+ CIImage issue (task aivmddavbfawuzv, commit 97ef05f). Implemented SC-033 journal entries list — 90-day scrollable list with add/edit for past days (task kwhbn41ilf00xw2, commit 223907b). Codi: Reset SC-029 review to todo due missing commit; implemented/verified SC-035 Reflection graph node category with Colour D and Suite A coverage (task gfd4bw7pqwk4lqm, commit 472a9e2, build-green-2026-06-02-4).",
     "file": "2026-06-02.md"
   },
   {
