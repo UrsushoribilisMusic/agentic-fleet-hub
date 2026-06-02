@@ -34,12 +34,15 @@ services:
       dockerfile: Dockerfile.fleet-hub
     restart: unless-stopped
     ports:
-      - "8787:8787"
+      - "${FLEET_BIND_HOST:-127.0.0.1}:8787:8787"
     environment:
       PORT: "8787"
       LOCAL_MODE: "${LOCAL_MODE:-true}"
       POCKETBASE_URL: "http://pocketbase:8090"
       FLEET_SYNC_TOKEN: "${FLEET_SYNC_TOKEN:-}"
+      FLEET_API_SECRET: "${FLEET_API_SECRET:-}"
+      FLEET_WORKSPACE_ROOT: "${FLEET_WORKSPACE_ROOT:-}"
+      FLEET_BIND_HOST: "${FLEET_BIND_HOST:-127.0.0.1}"
       GOOGLE_CLIENT_ID: "${GOOGLE_CLIENT_ID:-}"
       GOOGLE_CLIENT_SECRET: "${GOOGLE_CLIENT_SECRET:-}"
       GOOGLE_AUTH_COOKIE_SECRET: "${GOOGLE_AUTH_COOKIE_SECRET:-changeme}"

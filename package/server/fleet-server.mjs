@@ -102,6 +102,21 @@ const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET || "";
 const COOKIE_SECRET        = process.env.GOOGLE_AUTH_COOKIE_SECRET || "change-me-in-production";
 const ALLOWED_EMAILS_RAW   = (process.env.GOOGLE_AUTH_ALLOWED_EMAILS || "").split(",").map(e => e.trim().toLowerCase()).filter(Boolean);
 
+// Static bearer-token fallback when OAuth is not configured.
+// Set FLEET_API_SECRET to a long random string (e.g. openssl rand -hex 32).
+const FLEET_API_SECRET = process.env.FLEET_API_SECRET || "";
+
+// Workspace root — repo_path in /fleet/api/setup must resolve inside this directory.
+// Defaults to the user's home directory if unset (permissive but still blocks absolute escapes
+// to /etc or / on most deployments). Set explicitly in production.
+const FLEET_WORKSPACE_ROOT = process.env.FLEET_WORKSPACE_ROOT
+  ? path.resolve(process.env.FLEET_WORKSPACE_ROOT)
+  : path.resolve(os.homedir());
+
+// Bind host — defaults to loopback so the server is not accidentally exposed on VPS deployments.
+// Set FLEET_BIND_HOST=0.0.0.0 when running behind a reverse proxy that handles TLS and auth.
+const FLEET_BIND_HOST = process.env.FLEET_BIND_HOST || "127.0.0.1";
+
 // Static roots: map URL prefix → local directory
 const STATIC_ROOTS = {
   "/fleet":     path.join(__dirname, "..", "dashboard", "engineering"),
@@ -426,11 +441,33 @@ async function handler(req, res) {
 
   // ── Fleet API ─────────────────────────────────────────────────────────────
   if (urlPath.startsWith("/fleet/api/")) {
-    // Auth gate for private fleet API (skip for /demo and /growth)
-    if (GOOGLE_CLIENT_ID && GOOGLE_CLIENT_SECRET) {
-      const email = getAuthedEmail(req);
-      if (!email) {
-        return send(res, 401, { ok: false, error: "unauthenticated" }, requestId);
+    // Public read-only growth/demo endpoints — intentionally ungated.
+    const isPublicRead = (
+      (urlPath === "/fleet/api/config/demo"   && req.method === "GET") ||
+      (urlPath === "/fleet/api/config/growth" && req.method === "GET")
+    );
+
+    // Auth gate — fail closed: every private route requires authentication regardless
+    // of whether OAuth credentials are configured.
+    //   1. Google OAuth (preferred for multi-user deployments)
+    //   2. Static bearer token via FLEET_API_SECRET (single-user / CI)
+    //   3. Loopback-only fallback when neither is configured (local dev only)
+    if (!isPublicRead) {
+      if (GOOGLE_CLIENT_ID && GOOGLE_CLIENT_SECRET) {
+        const email = getAuthedEmail(req);
+        if (!email) return send(res, 401, { ok: false, error: "unauthenticated" }, requestId);
+      } else if (FLEET_API_SECRET) {
+        const auth = (req.headers["authorization"] || "").trim();
+        if (auth !== `Bearer ${FLEET_API_SECRET}`) {
+          return send(res, 401, { ok: false, error: "unauthenticated" }, requestId);
+        }
+      } else {
+        // No auth configured — only loopback connections allowed.
+        const remote = req.socket?.remoteAddress || "";
+        const loopback = remote === "127.0.0.1" || remote === "::1" || remote === "::ffff:127.0.0.1";
+        if (!loopback) {
+          return send(res, 401, { ok: false, error: "no_auth_configured" }, requestId);
+        }
       }
     }
 
@@ -557,6 +594,16 @@ async function handler(req, res) {
     // POST /fleet/api/setup
     if (urlPath === "/fleet/api/setup" && req.method === "POST") {
       const body = await readBody(req);
+
+      // Validate repo_path stays within FLEET_WORKSPACE_ROOT to prevent arbitrary
+      // filesystem writes. path.resolve normalises traversal (../../etc) before the check.
+      if (body.repo_path) {
+        const resolved = path.resolve(String(body.repo_path));
+        if (!resolved.startsWith(FLEET_WORKSPACE_ROOT + path.sep) && resolved !== FLEET_WORKSPACE_ROOT) {
+          return send(res, 400, { ok: false, error: "repo_path_outside_workspace" }, requestId);
+        }
+      }
+
       let nextMeta = buildSetupPayload(fleetMeta, body);
       let bootstrap = null;
 
@@ -746,8 +793,9 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, () => {
-  console.log(`[fleet-server] Running on http://localhost:${PORT}`);
+server.listen(PORT, FLEET_BIND_HOST, () => {
+  console.log(`[fleet-server] Running on http://${FLEET_BIND_HOST}:${PORT}`);
   console.log(`[fleet-server] Data dir: ${FLEET_DATA_DIR}`);
-  console.log(`[fleet-server] OAuth: ${GOOGLE_CLIENT_ID ? "enabled" : "disabled (set GOOGLE_CLIENT_ID to enable)"}`);
+  console.log(`[fleet-server] Auth: ${GOOGLE_CLIENT_ID ? "Google OAuth" : FLEET_API_SECRET ? "bearer token" : "loopback-only (set FLEET_API_SECRET or GOOGLE_CLIENT_ID)"}`);
+  console.log(`[fleet-server] Workspace root: ${FLEET_WORKSPACE_ROOT}`);
 });
