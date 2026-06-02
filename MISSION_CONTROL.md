@@ -712,7 +712,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **eoyc46qz** | SC-031: Suite D — sparse-day rotation logic tests | clau | planned | Implement Tier-1 tests for the rotation that fills... |
+| **eoyc46qz** | SC-031: Suite D — sparse-day rotation logic tests | clau | in_work | Implement Tier-1 tests for the rotation that fills... |
 | **dehd7lfh** | SC-034: Board text — title and optional note per board | clau | in_work | A board without text is just a photo album. Board ... |
 | **z7mf2nu1** | SC-041: Board-scoped oracle generation — board text as user-voice input | clau | planned | Extend oracle generation to boards. When the oracl... |
 
