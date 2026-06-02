@@ -713,7 +713,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **eoyc46qz** | SC-031: Suite D — sparse-day rotation logic tests | gem | planned | Implement Tier-1 tests for the rotation that fills... |
-| **dehd7lfh** | SC-034: Board text — title and optional note per board | clau | planned | A board without text is just a photo album. Board ... |
+| **dehd7lfh** | SC-034: Board text — title and optional note per board | clau | in_work | A board without text is just a photo album. Board ... |
 | **z7mf2nu1** | SC-041: Board-scoped oracle generation — board text as user-voice input | clau | merged | Extend oracle generation to boards. When the oracl... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
