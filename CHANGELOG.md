@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.5.1] - 2026-06-02
+
+### Security
+- **Auth gate fail-closed**: Fleet Hub now blocks non-GET requests when neither OAuth nor `FLEET_API_SECRET` is configured. Loopback-only fallback for local dev.
+- **repo_path traversal**: `/fleet/api/setup` validates `repo_path` against `FLEET_WORKSPACE_ROOT`; paths escaping the allowed tree are rejected.
+- **Port binding**: `docker-compose.yml` now binds to `127.0.0.1:8787` by default instead of `0.0.0.0`. Override with `FLEET_BIND_HOST`.
+- **Public route whitelist**: `/fleet/api/config/demo` and `/fleet/api/config/growth` explicitly whitelisted for unauthenticated GET; all other endpoints require auth.
+
+New env vars: `FLEET_API_SECRET`, `FLEET_WORKSPACE_ROOT`, `FLEET_BIND_HOST`.
+
 ## [0.5.0] - 2026-05-17
 
 ### Added
