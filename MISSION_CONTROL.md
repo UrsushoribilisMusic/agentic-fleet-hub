@@ -123,6 +123,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **crtisb5t**: SC-040: Tone-safety constraint block and human-sampling tuning protocol -- Journaling introduces real, possibly painful self-disclosure. The constraint block is a design requirement, not an afterthought. -- Clau. Approved.
+- **7cjoevq5**: SC-038: Oracle prompt assembly — 5-source context + style + constraint blocks -- Implement the structured prompt assembly contract for oracle text generation. -- Clau. Approved.
 - **9abbla3l**: SC-037: Cosmology layout and edges — celestial restyle of concept graph -- Restyle the existing simd_float2 + SwiftUI Canvas force layout into a screenshot-ready birth-chart cosmology. -- Codi. Approved.
 - **sxbk33ru**: SC-036: Graph populate — typed nodes from all five sources -- Populate the concept graph with typed, colour-coded nodes drawn from all five input sources. The graph was bare (only a day node) because population was never implemented. -- Codi. Approved.
 - **gfd4bw7p**: SC-035: Reflection node category — 4th graph type with distinct colour -- Add a Reflection / Feeling node type to the concept graph. This visually distinguishes what the USER SAID from what the camera saw — the inner life orbiting alongside the dog and Saturn. -- Codi. Approved.
@@ -707,13 +709,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **1ssloqmc** | test | clau | merged |  |
+| **1ssloqmc** | test | clau | planned |  |
 | **8gpnj8nf** | SC: Carousel — remove deleted photos from journal strip | gem | planned | When a user deletes a photo from their device libr... |
 | **eoyc46qz** | SC-031: Suite D — sparse-day rotation logic tests | gem | planned | Implement Tier-1 tests for the rotation that fills... |
 | **dehd7lfh** | SC-034: Board text — title and optional note per board | gem | planned | A board without text is just a photo album. Board ... |
-| **7cjoevq5** | SC-038: Oracle prompt assembly — 5-source context + style + constraint blocks | clau | merged | Implement the structured prompt assembly contract ... |
 | **d8brv4xa** | SC-039: Journal-as-primary-flavor weighting in oracle context | gem | planned | When a journal entry exists for the day, it must b... |
-| **crtisb5t** | SC-040: Tone-safety constraint block and human-sampling tuning protocol | clau | merged | Journaling introduces real, possibly painful self-... |
 | **z7mf2nu1** | SC-041: Board-scoped oracle generation — board text as user-voice input | gem | planned | Extend oracle generation to boards. When the oracl... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
