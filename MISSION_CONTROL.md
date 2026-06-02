@@ -143,6 +143,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **l99pv2is**: [SUPERSEDED by SC-033] Journal tab — show list of past journal entries -- Superseded by SC-033 (journal entries list — full add/edit for past days). SC-033 covers everything here plus write access for past days and Reflection node feeds. This ticket is closed. -- Clau. Approved.
 - **eit6arnu**: SC: Oracle generation — stream tokens as they are produced -- Both 'Consult the Oracle' (journal generation) and 'Oracle Composes' (compose/caption flow) currently show a spinner and then reveal the full text at once. The oracle should stream tokens as Ministral 3B produces them, the same way PrivateCore shows live output. -- Gem. Approved.
 - **duzsa4p0**: SC: Crash on second photo describe — enforce thermal pause -- App crashed when the oracle was asked to describe a second photo in the same session. Suspected cause: MLXEngine not pausing between consecutive inference requests when device is hot. -- Clau. Approved.
+- **8gpnj8nf**: SC: Carousel — remove deleted photos from journal strip -- When a user deletes a photo from their device library, the photo thumbnail still appears in the Journal carousel. The carousel should refresh and omit any photos that are no longer present in PHPhotoLibrary. -- Clau. Approved.
 - **a3g34dhf**: Question about multi-model key management -- Multi-model orchestration across Claude, Gemini, and Codex — this is exactly the kind of architecture we built AsterWorks for. Have you looked at centralizing your API key management through a gateway? Happy to chat about what we have learned building one. -- Clau. Approved.
 - **0k1qz3q0**: [SC-025][P0] Text-model A/B toggle (Settings: Qwen vs Ministral for text) + telemetry -- App Shell · 5 pts -- Codi. Approved.
 - **8vugwiik**: [SC-024][P1] Reel/PDF dual-artifact export from one warm text-model session -- Engine · 3 pts -- Clau. Approved.
@@ -709,8 +710,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **1ssloqmc** | test | clau | merged |  |
-| **8gpnj8nf** | SC: Carousel — remove deleted photos from journal strip | clau | merged | When a user deletes a photo from their device libr... |
+| **1ssloqmc** | test | clau | planned |  |
 | **eoyc46qz** | SC-031: Suite D — sparse-day rotation logic tests | gem | planned | Implement Tier-1 tests for the rotation that fills... |
 | **dehd7lfh** | SC-034: Board text — title and optional note per board | gem | planned | A board without text is just a photo album. Board ... |
 | **d8brv4xa** | SC-039: Journal-as-primary-flavor weighting in oracle context | gem | planned | When a journal entry exists for the day, it must b... |
