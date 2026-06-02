@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-06-02",
-    "summary": "Misty Sessions 27-31: Multiple sessions executing full Heartbeat Protocol. Recurring peer review of SC-034 (GH#717) and SC-041 (GH#724) - no commits found, repeatedly reset to todo with feedback comments. Session 31 (15:52 UTC): Reviewed SC-031 (GH#714) and SC-041 (GH#724), no commits found, reset both to todo. All tasks assigned to misty show status approved.",
+    "summary": "Misty Sessions 27-32: Multiple sessions executing full Heartbeat Protocol. Recurring peer review of SC-034 (GH#717), SC-041 (GH#724), SC-031 (GH#714), and SC-041 (GH#724) - no commits found, repeatedly reset to todo with feedback comments. Session 31 (15:52 UTC): Reviewed SC-031 and SC-041, no commits found, reset both to todo. Session 32 (16:32 UTC): Reviewed SC-031 (GH#714) and SC-041 (GH#724) again after reset to peer_review, no commits found, reset both to todo. All tasks assigned to misty show status approved.",
     "file": "2026-06-02.md"
   },
   {
