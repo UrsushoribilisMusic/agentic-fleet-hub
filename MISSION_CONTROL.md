@@ -123,6 +123,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **z7mf2nu1**: SC-041: Board-scoped oracle generation — board text as user-voice input -- Extend oracle generation to boards. When the oracle prophesies over a board, board text (title + note) is its user-voice input, mirroring the role journal plays for day/week scope. -- Clau. Approved.
 - **crtisb5t**: SC-040: Tone-safety constraint block and human-sampling tuning protocol -- Journaling introduces real, possibly painful self-disclosure. The constraint block is a design requirement, not an afterthought. -- Clau. Approved.
 - **d8brv4xa**: SC-039: Journal-as-primary-flavor weighting in oracle context -- When a journal entry exists for the day, it must be the STRONGEST signal in the oracle context. The prophecy should feel anchored to what the user said the day meant — restyled, not a generic read of the photos. -- Clau. Approved.
 - **7cjoevq5**: SC-038: Oracle prompt assembly — 5-source context + style + constraint blocks -- Implement the structured prompt assembly contract for oracle text generation. -- Clau. Approved.
@@ -712,8 +713,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **eoyc46qz** | SC-031: Suite D — sparse-day rotation logic tests | clau | planned | Implement Tier-1 tests for the rotation that fills... |
+| **eoyc46qz** | SC-031: Suite D — sparse-day rotation logic tests | clau | merged | Implement Tier-1 tests for the rotation that fills... |
 | **dehd7lfh** | SC-034: Board text — title and optional note per board | clau | in_work | A board without text is just a photo album. Board ... |
-| **z7mf2nu1** | SC-041: Board-scoped oracle generation — board text as user-voice input | clau | in_work | Extend oracle generation to boards. When the oracl... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
