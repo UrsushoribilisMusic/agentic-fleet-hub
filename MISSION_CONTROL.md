@@ -123,6 +123,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **b7t8rkyn**: SC-048: Unbundle video style model — 2-axis architecture (text style × audio genre) -- The current model locks text+visual in fixed pairs (Shakespeare+Engraving, etc.) — the old PrivateCore 7-fixed-style-worlds model. SC-048 unbundles them into two independent axes: -- Clau. Approved.
 - **z7mf2nu1**: SC-041: Board-scoped oracle generation — board text as user-voice input -- Extend oracle generation to boards. When the oracle prophesies over a board, board text (title + note) is its user-voice input, mirroring the role journal plays for day/week scope. -- Clau. Approved.
 - **crtisb5t**: SC-040: Tone-safety constraint block and human-sampling tuning protocol -- Journaling introduces real, possibly painful self-disclosure. The constraint block is a design requirement, not an afterthought. -- Clau. Approved.
 - **d8brv4xa**: SC-039: Journal-as-primary-flavor weighting in oracle context -- When a journal entry exists for the day, it must be the STRONGEST signal in the oracle context. The prophecy should feel anchored to what the user said the day meant — restyled, not a generic read of the photos. -- Clau. Approved.
@@ -715,9 +716,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **b7t8rkyn** | SC-048: Unbundle video style model — 2-axis architecture (text style × audio genre) | clau | merged | The current model locks text+visual in fixed pairs... |
 | **41pydrb7** | SC-049: Genre axis — 4 audio genres with derived visual treatments | clau | merged | Each of the 4 genres determines both the music sel... |
-| **ppsolzq5** | SC-050: Lyric generation for full 4×4 grid — per-combo prompts (text-style persona + genre meter) | clau | in_work | Update the lyric generation system (SC-021) to sup... |
+| **ppsolzq5** | SC-050: Lyric generation for full 4×4 grid — per-combo prompts (text-style persona + genre meter) | clau | merged | Update the lyric generation system (SC-021) to sup... |
 | **mlzb2awg** | SC-051: Build full 4×4 matrix capability — all 16 text-style × genre combos | clau | planned | Build end-to-end working capability for all 16 com... |
 | **gexhbpcl** | SC-052: Pre-launch curation pass — eyeball all 16 combos, feature bangers, hide duds | clau | planned | Miguel eyeballs all 16 generated combo examples on... |
 | **ahhk2xek** | SC-053: Video style picker UI — 2-tap selection (oracle voice + genre) | clau | planned | Redesign the video style picker from a single lock... |
