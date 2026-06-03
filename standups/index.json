@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-06-04",
-    "summary": "Misty: Executed full Heartbeat Protocol Phase 1-6. Peer reviewed SC-052 (Pre-launch curation pass) - no commits found, files exist as untracked, reset to todo with feedback comment. No todo tasks assigned to misty.",
+    "summary": "Misty: Executed full Heartbeat Protocol Phase 1-6. Peer reviewed SC-050 (GH#727, Lyric generation) and SC-051 (GH#728, 4x4 matrix capability) - no commits found, reset both to todo with feedback comments. Posted workflow lesson on recurring pattern of tasks moved to peer_review without commits. No todo tasks assigned to misty.",
     "file": "2026-06-04.md"
   },
   {
