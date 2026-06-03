@@ -716,7 +716,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **b7t8rkyn** | SC-048: Unbundle video style model — 2-axis architecture (text style × audio genre) | clau | planned | The current model locks text+visual in fixed pairs... |
-| **41pydrb7** | SC-049: Genre axis — 4 audio genres with derived visual treatments | clau | in_work | Each of the 4 genres determines both the music sel... |
+| **41pydrb7** | SC-049: Genre axis — 4 audio genres with derived visual treatments | clau | merged | Each of the 4 genres determines both the music sel... |
 | **ppsolzq5** | SC-050: Lyric generation for full 4×4 grid — per-combo prompts (text-style persona + genre meter) | clau | planned | Update the lyric generation system (SC-021) to sup... |
 | **mlzb2awg** | SC-051: Build full 4×4 matrix capability — all 16 text-style × genre combos | clau | planned | Build end-to-end working capability for all 16 com... |
 | **gexhbpcl** | SC-052: Pre-launch curation pass — eyeball all 16 combos, feature bangers, hide duds | clau | planned | Miguel eyeballs all 16 generated combo examples on... |
