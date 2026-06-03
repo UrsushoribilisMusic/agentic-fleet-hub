@@ -718,7 +718,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **ppsolzq5** | SC-050: Lyric generation for full 4×4 grid — per-combo prompts (text-style persona + genre meter) | clau | merged | Update the lyric generation system (SC-021) to sup... |
-| **mlzb2awg** | SC-051: Build full 4×4 matrix capability — all 16 text-style × genre combos | clau | planned | Build end-to-end working capability for all 16 com... |
+| **mlzb2awg** | SC-051: Build full 4×4 matrix capability — all 16 text-style × genre combos | clau | in_work | Build end-to-end working capability for all 16 com... |
 | **gexhbpcl** | SC-052: Pre-launch curation pass — eyeball all 16 combos, feature bangers, hide duds | clau | merged | Miguel eyeballs all 16 generated combo examples on... |
 | **ahhk2xek** | SC-053: Video style picker UI — 2-tap selection (oracle voice + genre) | clau | planned | Redesign the video style picker from a single lock... |
 
