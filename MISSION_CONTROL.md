@@ -720,7 +720,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **ahhk2xek** | SC-053: Video model v2 — 3-axis engine (text style × music score × visual style) + voice/subtitle toggles | clau | in_work | Video model v2: 3-axis engine (text style × music ... |
+| **ahhk2xek** | SC-053: Video model v2 — 3-axis engine (text style × music score × visual style) + voice/subtitle toggles | clau | merged | Video model v2: 3-axis engine (text style × music ... |
 | **noei6ytg** | SC-054: Integrate 10 musical scores as the score picker (video) | gem | in_work | Add 10 real music scores to the app as the music s... |
 | **ewt3knwd** | SC-055: Voice-over toggle (default OFF) + best neural voice + per-character pitch/rate | clau | planned | Take TTS voice off the critical path — it is opt-i... |
 | **94usopf3** | SC-056: Kinetic subtitles — always-on, per-style typography, legibility scrim | clau | planned | Subtitles are the hero element with voice off by d... |
