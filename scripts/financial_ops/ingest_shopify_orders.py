@@ -8,8 +8,10 @@ import datetime as dt
 import hashlib
 import json
 import os
+import subprocess
 import sys
 import time
+import tempfile
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -22,10 +24,173 @@ ATTRIBUTED_LINES = {"cr-fables", "cr-lostcoins", "cr-soulmd", "cr-sold"}
 DEFAULT_API_VERSION = "2025-10"
 DEFAULT_PB_URL = "http://127.0.0.1:8090"
 DEFAULT_COLLECTION = "shopify_orders"
+INFISICAL_DOMAIN = "https://eu.infisical.com"
+INFISICAL_ENV = "dev"
+REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+MUSIC_TOOL_ROOT = os.path.abspath(os.path.join(REPO_ROOT, "..", "music-video-tool"))
+MUSIC_TOOL_ENV = os.path.join(MUSIC_TOOL_ROOT, ".env")
+VAULT_DIR = os.path.join(REPO_ROOT, "vault")
 
 
 class IngestionError(RuntimeError):
     pass
+
+
+def load_env_file(path: str) -> dict[str, str]:
+    values: dict[str, str] = {}
+    if not os.path.exists(path):
+        return values
+    with open(path, encoding="utf-8") as handle:
+        for raw in handle:
+            line = raw.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, value = line.split("=", 1)
+            key = key.strip()
+            value = value.strip().strip('"').strip("'")
+            if key:
+                values[key] = value
+                if key.startswith("INFISICAL_") and key not in os.environ:
+                    os.environ[key] = value
+    return values
+
+
+def load_shopify_secrets() -> dict[str, str]:
+    load_env_file(MUSIC_TOOL_ENV)
+    names = (
+        "SHOPIFY_SHOP_DOMAIN",
+        "SHOPIFY_ADMIN_ACCESS_TOKEN",
+        "SHOPIFY_ADMIN_TOKEN",
+        "SHOPIFY_CLIENT_ID",
+        "SHOPIFY_CLIENT_SECRET",
+    )
+    secrets: dict[str, str] = {}
+    for name in names:
+        value = fetch_infisical_secret(name) or os.environ.get(name, "")
+        if value:
+            secrets[name] = value
+    if secrets.get("SHOPIFY_ADMIN_TOKEN") and not secrets.get("SHOPIFY_ADMIN_ACCESS_TOKEN"):
+        secrets["SHOPIFY_ADMIN_ACCESS_TOKEN"] = secrets["SHOPIFY_ADMIN_TOKEN"]
+    return secrets
+
+
+def infisical_auth_args() -> list[str]:
+    token = os.environ.get("INFISICAL_TOKEN", "")
+    if not token:
+        return []
+    args = ["--token", token]
+    project_id = os.environ.get("INFISICAL_PROJECT_ID")
+    if project_id:
+        args += ["--projectId", project_id]
+    return args
+
+
+def fetch_infisical_secret(name: str) -> str:
+    auth_args = infisical_auth_args()
+    if not auth_args:
+        return ""
+    cmd = [
+        "infisical",
+        "secrets",
+        "get",
+        name,
+        "--domain",
+        INFISICAL_DOMAIN,
+        "--env",
+        INFISICAL_ENV,
+        "--plain",
+        "--silent",
+    ] + auth_args
+    try:
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=15)
+    except Exception as exc:
+        print(f"[Vault] WARNING: Infisical CLI error for {name}: {exc}", file=sys.stderr)
+        return ""
+    if result.returncode == 0 and result.stdout.strip():
+        return result.stdout.strip()
+    detail = (result.stderr or result.stdout).strip().splitlines()
+    message = detail[-1] if detail else "unknown error"
+    print(f"[Vault] WARNING: could not fetch {name}: {message}", file=sys.stderr)
+    return ""
+
+
+def set_infisical_secrets(values: dict[str, str]) -> None:
+    auth_args = infisical_auth_args()
+    if not auth_args:
+        raise IngestionError("INFISICAL_TOKEN is required to update stale Shopify credentials")
+    fd, path = tempfile.mkstemp(prefix="shopify-vault-", suffix=".env", dir="/private/tmp")
+    os.close(fd)
+    os.chmod(path, 0o600)
+    try:
+        with open(path, "w", encoding="utf-8") as handle:
+            for key, value in values.items():
+                handle.write(f"{key}={value}\n")
+        cmd = [
+            "infisical",
+            "secrets",
+            "set",
+            "--file",
+            path,
+            "--domain",
+            INFISICAL_DOMAIN,
+            "--env",
+            INFISICAL_ENV,
+            "--silent",
+        ] + auth_args
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+    finally:
+        try:
+            os.remove(path)
+        except FileNotFoundError:
+            pass
+    if result.returncode != 0:
+        detail = (result.stderr or result.stdout).strip().splitlines()
+        message = detail[-1] if detail else "unknown error"
+        raise IngestionError(f"could not update Shopify token in Infisical: {message}")
+
+
+def refresh_shopify_admin_token(secrets: dict[str, str]) -> str:
+    shop_domain = secrets.get("SHOPIFY_SHOP_DOMAIN", "")
+    client_id = secrets.get("SHOPIFY_CLIENT_ID", "")
+    client_secret = secrets.get("SHOPIFY_CLIENT_SECRET", "")
+    if not shop_domain or not client_id or not client_secret:
+        raise IngestionError("Shopify token is stale, and SHOPIFY_CLIENT_ID/SHOPIFY_CLIENT_SECRET are missing in vault")
+
+    body = urllib.parse.urlencode(
+        {
+            "grant_type": "client_credentials",
+            "client_id": client_id,
+            "client_secret": client_secret,
+        }
+    ).encode("utf-8")
+    req = urllib.request.Request(
+        f"https://{normalize_shop_domain(shop_domain)}/admin/oauth/access_token",
+        data=body,
+        headers={"Accept": "application/json", "Content-Type": "application/x-www-form-urlencoded"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=30) as response:
+            payload = json.loads(response.read().decode("utf-8") or "{}")
+    except urllib.error.HTTPError as exc:
+        detail = exc.read().decode("utf-8", errors="replace")
+        raise IngestionError(f"Shopify token refresh failed: HTTP {exc.code} {detail}") from exc
+    except urllib.error.URLError as exc:
+        raise IngestionError(f"Shopify token refresh failed: {exc.reason}") from exc
+
+    token = str(payload.get("access_token") or "").strip()
+    if not token.startswith("shpat_"):
+        raise IngestionError("Shopify token refresh did not return an Admin API token")
+    try:
+        set_infisical_secrets({"SHOPIFY_ADMIN_TOKEN": token, "SHOPIFY_ADMIN_ACCESS_TOKEN": token})
+        print("[Shopify] Refreshed stale Admin API token and updated Infisical.", file=sys.stderr)
+    except IngestionError as exc:
+        print(
+            "[Shopify] Refreshed stale Admin API token for this run, "
+            f"but could not update Infisical: {exc}",
+            file=sys.stderr,
+        )
+    return token
 
 
 @dataclass(frozen=True)
@@ -285,6 +450,21 @@ class PocketBaseClient:
         return "updated"
 
 
+class DryRunPocketBaseClient:
+    def upsert_order_line(self, line: ShopifyOrderLine) -> str:
+        record = line.as_pocketbase_record()
+        print(
+            "dry-run shopify_order "
+            f"order_id={record['order_id']} "
+            f"created_at={record['created_at']} "
+            f"line_total={record['line_total']} "
+            f"currency={record['currency']} "
+            f"attributed_line={record['attributed_line']} "
+            f"product_handle={record['product_handle']}"
+        )
+        return "dry_run"
+
+
 def utc_window_for_day(day: dt.date) -> tuple[str, str]:
     start = dt.datetime.combine(day, dt.time.min, tzinfo=dt.timezone.utc)
     end = start + dt.timedelta(days=1)
@@ -310,10 +490,18 @@ def load_product_cache(client: ShopifyClient, orders: list[dict[str, Any]]) -> d
     return cache
 
 
+def is_stale_shopify_token_error(exc: Exception) -> bool:
+    text = str(exc)
+    return "HTTP 401" in text and "Invalid API key or access token" in text
+
+
 def run_ingestion(args: argparse.Namespace) -> dict[str, int]:
-    shop_domain = args.shop_domain or os.getenv("SHOPIFY_SHOP_DOMAIN", "")
+    secrets = load_shopify_secrets()
+    shop_domain = args.shop_domain or secrets.get("SHOPIFY_SHOP_DOMAIN", "") or os.getenv("SHOPIFY_SHOP_DOMAIN", "")
     access_token = (
         args.shopify_token
+        or secrets.get("SHOPIFY_ADMIN_ACCESS_TOKEN", "")
+        or secrets.get("SHOPIFY_ADMIN_TOKEN", "")
         or os.getenv("SHOPIFY_ADMIN_ACCESS_TOKEN", "")
         or os.getenv("SHOPIFY_ADMIN_TOKEN", "")
     )
@@ -332,19 +520,37 @@ def run_ingestion(args: argparse.Namespace) -> dict[str, int]:
         access_token=access_token,
         api_version=args.shopify_api_version,
     )
-    pocketbase = PocketBaseClient(
-        base_url=args.pocketbase_url,
-        collection=args.pocketbase_collection,
-        admin_token=args.pocketbase_token or os.getenv("POCKETBASE_ADMIN_TOKEN", ""),
+    pocketbase = (
+        DryRunPocketBaseClient()
+        if args.dry_run
+        else PocketBaseClient(
+            base_url=args.pocketbase_url,
+            collection=args.pocketbase_collection,
+            admin_token=args.pocketbase_token or os.getenv("POCKETBASE_ADMIN_TOKEN", ""),
+        )
     )
 
-    if args.check_credentials:
-        shopify.fetch_orders(created_at_min, created_at_min)
-        return {"orders": 0, "lines": 0, "created": 0, "updated": 0}
+    try:
+        if args.check_credentials:
+            shopify.fetch_orders(created_at_min, created_at_min)
+            return {"orders": 0, "lines": 0, "created": 0, "updated": 0}
+        orders = shopify.fetch_orders(created_at_min, created_at_max)
+    except IngestionError as exc:
+        if args.shopify_token or not is_stale_shopify_token_error(exc):
+            raise
+        access_token = refresh_shopify_admin_token({**secrets, "SHOPIFY_SHOP_DOMAIN": shop_domain})
+        shopify = ShopifyClient(
+            shop_domain=shop_domain,
+            access_token=access_token,
+            api_version=args.shopify_api_version,
+        )
+        if args.check_credentials:
+            shopify.fetch_orders(created_at_min, created_at_min)
+            return {"orders": 0, "lines": 0, "created": 0, "updated": 0}
+        orders = shopify.fetch_orders(created_at_min, created_at_max)
 
-    orders = shopify.fetch_orders(created_at_min, created_at_max)
     products = load_product_cache(shopify, orders)
-    stats = {"orders": len(orders), "lines": 0, "created": 0, "updated": 0}
+    stats = {"orders": len(orders), "lines": 0, "created": 0, "updated": 0, "dry_run": 0}
 
     for order in orders:
         for line in build_order_lines(order, products):
@@ -367,6 +573,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--pocketbase-token", help="PocketBase admin token. Env: POCKETBASE_ADMIN_TOKEN.")
     parser.add_argument("--pocketbase-collection", default=os.getenv("SHOPIFY_ORDERS_COLLECTION", DEFAULT_COLLECTION))
     parser.add_argument("--check-credentials", action="store_true", help="Validate Shopify token access without writing rows.")
+    parser.add_argument("--dry-run", action="store_true", help="Fetch Shopify orders and print PocketBase writes without changing data.")
     return parser
 
 

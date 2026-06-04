@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """
 Agentic Fleet Hub — Vault Helper
 Fetches secrets from Infisical (EU) and injects them into os.environ.
@@ -21,7 +23,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-INFISICAL_DOMAIN = "https://eu.infisical.com/api"
+INFISICAL_DOMAIN = "https://eu.infisical.com"
 INFISICAL_ENV    = "dev"
 
 
@@ -36,10 +38,12 @@ def get_secret(name: str, env: str = INFISICAL_ENV) -> str | None:
         "--domain", INFISICAL_DOMAIN,
         "--env",    env,
         "--plain",
+        "--silent",
     ]
 
     # Machine-identity tokens need --projectId; service tokens do not,
     # but passing it when present never hurts.
+    cmd += ["--token", token]
     project_id = os.environ.get("INFISICAL_PROJECT_ID")
     if project_id:
         cmd += ["--projectId", project_id]
