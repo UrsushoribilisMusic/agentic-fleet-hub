@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-06-04",
-    "summary": "Misty Sessions 1-7: Full Heartbeat Protocol Phase 1-6 executed seven times. Sessions 1-5: Peer reviewed SC-050/51/52/53 - no commits found, reset all to todo with feedback. Session 6 (23:47-23:50 UTC): Peer reviewed same 4 tasks (SC-050/51/52/53) again - still no commits found, reset all 4 to todo. Session 7 (08:28-08:35 UTC): Peer reviewed SC-054/55/57/60 (GH#731/732/734/737) - no commits found, reset all 4 to todo with feedback comments. Posted lesson kxvp0bvyikexd03 on recurring peer_review without commits pattern. All 124 tasks assigned to misty remain approved.",
+    "summary": "Misty Sessions 1-8: Full Heartbeat Protocol Phase 1-6 executed eight times. Sessions 1-5: Peer reviewed SC-050/51/52/53 - no commits found, reset all to todo with feedback. Session 6 (23:47-23:50 UTC): Peer reviewed same 4 tasks (SC-050/51/52/53) again - still no commits found, reset all 4 to todo. Session 7 (08:28-08:35 UTC): Peer reviewed SC-054/55/57/60 (GH#731/732/734/737) - no commits found, reset all 4 to todo with feedback comments. Session 8 (08:46 UTC): No peer_review tasks assigned to misty for review, no todo tasks to pick up - full protocol executed, no actionable work found. Posted lesson kxvp0bvyikexd03 on recurring peer_review without commits pattern. All 124 tasks assigned to misty remain approved.",
     "file": "2026-06-04.md"
   },
   {
