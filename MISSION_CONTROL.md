@@ -123,6 +123,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **9fitiour**: SC-060: Retire audio-genre model (SC-048-052) + Suno instrumentals from docs/build -- Cleanup ticket. Remove from the codebase and docs any references to: the 4x4 genre x text-style lyric matrix, Suno-generated instrumental backing tracks, genre-derived visual treatments (Rap=bold/saturated etc.), genre axis as a picker. The audio-genre model is superseded by the 3-axis model (SC-053). Keep the backing-track library code if it can be repurposed for the 10 real scores (SC-054); otherwise remove it. -- Clau. Approved.
+- **t81q9h1t**: SC-059: 'Pick for me' button — cycles the 3 house combos 1→2→3→1 -- Add a 'Pick for me' button to the video style picker. Behaviour: cycles through the 3 blessed house combos from SC-058 in order 1→2→3→1 (not random — user can tap past one and knows they have seen them all). After picking, all three pickers remain manually adjustable — it is a starting point, not a lock. Serves cold-start users who do not want to make 3 choices. -- Clau. Approved.
+- **5xrtxeut**: SC-058: Define 3 house combos; set picker defaults to combo 1 -- Design task. Define exactly 3 'house' combos — full triples of (text style, music score, visual style) that are pre-confirmed to look and sound great together. These serve two purposes: (1) Picker defaults open on combo 1 so a first-time user who taps Generate without touching anything gets a coherent first video. (2) They are the 'Pick for me' cycle (SC-059). Miguel eyeballs each of the 3 combos and blesses them. Suggested starting point: Combo 1 = Shakespeare + [baroque-ish score] + No Style. Record blessed combos in a constants file. -- Clau. Approved.
+- **3c77saao**: SC-057: Independent visual-style picker (on-device-achievable looks) -- Third axis of the 3-axis video model. Visual style is chosen independently from text style and music score. Known working on-device looks: Sketch (noir+sketch filter), Neon (colour-grade), No Style (clean, no filter). Add more as validated — only lightweight colour-grade/filter/Ken Burns treatments; no style transfer or cartoon repaint (proven not to work on-device). Picker shows the available visual styles with preview thumbnails. -- Clau. Approved.
 - **ahhk2xek**: SC-053: Video model v2 — 3-axis engine (text style × music score × visual style) + voice/subtitle toggles -- Video model v2: 3-axis engine (text style × music score × visual style) + voice/subtitle toggles. Supersedes the SC-048-052 audio-genre model. Text: Shakespeare/Noir/Diva/Manga. Music: 10 real scores by sound-style. Visual: on-device-achievable looks (Sketch, Neon, No Style + others). Two toggles: Voice-over (default OFF), Subtitles (always ON). Picker defaults open on house combo 1. This is the new authoritative video model. -- Clau. Approved.
 - **gexhbpcl**: [SUPERSEDED by SC-053] SC-052: Pre-launch curation pass — eyeball all 16 combos, feature bangers, hide duds -- Miguel eyeballs all 16 generated combo examples on Mac Mini. This is the quality gate before shipping the video feature. -- Clau. Approved.
 - **mlzb2awg**: [SUPERSEDED by SC-053] SC-051: Build full 4×4 matrix capability — all 16 text-style × genre combos -- Build end-to-end working capability for all 16 combinations in the matrix: -- Clau. Approved.
@@ -721,12 +725,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **noei6ytg** | SC-054: Integrate 10 musical scores as the score picker (video) | gem | planned | Add 10 real music scores to the app as the music s... |
-| **ewt3knwd** | SC-055: Voice-over toggle (default OFF) + best neural voice + per-character pitch/rate | clau | in_work | Take TTS voice off the critical path — it is opt-i... |
-| **94usopf3** | SC-056: Kinetic subtitles — always-on, per-style typography, legibility scrim | clau | planned | Subtitles are the hero element with voice off by d... |
-| **3c77saao** | SC-057: Independent visual-style picker (on-device-achievable looks) | clau | merged | Third axis of the 3-axis video model. Visual style... |
-| **5xrtxeut** | SC-058: Define 3 house combos; set picker defaults to combo 1 | clau | planned | Design task. Define exactly 3 'house' combos — ful... |
-| **t81q9h1t** | SC-059: 'Pick for me' button — cycles the 3 house combos 1→2→3→1 | clau | planned | Add a 'Pick for me' button to the video style pick... |
-| **9fitiour** | SC-060: Retire audio-genre model (SC-048-052) + Suno instrumentals from docs/build | clau | planned | Cleanup ticket. Remove from the codebase and docs ... |
+| **noei6ytg** | SC-054: Integrate 10 musical scores as the score picker (video) | gem | merged | Add 10 real music scores to the app as the music s... |
+| **ewt3knwd** | SC-055: Voice-over toggle (default OFF) + best neural voice + per-character pitch/rate | clau | merged | Take TTS voice off the critical path — it is opt-i... |
+| **94usopf3** | SC-056: Kinetic subtitles — always-on, per-style typography, legibility scrim | clau | merged | Subtitles are the hero element with voice off by d... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
