@@ -731,14 +731,14 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **lyd57jdc** | CB-01: Research Mistral API — record model IDs + SDK signatures into SPEC_models.md | gem | in_work | Read docs.mistral.ai covering: Agents API, Documen... |
 | **5a5sqqqz** | CB-02: Browse mistral cookbook third_party examples — document conventions | gem | planned | Browse 2-3 existing third_party/ examples in githu... |
 | **ydl99tz3** | CB-03: Fork mistral/cookbook + scaffold third_party/automated-technical-file/ | clau | in_work | Fork github.com/mistralai/cookbook, create working... |
-| **qop52dwk** | CB-04: Rename mexico_* files to generic names, remove Mexico from all contents | qwen | planned | In ATF/ source: rename parsers/mexico_log_parser.p... |
-| **2sv4j90m** | CB-05: Add Mistral hosted + local Ministral backends to runtime_adapter.py | codi | in_work | Modify runtime_adapter.py to add Mistral hosted (M... |
-| **zpfh7qlj** | CB-06: Document Library + cited Q&A — notebook cells 3-4 | misty | planned | Write notebook cells 3-4: (3) Build a Mistral Docu... |
+| **qop52dwk** | CB-04: Rename mexico_* files to generic names, remove Mexico from all contents | qwen | merged | IMPORTANT: Work entirely within the mistral cookbo... |
+| **2sv4j90m** | CB-05: Add Mistral hosted + local Ministral backends to runtime_adapter.py | codi | in_work | IMPORTANT: Work on the vendored copy of runtime_ad... |
+| **zpfh7qlj** | CB-06: Document Library + cited Q&A — notebook cells 3-4 | misty | in_work | Write notebook cells 3-4: (3) Build a Mistral Docu... |
 | **0zvvcy89** | CB-07: Vendor ledger_to_md.py + notebook cell 2 to regenerate wiki from sample ledger | codi | planned | Vendor a trimmed copy of ledger_to_md.py into the ... |
-| **qeappg90** | CB-08: Structured-outputs log analysis — notebook cell 5 (ledger slice → typed JSON) | misty | planned | Write notebook cell 5: take a slice of sample_even... |
-| **mvzl5k32** | CB-12: Integration — clean-venv run, final grep, write WORKLOG.md — STOP, no PR | clau | planned | FINAL TICKET — hard stop, no PR. (1) Run notebook ... |
-| **fhajx261** | CB-11: README + architecture diagram + EU AI Act framing | clau | planned | Write README.md for third_party/automated-technica... |
+| **bhi4pdfn** | CB-09: Fix hardcoded paths in build_static_views.py — make all paths relative | codi | planned | IMPORTANT: Work on the vendored copy of build_stat... |
 | **fi3pmney** | CB-10: Voice cell (encore, stub-able) — Voxtral Transcribe 2 → Mistral → Voxtral TTS | gem | planned | DROPPABLE — ship 1-5 first. Write notebook cell 6 ... |
-| **bhi4pdfn** | CB-09: Fix hardcoded paths in build_static_views.py — make all paths relative | codi | planned | build_static_views.py has ROOT = Path("/Users/migu... |
+| **fhajx261** | CB-11: README + architecture diagram + EU AI Act framing | clau | planned | Write README.md for third_party/automated-technica... |
+| **mvzl5k32** | CB-12: Integration — clean-venv run, final grep, write WORKLOG.md — STOP, no PR | clau | planned | FINAL TICKET — hard stop, no PR. (1) Run notebook ... |
+| **icnwzw6i** | CB-13: Deploy cookbook ATF demo to api.robotross.art/atf-mistral for testing | clau | planned | Deploy the cookbook cited Q&A demo to a NEW endpoi... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
