@@ -71,6 +71,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import socket
 import subprocess
 import sys
 import textwrap
@@ -338,6 +339,8 @@ def _ollama_generate(prompt: str, model: str, timeout: int) -> str:
     try:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             body = json.loads(resp.read().decode())
+    except (socket.timeout, TimeoutError) as exc:
+        raise RuntimeError(f"Ollama timed out after {timeout}s.") from exc
     except urllib.error.URLError as exc:
         raise RuntimeError(f"Ollama HTTP error: {exc}") from exc
 
@@ -693,10 +696,12 @@ def main() -> None:
 
     # Resolve prompt: explicit flag, piped stdin, or positional arg
     prompt: Optional[str] = None
-    if args.stdin or not sys.stdin.isatty():
+    if args.stdin:
         prompt = sys.stdin.read().strip()
     elif args.prompt:
         prompt = args.prompt
+    elif not sys.stdin.isatty():
+        prompt = sys.stdin.read().strip()
     else:
         parser.print_help()
         sys.exit(0)
