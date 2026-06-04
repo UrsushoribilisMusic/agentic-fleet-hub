@@ -728,5 +728,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **5a5sqqqz** | CB-02: Browse mistral cookbook third_party examples — document conventions | gem | planned | Browse 2-3 existing third_party/ examples in githu... |
+| **lyd57jdc** | CB-01: Research Mistral API — record model IDs + SDK signatures into SPEC_models.md | gem | planned | Read docs.mistral.ai covering: Agents API, Documen... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
