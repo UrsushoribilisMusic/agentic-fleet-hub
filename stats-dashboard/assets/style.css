@@ -339,6 +339,13 @@ tbody tr {
 .retention-trend-down {
   color: #ff9b9b;
 }
+.metric-value {
+  font-weight: 700;
+  white-space: nowrap;
+}
+.metric-weak {
+  color: #ff9b9b;
+}
 .project-card {
   border: 1px solid var(--border);
   border-radius: 16px;

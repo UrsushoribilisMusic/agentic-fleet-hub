@@ -195,6 +195,22 @@ function renderRetentionTrend(video) {
   return `<span class="retention-trend retention-trend-${direction}">${sign}${delta.toFixed(1)} pts</span>`;
 }
 
+function renderPercent(value, weakBelow = null) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) {
+    return '<span class="muted">—</span>';
+  }
+  const pct = Number(value);
+  const weak = weakBelow !== null && pct < weakBelow ? ' metric-weak' : '';
+  return `<span class="metric-value${weak}">${pct.toFixed(1)}%</span>`;
+}
+
+function renderNumber(value, digits = 1) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) {
+    return '<span class="muted">—</span>';
+  }
+  return `<span class="metric-value">${Number(value).toFixed(digits)}</span>`;
+}
+
 function renderVideoTitle(video) {
   const title = video.title || video.song || 'Untitled';
   if (!video.studio_url) return title;
@@ -208,7 +224,7 @@ function renderVideos(items) {
   const sorted = sortVideos(items || []).slice(0, 100);
   sorted.forEach((v) => {
     const tr = document.createElement('tr');
-    tr.innerHTML = `<td>${renderVideoTitle(v)}</td><td>${v.style || '—'}</td><td>${v.date || '—'}</td><td>${renderRetention(v.retention_30s_pct, v.retention_30s_status)} ${renderRetentionTrend(v)}</td><td>${Number(v.yt_views || 0).toLocaleString()}</td>`;
+    tr.innerHTML = `<td>${renderVideoTitle(v)}</td><td>${v.style || '—'}</td><td>${v.date || '—'}</td><td>${renderRetention(v.retention_30s_pct, v.retention_30s_status)} ${renderRetentionTrend(v)}</td><td>${renderPercent(v.avg_view_percentage, 15)}</td><td>${renderNumber(v.watch_hours_7d, 1)}</td><td>${renderPercent(v.organic_view_ratio_7d)}</td><td>${Number(v.yt_views || 0).toLocaleString()}</td>`;
     body.appendChild(tr);
   });
 }
