@@ -145,7 +145,7 @@ class ATFHandler(BaseHTTPRequestHandler):
             models = runtime_adapter.list_models()
             selected = None
             if models:
-                for prefix in ("mistral-hosted:", "ministral"):
+                for prefix in ("mistral-hosted:", "ministral-local:"):
                     selected = next((m for m in models if prefix in m), None)
                     if selected:
                         break

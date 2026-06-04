@@ -37,7 +37,7 @@ Machine / runtime prerequisites
 Model selection
 ---------------
     Default fallback chain:
-        1. Mistral hosted   — mistral-medium-2604, then mistral-large-latest
+        1. Mistral hosted   — mistral-medium-3-5, then mistral-large-2512
         2. Ministral local  — local Ministral 3B tags via Ollama
         3. aichat           — subprocess fallback
         4. Ollama generic   — Apertus/Gemma/first pulled model
@@ -103,7 +103,7 @@ BACKEND_ALIASES = {
 }
 
 # Model IDs from the Mistral docs / CB-01 contract.
-MISTRAL_HOSTED_MODELS: List[str] = ["mistral-medium-2604", "mistral-large-latest"]
+MISTRAL_HOSTED_MODELS: List[str] = ["mistral-medium-3-5", "mistral-large-2512"]
 
 # Substring keywords in priority order — first match in available Ollama models wins.
 MINISTRAL_MODEL_PRIORITY: List[str] = [
@@ -540,7 +540,7 @@ def _cmd_check() -> None:
     hosted_default = _select_hosted_model(None)
     print(f"BACKEND: {backend}")
     print(f"Mistral hosted: MISTRAL_API_KEY {key_status}")
-    print(f"  Hosted priority: {hosted_default} -> mistral-large-latest")
+    print(f"  Hosted priority: {hosted_default} -> mistral-large-2512")
 
     models = _ollama_list_models()
     if models:

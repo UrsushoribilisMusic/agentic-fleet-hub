@@ -21,8 +21,8 @@ python3 ATF/tools/atf_qa.py --shell
 # List all indexed source files
 python3 ATF/tools/atf_qa.py --list-sources
 
-# Force a specific local model
-python3 ATF/tools/atf_qa.py --model apertus:latest "How does calibration work?"
+# Force a specific model hint
+BACKEND=local python3 ATF/tools/atf_qa.py --model ministral "How does calibration work?"
 
 # Override corpus directories (e.g. for testing)
 python3 ATF/tools/atf_qa.py --wiki-dir /tmp/test_wiki "What is the arm?"
@@ -51,10 +51,11 @@ The tool tries each backend in order, falling back automatically:
 
 | Priority | Backend | How to activate |
 | :--- | :--- | :--- |
-| 1 | `ATF/tools/runtime_adapter.py` | Drop in from ticket #131 (Codi) |
-| 2 | `aichat` | Install and configure `aichat`; model read from `~/.config/aichat/config.yaml` |
-| 3 | `ollama` | Install `ollama`; default model `gemma2:latest` |
-| 4 | corpus-only | **Always available** — returns ranked chunks, no model needed |
+| 1 | Mistral hosted | Set `MISTRAL_API_KEY`; defaults to `mistral-medium-3-5`, then `mistral-large-2512` |
+| 2 | local Ministral | Set `BACKEND=local` or pull a Ministral Ollama tag for auto mode |
+| 3 | `aichat` | Install and configure `aichat`; optional subprocess fallback |
+| 4 | generic `ollama` | Install `ollama`; Apertus/Gemma/fallback pulled model |
+| 5 | corpus-only | **Always available** — returns ranked chunks, no model needed |
 
 ### Failure modes
 
@@ -71,14 +72,15 @@ The tool tries each backend in order, falling back automatically:
 - Python >= 3.9, standard library only.
 - No pip installs required.
 
-### Runtime adapter interface (for ticket #131)
+### Runtime adapter interface
 
 When `ATF/tools/runtime_adapter.py` exists, the tool imports it and calls:
 
 ```python
-def query(prompt: str) -> str:
+def query(prompt: str, model: str | None = None, backend: str | None = None) -> str:
     ...
 ```
 
-Codi can implement any local model backend (Apertus, Gemma, llama.cpp, etc.)
-behind this interface and the QA shell will automatically use it.
+Set `BACKEND=auto|hosted|local|aichat|ollama|corpus-only` or use
+`ATF/tools/runtime_adapter.py --backend ...` when invoking the adapter CLI
+directly. Hosted Mistral reads `MISTRAL_API_KEY` from the environment only.

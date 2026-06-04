@@ -15,7 +15,8 @@ Modes:
 
   model-assisted (when a backend is available)
     Injects ranked chunks as context and routes the query to a local model.
-    Backend priority: runtime_adapter > aichat > ollama > corpus-only fallback.
+    Runtime adapter priority:
+      Mistral hosted > local Ministral > aichat > Ollama > corpus-only.
 
 Source provenance:
   Every answer includes a "Sources:" block listing the wiki/ledger paths
@@ -29,7 +30,7 @@ Failure modes:
 
 Dependencies:
   Python >= 3.9, standard library only.
-  Optional: runtime_adapter.py (ATF-8/#131), aichat, or ollama in PATH.
+  Optional: MISTRAL_API_KEY, local Ministral via Ollama, aichat, or Ollama.
 """
 
 import argparse
@@ -215,7 +216,7 @@ def build_context(chunks: list) -> tuple:
 
 def _try_runtime_adapter(prompt: str) -> Optional[str]:
     """
-    Use ATF/tools/runtime_adapter.py if present (from #131).
+    Use ATF/tools/runtime_adapter.py if present.
     Expected interface: query(prompt: str) -> str
     """
     if not os.path.isfile(ADAPTER_PATH):
@@ -270,7 +271,8 @@ def call_model(prompt: str, model_hint: Optional[str] = None) -> tuple:
     Returns (answer: str, backend: str).
     backend is one of: "runtime_adapter", "aichat", "ollama", "corpus-only".
     """
-    # 1. runtime_adapter (#131)
+    # 1. runtime_adapter:
+    #    hosted Mistral > local Ministral > aichat > Ollama > corpus-only.
     answer = _try_runtime_adapter(prompt)
     if answer:
         return answer, "runtime_adapter"
@@ -402,10 +404,11 @@ def main():
               python3 ATF/tools/atf_qa.py --model apertus:latest "How does calibration work?"
 
             Model backend priority (first available wins):
-              1. ATF/tools/runtime_adapter.py  (from ticket #131)
-              2. aichat  (via subprocess, reads ~/.config/aichat/config.yaml for model)
-              3. ollama  (via subprocess, default model: gemma2:latest)
-              4. corpus-only fallback  (returns ranked chunks — no model needed)
+              1. Mistral hosted via runtime_adapter.py (MISTRAL_API_KEY)
+              2. local Ministral via runtime_adapter.py (Ollama)
+              3. aichat via runtime_adapter.py/subprocess
+              4. generic Ollama fallback
+              5. corpus-only fallback (ranked chunks, no model needed)
         """),
     )
     parser.add_argument("query", nargs="?", help="Question to answer (omit for --shell mode)")
