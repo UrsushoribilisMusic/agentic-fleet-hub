@@ -455,6 +455,16 @@ def build_snapshot():
                 {"sort": "-snapshot_date", "perPage": 200},
                 context="campaigns_snapshot",
             ),
+            "classical_reels_assets": fetch_collection_safe(
+                "classical_reels_assets",
+                {"sort": "-date", "perPage": 500},
+                context="classical_reels_assets",
+            ),
+            "shopify_orders": fetch_collection_safe(
+                "shopify_orders",
+                {"sort": "-created_at", "perPage": 500},
+                context="shopify_orders",
+            ),
         },
         "timeline_segments": build_timeline_segments(merged_timeline_heartbeats),
     }
@@ -491,6 +501,8 @@ def run_once():
         f"costs={len(counts['cost_ledger'])} "
         f"income={len(counts['income_ledger'])} "
         f"campaigns={len(counts['campaigns_snapshot'])} "
+        f"reels_assets={len(counts['classical_reels_assets'])} "
+        f"shopify_orders={len(counts['shopify_orders'])} "
         f"remote={result.get('received_at', 'unknown')}"
     )
 
