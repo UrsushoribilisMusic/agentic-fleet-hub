@@ -206,6 +206,14 @@ th.sorted-asc:after {
 th.sorted-desc:after {
   content: "\2193";
 }
+.table-link {
+  color: inherit;
+  text-decoration: none;
+}
+.table-link:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
 tbody tr {
   border-top: 1px solid rgba(255, 255, 255, 0.04);
 }
@@ -294,6 +302,42 @@ tbody tr {
   border-radius: 999px;
   font-size: 0.75rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.retention-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 6.2rem;
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+.retention-good {
+  color: #8ff0bb;
+  background: rgba(36, 193, 112, 0.12);
+}
+.retention-neutral {
+  color: #ffd37a;
+  background: rgba(255, 177, 66, 0.12);
+}
+.retention-weak {
+  color: #ff9b9b;
+  background: rgba(255, 99, 99, 0.12);
+}
+.retention-trend {
+  display: inline-block;
+  margin-left: 0.35rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+.retention-trend-up {
+  color: #8ff0bb;
+}
+.retention-trend-down {
+  color: #ff9b9b;
 }
 .project-card {
   border: 1px solid var(--border);

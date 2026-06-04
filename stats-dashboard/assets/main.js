@@ -17,6 +17,7 @@ let MUSIC_PANELS = [];
 let SORTABLE_HEADERS = [];
 
 let musicShortsCache = [];
+let musicVideosCache = [];
 let statusResolved = false;
 const musicSortState = { field: 'yt_views', order: 'desc' };
 
@@ -287,6 +288,7 @@ function wireNavControls() {
       SORTABLE_HEADERS.forEach((h) => h.classList.remove('sorted-asc', 'sorted-desc'));
       header.classList.add(musicSortState.order === 'asc' ? 'sorted-asc' : 'sorted-desc');
       renderShorts(musicShortsCache);
+      renderVideos(musicVideosCache);
     });
   });
   targetStatsGroup('robotross');
@@ -410,6 +412,59 @@ function sortShorts(items) {
   });
 }
 
+function sortVideos(items) {
+  const { field, order } = musicSortState;
+  const multiplier = order === 'asc' ? 1 : -1;
+  return [...items].sort((a, b) => {
+    if (field === 'title') {
+      return multiplier * String(a.title || a.song || '').localeCompare(String(b.title || b.song || ''));
+    }
+    if (field === 'style') {
+      return multiplier * String(a.style || '').localeCompare(String(b.style || ''));
+    }
+    if (field === 'date') {
+      const da = a.date ? new Date(a.date) : new Date(0);
+      const db = b.date ? new Date(b.date) : new Date(0);
+      return multiplier * (da - db);
+    }
+    const va = Number(a[field] ?? -1);
+    const vb = Number(b[field] ?? -1);
+    return multiplier * (va - vb);
+  });
+}
+
+function renderRetention(value, status) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) {
+    return '<span class="muted">—</span>';
+  }
+  const pct = Number(value);
+  let tone = 'neutral';
+  if (pct >= 50) tone = 'good';
+  if (pct < 35) tone = 'weak';
+  const label = status === 'above_typical' ? ' above' : status === 'below_typical' ? ' below' : '';
+  return `<span class="retention-pill retention-${tone}">${pct.toFixed(1)}%${label}</span>`;
+}
+
+function renderRetentionTrend(video) {
+  const history = Array.isArray(video.retention_30s_history) ? video.retention_30s_history : [];
+  const usable = history.filter((entry) => entry.retention_30s_pct !== null && entry.retention_30s_pct !== undefined);
+  if (usable.length < 2) return '';
+  const previous = Number(usable[usable.length - 2].retention_30s_pct);
+  const current = Number(usable[usable.length - 1].retention_30s_pct);
+  if (Number.isNaN(previous) || Number.isNaN(current)) return '';
+  const delta = current - previous;
+  if (Math.abs(delta) < 0.05) return '<span class="retention-trend">flat</span>';
+  const sign = delta > 0 ? '+' : '';
+  const direction = delta > 0 ? 'up' : 'down';
+  return `<span class="retention-trend retention-trend-${direction}">${sign}${delta.toFixed(1)} pts</span>`;
+}
+
+function renderVideoTitle(video) {
+  const title = video.title || video.song || 'Untitled';
+  if (!video.studio_url) return title;
+  return `<a class="table-link" href="${video.studio_url}" target="_blank" rel="noopener noreferrer">${title}</a>`;
+}
+
 function renderShorts(items) {
   const body = document.getElementById('shorts-table');
   body.innerHTML = '';
@@ -448,17 +503,18 @@ async function loadShorts() {
 function renderVideos(items) {
   const body = document.getElementById('videos-table');
   body.innerHTML = '';
-  const sorted = (items || []).sort((a, b) => (b.yt_views || 0) - (a.yt_views || 0));
+  const sorted = sortVideos(items || []);
   if (!sorted.length) {
-    body.innerHTML = '<tr><td colspan="4">No long-form entries.</td></tr>';
+    body.innerHTML = '<tr><td colspan="5">No long-form entries.</td></tr>';
     return;
   }
   sorted.forEach((video) => {
     const tr = document.createElement('tr');
     tr.innerHTML = `
-      <td>${video.title || video.song || 'Untitled'}</td>
+      <td>${renderVideoTitle(video)}</td>
       <td>${video.style || '—'}</td>
       <td>${video.date || '—'}</td>
+      <td>${renderRetention(video.retention_30s_pct, video.retention_30s_status)} ${renderRetentionTrend(video)}</td>
       <td>${Number(video.yt_views || 0).toLocaleString()}</td>
     `;
     body.appendChild(tr);
@@ -468,10 +524,11 @@ function renderVideos(items) {
 async function loadVideos() {
   try {
     const data = await fetchJson('/tracker/videos?limit=200');
-    renderVideos(data.items);
+    musicVideosCache = data.items || [];
+    renderVideos(musicVideosCache);
   } catch (err) {
     console.error('Videos fetch failed', err);
-    document.getElementById('videos-table').innerHTML = '<tr><td colspan="4">Unable to load videos.</td></tr>';
+    document.getElementById('videos-table').innerHTML = '<tr><td colspan="5">Unable to load videos.</td></tr>';
   }
 }
 

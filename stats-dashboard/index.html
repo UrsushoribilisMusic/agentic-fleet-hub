@@ -103,16 +103,17 @@
             <div class="music-panel" data-music-panel="longform">
               <div class="panel-header">
                 <h2>Long-form videos</h2>
-                <p>Ordered by YouTube views.</p>
+                <p>Ordered by YouTube views. Click column headers to re-sort.</p>
               </div>
               <div class="table-wrapper">
                 <table>
                   <thead>
                     <tr>
-                      <th>Title</th>
-                      <th>Style</th>
-                      <th>Date</th>
-                      <th>YT views</th>
+                      <th data-sortable="title">Title</th>
+                      <th data-sortable="style">Style</th>
+                      <th data-sortable="date">Date</th>
+                      <th data-sortable="retention_30s_pct">0:30 retention</th>
+                      <th data-sortable="yt_views">YT views</th>
                     </tr>
                   </thead>
                   <tbody id="videos-table"></tbody>
@@ -187,6 +188,6 @@
       </div>
     </section>
   </div>
-  <script src="assets/stats.js?v=20260311" defer></script>
+  <script src="assets/stats.js?v=20260604-retention" defer></script>
 </body>
 </html>
