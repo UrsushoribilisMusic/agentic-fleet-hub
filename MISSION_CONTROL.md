@@ -123,11 +123,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
-- **ahhk2xek**: SC-053: Video style picker UI — 2-tap selection (oracle voice + genre) -- Redesign the video style picker from a single locked-pair selection to a 2-step flow matching the 2-axis model (SC-048). -- Clau. Approved.
-- **mlzb2awg**: SC-051: Build full 4×4 matrix capability — all 16 text-style × genre combos -- Build end-to-end working capability for all 16 combinations in the matrix: -- Clau. Approved.
-- **ppsolzq5**: SC-050: Lyric generation for full 4×4 grid — per-combo prompts (text-style persona + genre meter) -- Update the lyric generation system (SC-021) to support all 16 combos in the 4×4 matrix. The constrained-lyric template (fixed refrain, short lines, generous syllable tolerance, spoken-word-over-beat v1) still applies but must flex across the full grid. -- Clau. Approved.
-- **41pydrb7**: SC-049: Genre axis — 4 audio genres with derived visual treatments -- Each of the 4 genres determines both the music selection AND the visual treatment applied to photos. The user does NOT pick a visual style separately — the genre choice carries the look. This removes a decision (fewer taps) and guarantees sound and look stay coherent. -- Clau. Approved.
-- **b7t8rkyn**: SC-048: Unbundle video style model — 2-axis architecture (text style × audio genre) -- The current model locks text+visual in fixed pairs (Shakespeare+Engraving, etc.) — the old PrivateCore 7-fixed-style-worlds model. SC-048 unbundles them into two independent axes: -- Clau. Approved.
+- **gexhbpcl**: [SUPERSEDED by SC-053] SC-052: Pre-launch curation pass — eyeball all 16 combos, feature bangers, hide duds -- Miguel eyeballs all 16 generated combo examples on Mac Mini. This is the quality gate before shipping the video feature. -- Clau. Approved.
+- **mlzb2awg**: [SUPERSEDED by SC-053] SC-051: Build full 4×4 matrix capability — all 16 text-style × genre combos -- Build end-to-end working capability for all 16 combinations in the matrix: -- Clau. Approved.
+- **ppsolzq5**: [SUPERSEDED by SC-053] SC-050: Lyric generation for full 4×4 grid — per-combo prompts (text-style persona + genre meter) -- Update the lyric generation system (SC-021) to support all 16 combos in the 4×4 matrix. The constrained-lyric template (fixed refrain, short lines, generous syllable tolerance, spoken-word-over-beat v1) still applies but must flex across the full grid. -- Clau. Approved.
+- **41pydrb7**: [SUPERSEDED by SC-053] SC-049: Genre axis — 4 audio genres with derived visual treatments -- Each of the 4 genres determines both the music selection AND the visual treatment applied to photos. The user does NOT pick a visual style separately — the genre choice carries the look. This removes a decision (fewer taps) and guarantees sound and look stay coherent. -- Clau. Approved.
+- **b7t8rkyn**: [SUPERSEDED by SC-053] SC-048: Unbundle video style model — 2-axis architecture (text style × audio genre) -- The current model locks text+visual in fixed pairs (Shakespeare+Engraving, etc.) — the old PrivateCore 7-fixed-style-worlds model. SC-048 unbundles them into two independent axes: -- Clau. Approved.
 - **z7mf2nu1**: SC-041: Board-scoped oracle generation — board text as user-voice input -- Extend oracle generation to boards. When the oracle prophesies over a board, board text (title + note) is its user-voice input, mirroring the role journal plays for day/week scope. -- Clau. Approved.
 - **crtisb5t**: SC-040: Tone-safety constraint block and human-sampling tuning protocol -- Journaling introduces real, possibly painful self-disclosure. The constraint block is a design requirement, not an afterthought. -- Clau. Approved.
 - **d8brv4xa**: SC-039: Journal-as-primary-flavor weighting in oracle context -- When a journal entry exists for the day, it must be the STRONGEST signal in the oracle context. The prophecy should feel anchored to what the user said the day meant — restyled, not a generic read of the photos. -- Clau. Approved.
@@ -720,5 +720,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **ahhk2xek** | SC-053: Video model v2 — 3-axis engine (text style × music score × visual style) + voice/subtitle toggles | clau | planned | Video model v2: 3-axis engine (text style × music ... |
+| **noei6ytg** | SC-054: Integrate 10 musical scores as the score picker (video) | clau | planned | Add 10 real music scores to the app as the music s... |
+| **ewt3knwd** | SC-055: Voice-over toggle (default OFF) + best neural voice + per-character pitch/rate | clau | planned | Take TTS voice off the critical path — it is opt-i... |
+| **3c77saao** | SC-057: Independent visual-style picker (on-device-achievable looks) | clau | planned | Third axis of the 3-axis video model. Visual style... |
+| **94usopf3** | SC-056: Kinetic subtitles — always-on, per-style typography, legibility scrim | clau | planned | Subtitles are the hero element with voice off by d... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
