@@ -727,6 +727,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **3c77saao** | SC-057: Independent visual-style picker (on-device-achievable looks) | clau | planned | Third axis of the 3-axis video model. Visual style... |
 | **5xrtxeut** | SC-058: Define 3 house combos; set picker defaults to combo 1 | clau | planned | Design task. Define exactly 3 'house' combos — ful... |
 | **t81q9h1t** | SC-059: 'Pick for me' button — cycles the 3 house combos 1→2→3→1 | clau | planned | Add a 'Pick for me' button to the video style pick... |
-| **9fitiour** | SC-060: Retire audio-genre model (SC-048-052) + Suno instrumentals from docs/build | clau | merged | Cleanup ticket. Remove from the codebase and docs ... |
+| **9fitiour** | SC-060: Retire audio-genre model (SC-048-052) + Suno instrumentals from docs/build | clau | planned | Cleanup ticket. Remove from the codebase and docs ... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
