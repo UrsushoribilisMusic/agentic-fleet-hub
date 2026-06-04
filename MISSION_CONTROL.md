@@ -727,6 +727,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **noei6ytg** | SC-054: Integrate 10 musical scores as the score picker (video) | clau | in_work | Add 10 real music scores to the app as the music s... |
+| **noei6ytg** | SC-054: Integrate 10 musical scores as the score picker (video) | clau | merged | Add 10 real music scores to the app as the music s... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
