@@ -724,7 +724,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **noei6ytg** | SC-054: Integrate 10 musical scores as the score picker (video) | gem | merged | Add 10 real music scores to the app as the music s... |
 | **ewt3knwd** | SC-055: Voice-over toggle (default OFF) + best neural voice + per-character pitch/rate | clau | merged | Take TTS voice off the critical path — it is opt-i... |
 | **94usopf3** | SC-056: Kinetic subtitles — always-on, per-style typography, legibility scrim | clau | merged | Subtitles are the hero element with voice off by d... |
-| **3c77saao** | SC-057: Independent visual-style picker (on-device-achievable looks) | clau | in_work | Third axis of the 3-axis video model. Visual style... |
+| **3c77saao** | SC-057: Independent visual-style picker (on-device-achievable looks) | clau | merged | Third axis of the 3-axis video model. Visual style... |
 | **5xrtxeut** | SC-058: Define 3 house combos; set picker defaults to combo 1 | clau | planned | Design task. Define exactly 3 'house' combos — ful... |
 | **t81q9h1t** | SC-059: 'Pick for me' button — cycles the 3 house combos 1→2→3→1 | clau | planned | Add a 'Pick for me' button to the video style pick... |
 | **9fitiour** | SC-060: Retire audio-genre model (SC-048-052) + Suno instrumentals from docs/build | clau | planned | Cleanup ticket. Remove from the codebase and docs ... |
