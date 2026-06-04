@@ -76,7 +76,7 @@ def handle_qa(query: str, model_hint: str = None, lang: str = "en") -> dict:
     # Use runtime_adapter directly so we get the real model name back
     try:
         answer_text, model_name = runtime_adapter.query_with_model(prompt, model=model_hint or None)
-        backend = "ollama" if model_name != "aichat" else "aichat"
+        backend = runtime_adapter._backend_label(model_name)
     except RuntimeError as exc:
         # Fall back to corpus-only
         formatted = atf_qa.format_answer(None, chunks, sources, "corpus-only")
@@ -143,7 +143,13 @@ class ATFHandler(BaseHTTPRequestHandler):
             sys.path.insert(0, SCRIPT_DIR)
             import runtime_adapter
             models = runtime_adapter.list_models()
-            selected = runtime_adapter._select_model(models) if models else None
+            selected = None
+            if models:
+                for prefix in ("mistral-hosted:", "ministral"):
+                    selected = next((m for m in models if prefix in m), None)
+                    if selected:
+                        break
+                selected = selected or models[0]
             return self.send_json(200, {"models": models, "selected": selected})
 
         # Map URL path to filesystem
