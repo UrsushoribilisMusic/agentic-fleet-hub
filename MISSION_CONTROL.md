@@ -720,6 +720,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **gexhbpcl** | SC-052: Pre-launch curation pass — eyeball all 16 combos, feature bangers, hide duds | clau | merged | Miguel eyeballs all 16 generated combo examples on... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
