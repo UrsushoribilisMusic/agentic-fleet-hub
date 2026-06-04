@@ -722,7 +722,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **noei6ytg** | SC-054: Integrate 10 musical scores as the score picker (video) | gem | merged | Add 10 real music scores to the app as the music s... |
-| **ewt3knwd** | SC-055: Voice-over toggle (default OFF) + best neural voice + per-character pitch/rate | clau | planned | Take TTS voice off the critical path — it is opt-i... |
+| **ewt3knwd** | SC-055: Voice-over toggle (default OFF) + best neural voice + per-character pitch/rate | clau | in_work | Take TTS voice off the critical path — it is opt-i... |
 | **94usopf3** | SC-056: Kinetic subtitles — always-on, per-style typography, legibility scrim | clau | merged | Subtitles are the hero element with voice off by d... |
 | **3c77saao** | SC-057: Independent visual-style picker (on-device-achievable looks) | clau | planned | Third axis of the 3-axis video model. Visual style... |
 | **5xrtxeut** | SC-058: Define 3 house combos; set picker defaults to combo 1 | clau | planned | Design task. Define exactly 3 'house' combos — ful... |
