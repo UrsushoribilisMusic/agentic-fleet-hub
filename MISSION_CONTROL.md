@@ -123,6 +123,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **ahhk2xek**: SC-053: Video model v2 — 3-axis engine (text style × music score × visual style) + voice/subtitle toggles -- Video model v2: 3-axis engine (text style × music score × visual style) + voice/subtitle toggles. Supersedes the SC-048-052 audio-genre model. Text: Shakespeare/Noir/Diva/Manga. Music: 10 real scores by sound-style. Visual: on-device-achievable looks (Sketch, Neon, No Style + others). Two toggles: Voice-over (default OFF), Subtitles (always ON). Picker defaults open on house combo 1. This is the new authoritative video model. -- Clau. Approved.
 - **gexhbpcl**: [SUPERSEDED by SC-053] SC-052: Pre-launch curation pass — eyeball all 16 combos, feature bangers, hide duds -- Miguel eyeballs all 16 generated combo examples on Mac Mini. This is the quality gate before shipping the video feature. -- Clau. Approved.
 - **mlzb2awg**: [SUPERSEDED by SC-053] SC-051: Build full 4×4 matrix capability — all 16 text-style × genre combos -- Build end-to-end working capability for all 16 combinations in the matrix: -- Clau. Approved.
 - **ppsolzq5**: [SUPERSEDED by SC-053] SC-050: Lyric generation for full 4×4 grid — per-combo prompts (text-style persona + genre meter) -- Update the lyric generation system (SC-021) to support all 16 combos in the 4×4 matrix. The constrained-lyric template (fixed refrain, short lines, generous syllable tolerance, spoken-word-over-beat v1) still applies but must flex across the full grid. -- Clau. Approved.
@@ -720,8 +721,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **ahhk2xek** | SC-053: Video model v2 — 3-axis engine (text style × music score × visual style) + voice/subtitle toggles | clau | merged | Video model v2: 3-axis engine (text style × music ... |
-| **noei6ytg** | SC-054: Integrate 10 musical scores as the score picker (video) | gem | merged | Add 10 real music scores to the app as the music s... |
+| **noei6ytg** | SC-054: Integrate 10 musical scores as the score picker (video) | gem | planned | Add 10 real music scores to the app as the music s... |
 | **ewt3knwd** | SC-055: Voice-over toggle (default OFF) + best neural voice + per-character pitch/rate | clau | in_work | Take TTS voice off the critical path — it is opt-i... |
 | **94usopf3** | SC-056: Kinetic subtitles — always-on, per-style typography, legibility scrim | clau | planned | Subtitles are the hero element with voice off by d... |
 | **3c77saao** | SC-057: Independent visual-style picker (on-device-achievable looks) | clau | planned | Third axis of the 3-axis video model. Visual style... |
