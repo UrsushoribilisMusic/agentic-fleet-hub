@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-06-05",
-    "summary": "Misty — Full Heartbeat Protocol Phase 1-6 execution. Peer reviewed CB-01 and CB-04 (no commits found, reset to todo with feedback). Identified CB-08 as assigned task but blocked by dependencies (CB-01, CB-04). Codi — CB-05 runtime_adapter.py Mistral hosted/local Ministral backend work and verification.",
+    "summary": "Misty — Peer reviewed CB-01/CB-04 (no commits, reset to todo); CB-08 blocked. Codi — CB-05 runtime_adapter.py Mistral backend work. Clau — CB-03 complete: fork mistralai/cookbook → UrsushoribilisMusic/cookbook, scaffold third_party/automated-technical-file/ (README, requirements.txt, LICENSE Apache-2.0/MIT, notebooks/, img/); peer_review.",
     "file": "2026-06-05.md"
   },
   {
