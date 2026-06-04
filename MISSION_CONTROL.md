@@ -730,8 +730,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **lyd57jdc** | CB-01: Research Mistral API — record model IDs + SDK signatures into SPEC_models.md | gem | in_work | Read docs.mistral.ai covering: Agents API, Documen... |
 | **5a5sqqqz** | CB-02: Browse mistral cookbook third_party examples — document conventions | gem | planned | Browse 2-3 existing third_party/ examples in githu... |
-| **ydl99tz3** | CB-03: Fork mistral/cookbook + scaffold third_party/automated-technical-file/ | clau | in_work | Fork github.com/mistralai/cookbook, create working... |
-| **qop52dwk** | CB-04: Rename mexico_* files to generic names, remove Mexico from all contents | qwen | merged | IMPORTANT: Work entirely within the mistral cookbo... |
+| **ydl99tz3** | CB-03: Fork mistral/cookbook + scaffold third_party/automated-technical-file/ | clau | merged | Fork github.com/mistralai/cookbook, create working... |
+| **qop52dwk** | CB-04: Rename mexico_* files to generic names, remove Mexico from all contents | qwen | planned | IMPORTANT: Work entirely within the mistral cookbo... |
 | **2sv4j90m** | CB-05: Add Mistral hosted + local Ministral backends to runtime_adapter.py | codi | in_work | IMPORTANT: Work on the vendored copy of runtime_ad... |
 | **zpfh7qlj** | CB-06: Document Library + cited Q&A — notebook cells 3-4 | misty | in_work | Write notebook cells 3-4: (3) Build a Mistral Docu... |
 | **0zvvcy89** | CB-07: Vendor ledger_to_md.py + notebook cell 2 to regenerate wiki from sample ledger | codi | planned | Vendor a trimmed copy of ledger_to_md.py into the ... |
