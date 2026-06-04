@@ -737,7 +737,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **bhi4pdfn** | CB-09: Fix hardcoded paths in build_static_views.py — make all paths relative | codi | planned | IMPORTANT: Work on the vendored copy of build_stat... |
 | **fi3pmney** | CB-10: Voice cell (encore, stub-able) — Voxtral Transcribe 2 → Mistral → Voxtral TTS | gem | planned | DROPPABLE — ship 1-5 first. Write notebook cell 6 ... |
 | **fhajx261** | CB-11: README + architecture diagram + EU AI Act framing | clau | merged | Write README.md for third_party/automated-technica... |
-| **mvzl5k32** | CB-12: Integration — clean-venv run, final grep, write WORKLOG.md — STOP, no PR | clau | planned | FINAL TICKET — hard stop, no PR. (1) Run notebook ... |
+| **mvzl5k32** | CB-12: Integration — clean-venv run, final grep, write WORKLOG.md — STOP, no PR | clau | in_work | FINAL TICKET — hard stop, no PR. (1) Run notebook ... |
 | **icnwzw6i** | CB-13: Deploy cookbook ATF demo to api.robotross.art/atf-mistral for testing | clau | planned | Deploy the cookbook cited Q&A demo to a NEW endpoi... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
