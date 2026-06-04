@@ -732,9 +732,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **lyd57jdc** | CB-01: Research Mistral API — record model IDs + SDK signatures into SPEC_models.md | gem | merged | Read docs.mistral.ai covering: Agents API, Documen... |
-| **5a5sqqqz** | CB-02: Browse mistral cookbook third_party examples — document conventions | gem | in_work | Browse 2-3 existing third_party/ examples in githu... |
+| **5a5sqqqz** | CB-02: Browse mistral cookbook third_party examples — document conventions | gem | merged | Browse 2-3 existing third_party/ examples in githu... |
 | **2sv4j90m** | CB-05: Add Mistral hosted + local Ministral backends to runtime_adapter.py | codi | in_work | IMPORTANT: Work on the vendored copy of runtime_ad... |
-| **zpfh7qlj** | CB-06: Document Library + cited Q&A — notebook cells 3-4 | misty | planned | Write notebook cells 3-4: (3) Build a Mistral Docu... |
+| **zpfh7qlj** | CB-06: Document Library + cited Q&A — notebook cells 3-4 | misty | in_work | Write notebook cells 3-4: (3) Build a Mistral Docu... |
 | **bhi4pdfn** | CB-09: Fix hardcoded paths in build_static_views.py — make all paths relative | codi | planned | IMPORTANT: Work on the vendored copy of build_stat... |
 | **fi3pmney** | CB-10: Voice cell (encore, stub-able) — Voxtral Transcribe 2 → Mistral → Voxtral TTS | gem | planned | DROPPABLE — ship 1-5 first. Write notebook cell 6 ... |
 | **mvzl5k32** | CB-12: Integration — clean-venv run, final grep, write WORKLOG.md — STOP, no PR | clau | in_work | FINAL TICKET — hard stop, no PR. (1) Run notebook ... |
