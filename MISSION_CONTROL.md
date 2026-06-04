@@ -736,7 +736,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **5a5sqqqz** | CB-02: Browse mistral cookbook third_party examples — document conventions | gem | in_work | Browse 2-3 existing third_party/ examples in githu... |
+| **5a5sqqqz** | CB-02: Browse mistral cookbook third_party examples — document conventions | gem | merged | Browse 2-3 existing third_party/ examples in githu... |
 | **zpfh7qlj** | CB-06: Document Library + cited Q&A — notebook cells 3-4 | misty | merged | Write notebook cells 3-4: (3) Build a Mistral Docu... |
 | **fi3pmney** | CB-10: Voice cell (encore, stub-able) — Voxtral Transcribe 2 → Mistral → Voxtral TTS | gem | merged | DROPPABLE — ship 1-5 first. Write notebook cell 6 ... |
 
