@@ -18,7 +18,10 @@ let MUSIC_PANELS = [];
 let SORTABLE_HEADERS = [];
 let musicShortsCache = [];
 let musicVideosCache = [];
+let storyCache = [];
 const musicSortState = { field: 'yt_views', order: 'desc' };
+const shortsSortState = { field: 'date', order: 'desc' };
+const storySortState = { field: 'date', order: 'desc' };
 let statusResolved = false;
 
 function targetStatsGroup(name) {
@@ -132,11 +135,30 @@ function renderShorts(items) {
   const body = document.getElementById('shorts-table');
   if (!body) return;
   body.innerHTML = '';
-  const filtered = (items || []).filter(i => !(i.theme || '').toLowerCase().includes('chapter')).slice(0, 100);
-  filtered.forEach((s) => {
+  const filtered = (items || []).filter(i => !(i.theme || '').toLowerCase().includes('chapter'));
+  const sorted = sortShorts(filtered).slice(0, 100);
+  sorted.forEach((s) => {
     const tr = document.createElement('tr');
     tr.innerHTML = `<td>${s.title || s.song || 'Untitled'}</td><td>${s.date || '—'}</td><td>${Number(s.yt_views || 0).toLocaleString()}</td><td>${Number(s.tt_views || 0).toLocaleString()}</td><td>${Number(s.insta_views || 0).toLocaleString()}</td>`;
     body.appendChild(tr);
+  });
+}
+
+function sortShorts(items) {
+  const { field, order } = shortsSortState;
+  const multiplier = order === 'asc' ? 1 : -1;
+  return [...items].sort((a, b) => {
+    if (field === 'title') {
+      return multiplier * String(a.title || a.song || '').localeCompare(String(b.title || b.song || ''));
+    }
+    if (field === 'date') {
+      const da = a.date ? new Date(a.date) : new Date(0);
+      const db = b.date ? new Date(b.date) : new Date(0);
+      return multiplier * (da - db);
+    }
+    const va = Number(a[field] ?? -1);
+    const vb = Number(b[field] ?? -1);
+    return multiplier * (va - vb);
   });
 }
 
@@ -152,12 +174,10 @@ function sortVideos(items) {
   const { field, order } = musicSortState;
   const multiplier = order === 'asc' ? 1 : -1;
   return [...items].sort((a, b) => {
-    if (field === 'title') {
-      return multiplier * String(a.title || a.song || '').localeCompare(String(b.title || b.song || ''));
-    }
-    if (field === 'style') {
-      return multiplier * String(a.style || '').localeCompare(String(b.style || ''));
-    }
+    if (field === 'title') return multiplier * String(a.title || a.song || '').localeCompare(String(b.title || b.song || ''));
+    if (field === 'style') return multiplier * String(a.style || '').localeCompare(String(b.style || ''));
+    if (field === 'visibility') return multiplier * String(a.visibility || '').localeCompare(String(b.visibility || ''));
+    if (field === 'traffic_light') return multiplier * String(a.traffic_light || '').localeCompare(String(b.traffic_light || ''));
     if (field === 'date') {
       const da = a.date ? new Date(a.date) : new Date(0);
       const db = b.date ? new Date(b.date) : new Date(0);
@@ -177,8 +197,9 @@ function renderRetention(value, status) {
   let tone = 'neutral';
   if (pct >= 50) tone = 'good';
   if (pct < 35) tone = 'weak';
-  const label = status === 'above_typical' ? ' above' : status === 'below_typical' ? ' below' : '';
-  return `<span class="retention-pill retention-${tone}">${pct.toFixed(1)}%${label}</span>`;
+  const label = status === 'above_typical' ? 'above' : status === 'below_typical' ? 'below' : '';
+  const suffix = label ? `<span class="retention-status">${label}</span>` : '';
+  return `<span class="retention-pill retention-${tone}"><span>${pct.toFixed(1)}%</span>${suffix}</span>`;
 }
 
 function renderRetentionTrend(video) {
@@ -211,10 +232,57 @@ function renderNumber(value, digits = 1) {
   return `<span class="metric-value">${Number(value).toFixed(digits)}</span>`;
 }
 
+function renderCompactNumber(value, digits = 0) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) {
+    return '<span class="muted">—</span>';
+  }
+  return `<span class="metric-value">${Number(value).toLocaleString(undefined, {
+    maximumFractionDigits: digits,
+    minimumFractionDigits: digits,
+  })}</span>`;
+}
+
+function renderEfficiency(value) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) {
+    return '<span class="muted">—</span>';
+  }
+  return `<span class="metric-value">${Number(value).toFixed(4)}</span>`;
+}
+
+function renderVisibility(value) {
+  const label = value || 'Unknown';
+  const code = label.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  return `<span class="visibility-pill visibility-${code}">${label}</span>`;
+}
+
+function renderTrafficLight(label, code) {
+  const normalized = code || String(label || 'unknown').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  return `<span class="traffic-pill traffic-${normalized}">${label || 'Unknown'}</span>`;
+}
+
+function renderCategory(value, label) {
+  const code = String(value || 'RT').toUpperCase();
+  const normalized = code.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  return `<span class="category-pill category-${normalized}" title="${label || code}">${code}</span>`;
+}
+
+function renderFormat(value) {
+  const label = value === 'short' ? 'Short' : value === 'long' ? 'Long' : '—';
+  const code = String(value || 'unknown').toLowerCase();
+  return `<span class="format-pill format-${code}">${label}</span>`;
+}
+
 function renderVideoTitle(video) {
   const title = video.title || video.song || 'Untitled';
   if (!video.studio_url) return title;
   return `<a class="table-link" href="${video.studio_url}" target="_blank" rel="noopener noreferrer">${title}</a>`;
+}
+
+function renderStoryTitle(row) {
+  const title = row.title || 'Untitled';
+  const url = row.studio_url || row.youtube_url;
+  if (!url) return title;
+  return `<a class="table-link" href="${url}" target="_blank" rel="noopener noreferrer">${title}</a>`;
 }
 
 function renderVideos(items) {
@@ -224,7 +292,18 @@ function renderVideos(items) {
   const sorted = sortVideos(items || []).slice(0, 100);
   sorted.forEach((v) => {
     const tr = document.createElement('tr');
-    tr.innerHTML = `<td>${renderVideoTitle(v)}</td><td>${v.style || '—'}</td><td>${v.date || '—'}</td><td>${renderRetention(v.retention_30s_pct, v.retention_30s_status)} ${renderRetentionTrend(v)}</td><td>${renderPercent(v.avg_view_percentage, 15)}</td><td>${renderNumber(v.watch_hours_7d, 1)}</td><td>${renderPercent(v.organic_view_ratio_7d)}</td><td>${Number(v.yt_views || 0).toLocaleString()}</td>`;
+    tr.innerHTML = `
+      <td class="video-title-cell">${renderVideoTitle(v)}</td>
+      <td>${renderVisibility(v.visibility)}</td>
+      <td class="compact-text">${v.style || '—'}</td>
+      <td class="nowrap">${v.date || '—'}</td>
+      <td>${renderRetention(v.retention_30s_pct, v.retention_30s_status)} ${renderRetentionTrend(v)}</td>
+      <td>${renderPercent(v.avg_view_percentage, 15)}</td>
+      <td>${renderNumber(v.watch_hours_7d, 1)}</td>
+      <td>${renderCompactNumber(v.total_watch_hours, 1)}</td>
+      <td>${renderEfficiency(v.efficiency_index)}</td>
+      <td>${renderTrafficLight(v.traffic_light, v.traffic_light_code)}</td>
+      <td>${Number(v.yt_views || 0).toLocaleString()}</td>`;
     body.appendChild(tr);
   });
 }
@@ -237,15 +316,57 @@ async function loadVideos() {
   } catch (err) { console.error(err); }
 }
 
+function storyWinner(row) {
+  const yt = Number(row.yt_views || 0);
+  const tt = Number(row.tt_views || 0);
+  const insta = Number(row.insta_views || 0);
+  const values = [
+    ['YT', yt],
+    ['TT', tt],
+    ['Insta', insta],
+  ].sort((a, b) => b[1] - a[1]);
+  return values[0][1] > 0 ? values[0][0] : '—';
+}
+
+function sortStory(items) {
+  const { field, order } = storySortState;
+  const multiplier = order === 'asc' ? 1 : -1;
+  return [...items].sort((a, b) => {
+    if (field === 'title') return multiplier * String(a.title || '').localeCompare(String(b.title || ''));
+    if (field === 'category') return multiplier * String(a.category || '').localeCompare(String(b.category || ''));
+    if (field === 'format') return multiplier * String(a.format || '').localeCompare(String(b.format || ''));
+    if (field === 'visibility') return multiplier * String(a.visibility || '').localeCompare(String(b.visibility || ''));
+    if (field === 'winner') return multiplier * storyWinner(a).localeCompare(storyWinner(b));
+    if (field === 'date') {
+      const da = a.date ? new Date(a.date) : new Date(0);
+      const db = b.date ? new Date(b.date) : new Date(0);
+      return multiplier * (da - db);
+    }
+    const va = Number(a[field] ?? -1);
+    const vb = Number(b[field] ?? -1);
+    return multiplier * (va - vb);
+  });
+}
+
 function renderStory(items) {
   const body = document.getElementById('story-table');
   if (!body) return;
   body.innerHTML = '';
-  (items || []).forEach((row) => {
+  sortStory(items || []).forEach((row) => {
     const yt = Number(row.yt_views || 0);
     const tt = Number(row.tt_views || 0);
+    const insta = Number(row.insta_views || 0);
     const tr = document.createElement('tr');
-    tr.innerHTML = `<td>${row.chapter ?? '—'}</td><td>${row.title || 'Untitled'}</td><td>${row.date || '—'}</td><td>${yt.toLocaleString()}</td><td>${tt.toLocaleString()}</td><td>${Number(row.insta_views || 0).toLocaleString()}</td><td>${tt > yt ? 'TikTok Wins' : 'YT Wins'}</td>`;
+    tr.innerHTML = `
+      <td>${renderCategory(row.category, row.category_label)}</td>
+      <td>${renderFormat(row.format)}</td>
+      <td class="story-title-cell">${renderStoryTitle(row)}</td>
+      <td>${renderVisibility(row.visibility)}</td>
+      <td class="nowrap">${row.date || '—'}</td>
+      <td>${yt.toLocaleString()}</td>
+      <td>${tt.toLocaleString()}</td>
+      <td>${insta.toLocaleString()}</td>
+      <td>${storyWinner(row)}</td>`;
     body.appendChild(tr);
   });
 }
@@ -253,7 +374,8 @@ function renderStory(items) {
 async function loadStory() {
   try {
     const data = await fetchJson('/tracker/story');
-    renderStory(data.items);
+    storyCache = data.items || [];
+    renderStory(storyCache);
   } catch (err) { console.error(err); }
 }
 
@@ -301,16 +423,23 @@ document.addEventListener('DOMContentLoaded', () => {
   SORTABLE_HEADERS.forEach((header) => {
     header.addEventListener('click', () => {
       const field = header.dataset.sortable;
-      if (musicSortState.field === field) {
-        musicSortState.order = musicSortState.order === 'asc' ? 'desc' : 'asc';
+      const table = header.closest('table');
+      const isShortsHeader = Boolean(table?.querySelector('#shorts-table'));
+      const isStoryHeader = Boolean(table?.querySelector('#story-table'));
+      const state = isStoryHeader ? storySortState : isShortsHeader ? shortsSortState : musicSortState;
+      if (state.field === field) {
+        state.order = state.order === 'asc' ? 'desc' : 'asc';
       } else {
-        musicSortState.field = field;
-        musicSortState.order = field === 'title' ? 'asc' : 'desc';
+        state.field = field;
+        state.order = field === 'title' ? 'asc' : 'desc';
       }
-      SORTABLE_HEADERS.forEach((h) => h.classList.remove('sorted-asc', 'sorted-desc'));
-      header.classList.add(musicSortState.order === 'asc' ? 'sorted-asc' : 'sorted-desc');
-      renderShorts(musicShortsCache);
-      renderVideos(musicVideosCache);
+      SORTABLE_HEADERS
+        .filter((h) => h.closest('table') === table)
+        .forEach((h) => h.classList.remove('sorted-asc', 'sorted-desc'));
+      header.classList.add(state.order === 'asc' ? 'sorted-asc' : 'sorted-desc');
+      if (isStoryHeader) renderStory(storyCache);
+      else if (isShortsHeader) renderShorts(musicShortsCache);
+      else renderVideos(musicVideosCache);
     });
   });
   

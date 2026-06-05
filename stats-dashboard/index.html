@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Robot Ross Analytics</title>
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/style.css?v=20260605-story-assets">
   <script>window.RobotRossAuthConfig = { enabled: true }; document.documentElement.dataset.authLoading = "1";</script>
   <script src="assets/plotly-2.32.0.min.js" defer></script>
   <script src="/auth/auth.js" defer></script>
@@ -106,16 +106,19 @@
                 <p>Ordered by YouTube views. Click column headers to re-sort.</p>
               </div>
               <div class="table-wrapper">
-                <table>
+                <table class="compact-stats-table">
                   <thead>
                     <tr>
                       <th data-sortable="title">Title</th>
+                      <th data-sortable="visibility">Vis</th>
                       <th data-sortable="style">Style</th>
                       <th data-sortable="date">Date</th>
-                      <th data-sortable="retention_30s_pct">0:30 retention</th>
-                      <th data-sortable="avg_view_percentage">AVD %</th>
-                      <th data-sortable="watch_hours_7d">Watch h 7d</th>
-                      <th data-sortable="organic_view_ratio_7d">Organic 7d</th>
+                      <th data-sortable="retention_30s_pct">0:30</th>
+                      <th data-sortable="avg_view_percentage">AVD</th>
+                      <th data-sortable="watch_hours_7d">WH 7D</th>
+                      <th data-sortable="total_watch_hours">Total WH</th>
+                      <th data-sortable="efficiency_index">Eff</th>
+                      <th data-sortable="traffic_light">Traffic</th>
                       <th data-sortable="yt_views">YT views</th>
                     </tr>
                   </thead>
@@ -168,20 +171,22 @@
 
         <div class="stats-panel" data-stats-panel="story">
           <div class="panel-header">
-            <h2>Story chapter performance</h2>
-            <p>YouTube vs TikTok reach per chapter.</p>
+            <h2>Reel Tales story performance</h2>
+            <p>Fables, Lost Coins, and customer stories across YouTube, TikTok, and Instagram.</p>
           </div>
           <div class="table-wrapper">
-            <table>
+            <table class="story-stats-table">
               <thead>
                 <tr>
-                  <th>Chapter</th>
-                  <th>Title</th>
-                  <th>Date</th>
-                  <th>YT views</th>
-                  <th>TT views</th>
-                  <th>Insta</th>
-                  <th>TT vs YT</th>
+                  <th data-sortable="category">Cat</th>
+                  <th data-sortable="format">Fmt</th>
+                  <th data-sortable="title">Title</th>
+                  <th data-sortable="visibility">Vis</th>
+                  <th data-sortable="date">Date</th>
+                  <th data-sortable="yt_views">YT</th>
+                  <th data-sortable="tt_views">TT</th>
+                  <th data-sortable="insta_views">Insta</th>
+                  <th data-sortable="winner">Winner</th>
                 </tr>
               </thead>
               <tbody id="story-table"></tbody>
@@ -191,6 +196,6 @@
       </div>
     </section>
   </div>
-  <script src="assets/stats.js?v=20260604-retention" defer></script>
+  <script src="assets/stats.js?v=20260605-story-assets" defer></script>
 </body>
 </html>
