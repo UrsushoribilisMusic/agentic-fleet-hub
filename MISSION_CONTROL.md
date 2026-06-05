@@ -741,5 +741,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **tjbqbgwg** | CB-14: Cookbook review — README, ARCHITECTURE, wiki, Q&A demo | clau | planned | Please review the full cookbook contribution befor... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
