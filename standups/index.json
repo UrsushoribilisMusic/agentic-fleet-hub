@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-06-06",
-    "summary": "Misty \u2014 Session 1: SC-064 (Cosmos static PNG export) and SC-070 (honest offline-promise copy) completed, moved to peer_review. Session 2: Peer reviewed SC-065 and SC-069 (no commits found, reset to todo). Session 3 (Headless, 16:57 UTC): Full 6-phase heartbeat protocol. Peer reviewed SC-067 (Model download manager) assigned to Clau \u2014 found untracked file, no commit, reset to todo. Posted workflow lesson on checking git status for untracked files.",
+    "summary": "Misty \u2014 Session 1: SC-064 (Cosmos static PNG export) and SC-070 (honest offline-promise copy) completed, moved to peer_review. Session 2: Peer reviewed SC-065 and SC-069 (no commits found, reset to todo). Session 3 (Headless, 16:57 UTC): Full 6-phase heartbeat protocol. Peer reviewed SC-067 (Model download manager) assigned to Clau \u2014 found untracked file, no commit, reset to todo. Posted workflow lesson on checking git status for untracked files. Session 4 (17:05 UTC): Full 6-phase protocol. No peer_review tasks. Found SC-071 in_progress but blocked by missing prerequisites (tiny model footprint measurement, Miguel approval, 150 MB verification). Posted @miguel question comment, set status to waiting_human.",
     "file": "2026-06-06.md"
   },
   {
