@@ -189,6 +189,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **0tw7v5pt**: [SC-016][P1] Concurrent style-pick overlay during captioning -- App Shell · 3 pts -- Clau. Approved.
 - **c2fa5vgn**: [SC-015][P0] Resumable progressive captioning (one-by-one, checkpointed) -- Engine · 5 pts -- Clau. Approved.
 - **erakto7x**: [SC-014][P0] Seven-step foreground generation flow -- Engine · 8 pts -- Codi. Approved.
+- **ehygr8de**: [SC-013][P0] Two-model architecture + single-swap sequential pipeline -- Engine · 8 pts -- Codi. Approved.
 - **msi5mvku**: [QW-007][P0] Fleet analytics index page — wire all QW charts into a single report -- After QW-002 through QW-006 are complete, produce a single index HTML page that embeds or links all charts into one fleet analytics report. -- Misty. Approved.
 - **x0h3h158**: [QW-006][P1] Peer review network — who reviews whose work, collaboration graph -- Using standup_data.json from QW-001, parse peer_reviews to build a directed collaboration graph: node = agent, directed edge A->B = 'A reviewed B's ticket', edge weight = review count. -- Misty. Approved.
 - **iu7fumuc**: [QW-005][P1] Agent workload matrix — heatmap of tickets completed per agent per week -- Using standup_data.json from QW-001, produce a heatmap showing how many tickets each agent completed per calendar week. -- Misty. Approved.
