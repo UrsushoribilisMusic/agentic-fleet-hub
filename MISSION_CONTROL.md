@@ -751,7 +751,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **69wsew6r** | [SC-065][P3] (Later) Cosmos animated video via existing video pipeline | gem | merged | Engine · 5 pts · P3 — DEFERRED, not required for l... |
 | **5jkkein3** | [SC-062][P1] Cosmos day/week views — mirror Wiki scope + gating | gem | merged | Engine · 5 pts · P1... |
 | **df2col1x** | [SC-067][P0] Model download manager — ODR/background URLSession, resumable, checksum-verified | clau | in_work | Infra · 8 pts · P0... |
-| **t902mnt0** | [SC-068][P0] Onboarding download prompt — WiFi-default, cellular option, real size shown | gem | in_work | App Shell · 3 pts · P0... |
+| **t902mnt0** | [SC-068][P0] Onboarding download prompt — WiFi-default, cellular option, real size shown | gem | merged | App Shell · 3 pts · P0... |
 | **lkb6adb5** | [SC-069][P1] Download-during-onboarding + not-finished edge handling (no hard wall) | gem | planned | App Shell · 5 pts · P1... |
 | **2lag3bdz** | [SC-071][P2] (Optional) Bundle one tiny model for instant-offline — decide post-measure | misty | merged | Infra · 3 pts · P2 — DECISION REQUIRED before impl... |
 
