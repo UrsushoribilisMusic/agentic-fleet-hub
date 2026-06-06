@@ -746,8 +746,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **69wsew6r** | [SC-065][P3] (Later) Cosmos animated video via existing video pipeline | gem | planned | Engine · 5 pts · P3 — DEFERRED, not required for l... |
-| **6jbowpi0** | [SC-063][P2] Cosmos in-app interactivity: pan / zoom / tap nodes | clau | planned | Engine · 5 pts · P2... |
-| **5jkkein3** | [SC-062][P1] Cosmos day/week views — mirror Wiki scope + gating | gem | in_work | Engine · 5 pts · P1... |
+| **6jbowpi0** | [SC-063][P2] Cosmos in-app interactivity: pan / zoom / tap nodes | clau | in_work | Engine · 5 pts · P2... |
+| **5jkkein3** | [SC-062][P1] Cosmos day/week views — mirror Wiki scope + gating | gem | merged | Engine · 5 pts · P1... |
 | **kiqttp41** | [SC-061][P1] Promote graph to 5th menu 'Cosmos'; rename throughout (user-facing) | clau | merged | App Shell · 3 pts · P1... |
 | **q03v5u8s** | [SC-066][P0] Keep app shell <200 MB — exclude model weights from bundle | clau | merged | Infra · 2 pts · P0... |
 | **df2col1x** | [SC-067][P0] Model download manager — ODR/background URLSession, resumable, checksum-verified | clau | planned | Infra · 8 pts · P0... |
