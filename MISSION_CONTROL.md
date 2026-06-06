@@ -752,6 +752,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **df2col1x** | [SC-067][P0] Model download manager — ODR/background URLSession, resumable, checksum-verified | clau | merged | Infra · 8 pts · P0... |
+| **df2col1x** | [SC-067][P0] Model download manager — ODR/background URLSession, resumable, checksum-verified | clau | in_work | Infra · 8 pts · P0... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
