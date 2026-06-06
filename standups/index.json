@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-06-06",
-    "summary": "Misty — SC-064: Cosmos static PNG export via OS share sheet implemented (GraphCanvasImageExporter, share button, GraphShareSheet). Task moved to peer_review. Build verifier failed due to pre-existing issues unrelated to this task.",
+    "summary": "Misty \u2014 SC-064: Cosmos static PNG export via OS share sheet implemented (GraphCanvasImageExporter, share button, GraphShareSheet). SC-070: Honest offline-promise copy updated in AppStoreMetadata.md and README.md. Both tasks moved to peer_review. Build verifier failed due to pre-existing issues unrelated to these tasks.",
     "file": "2026-06-06.md"
   },
   {
