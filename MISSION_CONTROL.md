@@ -124,6 +124,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
 - **gvilkyov**: [SC-070][P1] Honest offline-promise copy — 'needs a connection once' -- Content · 1 pt · P1 -- Misty. Approved.
+- **q03v5u8s**: [SC-066][P0] Keep app shell <200 MB — exclude model weights from bundle -- Infra · 2 pts · P0 -- Clau. Approved.
+- **kiqttp41**: [SC-061][P1] Promote graph to 5th menu 'Cosmos'; rename throughout (user-facing) -- App Shell · 3 pts · P1 -- Clau. Approved.
+- **6jbowpi0**: [SC-063][P2] Cosmos in-app interactivity: pan / zoom / tap nodes -- Engine · 5 pts · P2 -- Clau. Approved.
 - **zajbquiv**: [SC-064][P1] Cosmos static image (PNG) export via OS share sheet -- Engine · 3 pts · P1 -- Misty. Approved.
 - **tjbqbgwg**: CB-14: Cookbook review — README, ARCHITECTURE, wiki, Q&A demo -- Please review the full cookbook contribution before Miguel opens the PR. -- Clau. Approved.
 - **icnwzw6i**: CB-13: Deploy cookbook ATF demo to api.robotross.art/atf-mistral for testing -- Deploy the cookbook cited Q&A demo to a NEW endpoint at api.robotross.art/atf-mistral on the existing DigitalOcean server. This is SEPARATE from the live ATF at api.robotross.art/atf — do NOT touch that deployment. Steps: (1) SSH into the DO server (ssh robotsales). (2) Clone the cookbook fork branch into a new directory (e.g. /opt/atf-mistral/). (3) Set up a new virtualenv, install requirements.txt. (4) Wire MISTRAL_API_KEY from the server environment (do not hardcode). (5) Configure nginx to proxy /atf-mistral to the new service (new port, separate from existing /atf). (6) Start the service and verify the endpoint responds with a cited Q&A result. This deployment is for testing before Miguel opens the PR — it should run entirely on the Mistral hosted backend. Flag any open questions (port, process manager choice) in WORKLOG.md. Depends on: CB-12. -- Clau. Approved.
@@ -746,10 +749,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **69wsew6r** | [SC-065][P3] (Later) Cosmos animated video via existing video pipeline | gem | merged | Engine · 5 pts · P3 — DEFERRED, not required for l... |
-| **6jbowpi0** | [SC-063][P2] Cosmos in-app interactivity: pan / zoom / tap nodes | clau | merged | Engine · 5 pts · P2... |
 | **5jkkein3** | [SC-062][P1] Cosmos day/week views — mirror Wiki scope + gating | gem | merged | Engine · 5 pts · P1... |
-| **kiqttp41** | [SC-061][P1] Promote graph to 5th menu 'Cosmos'; rename throughout (user-facing) | clau | merged | App Shell · 3 pts · P1... |
-| **q03v5u8s** | [SC-066][P0] Keep app shell <200 MB — exclude model weights from bundle | clau | merged | Infra · 2 pts · P0... |
 | **df2col1x** | [SC-067][P0] Model download manager — ODR/background URLSession, resumable, checksum-verified | clau | in_work | Infra · 8 pts · P0... |
 | **t902mnt0** | [SC-068][P0] Onboarding download prompt — WiFi-default, cellular option, real size shown | gem | in_work | App Shell · 3 pts · P0... |
 | **lkb6adb5** | [SC-069][P1] Download-during-onboarding + not-finished edge handling (no hard wall) | gem | planned | App Shell · 5 pts · P1... |
