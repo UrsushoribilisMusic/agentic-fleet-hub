@@ -126,6 +126,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **gvilkyov**: [SC-070][P1] Honest offline-promise copy — 'needs a connection once' -- Content · 1 pt · P1 -- Misty. Approved.
 - **lkb6adb5**: [SC-069][P1] Download-during-onboarding + not-finished edge handling (no hard wall) -- App Shell · 5 pts · P1 -- Gem. Approved.
 - **t902mnt0**: [SC-068][P0] Onboarding download prompt — WiFi-default, cellular option, real size shown -- App Shell · 3 pts · P0 -- Gem. Approved.
+- **df2col1x**: [SC-067][P0] Model download manager — ODR/background URLSession, resumable, checksum-verified -- Infra · 8 pts · P0 -- Clau. Approved.
 - **q03v5u8s**: [SC-066][P0] Keep app shell <200 MB — exclude model weights from bundle -- Infra · 2 pts · P0 -- Clau. Approved.
 - **kiqttp41**: [SC-061][P1] Promote graph to 5th menu 'Cosmos'; rename throughout (user-facing) -- App Shell · 3 pts · P1 -- Clau. Approved.
 - **5jkkein3**: [SC-062][P1] Cosmos day/week views — mirror Wiki scope + gating -- Engine · 5 pts · P1 -- Gem. Approved.
@@ -752,6 +753,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **df2col1x** | [SC-067][P0] Model download manager — ODR/background URLSession, resumable, checksum-verified | clau | merged | Infra · 8 pts · P0... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
