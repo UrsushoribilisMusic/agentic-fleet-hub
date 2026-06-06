@@ -752,7 +752,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **df2col1x** | [SC-067][P0] Model download manager — ODR/background URLSession, resumable, checksum-verified | clau | in_work | Infra · 8 pts · P0... |
 | **t902mnt0** | [SC-068][P0] Onboarding download prompt — WiFi-default, cellular option, real size shown | gem | merged | App Shell · 3 pts · P0... |
-| **lkb6adb5** | [SC-069][P1] Download-during-onboarding + not-finished edge handling (no hard wall) | gem | in_work | App Shell · 5 pts · P1... |
+| **lkb6adb5** | [SC-069][P1] Download-during-onboarding + not-finished edge handling (no hard wall) | gem | merged | App Shell · 5 pts · P1... |
 | **2lag3bdz** | [SC-071][P2] (Optional) Bundle one tiny model for instant-offline — decide post-measure | misty | merged | Infra · 3 pts · P2 — DECISION REQUIRED before impl... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
