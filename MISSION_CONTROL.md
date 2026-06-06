@@ -751,7 +751,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **kiqttp41** | [SC-061][P1] Promote graph to 5th menu 'Cosmos'; rename throughout (user-facing) | clau | merged | App Shell · 3 pts · P1... |
 | **q03v5u8s** | [SC-066][P0] Keep app shell <200 MB — exclude model weights from bundle | clau | merged | Infra · 2 pts · P0... |
 | **df2col1x** | [SC-067][P0] Model download manager — ODR/background URLSession, resumable, checksum-verified | clau | in_work | Infra · 8 pts · P0... |
-| **t902mnt0** | [SC-068][P0] Onboarding download prompt — WiFi-default, cellular option, real size shown | gem | planned | App Shell · 3 pts · P0... |
+| **t902mnt0** | [SC-068][P0] Onboarding download prompt — WiFi-default, cellular option, real size shown | gem | in_work | App Shell · 3 pts · P0... |
 | **lkb6adb5** | [SC-069][P1] Download-during-onboarding + not-finished edge handling (no hard wall) | gem | planned | App Shell · 5 pts · P1... |
 | **2lag3bdz** | [SC-071][P2] (Optional) Bundle one tiny model for instant-offline — decide post-measure | misty | merged | Infra · 3 pts · P2 — DECISION REQUIRED before impl... |
 
