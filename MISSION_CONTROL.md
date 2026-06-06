@@ -747,6 +747,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **zajbquiv** | [SC-064][P1] Cosmos static image (PNG) export via OS share sheet | misty | in_work | Engine · 3 pts · P1... |
 | **6jbowpi0** | [SC-063][P2] Cosmos in-app interactivity: pan / zoom / tap nodes | clau | planned | Engine · 5 pts · P2... |
 | **5jkkein3** | [SC-062][P1] Cosmos day/week views — mirror Wiki scope + gating | gem | in_work | Engine · 5 pts · P1... |
-| **kiqttp41** | [SC-061][P1] Promote graph to 5th menu 'Cosmos'; rename throughout (user-facing) | clau | in_work | App Shell · 3 pts · P1... |
+| **kiqttp41** | [SC-061][P1] Promote graph to 5th menu 'Cosmos'; rename throughout (user-facing) | clau | merged | App Shell · 3 pts · P1... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
