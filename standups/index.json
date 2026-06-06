@@ -1,12 +1,12 @@
 [
   {
     "date": "2026-06-06",
-    "summary": "Misty — SC-064: Cosmos static PNG export via OS share sheet implemented (GraphCanvasImageExporter, share button, GraphShareSheet). SC-070: Honest offline-promise copy updated in AppStoreMetadata.md and README.md. Both tasks moved to peer_review. Build verifier failed due to pre-existing issues unrelated to these tasks. Additional sessions: Peer reviewed SC-065, SC-069, SC-061, SC-062, SC-066 (no commits found, reset to todo).",
+    "summary": "Misty \u2014 Session 1: SC-064 (Cosmos static PNG export) and SC-070 (honest offline-promise copy) completed, moved to peer_review. Session 2: Peer reviewed SC-065 and SC-069 (no commits found, reset to todo). Session 3 (Headless, 16:57 UTC): Full 6-phase heartbeat protocol. Peer reviewed SC-067 (Model download manager) assigned to Clau \u2014 found untracked file, no commit, reset to todo. Posted workflow lesson on checking git status for untracked files.",
     "file": "2026-06-06.md"
   },
   {
     "date": "2026-06-05",
-    "summary": "Misty — Peer reviewed CB-01/CB-04 (no commits, reset to todo); CB-08 blocked. Codi — CB-05 runtime_adapter.py Mistral backend work verified and corrected in cookbook commit 8f4837b, moved to peer_review; CB-06 reset to todo after no commit found; CB-07 vendored ledger_to_md.py and notebook cell 2 regenerates wiki from sample ledger; CB-09 vendored build_static_views.py with relative paths in cookbook commit 7bebccd, moved to peer_review. Clau — CB-03 complete: fork mistralai/cookbook → UrsushoribilisMusic/cookbook, scaffold third_party/automated-technical-file/ (README, requirements.txt, LICENSE Apache-2.0/MIT, notebooks/, img/); peer_review.; Clau: CB-12 Integration complete",
+    "summary": "Misty \u2014 Peer reviewed CB-01/CB-04 (no commits, reset to todo); CB-08 blocked. Codi \u2014 CB-05 runtime_adapter.py Mistral backend work verified and corrected in cookbook commit 8f4837b, moved to peer_review; CB-06 reset to todo after no commit found; CB-07 vendored ledger_to_md.py and notebook cell 2 regenerates wiki from sample ledger; CB-09 vendored build_static_views.py with relative paths in cookbook commit 7bebccd, moved to peer_review. Clau \u2014 CB-03 complete: fork mistralai/cookbook \u2192 UrsushoribilisMusic/cookbook, scaffold third_party/automated-technical-file/ (README, requirements.txt, LICENSE Apache-2.0/MIT, notebooks/, img/); peer_review.; Clau: CB-12 Integration complete",
     "file": "2026-06-05.md"
   },
   {
@@ -16,7 +16,7 @@
   },
   {
     "date": "2026-06-05",
-    "summary": "Gem — 2026-06-05 (07:05 UTC): Fleet health check complete, all systems stable.",
+    "summary": "Gem \u2014 2026-06-05 (07:05 UTC): Fleet health check complete, all systems stable.",
     "file": "2026-06-05-status-gem.md"
   },
   {
@@ -76,7 +76,7 @@
   },
   {
     "date": "2026-05-27",
-    "summary": "Gem: Finalized and verified CR-006 cost ingestion (Google Ads, ElevenLabs, Runway, Suno); CR-002 and CR-003 live. Misty: Session 1: Pushed 3 commits (PC-238/260/262 fixes), verified 3 peer_review tasks. Session 2: Peer reviewed and approved CR-006. Session 3: Peer reviewed and approved CR-014, completed PC-242 (merged stock clip bundle to main). Session 4: Verification only - no new tasks, found 2 peer_review tasks assigned to Misty (cannot self-approve). Session 5: Protocol execution - no todo tasks, 2 peer_review tasks assigned to misty (cannot self-approve). Clau: CR-014 YouTube subscriber count via channels.list API. Codi: CR-015 fleet_push now syncs Financial Ops ledgers/snapshots to DO and restored youtube_watch_hours.py source. Dev Groar: Scherenschnitt pipeline locked, fable style enforced. Misty Session 6: Discovered and fixed 2 misassigned tasks (PC-238→codi, PC-242→unassigned), posted workflow lesson.",
+    "summary": "Gem: Finalized and verified CR-006 cost ingestion (Google Ads, ElevenLabs, Runway, Suno); CR-002 and CR-003 live. Misty: Session 1: Pushed 3 commits (PC-238/260/262 fixes), verified 3 peer_review tasks. Session 2: Peer reviewed and approved CR-006. Session 3: Peer reviewed and approved CR-014, completed PC-242 (merged stock clip bundle to main). Session 4: Verification only - no new tasks, found 2 peer_review tasks assigned to Misty (cannot self-approve). Session 5: Protocol execution - no todo tasks, 2 peer_review tasks assigned to misty (cannot self-approve). Clau: CR-014 YouTube subscriber count via channels.list API. Codi: CR-015 fleet_push now syncs Financial Ops ledgers/snapshots to DO and restored youtube_watch_hours.py source. Dev Groar: Scherenschnitt pipeline locked, fable style enforced. Misty Session 6: Discovered and fixed 2 misassigned tasks (PC-238\u2192codi, PC-242\u2192unassigned), posted workflow lesson.",
     "file": "2026-05-27.md"
   },
   {
@@ -111,7 +111,7 @@
   },
   {
     "date": "2026-05-19",
-    "summary": "Clau: RT-006 (gen_story_modern.py 70B) status → peer_review. Gem: RT-004 (Modern Story e2e) success, unlisted test video uploaded; PC-249 (Freemium gating) refined Pro outro 'clean credit' and UI feedback; status → peer_review. Misty: peer review RT-004 (commit 08c6909f) and RT-007 (commit ba6a1ad2) approved.",
+    "summary": "Clau: RT-006 (gen_story_modern.py 70B) status \u2192 peer_review. Gem: RT-004 (Modern Story e2e) success, unlisted test video uploaded; PC-249 (Freemium gating) refined Pro outro 'clean credit' and UI feedback; status \u2192 peer_review. Misty: peer review RT-004 (commit 08c6909f) and RT-007 (commit ba6a1ad2) approved.",
     "file": "2026-05-19.md"
   },
   {
@@ -136,7 +136,7 @@
   },
   {
     "date": "2026-05-17",
-    "summary": "Clau: RT-001 — pipeline_runner.py product ID detection + fable/modern format routing. Commit 44128b5. Task to peer_review.",
+    "summary": "Clau: RT-001 \u2014 pipeline_runner.py product ID detection + fable/modern format routing. Commit 44128b5. Task to peer_review.",
     "file": "2026-05-17-clau-rt001.md"
   },
   {
@@ -181,12 +181,12 @@
   },
   {
     "date": "2026-05-07",
-    "summary": "Clau: completed V05-PROFILE-001 (default-engineering profile pack — RULES.md enriched, growth_meta.json filled, pocketbase_schema.md added, README updated). Gem: PC-216, fixed main build, reviewed V05-PROFILE-004/PC-218. Misty: PC-217, PC-225. Codi: partial audit of V05-PROFILE-001 (blocked by env).",
+    "summary": "Clau: completed V05-PROFILE-001 (default-engineering profile pack \u2014 RULES.md enriched, growth_meta.json filled, pocketbase_schema.md added, README updated). Gem: PC-216, fixed main build, reviewed V05-PROFILE-004/PC-218. Misty: PC-217, PC-225. Codi: partial audit of V05-PROFILE-001 (blocked by env).",
     "file": "2026-05-07.md"
   },
   {
     "date": "2026-05-06",
-    "summary": "Codi: V05-PROFILE-001 + PC-220/PC-223. Clau: PC-083 Screen C calendar permission — Skip button, style param, nav fix, merged approved PC-074, fixed build blockers.",
+    "summary": "Codi: V05-PROFILE-001 + PC-220/PC-223. Clau: PC-083 Screen C calendar permission \u2014 Skip button, style param, nav fix, merged approved PC-074, fixed build blockers.",
     "file": "2026-05-06.md"
   },
   {
@@ -211,12 +211,12 @@
   },
   {
     "date": "2026-05-01",
-    "summary": "Clau: PC-191 (iOS Photos People linking + person→concept graph edges) + PC-188 wiki context (city names in LLM context). Approved PC-188 (Gem). BUILD build-green-2026-05-01-25.",
+    "summary": "Clau: PC-191 (iOS Photos People linking + person\u2192concept graph edges) + PC-188 wiki context (city names in LLM context). Approved PC-188 (Gem). BUILD build-green-2026-05-01-25.",
     "file": "2026-05-01.md"
   },
   {
     "date": "2026-05-01",
-    "summary": "Clau: PC-186 (VLM hashtag extraction wired into describeWithAI) + PC-188 (LocationGeocoder — city name in photo metadata panel). Fixed SettingsView double-encoded UTF-8 (em dash/ellipsis mojibake). BUILD build-green-2026-05-01-24.",
+    "summary": "Clau: PC-186 (VLM hashtag extraction wired into describeWithAI) + PC-188 (LocationGeocoder \u2014 city name in photo metadata panel). Fixed SettingsView double-encoded UTF-8 (em dash/ellipsis mojibake). BUILD build-green-2026-05-01-24.",
     "file": "2026-05-01-clau.md"
   },
   {
@@ -231,17 +231,17 @@
   },
   {
     "date": "2026-05-01",
-    "summary": "Clau: PC-173 + PC-174 earlier sessions. Peer reviewed PC-176 (Misty, approved) + PC-178 (Misty, approved). Implemented PC-180 — topic weight chips, wiki prompt injection, search score boost.",
+    "summary": "Clau: PC-173 + PC-174 earlier sessions. Peer reviewed PC-176 (Misty, approved) + PC-178 (Misty, approved). Implemented PC-180 \u2014 topic weight chips, wiki prompt injection, search score boost.",
     "file": "2026-05-01.md"
   },
   {
     "date": "2026-04-30",
-    "summary": "Clau: 26 sessions, 18 PrivateCore tasks implemented (PC-125/127/136/141/143/145/148/151/159/161/162/166/167/168/169/170/171 + board+daily wiki), 30+ commits, fixed Codi sandbox root cause, filed PC-153–171 from device testing, added Code Review Protocol to RULES.md. Misty: peer reviewed 15 tasks, implemented PC-156. Gem: completed PC-146/162/165.",
+    "summary": "Clau: 26 sessions, 18 PrivateCore tasks implemented (PC-125/127/136/141/143/145/148/151/159/161/162/166/167/168/169/170/171 + board+daily wiki), 30+ commits, fixed Codi sandbox root cause, filed PC-153\u2013171 from device testing, added Code Review Protocol to RULES.md. Misty: peer reviewed 15 tasks, implemented PC-156. Gem: completed PC-146/162/165.",
     "file": "2026-04-30.md"
   },
   {
     "date": "2026-04-29",
-    "summary": "Clau: fixed PC-124/128/129 peer_review→todo; PC-133 verified (awaits peer approval); committed Codi's dispatcher token-failure cooldown + Qwen Coder fleet_meta update",
+    "summary": "Clau: fixed PC-124/128/129 peer_review\u2192todo; PC-133 verified (awaits peer approval); committed Codi's dispatcher token-failure cooldown + Qwen Coder fleet_meta update",
     "file": "2026-04-29.md"
   },
   {
@@ -251,7 +251,7 @@
   },
   {
     "date": "2026-04-27",
-    "summary": "Clau: PC-031 peer-review fix — wrapped Today calendar rows in NavigationLink to SearchView (the last 'deep-links from all items' gap Codi flagged). Commit b85bed5 on privatecore-ios main, BUILD SUCCEEDED (build-green-2026-04-27-14), task back to peer_review.",
+    "summary": "Clau: PC-031 peer-review fix \u2014 wrapped Today calendar rows in NavigationLink to SearchView (the last 'deep-links from all items' gap Codi flagged). Commit b85bed5 on privatecore-ios main, BUILD SUCCEEDED (build-green-2026-04-27-14), task back to peer_review.",
     "file": "2026-04-27.md"
   },
   {
@@ -261,7 +261,7 @@
   },
   {
     "date": "2026-04-26",
-    "summary": "Clau: live device-test session with Miguel. Fixed Home crash (HealthKit removed), Library categories, CLIP autostart watchdog, schema migration ordering, trips.cached_summary, CLIP text feature-name typo (input_ids→text), Add Sample Cards await, New Board didChange notification, PeopleView escape regression. Filed PC-067..PC-080. PC-080 (P0) is the real blocker: clipTokenize is fake byte-level mapping, not BPE — visual search has never worked. Consolidated Heartbeat Protocol into RULES.md. Commits 3efcf64 + 6f5d8ac on privatecore-ios main, 1e5de0c on agentic-fleet-hub master.",
+    "summary": "Clau: live device-test session with Miguel. Fixed Home crash (HealthKit removed), Library categories, CLIP autostart watchdog, schema migration ordering, trips.cached_summary, CLIP text feature-name typo (input_ids\u2192text), Add Sample Cards await, New Board didChange notification, PeopleView escape regression. Filed PC-067..PC-080. PC-080 (P0) is the real blocker: clipTokenize is fake byte-level mapping, not BPE \u2014 visual search has never worked. Consolidated Heartbeat Protocol into RULES.md. Commits 3efcf64 + 6f5d8ac on privatecore-ios main, 1e5de0c on agentic-fleet-hub master.",
     "file": "2026-04-26.md"
   },
   {
@@ -286,7 +286,7 @@
   },
   {
     "date": "2026-04-23",
-    "summary": "PC-046 → peer_review: real MLX inference wired into MLXEngine via ChatSession (mlx-swift-lm 2.31.3). PC-033 ModelManager HuggingFace download complete.",
+    "summary": "PC-046 \u2192 peer_review: real MLX inference wired into MLXEngine via ChatSession (mlx-swift-lm 2.31.3). PC-033 ModelManager HuggingFace download complete.",
     "file": "2026-04-23.md"
   },
   {
@@ -296,7 +296,7 @@
   },
   {
     "date": "2026-04-21",
-    "summary": "TCR live campaign fixed (conversion goals, watch-hour strategy). PrivateCore 4 bugs fixed (DB migration, capture crash, settings UI). 6 design tickets created PC-034–PC-039. arXiv Section 7 data written. PrivateCore added to Fleet Hub portfolio.",
+    "summary": "TCR live campaign fixed (conversion goals, watch-hour strategy). PrivateCore 4 bugs fixed (DB migration, capture crash, settings UI). 6 design tickets created PC-034\u2013PC-039. arXiv Section 7 data written. PrivateCore added to Fleet Hub portfolio.",
     "file": "2026-04-21.md"
   },
   {
@@ -306,12 +306,12 @@
   },
   {
     "date": "2026-04-19",
-    "summary": "PrivateCore iOS kickoff: 18 tickets closed (PC-000–PC-014). MLX Swift inference, OCR, embeddings, VectorStore, VLM, Share Extension all built. App running on device.",
+    "summary": "PrivateCore iOS kickoff: 18 tickets closed (PC-000\u2013PC-014). MLX Swift inference, OCR, embeddings, VectorStore, VLM, Share Extension all built. App running on device.",
     "file": "2026-04-19.md"
   },
   {
     "date": "2026-04-17",
-    "summary": "Author site live (MiguelRodriguezAuthor.com), Swiss ISBN filed, Zug Press logo created. YouTube channel 75→215 subscribers via Google Ads (CHF 0.30/subscriber). Ads audited and fixed.",
+    "summary": "Author site live (MiguelRodriguezAuthor.com), Swiss ISBN filed, Zug Press logo created. YouTube channel 75\u2192215 subscribers via Google Ads (CHF 0.30/subscriber). Ads audited and fixed.",
     "file": "2026-04-17.md"
   },
   {
