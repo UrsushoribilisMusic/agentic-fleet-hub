@@ -745,14 +745,14 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **69wsew6r** | [SC-065][P3] (Later) Cosmos animated video via existing video pipeline | gem | in_work | Engine · 5 pts · P3 — DEFERRED, not required for l... |
 | **zajbquiv** | [SC-064][P1] Cosmos static image (PNG) export via OS share sheet | misty | merged | Engine · 3 pts · P1... |
-| **6jbowpi0** | [SC-063][P2] Cosmos in-app interactivity: pan / zoom / tap nodes | clau | merged | Engine · 5 pts · P2... |
-| **5jkkein3** | [SC-062][P1] Cosmos day/week views — mirror Wiki scope + gating | gem | merged | Engine · 5 pts · P1... |
-| **kiqttp41** | [SC-061][P1] Promote graph to 5th menu 'Cosmos'; rename throughout (user-facing) | clau | merged | App Shell · 3 pts · P1... |
-| **q03v5u8s** | [SC-066][P0] Keep app shell <200 MB — exclude model weights from bundle | clau | planned | Infra · 2 pts · P0... |
+| **6jbowpi0** | [SC-063][P2] Cosmos in-app interactivity: pan / zoom / tap nodes | clau | planned | Engine · 5 pts · P2... |
+| **5jkkein3** | [SC-062][P1] Cosmos day/week views — mirror Wiki scope + gating | gem | planned | Engine · 5 pts · P1... |
+| **kiqttp41** | [SC-061][P1] Promote graph to 5th menu 'Cosmos'; rename throughout (user-facing) | clau | planned | App Shell · 3 pts · P1... |
+| **q03v5u8s** | [SC-066][P0] Keep app shell <200 MB — exclude model weights from bundle | clau | in_work | Infra · 2 pts · P0... |
 | **df2col1x** | [SC-067][P0] Model download manager — ODR/background URLSession, resumable, checksum-verified | clau | planned | Infra · 8 pts · P0... |
 | **t902mnt0** | [SC-068][P0] Onboarding download prompt — WiFi-default, cellular option, real size shown | gem | planned | App Shell · 3 pts · P0... |
 | **lkb6adb5** | [SC-069][P1] Download-during-onboarding + not-finished edge handling (no hard wall) | gem | planned | App Shell · 5 pts · P1... |
-| **gvilkyov** | [SC-070][P1] Honest offline-promise copy — 'needs a connection once' | misty | in_work | Content · 1 pt · P1... |
+| **gvilkyov** | [SC-070][P1] Honest offline-promise copy — 'needs a connection once' | misty | merged | Content · 1 pt · P1... |
 | **2lag3bdz** | [SC-071][P2] (Optional) Bundle one tiny model for instant-offline — decide post-measure | misty | planned | Infra · 3 pts · P2 — DECISION REQUIRED before impl... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
