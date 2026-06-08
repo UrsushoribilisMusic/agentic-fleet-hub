@@ -746,7 +746,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **ra98a3d0** | PC-087 [P1]: Trips — allow manual rename of trip title | gem | in_work | Add rename/edit-title action in trip detail. Persi... |
+| **ra98a3d0** | PC-087 [P1]: Trips — allow manual rename of trip title | gem | merged | Add rename/edit-title action in trip detail. Persi... |
 | **re00f1a4** | PC-090 [P1]: Document scan — captured scan shows no text and no photo preview | codi | planned | Investigate the scan capture to stored asset to OC... |
 | **rd96b70e** | PC-091 [P1]: Photos — portrait images not rotated correctly | codi | planned | Respect EXIF/orientation metadata in thumbnails an... |
 | **r7c1f829** | PC-093 [P1]: Home — photo count says N but visible list shows fewer items | codi | planned | Reconcile the Home photo count query with the rend... |
