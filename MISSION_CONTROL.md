@@ -681,6 +681,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#43**: Fleet Hub: Tasks tab + Activity feed + Heartbeat indicators -- Read-only PocketBase views. -- Gem. Approved.
 - **#42**: Clau fleet mandate + heartbeat protocol -- Clau. Approved.
 - **#41**: Codi fleet mandate + heartbeat protocol -- Codi. Approved.
+- **r342ee7f**: PC-094 [P1]: Home Photos — add actions to assign to Person and add hashtag -- Extend the current photo action flow beyond Add to Board by adding Assign to Person and Add Hashtag actions. -- Gem. Approved.
 - **#40**: Gem fleet mandate + heartbeat protocol -- Create ~/fleet/gem/GEMINI.md with 6-phase heartbeat protocol -- Gem. Approved.
 - **558sbojv**: Service restart logic for project switching -- Add logic to restart PocketBase, dispatcher, and other services cleanly -- Misty. Approved.
 - **#39**: launchd heartbeat plists: Gem + Codi -- Clau. Approved.
@@ -693,6 +694,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#37**: Create fleet Python venv -- ~/fleet/.venv with requests. -- Clau. Approved.
 - **gqt4yi3z**: Add project-switching endpoint to the fleet API -- Create POST /fleet/api/switch-project endpoint for dynamic project switching -- Gem. Approved.
 - **#36**: Build dispatcher.py + Telegram notifications -- Mac Mini paths, openclaw at /opt/homebrew/bin/openclaw, Telegram chat ID 997912895. -- Gem. Approved.
+- **r83013f4**: PC-089 [P1]: People Groups — multi-select people when editing a group -- In the group edit flow, list all people with checkboxes and allow bulk add/remove membership in one screen. Keep none selected as a valid state. -- Gem. Approved.
 - **2o94w73t**: Optimize heartbeat token usage -- Implement checksum caching for MISSION_CONTROL.md to reduce token usage -- Misty. Approved.
 - **#35**: Create ~/fleet/ directory structure -- Workspace dirs per agent, copy MISSION_CONTROL + mandate files into position -- Clau. Approved.
 - **r9c20748**: PC-088 [P2]: Insights — sort Top Places by photos/visits, not alphabetically -- Change the Insights Top Places ranking so it sorts by photo count or visit count, with alphabetical order only as a tie-breaker. -- Gem. Approved.
@@ -743,11 +745,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **ra98a3d0** | PC-087 [P1]: Trips — allow manual rename of trip title | codi | planned | Add rename/edit-title action in trip detail. Persi... |
-| **r83013f4** | PC-089 [P1]: People Groups — multi-select people when editing a group | gem | merged | In the group edit flow, list all people with check... |
 | **re00f1a4** | PC-090 [P1]: Document scan — captured scan shows no text and no photo preview | codi | planned | Investigate the scan capture to stored asset to OC... |
 | **rd96b70e** | PC-091 [P1]: Photos — portrait images not rotated correctly | codi | planned | Respect EXIF/orientation metadata in thumbnails an... |
 | **r7c1f829** | PC-093 [P1]: Home — photo count says N but visible list shows fewer items | codi | planned | Reconcile the Home photo count query with the rend... |
-| **r342ee7f** | PC-094 [P1]: Home Photos — add actions to assign to Person and add hashtag | gem | merged | Extend the current photo action flow beyond Add to... |
 | **r21df2aa** | PC-095 [P2]: Library — New Card dialog needs optional board assignment | gem | in_work | Add a board picker at the bottom of the New Card d... |
 | **r0569d33** | PC-096 [P1]: Search — newly added tags appear in tag list but do not return linked cards | misty | merged | Investigate the tag index vs search result query m... |
 | **hpqill8m** | Fleet Hub: namespace GitHub issue identity in PocketBase tasks | codi | planned | Problem: PocketBase stores only a bare gh_issue_id... |
