@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-06-08",
-    "summary": "Standup: Fleet stable and active - 3 agents called (gem, misty, tcr_scout), 19+ sessions, Misty peer reviewed and approved 7 PrivateCore tasks (PC-086, PC-083, PC-088, PC-089, PC-094, PC-095, PC-087) + skipped PC-096 (self-assigned), Gem verified SiliconOracle and PrivateCore status. Latest Misty session (20:47 UTC): Peer reviewed 2 tasks (SC-073, test) - NO COMMITS FOUND, reset both to todo with feedback comments. Posted workflow lesson on commit verification.",
+    "summary": "Standup: Fleet stable and active - 4 agents called (gem, misty, tcr_scout), 22+ sessions, Misty peer reviewed and approved 7 PrivateCore tasks (PC-086, PC-083, PC-088, PC-089, PC-094, PC-095, PC-087) + skipped PC-096 (self-assigned), Gem verified SiliconOracle and PrivateCore status. Latest Misty session (20:56 UTC): Peer reviewed 3 tasks (SC-072, SC-075, test) - NO COMMITS FOUND in git log, reset all to todo with feedback comments. Posted workflow lesson on commit verification.",
     "file": "2026-06-08.md"
   },
   {
