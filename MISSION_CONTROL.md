@@ -750,10 +750,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **3fjerwmf** | SC-072 [P0]: Retire week-timer pricing — free-always + tip-gates model | clau | in_work | Remove all SC-044/045 quota-check code (canGenerat... |
-| **1j4tx1jb** | SC-073 [P0]: Gate frequency X — remote-tunable value + A/B hook | gem | merged | Gate frequency X (how many generations between tip... |
+| **3fjerwmf** | SC-072 [P0]: Retire week-timer pricing — free-always + tip-gates model | clau | merged | Remove all SC-044/045 quota-check code (canGenerat... |
+| **1j4tx1jb** | SC-073 [P0]: Gate frequency X — remote-tunable value + A/B hook | gem | planned | Gate frequency X (how many generations between tip... |
 | **ut0whfcw** | SC-074 [P0]: Tip-gate UI — oracle-voiced, skippable, IAP unlock | clau | planned | Sheet appears after every X generations (counter f... |
-| **8a0huo7g** | SC-075 [P1]: Revise Tier-1 Suite E tests for gate-counter model | gem | in_work | Remove/rewrite tests written against week-timer pr... |
+| **8a0huo7g** | SC-075 [P1]: Revise Tier-1 Suite E tests for gate-counter model | gem | merged | Remove/rewrite tests written against week-timer pr... |
 | **qtajl6ud** | SC-077 [P1]: Save generated videos to Camera Roll | clau | planned | After VideoAssemblyEngine.compose() returns a URL,... |
 | **88lnyqdv** | SC-078 [P1]: Journal reminder tray — offline video pointer list | gem | planned | In-app tray (top of wiki browser or home view) lis... |
 | **o31vmqa9** | SC-079 [P1]: Photos write-permission moment + score-length guard | clau | planned | Two guardrails before SC-077 ships:... |
@@ -761,6 +761,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **hpqill8m** | Fleet Hub: namespace GitHub issue identity in PocketBase tasks | codi | planned | Problem: PocketBase stores only a bare gh_issue_id... |
 | **#225** | Fleet Hub — namespace GitHub issue identity in PocketBase tasks | codi | planned | Problem: PocketBase stores only a bare gh_issue_id... |
 | **lvfrnytr** | PC-078 [P2]: Regression test — CLIP text-feature name + empty-result detection | codi | planned | FOLLOW-UP from device-test 2026-04-26. The CLIP te... |
-| **j2b02cj6** | test | clau | merged |  |
+| **j2b02cj6** | test | clau | planned |  |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
