@@ -755,7 +755,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **1j4tx1jb** | SC-073 [P0]: Gate frequency X — remote-tunable value + A/B hook | clau | planned | Gate frequency X (how many generations between tip... |
 | **qtajl6ud** | SC-077 [P1]: Save generated videos to Camera Roll | clau | planned | After VideoAssemblyEngine.compose() returns a URL,... |
-| **88lnyqdv** | SC-078 [P1]: Journal reminder tray — offline video pointer list | clau | in_work | In-app tray (top of wiki browser or home view) lis... |
+| **88lnyqdv** | SC-078 [P1]: Journal reminder tray — offline video pointer list | clau | merged | In-app tray (top of wiki browser or home view) lis... |
 | **o31vmqa9** | SC-079 [P1]: Photos write-permission moment + score-length guard | clau | planned | Two guardrails before SC-077 ships:... |
 | **g71sfap5** | Bug [P1]: Voiceover not playing in generated video | clau | planned | Voiceover audio track is not audible in generated ... |
 | **hpqill8m** | Fleet Hub: namespace GitHub issue identity in PocketBase tasks | codi | planned | Problem: PocketBase stores only a bare gh_issue_id... |
