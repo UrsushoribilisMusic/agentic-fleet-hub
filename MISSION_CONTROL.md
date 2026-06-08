@@ -753,7 +753,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **1j4tx1jb** | SC-073 [P0]: Gate frequency X — remote-tunable value + A/B hook | gem | planned | Gate frequency X (how many generations between tip... |
-| **ut0whfcw** | SC-074 [P0]: Tip-gate UI — oracle-voiced, skippable, IAP unlock | clau | in_work | Sheet appears after every X generations (counter f... |
+| **ut0whfcw** | SC-074 [P0]: Tip-gate UI — oracle-voiced, skippable, IAP unlock | clau | merged | Sheet appears after every X generations (counter f... |
 | **qtajl6ud** | SC-077 [P1]: Save generated videos to Camera Roll | clau | planned | After VideoAssemblyEngine.compose() returns a URL,... |
 | **88lnyqdv** | SC-078 [P1]: Journal reminder tray — offline video pointer list | gem | planned | In-app tray (top of wiki browser or home view) lis... |
 | **o31vmqa9** | SC-079 [P1]: Photos write-permission moment + score-length guard | clau | planned | Two guardrails before SC-077 ships:... |
