@@ -701,6 +701,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#35**: Create ~/fleet/ directory structure -- Workspace dirs per agent, copy MISSION_CONTROL + mandate files into position -- Clau. Approved.
 - **r9c20748**: PC-088 [P2]: Insights — sort Top Places by photos/visits, not alphabetically -- Change the Insights Top Places ranking so it sorts by photo count or visit count, with alphabetical order only as a tie-breaker. -- Gem. Approved.
 - **#34**: Install PocketBase + create DB schema -- Download ARM binary, bootstrap admin UI, create 5 collections: tasks, comments, goals, heartbeats, lessons. (Updated by Gem) -- Misty. Approved.
+- **ra98a3d0**: PC-087 [P1]: Trips — allow manual rename of trip title -- Add rename/edit-title action in trip detail. Persist a custom title instead of forcing detector-generated names. Keep the auto-generated title only as a fallback. -- Gem. Approved.
 - **6shkylrl**: Optimize heartbeat token usage -- checksum caching for MISSION_CONTROL.md -- Optimize heartbeat token usage -- checksum caching for MISSION_CONTROL.md -- Misty. Approved.
 - **#32**: Mission Control format hardening -- Clau. Approved.
 - **k7lqexs2**: Q: /gem: question, how many tokens do we need for every heartbeat when you have no  -- Question from Telegram: /gem: question, how many tokens do we need for every heartbeat when you have no tasks. And is there any way to optimize this? -- Clau. Approved.
@@ -746,7 +747,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **ra98a3d0** | PC-087 [P1]: Trips — allow manual rename of trip title | gem | merged | Add rename/edit-title action in trip detail. Persi... |
 | **re00f1a4** | PC-090 [P1]: Document scan — captured scan shows no text and no photo preview | codi | planned | Investigate the scan capture to stored asset to OC... |
 | **rd96b70e** | PC-091 [P1]: Photos — portrait images not rotated correctly | codi | planned | Respect EXIF/orientation metadata in thumbnails an... |
 | **r7c1f829** | PC-093 [P1]: Home — photo count says N but visible list shows fewer items | codi | planned | Reconcile the Home photo count query with the rend... |
