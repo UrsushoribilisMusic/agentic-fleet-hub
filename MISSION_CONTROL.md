@@ -734,6 +734,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **tcr13pbs**: TCR-13: PocketBase to Sheet reporting sync for YouTube metrics -- Sync YouTube metrics from PocketBase back into the reporting worksheet while leaving TikTok and Instagram columns human-owned. -- Codi. Approved.
 - **#5**: #5nkg4da6vgfbj1j: Peer review UI fixes for web page -- Reviewing UI fixes for the web page as described in task #5nkg4da6vgfbj1j -- Misty. Approved.
 - **8a0huo7g**: SC-075 [P1]: Revise Tier-1 Suite E tests for gate-counter model -- Remove/rewrite tests written against week-timer pricing (SC-044/045 canGenerate/isPro logic). New test cases: counter increments per generation; gate fires at exactly X; skip allows generation to complete; IAP unlock = permanent disable; counter resets after gate shown; sharing never increments counter. Tests must not hardcode X=5 — inject via config. -- Gem. Approved.
+- **3fjerwmf**: SC-072 [P0]: Retire week-timer pricing — free-always + tip-gates model -- Remove all SC-044/045 quota-check code (canGenerate, isPro paywall guards, weekly-limit banners). Replace with tip-gate counter: after every X generations show a skippable tip-gate sheet (SC-074). Gate counter persists across launches. IAP unlock (SC-074) removes all future gates permanently. Sharing is NEVER gated. Copy: support development / unlock — never donate/buy/upgrade. -- Clau. Approved.
 - **tejrwdkf**: BBE page fixes: nav consolidation, project links, alignment -- ## What was done (Clau, 2026-03-12) -- Clau. Approved.
 - **xw01g8lu**: test -- Clau. Approved.
 - **m7z2prgv**: test -- Qwen. Approved.
@@ -751,9 +752,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **3fjerwmf** | SC-072 [P0]: Retire week-timer pricing — free-always + tip-gates model | clau | merged | Remove all SC-044/045 quota-check code (canGenerat... |
-| **1j4tx1jb** | SC-073 [P0]: Gate frequency X — remote-tunable value + A/B hook | gem | merged | Gate frequency X (how many generations between tip... |
-| **ut0whfcw** | SC-074 [P0]: Tip-gate UI — oracle-voiced, skippable, IAP unlock | clau | merged | Sheet appears after every X generations (counter f... |
+| **1j4tx1jb** | SC-073 [P0]: Gate frequency X — remote-tunable value + A/B hook | gem | planned | Gate frequency X (how many generations between tip... |
+| **ut0whfcw** | SC-074 [P0]: Tip-gate UI — oracle-voiced, skippable, IAP unlock | clau | planned | Sheet appears after every X generations (counter f... |
 | **qtajl6ud** | SC-077 [P1]: Save generated videos to Camera Roll | clau | in_work | After VideoAssemblyEngine.compose() returns a URL,... |
 | **88lnyqdv** | SC-078 [P1]: Journal reminder tray — offline video pointer list | gem | merged | In-app tray (top of wiki browser or home view) lis... |
 | **o31vmqa9** | SC-079 [P1]: Photos write-permission moment + score-length guard | clau | planned | Two guardrails before SC-077 ships:... |
@@ -761,6 +761,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **hpqill8m** | Fleet Hub: namespace GitHub issue identity in PocketBase tasks | codi | planned | Problem: PocketBase stores only a bare gh_issue_id... |
 | **#225** | Fleet Hub — namespace GitHub issue identity in PocketBase tasks | codi | planned | Problem: PocketBase stores only a bare gh_issue_id... |
 | **lvfrnytr** | PC-078 [P2]: Regression test — CLIP text-feature name + empty-result detection | codi | planned | FOLLOW-UP from device-test 2026-04-26. The CLIP te... |
-| **j2b02cj6** | test | clau | merged |  |
+| **j2b02cj6** | test | clau | planned |  |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
