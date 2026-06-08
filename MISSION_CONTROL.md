@@ -751,7 +751,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **3fjerwmf** | SC-072 [P0]: Retire week-timer pricing — free-always + tip-gates model | clau | planned | Remove all SC-044/045 quota-check code (canGenerat... |
+| **3fjerwmf** | SC-072 [P0]: Retire week-timer pricing — free-always + tip-gates model | clau | in_work | Remove all SC-044/045 quota-check code (canGenerat... |
 | **1j4tx1jb** | SC-073 [P0]: Gate frequency X — remote-tunable value + A/B hook | gem | in_work | Gate frequency X (how many generations between tip... |
 | **ut0whfcw** | SC-074 [P0]: Tip-gate UI — oracle-voiced, skippable, IAP unlock | clau | planned | Sheet appears after every X generations (counter f... |
 | **qtajl6ud** | SC-077 [P1]: Save generated videos to Camera Roll | clau | planned | After VideoAssemblyEngine.compose() returns a URL,... |
