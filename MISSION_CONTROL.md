@@ -755,7 +755,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **qtajl6ud** | SC-077 [P1]: Save generated videos to Camera Roll | clau | planned | After VideoAssemblyEngine.compose() returns a URL,... |
-| **o31vmqa9** | SC-079 [P1]: Photos write-permission moment + score-length guard | clau | in_work | Two guardrails before SC-077 ships:... |
+| **o31vmqa9** | SC-079 [P1]: Photos write-permission moment + score-length guard | clau | merged | Two guardrails before SC-077 ships:... |
 | **g71sfap5** | Bug [P1]: Voiceover not playing in generated video | gem | in_work | Voiceover audio track is not audible in generated ... |
 | **hpqill8m** | Fleet Hub: namespace GitHub issue identity in PocketBase tasks | codi | planned | Problem: PocketBase stores only a bare gh_issue_id... |
 | **#225** | Fleet Hub — namespace GitHub issue identity in PocketBase tasks | codi | planned | Problem: PocketBase stores only a bare gh_issue_id... |
