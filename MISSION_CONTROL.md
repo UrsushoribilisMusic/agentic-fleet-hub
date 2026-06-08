@@ -741,7 +741,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **ra98a3d0** | PC-087 [P1]: Trips — allow manual rename of trip title | codi | planned | Add rename/edit-title action in trip detail. Persi... |
-| **r9c20748** | PC-088 [P2]: Insights — sort Top Places by photos/visits, not alphabetically | gem | in_work | Change the Insights Top Places ranking so it sorts... |
+| **r9c20748** | PC-088 [P2]: Insights — sort Top Places by photos/visits, not alphabetically | gem | merged | Change the Insights Top Places ranking so it sorts... |
 | **r83013f4** | PC-089 [P1]: People Groups — multi-select people when editing a group | gem | planned | In the group edit flow, list all people with check... |
 | **re00f1a4** | PC-090 [P1]: Document scan — captured scan shows no text and no photo preview | codi | planned | Investigate the scan capture to stored asset to OC... |
 | **rd96b70e** | PC-091 [P1]: Photos — portrait images not rotated correctly | codi | planned | Respect EXIF/orientation metadata in thumbnails an... |
