@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-06-08",
+    "summary": "Gem: Completed SC-078 (Journal reminder tray). Implemented SQLite storage, VideoReminderStore, and UI integration in Wiki/Journal views. Build green (build-green-2026-06-08-5).",
+    "file": "2026-06-08-sc078-gem.md"
+  },
+  {
+    "date": "2026-06-08",
     "summary": "Clau (22:15 UTC): approved SC-075, completed SC-072 (retire week-timer pricing, build-green-3), advanced SC-074 to peer_review (PaywallView tipGate UI committed). 8 agents/agents-called, 25+ sessions total.",
     "file": "2026-06-08.md"
   },
