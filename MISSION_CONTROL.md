@@ -754,10 +754,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **3fjerwmf** | SC-072 [P0]: Retire week-timer pricing — free-always + tip-gates model | clau | merged | Remove all SC-044/045 quota-check code (canGenerat... |
 | **1j4tx1jb** | SC-073 [P0]: Gate frequency X — remote-tunable value + A/B hook | gem | merged | Gate frequency X (how many generations between tip... |
 | **ut0whfcw** | SC-074 [P0]: Tip-gate UI — oracle-voiced, skippable, IAP unlock | clau | merged | Sheet appears after every X generations (counter f... |
-| **qtajl6ud** | SC-077 [P1]: Save generated videos to Camera Roll | clau | planned | After VideoAssemblyEngine.compose() returns a URL,... |
+| **qtajl6ud** | SC-077 [P1]: Save generated videos to Camera Roll | clau | in_work | After VideoAssemblyEngine.compose() returns a URL,... |
 | **88lnyqdv** | SC-078 [P1]: Journal reminder tray — offline video pointer list | gem | merged | In-app tray (top of wiki browser or home view) lis... |
 | **o31vmqa9** | SC-079 [P1]: Photos write-permission moment + score-length guard | clau | planned | Two guardrails before SC-077 ships:... |
-| **g71sfap5** | Bug [P1]: Voiceover not playing in generated video | gem | planned | Voiceover audio track is not audible in generated ... |
+| **g71sfap5** | Bug [P1]: Voiceover not playing in generated video | gem | in_work | Voiceover audio track is not audible in generated ... |
 | **hpqill8m** | Fleet Hub: namespace GitHub issue identity in PocketBase tasks | codi | planned | Problem: PocketBase stores only a bare gh_issue_id... |
 | **#225** | Fleet Hub — namespace GitHub issue identity in PocketBase tasks | codi | planned | Problem: PocketBase stores only a bare gh_issue_id... |
 | **lvfrnytr** | PC-078 [P2]: Regression test — CLIP text-feature name + empty-result detection | codi | planned | FOLLOW-UP from device-test 2026-04-26. The CLIP te... |
