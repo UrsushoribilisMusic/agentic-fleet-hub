@@ -11,7 +11,7 @@
   },
   {
     "date": "2026-06-08",
-    "summary": "Multi-agent day: Clau approved SC-075, completed SC-072 (build-green-3), advanced SC-074; Gem completed SC-078 (build-green-5); Misty (21:18 UTC) approved SC-072, reset SC-073/SC-074/test to todo; Misty (21:36 UTC) reset SC-074/SC-077/SC-078/SC-079 to todo; Misty (21:57 UTC) full protocol, 0 peer_review tasks available, 0 implementation tasks; Misty (23:47 UTC) approved SC-074 (tip-gate UI, commit c2098e4). 34 sessions, 16 tasks completed; Misty (22:07 UTC) peer reviewed SC-073/SC-078 (no commits), reset to todo, posted feedback. 35 sessions",
+    "summary": "Multi-agent day: Clau approved SC-075, completed SC-072 (build-green-3), advanced SC-074; Gem completed SC-078 (build-green-5); Misty (21:18 UTC) approved SC-072, reset SC-073/SC-074/test to todo; Misty (21:36 UTC) reset SC-074/SC-077/SC-078/SC-079 to todo; Misty (21:57 UTC) full protocol, 0 peer_review tasks available, 0 implementation tasks; Misty (23:47 UTC) approved SC-074 (tip-gate UI, commit c2098e4). 34 sessions, 16 tasks completed; Misty (22:07 UTC) peer reviewed SC-073/SC-078 (no commits), reset to todo, posted feedback. Misty (23:07 UTC) peer reviewed SC-077/test (no commits), reset to todo, posted feedback. 36 sessions",
     "file": "2026-06-08.md"
   },
   {
