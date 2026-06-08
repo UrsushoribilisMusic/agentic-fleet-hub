@@ -685,6 +685,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#41**: Codi fleet mandate + heartbeat protocol -- Codi. Approved.
 - **r342ee7f**: PC-094 [P1]: Home Photos — add actions to assign to Person and add hashtag -- Extend the current photo action flow beyond Add to Board by adding Assign to Person and Add Hashtag actions. -- Gem. Approved.
 - **#40**: Gem fleet mandate + heartbeat protocol -- Create ~/fleet/gem/GEMINI.md with 6-phase heartbeat protocol -- Gem. Approved.
+- **r7c1f829**: PC-093 [P1]: Home — photo count says N but visible list shows fewer items -- Reconcile the Home photo count query with the rendered list or query limit so the displayed count matches what the user can actually open and see. -- Gem. Approved.
 - **558sbojv**: Service restart logic for project switching -- Add logic to restart PocketBase, dispatcher, and other services cleanly -- Misty. Approved.
 - **#39**: launchd heartbeat plists: Gem + Codi -- Clau. Approved.
 - **rxhpb0xz**: Service restart logic for project switching -- Add logic to restart PocketBase, dispatcher, and other services cleanly -- Misty. Approved.
@@ -692,8 +693,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **r82a9e53**: PC-092 [P0]: Navigation — remove Ask tab and merge reduced history into Search -- Collapse the top-level menu from 6 tabs to 5. Remove the standalone Ask tab. Add a History section to Search, and keep Suggested only for low-history or new-user state. -- Gem. Approved.
 - **h34k7k0c**: Update MISSION_CONTROL.md parser for dynamic project switching -- Make parser dynamic to read from active project, ensure Kanban/ticket views reflect new project -- Misty. Approved.
 - **#38**: launchd plists: PocketBase + dispatcher -- Clau. Approved.
+- **rd96b70e**: PC-091 [P1]: Photos — portrait images not rotated correctly -- Respect EXIF/orientation metadata in thumbnails and detail views. Fix portrait rendering across Library, Search, Home, and related photo surfaces. -- Gem. Approved.
 - **tfpw2xej**: UI for project activation (toggle-based) -- List projects, active project at top with badge, inactive projects have Activate button with confirmation -- Misty. Approved.
 - **#37**: Create fleet Python venv -- ~/fleet/.venv with requests. -- Clau. Approved.
+- **re00f1a4**: PC-090 [P1]: Document scan — captured scan shows no text and no photo preview -- Investigate the scan capture to stored asset to OCR/render pipeline. Ensure scanned documents display both the image and extracted text, with logging or fallback when OCR or asset resolution fails. -- Gem. Approved.
 - **gqt4yi3z**: Add project-switching endpoint to the fleet API -- Create POST /fleet/api/switch-project endpoint for dynamic project switching -- Gem. Approved.
 - **#36**: Build dispatcher.py + Telegram notifications -- Mac Mini paths, openclaw at /opt/homebrew/bin/openclaw, Telegram chat ID 997912895. -- Gem. Approved.
 - **r83013f4**: PC-089 [P1]: People Groups — multi-select people when editing a group -- In the group edit flow, list all people with checkboxes and allow bulk add/remove membership in one screen. Keep none selected as a valid state. -- Gem. Approved.
@@ -747,9 +750,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **re00f1a4** | PC-090 [P1]: Document scan — captured scan shows no text and no photo preview | gem | merged | Investigate the scan capture to stored asset to OC... |
-| **rd96b70e** | PC-091 [P1]: Photos — portrait images not rotated correctly | gem | merged | Respect EXIF/orientation metadata in thumbnails an... |
-| **r7c1f829** | PC-093 [P1]: Home — photo count says N but visible list shows fewer items | gem | merged | Reconcile the Home photo count query with the rend... |
 | **hpqill8m** | Fleet Hub: namespace GitHub issue identity in PocketBase tasks | codi | planned | Problem: PocketBase stores only a bare gh_issue_id... |
 | **#225** | Fleet Hub — namespace GitHub issue identity in PocketBase tasks | codi | planned | Problem: PocketBase stores only a bare gh_issue_id... |
 | **lvfrnytr** | PC-078 [P2]: Regression test — CLIP text-feature name + empty-result detection | codi | planned | FOLLOW-UP from device-test 2026-04-26. The CLIP te... |
