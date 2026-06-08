@@ -748,8 +748,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **re00f1a4** | PC-090 [P1]: Document scan — captured scan shows no text and no photo preview | codi | planned | Investigate the scan capture to stored asset to OC... |
-| **rd96b70e** | PC-091 [P1]: Photos — portrait images not rotated correctly | gem | in_work | Respect EXIF/orientation metadata in thumbnails an... |
-| **r7c1f829** | PC-093 [P1]: Home — photo count says N but visible list shows fewer items | codi | planned | Reconcile the Home photo count query with the rend... |
+| **rd96b70e** | PC-091 [P1]: Photos — portrait images not rotated correctly | gem | merged | Respect EXIF/orientation metadata in thumbnails an... |
+| **r7c1f829** | PC-093 [P1]: Home — photo count says N but visible list shows fewer items | gem | in_work | Reconcile the Home photo count query with the rend... |
 | **hpqill8m** | Fleet Hub: namespace GitHub issue identity in PocketBase tasks | codi | planned | Problem: PocketBase stores only a bare gh_issue_id... |
 | **#225** | Fleet Hub — namespace GitHub issue identity in PocketBase tasks | codi | planned | Problem: PocketBase stores only a bare gh_issue_id... |
 | **lvfrnytr** | PC-078 [P2]: Regression test — CLIP text-feature name + empty-result detection | codi | planned | FOLLOW-UP from device-test 2026-04-26. The CLIP te... |
