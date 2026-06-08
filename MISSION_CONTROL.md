@@ -756,7 +756,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **ut0whfcw** | SC-074 [P0]: Tip-gate UI — oracle-voiced, skippable, IAP unlock | clau | merged | Sheet appears after every X generations (counter f... |
 | **qtajl6ud** | SC-077 [P1]: Save generated videos to Camera Roll | clau | merged | After VideoAssemblyEngine.compose() returns a URL,... |
 | **88lnyqdv** | SC-078 [P1]: Journal reminder tray — offline video pointer list | gem | merged | In-app tray (top of wiki browser or home view) lis... |
-| **o31vmqa9** | SC-079 [P1]: Photos write-permission moment + score-length guard | clau | in_work | Two guardrails before SC-077 ships:... |
+| **o31vmqa9** | SC-079 [P1]: Photos write-permission moment + score-length guard | clau | merged | Two guardrails before SC-077 ships:... |
 | **g71sfap5** | Bug [P1]: Voiceover not playing in generated video | gem | planned | Voiceover audio track is not audible in generated ... |
 | **hpqill8m** | Fleet Hub: namespace GitHub issue identity in PocketBase tasks | codi | planned | Problem: PocketBase stores only a bare gh_issue_id... |
 | **#225** | Fleet Hub — namespace GitHub issue identity in PocketBase tasks | codi | planned | Problem: PocketBase stores only a bare gh_issue_id... |
