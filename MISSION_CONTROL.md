@@ -732,6 +732,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#20**: Ticket #20: MIT License + open-source package structure -- ## Objective -- Clau. Approved.
 - **tcr14sta**: TCR-14: Stats page and heatmap read from PocketBase -- Move the stats page and heatmap off the sheet-driven runtime path so visibility uses PocketBase songs data. -- Codi. Approved.
 - **tcr13pbs**: TCR-13: PocketBase to Sheet reporting sync for YouTube metrics -- Sync YouTube metrics from PocketBase back into the reporting worksheet while leaving TikTok and Instagram columns human-owned. -- Codi. Approved.
+- **88lnyqdv**: SC-078 [P1]: Journal reminder tray — offline video pointer list -- In-app tray (top of wiki browser or home view) listing recent generated videos not yet shared. Each entry: thumbnail/icon + date + one-tap share button. Entries age out after 7 days (pointer only removed — video stays in Photos and in-app). No push notifications. Tray hidden when empty. Sharing from tray marks entry as shared and removes it immediately. Pointer list stored in UserDefaults or SQLite. -- Clau. Approved.
 - **#5**: #5nkg4da6vgfbj1j: Peer review UI fixes for web page -- Reviewing UI fixes for the web page as described in task #5nkg4da6vgfbj1j -- Misty. Approved.
 - **8a0huo7g**: SC-075 [P1]: Revise Tier-1 Suite E tests for gate-counter model -- Remove/rewrite tests written against week-timer pricing (SC-044/045 canGenerate/isPro logic). New test cases: counter increments per generation; gate fires at exactly X; skip allows generation to complete; IAP unlock = permanent disable; counter resets after gate shown; sharing never increments counter. Tests must not hardcode X=5 — inject via config. -- Gem. Approved.
 - **ut0whfcw**: SC-074 [P0]: Tip-gate UI — oracle-voiced, skippable, IAP unlock -- Sheet appears after every X generations (counter from SC-072/073). Always dismissible — skip button prominent. Pending generation completes regardless of choice. Oracle-register copy — warm, not pushy. IAP: non-consumable one-time purchase. Purchase label: Unlock forever. Restore purchases button required. On purchase: gate counter disabled permanently. Sharing flows excluded from gate. -- Clau. Approved.
@@ -753,9 +754,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **1j4tx1jb** | SC-073 [P0]: Gate frequency X — remote-tunable value + A/B hook | clau | planned | Gate frequency X (how many generations between tip... |
+| **1j4tx1jb** | SC-073 [P0]: Gate frequency X — remote-tunable value + A/B hook | clau | in_work | Gate frequency X (how many generations between tip... |
 | **qtajl6ud** | SC-077 [P1]: Save generated videos to Camera Roll | clau | planned | After VideoAssemblyEngine.compose() returns a URL,... |
-| **88lnyqdv** | SC-078 [P1]: Journal reminder tray — offline video pointer list | clau | merged | In-app tray (top of wiki browser or home view) lis... |
 | **o31vmqa9** | SC-079 [P1]: Photos write-permission moment + score-length guard | clau | planned | Two guardrails before SC-077 ships:... |
 | **g71sfap5** | Bug [P1]: Voiceover not playing in generated video | clau | planned | Voiceover audio track is not audible in generated ... |
 | **hpqill8m** | Fleet Hub: namespace GitHub issue identity in PocketBase tasks | codi | planned | Problem: PocketBase stores only a bare gh_issue_id... |
