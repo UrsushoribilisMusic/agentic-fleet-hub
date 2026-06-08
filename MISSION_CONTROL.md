@@ -749,7 +749,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **r21df2aa** | PC-095 [P2]: Library — New Card dialog needs optional board assignment | gem | planned | Add a board picker at the bottom of the New Card d... |
 | **r0569d33** | PC-096 [P1]: Search — newly added tags appear in tag list but do not return linked cards | misty | merged | Investigate the tag index vs search result query m... |
 | **e9nfoh9q** | PC-083 [P1]: Places — no photos found despite photos with geolocation available | clau | in_work | BUG from device-test 2026-04-26 (Miguel via Telegr... |
-| **2a3g2oce** | PC-086 [P1]: Boards — count shows 1 item but opened board has no photos (write/read mismatch) | gem | in_work | BUG from device-test 2026-04-26 (Miguel via Telegr... |
+| **2a3g2oce** | PC-086 [P1]: Boards — count shows 1 item but opened board has no photos (write/read mismatch) | gem | merged | BUG from device-test 2026-04-26 (Miguel via Telegr... |
 | **hpqill8m** | Fleet Hub: namespace GitHub issue identity in PocketBase tasks | codi | planned | Problem: PocketBase stores only a bare gh_issue_id... |
 | **#225** | Fleet Hub — namespace GitHub issue identity in PocketBase tasks | codi | planned | Problem: PocketBase stores only a bare gh_issue_id... |
 | **lvfrnytr** | PC-078 [P2]: Regression test — CLIP text-feature name + empty-result detection | codi | planned | FOLLOW-UP from device-test 2026-04-26. The CLIP te... |
