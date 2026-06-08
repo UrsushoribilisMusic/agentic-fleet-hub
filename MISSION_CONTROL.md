@@ -695,6 +695,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#36**: Build dispatcher.py + Telegram notifications -- Mac Mini paths, openclaw at /opt/homebrew/bin/openclaw, Telegram chat ID 997912895. -- Gem. Approved.
 - **2o94w73t**: Optimize heartbeat token usage -- Implement checksum caching for MISSION_CONTROL.md to reduce token usage -- Misty. Approved.
 - **#35**: Create ~/fleet/ directory structure -- Workspace dirs per agent, copy MISSION_CONTROL + mandate files into position -- Clau. Approved.
+- **r9c20748**: PC-088 [P2]: Insights — sort Top Places by photos/visits, not alphabetically -- Change the Insights Top Places ranking so it sorts by photo count or visit count, with alphabetical order only as a tie-breaker. -- Gem. Approved.
 - **#34**: Install PocketBase + create DB schema -- Download ARM binary, bootstrap admin UI, create 5 collections: tasks, comments, goals, heartbeats, lessons. (Updated by Gem) -- Misty. Approved.
 - **6shkylrl**: Optimize heartbeat token usage -- checksum caching for MISSION_CONTROL.md -- Optimize heartbeat token usage -- checksum caching for MISSION_CONTROL.md -- Misty. Approved.
 - **#32**: Mission Control format hardening -- Clau. Approved.
@@ -742,8 +743,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **ra98a3d0** | PC-087 [P1]: Trips — allow manual rename of trip title | codi | planned | Add rename/edit-title action in trip detail. Persi... |
-| **r9c20748** | PC-088 [P2]: Insights — sort Top Places by photos/visits, not alphabetically | gem | merged | Change the Insights Top Places ranking so it sorts... |
-| **r83013f4** | PC-089 [P1]: People Groups — multi-select people when editing a group | gem | in_work | In the group edit flow, list all people with check... |
+| **r83013f4** | PC-089 [P1]: People Groups — multi-select people when editing a group | gem | merged | In the group edit flow, list all people with check... |
 | **re00f1a4** | PC-090 [P1]: Document scan — captured scan shows no text and no photo preview | codi | planned | Investigate the scan capture to stored asset to OC... |
 | **rd96b70e** | PC-091 [P1]: Photos — portrait images not rotated correctly | codi | planned | Respect EXIF/orientation metadata in thumbnails an... |
 | **r7c1f829** | PC-093 [P1]: Home — photo count says N but visible list shows fewer items | codi | planned | Reconcile the Home photo count query with the rend... |
