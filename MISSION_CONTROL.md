@@ -123,6 +123,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **q7mcv8ut**: SC-085 [P2]: Peer-review test suite cleanup (post SC-076/SC-072 audit) -- Review the test suite changes shipped in the SC-080 prep commit: (1) CaptionRenderingTests.swift — confirm CGImage API is used correctly, no lingering .extent calls; (2) VideoTimelineMathTests.swift — confirm C1/C2/C3 stale tests removed and C4/C5 still pass; (3) VideoTimelineExpansionTests.swift — confirm 5 stale dwell tests removed; (4) KenBurnsDurationTests.swift — confirm F1 range-bounds test is correct; (5) WikiVideoScriptServiceTests.swift — confirm N4/N5 assertions are meaningful. Flag any test that asserts the wrong thing or that will flake. -- Clau. Approved.
 - **et06lu85**: SC-084 [P2]: Add RemoteConfigService QA UserDefaults override test -- Unit test: setting UserDefaults key gateFrequencyXOverride to an integer N makes RemoteConfigService.gateFrequencyX return N. Clean up the override in tearDown. Same file as SC-083 (RemoteConfigServiceTests.swift). -- Clau. Approved.
 - **jp56lir5**: SC-083 [P2]: Add RemoteConfigService fallback test (X=5 when no override) -- Unit test: RemoteConfigService.shared.gateFrequencyX returns 5 when neither UserDefaults QA override nor remote value is set. Clear the QA override key before testing and restore after. Add to a new RemoteConfigServiceTests.swift in SiliconOracleTier1Tests. -- Clau. Approved.
 - **kpsmdgaj**: SC-082 [P2]: Add WikiPDFExporter week-ID parsing tests -- Verify that WikiPDFExporter.subjectDate(for:) correctly parses wiki:week:WW-YYYY article IDs into the Monday of that ISO week. Test at least: wiki:week:23-2026 → Monday 2026-06-01, wiki:week:01-2026 → Monday 2025-12-29 (ISO week boundary), and an invalid format returns nil. -- Clau. Approved.
@@ -768,6 +769,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **lvfrnytr** | PC-078 [P2]: Regression test — CLIP text-feature name + empty-result detection | codi | planned | FOLLOW-UP from device-test 2026-04-26. The CLIP te... |
-| **q7mcv8ut** | SC-085 [P2]: Peer-review test suite cleanup (post SC-076/SC-072 audit) | clau | merged | Review the test suite changes shipped in the SC-08... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
