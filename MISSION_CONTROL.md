@@ -123,6 +123,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **7g2wnu05**: SC-080 [P2]: Add determinism test for computeSegmentDurations -- Suite F: verify that calling computeSegmentDurations with the same slots twice returns identical duration arrays (hash-based jitter must be deterministic). The function is already exposed as internal via the SC-080 prep commit. Add as F2 in KenBurnsDurationTests.swift. -- Clau. Approved.
 - **2lag3bdz**: [SC-071][P2] (Optional) Bundle one tiny model for instant-offline — decide post-measure -- Infra · 3 pts · P2 — DECISION REQUIRED before implementation. -- Misty. Approved.
 - **gvilkyov**: [SC-070][P1] Honest offline-promise copy — 'needs a connection once' -- Content · 1 pt · P1 -- Misty. Approved.
 - **lkb6adb5**: [SC-069][P1] Download-during-onboarding + not-finished edge handling (no hard wall) -- App Shell · 5 pts · P1 -- Gem. Approved.
@@ -763,7 +764,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **lvfrnytr** | PC-078 [P2]: Regression test — CLIP text-feature name + empty-result detection | codi | planned | FOLLOW-UP from device-test 2026-04-26. The CLIP te... |
-| **7g2wnu05** | SC-080 [P2]: Add determinism test for computeSegmentDurations | clau | merged | Suite F: verify that calling computeSegmentDuratio... |
 | **80yw5bxc** | SC-081 [P2]: Add richness-weighting test for computeSegmentDurations | clau | merged | Suite F F3: verify that a slot with a 50-char capt... |
 | **kpsmdgaj** | SC-082 [P2]: Add WikiPDFExporter week-ID parsing tests | clau | merged | Verify that WikiPDFExporter.subjectDate(for:) corr... |
 | **jp56lir5** | SC-083 [P2]: Add RemoteConfigService fallback test (X=5 when no override) | clau | merged | Unit test: RemoteConfigService.shared.gateFrequenc... |
