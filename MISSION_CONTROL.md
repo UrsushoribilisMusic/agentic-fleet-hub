@@ -768,6 +768,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **kpsmdgaj** | SC-082 [P2]: Add WikiPDFExporter week-ID parsing tests | clau | planned | Verify that WikiPDFExporter.subjectDate(for:) corr... |
 | **jp56lir5** | SC-083 [P2]: Add RemoteConfigService fallback test (X=5 when no override) | clau | planned | Unit test: RemoteConfigService.shared.gateFrequenc... |
 | **et06lu85** | SC-084 [P2]: Add RemoteConfigService QA UserDefaults override test | clau | planned | Unit test: setting UserDefaults key gateFrequencyX... |
-| **q7mcv8ut** | SC-085 [P2]: Peer-review test suite cleanup (post SC-076/SC-072 audit) | clau | in_work | Review the test suite changes shipped in the SC-08... |
+| **q7mcv8ut** | SC-085 [P2]: Peer-review test suite cleanup (post SC-076/SC-072 audit) | clau | merged | Review the test suite changes shipped in the SC-08... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
