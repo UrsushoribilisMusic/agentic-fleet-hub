@@ -741,6 +741,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **1j4tx1jb**: SC-073 [P0]: Gate frequency X — remote-tunable value + A/B hook -- Gate frequency X (how many generations between tip-gates) must be remotely tunable — do NOT hardcode. Fetch from Firebase Remote Config on launch. Fallback: X=5. A/B hook: remote config must support different X per user cohort. Local QA override (hidden setting or launch argument). Gate-counter logic in SC-072 reads X from this service. -- Clau. Approved.
 - **3fjerwmf**: SC-072 [P0]: Retire week-timer pricing — free-always + tip-gates model -- Remove all SC-044/045 quota-check code (canGenerate, isPro paywall guards, weekly-limit banners). Replace with tip-gate counter: after every X generations show a skippable tip-gate sheet (SC-074). Gate counter persists across launches. IAP unlock (SC-074) removes all future gates permanently. Sharing is NEVER gated. Copy: support development / unlock — never donate/buy/upgrade. -- Clau. Approved.
 - **tejrwdkf**: BBE page fixes: nav consolidation, project links, alignment -- ## What was done (Clau, 2026-03-12) -- Clau. Approved.
+- **j2b02cj6**: [CLEANUP] accidental test record — ignore -- Created accidentally during PB auth testing. Safe to disregard. -- Clau. Approved.
 - **xw01g8lu**: test -- Clau. Approved.
 - **m7z2prgv**: test -- Qwen. Approved.
 - **a215p1a4**: [SC-001][P0] Fork PrivateCore to SiliconOracle -- COMPLETE 2026-05-29. Tag fork/siliconoracle-2026-05 on privatecore-ios. Repo silicon-oracle created, xcodeproj renamed, bundle ID com.bigbear.siliconoracle, version 0.1.0, fresh MISSION_CONTROL + README + CLAUDE.md. BUILD SUCCEEDED on simulator. -- Codi. Approved.
@@ -761,6 +762,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **hpqill8m** | Fleet Hub: namespace GitHub issue identity in PocketBase tasks | codi | planned | Problem: PocketBase stores only a bare gh_issue_id... |
 | **#225** | Fleet Hub — namespace GitHub issue identity in PocketBase tasks | codi | planned | Problem: PocketBase stores only a bare gh_issue_id... |
 | **lvfrnytr** | PC-078 [P2]: Regression test — CLIP text-feature name + empty-result detection | codi | planned | FOLLOW-UP from device-test 2026-04-26. The CLIP te... |
-| **j2b02cj6** | test | clau | merged |  |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
