@@ -762,6 +762,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **g71sfap5** | Bug [P1]: Voiceover not playing in generated video | gem | merged | Voiceover audio track is not audible in generated ... |
 | **lvfrnytr** | PC-078 [P2]: Regression test — CLIP text-feature name + empty-result detection | codi | planned | FOLLOW-UP from device-test 2026-04-26. The CLIP te... |
-| **2lag3bdz** | [SC-071][P2] (Optional) Bundle one tiny model for instant-offline — decide post-measure | misty | planned | Infra · 3 pts · P2 — DECISION REQUIRED before impl... |
+| **2lag3bdz** | [SC-071][P2] (Optional) Bundle one tiny model for instant-offline — decide post-measure | misty | in_work | Infra · 3 pts · P2 — DECISION REQUIRED before impl... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
