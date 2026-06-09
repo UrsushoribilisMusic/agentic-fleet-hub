@@ -123,6 +123,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **2lag3bdz**: [SC-071][P2] (Optional) Bundle one tiny model for instant-offline — decide post-measure -- Infra · 3 pts · P2 — DECISION REQUIRED before implementation. -- Misty. Approved.
 - **gvilkyov**: [SC-070][P1] Honest offline-promise copy — 'needs a connection once' -- Content · 1 pt · P1 -- Misty. Approved.
 - **lkb6adb5**: [SC-069][P1] Download-during-onboarding + not-finished edge handling (no hard wall) -- App Shell · 5 pts · P1 -- Gem. Approved.
 - **t902mnt0**: [SC-068][P0] Onboarding download prompt — WiFi-default, cellular option, real size shown -- App Shell · 3 pts · P0 -- Gem. Approved.
@@ -734,6 +735,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#20**: Ticket #20: MIT License + open-source package structure -- ## Objective -- Clau. Approved.
 - **tcr14sta**: TCR-14: Stats page and heatmap read from PocketBase -- Move the stats page and heatmap off the sheet-driven runtime path so visibility uses PocketBase songs data. -- Codi. Approved.
 - **tcr13pbs**: TCR-13: PocketBase to Sheet reporting sync for YouTube metrics -- Sync YouTube metrics from PocketBase back into the reporting worksheet while leaving TikTok and Instagram columns human-owned. -- Codi. Approved.
+- **g71sfap5**: Bug [P1]: Voiceover not playing in generated video -- Voiceover audio track is not audible in generated videos. Video generates successfully but plays silent or background music only — no voice. -- Gem. Approved.
 - **o31vmqa9**: SC-079 [P1]: Photos write-permission moment + score-length guard -- Two guardrails before SC-077 ships: -- Clau. Approved.
 - **88lnyqdv**: SC-078 [P1]: Journal reminder tray — offline video pointer list -- In-app tray (top of wiki browser or home view) listing recent generated videos not yet shared. Each entry: thumbnail/icon + date + one-tap share button. Entries age out after 7 days (pointer only removed — video stays in Photos and in-app). No push notifications. Tray hidden when empty. Sharing from tray marks entry as shared and removes it immediately. Pointer list stored in UserDefaults or SQLite. -- Clau. Approved.
 - **qtajl6ud**: SC-077 [P1]: Save generated videos to Camera Roll -- After VideoAssemblyEngine.compose() returns a URL, save the video to Photos using PHPhotoLibrary. Requires write permission (see SC-079 for permission timing/framing). If permission denied: silent skip, no alert. On successful save: brief non-blocking toast Saved to Camera Roll. Save is automatic — no user action required beyond generation flow. -- Clau. Approved.
@@ -760,8 +762,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **g71sfap5** | Bug [P1]: Voiceover not playing in generated video | gem | merged | Voiceover audio track is not audible in generated ... |
 | **lvfrnytr** | PC-078 [P2]: Regression test — CLIP text-feature name + empty-result detection | codi | planned | FOLLOW-UP from device-test 2026-04-26. The CLIP te... |
-| **2lag3bdz** | [SC-071][P2] (Optional) Bundle one tiny model for instant-offline — decide post-measure | misty | in_work | Infra · 3 pts · P2 — DECISION REQUIRED before impl... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
