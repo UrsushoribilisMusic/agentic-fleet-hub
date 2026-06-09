@@ -123,6 +123,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **80yw5bxc**: SC-081 [P2]: Add richness-weighting test for computeSegmentDurations -- Suite F F3: verify that a slot with a 50-char caption gets equal or more dwell time than a slot with an empty caption when both share the same photoAssetId (same jitter). Add as F3 in KenBurnsDurationTests.swift in the Tier1Tests target. -- Clau. Approved.
 - **7g2wnu05**: SC-080 [P2]: Add determinism test for computeSegmentDurations -- Suite F: verify that calling computeSegmentDurations with the same slots twice returns identical duration arrays (hash-based jitter must be deterministic). The function is already exposed as internal via the SC-080 prep commit. Add as F2 in KenBurnsDurationTests.swift. -- Clau. Approved.
 - **2lag3bdz**: [SC-071][P2] (Optional) Bundle one tiny model for instant-offline — decide post-measure -- Infra · 3 pts · P2 — DECISION REQUIRED before implementation. -- Misty. Approved.
 - **gvilkyov**: [SC-070][P1] Honest offline-promise copy — 'needs a connection once' -- Content · 1 pt · P1 -- Misty. Approved.
@@ -764,9 +765,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **lvfrnytr** | PC-078 [P2]: Regression test — CLIP text-feature name + empty-result detection | codi | planned | FOLLOW-UP from device-test 2026-04-26. The CLIP te... |
-| **80yw5bxc** | SC-081 [P2]: Add richness-weighting test for computeSegmentDurations | clau | merged | Suite F F3: verify that a slot with a 50-char capt... |
-| **kpsmdgaj** | SC-082 [P2]: Add WikiPDFExporter week-ID parsing tests | clau | merged | Verify that WikiPDFExporter.subjectDate(for:) corr... |
-| **jp56lir5** | SC-083 [P2]: Add RemoteConfigService fallback test (X=5 when no override) | clau | merged | Unit test: RemoteConfigService.shared.gateFrequenc... |
+| **kpsmdgaj** | SC-082 [P2]: Add WikiPDFExporter week-ID parsing tests | clau | planned | Verify that WikiPDFExporter.subjectDate(for:) corr... |
+| **jp56lir5** | SC-083 [P2]: Add RemoteConfigService fallback test (X=5 when no override) | clau | planned | Unit test: RemoteConfigService.shared.gateFrequenc... |
 | **et06lu85** | SC-084 [P2]: Add RemoteConfigService QA UserDefaults override test | clau | merged | Unit test: setting UserDefaults key gateFrequencyX... |
 | **q7mcv8ut** | SC-085 [P2]: Peer-review test suite cleanup (post SC-076/SC-072 audit) | clau | merged | Review the test suite changes shipped in the SC-08... |
 
