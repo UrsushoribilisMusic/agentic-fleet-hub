@@ -763,7 +763,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **lvfrnytr** | PC-078 [P2]: Regression test — CLIP text-feature name + empty-result detection | codi | planned | FOLLOW-UP from device-test 2026-04-26. The CLIP te... |
-| **7g2wnu05** | SC-080 [P2]: Add determinism test for computeSegmentDurations | clau | planned | Suite F: verify that calling computeSegmentDuratio... |
+| **7g2wnu05** | SC-080 [P2]: Add determinism test for computeSegmentDurations | clau | in_work | Suite F: verify that calling computeSegmentDuratio... |
 | **80yw5bxc** | SC-081 [P2]: Add richness-weighting test for computeSegmentDurations | clau | planned | Suite F F3: verify that a slot with a 50-char capt... |
 | **kpsmdgaj** | SC-082 [P2]: Add WikiPDFExporter week-ID parsing tests | clau | planned | Verify that WikiPDFExporter.subjectDate(for:) corr... |
 | **jp56lir5** | SC-083 [P2]: Add RemoteConfigService fallback test (X=5 when no override) | clau | planned | Unit test: RemoteConfigService.shared.gateFrequenc... |
