@@ -763,5 +763,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **lvfrnytr** | PC-078 [P2]: Regression test — CLIP text-feature name + empty-result detection | codi | planned | FOLLOW-UP from device-test 2026-04-26. The CLIP te... |
+| **7g2wnu05** | SC-080 [P2]: Add determinism test for computeSegmentDurations |  | planned | Suite F: verify that calling computeSegmentDuratio... |
+| **q7mcv8ut** | SC-085 [P2]: Peer-review test suite cleanup (post SC-076/SC-072 audit) |  | planned | Review the test suite changes shipped in the SC-08... |
+| **et06lu85** | SC-084 [P2]: Add RemoteConfigService QA UserDefaults override test |  | planned | Unit test: setting UserDefaults key gateFrequencyX... |
+| **jp56lir5** | SC-083 [P2]: Add RemoteConfigService fallback test (X=5 when no override) |  | planned | Unit test: RemoteConfigService.shared.gateFrequenc... |
+| **kpsmdgaj** | SC-082 [P2]: Add WikiPDFExporter week-ID parsing tests |  | planned | Verify that WikiPDFExporter.subjectDate(for:) corr... |
+| **80yw5bxc** | SC-081 [P2]: Add richness-weighting test for computeSegmentDurations |  | planned | Suite F F3: verify that a slot with a 50-char capt... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
