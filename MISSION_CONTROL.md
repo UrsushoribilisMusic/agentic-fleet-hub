@@ -766,7 +766,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **lvfrnytr** | PC-078 [P2]: Regression test — CLIP text-feature name + empty-result detection | codi | planned | FOLLOW-UP from device-test 2026-04-26. The CLIP te... |
 | **kpsmdgaj** | SC-082 [P2]: Add WikiPDFExporter week-ID parsing tests | clau | merged | Verify that WikiPDFExporter.subjectDate(for:) corr... |
-| **jp56lir5** | SC-083 [P2]: Add RemoteConfigService fallback test (X=5 when no override) | clau | in_work | Unit test: RemoteConfigService.shared.gateFrequenc... |
+| **jp56lir5** | SC-083 [P2]: Add RemoteConfigService fallback test (X=5 when no override) | clau | merged | Unit test: RemoteConfigService.shared.gateFrequenc... |
 | **et06lu85** | SC-084 [P2]: Add RemoteConfigService QA UserDefaults override test | clau | merged | Unit test: setting UserDefaults key gateFrequencyX... |
 | **q7mcv8ut** | SC-085 [P2]: Peer-review test suite cleanup (post SC-076/SC-072 audit) | clau | merged | Review the test suite changes shipped in the SC-08... |
 
