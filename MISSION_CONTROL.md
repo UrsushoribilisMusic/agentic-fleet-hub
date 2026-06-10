@@ -607,6 +607,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#72**: Service restart logic for project switching -- Add logic to restart PocketBase, dispatcher, and other services cleanly. -- Misty. Approved.
 - **#72**: Service restart logic for project switching -- Add logic to restart PocketBase, dispatcher, and other services cleanly. -- Gem. Approved.
 - **#72**: Service restart logic for project switching -- Add logic to restart PocketBase, dispatcher, and other services cleanly. -- Misty. Approved.
+- **#71**: Update MISSION_CONTROL.md parser for dynamic project switching -- Make parser dynamic to read from active project, ensure Kanban/ticket views reflect new project. -- Gem. Approved.
 - **#71**: Update MISSION_CONTROL.md parser for dynamic project switching -- Make parser dynamic to read from active project, ensure Kanban/ticket views reflect new project. -- Misty. Approved.
 - **#71**: Update MISSION_CONTROL.md parser for dynamic project switching -- Make parser dynamic to read from active project, ensure Kanban/ticket views reflect new project. -- Misty. Approved.
 - **m2zloxg0**: please stop reassigning the task to Clau -- From Telegram: /gem please stop reassigning the task to Clau -- Gem. Approved.
@@ -617,7 +618,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#71**: Update MISSION_CONTROL.md parser for dynamic project switching -- Make parser dynamic to read from active project, ensure Kanban/ticket views reflect new project. -- Misty. Approved.
 - **#71**: Update MISSION_CONTROL.md parser for dynamic project switching -- Make parser dynamic to read from active project, ensure Kanban/ticket views reflect new project. -- Misty. Approved.
 - **#71**: Update MISSION_CONTROL.md parser for dynamic project switching -- Make parser dynamic to read from active project, ensure Kanban/ticket views reflect new project. -- Misty. Approved.
-- **#71**: Update MISSION_CONTROL.md parser for dynamic project switching -- Make parser dynamic to read from active project, ensure Kanban/ticket views reflect new project. -- Gem. Approved.
 - **mt9qcp1d**: please stop reassigning the task to gem. -- From Telegram: /clau please stop reassigning the task to gem. -- Gem. Approved.
 - **#70**: UI for project activation (toggle-based) -- List projects, active project at top with badge, inactive projects have "Activate" button with confirmation. -- Misty. Approved.
 - **#70**: UI for project activation (toggle-based) -- List projects, active project at top with badge, inactive projects have "Activate" button with confirmation. -- Gem. Approved.
