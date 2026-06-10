@@ -124,7 +124,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
-- **ljgvcrkn**: MD-001: Corpus builder — per-cell source lists (EN top-50, ES top-50) -- Build the curated source list for the beat-grammar corpus. -- Clau. Approved.
 - **q7mcv8ut**: SC-085 [P2]: Peer-review test suite cleanup (post SC-076/SC-072 audit) -- Review the test suite changes shipped in the SC-080 prep commit: (1) CaptionRenderingTests.swift — confirm CGImage API is used correctly, no lingering .extent calls; (2) VideoTimelineMathTests.swift — confirm C1/C2/C3 stale tests removed and C4/C5 still pass; (3) VideoTimelineExpansionTests.swift — confirm 5 stale dwell tests removed; (4) KenBurnsDurationTests.swift — confirm F1 range-bounds test is correct; (5) WikiVideoScriptServiceTests.swift — confirm N4/N5 assertions are meaningful. Flag any test that asserts the wrong thing or that will flake. -- Clau. Approved.
 - **et06lu85**: SC-084 [P2]: Add RemoteConfigService QA UserDefaults override test -- Unit test: setting UserDefaults key gateFrequencyXOverride to an integer N makes RemoteConfigService.gateFrequencyX return N. Clean up the override in tearDown. Same file as SC-083 (RemoteConfigServiceTests.swift). -- Clau. Approved.
 - **jp56lir5**: SC-083 [P2]: Add RemoteConfigService fallback test (X=5 when no override) -- Unit test: RemoteConfigService.shared.gateFrequencyX returns 5 when neither UserDefaults QA override nor remote value is set. Clear the QA override key before testing and restore after. Add to a new RemoteConfigServiceTests.swift in SiliconOracleTier1Tests. -- Clau. Approved.
@@ -771,14 +770,15 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **lvfrnytr** | PC-078 [P2]: Regression test — CLIP text-feature name + empty-result detection | gem | in_work | FOLLOW-UP from device-test 2026-04-26. The CLIP te... |
-| **2q0kzpg9** | MD-010: Music-variant mux — score-bed swap from Classical Remix catalog + cue-on-cliffhanger toggle | clau | planned | Build the music muxing pipeline for Phase-3 music ... |
-| **tdj1hsfh** | MD-009: Bilingual twin render path — ElevenLabs en-GB/en-US/es-419 voice sets + accent QA checklist | clau | planned | Build the Phase-2 render path for bilingual twins ... |
+| **2q0kzpg9** | MD-010: Music-variant mux — score-bed swap from Classical Remix catalog + cue-on-cliffhanger toggle | codi | planned | Build the music muxing pipeline for Phase-3 music ... |
+| **tdj1hsfh** | MD-009: Bilingual twin render path — ElevenLabs en-GB/en-US/es-419 voice sets + accent QA checklist | codi | planned | Build the Phase-2 render path for bilingual twins ... |
 | **lm8wzpir** | MD-008: Phase-1 launch runbook — posting cadence, paid-fill config, pre-registration doc | clau | planned | Write the operational runbook for Phase-1 launch.... |
-| **7pu9xgkq** | MD-007: md_kpis schema + ingest (YouTube API; TikTok manual/scraper) with geo + cohort pre-segmentation | clau | planned | Create the md_kpis PocketBase collection and build... |
+| **7pu9xgkq** | MD-007: md_kpis schema + ingest (YouTube API; TikTok manual/scraper) with geo + cohort pre-segmentation | gem | planned | Create the md_kpis PocketBase collection and build... |
 | **xt1xszsb** | MD-006: Episode generator — four-block prompt → script/shotlist/voice/music-cue bundle | clau | planned | Build the per-episode generation pipeline that tak... |
+| **ljgvcrkn** | MD-001: Corpus builder — per-cell source lists (EN top-50, ES top-50) | clau | planned | Build the curated source list for the beat-grammar... |
 | **0t01150i** | MD-005: Series-bible generator — trope-cell premise + character sheets + paywall-aware arc map | clau | planned | Build the generation pipeline component that produ... |
-| **z2ox8jgu** | MD-002: Extraction pipeline — ffmpeg → Whisper → PySceneDetect → audio features → PocketBase | clau | merged | Build the checksum-gated extraction pipeline that ... |
+| **z2ox8jgu** | MD-002: Extraction pipeline — ffmpeg → Whisper → PySceneDetect → audio features → PocketBase | codi | planned | Build the checksum-gated extraction pipeline that ... |
 | **a8yj9tzu** | MD-003: Opus structural pass — prompt + JSON schema + confidence tiers; 5-episode golden set | clau | planned | Build the Opus-powered structural analysis pass th... |
-| **6ahsj4f2** | MD-004: Recipe-card aggregator — cell statistics → generation-ready grammar block | clau | planned | Aggregate beat_grammar PocketBase records per (lan... |
+| **6ahsj4f2** | MD-004: Recipe-card aggregator — cell statistics → generation-ready grammar block | gem | planned | Aggregate beat_grammar PocketBase records per (lan... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
