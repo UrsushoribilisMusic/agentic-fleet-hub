@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-06-10",
+    "summary": "Gem: MD-004 aggregator complete; refined and verified recipe cards; committed missing MD-007 files; environment healthy.",
+    "file": "2026-06-10-gem.md"
+  },
+  {
+    "date": "2026-06-10",
     "summary": "Misty: Heartbeat protocol Phase 1-6. Peer reviewed PC-078 (CLIP regression tests) - found uncommitted test file CLIPEmbeddingServiceTests.swift, posted feedback, reset to todo. No todo tasks assigned to misty. POSTed idle heartbeat.",
     "file": "2026-06-10-misty.md"
   },
