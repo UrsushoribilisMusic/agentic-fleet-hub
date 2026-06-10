@@ -779,6 +779,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **0t01150i** | MD-005: Series-bible generator — trope-cell premise + character sheets + paywall-aware arc map | clau | planned | Build the generation pipeline component that produ... |
 | **z2ox8jgu** | MD-002: Extraction pipeline — ffmpeg → Whisper → PySceneDetect → audio features → PocketBase | codi | merged | Build the checksum-gated extraction pipeline that ... |
 | **a8yj9tzu** | MD-003: Opus structural pass — prompt + JSON schema + confidence tiers; 5-episode golden set | clau | planned | Build the Opus-powered structural analysis pass th... |
-| **6ahsj4f2** | MD-004: Recipe-card aggregator — cell statistics → generation-ready grammar block | gem | in_work | Aggregate beat_grammar PocketBase records per (lan... |
+| **6ahsj4f2** | MD-004: Recipe-card aggregator — cell statistics → generation-ready grammar block | gem | merged | Aggregate beat_grammar PocketBase records per (lan... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
