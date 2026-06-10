@@ -713,6 +713,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **r83013f4**: PC-089 [P1]: People Groups — multi-select people when editing a group -- In the group edit flow, list all people with checkboxes and allow bulk add/remove membership in one screen. Keep none selected as a valid state. -- Gem. Approved.
 - **2o94w73t**: Optimize heartbeat token usage -- Implement checksum caching for MISSION_CONTROL.md to reduce token usage -- Misty. Approved.
 - **#35**: Create ~/fleet/ directory structure -- Workspace dirs per agent, copy MISSION_CONTROL + mandate files into position -- Clau. Approved.
+- **#34**: Install PocketBase + create DB schema -- Download ARM binary, bootstrap admin UI, create 5 collections: tasks, comments, goals, heartbeats, lessons. (Updated by Gem) -- Misty. Approved.
 - **r9c20748**: PC-088 [P2]: Insights — sort Top Places by photos/visits, not alphabetically -- Change the Insights Top Places ranking so it sorts by photo count or visit count, with alphabetical order only as a tie-breaker. -- Gem. Approved.
 - **ra98a3d0**: PC-087 [P1]: Trips — allow manual rename of trip title -- Add rename/edit-title action in trip detail. Persist a custom title instead of forcing detector-generated names. Keep the auto-generated title only as a fallback. -- Gem. Approved.
 - **6shkylrl**: Optimize heartbeat token usage -- checksum caching for MISSION_CONTROL.md -- Optimize heartbeat token usage -- checksum caching for MISSION_CONTROL.md -- Misty. Approved.
@@ -769,7 +770,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **#34** | Install PocketBase + create DB schema | misty | merged | Download ARM binary, bootstrap admin UI, create 5 ... |
 | **lvfrnytr** | PC-078 [P2]: Regression test — CLIP text-feature name + empty-result detection | codi | planned | FOLLOW-UP from device-test 2026-04-26. The CLIP te... |
 | **2q0kzpg9** | MD-010: Music-variant mux — score-bed swap from Classical Remix catalog + cue-on-cliffhanger toggle | clau | planned | Build the music muxing pipeline for Phase-3 music ... |
 | **tdj1hsfh** | MD-009: Bilingual twin render path — ElevenLabs en-GB/en-US/es-419 voice sets + accent QA checklist | clau | planned | Build the Phase-2 render path for bilingual twins ... |
