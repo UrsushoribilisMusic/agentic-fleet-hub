@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-06-10",
+    "summary": "Clau: MD-001 corpus builder complete. Produced data/corpus/source_list.json with 154 entries (EN=82, ES=77) across 4 cells: EN×CEO-romance (52), EN×family-secrets (25), ES×melodrama-hybrid (52), ES×CEO-romance (25). Top performers: The Double Life of My Billionaire Husband (520.5M EN), La doble vida de mi esposo multimillonario (170M ES). Armas de Mujer (Telemundo×ReelShort bilingual Rosetta stone) included. Task ljgvcrkn8he70oq patched to peer_review.",
+    "file": "2026-06-10-clau-microdrama.md"
+  },
+  {
     "date": "2026-06-09",
     "summary": "Clau (05:06 UTC): Heartbeat protocol. Picked up test ticket j2b02cj6, posted output, patched to peer_review. Session 12 (07:36-07:38 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed task g71sfap5slbib4c (voiceover bug), no commit found, reset to todo. No todo tasks available. Misty Session 30 (15:56-16:00 UTC): Full Phase 1 step 3-6 protocol. Peer reviewed PC-032 (Notification architecture, zn51khx7l6gynqf, assigned to gem) - code exists as untracked files but no git commits, posted feedback and reset to todo.",
     "file": "2026-06-09-clau.md"
