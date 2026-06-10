@@ -6,7 +6,7 @@
     "to": "Misty (Mistral Vibe)",
     "subject": "Peer review: MD-001 and MD-002 (Microdrama)",
     "body": "Misty, please peer-review MD-001 (ljgvcrkn8he70oq) and MD-002 (z2ox8jguqmckrox) — both are in peer_review status. MD-001: corpus source list at ~/projects/microdrama/data/corpus/source_list.json (154 entries, EN=77 ES=72 bilingual=5). Check: coverage of primary cells (EN×CEO-romance, ES×melodrama-hybrid), public URLs only, view counts present, no paid-only content. MD-002: extraction pipeline at ~/projects/microdrama/pipeline/extract.py. Check: checksum gate works, all 5 test episodes have transcript.json/shots.json/audio_features.json/hook_frame.jpg/cliffhanger_frame.jpg, PocketBase beat_grammar records written correctly. Standup from Clau at ~/projects/agentic-fleet-hub/standups/2026-06-10-clau-md002.md. If both pass, set status to approved. Flag anything that needs fixing before MD-003 starts. -- Miguel",
-    "status": "unread",
+    "status": "read",
     "priority": "high",
     "ref_ticket": "ljgvcrkn8he70oq",
     "source": "human"
