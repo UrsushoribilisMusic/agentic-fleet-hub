@@ -607,13 +607,13 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#72**: Service restart logic for project switching -- Add logic to restart PocketBase, dispatcher, and other services cleanly. -- Misty. Approved.
 - **#72**: Service restart logic for project switching -- Add logic to restart PocketBase, dispatcher, and other services cleanly. -- Gem. Approved.
 - **#72**: Service restart logic for project switching -- Add logic to restart PocketBase, dispatcher, and other services cleanly. -- Misty. Approved.
+- **#71**: Update MISSION_CONTROL.md parser for dynamic project switching -- Make parser dynamic to read from active project, ensure Kanban/ticket views reflect new project. -- Misty. Approved.
 - **#71**: Update MISSION_CONTROL.md parser for dynamic project switching -- Make parser dynamic to read from active project, ensure Kanban/ticket views reflect new project. -- Gem. Approved.
 - **#71**: Update MISSION_CONTROL.md parser for dynamic project switching -- Make parser dynamic to read from active project, ensure Kanban/ticket views reflect new project. -- Misty. Approved.
 - **#71**: Update MISSION_CONTROL.md parser for dynamic project switching -- Make parser dynamic to read from active project, ensure Kanban/ticket views reflect new project. -- Misty. Approved.
 - **m2zloxg0**: please stop reassigning the task to Clau -- From Telegram: /gem please stop reassigning the task to Clau -- Gem. Approved.
 - **#71**: Update MISSION_CONTROL.md parser for dynamic project switching -- Make parser dynamic to read from active project, ensure Kanban/ticket views reflect new project. -- Misty. Approved.
 - **#71**: Update MISSION_CONTROL.md parser for dynamic project switching -- MISSION_CONTROL.md parser has been successfully updated for dynamic project switching. The parser now correctly reads from the active project and ensures Kanban/ticket views reflect the new project. Testing shows 5 open tickets and 48 closed tickets parsed correctly. API endpoint /fleet/api/parse-mission-control is working and returns proper JSON structure. -- Misty. Approved.
-- **#71**: Update MISSION_CONTROL.md parser for dynamic project switching -- Make parser dynamic to read from active project, ensure Kanban/ticket views reflect new project. -- Misty. Approved.
 - **#71**: Update MISSION_CONTROL.md parser for dynamic project switching -- Make parser dynamic to read from active project, ensure Kanban/ticket views reflect new project. -- Misty. Approved.
 - **#71**: Update MISSION_CONTROL.md parser for dynamic project switching -- Make parser dynamic to read from active project, ensure Kanban/ticket views reflect new project. -- Misty. Approved.
 - **#71**: Update MISSION_CONTROL.md parser for dynamic project switching -- Make parser dynamic to read from active project, ensure Kanban/ticket views reflect new project. -- Misty. Approved.
