@@ -27,6 +27,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 | **6. Salesman (OpenClaw)** | `DigitalOcean` | OpenClaw gateway & **BobRossSkill** (public). | [Salesman MD](./AGENTS/CONTEXT/robot_ross_salesman.md) |
 | **7. PrivateCore iOS** | `../private-core/PrivateCore/` | **Sprint active.** Privacy-first on-device AI platform for iPhone. MLX + Photos/Calendar/Health + Vision. Each agent has PC-* tickets. Branch: `main`. | [Context MD](./AGENTS/CONTEXT/privatecore_ios.md) |
 | **8. Classical Remix & Reels** | `../music-video-tool/` | YouTube monetization (4,000-hr YPP goal active) + Shopify short-video store. **Financial Ops sprint active.** Read Financial Ops boundaries below before any ad or publishing action. | [Financial Ops](./AGENTS/CONTEXT/classical_remix_financial_ops.md) |
+| **9. Microdrama** | `../microdrama/` | Beat-grammar extraction flywheel + production engine. Corpus analysis → recipe cards → episode generation → phased experiment (arc → language → music). Tickets: MD-prefix. **Publishing rule: episodes 1–4 public only; 5+ stay private.** | [Spec](../microdrama/AGENTS/CONTEXT/microdrama_spec.md) |
 
 ---
 
@@ -769,5 +770,15 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **lvfrnytr** | PC-078 [P2]: Regression test — CLIP text-feature name + empty-result detection | codi | planned | FOLLOW-UP from device-test 2026-04-26. The CLIP te... |
+| **2q0kzpg9** | MD-010: Music-variant mux — score-bed swap from Classical Remix catalog + cue-on-cliffhanger toggle |  | planned | Build the music muxing pipeline for Phase-3 music ... |
+| **tdj1hsfh** | MD-009: Bilingual twin render path — ElevenLabs en-GB/en-US/es-419 voice sets + accent QA checklist |  | planned | Build the Phase-2 render path for bilingual twins ... |
+| **lm8wzpir** | MD-008: Phase-1 launch runbook — posting cadence, paid-fill config, pre-registration doc |  | planned | Write the operational runbook for Phase-1 launch.... |
+| **7pu9xgkq** | MD-007: md_kpis schema + ingest (YouTube API; TikTok manual/scraper) with geo + cohort pre-segmentation |  | planned | Create the md_kpis PocketBase collection and build... |
+| **xt1xszsb** | MD-006: Episode generator — four-block prompt → script/shotlist/voice/music-cue bundle |  | planned | Build the per-episode generation pipeline that tak... |
+| **0t01150i** | MD-005: Series-bible generator — trope-cell premise + character sheets + paywall-aware arc map |  | planned | Build the generation pipeline component that produ... |
+| **6ahsj4f2** | MD-004: Recipe-card aggregator — cell statistics → generation-ready grammar block |  | planned | Aggregate beat_grammar PocketBase records per (lan... |
+| **a8yj9tzu** | MD-003: Opus structural pass — prompt + JSON schema + confidence tiers; 5-episode golden set |  | planned | Build the Opus-powered structural analysis pass th... |
+| **z2ox8jgu** | MD-002: Extraction pipeline — ffmpeg → Whisper → PySceneDetect → audio features → PocketBase |  | planned | Build the checksum-gated extraction pipeline that ... |
+| **ljgvcrkn** | MD-001: Corpus builder — per-cell source lists (EN top-50, ES top-50) |  | planned | Build the curated source list for the beat-grammar... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
