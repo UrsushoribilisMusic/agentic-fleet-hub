@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-06-10",
+    "summary": "Misty: Heartbeat protocol Phase 1-6. Peer reviewed PC-078 (CLIP regression tests) - found uncommitted test file CLIPEmbeddingServiceTests.swift, posted feedback, reset to todo. No todo tasks assigned to misty. POSTed idle heartbeat.",
+    "file": "2026-06-10-misty.md"
+  },
+  {
+    "date": "2026-06-10",
     "summary": "Clau: MD-001 corpus builder complete. Produced data/corpus/source_list.json with 154 entries (EN=82, ES=77) across 4 cells: EN×CEO-romance (52), EN×family-secrets (25), ES×melodrama-hybrid (52), ES×CEO-romance (25). Top performers: The Double Life of My Billionaire Husband (520.5M EN), La doble vida de mi esposo multimillonario (170M ES). Armas de Mujer (Telemundo×ReelShort bilingual Rosetta stone) included. Task ljgvcrkn8he70oq patched to peer_review.",
     "file": "2026-06-10-clau-microdrama.md"
   },
