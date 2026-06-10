@@ -124,7 +124,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
-- **6ahsj4f2**: MD-004: Recipe-card aggregator — cell statistics → generation-ready grammar block -- Aggregate beat_grammar PocketBase records per (language × trope) cell into a grammar block that the generation pipeline consumes at runtime. -- Gem. Approved.
 - **z2ox8jgu**: MD-002: Extraction pipeline — ffmpeg → Whisper → PySceneDetect → audio features → PocketBase -- Build the checksum-gated extraction pipeline that processes one episode at a time and sinks results to PocketBase. -- Codi. Approved.
 - **ljgvcrkn**: MD-001: Corpus builder — per-cell source lists (EN top-50, ES top-50) -- Build the curated source list for the beat-grammar corpus. -- Clau. Approved.
 - **7pu9xgkq**: MD-007: md_kpis schema + ingest (YouTube API; TikTok manual/scraper) with geo + cohort pre-segmentation -- Create the md_kpis PocketBase collection and build the ingest pipeline for Phase-1 experiment data. -- Gem. Approved.
@@ -780,5 +779,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **xt1xszsb** | MD-006: Episode generator — four-block prompt → script/shotlist/voice/music-cue bundle | clau | planned | Build the per-episode generation pipeline that tak... |
 | **0t01150i** | MD-005: Series-bible generator — trope-cell premise + character sheets + paywall-aware arc map | clau | planned | Build the generation pipeline component that produ... |
 | **a8yj9tzu** | MD-003: Opus structural pass — prompt + JSON schema + confidence tiers; 5-episode golden set | clau | planned | Build the Opus-powered structural analysis pass th... |
+| **6ahsj4f2** | MD-004: Recipe-card aggregator — cell statistics → generation-ready grammar block | gem | planned | Aggregate beat_grammar PocketBase records per (lan... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
