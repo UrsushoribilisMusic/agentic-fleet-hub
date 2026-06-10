@@ -775,10 +775,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **lm8wzpir** | MD-008: Phase-1 launch runbook — posting cadence, paid-fill config, pre-registration doc | clau | planned | Write the operational runbook for Phase-1 launch.... |
 | **7pu9xgkq** | MD-007: md_kpis schema + ingest (YouTube API; TikTok manual/scraper) with geo + cohort pre-segmentation | gem | planned | Create the md_kpis PocketBase collection and build... |
 | **xt1xszsb** | MD-006: Episode generator — four-block prompt → script/shotlist/voice/music-cue bundle | clau | planned | Build the per-episode generation pipeline that tak... |
-| **ljgvcrkn** | MD-001: Corpus builder — per-cell source lists (EN top-50, ES top-50) | clau | in_work | Build the curated source list for the beat-grammar... |
+| **ljgvcrkn** | MD-001: Corpus builder — per-cell source lists (EN top-50, ES top-50) | clau | merged | Build the curated source list for the beat-grammar... |
 | **0t01150i** | MD-005: Series-bible generator — trope-cell premise + character sheets + paywall-aware arc map | clau | planned | Build the generation pipeline component that produ... |
-| **z2ox8jgu** | MD-002: Extraction pipeline — ffmpeg → Whisper → PySceneDetect → audio features → PocketBase | codi | planned | Build the checksum-gated extraction pipeline that ... |
+| **z2ox8jgu** | MD-002: Extraction pipeline — ffmpeg → Whisper → PySceneDetect → audio features → PocketBase | codi | merged | Build the checksum-gated extraction pipeline that ... |
 | **a8yj9tzu** | MD-003: Opus structural pass — prompt + JSON schema + confidence tiers; 5-episode golden set | clau | planned | Build the Opus-powered structural analysis pass th... |
-| **6ahsj4f2** | MD-004: Recipe-card aggregator — cell statistics → generation-ready grammar block | gem | merged | Aggregate beat_grammar PocketBase records per (lan... |
+| **6ahsj4f2** | MD-004: Recipe-card aggregator — cell statistics → generation-ready grammar block | gem | planned | Aggregate beat_grammar PocketBase records per (lan... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
