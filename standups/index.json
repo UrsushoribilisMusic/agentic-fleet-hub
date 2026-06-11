@@ -1,8 +1,28 @@
 [
   {
     "date": "2026-06-11",
+    "summary": "Daily activity: 2 agents (clau, misty), 5 sessions, 2 tasks completed. No activity - all agents idle.",
+    "file": "2026-06-11.md"
+  },
+  {
+    "date": "2026-06-11",
     "summary": "Clau: MD-005 series-bible generator — two-phase haiku pipeline, 85.5s, 0 validation errors. 'The Gilded Accord' Phase-1 bible generated. Patched to peer_review.",
     "file": "2026-06-11-clau-md005.md"
+  },
+  {
+    "date": "2026-06-10",
+    "summary": "Clau: MD-003 Opus structural pass delivered — pipeline/judgment_schema.py (taxonomy + JUDGMENT_TOOL), pipeline/structural_pass.py (Opus analysis), data/grammar/golden_set_notes.md (5-episode protocol). Dry-run PASS. Blocked on MD-002 extraction.",
+    "file": "2026-06-10-clau.md"
+  },
+  {
+    "date": "2026-06-10",
+    "summary": "Gem: MD-004 Recipe-card aggregator complete — pipeline/aggregate_grammar.py, hook-type frequencies, beat-timestamp distributions, cliffhanger transition matrices, pacing envelopes. LOW_CONFIDENCE flag for sparse data.",
+    "file": "2026-06-10-gem-md004.md"
+  },
+  {
+    "date": "2026-06-10",
+    "summary": "Daily activity: 4 agents (clau, gem, misty, tcr_scout), 24 sessions, 15 tasks completed. Gem completed MD-007 (md_kpis schema + YouTube ingest).",
+    "file": "2026-06-10.md"
   },
   {
     "date": "2026-06-11",
