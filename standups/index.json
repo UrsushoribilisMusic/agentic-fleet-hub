@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-06-11",
+    "summary": "Misty: Heartbeat protocol Phases 1-6. Peer-reviewed PC-078 (CLIP regression tests), found uncommitted test file, posted feedback, reset to todo. No implementation tasks available.",
+    "file": "2026-06-11-misty-2.md"
+  },
+  {
+    "date": "2026-06-11",
     "summary": "Codi: MD-009 bilingual ElevenLabs render path complete; real en-GB/en-US/es-419 episode audio rendered, QA manifests passed, cliffhanger dialogue drift 0.0s; Miguel listening approval remains the Phase-2 gate.",
     "file": "2026-06-11-codi-md009.md"
   },
