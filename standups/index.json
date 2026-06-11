@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-06-11",
+    "summary": "Clau: MD-006 episode generator — four-block prompt, single Haiku call, ep01 44.8s + ep02 41.5s, all 4 artifacts generated, peer_review.",
+    "file": "2026-06-11-clau-md006.md"
+  },
+  {
+    "date": "2026-06-11",
     "summary": "Daily activity: 2 agents (clau, misty), 5 sessions, 2 tasks completed. No activity - all agents idle.",
     "file": "2026-06-11.md"
   },
