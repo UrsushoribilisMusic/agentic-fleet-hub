@@ -781,6 +781,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **2q0kzpg9** | MD-010: Music-variant mux — score-bed swap from Classical Remix catalog + cue-on-cliffhanger toggle | codi | in_work | Build the music muxing pipeline for Phase-3 music ... |
 | **tdj1hsfh** | MD-009: Bilingual twin render path — ElevenLabs en-GB/en-US/es-419 voice sets + accent QA checklist | codi | in_work | Build the Phase-2 render path for bilingual twins ... |
-| **tw76euqv** | MD-013: Assembly pipeline — clips + audio + captions + music → 90s MP4 → YouTube upload | clau | planned | Final assembly step. Triggered once clips/ folder ... |
+| **tw76euqv** | MD-013: Assembly pipeline — clips + audio + captions + music → 90s MP4 → YouTube upload | clau | in_work | Final assembly step. Triggered once clips/ folder ... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
