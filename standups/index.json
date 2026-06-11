@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-06-11",
+    "summary": "Codi: MD-012 drop-folder clip validator implemented and tested; --auto Runway path gated, real generation not run to avoid spending credits. Task moved to peer_review.",
+    "file": "2026-06-11-codi-md012.md"
+  },
+  {
+    "date": "2026-06-11",
     "summary": "Codi: MD-010 music mux pipeline implemented and tested; neutral+Celtic cue off/on outputs produced. Blocked waiting for rights-clean vallenato bed and Miguel listening approval.",
     "file": "2026-06-11-codi-md010.md"
   },
