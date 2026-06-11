@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-06-11",
+    "summary": "Misty: Peer-reviewed MD-012 drop-folder bridge (879bhibg460x8nc). Verified commit d281f81 with validate_clips.py + tests. All 4 unit tests pass. Posted approval, updated task to approved.",
+    "file": "2026-06-11-misty.md"
+  },
+  {
+    "date": "2026-06-11",
     "summary": "Codi: MD-012 drop-folder clip validator implemented and tested; --auto Runway path gated, real generation not run to avoid spending credits. Task moved to peer_review.",
     "file": "2026-06-11-codi-md012.md"
   },
@@ -11,12 +16,12 @@
   },
   {
     "date": "2026-06-11",
-    "summary": "Clau: MD-008 Phase-1 launch runbook + pre-registration doc — posting cadence Mon/Thu 18:00 CET, TikTok organic geo-seeding, YouTube paid-fill GB+IE exclusion, retention_ratio thresholds, 4-KPI pre-reg with MDEs. peer_review; Miguel sign-off pending.",
+    "summary": "Clau: MD-008 Phase-1 launch runbook + pre-registration doc \u2014 posting cadence Mon/Thu 18:00 CET, TikTok organic geo-seeding, YouTube paid-fill GB+IE exclusion, retention_ratio thresholds, 4-KPI pre-reg with MDEs. peer_review; Miguel sign-off pending.",
     "file": "2026-06-11-clau-md008.md"
   },
   {
     "date": "2026-06-11",
-    "summary": "Clau: MD-006 episode generator — four-block prompt, single Haiku call, ep01 44.8s + ep02 41.5s, all 4 artifacts generated, peer_review.",
+    "summary": "Clau: MD-006 episode generator \u2014 four-block prompt, single Haiku call, ep01 44.8s + ep02 41.5s, all 4 artifacts generated, peer_review.",
     "file": "2026-06-11-clau-md006.md"
   },
   {
@@ -26,17 +31,17 @@
   },
   {
     "date": "2026-06-11",
-    "summary": "Clau: MD-005 series-bible generator — two-phase haiku pipeline, 85.5s, 0 validation errors. 'The Gilded Accord' Phase-1 bible generated. Patched to peer_review.",
+    "summary": "Clau: MD-005 series-bible generator \u2014 two-phase haiku pipeline, 85.5s, 0 validation errors. 'The Gilded Accord' Phase-1 bible generated. Patched to peer_review.",
     "file": "2026-06-11-clau-md005.md"
   },
   {
     "date": "2026-06-10",
-    "summary": "Clau: MD-003 Opus structural pass delivered — pipeline/judgment_schema.py (taxonomy + JUDGMENT_TOOL), pipeline/structural_pass.py (Opus analysis), data/grammar/golden_set_notes.md (5-episode protocol). Dry-run PASS. Blocked on MD-002 extraction.",
+    "summary": "Clau: MD-003 Opus structural pass delivered \u2014 pipeline/judgment_schema.py (taxonomy + JUDGMENT_TOOL), pipeline/structural_pass.py (Opus analysis), data/grammar/golden_set_notes.md (5-episode protocol). Dry-run PASS. Blocked on MD-002 extraction.",
     "file": "2026-06-10-clau.md"
   },
   {
     "date": "2026-06-10",
-    "summary": "Gem: MD-004 Recipe-card aggregator complete — pipeline/aggregate_grammar.py, hook-type frequencies, beat-timestamp distributions, cliffhanger transition matrices, pacing envelopes. LOW_CONFIDENCE flag for sparse data.",
+    "summary": "Gem: MD-004 Recipe-card aggregator complete \u2014 pipeline/aggregate_grammar.py, hook-type frequencies, beat-timestamp distributions, cliffhanger transition matrices, pacing envelopes. LOW_CONFIDENCE flag for sparse data.",
     "file": "2026-06-10-gem-md004.md"
   },
   {
@@ -46,7 +51,7 @@
   },
   {
     "date": "2026-06-11",
-    "summary": "Clau: MD-003 Opus structural pass finalized — merged task branch to main. Deliverables: pipeline/judgment_schema.py (taxonomy + JUDGMENT_TOOL), pipeline/structural_pass.py (Opus call + validation + confidence tiers), data/grammar/golden_set_notes.md (5-episode golden set protocol). Batch run and calibration blocked on MD-002 corpus extraction. Task patched to peer_review.",
+    "summary": "Clau: MD-003 Opus structural pass finalized \u2014 merged task branch to main. Deliverables: pipeline/judgment_schema.py (taxonomy + JUDGMENT_TOOL), pipeline/structural_pass.py (Opus call + validation + confidence tiers), data/grammar/golden_set_notes.md (5-episode golden set protocol). Batch run and calibration blocked on MD-002 corpus extraction. Task patched to peer_review.",
     "file": "2026-06-11-clau-md003.md"
   },
   {
@@ -61,7 +66,7 @@
   },
   {
     "date": "2026-06-10",
-    "summary": "Clau: MD-001 corpus builder complete. Produced data/corpus/source_list.json with 154 entries (EN=82, ES=77) across 4 cells: EN×CEO-romance (52), EN×family-secrets (25), ES×melodrama-hybrid (52), ES×CEO-romance (25). Top performers: The Double Life of My Billionaire Husband (520.5M EN), La doble vida de mi esposo multimillonario (170M ES). Armas de Mujer (Telemundo×ReelShort bilingual Rosetta stone) included. Task ljgvcrkn8he70oq patched to peer_review.",
+    "summary": "Clau: MD-001 corpus builder complete. Produced data/corpus/source_list.json with 154 entries (EN=82, ES=77) across 4 cells: EN\u00d7CEO-romance (52), EN\u00d7family-secrets (25), ES\u00d7melodrama-hybrid (52), ES\u00d7CEO-romance (25). Top performers: The Double Life of My Billionaire Husband (520.5M EN), La doble vida de mi esposo multimillonario (170M ES). Armas de Mujer (Telemundo\u00d7ReelShort bilingual Rosetta stone) included. Task ljgvcrkn8he70oq patched to peer_review.",
     "file": "2026-06-10-clau-microdrama.md"
   },
   {
