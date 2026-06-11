@@ -16,7 +16,7 @@
   },
   {
     "date": "2026-06-11",
-    "summary": "Codi: MD-010 music mux pipeline implemented and tested; neutral+Celtic cue off/on outputs produced. Blocked waiting for rights-clean vallenato bed and Miguel listening approval.",
+    "summary": "Codi: MD-010 music mux pipeline complete; neutral, Celtic, and vallenato cue off/on outputs produced; cue-on drift 0.0s; task moved to peer_review.",
     "file": "2026-06-11-codi-md010.md"
   },
   {
