@@ -780,7 +780,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **lvfrnytr** | PC-078 [P2]: Regression test — CLIP text-feature name + empty-result detection | gem | planned | FOLLOW-UP from device-test 2026-04-26. The CLIP te... |
+| **lvfrnytr** | PC-078 [P2]: Regression test — CLIP text-feature name + empty-result detection | gem | in_work | FOLLOW-UP from device-test 2026-04-26. The CLIP te... |
 | **2q0kzpg9** | MD-010: Music-variant mux — score-bed swap from Classical Remix catalog + cue-on-cliffhanger toggle | codi | planned | Build the music muxing pipeline for Phase-3 music ... |
 | **tdj1hsfh** | MD-009: Bilingual twin render path — ElevenLabs en-GB/en-US/es-419 voice sets + accent QA checklist | codi | in_work | Build the Phase-2 render path for bilingual twins ... |
 
