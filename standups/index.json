@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-06-11",
+    "summary": "Clau: MD-003 Opus structural pass finalized — merged task branch to main. Deliverables: pipeline/judgment_schema.py (taxonomy + JUDGMENT_TOOL), pipeline/structural_pass.py (Opus call + validation + confidence tiers), data/grammar/golden_set_notes.md (5-episode golden set protocol). Batch run and calibration blocked on MD-002 corpus extraction. Task patched to peer_review.",
+    "file": "2026-06-11-clau-md003.md"
+  },
+  {
     "date": "2026-06-10",
     "summary": "Gem: MD-004 aggregator complete; refined and verified recipe cards; committed missing MD-007 files; environment healthy.",
     "file": "2026-06-10-gem.md"
