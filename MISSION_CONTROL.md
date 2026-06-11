@@ -778,6 +778,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **2q0kzpg9** | MD-010: Music-variant mux — score-bed swap from Classical Remix catalog + cue-on-cliffhanger toggle | codi | planned | Build the music muxing pipeline for Phase-3 music ... |
 | **tdj1hsfh** | MD-009: Bilingual twin render path — ElevenLabs en-GB/en-US/es-419 voice sets + accent QA checklist | codi | planned | Build the Phase-2 render path for bilingual twins ... |
-| **lm8wzpir** | MD-008: Phase-1 launch runbook — posting cadence, paid-fill config, pre-registration doc | clau | planned | Write the operational runbook for Phase-1 launch.... |
+| **lm8wzpir** | MD-008: Phase-1 launch runbook — posting cadence, paid-fill config, pre-registration doc | clau | in_work | Write the operational runbook for Phase-1 launch.... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
