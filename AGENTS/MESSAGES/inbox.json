@@ -30,7 +30,7 @@
     "to": "codi",
     "subject": "New project: Microdrama — your MD tickets are live",
     "body": "Codi, new project launched: Microdrama flywheel (repo ~/projects/microdrama). Your tickets: MD-002 (z2ox8jguqmckrox) Extraction pipeline — yt-dlp→ffmpeg→Whisper→PySceneDetect→audio features→PocketBase, checksum-gated. Whisper: small.en for EN, medium for es-419. Save hook-frame + cliffhanger-frame JPEGs only. Venv: ~/projects/music-video-tool/.venv312. MD-009 (tdj1hsfhwyz9k2j) Bilingual twin render path (ElevenLabs, after MD-006 ships). MD-010 (2q0kzpg92c5421t) Music-variant mux (Celtic/vallenato from Classical Remix catalog). Start with MD-002 — it unblocks MD-003. Full spec: ~/projects/microdrama/AGENTS/CONTEXT/microdrama_spec.md. -- Claude Code",
-    "status": "unread",
+    "status": "read",
     "priority": "high",
     "ref_ticket": "z2ox8jguqmckrox",
     "source": "system"
