@@ -124,6 +124,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **879bhibg**: MD-012: Drop-folder bridge — clip intake validator + future Runway API automation -- Bridge between Miguel's manual Runway step and the assembly pipeline. -- Codi. Approved.
 - **6ahsj4f2**: MD-004: Recipe-card aggregator — cell statistics → generation-ready grammar block -- Aggregate beat_grammar PocketBase records per (language × trope) cell into a grammar block that the generation pipeline consumes at runtime. -- Gem. Approved.
 - **a8yj9tzu**: MD-003: Opus structural pass — prompt + JSON schema + confidence tiers; 5-episode golden set -- Build the Opus-powered structural analysis pass that fills the judgment fields of the beat-grammar schema. -- Clau. Approved.
 - **z2ox8jgu**: MD-002: Extraction pipeline — ffmpeg → Whisper → PySceneDetect → audio features → PocketBase -- Build the checksum-gated extraction pipeline that processes one episode at a time and sinks results to PocketBase. -- Codi. Approved.
@@ -780,7 +781,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **2q0kzpg9** | MD-010: Music-variant mux — score-bed swap from Classical Remix catalog + cue-on-cliffhanger toggle | codi | in_work | Build the music muxing pipeline for Phase-3 music ... |
 | **tdj1hsfh** | MD-009: Bilingual twin render path — ElevenLabs en-GB/en-US/es-419 voice sets + accent QA checklist | codi | in_work | Build the Phase-2 render path for bilingual twins ... |
 | **tw76euqv** | MD-013: Assembly pipeline — clips + audio + captions + music → 90s MP4 → YouTube upload | clau | planned | Final assembly step. Triggered once clips/ folder ... |
-| **879bhibg** | MD-012: Drop-folder bridge — clip intake validator + future Runway API automation | codi | merged | Bridge between Miguel's manual Runway step and the... |
 | **tcih1ov6** | MD-011: Segment-first episode generator — typed segments + purpose-specific Runway prompts | clau | in_work | Refactor the MD-006 episode generator to produce a... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
