@@ -777,7 +777,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **tdj1hsfh** | MD-009: Bilingual twin render path — ElevenLabs en-GB/en-US/es-419 voice sets + accent QA checklist | codi | planned | Build the Phase-2 render path for bilingual twins ... |
 | **lm8wzpir** | MD-008: Phase-1 launch runbook — posting cadence, paid-fill config, pre-registration doc | clau | planned | Write the operational runbook for Phase-1 launch.... |
 | **xt1xszsb** | MD-006: Episode generator — four-block prompt → script/shotlist/voice/music-cue bundle | clau | planned | Build the per-episode generation pipeline that tak... |
-| **0t01150i** | MD-005: Series-bible generator — trope-cell premise + character sheets + paywall-aware arc map | clau | planned | Build the generation pipeline component that produ... |
+| **0t01150i** | MD-005: Series-bible generator — trope-cell premise + character sheets + paywall-aware arc map | clau | in_work | Build the generation pipeline component that produ... |
 | **a8yj9tzu** | MD-003: Opus structural pass — prompt + JSON schema + confidence tiers; 5-episode golden set | clau | merged | Build the Opus-powered structural analysis pass th... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
