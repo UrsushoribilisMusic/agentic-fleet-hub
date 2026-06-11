@@ -777,6 +777,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **2q0kzpg9** | MD-010: Music-variant mux — score-bed swap from Classical Remix catalog + cue-on-cliffhanger toggle | codi | planned | Build the music muxing pipeline for Phase-3 music ... |
+| **2q0kzpg9** | MD-010: Music-variant mux — score-bed swap from Classical Remix catalog + cue-on-cliffhanger toggle | codi | in_work | Build the music muxing pipeline for Phase-3 music ... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
