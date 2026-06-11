@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-06-11",
+    "summary": "Clau: MD-008 Phase-1 launch runbook + pre-registration doc — posting cadence Mon/Thu 18:00 CET, TikTok organic geo-seeding, YouTube paid-fill GB+IE exclusion, retention_ratio thresholds, 4-KPI pre-reg with MDEs. peer_review; Miguel sign-off pending.",
+    "file": "2026-06-11-clau-md008.md"
+  },
+  {
+    "date": "2026-06-11",
     "summary": "Clau: MD-006 episode generator — four-block prompt, single Haiku call, ep01 44.8s + ep02 41.5s, all 4 artifacts generated, peer_review.",
     "file": "2026-06-11-clau-md006.md"
   },
