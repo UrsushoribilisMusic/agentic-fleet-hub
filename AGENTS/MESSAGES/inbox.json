@@ -18,7 +18,7 @@
     "to": "codi",
     "subject": "New ticket: MD-012 drop-folder bridge",
     "body": "Codi, new ticket MD-012 (879bhibg460x8nc): drop-folder clip validator + future Runway API automation. Phase 1: validate_clips.py checks clips/ folder against segments.json \u2014 right files, right duration (\u00b11s), right resolution (720\u00d71280). Phase 2: --auto flag calls Runway API using _get_runway_client() from ~/projects/music-video-tool/story_tool.py, 8s clips at 720\u00d71280, runway_trim_start=1.0s. Gate Phase 2 behind the flag. Depends on MD-011 segments.json format \u2014 coordinate with Clau on the schema before building. -- Miguel",
-    "status": "unread",
+    "status": "read",
     "priority": "high",
     "ref_ticket": "879bhibg460x8nc",
     "source": "human"
