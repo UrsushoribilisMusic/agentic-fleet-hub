@@ -784,7 +784,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **2wd403to** | TCR-001: Classical Reels stats — data pipeline (PB ingest) | codi | in_work | Ingest Classical Reels (Shorts) YouTube analytics ... |
-| **5pub8jgo** | TCR-002: Classical Reels stats — ReelTales dashboard tab | gem | planned | Add a 'Classical Reels' tab to https://api.robotro... |
-| **zk9araym** | TCR-003: YouTube retention curve parser — extract % at arbitrary second marks | codi | planned | Utility function to extract viewer retention % at ... |
+| **5pub8jgo** | TCR-002: Classical Reels stats — ReelTales dashboard tab | gem | in_work | Add a 'Classical Reels' tab to https://api.robotro... |
+| **zk9araym** | TCR-003: YouTube retention curve parser — extract % at arbitrary second marks | codi | in_work | Utility function to extract viewer retention % at ... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
