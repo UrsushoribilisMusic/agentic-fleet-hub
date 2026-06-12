@@ -784,7 +784,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **2wd403to** | TCR-001: Classical Reels stats — data pipeline (PB ingest) | codi | in_work | Ingest Classical Reels (Shorts) YouTube analytics ... |
+| **2wd403to** | TCR-001: Classical Reels stats — data pipeline (PB ingest) | codi | merged | Ingest Classical Reels (Shorts) YouTube analytics ... |
 | **5pub8jgo** | TCR-002: Classical Reels stats — ReelTales dashboard tab | gem | in_work | Add a 'Classical Reels' tab to https://api.robotro... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
