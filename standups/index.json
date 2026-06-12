@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-06-12",
+    "summary": "Codi: TCR-003 retention curve parser implemented in music-video-tool; linear interpolation utility + 7 focused tests, all unittest discovery passed; task moved to peer_review.",
+    "file": "2026-06-12-codi-tcr003.md"
+  },
+  {
     "date": "2026-06-11",
     "summary": "Misty: Heartbeat protocol Phases 1-6. Peer-reviewed PC-078 (CLIP regression tests). Found CLIPEmbeddingServiceTests.swift on disk with all 3 required tests. Verified acceptance criteria met. Posted approval comment, updated task to approved.",
     "file": "2026-06-11-misty-3.md"
