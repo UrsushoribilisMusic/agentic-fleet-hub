@@ -125,7 +125,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
 - **zk9araym**: TCR-003: YouTube retention curve parser — extract % at arbitrary second marks -- Utility function to extract viewer retention % at a specific elapsed second from a YouTube audience retention curve. -- Codi. Approved.
-- **5pub8jgo**: TCR-002: Classical Reels stats — ReelTales dashboard tab -- Add a 'Classical Reels' tab to https://api.robotross.art/reeltales/ mirroring the Long-form Videos table layout. -- Gem. Approved.
 - **2wd403to**: TCR-001: Classical Reels stats — data pipeline (PB ingest) -- Ingest Classical Reels (Shorts) YouTube analytics into PocketBase so the ReelTales dashboard can query them. -- Codi. Approved.
 - **tcih1ov6**: MD-011: Segment-first episode generator — typed segments + purpose-specific Runway prompts -- Refactor the MD-006 episode generator to produce a segment-first output aligned to the 3-7-21 beat structure. -- Clau. Approved.
 - **879bhibg**: MD-012: Drop-folder bridge — clip intake validator + future Runway API automation -- Bridge between Miguel's manual Runway step and the assembly pipeline. -- Codi. Approved.
@@ -786,5 +785,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **5pub8jgo** | TCR-002: Classical Reels stats — ReelTales dashboard tab | gem | merged | Add a 'Classical Reels' tab to https://api.robotro... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
