@@ -6,9 +6,8 @@
   <string>fleet.gem</string>
   <key>ProgramArguments</key>
   <array>
-    <string>/opt/homebrew/bin/node</string>
-    <string>/opt/homebrew/bin/gemini</string>
-    <string>--yolo</string>
+    <string>/Users/miguelrodriguez/.local/bin/agy</string>
+    <string>--dangerously-skip-permissions</string>
     <string>-p</string>
     <string>Run your heartbeat protocol. Read ~/fleet/MISSION_CONTROL.md first.</string>
   </array>

@@ -34,7 +34,7 @@ AGENT_COMMANDS = {
     "closer": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/closer", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     # Claude Code, Gemini CLI, Codex commands use their respective CLI binaries
     "clau": ["/Users/miguelrodriguez/.local/bin/claude", "--dangerously-skip-permissions", "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
-    "gem": ["/opt/homebrew/bin/node", "/opt/homebrew/bin/gemini", "--yolo", "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
+    "gem": ["/Users/miguelrodriguez/.local/bin/agy", "--dangerously-skip-permissions", "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "codi": [
         "/opt/homebrew/bin/node",
         "/opt/homebrew/bin/codex",

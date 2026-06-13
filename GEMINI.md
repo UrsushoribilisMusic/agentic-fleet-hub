@@ -1,7 +1,7 @@
-# GEM — Gemini CLI
+# GEM — Antigravity CLI
 
 **Agent name** (substitute for `<agent>` in `AGENTS/RULES.md` commands): `gem`
-**Runtime**: Gemini CLI
+**Runtime**: Antigravity CLI (agy)
 
 ## Read this every session
 The universal Heartbeat Protocol and team rules live in `AGENTS/RULES.md`. Read that file at the start of every session and follow all 6 phases.

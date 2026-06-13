@@ -24,18 +24,18 @@ else
     echo "$LOG_PREFIX: task dispatch detected; bypassing checksum gate."
 fi
 
-# Phase 1: launch Gemini CLI
-echo "$LOG_PREFIX: launching Gemini CLI..."
+# Phase 1: launch Antigravity CLI
+echo "$LOG_PREFIX: launching Antigravity CLI..."
 if [ -n "$1" ]; then
     GEM_PROMPT="$1"
 else
     GEM_PROMPT="Run your heartbeat protocol. Read ~/projects/agentic-fleet-hub/GEMINI.md first, then MISSION_CONTROL.md, then AGENTS/RULES.md, then AGENTS/MESSAGES/inbox.json. Follow all 6 phases."
 fi
-/opt/homebrew/bin/node /opt/homebrew/bin/gemini \
-    --yolo \
+/Users/miguelrodriguez/.local/bin/agy \
+    --dangerously-skip-permissions \
     -p "$GEM_PROMPT"
 GEM_EXIT=$?
-echo "$LOG_PREFIX: Gemini exited with code $GEM_EXIT"
+echo "$LOG_PREFIX: Antigravity exited with code $GEM_EXIT"
 
 # Phase 2: branch hygiene — delete task/<pb_id> branches whose ticket is approved
 "$FLEET/cleanup_task_branches.sh" --repo /Users/miguelrodriguez/projects/agentic-fleet-hub

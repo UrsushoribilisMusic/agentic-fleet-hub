@@ -70,7 +70,7 @@ AGENT_COMMANDS = {
     "echo": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/echo", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "closer": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/closer", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "clau": ["/Users/miguelrodriguez/.local/bin/claude", "--dangerously-skip-permissions", "--model", "claude-sonnet-4-6", "--add-dir", SILICON_ORACLE_DIR, "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
-    "gem": ["/opt/homebrew/bin/node", "/opt/homebrew/bin/gemini", "--yolo", "--skip-trust", "--include-directories", SILICON_ORACLE_DIR, "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
+    "gem": ["/Users/miguelrodriguez/.local/bin/agy", "--dangerously-skip-permissions", "--add-dir", SILICON_ORACLE_DIR, "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "misty": ["/opt/homebrew/bin/vibe", "--workdir", CODEX_REPO_DIR, "--trust", "-p", "Run your heartbeat protocol. Read ~/projects/agentic-fleet-hub/MISTRAL.md first, then follow AGENTS/RULES.md. Follow all 6 phases."],
     "codi": [
         "/opt/homebrew/bin/node",
