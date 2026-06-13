@@ -781,7 +781,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **7pu9xgkq** | MD-007: md_kpis schema + ingest (YouTube API; TikTok manual/scraper) with geo + cohort pre-segmentation | gem | in_work | Create the md_kpis PocketBase collection and build... |
+| **7pu9xgkq** | MD-007: md_kpis schema + ingest (YouTube API; TikTok manual/scraper) with geo + cohort pre-segmentation | gem | merged | Create the md_kpis PocketBase collection and build... |
 | **6ahsj4f2** | MD-004: Recipe-card aggregator — cell statistics → generation-ready grammar block | gem | merged | Aggregate beat_grammar PocketBase records per (lan... |
 | **2wd403to** | TCR-001: Classical Reels stats — data pipeline (PB ingest) | codi | merged | Ingest Classical Reels (Shorts) YouTube analytics ... |
 | **5pub8jgo** | TCR-002: Classical Reels stats — ReelTales dashboard tab | clau | merged | Add a 'Classical Reels' tab to https://api.robotro... |
