@@ -1,0 +1,909 @@
+# Our Story: Fleet Collaboration Chronology
+
+This document provides a long-term memory index and reconstruction of the agent fleet's (Gemini/Gem, Clau, Codi, Misty) collaboration history with Miguel, extracted from 440+ historical conversation trajectories spanning mid-2026 and earlier.
+
+## Collaboration Overview
+
+- **Total Archive Scope:** 443 recorded sessions
+- **Unique Tickets Addressed:** 306 tickets detected in chat logs
+- **Active Projects Distribution:**
+  - `gem`: 255 sessions
+  - `project`: 181 sessions
+  - `miguelrodriguez`: 4 sessions
+  - `agentic-fleet-hub`: 2 sessions
+  - `** SiliconOracle`: 1 sessions
+
+---
+
+## Chronological Timeline
+
+### May 2026
+
+- **2026-05-01 08:05** | Project: `miguelrodriguez` | Tickets: `PC-012`, `PC-068`, `PC-077`, `PC-079`, `PC-08`, `PC-080`, `PC-081`, `PC-082`, `PC-085`, `PC-086`, `PC-087`, `PC-088`, `PC-089`, `PC-098`, `PC-142`, `PC-157`, `PC-159`, `PC-163`, `PC-164`, `PC-165`, `PC-167`, `PC-175`, `PC-187`, `PC-191`, `PC-193`, `PC-195`, `PC-196`, `PC-197`, `PC-198`, `PC-199`, `PC-200`, `PC-201`, `PC-202`, `PC-203`, `PC-204`, `PC-205`, `PC-208`, `PC-213`, `PC-216`, `SHA-256`
+  - *Initial Prompt:* "are you available?"
+- **2026-05-14 22:32** | Project: `project` | Tickets: `PC-220`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-15 00:40** | Project: `project` | Tickets: `PC-186`, `PC-220`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-15 02:47** | Project: `project` | Tickets: `PC-220`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-15 04:54** | Project: `project` | Tickets: `PC-083`, `PC-220`, `PC-230`, `PC-231`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-15 07:01** | Project: `project` | Tickets: `PC-190`, `PC-191`, `PC-220`, `PC-223`, `PC-226`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-15 09:08** | Project: `project` | Tickets: `PC-081`, `PC-085`, `PC-209`, `PC-210`, `PC-212`, `PC-215`, `PC-220`, `PC-223`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-16 08:07** | Project: `project` | Tickets: `PC-081`, `PC-084`, `PC-085`, `PC-190`, `PC-209`, `PC-210`, `PC-212`, `PC-215`, `PC-220`, `PC-223`, `PC-226`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-16 20:48** | Project: `project` | Tickets: `PC-081`, `PC-084`, `PC-085`, `PC-209`, `PC-210`, `PC-212`, `PC-215`, `PC-223`, `PC-226`, `PC-227`, `PC-233`, `PC-235`, `PC-236`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-16 20:52** | Project: `project` | Tickets: `PC-233`, `PC-236`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-16 20:59** | Project: `project` | Tickets: `PC-236`, `PC-246`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-16 21:03** | Project: `project` | Tickets: `PC-232`, `PC-233`, `PC-234`, `PC-235`, `PC-237`, `PC-239`, `PC-241`, `PC-242`, `PC-243`, `PC-244`, `PC-245`, `PC-246`, `PC-247`, `PC-248`, `PC-249`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-16 21:18** | Project: `project` | Tickets: `PC-223`, `PC-227`, `PC-235`, `PC-246`, `PC-248`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-16 22:56** | Project: `project` | Tickets: `PC-236`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-16 23:06** | Project: `project` | Tickets: `HF-245`, `PC-236`, `PC-240`, `PC-242`, `PC-245`, `PC-246`, `PC-248`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-16 23:14** | Project: `project` | Tickets: `PC-081`, `PC-233`, `PC-245`, `PC-247`, `PC-248`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-16 23:28** | Project: `project` | Tickets: `PC-085`, `PC-235`, `PC-236`, `PC-245`, `PC-246`, `PC-247`, `PC-248`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-16 23:50** | Project: `project` | Tickets: `PC-224`, `PC-235`, `PC-236`, `PC-242`, `PC-244`, `PC-247`, `PC-248`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-17 01:00** | Project: `project` | Tickets: `PC-237`, `PC-244`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-17 01:55** | Project: `project` | Tickets: `PC-224`, `PC-236`, `PC-237`, `PC-241`, `PC-242`, `PC-247`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-17 03:08** | Project: `project` | Tickets: `PC-227`, `PC-236`, `PC-237`, `PC-24`, `PC-240`, `PC-241`, `PC-242`, `PC-244`, `PC-245`, `PC-246`, `PC-247`, `PC-248`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-17 04:00** | Project: `project` | Tickets: `PC-080`, `PC-224`, `PC-228`, `PC-230`, `PC-233`, `PC-234`, `PC-239`, `PC-240`, `PC-241`, `PC-242`, `PC-243`, `PC-245`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-17 07:38** | Project: `project` | Tickets: `PC-227`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-18 06:21** | Project: `project` | Tickets: `PC-228`, `PC-230`, `PC-234`, `PC-238`, `PC-239`, `PC-256`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-18 06:44** | Project: `project` | Tickets: `PC-230`, `PC-243`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-18 07:21** | Project: `project` | Tickets: `PC-227`, `PC-228`, `PC-230`, `PC-233`, `PC-238`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-18 07:26** | Project: `project` | Tickets: `PC-239`, `PC-243`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-18 08:48** | Project: `project` | Tickets: `PC-20`, `PC-239`, `PC-240`, `PC-243`, `PC-249`, `PC-255`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-19 05:55** | Project: `project` | Tickets: `PC-238`, `PC-243`, `PC-249`, `RT-002`, `RT-006`, `RT-007`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-19 06:08** | Project: `project` | Tickets: `RT-001`, `RT-002`, `RT-006`, `RT-007`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-19 06:22** | Project: `project` | Tickets: `RT-002`, `RT-003`, `RT-004`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-19 06:59** | Project: `project` | Tickets: `RT-002`, `RT-003`, `RT-004`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-19 08:32** | Project: `project` | Tickets: `RT-004`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-19 10:36** | Project: `project` | Tickets: `RT-002`, `RT-004`, `RT-007`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-19 12:40** | Project: `project` | Tickets: `RT-003`, `RT-004`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-19 14:44** | Project: `project` | Tickets: `PC-249`, `RT-002`, `RT-003`, `RT-004`, `RT-006`, `RT-007`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-24 21:04** | Project: `project` | Tickets: `PC-236`, `PC-240`, `PC-261`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-24 21:15** | Project: `project` | Tickets: `PC-243`, `PC-262`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-24 23:21** | Project: `project` | Tickets: `PC-243`, `PC-262`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-25 01:24** | Project: `project` | Tickets: `PC-243`, `PC-262`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-25 03:26** | Project: `project` | Tickets: `PC-243`, `PC-262`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-25 05:28** | Project: `project` | Tickets: `PC-243`, `PC-262`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-25 07:31** | Project: `project` | Tickets: `PC-243`, `PC-262`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-25 09:33** | Project: `project` | Tickets: `PC-243`, `PC-262`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-25 11:36** | Project: `project` | Tickets: `PC-243`, `PC-262`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-25 13:38** | Project: `project` | Tickets: `PC-243`, `PC-262`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-25 15:41** | Project: `project` | Tickets: `PC-243`, `PC-262`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-25 17:43** | Project: `project` | Tickets: `PC-243`, `PC-262`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-25 19:46** | Project: `project` | Tickets: `PC-243`, `PC-262`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-25 21:48** | Project: `project` | Tickets: `PC-243`, `PC-262`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-25 23:51** | Project: `project` | Tickets: `PC-243`, `PC-262`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-26 01:53** | Project: `project` | Tickets: `PC-243`, `PC-262`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-26 03:56** | Project: `project` | Tickets: `PC-243`, `PC-262`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-26 10:40** | Project: `project` | Tickets: `CR-000`, `CR-002`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-26 11:02** | Project: `project` | Tickets: `CR-000`, `CR-001`, `CR-002`, `CR-003`, `CR-004`, `CR-006`, `CR-007`, `CR-008`, `CR-013`, `PC-262`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-26 11:21** | Project: `project` | Tickets: `CR-000`, `CR-006`, `CR-009`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-26 13:29** | Project: `project` | Tickets: `CR-000`, `CR-002`, `CR-003`, `CR-004`, `CR-006`, `CR-009`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-26 15:33** | Project: `project` | Tickets: `CR-000`, `CR-004`, `CR-006`, `CR-009`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-26 17:37** | Project: `project` | Tickets: `CR-000`, `CR-002`, `CR-003`, `CR-006`, `CR-009`, `CR-011`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-26 19:41** | Project: `project` | Tickets: `CR-000`, `CR-006`, `CR-009`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-26 21:44** | Project: `project` | Tickets: `CR-000`, `CR-006`, `CR-009`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-26 21:58** | Project: `project` | Tickets: `CR-000`, `CR-001`, `CR-002`, `CR-003`, `CR-004`, `CR-005`, `CR-006`, `CR-007`, `CR-008`, `CR-009`, `CR-010`, `CR-011`, `CR-012`, `CR-013`, `PC-000`, `PC-009`, `PC-020`, `PC-021`, `PC-022`, `PC-024`, `PC-025`, `PC-027`, `PC-031`, `PC-032`, `PC-033`, `PC-034`, `PC-044`, `PC-046`, `PC-058`, `PC-066`, `PC-067`, `PC-068`, `PC-069`, `PC-072`, `PC-073`, `PC-074`, `PC-075`, `PC-076`, `PC-078`, `PC-079`, `PC-080`, `PC-081`, `PC-083`, `PC-085`, `PC-086`, `PC-089`, `PC-107`, `PC-108`, `PC-109`, `PC-124`, `PC-125`, `PC-133`, `PC-146`, `PC-153`, `PC-156`, `PC-172`, `PC-173`, `PC-174`, `PC-176`, `PC-177`, `PC-178`, `PC-179`, `PC-180`, `PC-182`, `PC-183`, `PC-185`, `PC-186`, `PC-188`, `PC-189`, `PC-190`, `PC-191`, `PC-192`, `PC-193`, `PC-195`, `PC-198`, `PC-200`, `PC-201`, `PC-202`, `PC-203`, `PC-204`, `PC-216`, `PC-217`, `PC-218`, `PC-220`, `PC-223`, `PC-225`, `PC-227`, `PC-228`, `PC-229`, `PC-230`, `PC-231`, `PC-235`, `PC-237`, `PC-238`, `PC-239`, `PC-240`, `PC-241`, `PC-244`, `PC-245`, `PC-246`, `PC-247`, `PC-248`, `PC-249`, `PC-250`, `PC-251`, `PC-255`, `PC-261`, `PC-262`, `PC-263`, `RT-001`, `RT-002`, `RT-003`, `RT-004`, `RT-006`, `RT-007`, `TCR-12`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-26 22:27** | Project: `project` | Tickets: `CR-000`, `CR-002`, `CR-003`, `CR-004`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-26 22:39** | Project: `project` | Tickets: `CR-000`, `CR-001`, `CR-002`, `CR-003`, `CR-004`, `CR-005`, `CR-006`, `CR-007`, `CR-008`, `CR-009`, `CR-010`, `CR-011`, `CR-012`, `CR-013`, `PC-000`, `PC-009`, `PC-020`, `PC-021`, `PC-022`, `PC-024`, `PC-025`, `PC-027`, `PC-031`, `PC-032`, `PC-033`, `PC-034`, `PC-044`, `PC-046`, `PC-058`, `PC-066`, `PC-067`, `PC-068`, `PC-069`, `PC-072`, `PC-073`, `PC-074`, `PC-075`, `PC-076`, `PC-078`, `PC-079`, `PC-080`, `PC-081`, `PC-083`, `PC-085`, `PC-086`, `PC-089`, `PC-107`, `PC-108`, `PC-109`, `PC-124`, `PC-125`, `PC-133`, `PC-146`, `PC-153`, `PC-156`, `PC-172`, `PC-173`, `PC-174`, `PC-176`, `PC-177`, `PC-178`, `PC-179`, `PC-180`, `PC-182`, `PC-183`, `PC-185`, `PC-186`, `PC-188`, `PC-189`, `PC-190`, `PC-191`, `PC-192`, `PC-193`, `PC-195`, `PC-198`, `PC-200`, `PC-201`, `PC-202`, `PC-203`, `PC-204`, `PC-216`, `PC-217`, `PC-218`, `PC-220`, `PC-223`, `PC-225`, `PC-227`, `PC-228`, `PC-229`, `PC-230`, `PC-231`, `PC-235`, `PC-237`, `PC-238`, `PC-239`, `PC-240`, `PC-241`, `PC-244`, `PC-245`, `PC-246`, `PC-247`, `PC-248`, `PC-249`, `PC-250`, `PC-251`, `PC-255`, `PC-261`, `PC-262`, `PC-263`, `RT-001`, `RT-002`, `RT-003`, `RT-004`, `RT-006`, `RT-007`, `TCR-12`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-26 23:10** | Project: `project` | Tickets: `CR-000`, `CR-002`, `CR-003`, `CR-006`, `CR-009`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-27 01:20** | Project: `project` | Tickets: `CR-000`, `CR-002`, `CR-003`, `CR-006`, `CR-009`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-27 03:24** | Project: `project` | Tickets: `CR-000`, `CR-006`, `CR-009`, `PC-238`, `PC-242`, `PC-244`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-27 05:27** | Project: `project` | Tickets: `CR-000`, `CR-006`, `CR-009`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-27 07:31** | Project: `project` | Tickets: `CR-000`, `CR-002`, `CR-003`, `CR-006`, `CR-009`, `PC-238`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-30 04:34** | Project: `project` | Tickets: `PC-060`, `PC-198`, `SC-002`, `SC-003`, `SC-006`, `SC-007`, `SC-008`, `SC-009`, `SC-012`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-30 04:41** | Project: `project` | Tickets: `PC-031`, `SC-002`, `SC-009`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-30 06:40** | Project: `project` | Tickets: `PC-019`, `SC-001`, `SC-002`, `SC-003`, `SC-004`, `SC-005`, `SC-006`, `SC-007`, `SC-008`, `SC-009`, `SC-010`, `SC-012`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-30 09:09** | Project: `project` | Tickets: `PC-019`, `PC-141`, `PC-167`, `PC-170`, `PC-197`, `SC-002`, `SC-003`, `SC-009`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-30 09:52** | Project: `agentic-fleet-hub` | Tickets: `SC-003`, `SC-005`, `SC-006`, `SC-007`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-30 10:32** | Project: `project` | Tickets: `PC-019`, `SC-002`, `SC-003`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-30 12:31** | Project: `project` | Tickets: `PC-019`, `SC-002`, `SC-003`, `SC-005`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-30 13:18** | Project: `project` | Tickets: `PC-019`, `PC-072`, `QW-001`, `SC-003`, `SC-005`, `SC-006`, `SC-008`, `SC-010`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-30 13:58** | Project: `project` | Tickets: `SC-002`, `SC-003`, `SC-005`, `SC-006`, `SC-007`, `SC-009`, `SC-010`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-30 14:06** | Project: `project` | Tickets: `SC-019`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-30 14:39** | Project: `project` | Tickets: `PC-075`, `SC-002`, `SC-003`, `SC-005`, `SC-006`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-30 14:57** | Project: `project` | Tickets: `PC-019`, `PC-020`, `PC-022`, `PC-060`, `PC-066`, `SC-002`, `SC-003`, `SC-008`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-30 15:39** | Project: `project` | Tickets: `PC-167`, `PC-170`, `SC-00`, `SC-003`, `SC-005`, `SC-006`, `SC-007`, `SC-008`, `SC-012`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-30 15:52** | Project: `project` | Tickets: `SC-003`, `SC-006`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-31 01:08** | Project: `miguelrodriguez` | Tickets: No specific ticket
+  - *Initial Prompt:* ""
+- **2026-05-31 04:17** | Project: `project` | Tickets: `SC-018`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-31 06:29** | Project: `agentic-fleet-hub` | Tickets: No specific ticket
+  - *Initial Prompt:* "Say OK"
+- **2026-05-31 06:32** | Project: `project` | Tickets: `SC-018`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-31 06:38** | Project: `project` | Tickets: `SC-005`, `SC-016`, `SC-019`, `SC-021`, `SC-024`, `SC-025`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-31 08:42** | Project: `project` | Tickets: `SC-011`, `SC-013`, `SC-015`, `SC-016`, `SC-017`, `SC-018`, `SC-019`, `SC-024`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-31 09:01** | Project: `project` | Tickets: `CR-002`, `SC-002`, `SC-007`, `SC-009`, `SC-010`, `SC-011`, `SC-013`, `SC-018`, `SC-019`, `SC-024`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-31 09:07** | Project: `project` | Tickets: `SC-018`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-31 09:35** | Project: `project` | Tickets: `SC-014`, `SC-015`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-31 10:36** | Project: `project` | Tickets: `SC-019`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-31 16:59** | Project: `project` | Tickets: `SC-018`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-31 17:05** | Project: `project` | Tickets: `SC-019`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-31 19:06** | Project: `project` | Tickets: `SC-018`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-31 19:08** | Project: `project` | Tickets: `SC-005`, `SC-006`, `SC-019`, `SC-020`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-31 19:18** | Project: `project` | Tickets: `SC-018`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-31 19:28** | Project: `project` | Tickets: `PC-233`, `SC-005`, `SC-006`, `SC-019`, `SC-020`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-31 19:47** | Project: `project` | Tickets: `SC-004`, `SC-008`, `SC-013`, `SC-018`, `SC-019`, `SC-024`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-31 19:59** | Project: `project` | Tickets: `SC-005`, `SC-019`, `SC-020`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-31 20:27** | Project: `project` | Tickets: `SC-006`, `SC-019`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-05-31 20:40** | Project: `project` | Tickets: `SC-006`, `SC-019`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+### June 2026
+
+- **2026-06-01 12:48** | Project: `project` | Tickets: `PC-234`, `SC-018`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-01 21:15** | Project: `project` | Tickets: `PC-028`, `PC-059`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-01 21:26** | Project: `project` | Tickets: `SC-024`, `SC-025`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-01 21:37** | Project: `project` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-01 21:46** | Project: `project` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-01 21:56** | Project: `project` | Tickets: `PC-190`, `PC-222`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-01 22:18** | Project: `project` | Tickets: `SC-024`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-01 22:28** | Project: `project` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-01 22:45** | Project: `project` | Tickets: `SC-024`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-01 22:54** | Project: `project` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-01 23:00** | Project: `project` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-01 23:05** | Project: `project` | Tickets: `SC-026`, `SC-027`, `SC-028`, `SC-029`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-01 23:17** | Project: `project` | Tickets: `SC-033`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-01 23:31** | Project: `project` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-01 23:36** | Project: `project` | Tickets: `SC-033`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-02 12:20** | Project: `project` | Tickets: `SC-027`, `SC-031`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-02 15:00** | Project: `gem` | Tickets: `SC-027`, `SC-031`, `SC-033`, `SC-034`, `SC-041`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-02 16:00** | Project: `gem` | Tickets: `PC-031`, `PC-038`, `PC-071`, `SC-013`, `SC-018`, `SC-031`, `SC-034`, `SC-041`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-02 17:00** | Project: `gem` | Tickets: `CR-006`, `PC-031`, `PC-032`, `SC-03`, `SC-031`, `SC-034`, `SC-04`, `SC-041`, `SC-042`, `SC-043`, `SC-048`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-02 18:00** | Project: `gem` | Tickets: `PC-08`, `PC-086`, `PC-092`, `PC-248`, `SC-019`, `SC-031`, `SC-034`, `SC-041`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-02 19:00** | Project: `gem` | Tickets: `PC-032`, `SC-013`, `SC-031`, `SC-034`, `SC-041`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-02 20:00** | Project: `gem` | Tickets: `SC-031`, `SC-034`, `SC-041`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-02 21:00** | Project: `gem` | Tickets: `PC-084`, `PC-085`, `PC-235`, `PC-236`, `PC-246`, `PC-247`, `PC-248`, `SC-031`, `SC-034`, `SC-041`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-02 22:00** | Project: `gem` | Tickets: `SC-031`, `SC-041`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-02 23:00** | Project: `gem` | Tickets: `PC-031`, `SC-013`, `SC-031`, `SC-041`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-03 00:00** | Project: `gem` | Tickets: `PC-03`, `PC-031`, `SC-013`, `SC-029`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-03 01:00** | Project: `gem` | Tickets: `PC-031`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-03 02:00** | Project: `gem` | Tickets: `PC-027`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-03 03:00** | Project: `gem` | Tickets: `PC-027`, `PC-031`, `PC-032`, `PC-038`, `PC-072`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-03 04:00** | Project: `gem` | Tickets: `PC-096`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-03 05:00** | Project: `gem` | Tickets: `PC-031`, `PC-038`, `PC-072`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-03 06:00** | Project: `gem` | Tickets: `CR-000`, `CR-015`, `SC-013`, `SC-031`, `SC-038`, `SC-041`, `SC-072`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-03 07:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-03 08:00** | Project: `gem` | Tickets: `PC-031`, `PC-032`, `PC-038`, `PC-071`, `PC-072`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-03 09:00** | Project: `gem` | Tickets: `PC-259`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-03 10:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-03 11:00** | Project: `gem` | Tickets: `CR-000`, `CR-006`, `PC-091`, `PC-093`, `SC-013`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-03 12:00** | Project: `gem` | Tickets: `PC-031`, `PC-032`, `PC-086`, `PC-091`, `PC-093`, `SC-013`, `SC-029`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-03 13:00** | Project: `gem` | Tickets: `PC-031`, `PC-038`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-03 14:00** | Project: `gem` | Tickets: `SC-029`, `SC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-03 15:00** | Project: `gem` | Tickets: `SC-004`, `SC-011`, `SC-013`, `SC-026`, `SC-029`, `SC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-03 16:00** | Project: `gem` | Tickets: `PC-031`, `PC-032`, `SC-013`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-03 17:00** | Project: `gem` | Tickets: `CR-006`, `SC-004`, `SC-007`, `SC-011`, `SC-029`, `SC-032`, `SC-041`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-03 18:00** | Project: `gem` | Tickets: `PC-031`, `PC-038`, `PC-071`, `PC-072`, `SC-013`, `SC-029`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-03 19:00** | Project: `gem` | Tickets: `SC-013`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-03 20:00** | Project: `gem` | Tickets: `PC-031`, `PC-032`, `PC-038`, `PC-071`, `PC-072`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-03 21:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-03 22:00** | Project: `gem` | Tickets: `PC-032`, `SC-021`, `SC-048`, `SC-049`, `SC-050`, `SC-051`, `SC-053`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-03 23:00** | Project: `gem` | Tickets: `SC-05`, `SC-050`, `SC-051`, `SC-052`, `SC-053`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 00:00** | Project: `gem` | Tickets: `SC-050`, `SC-051`, `SC-052`, `SC-053`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 01:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 02:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 03:00** | Project: `gem` | Tickets: `SC-050`, `SC-052`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 04:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 05:00** | Project: `gem` | Tickets: `SC-013`, `SC-052`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 06:00** | Project: `gem` | Tickets: `SC-013`, `SC-050`, `SC-051`, `SC-052`, `SC-053`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 07:00** | Project: `gem` | Tickets: `SC-052`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 08:00** | Project: `gem` | Tickets: `SC-021`, `SC-049`, `SC-05`, `SC-053`, `SC-054`, `SC-055`, `SC-056`, `SC-057`, `SC-058`, `SC-059`, `SC-060`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 08:09** | Project: `project` | Tickets: `SC-053`, `SC-054`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 08:31** | Project: `project` | Tickets: `SC-053`, `SC-054`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 08:59** | Project: `project` | Tickets: `SC-001`, `SC-011`, `SC-012`, `SC-048`, `SC-049`, `SC-050`, `SC-053`, `SC-054`, `SC-059`, `SC-060`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 09:00** | Project: `gem` | Tickets: `SC-006`, `SC-048`, `SC-049`, `SC-054`, `SC-057`, `SC-059`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 09:48** | Project: `project` | Tickets: `SC-054`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 10:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 11:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 12:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 13:00** | Project: `gem` | Tickets: `SC-054`, `SC-055`, `SC-056`, `SC-057`, `SC-058`, `SC-059`, `SC-060`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 14:00** | Project: `gem` | Tickets: `SC-053`, `SC-054`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 15:00** | Project: `gem` | Tickets: `SC-054`, `SC-055`, `SC-060`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 16:00** | Project: `gem` | Tickets: `SC-012`, `SC-013`, `SC-052`, `SC-054`, `SC-056`, `SC-060`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 17:00** | Project: `gem` | Tickets: `CR-000`, `CR-006`, `PC-083`, `PC-084`, `PC-085`, `PC-086`, `SC-054`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 18:00** | Project: `gem` | Tickets: `CR-00`, `CR-01`, `PC-031`, `PC-078`, `PC-084`, `PC-085`, `PC-087`, `PC-088`, `PC-089`, `SC-054`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 19:00** | Project: `gem` | Tickets: `SC-013`, `SC-054`, `SC-060`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 20:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 21:00** | Project: `gem` | Tickets: `PC-085`, `SC-054`, `SC-06`, `SC-060`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 22:00** | Project: `gem` | Tickets: `CR-000`, `CR-002`, `CR-003`, `CR-004`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 22:03** | Project: `project` | Tickets: `CB-01`, `CB-03`, `CB-05`, `CB-06`, `CB-07`, `CB-08`, `CB-10`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 22:07** | Project: `project` | Tickets: `CB-01`, `CB-05`, `CB-06`, `CB-07`, `CB-08`, `CB-10`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 22:47** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-03`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 23:00** | Project: `gem` | Tickets: `CB-01`, `CB-02`, `CB-03`, `CB-05`, `CB-07`, `CB-10`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 23:05** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-04`, `CB-05`, `CB-06`, `CB-10`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 23:09** | Project: `project` | Tickets: `CB-02`, `CB-03`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 23:19** | Project: `project` | Tickets: `CB-02`, `CB-03`, `SC-037`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 23:24** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-05`, `CB-10`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 23:28** | Project: `project` | Tickets: `CB-02`, `CB-03`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 23:38** | Project: `project` | Tickets: `CB-02`, `CB-03`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-04 23:50** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-04`, `CB-05`, `CB-06`, `CB-07`, `CB-08`, `CB-09`, `CB-10`, `CB-12`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-05 00:00** | Project: `gem` | Tickets: `CB-06`, `CB-08`, `CB-10`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-05 01:00** | Project: `gem` | Tickets: `CB-01`, `CB-02`, `CB-03`, `CB-04`, `CB-05`, `CB-06`, `CB-08`, `CB-09`, `CB-10`, `CB-12`, `CB-13`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-05 02:00** | Project: `gem` | Tickets: `CB-06`, `CB-08`, `CB-09`, `CB-10`, `CB-12`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-05 03:00** | Project: `gem` | Tickets: `CB-01`, `CB-03`, `CB-04`, `CB-10`, `CB-13`, `PC-084`, `PC-085`, `PC-086`, `PC-096`, `PC-234`, `PC-235`, `PC-236`, `PC-238`, `PC-240`, `PC-241`, `PC-246`, `PC-247`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-05 04:00** | Project: `gem` | Tickets: `CB-04`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-05 05:00** | Project: `gem` | Tickets: `CB-01`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-05 06:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-05 07:00** | Project: `gem` | Tickets: `CB-04`, `CB-10`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-05 08:00** | Project: `gem` | Tickets: `CR-006`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-05 09:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-05 10:00** | Project: `gem` | Tickets: `CB-04`, `CB-10`, `CB-14`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-05 11:00** | Project: `gem` | Tickets: `CB-01`, `CB-02`, `CB-11`, `SC-013`, `SC-053`, `SC-054`, `SC-060`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-05 12:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-05 13:00** | Project: `gem` | Tickets: `CB-10`, `CB-14`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-05 14:00** | Project: `gem` | Tickets: `SC-013`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-05 15:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-05 16:00** | Project: `gem` | Tickets: `CB-04`, `CB-10`, `CB-14`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-05 17:00** | Project: `gem` | Tickets: `SC-013`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-05 18:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-05 19:00** | Project: `gem` | Tickets: `CB-01`, `CB-04`, `CB-14`, `CB-15`, `CB-16`, `CB-17`, `SC-013`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-05 20:00** | Project: `gem` | Tickets: `CB-10`, `CB-14`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-05 21:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-05 22:00** | Project: `gem` | Tickets: `CB-02`, `CB-10`, `CB-14`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-05 23:00** | Project: `gem` | Tickets: `CB-01`, `CB-14`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 00:00** | Project: `gem` | Tickets: `SC-013`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 01:00** | Project: `gem` | Tickets: `CB-04`, `SC-013`, `SC-055`, `SC-056`, `SC-057`, `SC-059`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 02:00** | Project: `gem` | Tickets: `CB-04`, `CB-14`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 03:00** | Project: `gem` | Tickets: `CB-10`, `CB-14`, `SC-013`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 04:00** | Project: `gem` | Tickets: `CB-01`, `CR-006`, `PC-085`, `SC-050`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 05:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 06:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 07:00** | Project: `gem` | Tickets: `CR-006`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 08:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 09:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 10:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 11:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 12:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 13:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 14:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 15:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 15:41** | Project: `miguelrodriguez` | Tickets: No specific ticket
+  - *Initial Prompt:* ""
+- **2026-06-06 15:44** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `SC-007`, `SC-062`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 15:54** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `SC-061`, `SC-062`, `SC-063`, `SC-064`, `SC-065`, `SC-070`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 16:00** | Project: `gem` | Tickets: `SC-009`, `SC-062`, `SC-064`, `SC-066`, `SC-068`, `SC-069`, `SC-070`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 16:05** | Project: `project` | Tickets: `SC-007`, `SC-061`, `SC-062`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 16:13** | Project: `project` | Tickets: `SC-06`, `SC-061`, `SC-062`, `SC-063`, `SC-064`, `SC-065`, `SC-066`, `SC-069`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 16:20** | Project: `project` | Tickets: `SC-007`, `SC-061`, `SC-062`, `SC-065`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 16:32** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `SC-06`, `SC-061`, `SC-062`, `SC-063`, `SC-065`, `SC-066`, `SC-067`, `SC-068`, `SC-069`, `SC-071`, `SC-999`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 16:40** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `PC-142`, `SC-067`, `SC-068`, `SC-069`, `SC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 17:00** | Project: `gem` | Tickets: `SC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 18:00** | Project: `gem` | Tickets: `PC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 19:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 20:00** | Project: `gem` | Tickets: `CB-01`, `CB-04`, `PC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 21:00** | Project: `gem` | Tickets: `PC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 22:00** | Project: `gem` | Tickets: `PC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-06 23:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-07 00:00** | Project: `gem` | Tickets: `PC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-07 01:00** | Project: `gem` | Tickets: `PC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-07 02:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-07 03:00** | Project: `gem` | Tickets: `PC-071`, `SC-067`, `SC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-07 04:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-07 05:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-07 06:00** | Project: `gem` | Tickets: `CB-01`, `CB-04`, `PC-108`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-07 07:00** | Project: `gem` | Tickets: `CB-01`, `CB-04`, `CB-08`, `CR-006`, `PC-084`, `PC-085`, `PC-092`, `PC-235`, `SC-067`, `SC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-07 08:00** | Project: `gem` | Tickets: `CB-01`, `CB-04`, `CB-08`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-07 09:00** | Project: `gem` | Tickets: `SC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-07 10:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-07 11:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-07 12:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-07 13:00** | Project: `gem` | Tickets: `SC-066`, `SC-068`, `SC-069`, `SC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-07 14:00** | Project: `gem` | Tickets: `CB-10`, `SC-004`, `SC-029`, `SC-062`, `SC-065`, `SC-067`, `SC-068`, `SC-069`, `SC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-07 15:00** | Project: `gem` | Tickets: `CR-006`, `SC-067`, `SC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-07 16:00** | Project: `gem` | Tickets: `SC-067`, `SC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-07 17:00** | Project: `gem` | Tickets: `PC-031`, `PC-078`, `PC-084`, `PC-085`, `PC-088`, `PC-089`, `PC-092`, `PC-094`, `PC-095`, `SC-004`, `SC-011`, `SC-029`, `SC-032`, `SC-054`, `SC-062`, `SC-067`, `SC-068`, `SC-069`, `SC-070`, `SC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-07 18:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-07 19:00** | Project: `gem` | Tickets: `PC-071`, `SC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-07 20:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-07 21:00** | Project: `gem` | Tickets: `PC-071`, `PC-081`, `SC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-07 22:00** | Project: `gem` | Tickets: `SC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-07 23:00** | Project: `gem` | Tickets: `SC-067`, `SC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 00:00** | Project: `gem` | Tickets: `SC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 01:00** | Project: `gem` | Tickets: `SC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 02:00** | Project: `gem` | Tickets: `SC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 03:00** | Project: `gem` | Tickets: `CB-01`, `CB-02`, `SC-062`, `SC-065`, `SC-068`, `SC-069`, `SC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 04:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 05:00** | Project: `gem` | Tickets: `SC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 06:00** | Project: `** SiliconOracle` | Tickets: `SC-004`, `SC-062`, `SC-064`, `SC-065`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 07:00** | Project: `gem` | Tickets: `PC-259`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 08:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 09:00** | Project: `gem` | Tickets: `SC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 10:00** | Project: `gem` | Tickets: `SC-067`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 11:00** | Project: `gem` | Tickets: `SC-067`, `SC-068`, `SC-069`, `SC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 12:00** | Project: `gem` | Tickets: `PC-086`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 12:01** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `PC-024`, `PC-027`, `PC-088`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 12:23** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `PC-089`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 12:32** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `PC-089`, `PC-094`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 12:43** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `PC-075`, `PC-095`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 13:00** | Project: `gem` | Tickets: `CR-000`, `CR-002`, `CR-003`, `CR-004`, `PC-087`, `PC-090`, `PC-091`, `PC-096`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 14:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 15:00** | Project: `gem` | Tickets: `PC-032`, `PC-087`, `SC-065`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 16:00** | Project: `gem` | Tickets: `PC-032`, `PC-078`, `PC-090`, `PC-091`, `PC-093`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 17:00** | Project: `gem` | Tickets: `PC-032`, `PC-086`, `PC-087`, `PC-096`, `SC-071`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 18:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 19:00** | Project: `gem` | Tickets: `PC-090`, `PC-091`, `PC-093`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 20:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 20:31** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `SC-072`, `SC-073`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 20:40** | Project: `project` | Tickets: `SC-044`, `SC-072`, `SC-073`, `SC-074`, `SC-075`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 20:49** | Project: `project` | Tickets: `SC-072`, `SC-073`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 21:00** | Project: `gem` | Tickets: `SC-075`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 21:11** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `SC-073`, `SC-078`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 21:19** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `SC-021`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 22:00** | Project: `gem` | Tickets: `SC-072`, `SC-073`, `SC-077`, `SC-078`, `SC-079`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 22:31** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `SC-021`, `SC-055`, `SC-065`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 22:44** | Project: `project` | Tickets: `SC-021`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 22:58** | Project: `project` | Tickets: `SC-021`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-08 23:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 00:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 01:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 02:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 03:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 04:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 05:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 06:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 07:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 08:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 09:01** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 10:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 11:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 12:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 13:00** | Project: `gem` | Tickets: `PC-029`, `PC-032`, `PC-078`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 13:20** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `PC-029`, `PC-032`, `PC-141`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 14:00** | Project: `gem` | Tickets: `PC-029`, `PC-032`, `PC-078`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 14:30** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `PC-029`, `PC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 14:34** | Project: `project` | Tickets: `PC-029`, `PC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 14:39** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `PC-029`, `PC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 14:52** | Project: `project` | Tickets: `PC-029`, `PC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 14:58** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `PC-029`, `PC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 15:00** | Project: `gem` | Tickets: `PC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 15:09** | Project: `project` | Tickets: `PC-029`, `PC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 15:19** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `PC-029`, `PC-032`, `SC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 15:22** | Project: `project` | Tickets: `PC-029`, `PC-032`, `SC-002`, `SC-079`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 15:39** | Project: `project` | Tickets: `PC-029`, `PC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 15:59** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `PC-029`, `PC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 16:00** | Project: `gem` | Tickets: `PC-078`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 16:19** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `PC-029`, `PC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 16:27** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `PC-029`, `PC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 16:30** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `PC-029`, `PC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 16:39** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `PC-029`, `PC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 16:56** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `PC-029`, `PC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 17:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 17:03** | Project: `project` | Tickets: `PC-029`, `PC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 17:09** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `PC-029`, `PC-032`, `SC-002`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 17:15** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `PC-029`, `PC-032`, `PC-095`, `SC-074`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 17:28** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `PC-029`, `PC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 18:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 19:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 20:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 21:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 22:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-09 23:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 00:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 01:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 02:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 03:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 04:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 05:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 06:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 06:06** | Project: `project` | Tickets: `PC-029`, `PC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 07:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 08:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 09:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 10:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 11:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 12:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 13:00** | Project: `gem` | Tickets: `PC-029`, `PC-032`, `PC-040`, `PC-045`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 14:00** | Project: `gem` | Tickets: `PC-032`, `PC-078`, `PC-091`, `PC-093`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 15:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 16:00** | Project: `gem` | Tickets: `PC-032`, `PC-061`, `PC-078`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 16:01** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "echo hello"
+- **2026-06-10 17:00** | Project: `gem` | Tickets: `PC-078`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 18:00** | Project: `gem` | Tickets: `PC-032`, `PC-078`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 19:00** | Project: `gem` | Tickets: `PC-078`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 19:31** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `CEO-007`, `MD-002`, `MD-003`, `MD-004`, `MEL-001`, `MEL-002`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 19:39** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `CEO-001`, `CEO-002`, `CEO-007`, `CEO-008`, `CEO-010`, `CEO-011`, `CEO-014`, `CEO-019`, `CEO-049`, `FAM-023`, `MD-004`, `MEL-001`, `MEL-014`, `MEL-021`, `MEL-026`, `MEL-031`, `MEL-034`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 19:45** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `MD-007`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 19:54** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `CEO-007`, `MD-003`, `MD-004`, `MD-007`, `PC-078`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 20:00** | Project: `gem` | Tickets: `MD-004`, `MD-007`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 20:08** | Project: `project` | Tickets: `CEO-007`, `MD-004`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 21:00** | Project: `gem` | Tickets: `PC-078`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 22:00** | Project: `gem` | Tickets: `MD-004`, `MD-007`, `PC-078`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-10 23:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 00:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 01:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 02:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 03:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 04:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 05:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 06:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 07:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 08:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 09:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 10:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 11:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 12:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 13:00** | Project: `gem` | Tickets: `PC-032`, `PC-078`, `PC-096`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 13:11** | Project: `project` | Tickets: `CB-01`, `CB-02`, `CB-10`, `PC-078`, `PC-080`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 13:26** | Project: `project` | Tickets: `PC-078`, `PC-080`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 13:42** | Project: `project` | Tickets: `PC-078`, `PC-080`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 14:00** | Project: `gem` | Tickets: `MD-010`, `PC-078`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 14:06** | Project: `project` | Tickets: `PC-078`, `PC-080`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 14:32** | Project: `project` | Tickets: `PC-078`, `PC-080`, `SC-002`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 14:53** | Project: `project` | Tickets: `PC-078`, `PC-080`, `SC-002`, `SC-078`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 15:00** | Project: `gem` | Tickets: `PC-078`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 16:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 17:00** | Project: `gem` | Tickets: `MD-002`, `MD-003`, `MD-004`, `MD-007`, `MD-009`, `MD-010`, `MD-011`, `MD-012`, `MD-013`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 18:00** | Project: `gem` | Tickets: `MD-002`, `MD-003`, `MD-004`, `MD-007`, `MD-011`, `MD-012`, `MD-013`, `PC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 19:00** | Project: `gem` | Tickets: `MD-004`, `MD-007`, `MD-010`, `MD-011`, `MD-012`, `MD-013`, `PC-078`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 20:00** | Project: `gem` | Tickets: `MD-004`, `MD-007`, `MD-011`, `MD-012`, `MD-013`, `PC-078`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 21:00** | Project: `gem` | Tickets: `MD-003`, `MD-004`, `MD-007`, `MD-011`, `MD-012`, `MD-013`, `PC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 22:00** | Project: `gem` | Tickets: `MD-004`, `MD-007`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-11 23:00** | Project: `gem` | Tickets: `MD-004`, `MD-007`, `MD-011`, `MD-012`, `MD-013`, `PC-032`, `SC-062`, `SC-065`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-12 00:00** | Project: `gem` | Tickets: `MD-004`, `MD-007`, `PC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-12 01:00** | Project: `gem` | Tickets: `MD-004`, `MD-007`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-12 02:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-12 03:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-12 04:00** | Project: `gem` | Tickets: `MD-004`, `MD-007`, `MD-013`, `PC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-12 05:00** | Project: `gem` | Tickets: `MD-004`, `MD-007`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-12 06:00** | Project: `gem` | Tickets: `MD-001`, `MD-002`, `MD-003`, `MD-004`, `MD-005`, `MD-006`, `MD-007`, `MD-008`, `MD-009`, `MD-010`, `MD-012`, `PC-032`, `PC-078`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-12 07:00** | Project: `gem` | Tickets: `MD-001`, `MD-004`, `MD-007`, `MD-011`, `MD-013`, `PC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-12 08:00** | Project: `gem` | Tickets: `MD-004`, `MD-007`, `PC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-12 09:00** | Project: `gem` | Tickets: `CB-01`, `CB-04`, `CB-08`, `MD-004`, `MD-007`, `MD-009`, `MD-010`, `MD-011`, `MD-012`, `MD-013`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-12 10:00** | Project: `gem` | Tickets: `MD-004`, `MD-007`, `PC-032`, `PC-081`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-12 11:00** | Project: `gem` | Tickets: `MD-004`, `MD-007`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-12 12:00** | Project: `gem` | Tickets: `MD-004`, `MD-007`, `MD-011`, `MD-013`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-12 13:00** | Project: `gem` | Tickets: `MD-003`, `MD-004`, `MD-007`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-12 14:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-12 15:00** | Project: `gem` | Tickets: `MD-011`, `MD-013`, `PC-078`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-12 16:00** | Project: `gem` | Tickets: `MD-004`, `MD-007`, `PC-032`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-12 17:00** | Project: `gem` | Tickets: `MD-001`, `MD-002`, `MD-003`, `MD-004`, `MD-005`, `MD-006`, `MD-007`, `MD-008`, `MD-009`, `MD-010`, `MD-011`, `MD-012`, `MD-013`, `PC-032`, `PC-078`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-12 18:00** | Project: `gem` | Tickets: `PC-078`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-12 19:00** | Project: `gem` | Tickets: `MD-004`, `MD-007`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-12 20:00** | Project: `gem` | Tickets: `MD-004`, `MD-007`, `MD-012`, `MD-013`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-12 20:56** | Project: `project` | Tickets: `TCR-001`, `TCR-002`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-12 21:00** | Project: `gem` | Tickets: `TCR-001`, `TCR-002`, `TCR-003`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-12 22:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-12 23:00** | Project: `gem` | Tickets: `PC-078`, `TCR-001`, `TCR-002`, `TCR-003`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-13 00:00** | Project: `gem` | Tickets: `MD-004`, `MD-007`, `MD-011`, `MD-013`, `PC-032`, `PC-078`, `TCR-001`, `TCR-002`, `TCR-003`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-13 01:00** | Project: `gem` | Tickets: `MD-004`, `MD-007`, `MD-011`, `MD-012`, `MD-013`, `TCR-001`, `TCR-002`, `TCR-003`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-13 02:00** | Project: `gem` | Tickets: `MD-004`, `TCR-001`, `TCR-002`, `TCR-003`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-13 03:00** | Project: `gem` | Tickets: No specific ticket
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-13 04:00** | Project: `gem` | Tickets: `MD-004`, `MD-007`, `MD-012`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-13 05:00** | Project: `gem` | Tickets: `TCR-001`, `TCR-002`, `TCR-003`
+  - *Initial Prompt:* "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
+- **2026-06-13 05:42** | Project: `miguelrodriguez` | Tickets: No specific ticket
+  - *Initial Prompt:* ""
