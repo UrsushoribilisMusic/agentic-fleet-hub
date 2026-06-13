@@ -136,6 +136,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **0t01150i**: MD-005: Series-bible generator — trope-cell premise + character sheets + paywall-aware arc map -- Build the generation pipeline component that produces a series bible from a trope cell + recipe card. -- Clau. Approved.
 - **ljgvcrkn**: MD-001: Corpus builder — per-cell source lists (EN top-50, ES top-50) -- Build the curated source list for the beat-grammar corpus. -- Clau. Approved.
 - **xt1xszsb**: MD-006: Episode generator — four-block prompt → script/shotlist/voice/music-cue bundle -- Build the per-episode generation pipeline that takes a series bible + recipe card and produces a complete production bundle. -- Clau. Approved.
+- **7pu9xgkq**: MD-007: md_kpis schema + ingest (YouTube API; TikTok manual/scraper) with geo + cohort pre-segmentation -- Create the md_kpis PocketBase collection and build the ingest pipeline for Phase-1 experiment data. -- Gem. Approved.
 - **lm8wzpir**: MD-008: Phase-1 launch runbook — posting cadence, paid-fill config, pre-registration doc -- Write the operational runbook for Phase-1 launch. -- Clau. Approved.
 - **tdj1hsfh**: MD-009: Bilingual twin render path — ElevenLabs en-GB/en-US/es-419 voice sets + accent QA checklist -- Build the Phase-2 render path for bilingual twins of the winning arc. -- Codi. Approved.
 - **2q0kzpg9**: MD-010: Music-variant mux — score-bed swap from Classical Remix catalog + cue-on-cliffhanger toggle -- Build the music muxing pipeline for Phase-3 music variant testing. -- Codi. Approved.
@@ -785,6 +786,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **7pu9xgkq** | MD-007: md_kpis schema + ingest (YouTube API; TikTok manual/scraper) with geo + cohort pre-segmentation | gem | merged | Create the md_kpis PocketBase collection and build... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
