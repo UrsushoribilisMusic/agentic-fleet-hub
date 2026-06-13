@@ -124,19 +124,14 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
-- **zk9araym**: TCR-003: YouTube retention curve parser — extract % at arbitrary second marks -- Utility function to extract viewer retention % at a specific elapsed second from a YouTube audience retention curve. -- Codi. Approved.
-- **5pub8jgo**: TCR-002: Classical Reels stats — ReelTales dashboard tab -- Add a 'Classical Reels' tab to https://api.robotross.art/reeltales/ mirroring the Long-form Videos table layout. -- Clau. Approved.
-- **2wd403to**: TCR-001: Classical Reels stats — data pipeline (PB ingest) -- Ingest Classical Reels (Shorts) YouTube analytics into PocketBase so the ReelTales dashboard can query them. -- Codi. Approved.
 - **tcih1ov6**: MD-011: Segment-first episode generator — typed segments + purpose-specific Runway prompts -- Refactor the MD-006 episode generator to produce a segment-first output aligned to the 3-7-21 beat structure. -- Clau. Approved.
 - **879bhibg**: MD-012: Drop-folder bridge — clip intake validator + future Runway API automation -- Bridge between Miguel's manual Runway step and the assembly pipeline. -- Codi. Approved.
 - **tw76euqv**: MD-013: Assembly pipeline — clips + audio + captions + music → 90s MP4 → YouTube upload -- Final assembly step. Triggered once clips/ folder passes MD-012 validation AND ElevenLabs audio (MD-009) is ready. -- Clau. Approved.
-- **6ahsj4f2**: MD-004: Recipe-card aggregator — cell statistics → generation-ready grammar block -- Aggregate beat_grammar PocketBase records per (language × trope) cell into a grammar block that the generation pipeline consumes at runtime. -- Gem. Approved.
 - **a8yj9tzu**: MD-003: Opus structural pass — prompt + JSON schema + confidence tiers; 5-episode golden set -- Build the Opus-powered structural analysis pass that fills the judgment fields of the beat-grammar schema. -- Clau. Approved.
 - **z2ox8jgu**: MD-002: Extraction pipeline — ffmpeg → Whisper → PySceneDetect → audio features → PocketBase -- Build the checksum-gated extraction pipeline that processes one episode at a time and sinks results to PocketBase. -- Codi. Approved.
 - **0t01150i**: MD-005: Series-bible generator — trope-cell premise + character sheets + paywall-aware arc map -- Build the generation pipeline component that produces a series bible from a trope cell + recipe card. -- Clau. Approved.
 - **ljgvcrkn**: MD-001: Corpus builder — per-cell source lists (EN top-50, ES top-50) -- Build the curated source list for the beat-grammar corpus. -- Clau. Approved.
 - **xt1xszsb**: MD-006: Episode generator — four-block prompt → script/shotlist/voice/music-cue bundle -- Build the per-episode generation pipeline that takes a series bible + recipe card and produces a complete production bundle. -- Clau. Approved.
-- **7pu9xgkq**: MD-007: md_kpis schema + ingest (YouTube API; TikTok manual/scraper) with geo + cohort pre-segmentation -- Create the md_kpis PocketBase collection and build the ingest pipeline for Phase-1 experiment data. -- Gem. Approved.
 - **lm8wzpir**: MD-008: Phase-1 launch runbook — posting cadence, paid-fill config, pre-registration doc -- Write the operational runbook for Phase-1 launch. -- Clau. Approved.
 - **tdj1hsfh**: MD-009: Bilingual twin render path — ElevenLabs en-GB/en-US/es-419 voice sets + accent QA checklist -- Build the Phase-2 render path for bilingual twins of the winning arc. -- Codi. Approved.
 - **2q0kzpg9**: MD-010: Music-variant mux — score-bed swap from Classical Remix catalog + cue-on-cliffhanger toggle -- Build the music muxing pipeline for Phase-3 music variant testing. -- Codi. Approved.
@@ -786,5 +781,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **7pu9xgkq** | MD-007: md_kpis schema + ingest (YouTube API; TikTok manual/scraper) with geo + cohort pre-segmentation | gem | planned | Create the md_kpis PocketBase collection and build... |
+| **6ahsj4f2** | MD-004: Recipe-card aggregator — cell statistics → generation-ready grammar block | gem | planned | Aggregate beat_grammar PocketBase records per (lan... |
+| **2wd403to** | TCR-001: Classical Reels stats — data pipeline (PB ingest) | codi | planned | Ingest Classical Reels (Shorts) YouTube analytics ... |
+| **5pub8jgo** | TCR-002: Classical Reels stats — ReelTales dashboard tab | clau | planned | Add a 'Classical Reels' tab to https://api.robotro... |
+| **zk9araym** | TCR-003: YouTube retention curve parser — extract % at arbitrary second marks | codi | planned | Utility function to extract viewer retention % at ... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
