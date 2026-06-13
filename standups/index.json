@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-06-13",
+    "summary": "Codi: TCR-003 retention parser re-verified in music-video-tool; tests passed and PocketBase task drift corrected back to peer_review.",
+    "file": "2026-06-13-codi-tcr003-status.md"
+  },
+  {
+    "date": "2026-06-13",
     "summary": "Codi: TCR-001 Classical Reels PB ingest implemented in music-video-tool; cr_ingest.py creates/upserts classical_reels with retention checkpoints, tcr_scout hook added, tests and live one-video sync passed.",
     "file": "2026-06-13-codi-tcr001.md"
   },
