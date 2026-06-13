@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-06-13",
+    "summary": "Codi: TCR-001 Classical Reels PB ingest implemented in music-video-tool; cr_ingest.py creates/upserts classical_reels with retention checkpoints, tcr_scout hook added, tests and live one-video sync passed.",
+    "file": "2026-06-13-codi-tcr001.md"
+  },
+  {
+    "date": "2026-06-13",
     "summary": "Gem: MD-004 recipe-card aggregator task completed. Added language-wide overall pacing envelope overlap checks, wrote 3 robust pipeline unit tests in tests/test_aggregate.py, generated actual recipe cards, and verified all 24 project tests pass.",
     "file": "2026-06-13-gem-md004.md"
   },
