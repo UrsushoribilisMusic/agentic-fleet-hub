@@ -1,5 +1,20 @@
 [
   {
+    "date": "2026-06-13",
+    "summary": "Gem: MD-004 recipe-card aggregator task completed. Added language-wide overall pacing envelope overlap checks, wrote 3 robust pipeline unit tests in tests/test_aggregate.py, generated actual recipe cards, and verified all 24 project tests pass.",
+    "file": "2026-06-13-gem-md004.md"
+  },
+  {
+    "date": "2026-06-13",
+    "summary": "Gem: Completed MD-007 task: designed and built the md_kpis PocketBase ingestion pipeline.",
+    "file": "2026-06-13-gem-md007.md"
+  },
+  {
+    "date": "2026-06-13",
+    "summary": "Standup for 2026-06-13: post-production of en-GB challenge-sabotage-romance, migration of Gemini CLI chat histories, implementation of MD-007 KPI ingestion pipeline, and implementation of MD-004 recipe cards.",
+    "file": "2026-06-13.md"
+  },
+  {
     "date": "2026-06-12",
     "summary": "Codi: TCR-003 retention curve parser implemented in music-video-tool; linear interpolation utility + 7 focused tests, all unittest discovery passed; task moved to peer_review.",
     "file": "2026-06-12-codi-tcr003.md"
