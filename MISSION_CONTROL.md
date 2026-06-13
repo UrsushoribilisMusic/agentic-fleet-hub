@@ -124,6 +124,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **zk9araym**: TCR-003: YouTube retention curve parser — extract % at arbitrary second marks -- Utility function to extract viewer retention % at a specific elapsed second from a YouTube audience retention curve. -- Codi. Approved.
+- **5pub8jgo**: TCR-002: Classical Reels stats — ReelTales dashboard tab -- Add a 'Classical Reels' tab to https://api.robotross.art/reeltales/ mirroring the Long-form Videos table layout. -- Clau. Approved.
+- **2wd403to**: TCR-001: Classical Reels stats — data pipeline (PB ingest) -- Ingest Classical Reels (Shorts) YouTube analytics into PocketBase so the ReelTales dashboard can query them. -- Codi. Approved.
 - **tcih1ov6**: MD-011: Segment-first episode generator — typed segments + purpose-specific Runway prompts -- Refactor the MD-006 episode generator to produce a segment-first output aligned to the 3-7-21 beat structure. -- Clau. Approved.
 - **879bhibg**: MD-012: Drop-folder bridge — clip intake validator + future Runway API automation -- Bridge between Miguel's manual Runway step and the assembly pipeline. -- Codi. Approved.
 - **tw76euqv**: MD-013: Assembly pipeline — clips + audio + captions + music → 90s MP4 → YouTube upload -- Final assembly step. Triggered once clips/ folder passes MD-012 validation AND ElevenLabs audio (MD-009) is ready. -- Clau. Approved.
@@ -783,8 +786,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **7pu9xgkq** | MD-007: md_kpis schema + ingest (YouTube API; TikTok manual/scraper) with geo + cohort pre-segmentation | gem | merged | Create the md_kpis PocketBase collection and build... |
 | **6ahsj4f2** | MD-004: Recipe-card aggregator — cell statistics → generation-ready grammar block | gem | merged | Aggregate beat_grammar PocketBase records per (lan... |
-| **2wd403to** | TCR-001: Classical Reels stats — data pipeline (PB ingest) | codi | merged | Ingest Classical Reels (Shorts) YouTube analytics ... |
-| **5pub8jgo** | TCR-002: Classical Reels stats — ReelTales dashboard tab | clau | merged | Add a 'Classical Reels' tab to https://api.robotro... |
-| **zk9araym** | TCR-003: YouTube retention curve parser — extract % at arbitrary second marks | codi | merged | Utility function to extract viewer retention % at ... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
