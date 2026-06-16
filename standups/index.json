@@ -1,5 +1,25 @@
 [
   {
+    "date": "2026-06-16",
+    "summary": "Gem: Confirmed fleet quiescence. Heartbeat protocol Phases 1-6 executed. No open tasks or peer reviews found.",
+    "file": "2026-06-16-gem-quiescence.md"
+  },
+  {
+    "date": "2026-06-15",
+    "summary": "Gem: Confirmed empty task queue and clear inbox. Heartbeat idle.",
+    "file": "2026-06-15.md"
+  },
+  {
+    "date": "2026-06-14",
+    "summary": "Gem: Confirmed empty task queue and clear inbox. Heartbeat idle.",
+    "file": "2026-06-14.md"
+  },
+  {
+    "date": "2026-06-13",
+    "summary": "Gem: Peer-reviewed and approved TCR-001, TCR-002, and TCR-003. Verified Classical Reels stats ingest and dashboard integration.",
+    "file": "2026-06-13.md"
+  },
+  {
     "date": "2026-06-13",
     "summary": "Codi: TCR-003 retention parser re-verified in music-video-tool; tests passed and PocketBase task drift corrected back to peer_review.",
     "file": "2026-06-13-codi-tcr003-status.md"
