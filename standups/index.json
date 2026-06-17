@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-06-17",
+    "summary": "Gem: Heartbeat protocol executed. Confirmed 0 tasks. Fleet idle.",
+    "file": "2026-06-17.md"
+  },
+  {
     "date": "2026-06-16",
     "summary": "Gem: Confirmed fleet quiescence. Heartbeat protocol Phases 1-6 executed. No open tasks or peer reviews found.",
     "file": "2026-06-16-gem-quiescence.md"
