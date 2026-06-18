@@ -794,7 +794,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **y50ut7cg** | PC-269 [P1]: Caption N photos before wiki generation (port from SO) | clau | merged | ## Source... |
 | **q0hfxmnl** | PC-270 [P1]: ModelDownloadManager — background URLSession downloads + foreground resume (port from SO) | codi | in_work | ## Source... |
 | **nquxhzdr** | PC-271 [P3]: GenerationMetricStore — per-wiki generation telemetry (port from SO) | gem | in_work | ## Source... |
-| **qd0sybss** | PC-272 [P3]: VideoReminderStore + VideoReminderTray (port from SO) | clau | planned | ## Source... |
+| **qd0sybss** | PC-272 [P3]: VideoReminderStore + VideoReminderTray (port from SO) | clau | in_work | ## Source... |
 | **0zm5t45y** | PC-273 [P2]: Architecture doc — SO→PC merge branch delta | gem | planned | ## Purpose... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
