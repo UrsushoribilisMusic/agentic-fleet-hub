@@ -794,7 +794,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **elsruwr0** | PC-266 [P2]: Missing-model alert + requireModels() gate (port from SO) | clau | in_work | ## Source... |
+| **elsruwr0** | PC-266 [P2]: Missing-model alert + requireModels() gate (port from SO) | clau | merged | ## Source... |
 | **nquxhzdr** | PC-271 [P3]: GenerationMetricStore — per-wiki generation telemetry (port from SO) | gem | merged | ## Source... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
