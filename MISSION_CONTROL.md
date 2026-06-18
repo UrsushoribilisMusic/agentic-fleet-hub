@@ -124,6 +124,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **0zm5t45y**: PC-273 [P2]: Architecture doc — SO→PC merge branch delta -- ## Purpose -- Gem. Approved.
+- **qd0sybss**: PC-272 [P3]: VideoReminderStore + VideoReminderTray (port from SO) -- ## Source -- Clau. Approved.
 - **q0hfxmnl**: PC-270 [P1]: ModelDownloadManager — background URLSession downloads + foreground resume (port from SO) -- ## Source -- Codi. Approved.
 - **y50ut7cg**: PC-269 [P1]: Caption N photos before wiki generation (port from SO) -- ## Source -- Clau. Approved.
 - **78qm68dd**: PC-268 [P2]: PhotoCaptioningOverlay — animated progress overlay during AI captioning (port from SO) -- ## Source -- Clau. Approved.
@@ -793,8 +795,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **elsruwr0** | PC-266 [P2]: Missing-model alert + requireModels() gate (port from SO) | misty | planned | ## Source... |
-| **nquxhzdr** | PC-271 [P3]: GenerationMetricStore — per-wiki generation telemetry (port from SO) | gem | in_work | ## Source... |
-| **qd0sybss** | PC-272 [P3]: VideoReminderStore + VideoReminderTray (port from SO) | clau | in_work | ## Source... |
-| **0zm5t45y** | PC-273 [P2]: Architecture doc — SO→PC merge branch delta | gem | merged | ## Purpose... |
+| **nquxhzdr** | PC-271 [P3]: GenerationMetricStore — per-wiki generation telemetry (port from SO) | gem | merged | ## Source... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
