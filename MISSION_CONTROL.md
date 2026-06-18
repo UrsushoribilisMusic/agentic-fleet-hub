@@ -124,7 +124,12 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **q0hfxmnl**: PC-270 [P1]: ModelDownloadManager — background URLSession downloads + foreground resume (port from SO) -- ## Source -- Codi. Approved.
+- **y50ut7cg**: PC-269 [P1]: Caption N photos before wiki generation (port from SO) -- ## Source -- Clau. Approved.
+- **78qm68dd**: PC-268 [P2]: PhotoCaptioningOverlay — animated progress overlay during AI captioning (port from SO) -- ## Source -- Clau. Approved.
+- **rc0p2lt5**: PC-267 [P2]: CaptionCheckpointStore — resume interrupted captioning sessions (port from SO) -- ## Source -- Gem. Approved.
 - **zk9araym**: TCR-003: YouTube retention curve parser — extract % at arbitrary second marks -- Utility function to extract viewer retention % at a specific elapsed second from a YouTube audience retention curve. -- Codi. Approved.
+- **zfsivor0**: PC-265 [P2]: WikiStreamState — @MainActor refactor + phaseText (port from SO) -- ## Source -- Gem. Approved.
 - **5pub8jgo**: TCR-002: Classical Reels stats — ReelTales dashboard tab -- Add a 'Classical Reels' tab to https://api.robotross.art/reeltales/ mirroring the Long-form Videos table layout. -- Clau. Approved.
 - **x4805wpp**: PC-264 [P1]: MLXQueue — cancellation-aware deadlock fix (port from SO) -- ## Source -- Codi. Approved.
 - **2wd403to**: TCR-001: Classical Reels stats — data pipeline (PB ingest) -- Ingest Classical Reels (Shorts) YouTube analytics into PocketBase so the ReelTales dashboard can query them. -- Codi. Approved.
@@ -787,14 +792,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **zfsivor0** | PC-265 [P2]: WikiStreamState — @MainActor refactor + phaseText (port from SO) | gem | merged | ## Source... |
 | **elsruwr0** | PC-266 [P2]: Missing-model alert + requireModels() gate (port from SO) | misty | planned | ## Source... |
-| **rc0p2lt5** | PC-267 [P2]: CaptionCheckpointStore — resume interrupted captioning sessions (port from SO) | gem | merged | ## Source... |
-| **78qm68dd** | PC-268 [P2]: PhotoCaptioningOverlay — animated progress overlay during AI captioning (port from SO) | clau | merged | ## Source... |
-| **y50ut7cg** | PC-269 [P1]: Caption N photos before wiki generation (port from SO) | clau | merged | ## Source... |
-| **q0hfxmnl** | PC-270 [P1]: ModelDownloadManager — background URLSession downloads + foreground resume (port from SO) | codi | merged | ## Source... |
-| **nquxhzdr** | PC-271 [P3]: GenerationMetricStore — per-wiki generation telemetry (port from SO) | gem | merged | ## Source... |
-| **qd0sybss** | PC-272 [P3]: VideoReminderStore + VideoReminderTray (port from SO) | clau | merged | ## Source... |
-| **0zm5t45y** | PC-273 [P2]: Architecture doc — SO→PC merge branch delta | gem | in_work | ## Purpose... |
+| **nquxhzdr** | PC-271 [P3]: GenerationMetricStore — per-wiki generation telemetry (port from SO) | gem | in_work | ## Source... |
+| **qd0sybss** | PC-272 [P3]: VideoReminderStore + VideoReminderTray (port from SO) | clau | in_work | ## Source... |
+| **0zm5t45y** | PC-273 [P2]: Architecture doc — SO→PC merge branch delta | gem | merged | ## Purpose... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
