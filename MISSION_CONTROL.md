@@ -789,7 +789,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **x4805wpp** | PC-264 [P1]: MLXQueue — cancellation-aware deadlock fix (port from SO) | codi | merged | ## Source... |
 | **zfsivor0** | PC-265 [P2]: WikiStreamState — @MainActor refactor + phaseText (port from SO) | gem | merged | ## Source... |
 | **elsruwr0** | PC-266 [P2]: Missing-model alert + requireModels() gate (port from SO) | misty | in_work | ## Source... |
-| **rc0p2lt5** | PC-267 [P2]: CaptionCheckpointStore — resume interrupted captioning sessions (port from SO) | gem | planned | ## Source... |
+| **rc0p2lt5** | PC-267 [P2]: CaptionCheckpointStore — resume interrupted captioning sessions (port from SO) | gem | in_work | ## Source... |
 | **78qm68dd** | PC-268 [P2]: PhotoCaptioningOverlay — animated progress overlay during AI captioning (port from SO) | misty | planned | ## Source... |
 | **y50ut7cg** | PC-269 [P1]: Caption N photos before wiki generation (port from SO) | clau | in_work | ## Source... |
 | **q0hfxmnl** | PC-270 [P1]: ModelDownloadManager — background URLSession downloads + foreground resume (port from SO) | codi | in_work | ## Source... |
