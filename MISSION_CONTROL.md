@@ -787,7 +787,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **zfsivor0** | PC-265 [P2]: WikiStreamState — @MainActor refactor + phaseText (port from SO) | gem | planned | ## Source... |
+| **zfsivor0** | PC-265 [P2]: WikiStreamState — @MainActor refactor + phaseText (port from SO) | gem | in_work | ## Source... |
 | **elsruwr0** | PC-266 [P2]: Missing-model alert + requireModels() gate (port from SO) | misty | planned | ## Source... |
 | **rc0p2lt5** | PC-267 [P2]: CaptionCheckpointStore — resume interrupted captioning sessions (port from SO) | gem | planned | ## Source... |
 | **78qm68dd** | PC-268 [P2]: PhotoCaptioningOverlay — animated progress overlay during AI captioning (port from SO) | clau | planned | ## Source... |
