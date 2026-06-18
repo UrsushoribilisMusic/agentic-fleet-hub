@@ -791,9 +791,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **elsruwr0** | PC-266 [P2]: Missing-model alert + requireModels() gate (port from SO) | misty | in_work | ## Source... |
 | **rc0p2lt5** | PC-267 [P2]: CaptionCheckpointStore — resume interrupted captioning sessions (port from SO) | gem | merged | ## Source... |
 | **78qm68dd** | PC-268 [P2]: PhotoCaptioningOverlay — animated progress overlay during AI captioning (port from SO) | misty | in_work | ## Source... |
-| **y50ut7cg** | PC-269 [P1]: Caption N photos before wiki generation (port from SO) | clau | in_work | ## Source... |
+| **y50ut7cg** | PC-269 [P1]: Caption N photos before wiki generation (port from SO) | clau | merged | ## Source... |
 | **q0hfxmnl** | PC-270 [P1]: ModelDownloadManager — background URLSession downloads + foreground resume (port from SO) | codi | in_work | ## Source... |
-| **nquxhzdr** | PC-271 [P3]: GenerationMetricStore — per-wiki generation telemetry (port from SO) | gem | planned | ## Source... |
+| **nquxhzdr** | PC-271 [P3]: GenerationMetricStore — per-wiki generation telemetry (port from SO) | gem | in_work | ## Source... |
 | **qd0sybss** | PC-272 [P3]: VideoReminderStore + VideoReminderTray (port from SO) | clau | planned | ## Source... |
 | **0zm5t45y** | PC-273 [P2]: Architecture doc — SO→PC merge branch delta | gem | planned | ## Purpose... |
 
