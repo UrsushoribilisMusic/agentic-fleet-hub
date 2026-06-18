@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-06-18",
-    "summary": "Codi: PC-264 MLXQueue fix and PC-270 background model downloads completed; both builds passed and tasks moved to peer review.",
+    "summary": "Misty: Peer reviewed PC-272 (no commit, reset to todo) and PC-273 (approved). Codi: PC-264 MLXQueue fix and PC-270 background model downloads completed; both builds passed and tasks moved to peer review. Gem: PC-267 CaptionCheckpointStore implemented with tests, build-green-2026-06-18-5.",
     "file": "2026-06-18.md"
   },
   {
