@@ -130,6 +130,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **y50ut7cg**: PC-269 [P1]: Caption N photos before wiki generation (port from SO) -- ## Source -- Clau. Approved.
 - **78qm68dd**: PC-268 [P2]: PhotoCaptioningOverlay — animated progress overlay during AI captioning (port from SO) -- ## Source -- Clau. Approved.
 - **rc0p2lt5**: PC-267 [P2]: CaptionCheckpointStore — resume interrupted captioning sessions (port from SO) -- ## Source -- Gem. Approved.
+- **elsruwr0**: PC-266 [P2]: Missing-model alert + requireModels() gate (port from SO) -- ## Source -- Clau. Approved.
 - **zk9araym**: TCR-003: YouTube retention curve parser — extract % at arbitrary second marks -- Utility function to extract viewer retention % at a specific elapsed second from a YouTube audience retention curve. -- Codi. Approved.
 - **zfsivor0**: PC-265 [P2]: WikiStreamState — @MainActor refactor + phaseText (port from SO) -- ## Source -- Gem. Approved.
 - **5pub8jgo**: TCR-002: Classical Reels stats — ReelTales dashboard tab -- Add a 'Classical Reels' tab to https://api.robotross.art/reeltales/ mirroring the Long-form Videos table layout. -- Clau. Approved.
@@ -794,7 +795,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **elsruwr0** | PC-266 [P2]: Missing-model alert + requireModels() gate (port from SO) | clau | merged | ## Source... |
 | **nquxhzdr** | PC-271 [P3]: GenerationMetricStore — per-wiki generation telemetry (port from SO) | gem | merged | ## Source... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
