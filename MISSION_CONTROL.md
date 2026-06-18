@@ -797,4 +797,15 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **78qm68dd** | PC-268 [P2]: PhotoCaptioningOverlay — animated progress overlay during AI captioning (port from SO) | misty | planned | ## Source... |
 | **rc0p2lt5** | PC-267 [P2]: CaptionCheckpointStore — resume interrupted captioning sessions (port from SO) | gem | planned | ## Source... |
 
+### PARKED — Do Not Pick Up
+These tickets are in `backlog` status and will NOT be dispatched. They require explicit authorisation from Miguel before work begins. Each has a [PARKED] tag in its PocketBase description explaining what prerequisites are needed.
+
+| Ticket | Description | Blocked on |
+| :--- | :--- | :--- |
+| **PC-274** | Thermal handling — ThermalResumeActor + partial wiki resume | PC-275 + WikiArticle model schema migration |
+| **PC-275** | Incremental wiki generation — per-section LLM calls + partial save | WikiArticle model changes (`isPartial`, `expectedSectionCount`) + SQLite migration |
+| **PC-276** | Cosmos graph views — birth-chart layout + scope navigation | Design decision: cosmos branding vs PC node taxonomy (Person/Place/Trip) |
+
+---
+
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
