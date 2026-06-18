@@ -786,5 +786,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **zfsivor0** | PC-265 [P2]: WikiStreamState — @MainActor refactor + phaseText (port from SO) | gem | planned | ## Source... |
+| **x4805wpp** | PC-264 [P1]: MLXQueue — cancellation-aware deadlock fix (port from SO) | codi | planned | ## Source... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
