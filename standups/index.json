@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-06-18",
-    "summary": "Codi: PC-264 MLXQueue cancellation-safe reference port completed; build passed and task moved to peer review.",
+    "summary": "Codi: PC-264 MLXQueue fix and PC-270 background model downloads completed; both builds passed and tasks moved to peer review.",
     "file": "2026-06-18.md"
   },
   {
