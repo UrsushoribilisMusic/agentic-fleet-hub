@@ -126,6 +126,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
 - **zk9araym**: TCR-003: YouTube retention curve parser — extract % at arbitrary second marks -- Utility function to extract viewer retention % at a specific elapsed second from a YouTube audience retention curve. -- Codi. Approved.
 - **5pub8jgo**: TCR-002: Classical Reels stats — ReelTales dashboard tab -- Add a 'Classical Reels' tab to https://api.robotross.art/reeltales/ mirroring the Long-form Videos table layout. -- Clau. Approved.
+- **x4805wpp**: PC-264 [P1]: MLXQueue — cancellation-aware deadlock fix (port from SO) -- ## Source -- Codi. Approved.
 - **2wd403to**: TCR-001: Classical Reels stats — data pipeline (PB ingest) -- Ingest Classical Reels (Shorts) YouTube analytics into PocketBase so the ReelTales dashboard can query them. -- Codi. Approved.
 - **tcih1ov6**: MD-011: Segment-first episode generator — typed segments + purpose-specific Runway prompts -- Refactor the MD-006 episode generator to produce a segment-first output aligned to the 3-7-21 beat structure. -- Clau. Approved.
 - **879bhibg**: MD-012: Drop-folder bridge — clip intake validator + future Runway API automation -- Bridge between Miguel's manual Runway step and the assembly pipeline. -- Codi. Approved.
@@ -786,7 +787,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **x4805wpp** | PC-264 [P1]: MLXQueue — cancellation-aware deadlock fix (port from SO) | codi | merged | ## Source... |
 | **zfsivor0** | PC-265 [P2]: WikiStreamState — @MainActor refactor + phaseText (port from SO) | gem | merged | ## Source... |
 | **elsruwr0** | PC-266 [P2]: Missing-model alert + requireModels() gate (port from SO) | misty | in_work | ## Source... |
 | **rc0p2lt5** | PC-267 [P2]: CaptionCheckpointStore — resume interrupted captioning sessions (port from SO) | gem | in_work | ## Source... |
