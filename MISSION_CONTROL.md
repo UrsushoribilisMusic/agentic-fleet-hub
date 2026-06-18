@@ -789,12 +789,12 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **x4805wpp** | PC-264 [P1]: MLXQueue — cancellation-aware deadlock fix (port from SO) | codi | merged | ## Source... |
 | **zfsivor0** | PC-265 [P2]: WikiStreamState — @MainActor refactor + phaseText (port from SO) | gem | in_work | ## Source... |
 | **elsruwr0** | PC-266 [P2]: Missing-model alert + requireModels() gate (port from SO) | misty | in_work | ## Source... |
-| **0zm5t45y** | PC-273 [P2]: Architecture doc — SO→PC merge branch delta | gem | planned | ## Purpose... |
-| **qd0sybss** | PC-272 [P3]: VideoReminderStore + VideoReminderTray (port from SO) | clau | planned | ## Source... |
-| **nquxhzdr** | PC-271 [P3]: GenerationMetricStore — per-wiki generation telemetry (port from SO) | gem | planned | ## Source... |
+| **rc0p2lt5** | PC-267 [P2]: CaptionCheckpointStore — resume interrupted captioning sessions (port from SO) | gem | planned | ## Source... |
+| **78qm68dd** | PC-268 [P2]: PhotoCaptioningOverlay — animated progress overlay during AI captioning (port from SO) | misty | planned | ## Source... |
 | **y50ut7cg** | PC-269 [P1]: Caption N photos before wiki generation (port from SO) | clau | in_work | ## Source... |
 | **q0hfxmnl** | PC-270 [P1]: ModelDownloadManager — background URLSession downloads + foreground resume (port from SO) | codi | planned | ## Source... |
-| **78qm68dd** | PC-268 [P2]: PhotoCaptioningOverlay — animated progress overlay during AI captioning (port from SO) | misty | planned | ## Source... |
-| **rc0p2lt5** | PC-267 [P2]: CaptionCheckpointStore — resume interrupted captioning sessions (port from SO) | gem | planned | ## Source... |
+| **nquxhzdr** | PC-271 [P3]: GenerationMetricStore — per-wiki generation telemetry (port from SO) | gem | planned | ## Source... |
+| **qd0sybss** | PC-272 [P3]: VideoReminderStore + VideoReminderTray (port from SO) | clau | planned | ## Source... |
+| **0zm5t45y** | PC-273 [P2]: Architecture doc — SO→PC merge branch delta | gem | planned | ## Purpose... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
