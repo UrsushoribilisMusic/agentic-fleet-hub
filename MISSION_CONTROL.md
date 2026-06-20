@@ -813,7 +813,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **xu3pnesk** | DW-014 [P1]: Governance seed pairs — instruction/response set for LoRA target behaviours | gem | merged | ## Epic C — LoRA primitives... |
 | **0d72bu94** | DW-015 [P1]: Eval set — held-out cases with expected outcomes and scoring rubric | gem | merged | ## Epic C — LoRA primitives... |
 | **oh78rjng** | DW-016 [P2]: Package primitives — schema + generators + seed pairs + eval + README | codi | planned | ## Epic C — LoRA primitives... |
-| **4fby79l5** | DW-D1 [P2]: Figure inventory — open-source figures in MDR/Swissmedic/Fedlex docs | gem | planned | ## Epic D — Diagrams... |
+| **4fby79l5** | DW-D1 [P2]: Figure inventory — open-source figures in MDR/Swissmedic/Fedlex docs | gem | in_work | ## Epic D — Diagrams... |
 | **aikassku** | DW-D3 [P1]: Generate original SVG diagrams from regulation structure (5 priority diagrams) | codi | planned | ## Epic D — Diagrams... |
 | **3sfkgfhy** | DW-D2 [P2]: Extract and embed public-domain figures with attribution | codi | planned | ## Epic D — Diagrams... |
 | **0e4xobzm** | DW-D4 [P2]: Caption + alt-text pass — every figure attributed and accessible | clau | planned | ## Epic D — Diagrams... |
