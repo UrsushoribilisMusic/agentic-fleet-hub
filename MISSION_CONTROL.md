@@ -803,5 +803,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **zpokri52** | DW-004 [P1]: EU MDR fetcher — normalised chunks, traceability/UDI/conformity focus (DE/FR/IT/EN) | codi | planned | ## Epic A — Corpus acquisition... |
 | **60961k09** | DW-005 [P1]: Swissmedic guidance fetcher — medical device guidance chunks | codi | planned | ## Epic A — Corpus acquisition... |
 | **6jqumsn4** | DW-006 [P1]: Licensing pass — PROVENANCE.md + reference-mode summaries | clau | merged | ## Epic A — Corpus acquisition... |
+| **a2c1kkyl** | DW-007 [P1]: Wiki taxonomy — comprehensive article map with source chunk mapping | gem | planned | ## Epic B — The wiki... |
+| **elufniab** | DW-012 [P1]: Domain schema — typed model of the dental-lab world | gem | planned | ## Epic C — LoRA primitives... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
