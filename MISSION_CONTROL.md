@@ -809,7 +809,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **jibhq2vf** | DW-009 [P1]: Wiki generator — static HTML in clean white reference theme | codi | planned | ## Epic B — The wiki... |
 | **kv0mf7fl** | DW-010 [P2]: Regenerability — content hash + incremental rebuild + article stamps | codi | planned | ## Epic B — The wiki... |
 | **98f48b17** | DW-008 [P1]: Generate all wiki articles — encyclopedic depth, every claim cited | clau | merged | ## Epic B — The wiki... |
-| **ikie7ppd** | DW-011 [P1]: QA pass — factual accuracy, citation correctness, licence compliance | clau | in_work | ## Epic B — The wiki... |
+| **ikie7ppd** | DW-011 [P1]: QA pass — factual accuracy, citation correctness, licence compliance | clau | merged | ## Epic B — The wiki... |
 | **k0ajwey4** | DW-013 [P2]: Synthetic generator — realistic-but-fake orders/KVs/lots in DE/FR/IT | codi | planned | ## Epic C — LoRA primitives... |
 | **0d72bu94** | DW-015 [P1]: Eval set — held-out cases with expected outcomes and scoring rubric | gem | merged | ## Epic C — LoRA primitives... |
 | **oh78rjng** | DW-016 [P2]: Package primitives — schema + generators + seed pairs + eval + README | codi | planned | ## Epic C — LoRA primitives... |
