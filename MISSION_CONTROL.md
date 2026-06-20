@@ -816,7 +816,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **4fby79l5** | DW-D1 [P2]: Figure inventory — open-source figures in MDR/Swissmedic/Fedlex docs | gem | merged | ## Epic D — Diagrams... |
 | **aikassku** | DW-D3 [P1]: Generate original SVG diagrams from regulation structure (5 priority diagrams) | codi | planned | ## Epic D — Diagrams... |
 | **3sfkgfhy** | DW-D2 [P2]: Extract and embed public-domain figures with attribution | codi | planned | ## Epic D — Diagrams... |
-| **0e4xobzm** | DW-D4 [P2]: Caption + alt-text pass — every figure attributed and accessible | clau | in_work | ## Epic D — Diagrams... |
+| **0e4xobzm** | DW-D4 [P2]: Caption + alt-text pass — every figure attributed and accessible | clau | merged | ## Epic D — Diagrams... |
 | **5x30cpl5** | DW-017 [P1]: One-command demo — make serve + landing index framing the wiki | codi | planned | ## Epic E — Rolf demo... |
 | **jc2qqd0x** | DW-018 [P1]: SHOW_ROLF.md — one-page guide for the meeting | clau | planned | ## Epic E — Rolf demo... |
 | **xmqc99ky** | DW-019 [P3]: STRETCH — side-by-side: stock Apertus prompt vs governed target output | clau | planned | ## Epic E — Rolf demo (STRETCH)... |
