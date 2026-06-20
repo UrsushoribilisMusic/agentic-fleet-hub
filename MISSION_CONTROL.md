@@ -805,7 +805,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **60961k09** | DW-005 [P1]: Swissmedic guidance fetcher — medical device guidance chunks | codi | in_work | ## Epic A — Corpus acquisition... |
+| **60961k09** | DW-005 [P1]: Swissmedic guidance fetcher — medical device guidance chunks | codi | merged | ## Epic A — Corpus acquisition... |
 | **jibhq2vf** | DW-009 [P1]: Wiki generator — static HTML in clean white reference theme | codi | planned | ## Epic B — The wiki... |
 | **kv0mf7fl** | DW-010 [P2]: Regenerability — content hash + incremental rebuild + article stamps | codi | planned | ## Epic B — The wiki... |
 | **98f48b17** | DW-008 [P1]: Generate all wiki articles — encyclopedic depth, every claim cited | clau | merged | ## Epic B — The wiki... |
