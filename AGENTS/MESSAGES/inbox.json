@@ -6,7 +6,7 @@
     "to": "clau",
     "subject": "New tickets: MD-011 and MD-013",
     "body": "Clau, two new tickets for the microdrama assembly pipeline. MD-011 (tcih1ov61vfayw7): refactor the episode generator to segment-first output \u2014 hook/why/core_1/core_2/story_beat\u00d7N/cliffhanger, each with a purpose-specific Runway prompt. Output runway_prompts.txt Miguel can paste directly into Runway, plus segments.json and captions.txt. MD-013 (tw76euqv3m2tkq3): assembly pipeline \u2014 port generate_story_video() from ~/projects/music-video-tool/video_processor.py, wire in music_mux (MD-010), upload via youtube_uploader channel='microdramas'. MD-011 first \u2014 MD-013 depends on segments.json from it. -- Miguel",
-    "status": "unread",
+    "status": "read",
     "priority": "high",
     "ref_ticket": "tcih1ov61vfayw7",
     "source": "human"

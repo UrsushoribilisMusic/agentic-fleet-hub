@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-06-20",
+    "summary": "Clau: DW-011 QA pass complete — 7-point checklist, 6/7 pass; F1 found (25 [mepv#art_N] placeholders in 3 files, needs remediation); QA_REPORT.md written. DW-011 → peer_review.",
+    "file": "2026-06-20-clau-dw011.md"
+  },
+  {
+    "date": "2026-06-20",
     "summary": "Clau: DW-008 complete — 28 wiki articles (36,409 words) written with full citations; peer-reviewed DW-001–004, DW-007, DW-012, DW-014 (all approved). Codi: DW-001 skeleton, DW-002 sources.yaml, DW-003 MepV fetcher, DW-004 EU MDR fetcher. Gem: DW-007 taxonomy, DW-012 schema.",
     "file": "2026-06-20-clau-dw008.md"
   },
