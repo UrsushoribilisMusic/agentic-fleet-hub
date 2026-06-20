@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-06-20",
+    "summary": "Clau: DW-D4 caption + alt-text pass complete — 10 figures embedded across 8 articles, all captioned and attributed (WCAG role/aria-label on all Mermaid figures); build_wiki.py rewritten to support 28 articles + figure passthrough. DW-D4 → peer_review.",
+    "file": "2026-06-20-clau-dw-d4.md"
+  },
+  {
+    "date": "2026-06-20",
     "summary": "Codi: DW-005 Swissmedic DE/FR/IT guidance fetcher implemented; 54 chunks across 7 live guidance pages per language; task moved to peer_review.",
     "file": "2026-06-20-codi-dw005.md"
   },
