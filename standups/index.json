@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-06-20",
+    "summary": "Codi: DW-009 static wiki generator complete — reference theme, grouped nav, search, breadcrumbs, TOC, citations, language badges, print CSS, generated footer; make wiki/make serve/a11y/link audits passed. DW-009 → peer_review.",
+    "file": "2026-06-20-codi-dw009.md"
+  },
+  {
+    "date": "2026-06-20",
     "summary": "Clau: DW-D4 caption + alt-text pass complete — 10 figures embedded across 8 articles, all captioned and attributed (WCAG role/aria-label on all Mermaid figures); build_wiki.py rewritten to support 28 articles + figure passthrough. DW-D4 → peer_review.",
     "file": "2026-06-20-clau-dw-d4.md"
   },
