@@ -125,7 +125,14 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **xu3pnesk**: DW-014 [P1]: Governance seed pairs — instruction/response set for LoRA target behaviours -- ## Epic C — LoRA primitives -- Gem. Approved.
+- **elufniab**: DW-012 [P1]: Domain schema — typed model of the dental-lab world -- ## Epic C — LoRA primitives -- Gem. Approved.
+- **a2c1kkyl**: DW-007 [P1]: Wiki taxonomy — comprehensive article map with source chunk mapping -- ## Epic B — The wiki -- Gem. Approved.
 - **6jqumsn4**: DW-006 [P1]: Licensing pass — PROVENANCE.md + reference-mode summaries -- ## Epic A — Corpus acquisition -- Clau. Approved.
+- **zpokri52**: DW-004 [P1]: EU MDR fetcher — normalised chunks, traceability/UDI/conformity focus (DE/FR/IT/EN) -- ## Epic A — Corpus acquisition -- Codi. Approved.
+- **h67ysph5**: DW-003 [P1]: MepV fetcher — normalised DE/FR/IT chunks with article-level metadata -- ## Epic A — Corpus acquisition -- Codi. Approved.
+- **wlw8n444**: DW-002 [P1]: sources.yaml — corpus manifest with licence + mode per source -- ## Epic A — Corpus acquisition -- Codi. Approved.
+- **xhgx8r77**: DW-001 [P1]: Repo skeleton + Makefile (make sources/ingest/wiki/primitives/serve) -- ## Epic A — Corpus acquisition -- Codi. Approved.
 - **0zm5t45y**: PC-273 [P2]: Architecture doc — SO→PC merge branch delta -- ## Purpose -- Gem. Approved.
 - **qd0sybss**: PC-272 [P3]: VideoReminderStore + VideoReminderTray (port from SO) -- ## Source -- Clau. Approved.
 - **nquxhzdr**: PC-271 [P3]: GenerationMetricStore — per-wiki generation telemetry (port from SO) -- ## Source -- Gem. Approved.
@@ -798,19 +805,12 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **xhgx8r77** | DW-001 [P1]: Repo skeleton + Makefile (make sources/ingest/wiki/primitives/serve) | codi | merged | ## Epic A — Corpus acquisition... |
-| **wlw8n444** | DW-002 [P1]: sources.yaml — corpus manifest with licence + mode per source | codi | merged | ## Epic A — Corpus acquisition... |
-| **h67ysph5** | DW-003 [P1]: MepV fetcher — normalised DE/FR/IT chunks with article-level metadata | codi | merged | ## Epic A — Corpus acquisition... |
-| **zpokri52** | DW-004 [P1]: EU MDR fetcher — normalised chunks, traceability/UDI/conformity focus (DE/FR/IT/EN) | codi | merged | ## Epic A — Corpus acquisition... |
 | **60961k09** | DW-005 [P1]: Swissmedic guidance fetcher — medical device guidance chunks | codi | planned | ## Epic A — Corpus acquisition... |
-| **a2c1kkyl** | DW-007 [P1]: Wiki taxonomy — comprehensive article map with source chunk mapping | gem | merged | ## Epic B — The wiki... |
 | **jibhq2vf** | DW-009 [P1]: Wiki generator — static HTML in clean white reference theme | codi | planned | ## Epic B — The wiki... |
 | **kv0mf7fl** | DW-010 [P2]: Regenerability — content hash + incremental rebuild + article stamps | codi | planned | ## Epic B — The wiki... |
 | **98f48b17** | DW-008 [P1]: Generate all wiki articles — encyclopedic depth, every claim cited | clau | merged | ## Epic B — The wiki... |
 | **ikie7ppd** | DW-011 [P1]: QA pass — factual accuracy, citation correctness, licence compliance | clau | planned | ## Epic B — The wiki... |
-| **elufniab** | DW-012 [P1]: Domain schema — typed model of the dental-lab world | gem | merged | ## Epic C — LoRA primitives... |
 | **k0ajwey4** | DW-013 [P2]: Synthetic generator — realistic-but-fake orders/KVs/lots in DE/FR/IT | codi | planned | ## Epic C — LoRA primitives... |
-| **xu3pnesk** | DW-014 [P1]: Governance seed pairs — instruction/response set for LoRA target behaviours | gem | merged | ## Epic C — LoRA primitives... |
 | **0d72bu94** | DW-015 [P1]: Eval set — held-out cases with expected outcomes and scoring rubric | gem | merged | ## Epic C — LoRA primitives... |
 | **oh78rjng** | DW-016 [P2]: Package primitives — schema + generators + seed pairs + eval + README | codi | planned | ## Epic C — LoRA primitives... |
 | **4fby79l5** | DW-D1 [P2]: Figure inventory — open-source figures in MDR/Swissmedic/Fedlex docs | gem | merged | ## Epic D — Diagrams... |
