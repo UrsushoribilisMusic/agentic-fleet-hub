@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-06-20",
+    "summary": "Codi: DW-010 incremental wiki builds complete — per-article source/corpus hashes, wiki/.cache/hashes.json, skip/no-op output, generated/source-version footers, corpus_version backfill; task moved to peer_review.",
+    "file": "2026-06-20-codi-dw010.md"
+  },
+  {
+    "date": "2026-06-20",
     "summary": "Codi: DW-009 static wiki generator complete — reference theme, grouped nav, search, breadcrumbs, TOC, citations, language badges, print CSS, generated footer; make wiki/make serve/a11y/link audits passed. DW-009 → peer_review.",
     "file": "2026-06-20-codi-dw009.md"
   },
