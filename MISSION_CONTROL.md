@@ -812,10 +812,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **ikie7ppd** | DW-011 [P1]: QA pass — factual accuracy, citation correctness, licence compliance | clau | merged | ## Epic B — The wiki... |
 | **k0ajwey4** | DW-013 [P2]: Synthetic generator — realistic-but-fake orders/KVs/lots in DE/FR/IT | codi | merged | ## Epic C — LoRA primitives... |
 | **0d72bu94** | DW-015 [P1]: Eval set — held-out cases with expected outcomes and scoring rubric | gem | merged | ## Epic C — LoRA primitives... |
-| **oh78rjng** | DW-016 [P2]: Package primitives — schema + generators + seed pairs + eval + README | clau | planned | ## Epic C — LoRA primitives... |
+| **oh78rjng** | DW-016 [P2]: Package primitives — schema + generators + seed pairs + eval + README | clau | in_work | ## Epic C — LoRA primitives... |
 | **4fby79l5** | DW-D1 [P2]: Figure inventory — open-source figures in MDR/Swissmedic/Fedlex docs | gem | merged | ## Epic D — Diagrams... |
 | **aikassku** | DW-D3 [P1]: Generate original SVG diagrams from regulation structure (5 priority diagrams) | clau | planned | ## Epic D — Diagrams... |
-| **3sfkgfhy** | DW-D2 [P2]: Extract and embed public-domain figures with attribution | gem | planned | ## Epic D — Diagrams... |
+| **3sfkgfhy** | DW-D2 [P2]: Extract and embed public-domain figures with attribution | gem | in_work | ## Epic D — Diagrams... |
 | **0e4xobzm** | DW-D4 [P2]: Caption + alt-text pass — every figure attributed and accessible | clau | merged | ## Epic D — Diagrams... |
 | **5x30cpl5** | DW-017 [P1]: One-command demo — make serve + landing index framing the wiki | gem | planned | ## Epic E — Rolf demo... |
 | **jc2qqd0x** | DW-018 [P1]: SHOW_ROLF.md — one-page guide for the meeting | clau | merged | ## Epic E — Rolf demo... |
