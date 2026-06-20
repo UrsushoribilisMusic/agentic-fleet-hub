@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-06-20",
-    "summary": "Codi: DW-001 dental-domain-kit skeleton. Clau: DW-006 PROVENANCE.md + 6-source sources.yaml; SSO tariff stays reference (no open licence found).",
+    "summary": "Codi: DW-001 dental-domain-kit skeleton and DW-002 sources.yaml manifest moved to peer_review. Clau: DW-006 PROVENANCE.md + licensing pass; SSO tariff stays reference.",
     "file": "2026-06-20.md"
   },
   {
