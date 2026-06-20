@@ -819,6 +819,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **0e4xobzm** | DW-D4 [P2]: Caption + alt-text pass — every figure attributed and accessible | clau | merged | ## Epic D — Diagrams... |
 | **5x30cpl5** | DW-017 [P1]: One-command demo — make serve + landing index framing the wiki | codi | planned | ## Epic E — Rolf demo... |
 | **jc2qqd0x** | DW-018 [P1]: SHOW_ROLF.md — one-page guide for the meeting | clau | merged | ## Epic E — Rolf demo... |
-| **xmqc99ky** | DW-019 [P3]: STRETCH — side-by-side: stock Apertus prompt vs governed target output | clau | planned | ## Epic E — Rolf demo (STRETCH)... |
+| **xmqc99ky** | DW-019 [P3]: STRETCH — side-by-side: stock Apertus prompt vs governed target output | clau | in_work | ## Epic E — Rolf demo (STRETCH)... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
