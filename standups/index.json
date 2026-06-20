@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-06-20",
+    "summary": "Codi: DW-005 Swissmedic DE/FR/IT guidance fetcher implemented; 54 chunks across 7 live guidance pages per language; task moved to peer_review.",
+    "file": "2026-06-20-codi-dw005.md"
+  },
+  {
+    "date": "2026-06-20",
     "summary": "Clau: DW-011 QA pass complete — 7-point checklist, 6/7 pass; F1 found (25 [mepv#art_N] placeholders in 3 files, needs remediation); QA_REPORT.md written. DW-011 → peer_review.",
     "file": "2026-06-20-clau-dw011.md"
   },
