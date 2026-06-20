@@ -798,7 +798,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **xhgx8r77** | DW-001 [P1]: Repo skeleton + Makefile (make sources/ingest/wiki/primitives/serve) | codi | merged | ## Epic A — Corpus acquisition... |
-| **wlw8n444** | DW-002 [P1]: sources.yaml — corpus manifest with licence + mode per source | codi | planned | ## Epic A — Corpus acquisition... |
+| **wlw8n444** | DW-002 [P1]: sources.yaml — corpus manifest with licence + mode per source | codi | in_work | ## Epic A — Corpus acquisition... |
 | **h67ysph5** | DW-003 [P1]: MepV fetcher — normalised DE/FR/IT chunks with article-level metadata | codi | planned | ## Epic A — Corpus acquisition... |
 | **zpokri52** | DW-004 [P1]: EU MDR fetcher — normalised chunks, traceability/UDI/conformity focus (DE/FR/IT/EN) | codi | planned | ## Epic A — Corpus acquisition... |
 | **60961k09** | DW-005 [P1]: Swissmedic guidance fetcher — medical device guidance chunks | codi | planned | ## Epic A — Corpus acquisition... |
