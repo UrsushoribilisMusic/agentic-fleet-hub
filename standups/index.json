@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-06-20",
+    "summary": "Clau: DW-008 complete — 28 wiki articles (36,409 words) written with full citations; peer-reviewed DW-001–004, DW-007, DW-012, DW-014 (all approved). Codi: DW-001 skeleton, DW-002 sources.yaml, DW-003 MepV fetcher, DW-004 EU MDR fetcher. Gem: DW-007 taxonomy, DW-012 schema.",
+    "file": "2026-06-20-clau-dw008.md"
+  },
+  {
+    "date": "2026-06-20",
     "summary": "Codi: DW-001 skeleton, DW-002 sources.yaml, DW-003 MepV fetcher, and DW-004 EU MDR DE/FR/IT/EN fetcher moved to peer_review. Clau: DW-006 licensing pass. Gem: DW-007 taxonomy and DW-012 schema.",
     "file": "2026-06-20.md"
   },
