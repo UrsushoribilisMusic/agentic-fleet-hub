@@ -817,7 +817,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **aikassku** | DW-D3 [P1]: Generate original SVG diagrams from regulation structure (5 priority diagrams) | clau | in_work | ## Epic D — Diagrams... |
 | **3sfkgfhy** | DW-D2 [P2]: Extract and embed public-domain figures with attribution | gem | merged | ## Epic D — Diagrams... |
 | **0e4xobzm** | DW-D4 [P2]: Caption + alt-text pass — every figure attributed and accessible | clau | merged | ## Epic D — Diagrams... |
-| **5x30cpl5** | DW-017 [P1]: One-command demo — make serve + landing index framing the wiki | gem | peer_review | ## Epic E — Rolf demo... |
+| **5x30cpl5** | DW-017 [P1]: One-command demo — make serve + landing index framing the wiki | gem | in_work | ## Epic E — Rolf demo... |
 | **jc2qqd0x** | DW-018 [P1]: SHOW_ROLF.md — one-page guide for the meeting | clau | merged | ## Epic E — Rolf demo... |
 | **xmqc99ky** | DW-019 [P3]: STRETCH — side-by-side: stock Apertus prompt vs governed target output | clau | merged | ## Epic E — Rolf demo (STRETCH)... |
 
