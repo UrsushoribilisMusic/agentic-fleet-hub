@@ -807,7 +807,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **60961k09** | DW-005 [P1]: Swissmedic guidance fetcher — medical device guidance chunks | codi | merged | ## Epic A — Corpus acquisition... |
 | **jibhq2vf** | DW-009 [P1]: Wiki generator — static HTML in clean white reference theme | codi | merged | ## Epic B — The wiki... |
-| **kv0mf7fl** | DW-010 [P2]: Regenerability — content hash + incremental rebuild + article stamps | codi | planned | ## Epic B — The wiki... |
+| **kv0mf7fl** | DW-010 [P2]: Regenerability — content hash + incremental rebuild + article stamps | codi | in_work | ## Epic B — The wiki... |
 | **98f48b17** | DW-008 [P1]: Generate all wiki articles — encyclopedic depth, every claim cited | clau | merged | ## Epic B — The wiki... |
 | **ikie7ppd** | DW-011 [P1]: QA pass — factual accuracy, citation correctness, licence compliance | clau | merged | ## Epic B — The wiki... |
 | **k0ajwey4** | DW-013 [P2]: Synthetic generator — realistic-but-fake orders/KVs/lots in DE/FR/IT | codi | planned | ## Epic C — LoRA primitives... |
