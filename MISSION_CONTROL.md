@@ -806,11 +806,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **a2c1kkyl** | DW-007 [P1]: Wiki taxonomy — comprehensive article map with source chunk mapping | gem | merged | ## Epic B — The wiki... |
 | **jibhq2vf** | DW-009 [P1]: Wiki generator — static HTML in clean white reference theme | codi | planned | ## Epic B — The wiki... |
 | **kv0mf7fl** | DW-010 [P2]: Regenerability — content hash + incremental rebuild + article stamps | codi | planned | ## Epic B — The wiki... |
-| **98f48b17** | DW-008 [P1]: Generate all wiki articles — encyclopedic depth, every claim cited | clau | planned | ## Epic B — The wiki... |
+| **98f48b17** | DW-008 [P1]: Generate all wiki articles — encyclopedic depth, every claim cited | clau | in_work | ## Epic B — The wiki... |
 | **ikie7ppd** | DW-011 [P1]: QA pass — factual accuracy, citation correctness, licence compliance | clau | planned | ## Epic B — The wiki... |
 | **elufniab** | DW-012 [P1]: Domain schema — typed model of the dental-lab world | gem | merged | ## Epic C — LoRA primitives... |
 | **k0ajwey4** | DW-013 [P2]: Synthetic generator — realistic-but-fake orders/KVs/lots in DE/FR/IT | codi | planned | ## Epic C — LoRA primitives... |
-| **xu3pnesk** | DW-014 [P1]: Governance seed pairs — instruction/response set for LoRA target behaviours | gem | planned | ## Epic C — LoRA primitives... |
+| **xu3pnesk** | DW-014 [P1]: Governance seed pairs — instruction/response set for LoRA target behaviours | gem | in_work | ## Epic C — LoRA primitives... |
 | **0d72bu94** | DW-015 [P1]: Eval set — held-out cases with expected outcomes and scoring rubric | gem | planned | ## Epic C — LoRA primitives... |
 | **oh78rjng** | DW-016 [P2]: Package primitives — schema + generators + seed pairs + eval + README | codi | planned | ## Epic C — LoRA primitives... |
 | **4fby79l5** | DW-D1 [P2]: Figure inventory — open-source figures in MDR/Swissmedic/Fedlex docs | gem | planned | ## Epic D — Diagrams... |
