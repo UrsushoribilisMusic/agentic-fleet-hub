@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-06-20",
+    "summary": "Codi: DW-001 dental-domain-kit skeleton implemented and make pipeline verified locally; GitHub repo creation/push blocked by invalid/missing GitHub credentials, task moved to waiting_human.",
+    "file": "2026-06-20.md"
+  },
+  {
     "date": "2026-06-18",
     "summary": "Misty: Peer reviewed PC-272 (no commit, reset to todo) and PC-273 (approved). Codi: PC-264 MLXQueue fix and PC-270 background model downloads completed; both builds passed and tasks moved to peer review. Gem: PC-267 CaptionCheckpointStore implemented with tests, build-green-2026-06-18-5.",
     "file": "2026-06-18.md"
