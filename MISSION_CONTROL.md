@@ -125,6 +125,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **6jqumsn4**: DW-006 [P1]: Licensing pass — PROVENANCE.md + reference-mode summaries -- ## Epic A — Corpus acquisition -- Clau. Approved.
 - **0zm5t45y**: PC-273 [P2]: Architecture doc — SO→PC merge branch delta -- ## Purpose -- Gem. Approved.
 - **qd0sybss**: PC-272 [P3]: VideoReminderStore + VideoReminderTray (port from SO) -- ## Source -- Clau. Approved.
 - **nquxhzdr**: PC-271 [P3]: GenerationMetricStore — per-wiki generation telemetry (port from SO) -- ## Source -- Gem. Approved.
@@ -799,11 +800,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **xhgx8r77** | DW-001 [P1]: Repo skeleton + Makefile (make sources/ingest/wiki/primitives/serve) | codi | merged | ## Epic A — Corpus acquisition... |
 | **wlw8n444** | DW-002 [P1]: sources.yaml — corpus manifest with licence + mode per source | codi | merged | ## Epic A — Corpus acquisition... |
-| **h67ysph5** | DW-003 [P1]: MepV fetcher — normalised DE/FR/IT chunks with article-level metadata | codi | planned | ## Epic A — Corpus acquisition... |
+| **h67ysph5** | DW-003 [P1]: MepV fetcher — normalised DE/FR/IT chunks with article-level metadata | codi | in_work | ## Epic A — Corpus acquisition... |
 | **zpokri52** | DW-004 [P1]: EU MDR fetcher — normalised chunks, traceability/UDI/conformity focus (DE/FR/IT/EN) | codi | planned | ## Epic A — Corpus acquisition... |
 | **60961k09** | DW-005 [P1]: Swissmedic guidance fetcher — medical device guidance chunks | codi | planned | ## Epic A — Corpus acquisition... |
-| **6jqumsn4** | DW-006 [P1]: Licensing pass — PROVENANCE.md + reference-mode summaries | clau | merged | ## Epic A — Corpus acquisition... |
-| **a2c1kkyl** | DW-007 [P1]: Wiki taxonomy — comprehensive article map with source chunk mapping | gem | planned | ## Epic B — The wiki... |
+| **a2c1kkyl** | DW-007 [P1]: Wiki taxonomy — comprehensive article map with source chunk mapping | gem | in_work | ## Epic B — The wiki... |
 | **elufniab** | DW-012 [P1]: Domain schema — typed model of the dental-lab world | gem | planned | ## Epic C — LoRA primitives... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
