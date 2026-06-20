@@ -807,7 +807,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **60961k09** | DW-005 [P1]: Swissmedic guidance fetcher — medical device guidance chunks | codi | merged | ## Epic A — Corpus acquisition... |
 | **jibhq2vf** | DW-009 [P1]: Wiki generator — static HTML in clean white reference theme | codi | merged | ## Epic B — The wiki... |
-| **kv0mf7fl** | DW-010 [P2]: Regenerability — content hash + incremental rebuild + article stamps | codi | in_work | ## Epic B — The wiki... |
+| **kv0mf7fl** | DW-010 [P2]: Regenerability — content hash + incremental rebuild + article stamps | codi | merged | ## Epic B — The wiki... |
 | **98f48b17** | DW-008 [P1]: Generate all wiki articles — encyclopedic depth, every claim cited | clau | merged | ## Epic B — The wiki... |
 | **ikie7ppd** | DW-011 [P1]: QA pass — factual accuracy, citation correctness, licence compliance | clau | merged | ## Epic B — The wiki... |
 | **k0ajwey4** | DW-013 [P2]: Synthetic generator — realistic-but-fake orders/KVs/lots in DE/FR/IT | codi | planned | ## Epic C — LoRA primitives... |
@@ -818,7 +818,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **3sfkgfhy** | DW-D2 [P2]: Extract and embed public-domain figures with attribution | codi | planned | ## Epic D — Diagrams... |
 | **0e4xobzm** | DW-D4 [P2]: Caption + alt-text pass — every figure attributed and accessible | clau | merged | ## Epic D — Diagrams... |
 | **5x30cpl5** | DW-017 [P1]: One-command demo — make serve + landing index framing the wiki | codi | planned | ## Epic E — Rolf demo... |
-| **jc2qqd0x** | DW-018 [P1]: SHOW_ROLF.md — one-page guide for the meeting | clau | in_work | ## Epic E — Rolf demo... |
+| **jc2qqd0x** | DW-018 [P1]: SHOW_ROLF.md — one-page guide for the meeting | clau | merged | ## Epic E — Rolf demo... |
 | **xmqc99ky** | DW-019 [P3]: STRETCH — side-by-side: stock Apertus prompt vs governed target output | clau | planned | ## Epic E — Rolf demo (STRETCH)... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
