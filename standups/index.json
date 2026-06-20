@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-06-20",
+    "summary": "Codi: DW-013 synthetic primitives generator complete — make primitives now writes deterministic DE/FR/IT orders, KVs, materials, and lots with obviously fake identifiers; schema/count/determinism checks passed. DW-013 → peer_review.",
+    "file": "2026-06-20-codi-dw013.md"
+  },
+  {
+    "date": "2026-06-20",
     "summary": "Codi: DW-010 incremental wiki builds complete — per-article source/corpus hashes, wiki/.cache/hashes.json, skip/no-op output, generated/source-version footers, corpus_version backfill; task moved to peer_review.",
     "file": "2026-06-20-codi-dw010.md"
   },
