@@ -820,27 +820,27 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **ixju8vbc** | FX-001: Repo skeleton + Makefile + source manifest | codi | planned | Repo skeleton + Makefile (make filter, make judgme... |
+| **hu3302rj** | FX-002: Gold-vs-chaff filter criteria (Stage 0 checklist) | clau | in_work | Write the Stage 0 filter criteria that every downs... |
+| **9zvjpno5** | FX-003: Context-continuation injection filter | codi | planned | Strip ~39% false-positive 'corrections' from raw t... |
+| **904b0yl5** | FX-004: Export 382 PB lessons → normalised records | codi | planned | Export all 382 PocketBase lessons to normalised sy... |
+| **ggc4o4p5** | FX-005: Tag lessons: curated / emergent / uncertain | clau | planned | Tag each lesson from FX-004 as curated / emergent ... |
+| **37udilvt** | FX-006: Convert lessons → SFT format | clau | planned | Convert tagged lessons from FX-005 into SFT traini... |
+| **esh5o3bu** | FX-007: Extract escalation comments + standup rationale → SFT candidates | clau | planned | Extract escalation comments (69) + standup rationa... |
+| **qiu3ammz** | FX-008: Extract peer-review approve/reject comments → DPO preference pairs | codi | planned | Extract peer-review approve/reject comments from P... |
+| **yq2srvfw** | FX-009: Parse Claude transcripts (276 MB + 77 MB) post-FX-003 | codi | planned | Parse the two large Claude session transcripts aft... |
+| **qhzsjbfk** | FX-010: Classify corrections → route (SFT / annotation / contested / drop) | clau | planned | Classify 176 correction events from FX-009 using F... |
+| **bj5j2vgw** | FX-011: Tag missing-constraint events (~37%) as 'both' | clau | planned | From FX-010 output: tag missing-constraint events ... |
+| **bvafr4ep** | FX-012: Parse Vibe/Codex sessions → DPO candidates | codi | planned | Parse Vibe and Codex session logs for rejected too... |
+| **8f4r1vup** | FX-013: Export task_events + tasks + comments → SQLite facts store | codi | planned | Export PocketBase hard-facts collections to querya... |
+| **z8flel06** | FX-014: Extract git history → facts store | codi | planned | Extract git history (SHAs, tags, change summaries)... |
+| **q2hmepbk** | FX-015: Parse 177 daily standup masters → structured stats records | codi | planned | Parse 177 daily standup markdown files → structure... |
+| **jrsjr5fp** | FX-016: Build retrieval/wiki layer with stable IDs | clau | planned | Build retrieval/wiki layer: facts store (FX-013–01... |
 | **86is21h4** | FX-022: Final QA checklist | clau | planned | Final QA — sign off on all guardrails before packa... |
 | **8cgszsvb** | FX-021: Manifest/README with counts + provenance + version hashes | codi | planned | Write manifest/README: counts per set, provenance ... |
 | **d2mg6zh7** | FX-020: Emit final datasets (SFT + DPO + CONTESTED + facts + eval) | codi | planned | Emit final datasets: SFT set, DPO set, CONTESTED s... |
 | **kvqy95vg** | FX-019: Write scoring rubric (action-correct + grounded-citation) | clau | planned | Write scoring rubric: action-correct (0/1) and gro... |
 | **5x922tbm** | FX-018: Build eval questions from RULES.md + lessons | clau | planned | Build additional eval questions grounded in RULES.... |
 | **geb8km3h** | FX-017: Lock 18-entry curated ledger as held-out eval | clau | planned | Lock the 18-entry curated ledger as held-out eval ... |
-| **jrsjr5fp** | FX-016: Build retrieval/wiki layer with stable IDs | clau | planned | Build retrieval/wiki layer: facts store (FX-013–01... |
-| **q2hmepbk** | FX-015: Parse 177 daily standup masters → structured stats records | codi | planned | Parse 177 daily standup markdown files → structure... |
-| **z8flel06** | FX-014: Extract git history → facts store | codi | planned | Extract git history (SHAs, tags, change summaries)... |
-| **8f4r1vup** | FX-013: Export task_events + tasks + comments → SQLite facts store | codi | planned | Export PocketBase hard-facts collections to querya... |
-| **bvafr4ep** | FX-012: Parse Vibe/Codex sessions → DPO candidates | codi | planned | Parse Vibe and Codex session logs for rejected too... |
-| **bj5j2vgw** | FX-011: Tag missing-constraint events (~37%) as 'both' | clau | planned | From FX-010 output: tag missing-constraint events ... |
-| **qhzsjbfk** | FX-010: Classify corrections → route (SFT / annotation / contested / drop) | clau | planned | Classify 176 correction events from FX-009 using F... |
-| **yq2srvfw** | FX-009: Parse Claude transcripts (276 MB + 77 MB) post-FX-003 | codi | planned | Parse the two large Claude session transcripts aft... |
-| **qiu3ammz** | FX-008: Extract peer-review approve/reject comments → DPO preference pairs | codi | planned | Extract peer-review approve/reject comments from P... |
-| **esh5o3bu** | FX-007: Extract escalation comments + standup rationale → SFT candidates | clau | planned | Extract escalation comments (69) + standup rationa... |
-| **37udilvt** | FX-006: Convert lessons → SFT format | clau | planned | Convert tagged lessons from FX-005 into SFT traini... |
-| **ggc4o4p5** | FX-005: Tag lessons: curated / emergent / uncertain | clau | planned | Tag each lesson from FX-004 as curated / emergent ... |
-| **904b0yl5** | FX-004: Export 382 PB lessons → normalised records | codi | planned | Export all 382 PocketBase lessons to normalised sy... |
-| **9zvjpno5** | FX-003: Context-continuation injection filter | codi | planned | Strip ~39% false-positive 'corrections' from raw t... |
-| **hu3302rj** | FX-002: Gold-vs-chaff filter criteria (Stage 0 checklist) | clau | planned | Write the Stage 0 filter criteria that every downs... |
-| **ixju8vbc** | FX-001: Repo skeleton + Makefile + source manifest | codi | planned | Repo skeleton + Makefile (make filter, make judgme... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
