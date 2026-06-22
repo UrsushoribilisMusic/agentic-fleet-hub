@@ -826,7 +826,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **9zvjpno5** | FX-003: Context-continuation injection filter | codi | planned | Strip ~39% false-positive 'corrections' from raw t... |
 | **904b0yl5** | FX-004: Export 382 PB lessons → normalised records | codi | planned | Export all 382 PocketBase lessons to normalised sy... |
 | **37udilvt** | FX-006: Convert lessons → SFT format | clau | merged | Convert tagged lessons from FX-005 into SFT traini... |
-| **esh5o3bu** | FX-007: Extract escalation comments + standup rationale → SFT candidates | clau | in_work | Extract escalation comments (69) + standup rationa... |
+| **esh5o3bu** | FX-007: Extract escalation comments + standup rationale → SFT candidates | clau | merged | Extract escalation comments (69) + standup rationa... |
 | **qiu3ammz** | FX-008: Extract peer-review approve/reject comments → DPO preference pairs | codi | planned | Extract peer-review approve/reject comments from P... |
 | **yq2srvfw** | FX-009: Parse Claude transcripts (276 MB + 77 MB) post-FX-003 | codi | planned | Parse the two large Claude session transcripts aft... |
 | **qhzsjbfk** | FX-010: Classify corrections → route (SFT / annotation / contested / drop) | clau | planned | Classify 176 correction events from FX-009 using F... |
