@@ -824,7 +824,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **hu3302rj** | FX-002: Gold-vs-chaff filter criteria (Stage 0 checklist) | clau | merged | Write the Stage 0 filter criteria that every downs... |
 | **9zvjpno5** | FX-003: Context-continuation injection filter | codi | planned | Strip ~39% false-positive 'corrections' from raw t... |
 | **904b0yl5** | FX-004: Export 382 PB lessons → normalised records | codi | planned | Export all 382 PocketBase lessons to normalised sy... |
-| **ggc4o4p5** | FX-005: Tag lessons: curated / emergent / uncertain | clau | planned | Tag each lesson from FX-004 as curated / emergent ... |
+| **ggc4o4p5** | FX-005: Tag lessons: curated / emergent / uncertain | clau | in_work | Tag each lesson from FX-004 as curated / emergent ... |
 | **37udilvt** | FX-006: Convert lessons → SFT format | clau | planned | Convert tagged lessons from FX-005 into SFT traini... |
 | **esh5o3bu** | FX-007: Extract escalation comments + standup rationale → SFT candidates | clau | planned | Extract escalation comments (69) + standup rationa... |
 | **qiu3ammz** | FX-008: Extract peer-review approve/reject comments → DPO preference pairs | codi | planned | Extract peer-review approve/reject comments from P... |
