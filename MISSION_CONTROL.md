@@ -125,6 +125,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **ggc4o4p5**: FX-005: Tag lessons: curated / emergent / uncertain -- Tag each lesson from FX-004 as curated / emergent / uncertain. Auto-tag from metadata (author + session type), sample-verify ~20 against prose register. Report disagreement rate. -- Clau. Approved.
 - **hu3302rj**: FX-002: Gold-vs-chaff filter criteria (Stage 0 checklist) -- Write the Stage 0 filter criteria that every downstream extraction must pass through. Must be reviewed by Miguel before any extraction counts as done. -- Clau. Approved.
 - **xmqc99ky**: DW-019 [P3]: STRETCH — side-by-side: stock Apertus prompt vs governed target output -- ## Epic E — Rolf demo (STRETCH) -- Clau. Approved.
 - **jc2qqd0x**: DW-018 [P1]: SHOW_ROLF.md — one-page guide for the meeting -- ## Epic E — Rolf demo -- Clau. Approved.
@@ -824,7 +825,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **ixju8vbc** | FX-001: Repo skeleton + Makefile + source manifest | codi | planned | Repo skeleton + Makefile (make filter, make judgme... |
 | **9zvjpno5** | FX-003: Context-continuation injection filter | codi | planned | Strip ~39% false-positive 'corrections' from raw t... |
 | **904b0yl5** | FX-004: Export 382 PB lessons → normalised records | codi | planned | Export all 382 PocketBase lessons to normalised sy... |
-| **ggc4o4p5** | FX-005: Tag lessons: curated / emergent / uncertain | clau | merged | Tag each lesson from FX-004 as curated / emergent ... |
 | **37udilvt** | FX-006: Convert lessons → SFT format | clau | in_work | Convert tagged lessons from FX-005 into SFT traini... |
 | **esh5o3bu** | FX-007: Extract escalation comments + standup rationale → SFT candidates | clau | planned | Extract escalation comments (69) + standup rationa... |
 | **qiu3ammz** | FX-008: Extract peer-review approve/reject comments → DPO preference pairs | codi | planned | Extract peer-review approve/reject comments from P... |
