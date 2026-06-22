@@ -821,7 +821,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **ixju8vbc** | FX-001: Repo skeleton + Makefile + source manifest | codi | planned | Repo skeleton + Makefile (make filter, make judgme... |
-| **hu3302rj** | FX-002: Gold-vs-chaff filter criteria (Stage 0 checklist) | clau | in_work | Write the Stage 0 filter criteria that every downs... |
+| **hu3302rj** | FX-002: Gold-vs-chaff filter criteria (Stage 0 checklist) | clau | merged | Write the Stage 0 filter criteria that every downs... |
 | **9zvjpno5** | FX-003: Context-continuation injection filter | codi | planned | Strip ~39% false-positive 'corrections' from raw t... |
 | **904b0yl5** | FX-004: Export 382 PB lessons → normalised records | codi | planned | Export all 382 PocketBase lessons to normalised sy... |
 | **ggc4o4p5** | FX-005: Tag lessons: curated / emergent / uncertain | clau | planned | Tag each lesson from FX-004 as curated / emergent ... |
