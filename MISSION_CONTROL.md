@@ -125,10 +125,25 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **xmqc99ky**: DW-019 [P3]: STRETCH — side-by-side: stock Apertus prompt vs governed target output -- ## Epic E — Rolf demo (STRETCH) -- Clau. Approved.
+- **jc2qqd0x**: DW-018 [P1]: SHOW_ROLF.md — one-page guide for the meeting -- ## Epic E — Rolf demo -- Clau. Approved.
+- **5x30cpl5**: DW-017 [P1]: One-command demo — make serve + landing index framing the wiki -- ## Epic E — Rolf demo -- Gem. Approved.
+- **0e4xobzm**: DW-D4 [P2]: Caption + alt-text pass — every figure attributed and accessible -- ## Epic D — Diagrams -- Clau. Approved.
+- **3sfkgfhy**: DW-D2 [P2]: Extract and embed public-domain figures with attribution -- ## Epic D — Diagrams -- Gem. Approved.
+- **aikassku**: DW-D3 [P1]: Generate original SVG diagrams from regulation structure (5 priority diagrams) -- ## Epic D — Diagrams -- Clau. Approved.
+- **4fby79l5**: DW-D1 [P2]: Figure inventory — open-source figures in MDR/Swissmedic/Fedlex docs -- ## Epic D — Diagrams -- Gem. Approved.
+- **oh78rjng**: DW-016 [P2]: Package primitives — schema + generators + seed pairs + eval + README -- ## Epic C — LoRA primitives -- Clau. Approved.
+- **0d72bu94**: DW-015 [P1]: Eval set — held-out cases with expected outcomes and scoring rubric -- ## Epic C — LoRA primitives -- Gem. Approved.
 - **xu3pnesk**: DW-014 [P1]: Governance seed pairs — instruction/response set for LoRA target behaviours -- ## Epic C — LoRA primitives -- Gem. Approved.
+- **k0ajwey4**: DW-013 [P2]: Synthetic generator — realistic-but-fake orders/KVs/lots in DE/FR/IT -- ## Epic C — LoRA primitives -- Codi. Approved.
 - **elufniab**: DW-012 [P1]: Domain schema — typed model of the dental-lab world -- ## Epic C — LoRA primitives -- Gem. Approved.
+- **ikie7ppd**: DW-011 [P1]: QA pass — factual accuracy, citation correctness, licence compliance -- ## Epic B — The wiki -- Clau. Approved.
+- **98f48b17**: DW-008 [P1]: Generate all wiki articles — encyclopedic depth, every claim cited -- ## Epic B — The wiki -- Clau. Approved.
+- **kv0mf7fl**: DW-010 [P2]: Regenerability — content hash + incremental rebuild + article stamps -- ## Epic B — The wiki -- Codi. Approved.
+- **jibhq2vf**: DW-009 [P1]: Wiki generator — static HTML in clean white reference theme -- ## Epic B — The wiki -- Codi. Approved.
 - **a2c1kkyl**: DW-007 [P1]: Wiki taxonomy — comprehensive article map with source chunk mapping -- ## Epic B — The wiki -- Gem. Approved.
 - **6jqumsn4**: DW-006 [P1]: Licensing pass — PROVENANCE.md + reference-mode summaries -- ## Epic A — Corpus acquisition -- Clau. Approved.
+- **60961k09**: DW-005 [P1]: Swissmedic guidance fetcher — medical device guidance chunks -- ## Epic A — Corpus acquisition -- Codi. Approved.
 - **zpokri52**: DW-004 [P1]: EU MDR fetcher — normalised chunks, traceability/UDI/conformity focus (DE/FR/IT/EN) -- ## Epic A — Corpus acquisition -- Codi. Approved.
 - **h67ysph5**: DW-003 [P1]: MepV fetcher — normalised DE/FR/IT chunks with article-level metadata -- ## Epic A — Corpus acquisition -- Codi. Approved.
 - **wlw8n444**: DW-002 [P1]: sources.yaml — corpus manifest with licence + mode per source -- ## Epic A — Corpus acquisition -- Codi. Approved.
@@ -805,20 +820,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **60961k09** | DW-005 [P1]: Swissmedic guidance fetcher — medical device guidance chunks | codi | merged | ## Epic A — Corpus acquisition... |
-| **jibhq2vf** | DW-009 [P1]: Wiki generator — static HTML in clean white reference theme | codi | merged | ## Epic B — The wiki... |
-| **kv0mf7fl** | DW-010 [P2]: Regenerability — content hash + incremental rebuild + article stamps | codi | merged | ## Epic B — The wiki... |
-| **98f48b17** | DW-008 [P1]: Generate all wiki articles — encyclopedic depth, every claim cited | clau | merged | ## Epic B — The wiki... |
-| **ikie7ppd** | DW-011 [P1]: QA pass — factual accuracy, citation correctness, licence compliance | clau | merged | ## Epic B — The wiki... |
-| **k0ajwey4** | DW-013 [P2]: Synthetic generator — realistic-but-fake orders/KVs/lots in DE/FR/IT | codi | merged | ## Epic C — LoRA primitives... |
-| **0d72bu94** | DW-015 [P1]: Eval set — held-out cases with expected outcomes and scoring rubric | gem | merged | ## Epic C — LoRA primitives... |
-| **oh78rjng** | DW-016 [P2]: Package primitives — schema + generators + seed pairs + eval + README | clau | merged | ## Epic C — LoRA primitives... |
-| **4fby79l5** | DW-D1 [P2]: Figure inventory — open-source figures in MDR/Swissmedic/Fedlex docs | gem | merged | ## Epic D — Diagrams... |
-| **aikassku** | DW-D3 [P1]: Generate original SVG diagrams from regulation structure (5 priority diagrams) | clau | merged | ## Epic D — Diagrams... |
-| **3sfkgfhy** | DW-D2 [P2]: Extract and embed public-domain figures with attribution | gem | merged | ## Epic D — Diagrams... |
-| **0e4xobzm** | DW-D4 [P2]: Caption + alt-text pass — every figure attributed and accessible | clau | merged | ## Epic D — Diagrams... |
-| **5x30cpl5** | DW-017 [P1]: One-command demo — make serve + landing index framing the wiki | gem | merged | ## Epic E — Rolf demo... |
-| **jc2qqd0x** | DW-018 [P1]: SHOW_ROLF.md — one-page guide for the meeting | clau | merged | ## Epic E — Rolf demo... |
-| **xmqc99ky** | DW-019 [P3]: STRETCH — side-by-side: stock Apertus prompt vs governed target output | clau | merged | ## Epic E — Rolf demo (STRETCH)... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
