@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-06-23",
+    "summary": "Clau: FX-005 — tagged 382 lessons as curated/emergent/uncertain; 15% disagreement rate on 20-sample prose-register verify",
+    "file": "2026-06-23.md"
+  },
+  {
     "date": "2026-06-20",
     "summary": "DW-D3: 5 SVG diagrams generated and embedded (traceability chain, conformity routes, MDR/MepV comparison, UDI structure, tariff tree)",
     "file": "2026-06-20-clau-dw-d3.md"
