@@ -125,6 +125,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **bvafr4ep**: FX-012: Parse Vibe/Codex sessions → DPO candidates -- Parse Vibe and Codex session logs for rejected tool calls + following turn → DPO candidates. -- Gem. Approved.
 - **37udilvt**: FX-006: Convert lessons → SFT format -- Convert tagged lessons from FX-005 into SFT training format (situation → judgment). Flag 'both'-tagged entries for Epic D wiki cross-listing. -- Clau. Approved.
 - **ggc4o4p5**: FX-005: Tag lessons: curated / emergent / uncertain -- Tag each lesson from FX-004 as curated / emergent / uncertain. Auto-tag from metadata (author + session type), sample-verify ~20 against prose register. Report disagreement rate. -- Clau. Approved.
 - **904b0yl5**: FX-004: Export 382 PB lessons → normalised records -- Export all 382 PocketBase lessons to normalised symptom/root_cause/lesson records with category tags. All 382 exported, schema-valid. Filter: created < '2026-06-22'. -- Gem. Approved.
@@ -827,11 +828,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **9zvjpno5** | FX-003: Context-continuation injection filter | clau | merged | Strip ~39% false-positive 'corrections' from raw t... |
 | **esh5o3bu** | FX-007: Extract escalation comments + standup rationale → SFT candidates | clau | merged | Extract escalation comments (69) + standup rationa... |
-| **qiu3ammz** | FX-008: Extract peer-review approve/reject comments → DPO preference pairs | gem | in_work | Extract peer-review approve/reject comments from P... |
+| **qiu3ammz** | FX-008: Extract peer-review approve/reject comments → DPO preference pairs | gem | merged | Extract peer-review approve/reject comments from P... |
 | **yq2srvfw** | FX-009: Parse Claude transcripts (276 MB + 77 MB) post-FX-003 | clau | merged | Parse the two large Claude session transcripts aft... |
 | **qhzsjbfk** | FX-010: Classify corrections → route (SFT / annotation / contested / drop) | clau | merged | Classify 176 correction events from FX-009 using F... |
 | **bj5j2vgw** | FX-011: Tag missing-constraint events (~37%) as 'both' | clau | merged | From FX-010 output: tag missing-constraint events ... |
-| **bvafr4ep** | FX-012: Parse Vibe/Codex sessions → DPO candidates | gem | merged | Parse Vibe and Codex session logs for rejected too... |
 | **8f4r1vup** | FX-013: Export task_events + tasks + comments → SQLite facts store | gem | merged | Export PocketBase hard-facts collections to querya... |
 | **z8flel06** | FX-014: Extract git history → facts store | gem | merged | Extract git history (SHAs, tags, change summaries)... |
 | **q2hmepbk** | FX-015: Parse 177 daily standup masters → structured stats records | gem | merged | Parse 177 daily standup markdown files → structure... |
