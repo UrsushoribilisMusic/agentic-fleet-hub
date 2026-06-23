@@ -849,7 +849,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **rkjlt9ib** | EVAL-002 [Clau+Gem] — Retrieval wiki (hard-facts corpus) | clau | merged | Build the wiki the model consults at query time. F... |
 | **p3zxrhjj** | EVAL-002c [Clau] — HTML wiki rendering (demo face, LOWER PRIORITY) | clau | merged | Browsable static HTML site generated from EVAL-002... |
 | **ujr18ttz** | EVAL-003 [Clau] — Expanded held-out question set (~150–200 questions) | clau | merged | Expand eval.jsonl from 50 to ~150–200 held-out que... |
-| **n4xmmv64** | EVAL-004 [Clau] — Generation harness (the runner) | clau | in_work | Script that runs every eval question through each ... |
+| **n4xmmv64** | EVAL-004 [Clau] — Generation harness (the runner) | clau | merged | Script that runs every eval question through each ... |
 | **od411434** | EVAL-005 [Gem] — Blind grading harness (Qwen judge) | gem | merged | Script that scores results.jsonl against rubric.js... |
 | **i7zp5e4v** | EVAL-006 [Gem] — Second-judge agreement (Clau cross-check) | gem | merged | Re-grade a sample (or all) with Clau (Sonnet) as s... |
 
