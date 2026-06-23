@@ -832,7 +832,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **qhzsjbfk** | FX-010: Classify corrections → route (SFT / annotation / contested / drop) | clau | merged | Classify 176 correction events from FX-009 using F... |
 | **bj5j2vgw** | FX-011: Tag missing-constraint events (~37%) as 'both' | clau | merged | From FX-010 output: tag missing-constraint events ... |
 | **bvafr4ep** | FX-012: Parse Vibe/Codex sessions → DPO candidates | gem | merged | Parse Vibe and Codex session logs for rejected too... |
-| **8f4r1vup** | FX-013: Export task_events + tasks + comments → SQLite facts store | gem | planned | Export PocketBase hard-facts collections to querya... |
+| **8f4r1vup** | FX-013: Export task_events + tasks + comments → SQLite facts store | gem | in_work | Export PocketBase hard-facts collections to querya... |
 | **z8flel06** | FX-014: Extract git history → facts store | gem | planned | Extract git history (SHAs, tags, change summaries)... |
 | **q2hmepbk** | FX-015: Parse 177 daily standup masters → structured stats records | gem | planned | Parse 177 daily standup markdown files → structure... |
 | **jrsjr5fp** | FX-016: Build retrieval/wiki layer with stable IDs | clau | merged | Build retrieval/wiki layer: facts store (FX-013–01... |
