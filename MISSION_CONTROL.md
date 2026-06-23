@@ -830,7 +830,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **qiu3ammz** | FX-008: Extract peer-review approve/reject comments → DPO preference pairs | codi | planned | Extract peer-review approve/reject comments from P... |
 | **yq2srvfw** | FX-009: Parse Claude transcripts (276 MB + 77 MB) post-FX-003 | codi | planned | Parse the two large Claude session transcripts aft... |
 | **qhzsjbfk** | FX-010: Classify corrections → route (SFT / annotation / contested / drop) | clau | merged | Classify 176 correction events from FX-009 using F... |
-| **bj5j2vgw** | FX-011: Tag missing-constraint events (~37%) as 'both' | clau | in_work | From FX-010 output: tag missing-constraint events ... |
+| **bj5j2vgw** | FX-011: Tag missing-constraint events (~37%) as 'both' | clau | merged | From FX-010 output: tag missing-constraint events ... |
 | **bvafr4ep** | FX-012: Parse Vibe/Codex sessions → DPO candidates | codi | planned | Parse Vibe and Codex session logs for rejected too... |
 | **8f4r1vup** | FX-013: Export task_events + tasks + comments → SQLite facts store | codi | planned | Export PocketBase hard-facts collections to querya... |
 | **z8flel06** | FX-014: Extract git history → facts store | codi | planned | Extract git history (SHAs, tags, change summaries)... |
