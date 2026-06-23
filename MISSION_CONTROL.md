@@ -822,25 +822,25 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **ixju8vbc** | FX-001: Repo skeleton + Makefile + source manifest | codi | planned | Repo skeleton + Makefile (make filter, make judgme... |
-| **9zvjpno5** | FX-003: Context-continuation injection filter | codi | planned | Strip ~39% false-positive 'corrections' from raw t... |
-| **904b0yl5** | FX-004: Export 382 PB lessons → normalised records | codi | planned | Export all 382 PocketBase lessons to normalised sy... |
+| **ixju8vbc** | FX-001: Repo skeleton + Makefile + source manifest | clau | planned | Repo skeleton + Makefile (make filter, make judgme... |
+| **9zvjpno5** | FX-003: Context-continuation injection filter | clau | planned | Strip ~39% false-positive 'corrections' from raw t... |
+| **904b0yl5** | FX-004: Export 382 PB lessons → normalised records | gem | planned | Export all 382 PocketBase lessons to normalised sy... |
 | **37udilvt** | FX-006: Convert lessons → SFT format | clau | merged | Convert tagged lessons from FX-005 into SFT traini... |
 | **esh5o3bu** | FX-007: Extract escalation comments + standup rationale → SFT candidates | clau | merged | Extract escalation comments (69) + standup rationa... |
-| **qiu3ammz** | FX-008: Extract peer-review approve/reject comments → DPO preference pairs | codi | planned | Extract peer-review approve/reject comments from P... |
-| **yq2srvfw** | FX-009: Parse Claude transcripts (276 MB + 77 MB) post-FX-003 | codi | planned | Parse the two large Claude session transcripts aft... |
+| **qiu3ammz** | FX-008: Extract peer-review approve/reject comments → DPO preference pairs | gem | planned | Extract peer-review approve/reject comments from P... |
+| **yq2srvfw** | FX-009: Parse Claude transcripts (276 MB + 77 MB) post-FX-003 | clau | planned | Parse the two large Claude session transcripts aft... |
 | **qhzsjbfk** | FX-010: Classify corrections → route (SFT / annotation / contested / drop) | clau | merged | Classify 176 correction events from FX-009 using F... |
 | **bj5j2vgw** | FX-011: Tag missing-constraint events (~37%) as 'both' | clau | merged | From FX-010 output: tag missing-constraint events ... |
-| **bvafr4ep** | FX-012: Parse Vibe/Codex sessions → DPO candidates | codi | planned | Parse Vibe and Codex session logs for rejected too... |
-| **8f4r1vup** | FX-013: Export task_events + tasks + comments → SQLite facts store | codi | planned | Export PocketBase hard-facts collections to querya... |
-| **z8flel06** | FX-014: Extract git history → facts store | codi | planned | Extract git history (SHAs, tags, change summaries)... |
-| **q2hmepbk** | FX-015: Parse 177 daily standup masters → structured stats records | codi | planned | Parse 177 daily standup markdown files → structure... |
+| **bvafr4ep** | FX-012: Parse Vibe/Codex sessions → DPO candidates | gem | planned | Parse Vibe and Codex session logs for rejected too... |
+| **8f4r1vup** | FX-013: Export task_events + tasks + comments → SQLite facts store | gem | planned | Export PocketBase hard-facts collections to querya... |
+| **z8flel06** | FX-014: Extract git history → facts store | gem | planned | Extract git history (SHAs, tags, change summaries)... |
+| **q2hmepbk** | FX-015: Parse 177 daily standup masters → structured stats records | gem | planned | Parse 177 daily standup markdown files → structure... |
 | **jrsjr5fp** | FX-016: Build retrieval/wiki layer with stable IDs | clau | merged | Build retrieval/wiki layer: facts store (FX-013–01... |
 | **geb8km3h** | FX-017: Lock 18-entry curated ledger as held-out eval | clau | merged | Lock the 18-entry curated ledger as held-out eval ... |
 | **5x922tbm** | FX-018: Build eval questions from RULES.md + lessons | clau | merged | Build additional eval questions grounded in RULES.... |
 | **kvqy95vg** | FX-019: Write scoring rubric (action-correct + grounded-citation) | clau | merged | Write scoring rubric: action-correct (0/1) and gro... |
-| **d2mg6zh7** | FX-020: Emit final datasets (SFT + DPO + CONTESTED + facts + eval) | codi | planned | Emit final datasets: SFT set, DPO set, CONTESTED s... |
-| **8cgszsvb** | FX-021: Manifest/README with counts + provenance + version hashes | codi | planned | Write manifest/README: counts per set, provenance ... |
+| **d2mg6zh7** | FX-020: Emit final datasets (SFT + DPO + CONTESTED + facts + eval) | clau | planned | Emit final datasets: SFT set, DPO set, CONTESTED s... |
+| **8cgszsvb** | FX-021: Manifest/README with counts + provenance + version hashes | gem | planned | Write manifest/README: counts per set, provenance ... |
 | **86is21h4** | FX-022: Final QA checklist | clau | merged | Final QA — sign off on all guardrails before packa... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
