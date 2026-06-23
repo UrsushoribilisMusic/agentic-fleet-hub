@@ -846,7 +846,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **b0rceh34** | FX-IRR-GEM: Inter-rater reliability check — classify 10 correction events | gem | merged | Inter-rater reliability check for FX-010 correctio... |
 | **2l6hs0wf** | EVAL-001 [Clau] — RULES.md for Arm 1 | clau | merged | Generate rules.md expressing the fleet's judgment ... |
 | **rkjlt9ib** | EVAL-002 [Clau+Gem] — Retrieval wiki (hard-facts corpus) | clau | merged | Build the wiki the model consults at query time. F... |
-| **jeg47u9h** | EVAL-002b [Clau] — Retrieval layer over the wiki (RAG mechanism) | clau | planned | Small importable module: retrieve(query, k) -> top... |
+| **jeg47u9h** | EVAL-002b [Clau] — Retrieval layer over the wiki (RAG mechanism) | clau | merged | Small importable module: retrieve(query, k) -> top... |
 | **p3zxrhjj** | EVAL-002c [Clau] — HTML wiki rendering (demo face, LOWER PRIORITY) | clau | planned | Browsable static HTML site generated from EVAL-002... |
 | **ujr18ttz** | EVAL-003 [Clau] — Expanded held-out question set (~150–200 questions) | clau | planned | Expand eval.jsonl from 50 to ~150–200 held-out que... |
 | **n4xmmv64** | EVAL-004 [Clau] — Generation harness (the runner) | clau | planned | Script that runs every eval question through each ... |
