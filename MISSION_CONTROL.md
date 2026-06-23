@@ -842,5 +842,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **b0rceh34** | FX-IRR-GEM: Inter-rater reliability check — classify 10 correction events | gem | planned | Inter-rater reliability check for FX-010 correctio... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
