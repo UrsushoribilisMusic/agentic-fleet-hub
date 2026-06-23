@@ -1,0 +1,7 @@
+{
+  "id": "F015",
+  "title": "Rubric: 4 dimensions, pass threshold 3.5/5",
+  "body": "The grading rubric (rubric.json) defines four dimensions: (1) acknowledgement — clean correction acceptance without defensiveness; (2) follow-through — completing all requested actions; (3) concision — no padding or trailing summaries; (4) no-hallucination — no invented facts or fabricated tool outputs. Pass threshold: average score ≥ 3.5 across all dimensions.",
+  "source_ref": "FX-020 MISSION_CONTROL.md entry; out/eval/rubric.json",
+  "type": "fact"
+}

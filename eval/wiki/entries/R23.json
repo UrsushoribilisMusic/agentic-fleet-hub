@@ -1,0 +1,7 @@
+{
+  "id": "R23",
+  "title": "Load fleet config from fleet_meta.json at startup; do not hardcode agent lists",
+  "body": "Agent roster, command lists, and routing tables change as agents are added or retired. Reading fleet_meta.json at bridge startup keeps derived structures in sync automatically. Hardcoded lists require a code edit every time the fleet changes.",
+  "source_ref": "rules.md:R23; lessons — 'Dynamic config from fleet_meta.json beats hardcoded lists'",
+  "type": "rule"
+}

@@ -1,0 +1,7 @@
+{
+  "id": "R30",
+  "title": "Process inbox messages on every heartbeat, regardless of task assignment status",
+  "body": "Agent heartbeat wrappers must run inbox processing as a separate unconditional phase — not gated on whether the agent has TODO tasks. An agent with no assigned tasks still receives messages, handoffs, and escalations via inbox. Skipping inbox causes silent message loss.",
+  "source_ref": "rules.md:R30; lessons — 'Inbox processing must be independent of task status: Gemma missed important messages'",
+  "type": "rule"
+}

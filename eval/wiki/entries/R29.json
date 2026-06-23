@@ -1,0 +1,7 @@
+{
+  "id": "R29",
+  "title": "Paginate all PocketBase list fetches — never assume one page covers all records",
+  "body": "PocketBase returns at most perPage records per request (default 200). When task volume exceeds that limit, unfetched tasks are silently skipped. Always check totalItems in the response and issue follow-up requests with page=2, page=3, etc.",
+  "source_ref": "rules.md:R29; lessons — 'PocketBase Pagination and Task Volume: total may exceed perPage (e.g., 721 tasks found)'",
+  "type": "rule"
+}

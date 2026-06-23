@@ -1,0 +1,7 @@
+{
+  "id": "R07",
+  "title": "Surface three-way state discrepancies explicitly — do not silently choose one source",
+  "body": "When MISSION_CONTROL.md, PocketBase, and the codebase disagree, present the discrepancy to the user. Show what each source says, identify which implementation is missing or wrong, and wait for direction. Never silently adopt one version.",
+  "source_ref": "rules.md:R07; lessons — 'Three-way mismatch: MISSION_CONTROL, PocketBase, codebase'",
+  "type": "rule"
+}

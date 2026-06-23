@@ -1,0 +1,7 @@
+{
+  "id": "F018",
+  "title": "False positive CC sentinel rate: 26.6% of transcript entries",
+  "body": "FX-003 scanned 1,190 Claude Code session JSONLs. Of these, 148 were false positives (26.6%) — context-continuation injections where the harness auto-inserts prior session context, making assistant text appear as a 'correction' when it is actually an injected continuation. 10/10 spot-check confirmed stripped entries were CC injections. 408 genuine corrections were preserved.",
+  "source_ref": "FX-003 MISSION_CONTROL.md entry; out/corrections/report.json",
+  "type": "fact"
+}

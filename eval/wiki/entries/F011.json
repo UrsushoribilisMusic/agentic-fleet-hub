@@ -1,0 +1,7 @@
+{
+  "id": "F011",
+  "title": "High-quality task count: 727 of 760 tasks scored ≥ 3",
+  "body": "727 tasks (95.7%) met the quality threshold for the SFT dataset (quality_score ≥ 3). Quality scoring considers: task has output comment, task reached peer_review/approved, output comment length, and absence of crash/quota error signatures. 69 of the highest-quality tasks were selected directly for the SFT training set.",
+  "source_ref": "facts.json:high_quality_task_count; FX-020 datasets.py judgment stage",
+  "type": "fact"
+}

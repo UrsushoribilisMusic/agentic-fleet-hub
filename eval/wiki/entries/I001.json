@@ -1,0 +1,7 @@
+{
+  "id": "I001",
+  "title": "Circuit breaker incident: TCR-15 reassignment death spiral (2026-04-10)",
+  "body": "On 2026-04-10, task 8sto1zdn9dljy98 ('TCR-15: Configure Google Ads OpenClaw executor') entered a reassignment loop between gem and codi. The dispatcher circuit breaker fired at 3 reassignments in 10 minutes (setting status='blocked'), but the task continued accumulating reassignments on subsequent resets — reaching 39 total reassignments with 32 circuit_breaker events recorded in task_events. Root cause: both gem and codi attempted the task but could not complete it (sandbox/quota constraints). Resolution required manual intervention by @miguel.",
+  "source_ref": "facts.db:task_events WHERE task_id='8sto1zdn9dljy98' ORDER BY timestamp; facts.json:event_type_frequency",
+  "type": "incident"
+}

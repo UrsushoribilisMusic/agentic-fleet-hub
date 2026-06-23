@@ -1,0 +1,7 @@
+{
+  "id": "P006",
+  "title": "Demo data isolation: never write fake records to real PocketBase",
+  "body": "Demo and example content must go to static files under opt/salesman-api/demo/ or hardcoded mock blocks in server.mjs. Never create fake tasks, heartbeats, or any records in the real PocketBase instance. The real PB is the live operational database — polluting it with hallucinated content breaks the kanban, Fleet Hub dashboard, and audit logs.",
+  "source_ref": "AGENTS/RULES.md Data Integrity rules 1-2",
+  "type": "protocol"
+}

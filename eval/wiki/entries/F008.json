@@ -1,0 +1,7 @@
+{
+  "id": "F008",
+  "title": "Circuit breaker threshold: 3 reassignments in 10 minutes triggers block",
+  "body": "The dispatcher circuit breaker fires when a task accumulates 3+ reassignments within a 10-minute window. The task status is set to 'blocked', the event is logged in task_events with event_type='circuit_breaker', and the task requires manual intervention to resume.",
+  "source_ref": "facts.db:task_events WHERE event_type='circuit_breaker' meta field; flotilla_arxiv_spec.md",
+  "type": "fact"
+}

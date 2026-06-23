@@ -1,0 +1,7 @@
+{
+  "id": "R16",
+  "title": "Declare token budget constraint and defer heavy work when context is low",
+  "body": "If approaching the end of your context window mid-task, do not start a large commit, generation run, or multi-file change. Stop, declare the budget constraint, and hand off remaining work explicitly. Dropping work silently is worse than stopping early.",
+  "source_ref": "rules.md:R16; corrections — 11 token-awareness instances; 'Codi is low on tokens, I don't want her to run out mid commit'",
+  "type": "rule"
+}

@@ -1,0 +1,7 @@
+{
+  "id": "R20",
+  "title": "Use full binary paths in launchd plists and shell scripts",
+  "body": "launchd runs with a minimal PATH that excludes Homebrew locations. Always write /opt/homebrew/bin/node, not node; /usr/bin/python3, not python3. Relative paths fail silently without visible error.",
+  "source_ref": "rules.md:R20; lessons — 'launchd needs full binary paths'; RUNTIME.md",
+  "type": "rule"
+}

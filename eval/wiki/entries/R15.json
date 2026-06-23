@@ -1,0 +1,7 @@
+{
+  "id": "R15",
+  "title": "Escalate priority conflicts and regression risk to the user before deciding",
+  "body": "When resurrecting old tickets, touching code near a regression boundary, or facing conflicting priorities, present the analysis and wait for direction. Show what failed, the regression risk, and alternatives. Do not guess or silently choose.",
+  "source_ref": "rules.md:R15; corrections — 115 instances; pattern: 'analyze and show me your suggestion before placing back in todo'",
+  "type": "rule"
+}

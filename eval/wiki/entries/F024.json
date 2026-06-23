@@ -1,0 +1,7 @@
+{
+  "id": "F024",
+  "title": "Dispatcher auto-advance: commit found → peer_review; no commit → reset to todo",
+  "body": "When an agent exits with code 0 and task is still 'in_progress', the dispatcher checks git log --since=<dispatch_time> across agentic-fleet-hub and silicon-oracle. Commit found → status promoted to peer_review automatically. No commit found → status reset to todo (task re-dispatched). For non-commit tasks (pure analysis, Q&A), agent must manually PATCH to peer_review.",
+  "source_ref": "AGENTS/RULES.md Dispatcher Behavior section; CLAUDE.md MANDATORY status update",
+  "type": "fact"
+}

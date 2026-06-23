@@ -1,0 +1,7 @@
+{
+  "id": "R24",
+  "title": "Define and consume one API contract; do not mark UI done until wired to real endpoint",
+  "body": "UI work implementing a parallel frontend contract instead of the packaged endpoint appears complete but breaks on integration. Do not close a UI ticket until the UI reads from the real API response shape and integration is verified end-to-end.",
+  "source_ref": "rules.md:R24; lessons — 'Kanban UI must consume the packaged API shape, not a parallel contract'",
+  "type": "rule"
+}

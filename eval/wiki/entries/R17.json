@@ -1,0 +1,7 @@
+{
+  "id": "R17",
+  "title": "Address all points in a multi-point user message in one response, in priority order",
+  "body": "When the user provides context covering multiple decisions, costs, alternatives, and action items in one message, address all of them in a single response. Group related decisions together. Do not pick one point and ignore the rest.",
+  "source_ref": "rules.md:R17; corrections — 40+ multi-point instances",
+  "type": "rule"
+}

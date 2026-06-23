@@ -1,0 +1,7 @@
+{
+  "id": "R04",
+  "title": "PocketBase is the source of truth for task execution state",
+  "body": "When MISSION_CONTROL.md and PocketBase disagree, query PocketBase to resolve. MISSION_CONTROL.md is human-readable context; PocketBase is the live execution layer. A task approved in Markdown but peer_review in PocketBase is still in peer_review.",
+  "source_ref": "rules.md:R04; DUAL_SYSTEM.md; lessons — 'MISSION_CONTROL vs PocketBase sync discrepancy' (8+ instances)",
+  "type": "rule"
+}

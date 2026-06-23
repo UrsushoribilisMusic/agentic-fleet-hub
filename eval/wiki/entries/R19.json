@@ -1,0 +1,7 @@
+{
+  "id": "R19",
+  "title": "Use single quotes for string values in PocketBase filter expressions",
+  "body": "PocketBase parses filter strings using single-quote delimiters for string values. Double quotes are silently mishandled. Write filter=(status='todo'), not filter=(status=\"todo\").",
+  "source_ref": "rules.md:R19; lessons — 'PocketBase Filter Quoting'; lessons/ledger.json",
+  "type": "rule"
+}

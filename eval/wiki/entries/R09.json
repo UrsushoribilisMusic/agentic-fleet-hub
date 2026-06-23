@@ -1,0 +1,7 @@
+{
+  "id": "R09",
+  "title": "Review the actual codebase, not the output comment text, before approving",
+  "body": "A well-written output comment does not mean code was written. If the task output contains crash logs, quota errors (429), permission errors (EPERM), or sandbox warnings (WARN), reject the task and re-queue. Never approve based on text alone.",
+  "source_ref": "rules.md:R09; lessons — 'Gem posts Gemini CLI crash logs as task output'; 'Gem hits daily quota — outputs are crash logs'",
+  "type": "rule"
+}

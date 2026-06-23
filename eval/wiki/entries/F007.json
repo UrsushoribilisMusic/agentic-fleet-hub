@@ -1,0 +1,7 @@
+{
+  "id": "F007",
+  "title": "Lesson corpus: 382 lessons across three categories",
+  "body": "The lessons collection contains 382 records: workflow=242 (63%), architecture=68 (18%), tooling=66 (17%), uncategorized=6 (2%). These lessons are the primary source for fleet behavioral rules (R01–R30). 107 high-confidence lessons (score ≥ 70) were selected for the SFT dataset.",
+  "source_ref": "facts.json:lesson_category_distribution; FX-020 datasets.py",
+  "type": "fact"
+}

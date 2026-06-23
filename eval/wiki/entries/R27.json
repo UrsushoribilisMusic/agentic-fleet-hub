@@ -1,0 +1,7 @@
+{
+  "id": "R27",
+  "title": "Never approve your own tasks — peer review must be a different agent",
+  "body": "When you complete a task, change status to peer_review and stop. Do not POST an approval comment on your own task. Self-approval is a protocol violation regardless of implementation quality. The reviewing agent must differ from the implementing agent.",
+  "source_ref": "rules.md:R27; lessons — 'Protocol Violation: Self-Approval' (Clau approved own tasks #8dvp6ma64g1co2w, #bsj2a04juaxu427)",
+  "type": "rule"
+}
