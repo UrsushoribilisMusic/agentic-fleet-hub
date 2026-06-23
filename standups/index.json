@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-06-23",
+    "summary": "Gem: FX-021 manifest/README with honest counts, provenance, and hashes written; pipeline regenerated and verified.",
+    "file": "2026-06-23-gem.md"
+  },
+  {
+    "date": "2026-06-23",
     "summary": "Clau: FX-009 formal transcript parse (284 correction events, \u00b12-turn context); FX-001/004/006/012 approved; FX-008 reset todo; FX-006 lessons\u2192SFT (355 pairs); FX-007 escalation+standup rationale\u2192SFT (304 pairs)",
     "file": "2026-06-23.md"
   },
