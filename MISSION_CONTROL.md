@@ -839,7 +839,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **geb8km3h** | FX-017: Lock 18-entry curated ledger as held-out eval | clau | merged | Lock the 18-entry curated ledger as held-out eval ... |
 | **5x922tbm** | FX-018: Build eval questions from RULES.md + lessons | clau | merged | Build additional eval questions grounded in RULES.... |
 | **kvqy95vg** | FX-019: Write scoring rubric (action-correct + grounded-citation) | clau | merged | Write scoring rubric: action-correct (0/1) and gro... |
-| **d2mg6zh7** | FX-020: Emit final datasets (SFT + DPO + CONTESTED + facts + eval) | clau | planned | Emit final datasets: SFT set, DPO set, CONTESTED s... |
+| **d2mg6zh7** | FX-020: Emit final datasets (SFT + DPO + CONTESTED + facts + eval) | clau | in_work | Emit final datasets: SFT set, DPO set, CONTESTED s... |
 | **8cgszsvb** | FX-021: Manifest/README with counts + provenance + version hashes | gem | in_work | Write manifest/README: counts per set, provenance ... |
 | **86is21h4** | FX-022: Final QA checklist | clau | merged | Final QA — sign off on all guardrails before packa... |
 
