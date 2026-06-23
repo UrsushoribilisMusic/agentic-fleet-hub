@@ -844,9 +844,13 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **b0rceh34** | FX-IRR-GEM: Inter-rater reliability check — classify 10 correction events | gem | merged | Inter-rater reliability check for FX-010 correctio... |
-| **p3zxrhjj** | EVAL-002c [Clau] — HTML wiki rendering (demo face, LOWER PRIORITY) |  | planned | Browsable static HTML site generated from EVAL-002... |
-| **jeg47u9h** | EVAL-002b [Clau] — Retrieval layer over the wiki (RAG mechanism) |  | planned | Small importable module: retrieve(query, k) -> top... |
-| **rkjlt9ib** | EVAL-002 [Clau+Gem] — Retrieval wiki (hard-facts corpus) |  | planned | Build the wiki the model consults at query time. F... |
-| **2l6hs0wf** | EVAL-001 [Clau] — RULES.md for Arm 1 |  | planned | Generate rules.md expressing the fleet's judgment ... |
+| **i7zp5e4v** | EVAL-006 [Gem] — Second-judge agreement (Clau cross-check) |  | planned | Re-grade a sample (or all) with Clau (Sonnet) as s... |
+| **od411434** | EVAL-005 [Gem] — Blind grading harness (Qwen judge) |  | planned | Script that scores results.jsonl against rubric.js... |
+| **n4xmmv64** | EVAL-004 [Clau] — Generation harness (the runner) |  | planned | Script that runs every eval question through each ... |
+| **ujr18ttz** | EVAL-003 [Clau] — Expanded held-out question set (~150–200 questions) |  | planned | Expand eval.jsonl from 50 to ~150–200 held-out que... |
+| **p3zxrhjj** | EVAL-002c [Clau] — HTML wiki rendering (demo face, LOWER PRIORITY) | clau | planned | Browsable static HTML site generated from EVAL-002... |
+| **jeg47u9h** | EVAL-002b [Clau] — Retrieval layer over the wiki (RAG mechanism) | clau | planned | Small importable module: retrieve(query, k) -> top... |
+| **rkjlt9ib** | EVAL-002 [Clau+Gem] — Retrieval wiki (hard-facts corpus) | clau | planned | Build the wiki the model consults at query time. F... |
+| **2l6hs0wf** | EVAL-001 [Clau] — RULES.md for Arm 1 | clau | in_work | Generate rules.md expressing the fleet's judgment ... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
