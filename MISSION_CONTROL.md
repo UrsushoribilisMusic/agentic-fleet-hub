@@ -125,10 +125,24 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **86is21h4**: FX-022: Final QA checklist -- Final QA — sign off on all guardrails before package ships: -- Clau. Approved.
+- **8cgszsvb**: FX-021: Manifest/README with counts + provenance + version hashes -- Write manifest/README: counts per set, provenance breakdown, routing tags, version hashes. Honest counts — no volume inflation. -- Gem. Approved.
+- **d2mg6zh7**: FX-020: Emit final datasets (SFT + DPO + CONTESTED + facts + eval) -- Emit final datasets: SFT set, DPO set, CONTESTED set (all deduped, provenance-tagged) + facts corpus endpoint + eval set + rubric. Report honest counts per set. -- Clau. Approved.
+- **kvqy95vg**: FX-019: Write scoring rubric (action-correct + grounded-citation) -- Write scoring rubric: action-correct (0/1) and grounded-citation (0/1) scored separately. Include worked example scored by hand. Held-out eval companion to FX-017/018. -- Clau. Approved.
+- **5x922tbm**: FX-018: Build eval questions from RULES.md + lessons -- Build additional eval questions grounded in RULES.md + lessons. Each = situation + correct-action + correct-citation. Ground in real rule. Held out — never in training. -- Clau. Approved.
+- **geb8km3h**: FX-017: Lock 18-entry curated ledger as held-out eval -- Lock the 18-entry curated ledger as held-out eval set. Dedup all training sets (B+C) against it; verify zero leakage, log result. This set NEVER enters training. -- Clau. Approved.
+- **jrsjr5fp**: FX-016: Build retrieval/wiki layer with stable IDs -- Build retrieval/wiki layer: facts store (FX-013–015) + RULES.md + key MD files as citable corpus. Every entry has a stable ID. Joint ticket: Codi builds the store interface, Clau writes the citable corpus structure. -- Clau. Approved.
+- **z8flel06**: FX-014: Extract git history → facts store -- Extract git history (SHAs, tags, change summaries) from agentic-fleet-hub repo into facts store. Commits up to and including 2026-06-22. -- Gem. Approved.
+- **8f4r1vup**: FX-013: Export task_events + tasks + comments → SQLite facts store -- Export PocketBase hard-facts collections to queryable SQLite store. Exact values preserved — these are never baked into weights. -- Gem. Approved.
 - **bvafr4ep**: FX-012: Parse Vibe/Codex sessions → DPO candidates -- Parse Vibe and Codex session logs for rejected tool calls + following turn → DPO candidates. -- Gem. Approved.
+- **bj5j2vgw**: FX-011: Tag missing-constraint events (~37%) as 'both' -- From FX-010 output: tag missing-constraint events (top type, ~37% of corrections) as 'both' → cross-list to Epic D facts corpus. These are the cases where an explicit rule reference belongs in the wiki. -- Clau. Approved.
+- **qhzsjbfk**: FX-010: Classify corrections → route (SFT / annotation / contested / drop) -- Classify 176 correction events from FX-009 using FX-002 rubric: -- Clau. Approved.
+- **yq2srvfw**: FX-009: Parse Claude transcripts (276 MB + 77 MB) post-FX-003 -- Parse the two large Claude session transcripts after running FX-003 injection filter → ~176 genuine correction events with context windows. -- Clau. Approved.
+- **esh5o3bu**: FX-007: Extract escalation comments + standup rationale → SFT candidates -- Extract escalation comments (69) + standup rationale from 68 files → SFT candidates. Apply FX-002 Stage 0 filter. Report filtered counts. -- Clau. Approved.
 - **37udilvt**: FX-006: Convert lessons → SFT format -- Convert tagged lessons from FX-005 into SFT training format (situation → judgment). Flag 'both'-tagged entries for Epic D wiki cross-listing. -- Clau. Approved.
 - **ggc4o4p5**: FX-005: Tag lessons: curated / emergent / uncertain -- Tag each lesson from FX-004 as curated / emergent / uncertain. Auto-tag from metadata (author + session type), sample-verify ~20 against prose register. Report disagreement rate. -- Clau. Approved.
 - **904b0yl5**: FX-004: Export 382 PB lessons → normalised records -- Export all 382 PocketBase lessons to normalised symptom/root_cause/lesson records with category tags. All 382 exported, schema-valid. Filter: created < '2026-06-22'. -- Gem. Approved.
+- **9zvjpno5**: FX-003: Context-continuation injection filter -- Strip ~39% false-positive 'corrections' from raw transcript matches — these are Claude Code session-summary prose injected into transcripts, not genuine Miguel corrections. This filter runs FIRST on transcripts before any classification. -- Clau. Approved.
 - **hu3302rj**: FX-002: Gold-vs-chaff filter criteria (Stage 0 checklist) -- Write the Stage 0 filter criteria that every downstream extraction must pass through. Must be reviewed by Miguel before any extraction counts as done. -- Clau. Approved.
 - **ixju8vbc**: FX-001: Repo skeleton + Makefile + source manifest -- Repo skeleton + Makefile (make filter, make judgment, make facts, make eval, make package) + source manifest (every input location + access method). Stub pipeline runs end-to-end. -- Clau. Approved.
 - **xmqc99ky**: DW-019 [P3]: STRETCH — side-by-side: stock Apertus prompt vs governed target output -- ## Epic E — Rolf demo (STRETCH) -- Clau. Approved.
@@ -826,21 +840,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **9zvjpno5** | FX-003: Context-continuation injection filter | clau | merged | Strip ~39% false-positive 'corrections' from raw t... |
-| **esh5o3bu** | FX-007: Extract escalation comments + standup rationale → SFT candidates | clau | merged | Extract escalation comments (69) + standup rationa... |
-| **qiu3ammz** | FX-008: Extract peer-review approve/reject comments → DPO preference pairs | gem | merged | Extract peer-review approve/reject comments from P... |
-| **yq2srvfw** | FX-009: Parse Claude transcripts (276 MB + 77 MB) post-FX-003 | clau | merged | Parse the two large Claude session transcripts aft... |
-| **qhzsjbfk** | FX-010: Classify corrections → route (SFT / annotation / contested / drop) | clau | merged | Classify 176 correction events from FX-009 using F... |
-| **bj5j2vgw** | FX-011: Tag missing-constraint events (~37%) as 'both' | clau | merged | From FX-010 output: tag missing-constraint events ... |
-| **8f4r1vup** | FX-013: Export task_events + tasks + comments → SQLite facts store | gem | merged | Export PocketBase hard-facts collections to querya... |
-| **z8flel06** | FX-014: Extract git history → facts store | gem | merged | Extract git history (SHAs, tags, change summaries)... |
-| **q2hmepbk** | FX-015: Parse 177 daily standup masters → structured stats records | gem | merged | Parse 177 daily standup markdown files → structure... |
-| **jrsjr5fp** | FX-016: Build retrieval/wiki layer with stable IDs | clau | merged | Build retrieval/wiki layer: facts store (FX-013–01... |
-| **geb8km3h** | FX-017: Lock 18-entry curated ledger as held-out eval | clau | merged | Lock the 18-entry curated ledger as held-out eval ... |
-| **5x922tbm** | FX-018: Build eval questions from RULES.md + lessons | clau | merged | Build additional eval questions grounded in RULES.... |
-| **kvqy95vg** | FX-019: Write scoring rubric (action-correct + grounded-citation) | clau | merged | Write scoring rubric: action-correct (0/1) and gro... |
-| **d2mg6zh7** | FX-020: Emit final datasets (SFT + DPO + CONTESTED + facts + eval) | clau | merged | Emit final datasets: SFT set, DPO set, CONTESTED s... |
-| **8cgszsvb** | FX-021: Manifest/README with counts + provenance + version hashes | gem | merged | Write manifest/README: counts per set, provenance ... |
-| **86is21h4** | FX-022: Final QA checklist | clau | merged | Final QA — sign off on all guardrails before packa... |
+| **qiu3ammz** | FX-008: Extract peer-review approve/reject comments → DPO preference pairs | clau | planned | Extract peer-review approve/reject comments from P... |
+| **q2hmepbk** | FX-015: Parse 177 daily standup masters → structured stats records | clau | planned | Parse 177 daily standup markdown files → structure... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
