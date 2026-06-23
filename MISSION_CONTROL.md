@@ -125,6 +125,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **wqf11i39**: TEST-DELETE-ME -- Clau. Approved.
 - **86is21h4**: FX-022: Final QA checklist -- Final QA — sign off on all guardrails before package ships: -- Clau. Approved.
 - **8cgszsvb**: FX-021: Manifest/README with counts + provenance + version hashes -- Write manifest/README: counts per set, provenance breakdown, routing tags, version hashes. Honest counts — no volume inflation. -- Gem. Approved.
 - **d2mg6zh7**: FX-020: Emit final datasets (SFT + DPO + CONTESTED + facts + eval) -- Emit final datasets: SFT set, DPO set, CONTESTED set (all deduped, provenance-tagged) + facts corpus endpoint + eval set + rubric. Report honest counts per set. -- Clau. Approved.
@@ -843,6 +844,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **b0rceh34** | FX-IRR-GEM: Inter-rater reliability check — classify 10 correction events | gem | merged | Inter-rater reliability check for FX-010 correctio... |
-| **wqf11i39** | TEST |  | planned |  |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
