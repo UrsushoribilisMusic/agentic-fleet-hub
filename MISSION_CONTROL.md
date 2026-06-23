@@ -125,8 +125,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **37udilvt**: FX-006: Convert lessons → SFT format -- Convert tagged lessons from FX-005 into SFT training format (situation → judgment). Flag 'both'-tagged entries for Epic D wiki cross-listing. -- Clau. Approved.
 - **ggc4o4p5**: FX-005: Tag lessons: curated / emergent / uncertain -- Tag each lesson from FX-004 as curated / emergent / uncertain. Auto-tag from metadata (author + session type), sample-verify ~20 against prose register. Report disagreement rate. -- Clau. Approved.
+- **904b0yl5**: FX-004: Export 382 PB lessons → normalised records -- Export all 382 PocketBase lessons to normalised symptom/root_cause/lesson records with category tags. All 382 exported, schema-valid. Filter: created < '2026-06-22'. -- Gem. Approved.
 - **hu3302rj**: FX-002: Gold-vs-chaff filter criteria (Stage 0 checklist) -- Write the Stage 0 filter criteria that every downstream extraction must pass through. Must be reviewed by Miguel before any extraction counts as done. -- Clau. Approved.
+- **ixju8vbc**: FX-001: Repo skeleton + Makefile + source manifest -- Repo skeleton + Makefile (make filter, make judgment, make facts, make eval, make package) + source manifest (every input location + access method). Stub pipeline runs end-to-end. -- Clau. Approved.
 - **xmqc99ky**: DW-019 [P3]: STRETCH — side-by-side: stock Apertus prompt vs governed target output -- ## Epic E — Rolf demo (STRETCH) -- Clau. Approved.
 - **jc2qqd0x**: DW-018 [P1]: SHOW_ROLF.md — one-page guide for the meeting -- ## Epic E — Rolf demo -- Clau. Approved.
 - **5x30cpl5**: DW-017 [P1]: One-command demo — make serve + landing index framing the wiki -- ## Epic E — Rolf demo -- Gem. Approved.
@@ -822,19 +825,16 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **ixju8vbc** | FX-001: Repo skeleton + Makefile + source manifest | clau | merged | Repo skeleton + Makefile (make filter, make judgme... |
 | **9zvjpno5** | FX-003: Context-continuation injection filter | clau | merged | Strip ~39% false-positive 'corrections' from raw t... |
-| **904b0yl5** | FX-004: Export 382 PB lessons → normalised records | gem | merged | Export all 382 PocketBase lessons to normalised sy... |
-| **37udilvt** | FX-006: Convert lessons → SFT format | clau | merged | Convert tagged lessons from FX-005 into SFT traini... |
 | **esh5o3bu** | FX-007: Extract escalation comments + standup rationale → SFT candidates | clau | merged | Extract escalation comments (69) + standup rationa... |
-| **qiu3ammz** | FX-008: Extract peer-review approve/reject comments → DPO preference pairs | gem | merged | Extract peer-review approve/reject comments from P... |
-| **yq2srvfw** | FX-009: Parse Claude transcripts (276 MB + 77 MB) post-FX-003 | clau | in_work | Parse the two large Claude session transcripts aft... |
+| **qiu3ammz** | FX-008: Extract peer-review approve/reject comments → DPO preference pairs | gem | in_work | Extract peer-review approve/reject comments from P... |
+| **yq2srvfw** | FX-009: Parse Claude transcripts (276 MB + 77 MB) post-FX-003 | clau | merged | Parse the two large Claude session transcripts aft... |
 | **qhzsjbfk** | FX-010: Classify corrections → route (SFT / annotation / contested / drop) | clau | merged | Classify 176 correction events from FX-009 using F... |
 | **bj5j2vgw** | FX-011: Tag missing-constraint events (~37%) as 'both' | clau | merged | From FX-010 output: tag missing-constraint events ... |
 | **bvafr4ep** | FX-012: Parse Vibe/Codex sessions → DPO candidates | gem | merged | Parse Vibe and Codex session logs for rejected too... |
 | **8f4r1vup** | FX-013: Export task_events + tasks + comments → SQLite facts store | gem | merged | Export PocketBase hard-facts collections to querya... |
-| **z8flel06** | FX-014: Extract git history → facts store | gem | in_work | Extract git history (SHAs, tags, change summaries)... |
-| **q2hmepbk** | FX-015: Parse 177 daily standup masters → structured stats records | gem | planned | Parse 177 daily standup markdown files → structure... |
+| **z8flel06** | FX-014: Extract git history → facts store | gem | merged | Extract git history (SHAs, tags, change summaries)... |
+| **q2hmepbk** | FX-015: Parse 177 daily standup masters → structured stats records | gem | merged | Parse 177 daily standup markdown files → structure... |
 | **jrsjr5fp** | FX-016: Build retrieval/wiki layer with stable IDs | clau | merged | Build retrieval/wiki layer: facts store (FX-013–01... |
 | **geb8km3h** | FX-017: Lock 18-entry curated ledger as held-out eval | clau | merged | Lock the 18-entry curated ledger as held-out eval ... |
 | **5x922tbm** | FX-018: Build eval questions from RULES.md + lessons | clau | merged | Build additional eval questions grounded in RULES.... |
