@@ -23,7 +23,7 @@ ARM0_MODEL = "MichelRosselli/apertus:8b-instruct-2509-q4_k_m"
 ARM2_MODEL = "apertus-flotilla"
 OLLAMA_URL = "http://localhost:11434/api/chat"
 
-DEFAULT_EVAL = pathlib.Path(__file__).parent.parent.parent / "tmp/flotilla-corpus-init/out/datasets/eval.jsonl"
+DEFAULT_EVAL = pathlib.Path(__file__).parent.parent / "projects/fx/out/datasets/eval.jsonl"
 
 
 def ollama_chat(model: str, messages: list, timeout: int = 300) -> str:
