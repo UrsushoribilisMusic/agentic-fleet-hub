@@ -841,6 +841,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **qiu3ammz** | FX-008: Extract peer-review approve/reject comments → DPO preference pairs | clau | merged | Extract peer-review approve/reject comments from P... |
-| **q2hmepbk** | FX-015: Parse 177 daily standup masters → structured stats records | clau | in_work | Parse 177 daily standup markdown files → structure... |
+| **q2hmepbk** | FX-015: Parse 177 daily standup masters → structured stats records | clau | merged | Parse 177 daily standup markdown files → structure... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
