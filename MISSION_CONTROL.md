@@ -851,6 +851,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **ujr18ttz** | EVAL-003 [Clau] — Expanded held-out question set (~150–200 questions) | clau | planned | Expand eval.jsonl from 50 to ~150–200 held-out que... |
 | **n4xmmv64** | EVAL-004 [Clau] — Generation harness (the runner) | clau | planned | Script that runs every eval question through each ... |
 | **od411434** | EVAL-005 [Gem] — Blind grading harness (Qwen judge) | gem | merged | Script that scores results.jsonl against rubric.js... |
-| **i7zp5e4v** | EVAL-006 [Gem] — Second-judge agreement (Clau cross-check) | gem | in_work | Re-grade a sample (or all) with Clau (Sonnet) as s... |
+| **i7zp5e4v** | EVAL-006 [Gem] — Second-judge agreement (Clau cross-check) | gem | merged | Re-grade a sample (or all) with Clau (Sonnet) as s... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
