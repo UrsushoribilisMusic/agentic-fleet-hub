@@ -822,12 +822,12 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **ixju8vbc** | FX-001: Repo skeleton + Makefile + source manifest | clau | in_work | Repo skeleton + Makefile (make filter, make judgme... |
-| **9zvjpno5** | FX-003: Context-continuation injection filter | clau | planned | Strip ~39% false-positive 'corrections' from raw t... |
-| **904b0yl5** | FX-004: Export 382 PB lessons → normalised records | gem | in_work | Export all 382 PocketBase lessons to normalised sy... |
+| **ixju8vbc** | FX-001: Repo skeleton + Makefile + source manifest | clau | merged | Repo skeleton + Makefile (make filter, make judgme... |
+| **9zvjpno5** | FX-003: Context-continuation injection filter | clau | in_work | Strip ~39% false-positive 'corrections' from raw t... |
+| **904b0yl5** | FX-004: Export 382 PB lessons → normalised records | gem | merged | Export all 382 PocketBase lessons to normalised sy... |
 | **37udilvt** | FX-006: Convert lessons → SFT format | clau | merged | Convert tagged lessons from FX-005 into SFT traini... |
 | **esh5o3bu** | FX-007: Extract escalation comments + standup rationale → SFT candidates | clau | merged | Extract escalation comments (69) + standup rationa... |
-| **qiu3ammz** | FX-008: Extract peer-review approve/reject comments → DPO preference pairs | gem | planned | Extract peer-review approve/reject comments from P... |
+| **qiu3ammz** | FX-008: Extract peer-review approve/reject comments → DPO preference pairs | gem | in_work | Extract peer-review approve/reject comments from P... |
 | **yq2srvfw** | FX-009: Parse Claude transcripts (276 MB + 77 MB) post-FX-003 | clau | planned | Parse the two large Claude session transcripts aft... |
 | **qhzsjbfk** | FX-010: Classify corrections → route (SFT / annotation / contested / drop) | clau | merged | Classify 176 correction events from FX-009 using F... |
 | **bj5j2vgw** | FX-011: Tag missing-constraint events (~37%) as 'both' | clau | merged | From FX-010 output: tag missing-constraint events ... |
