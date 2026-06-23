@@ -841,6 +841,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **kvqy95vg** | FX-019: Write scoring rubric (action-correct + grounded-citation) | clau | merged | Write scoring rubric: action-correct (0/1) and gro... |
 | **d2mg6zh7** | FX-020: Emit final datasets (SFT + DPO + CONTESTED + facts + eval) | codi | planned | Emit final datasets: SFT set, DPO set, CONTESTED s... |
 | **8cgszsvb** | FX-021: Manifest/README with counts + provenance + version hashes | codi | planned | Write manifest/README: counts per set, provenance ... |
-| **86is21h4** | FX-022: Final QA checklist | clau | in_work | Final QA — sign off on all guardrails before packa... |
+| **86is21h4** | FX-022: Final QA checklist | clau | merged | Final QA — sign off on all guardrails before packa... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
