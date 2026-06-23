@@ -26,7 +26,7 @@ OLLAMA_URL = "http://localhost:11434/api/chat"
 DEFAULT_EVAL = pathlib.Path(__file__).parent.parent.parent / "tmp/flotilla-corpus-init/out/datasets/eval.jsonl"
 
 
-def ollama_chat(model: str, messages: list, timeout: int = 120) -> str:
+def ollama_chat(model: str, messages: list, timeout: int = 300) -> str:
     payload = json.dumps({"model": model, "messages": messages, "stream": False}).encode()
     req = urllib.request.Request(OLLAMA_URL, data=payload, headers={"Content-Type": "application/json"})
     try:
@@ -36,13 +36,19 @@ def ollama_chat(model: str, messages: list, timeout: int = 120) -> str:
         return f"[ERROR: {e}]"
 
 
+def trim_context(turns: list, keep_last: int = 4) -> list:
+    """Keep only the last N turns to avoid prompt bloat on multi-turn eval questions."""
+    if len(turns) <= keep_last:
+        return turns
+    return turns[-keep_last:]
+
+
 def build_arm0_messages(messages: list) -> list:
-    """Strip system turn; keep user/assistant context except last assistant (gold)."""
+    """Strip system turn; keep last 4 user/assistant turns except gold assistant."""
     turns = [m for m in messages if m["role"] != "system"]
-    # Drop last turn if it's the gold assistant response
     if turns and turns[-1]["role"] == "assistant":
         turns = turns[:-1]
-    return turns
+    return trim_context(turns)
 
 
 def build_arm2_messages(messages: list, k: int) -> list:
@@ -50,6 +56,7 @@ def build_arm2_messages(messages: list, k: int) -> list:
     turns = [m for m in messages if m["role"] != "system"]
     if turns and turns[-1]["role"] == "assistant":
         turns = turns[:-1]
+    turns = trim_context(turns)
 
     # Find last user turn to retrieve on
     last_user_idx = None
