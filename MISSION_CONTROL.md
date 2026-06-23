@@ -125,6 +125,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **jeg47u9h**: EVAL-002b [Clau] — Retrieval layer over the wiki (RAG mechanism) -- Small importable module: retrieve(query, k) -> top-k wiki entries (text + source_ref). v1 = keyword/BM25 over EVAL-002 entries. No embeddings, no vector DB, no GPU. Deterministic: same query -> same results. Called IDENTICALLY by Arms 1 and 2 in EVAL-004 — retrieval is the controlled constant. RULES.md (Arm 1) does NOT go through retrieval — it is pasted whole as system prompt. Only wiki facts are retrieved. Done when: given a sample question returns sensible entries; deterministic; importable by harness. -- Clau. Approved.
 - **wqf11i39**: TEST-DELETE-ME -- Clau. Approved.
 - **86is21h4**: FX-022: Final QA checklist -- Final QA — sign off on all guardrails before package ships: -- Clau. Approved.
 - **8cgszsvb**: FX-021: Manifest/README with counts + provenance + version hashes -- Write manifest/README: counts per set, provenance breakdown, routing tags, version hashes. Honest counts — no volume inflation. -- Gem. Approved.
@@ -846,7 +847,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **b0rceh34** | FX-IRR-GEM: Inter-rater reliability check — classify 10 correction events | gem | merged | Inter-rater reliability check for FX-010 correctio... |
 | **2l6hs0wf** | EVAL-001 [Clau] — RULES.md for Arm 1 | clau | merged | Generate rules.md expressing the fleet's judgment ... |
 | **rkjlt9ib** | EVAL-002 [Clau+Gem] — Retrieval wiki (hard-facts corpus) | clau | merged | Build the wiki the model consults at query time. F... |
-| **jeg47u9h** | EVAL-002b [Clau] — Retrieval layer over the wiki (RAG mechanism) | clau | merged | Small importable module: retrieve(query, k) -> top... |
 | **p3zxrhjj** | EVAL-002c [Clau] — HTML wiki rendering (demo face, LOWER PRIORITY) | clau | in_work | Browsable static HTML site generated from EVAL-002... |
 | **ujr18ttz** | EVAL-003 [Clau] — Expanded held-out question set (~150–200 questions) | clau | planned | Expand eval.jsonl from 50 to ~150–200 held-out que... |
 | **n4xmmv64** | EVAL-004 [Clau] — Generation harness (the runner) | clau | planned | Script that runs every eval question through each ... |
