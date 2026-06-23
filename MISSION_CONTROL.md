@@ -823,7 +823,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **ixju8vbc** | FX-001: Repo skeleton + Makefile + source manifest | clau | merged | Repo skeleton + Makefile (make filter, make judgme... |
-| **9zvjpno5** | FX-003: Context-continuation injection filter | clau | in_work | Strip ~39% false-positive 'corrections' from raw t... |
+| **9zvjpno5** | FX-003: Context-continuation injection filter | clau | merged | Strip ~39% false-positive 'corrections' from raw t... |
 | **904b0yl5** | FX-004: Export 382 PB lessons → normalised records | gem | merged | Export all 382 PocketBase lessons to normalised sy... |
 | **37udilvt** | FX-006: Convert lessons → SFT format | clau | merged | Convert tagged lessons from FX-005 into SFT traini... |
 | **esh5o3bu** | FX-007: Extract escalation comments + standup rationale → SFT candidates | clau | merged | Extract escalation comments (69) + standup rationa... |
