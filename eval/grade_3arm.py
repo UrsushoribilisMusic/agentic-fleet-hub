@@ -172,27 +172,31 @@ def main():
     with out_path.open() as fh:
         graded_rows = [json.loads(l) for l in fh if l.strip()]
 
+    DIMS = ["action_correct", "grounded", "fleet_domain", "completeness"]
+
     def avg(key, arm):
-        vals = [r[f"arm{arm}_grade"][key] for r in graded_rows if r[f"arm{arm}_grade"][key] in (0, 1)]
+        vals = [r[f"arm{arm}_grade"][key] for r in graded_rows
+                if isinstance(r[f"arm{arm}_grade"].get(key), (int, float))
+                and 0 <= r[f"arm{arm}_grade"][key] <= 5]
+        return sum(vals) / len(vals) if vals else float("nan")
+
+    def composite(arm):
+        vals = [r[f"arm{arm}_grade"][d] for r in graded_rows for d in DIMS
+                if isinstance(r[f"arm{arm}_grade"].get(d), (int, float))
+                and 0 <= r[f"arm{arm}_grade"][d] <= 5]
         return sum(vals) / len(vals) if vals else float("nan")
 
     print(f"\n--- Grading complete ({graded} questions) ---")
-    print(f"{'Metric':<22} {'Arm0 (floor)':>14} {'Arm1 (rules+RAG)':>18} {'Arm2 (LoRA+RAG)':>17}")
-    print("-" * 75)
-    for dim in ["action_correct", "grounded", "fleet_domain", "completeness"]:
-        print(f"{dim:<22} {avg(dim,0):>14.3f} {avg(dim,1):>18.3f} {avg(dim,2):>17.3f}")
-
-    def composite(arm):
-        vals = [
-            r[f"arm{arm}_grade"][d]
-            for r in graded_rows
-            for d in ["action_correct", "grounded", "fleet_domain", "completeness"]
-            if r[f"arm{arm}_grade"][d] in range(6)
-        ]
-        return sum(vals) / len(vals) if vals else float("nan")
-
-    print("-" * 75)
-    print(f"{'composite (mean)':<22} {composite(0):>14.3f} {composite(1):>18.3f} {composite(2):>17.3f}")
+    print(f"{'Metric':<22} {'Arm0 (floor)':>14} {'Arm1 (rules+RAG)':>18} {'Arm2 (LoRA+RAG)':>17}  (pass≥3.5)")
+    print("-" * 82)
+    for dim in DIMS:
+        vals = [avg(dim, a) for a in range(3)]
+        marks = ["✓" if v >= 3.5 else "✗" for v in vals]
+        print(f"{dim:<22} {vals[0]:>13.3f}{marks[0]}  {vals[1]:>16.3f}{marks[1]}  {vals[2]:>15.3f}{marks[2]}")
+    print("-" * 82)
+    cvals = [composite(a) for a in range(3)]
+    cmarks = ["✓" if v >= 3.5 else "✗" for v in cvals]
+    print(f"{'composite (mean)':<22} {cvals[0]:>13.3f}{cmarks[0]}  {cvals[1]:>16.3f}{cmarks[1]}  {cvals[2]:>15.3f}{cmarks[2]}")
     print(f"\nOutput: {out_path}")
 
 
