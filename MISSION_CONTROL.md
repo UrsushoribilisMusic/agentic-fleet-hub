@@ -125,6 +125,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **i7zp5e4v**: EVAL-006 [Gem] — Second-judge agreement (Clau cross-check) -- Re-grade a sample (or all) with Clau (Sonnet) as second judge for inter-rater agreement. Report Qwen-vs-Clau agreement %. Miguel hand-validates ~15 as the human anchor. Done when: agreement number reported; if low, rubric is ambiguous — tighten before trusting scores. -- Gem. Approved.
+- **od411434**: EVAL-005 [Gem] — Blind grading harness (Qwen judge) -- Script that scores results.jsonl against rubric.json. Primary judge: Qwen (local Ollama). Strip arm labels before grading — blind. For each answer: score 4 rubric dimensions (acknowledgement, follow-through, concision, no-hallucination), pass = 3.5/5. Output per-arm averages, per-theme breakdown, within-variant-group consistency. Generation model != grading model != tested model — keep separate. Done when: produces scored table; Qwen as judge; blind. -- Gem. Approved.
 - **jeg47u9h**: EVAL-002b [Clau] — Retrieval layer over the wiki (RAG mechanism) -- Small importable module: retrieve(query, k) -> top-k wiki entries (text + source_ref). v1 = keyword/BM25 over EVAL-002 entries. No embeddings, no vector DB, no GPU. Deterministic: same query -> same results. Called IDENTICALLY by Arms 1 and 2 in EVAL-004 — retrieval is the controlled constant. RULES.md (Arm 1) does NOT go through retrieval — it is pasted whole as system prompt. Only wiki facts are retrieved. Done when: given a sample question returns sensible entries; deterministic; importable by harness. -- Clau. Approved.
 - **wqf11i39**: TEST-DELETE-ME -- Clau. Approved.
 - **86is21h4**: FX-022: Final QA checklist -- Final QA — sign off on all guardrails before package ships: -- Clau. Approved.
@@ -844,14 +846,12 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **b0rceh34** | FX-IRR-GEM: Inter-rater reliability check — classify 10 correction events | gem | merged | Inter-rater reliability check for FX-010 correctio... |
+| **b0rceh34** | FX-IRR-GEM: Inter-rater reliability check — classify 10 correction events | gem | planned | Inter-rater reliability check for FX-010 correctio... |
 | **2l6hs0wf** | EVAL-001 [Clau] — RULES.md for Arm 1 | clau | merged | Generate rules.md expressing the fleet's judgment ... |
 | **rkjlt9ib** | EVAL-002 [Clau+Gem] — Retrieval wiki (hard-facts corpus) | clau | merged | Build the wiki the model consults at query time. F... |
 | **p3zxrhjj** | EVAL-002c [Clau] — HTML wiki rendering (demo face, LOWER PRIORITY) | clau | merged | Browsable static HTML site generated from EVAL-002... |
 | **ujr18ttz** | EVAL-003 [Clau] — Expanded held-out question set (~150–200 questions) | clau | merged | Expand eval.jsonl from 50 to ~150–200 held-out que... |
 | **n4xmmv64** | EVAL-004 [Clau] — Generation harness (the runner) | clau | merged | Script that runs every eval question through each ... |
-| **od411434** | EVAL-005 [Gem] — Blind grading harness (Qwen judge) | gem | merged | Script that scores results.jsonl against rubric.js... |
-| **i7zp5e4v** | EVAL-006 [Gem] — Second-judge agreement (Clau cross-check) | gem | merged | Re-grade a sample (or all) with Clau (Sonnet) as s... |
-| **95bdwf1d** | EVAL-007 — Matched-prompt fair test (Arm A vs B, system prompt held constant) | clau | in_work |  |
+| **95bdwf1d** | EVAL-007 — Matched-prompt fair test (Arm A vs B, system prompt held constant) | clau | merged |  |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
