@@ -1,0 +1,29 @@
+{"question_id": 3, "question": "Wait, wait, we are not running ads for any of these in the list. We are running ads for vivaldi- winter vallenato[Image #6] Vivaldi EDM [Image #5] and Liszt celtic [Image #7]. My idea is to create a new campaign for  vivaldi progressive house to replace vivaldi edm, Liszt hungarian vallenato to repl", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 6, "question": "So, i was trying to show the app to my girlfriend and I got some ideas, but unfortunately many things did not work. First, when regenerating the daily wiki sometimes I get this error IMG_3098[Image #7]. 2) One time it could start the regeneration but I noticed that we run multiple regenerations, one", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 17, "question": "[Image #1] Tickets per day chart do not show data[Image #2] on section 2, show each section separately (not in one window that needs scrolling) Same for section 3[Image #3] Last: sentiment has no graphs shown", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 18, "question": "cool, please document these changes in the rules or mission control MD (Dont know which one is the right one)", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 21, "question": "We just crashed again.. Could not find cached accumulator for token=B88D6D3E type:0 in -[TUIKeyboardCandidateMultiplexer _queueOnly_willHandleDeliveryForCandidates:requestToken:]\nThe variant selector cell index number could not be found.\nCould not find cached accumulator for token=CC969734 type:0 in", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 27, "question": "It took a long time to load the engine to generate the wiki [App] init() — spawning permanent pipeline watchdog\nBackgroundScheduler: Registering background tasks...\nBackgroundScheduler: Scheduled app refresh\nBackgroundScheduler: Scheduled background processing\n[Entitlement] Loaded state: tier=free, ", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 35, "question": "What is the lesson learned about: Fleet Sync for Mission Control?", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 43, "question": "What is the lesson learned about: github_sync.py Pagination Bug?", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 44, "question": "What is the lesson learned about: Xcode Filesystem Synchronized Groups?", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 53, "question": "I'm mid-session and realized I skipped posting the heartbeat. Should I pause now?", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 59, "question": "A task just became unblocked. It's assigned to Gem but she's offline. Should I start it?", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 67, "question": "Should I update MISSION_CONTROL.md first or PocketBase first when a task completes?", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 72, "question": "My PocketBase filter returned no results, so I created a new task. Is that safe?", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 73, "question": "How do I query PocketBase to check for an existing task before creating?", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 75, "question": "Misty finished PC-238 yesterday. Should I skip the status check and start integration?", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 89, "question": "Gem says the build is green. Can I take her word for it?", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 94, "question": "A peer's output describes the implementation perfectly. Is that sufficient for approval?", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 95, "question": "I'm writing a peer review. What must I include besides my verdict?", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 100, "question": "Gem's last 3 task outputs all end with '429 Too Many Requests'. What should I do?", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 124, "question": "The user asked me to fix PC-085. But touching that code might break PC-092. What do I do?", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 125, "question": "I'm about to start a 10-file refactor but I'm near my token limit. Should I start?", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 126, "question": "My context is getting long. Can I just start a quick commit before wrapping up?", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 143, "question": "Why does PocketBase silently mishandle double-quoted filter values?", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 145, "question": "My launchd plist runs `node dispatch.js` but the job never executes. Why?", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 146, "question": "How should I reference Homebrew tools in a launchd plist?", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 162, "question": "How should the dispatcher know which agents are active?", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 190, "question": "I fetched all tasks in one PocketBase request. Is that enough?", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 191, "question": "My task list returns 200 items but the total is 721. What do I do?", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
+{"question_id": 192, "question": "I queried PocketBase and got a full page. Can I assume I got everything?", "arm_a_error": null, "arm_b_error": "[ERROR: timed out]"}
