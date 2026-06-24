@@ -25,7 +25,7 @@ DEFAULT_IN     = pathlib.Path(__file__).parent / "results_eval007_graded.jsonl"
 DEFAULT_BATCH  = pathlib.Path(__file__).parent / "blind_batch_eval007.jsonl"
 DEFAULT_REVEAL = pathlib.Path(__file__).parent / "blind_reveal_eval007.json"
 
-LABELS = ["X", "Y", "Z"]
+LABELS = ["X", "Y"]
 
 
 def main():
@@ -43,7 +43,7 @@ def main():
         print(f"[ERROR] Input not found: {in_path}", file=sys.stderr); sys.exit(1)
 
     rows = [json.loads(l) for l in in_path.read_text().splitlines() if l.strip()]
-    eligible = [r for r in rows if r.get("arm_a_ok") and r.get("arm_b_ok") and r.get("arm_ref_ok")]
+    eligible = [r for r in rows if r.get("arm_a_ok") and r.get("arm_b_ok")]
     print(f"Loaded {len(rows)} rows, {len(eligible)} in intersection")
 
     reveal = {}
@@ -53,9 +53,9 @@ def main():
         for row in eligible:
             qid = row["question_id"]
             rng = random.Random(qid)
-            arms = ["arm_a", "arm_b", "arm_ref"]
+            arms = ["arm_a", "arm_b"]
             rng.shuffle(arms)
-            mapping = {LABELS[i]: arms[i] for i in range(3)}
+            mapping = {LABELS[i]: arms[i] for i in range(2)}
             reveal[str(qid)] = mapping
 
             batch_row = {
@@ -74,7 +74,7 @@ def main():
 
     reveal_path.write_text(json.dumps(reveal, indent=2, ensure_ascii=False) + "\n")
 
-    print(f"Blind batch:  {batch_path}  ({len(eligible)} questions, labels X/Y/Z)")
+    print(f"Blind batch:  {batch_path}  ({len(eligible)} questions, labels X/Y)")
     print(f"Reveal (SEALED — do not pass to Opus): {reveal_path}")
     print()
     print("Pass to Opus: blind_batch_eval007.jsonl + rubric.md")

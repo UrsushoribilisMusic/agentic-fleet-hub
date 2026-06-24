@@ -3,7 +3,7 @@
 EVAL-007: Qwen2.5:7b blind grader — strict grounded check.
 
 Changes vs grade_3arm.py (EVAL-1):
-  - Arm names: arm_a / arm_b / arm_ref (not arm0/1/2)
+  - Arm names: arm_a / arm_b only (Arm REF dropped)
   - Grounded scoring explicitly penalises fabricated artifact IDs
     (ticket IDs, agent names, PB record IDs not in retrieved_entries or gold).
     A single invented ID → ≤ 2; multiple → ≤ 1.
@@ -160,7 +160,7 @@ def main():
         print(f"[ERROR] Input not found: {in_path}", file=sys.stderr); sys.exit(1)
 
     rows     = load_results(in_path)
-    eligible = [r for r in rows if r.get("arm_a_ok") and r.get("arm_b_ok") and r.get("arm_ref_ok")]
+    eligible = [r for r in rows if r.get("arm_a_ok") and r.get("arm_b_ok")]
     skipped  = len(rows) - len(eligible)
 
     print(f"Loaded {len(rows)} rows, {len(eligible)} in intersection ({skipped} skipped)")
@@ -176,31 +176,27 @@ def main():
             entries  = row.get("retrieved_entries", [])
 
             t0 = time.time()
-            # All three arms had retrieval in EVAL-007.
-            ga   = grade_answer(question, gold, entries, row["arm_a_answer"],   args.judge)
-            gb   = grade_answer(question, gold, entries, row["arm_b_answer"],   args.judge)
-            gref = grade_answer(question, gold, entries, row["arm_ref_answer"], args.judge)
+            ga = grade_answer(question, gold, entries, row["arm_a_answer"], args.judge)
+            gb = grade_answer(question, gold, entries, row["arm_b_answer"], args.judge)
             elapsed = time.time() - t0
 
             print(
                 f"[{i+1:03}/{len(eligible)}] {elapsed:.1f}s  "
                 f"A={ga['action_correct']}/{ga['grounded']}  "
                 f"B={gb['action_correct']}/{gb['grounded']}  "
-                f"REF={gref['action_correct']}/{gref['grounded']}  "
-                f"{question[:50].replace(chr(10),' ')!r}"
+                f"{question[:60].replace(chr(10),' ')!r}"
             )
 
             out_row = dict(row)
-            out_row["arm_a_grade"]   = ga
-            out_row["arm_b_grade"]   = gb
-            out_row["arm_ref_grade"] = gref
+            out_row["arm_a_grade"] = ga
+            out_row["arm_b_grade"] = gb
             fh.write(json.dumps(out_row, ensure_ascii=False) + "\n")
             fh.flush()
 
     # Summary
     graded_rows = load_results(out_path)
-    DIMS = ["action_correct", "grounded", "fleet_domain", "completeness"]
-    ARM_KEYS = [("arm_a", "Arm A (matched floor)"), ("arm_b", "Arm B (LoRA, thesis)"), ("arm_ref", "Arm REF (full rules)")]
+    DIMS     = ["action_correct", "grounded", "fleet_domain", "completeness"]
+    ARM_KEYS = [("arm_a", "Arm A (floor)"), ("arm_b", "Arm B (LoRA)")]
 
     def avg(key, arm_key):
         vals = [r[f"{arm_key}_grade"][key] for r in graded_rows
@@ -215,30 +211,28 @@ def main():
         return sum(vals) / len(vals) if vals else float("nan")
 
     print(f"\n=== EVAL-007 Qwen Grading ({len(graded_rows)} questions) ===")
-    print(f"{'Metric':<22} {'Arm A (floor)':>14} {'Arm B (LoRA)':>14} {'Arm REF (rules)':>16}  pass≥3.5")
-    print("-" * 78)
+    print(f"{'Metric':<22} {'Arm A (floor)':>15} {'Arm B (LoRA)':>14}  pass≥3.5")
+    print("-" * 60)
     for dim in DIMS:
         vals = [avg(dim, ak) for ak, _ in ARM_KEYS]
         marks = ["✓" if v >= 3.5 else "✗" for v in vals]
-        print(f"{dim:<22} {vals[0]:>13.3f}{marks[0]}  {vals[1]:>12.3f}{marks[1]}  {vals[2]:>14.3f}{marks[2]}")
-    print("-" * 78)
-    cvals = [composite(ak) for ak, _ in ARM_KEYS]
+        print(f"{dim:<22} {vals[0]:>14.3f}{marks[0]}  {vals[1]:>12.3f}{marks[1]}")
+    print("-" * 60)
+    cvals  = [composite(ak) for ak, _ in ARM_KEYS]
     cmarks = ["✓" if v >= 3.5 else "✗" for v in cvals]
-    print(f"{'composite (mean)':<22} {cvals[0]:>13.3f}{cmarks[0]}  {cvals[1]:>12.3f}{cmarks[1]}  {cvals[2]:>14.3f}{cmarks[2]}")
+    print(f"{'composite (mean)':<22} {cvals[0]:>14.3f}{cmarks[0]}  {cvals[1]:>12.3f}{cmarks[1]}")
 
     # Pre-registered reading
-    print()
     delta = cvals[1] - cvals[0]
-    ref_gap = cvals[2] - cvals[1]
+    print()
     if delta > 0.1:
-        verdict = f"Arm B > Arm A (+{delta:.3f}) → THESIS SUPPORTED: LoRA adds value at matched prompts."
+        print(f"Pre-registered verdict: Arm B > Arm A (+{delta:.3f}) → THESIS SUPPORTED")
     elif delta < -0.1:
-        verdict = f"Arm B < Arm A ({delta:.3f}) → THESIS IN TROUBLE. Investigate before more compute."
+        print(f"Pre-registered verdict: Arm B < Arm A ({delta:.3f}) → THESIS IN TROUBLE")
     else:
-        verdict = f"Arm B ≈ Arm A (Δ={delta:+.3f}) → v1 baking added little; DPO+r32 (v2) is the real test."
-    print(f"Pre-registered verdict: {verdict}")
-    print(f"Arm REF advantage over Arm B: {ref_gap:+.3f}  (gap that LoRA still needs to close)")
-    print(f"\nOutput: {out_path}")
+        print(f"Pre-registered verdict: Arm B ≈ Arm A (Δ={delta:+.3f}) → v1 baking added little; DPO+r32 (v2) is the real test")
+    print(f"\nEVAL-1 Arm 1 reference (full rules, Qwen): 3.922  gap to close: {3.922 - cvals[1]:+.3f}")
+    print(f"Output: {out_path}")
 
 
 if __name__ == "__main__":
