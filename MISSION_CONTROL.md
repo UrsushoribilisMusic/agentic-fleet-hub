@@ -846,7 +846,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **b0rceh34** | FX-IRR-GEM: Inter-rater reliability check — classify 10 correction events | gem | planned | Inter-rater reliability check for FX-010 correctio... |
+| **b0rceh34** | FX-IRR-GEM: Inter-rater reliability check — classify 10 correction events | gem | in_work | Inter-rater reliability check for FX-010 correctio... |
 | **2l6hs0wf** | EVAL-001 [Clau] — RULES.md for Arm 1 | clau | merged | Generate rules.md expressing the fleet's judgment ... |
 | **rkjlt9ib** | EVAL-002 [Clau+Gem] — Retrieval wiki (hard-facts corpus) | clau | merged | Build the wiki the model consults at query time. F... |
 | **p3zxrhjj** | EVAL-002c [Clau] — HTML wiki rendering (demo face, LOWER PRIORITY) | clau | merged | Browsable static HTML site generated from EVAL-002... |
