@@ -31,8 +31,9 @@ import urllib.request
 sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
 from eval.retrieve import retrieve
 
-ARM_A_MODEL = "MichelRosselli/apertus:8b-instruct-2509-q4_k_m"  # base + blurb
-ARM_B_MODEL = "apertus-flotilla"                                  # LoRA + blurb
+ARM_A_MODEL     = "MichelRosselli/apertus:8b-instruct-2509-q4_k_m"  # base + blurb
+ARM_B_MODEL_V1  = "apertus-flotilla"                                   # v1 LoRA
+ARM_B_MODEL_V2  = "apertus-v2"                                         # v2 SFT+DPO LoRA
 
 # Extracted verbatim from `ollama show apertus-flotilla --modelfile` SYSTEM field.
 # Arm A and Arm B MUST use this exact string. SHA256 verified at runtime.
@@ -50,17 +51,22 @@ DEFAULT_EVAL = pathlib.Path.home() / "projects/fx/out/datasets/eval.jsonl"
 SAMPLING     = {"temperature": 0.7, "top_p": 0.9, "num_ctx": 16384}
 
 
-def ollama_chat(model: str, messages: list, timeout: int = 600) -> str:
+def ollama_chat(model: str, messages: list, timeout: int = 180) -> str:
     payload = json.dumps({
         "model": model, "messages": messages, "stream": False,
         "options": SAMPLING,
     }).encode()
-    req = urllib.request.Request(OLLAMA_URL, data=payload, headers={"Content-Type": "application/json"})
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as r:
-            return json.loads(r.read())["message"]["content"].strip()
-    except Exception as e:
-        return f"[ERROR: {e}]"
+    for attempt in range(2):
+        req = urllib.request.Request(OLLAMA_URL, data=payload, headers={"Content-Type": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return json.loads(r.read())["message"]["content"].strip()
+        except Exception as e:
+            if attempt == 0:
+                time.sleep(10)  # brief pause before retry
+            else:
+                return f"[ERROR: timed out]"
+    return f"[ERROR: timed out]"
 
 
 def is_error(answer: str) -> bool:
@@ -117,9 +123,11 @@ def load_eval(path: pathlib.Path) -> list:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--eval", default=str(DEFAULT_EVAL))
-    parser.add_argument("--k",    type=int, default=3)
-    parser.add_argument("--out",  default="eval/results_eval007.jsonl")
+    parser.add_argument("--eval",  default=str(DEFAULT_EVAL))
+    parser.add_argument("--k",     type=int, default=3)
+    parser.add_argument("--out",   default="eval/results_eval007.jsonl")
+    parser.add_argument("--arm-b", default=ARM_B_MODEL_V1,
+                        help="Ollama model tag for Arm B (default: apertus-flotilla)")
     args = parser.parse_args()
 
     eval_path = pathlib.Path(args.eval)
@@ -137,8 +145,9 @@ def main():
     print("=== EVAL-007: Matched-prompt fair comparison (2-arm) ===")
     print(f"Blurb SHA256 (Arm A == Arm B): {BLURB_SHA256}  ✓")
     print(f"Sampling: {SAMPLING}")
+    arm_b_model = args.arm_b
     print(f"Arm A (matched floor): {ARM_A_MODEL}")
-    print(f"Arm B (thesis):        {ARM_B_MODEL}")
+    print(f"Arm B (thesis):        {arm_b_model}")
     print(f"Eval set: {eval_path}  ({len(records)} questions, k={args.k})")
     print(f"Output:   {out_path}")
     print()
@@ -172,7 +181,7 @@ def main():
             t0 = time.time()
             arm_a_answer = ollama_chat(ARM_A_MODEL, msgs_a)
             t1 = time.time()
-            arm_b_answer = ollama_chat(ARM_B_MODEL, msgs_b)
+            arm_b_answer = ollama_chat(arm_b_model, msgs_b)
             t2 = time.time()
 
             arm_a_ok = not is_error(arm_a_answer)

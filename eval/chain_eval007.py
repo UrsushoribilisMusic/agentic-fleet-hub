@@ -31,6 +31,12 @@ GRADED      = REPO / "eval/results_eval007_graded.jsonl"
 BLIND_BATCH = REPO / "eval/blind_batch_eval007.jsonl"
 BLIND_REVEAL= REPO / "eval/blind_reveal_eval007.json"
 
+# V2 paths
+RESULTS_V2      = REPO / "eval/results_eval007_v2.jsonl"
+GRADED_V2       = REPO / "eval/results_eval007_v2_graded.jsonl"
+BLIND_BATCH_V2  = REPO / "eval/blind_batch_eval007_v2.jsonl"
+BLIND_REVEAL_V2 = REPO / "eval/blind_reveal_eval007_v2.json"
+
 TG_TOKEN    = "8741981300:AAF66YPOhG10xyTq21WHzEfdyzmH3HnC1zE"
 TG_CHAT_ID  = "997912895"
 BRANCH      = "task/jeg47u9hj1da0b5"
@@ -104,6 +110,33 @@ def parse_run_stats() -> dict:
                 pass
     stats["total"] = count_lines(RESULTS)
     return stats
+
+
+def parse_qwen_scores_from(path: pathlib.Path) -> dict:
+    """Parse Qwen composite and per-dimension scores from any graded file."""
+    if not path.exists():
+        return {}
+    rows = [json.loads(l) for l in path.read_text().splitlines() if l.strip()]
+    DIMS = ["action_correct", "grounded", "fleet_domain", "completeness"]
+    scores = {}
+    for arm in ["arm_a", "arm_b"]:
+        key = f"{arm}_grade"
+        all_vals = []
+        dim_vals = {d: [] for d in DIMS}
+        for r in rows:
+            g = r.get(key, {})
+            for d in DIMS:
+                v = g.get(d)
+                if isinstance(v, (int, float)) and 0 <= v <= 5:
+                    dim_vals[d].append(v)
+                    all_vals.append(v)
+        composite = sum(all_vals) / len(all_vals) if all_vals else float("nan")
+        scores[arm] = {
+            "composite": round(composite, 3),
+            **{d: round(sum(dim_vals[d]) / len(dim_vals[d]), 3) if dim_vals[d] else float("nan")
+               for d in DIMS},
+        }
+    return scores
 
 
 def parse_qwen_scores() -> dict:
@@ -228,16 +261,98 @@ def main():
         print(f"[GIT] push failed (non-fatal): {e}")
 
     tg(
-        f"<b>EVAL-007 blind batch ready</b>\n\n"
-        f"All EVAL-007 results are on GitHub:\n"
-        f"{GH_URL}\n\n"
+        f"<b>EVAL-007 v1 blind batch ready</b>\n\n"
+        f"GitHub: {GH_URL}\n\n"
         f"Files ready for Opus:\n"
-        f"  blind_batch_eval007.jsonl\n"
-        f"  eval/rubric.md\n\n"
-        f"Reply to this chat to start Opus grading when you're ready."
+        f"  blind_batch_eval007.jsonl + rubric.md\n\n"
+        f"Starting v2 (apertus-v2) run now — will text you when done."
     )
 
-    print("[CHAIN] All done. Opus grading requires Claude Code — send a message to trigger it.")
+    # ── Step 4: v2 runner (apertus-v2) ──────────────────────────────────────
+    print("[CHAIN] Starting v2 runner (apertus-v2)...")
+    r = subprocess.run(
+        [sys.executable, str(REPO / "eval/run_eval007.py"),
+         "--out", str(RESULTS_V2),
+         "--arm-b", "apertus-v2"],
+        cwd=str(REPO), capture_output=False,
+    )
+    if r.returncode != 0:
+        tg("EVAL-007 v2 runner FAILED. Check the Mac.")
+        sys.exit(1)
+
+    v2_ok  = count_lines(RESULTS_V2)
+    tg(
+        f"<b>EVAL-007 v2 run complete</b>\n"
+        f"Results: {v2_ok} rows\n"
+        f"Starting Qwen grading on v2..."
+    )
+    try:
+        git_push("EVAL-007: v2 raw run results (apertus-v2)", [RESULTS_V2])
+    except Exception as e:
+        print(f"[GIT] push failed (non-fatal): {e}")
+
+    # ── Step 5: Qwen grading for v2 ─────────────────────────────────────────
+    print("[CHAIN] Grading v2 with Qwen...")
+    r = subprocess.run(
+        [sys.executable, str(REPO / "eval/grade_eval007.py"),
+         "--in", str(RESULTS_V2),
+         "--out", str(GRADED_V2)],
+        cwd=str(REPO), capture_output=False,
+    )
+    if r.returncode != 0:
+        tg("EVAL-007 v2 Qwen grading FAILED. Check the Mac.")
+        sys.exit(1)
+
+    qwen_v2 = parse_qwen_scores_from(GRADED_V2)
+    qa2 = qwen_v2.get("arm_a", {})
+    qb2 = qwen_v2.get("arm_b", {})
+    delta2 = round(qb2.get("composite", 0) - qa2.get("composite", 0), 3)
+    verdict2 = (f"THESIS SUPPORTED (+{delta2})" if delta2 > 0.1
+                else f"THESIS IN TROUBLE ({delta2})" if delta2 < -0.1
+                else f"Inconclusive (Δ={delta2:+})")
+
+    tg(
+        f"<b>EVAL-007 v2 Qwen grading done</b>\n\n"
+        f"Arm A (floor):  {qa2.get('composite','?')}/5\n"
+        f"Arm B (v2 LoRA):{qb2.get('composite','?')}/5\n"
+        f"Delta B-A:      {delta2:+}\n\n"
+        f"Grounded: A={qa2.get('grounded','?')}  B={qb2.get('grounded','?')}\n"
+        f"Action:   A={qa2.get('action_correct','?')}  B={qb2.get('action_correct','?')}\n\n"
+        f"<b>{verdict2}</b>\n\n"
+        f"Generating v2 blind batch for Opus..."
+    )
+    try:
+        git_push("EVAL-007: v2 Qwen grades", [GRADED_V2])
+    except Exception as e:
+        print(f"[GIT] push failed (non-fatal): {e}")
+
+    # ── Step 6: blind batch for v2 ──────────────────────────────────────────
+    print("[CHAIN] Generating v2 blind batch...")
+    r = subprocess.run(
+        [sys.executable, str(REPO / "eval/gen_blind_batch_eval007.py"),
+         "--in", str(GRADED_V2),
+         "--batch", str(BLIND_BATCH_V2),
+         "--reveal", str(BLIND_REVEAL_V2)],
+        cwd=str(REPO), capture_output=False,
+    )
+    if r.returncode != 0:
+        tg("EVAL-007 v2 blind batch FAILED. Check the Mac.")
+        sys.exit(1)
+
+    try:
+        git_push("EVAL-007: v2 blind batch for Opus", [BLIND_BATCH_V2, BLIND_REVEAL_V2])
+    except Exception as e:
+        print(f"[GIT] push failed (non-fatal): {e}")
+
+    tg(
+        f"<b>All done — both v1 and v2 blind batches ready for Opus</b>\n\n"
+        f"GitHub: {GH_URL}\n\n"
+        f"v1: blind_batch_eval007.jsonl\n"
+        f"v2: blind_batch_eval007_v2.jsonl\n\n"
+        f"Reply when you're back to start Opus grading."
+    )
+
+    print("[CHAIN] Complete. v1 + v2 done. Opus grading needs Claude Code.")
 
 
 if __name__ == "__main__":
