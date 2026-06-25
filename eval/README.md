@@ -67,11 +67,11 @@ eval/
 
 ---
 
-## v1 results (apertus-flotilla, 200 questions)
+## v1 results (apertus-flotilla, 200 questions, 171 graded)
 
 | Metric | Arm A | Arm B | Delta |
 |--------|-------|-------|-------|
-| Composite | — | — | −0.54 |
+| Composite | ~4.0 | ~3.5 | −0.54 |
 | action_correct | — | — | — |
 | grounded | — | — | −0.80 |
 | fleet_domain | — | — | −0.12 |
@@ -81,13 +81,23 @@ eval/
 
 ---
 
-## v2 run status
+## v2 results (apertus-v2 SFT+DPO, 200 questions, 171 graded)
 
-`apertus-v2` = v1 LoRA + DPO pass. Model: `apertus-v2` in Ollama.
+| Metric | Arm A | Arm B | Delta |
+|--------|-------|-------|-------|
+| **Composite** | **4.044** | **3.022** | **−1.022** |
+| action_correct | 3.789 | 2.632 | −1.157 |
+| grounded | 4.140 | 2.977 | −1.163 |
+| fleet_domain | 4.018 | 3.439 | −0.579 |
+| completeness | 4.228 | 3.041 | −1.187 |
 
-**Known issue (resolved):** The apertus-v2 GGUF had a broken embedded Jinja2 chat template (TypeScript tool-calling macros), causing every Ollama request to crash llama-server. Fixed by in-place patching the GGUF at byte offset 7,860,109 — replaced broken 14,601-byte template with the working flotilla template (same length, no file copy needed).
+29/200 Arm B timeouts (600 s). Same count as v1 (29 dropped).
 
-Current status: Arm B rerun running on 200 questions. See `run_eval007_v2_armb.py`.
+**Verdict: THESIS IN TROUBLE** — v2 LoRA (SFT+DPO) is worse than v1 LoRA on all dimensions. Delta widened from −0.54 (v1) to −1.022 (v2). Fleet domain closest to parity (−0.58). Grounding and completeness worst.
+
+### apertus-v2 GGUF fix (2026-06-25)
+
+The apertus-v2 GGUF (`sha256-1fef6862…`) had a broken embedded Jinja2 chat template (TypeScript tool-calling macros), causing every Ollama request to crash llama-server with "Automatic parser generation failed". Fixed by in-place byte patch at offset 7,860,109 — replaced broken 14,601-byte template with the working flotilla template (exact same length, no file copy or manifest change needed).
 
 ---
 
