@@ -855,5 +855,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **95bdwf1d** | EVAL-007 — Matched-prompt fair test (Arm A vs B, system prompt held constant) | clau | merged |  |
 | **twadswmr** | FLOT-104: EVAL-009 adversarial enforcement (LoRA vs optimized prompt) | clau | planned | Fair fight: LoRA vs the best prompt GEPA can produ... |
 | **r1p0zreh** | FLOT-102: Reconcile HuggingFace model card with 4-arm numbers | clau | merged | The HF card shows an older 3-arm pass that contrad... |
+| **hr00jlzn** | FLOT-106: EVAL-010 multi-turn grounding decay | gem | planned | Verify the FLOT-105 session manager actually holds... |
+| **1ooj6p2h** | FLOT-105: Session manager — rolling context compression | gem | planned | Two-tier per-turn memory for Apertus 8B (64K windo... |
+| **2js2o7fx** | FLOT-103: Build GEPA prompt-optimization harness | gem | planned | Automated teacher/student prompt optimizer using d... |
+| **rp10nix2** | FLOT-101: Harden EVAL-008 base+RAG comparison (stats re-analysis) | gem | planned | Re-analyze the EXISTING EVAL-008 grading JSONL. No... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
