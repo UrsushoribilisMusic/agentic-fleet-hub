@@ -23,7 +23,7 @@ import random
 import time
 import urllib.request
 
-JUDGE_MODEL = "qwen2.5:72b"
+JUDGE_MODEL = "qwen2.5:7b"  # qwen2.5:72b not loaded; 7b sufficient for binary classification
 OLLAMA_URL  = "http://localhost:11434/api/chat"
 SAMPLING    = {"temperature": 0.0, "top_p": 1.0, "num_ctx": 16384}
 
