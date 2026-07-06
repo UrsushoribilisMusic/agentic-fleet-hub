@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-07-06",
-    "summary": "Clau: FLOT-102 — reconcile HF card with 4-arm blind Opus numbers (1.00/0.95/2.40/2.54); Arm 3 added, 39-of-49 framing removed, LoRA-beats-base claim corrected, eval page linked. Pushed to flotilla-corpus/main.",
+    "summary": "Clau: FLOT-102 \u2014 reconcile HF card with 4-arm blind Opus numbers (1.00/0.95/2.40/2.54); Arm 3 added, 39-of-49 framing removed, LoRA-beats-base claim corrected, eval page linked. Pushed to flotilla-corpus/main. | FLOT-104: EVAL-009 adversarial enforcement; LoRA 57% vs prompt 93% (-37pp); committed 4aef9911.",
     "file": "2026-07-06.md"
   },
   {
