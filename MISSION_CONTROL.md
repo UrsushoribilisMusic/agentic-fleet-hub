@@ -854,6 +854,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **n4xmmv64** | EVAL-004 [Clau] — Generation harness (the runner) | clau | merged | Script that runs every eval question through each ... |
 | **95bdwf1d** | EVAL-007 — Matched-prompt fair test (Arm A vs B, system prompt held constant) | clau | merged |  |
 | **twadswmr** | FLOT-104: EVAL-009 adversarial enforcement (LoRA vs optimized prompt) | clau | planned | Fair fight: LoRA vs the best prompt GEPA can produ... |
-| **r1p0zreh** | FLOT-102: Reconcile HuggingFace model card with 4-arm numbers | clau | in_work | The HF card shows an older 3-arm pass that contrad... |
+| **r1p0zreh** | FLOT-102: Reconcile HuggingFace model card with 4-arm numbers | clau | merged | The HF card shows an older 3-arm pass that contrad... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
