@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-07-07",
+    "summary": "Clau: FLOT-101 EVAL-008 stats hardening \u2014 arm3 Qwen grading, bootstrap CIs, rater agreement, paper update",
+    "file": "2026-07-07.md"
+  },
+  {
     "date": "2026-07-06",
     "summary": "Clau: FLOT-102 \u2014 reconcile HF card with 4-arm blind Opus numbers (1.00/0.95/2.40/2.54); Arm 3 added, 39-of-49 framing removed, LoRA-beats-base claim corrected, eval page linked. Pushed to flotilla-corpus/main. | FLOT-104: EVAL-009 adversarial enforcement; LoRA 57% vs prompt 93% (-37pp); committed 4aef9911.",
     "file": "2026-07-06.md"
