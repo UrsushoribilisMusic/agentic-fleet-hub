@@ -110,23 +110,24 @@ def cohen_kappa(scores_a, scores_b, min_val=0, max_val=5):
     pairs = [(int(round(a)), int(round(b))) for a, b in zip(scores_a, scores_b)
              if a is not None and b is not None]
     if not pairs: return float("nan")
-    n_cats = max_val - min_val + 1
     n = len(pairs)
 
     # Observed weighted agreement
-    po = sum(1 - abs(a - b) / max_val for a, b in pairs) / n
+    po = sum(1.0 - abs(a - b) / (max_val - min_val) for a, b in pairs) / n
 
     # Expected agreement
     from collections import Counter
     freq_a = Counter(a for a, _ in pairs)
     freq_b = Counter(b for _, b in pairs)
-    pe = sum(
-        (freq_a.get(k, 0) / n) * (freq_b.get(k, 0) / n)
-        for k in range(min_val, max_val + 1)
-    )
+    
+    pe = 0.0
+    for i in range(min_val, max_val + 1):
+        for j in range(min_val, max_val + 1):
+            w_ij = 1.0 - abs(i - j) / (max_val - min_val)
+            pe += w_ij * (freq_a.get(i, 0) / n) * (freq_b.get(j, 0) / n)
 
-    if pe >= 1: return 1.0
-    return (po - pe) / (1 - pe)
+    if pe >= 1.0: return 1.0
+    return (po - pe) / (1.0 - pe)
 
 
 def rater_agreement(q_map_qwen, q_map_opus):

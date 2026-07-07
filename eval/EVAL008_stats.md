@@ -47,9 +47,9 @@ The Arm3−Arm0 CI **does not cross zero** — RAG gain is reliable.
 
 | Arm | N | MAE (0–5 scale) | Cohen's κ (linear-weighted) |
 |-----|---|-----------------|------------------------------|
-| arm0 | 49 | 2.224 | 0.511 |
-| arm1 | 49 | 1.959 | 0.560 |
-| arm2 | 49 | 1.238 | 0.673 |
+| arm0 | 49 | 2.224 | 0.033 |
+| arm1 | 49 | 1.959 | 0.060 |
+| arm2 | 49 | 1.238 | 0.139 |
 | **macro avg** | | **1.807** | |
 
 Qwen tends to award partial credit more generously than Opus. Both rank the arms identically.
