@@ -129,6 +129,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **od411434**: EVAL-005 [Gem] — Blind grading harness (Qwen judge) -- Script that scores results.jsonl against rubric.json. Primary judge: Qwen (local Ollama). Strip arm labels before grading — blind. For each answer: score 4 rubric dimensions (acknowledgement, follow-through, concision, no-hallucination), pass = 3.5/5. Output per-arm averages, per-theme breakdown, within-variant-group consistency. Generation model != grading model != tested model — keep separate. Done when: produces scored table; Qwen as judge; blind. -- Gem. Approved.
 - **jeg47u9h**: EVAL-002b [Clau] — Retrieval layer over the wiki (RAG mechanism) -- Small importable module: retrieve(query, k) -> top-k wiki entries (text + source_ref). v1 = keyword/BM25 over EVAL-002 entries. No embeddings, no vector DB, no GPU. Deterministic: same query -> same results. Called IDENTICALLY by Arms 1 and 2 in EVAL-004 — retrieval is the controlled constant. RULES.md (Arm 1) does NOT go through retrieval — it is pasted whole as system prompt. Only wiki facts are retrieved. Done when: given a sample question returns sensible entries; deterministic; importable by harness. -- Clau. Approved.
 - **wqf11i39**: TEST-DELETE-ME -- Clau. Approved.
+- **b0rceh34**: FX-IRR-GEM: Inter-rater reliability check — classify 10 correction events -- Inter-rater reliability check for FX-010 correction classification. -- Gem. Approved.
 - **86is21h4**: FX-022: Final QA checklist -- Final QA — sign off on all guardrails before package ships: -- Clau. Approved.
 - **8cgszsvb**: FX-021: Manifest/README with counts + provenance + version hashes -- Write manifest/README: counts per set, provenance breakdown, routing tags, version hashes. Honest counts — no volume inflation. -- Gem. Approved.
 - **d2mg6zh7**: FX-020: Emit final datasets (SFT + DPO + CONTESTED + facts + eval) -- Emit final datasets: SFT set, DPO set, CONTESTED set (all deduped, provenance-tagged) + facts corpus endpoint + eval set + rubric. Report honest counts per set. -- Clau. Approved.
@@ -846,7 +847,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **b0rceh34** | FX-IRR-GEM: Inter-rater reliability check — classify 10 correction events | gem | merged | Inter-rater reliability check for FX-010 correctio... |
 | **2l6hs0wf** | EVAL-001 [Clau] — RULES.md for Arm 1 | clau | merged | Generate rules.md expressing the fleet's judgment ... |
 | **rkjlt9ib** | EVAL-002 [Clau+Gem] — Retrieval wiki (hard-facts corpus) | clau | merged | Build the wiki the model consults at query time. F... |
 | **p3zxrhjj** | EVAL-002c [Clau] — HTML wiki rendering (demo face, LOWER PRIORITY) | clau | merged | Browsable static HTML site generated from EVAL-002... |
