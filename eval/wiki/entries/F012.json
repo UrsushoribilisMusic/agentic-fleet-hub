@@ -1,0 +1,7 @@
+{
+  "id": "F012",
+  "title": "SFT dataset: 409 records from corrections, lessons, and tasks",
+  "body": "The supervised fine-tuning dataset (out/datasets/sft.jsonl) contains 409 records: 233 from behavioral corrections (corpus_corrections.jsonl), 107 from high-confidence lessons, 69 from high-quality approved tasks. 506 records were flagged near_dup_pending (FX-016 deduplication pass).",
+  "source_ref": "FX-020 MISSION_CONTROL.md entry; out/datasets/sft.jsonl",
+  "type": "fact"
+}

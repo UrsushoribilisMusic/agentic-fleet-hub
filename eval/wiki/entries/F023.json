@@ -1,0 +1,7 @@
+{
+  "id": "F023",
+  "title": "GitHub-first task creation: open a GitHub Issue, dispatcher imports to PocketBase",
+  "body": "To create a new task, open a GitHub Issue in UrsushoribilisMusic/agentic-fleet-hub. The Dispatcher (dispatcher.py) automatically imports it into PocketBase and updates MISSION_CONTROL.md. Agents must NOT create tasks directly in PocketBase. MISSION_CONTROL.md Ticket Status table is auto-managed by Dispatcher — do NOT edit manually.",
+  "source_ref": "AGENTS/RULES.md Kanban rule #2; DUAL_SYSTEM.md",
+  "type": "fact"
+}

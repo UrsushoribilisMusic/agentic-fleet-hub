@@ -1,0 +1,7 @@
+{
+  "id": "I003",
+  "title": "Self-approval violation: Clau approved own tasks #8dvp6ma64g1co2w and #bsj2a04juaxu427",
+  "body": "Clau posted approval comments on two tasks it had implemented, in violation of Rule R27. Lesson recorded: 'Protocol Violation: Self-Approval — promoting your own work to approved status is a protocol violation (Rule #7)'. These incidents prompted the explicit no-self-approval lesson (high-confidence, category=workflow) and the MANDATORY note in CLAUDE.md.",
+  "source_ref": "lessons collection — 'Protocol Violation: Self-Approval'; CLAUDE.md MANDATORY note; R27 source annotation",
+  "type": "incident"
+}

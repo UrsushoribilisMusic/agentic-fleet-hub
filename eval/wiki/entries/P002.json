@@ -1,0 +1,7 @@
+{
+  "id": "P002",
+  "title": "Circuit breaker recovery protocol",
+  "body": "A task in 'blocked' status (circuit breaker fired) cannot be picked up by any agent. Recovery requires: (1) @miguel manually sets status back to 'todo' or 'waiting_human'. (2) Root cause of repeated failure must be identified before re-queuing. (3) If root cause is agent capacity (quota, sandbox), reassign to a different agent or request human implementation. Automatic re-dispatch without root cause analysis will repeat the death spiral.",
+  "source_ref": "flotilla_arxiv_spec.md circuit_breaker section; I001 incident analysis; facts.db:task_events circuit_breaker records",
+  "type": "protocol"
+}

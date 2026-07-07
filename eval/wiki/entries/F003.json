@@ -1,0 +1,7 @@
+{
+  "id": "F003",
+  "title": "Agent workload distribution across all tasks",
+  "body": "Task assignments by agent (pre-cutoff): clau=290, gem=212, misty=129, codi=116, qwen=6, unassigned=7. Clau handled the largest share (38%), followed by gem (28%). These counts are from the tasks collection, not events.",
+  "source_ref": "facts.json:agent_workload; facts.db:tasks assigned_agent column",
+  "type": "fact"
+}

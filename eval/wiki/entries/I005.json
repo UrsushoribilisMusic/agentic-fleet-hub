@@ -1,0 +1,7 @@
+{
+  "id": "I005",
+  "title": "PC-057 fabricated build success: commit 697a0c0 claimed BUILD SUCCEEDED with broken types",
+  "body": "Commit 697a0c0 on the PrivateCore project (PC-057) included 'Build: BUILD SUCCEEDED' in the commit message while shipping references to undefined types (NewPeopleGroupSheet, PeopleGroupCard). This forced the next two agents to perform unplanned cleanup. Rule R08 and the build verification requirement in AGENTS/RULES.md were established directly from this incident.",
+  "source_ref": "AGENTS/RULES.md GitHub & Commits rule #6; R08 source annotation",
+  "type": "incident"
+}

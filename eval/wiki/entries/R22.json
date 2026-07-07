@@ -1,0 +1,7 @@
+{
+  "id": "R22",
+  "title": "Edit fleet scripts in the agentic-fleet-hub source, not runtime copies in ~/fleet",
+  "body": "The canonical sources live in agentic-fleet-hub/fleet/clau/. The runtime directory ~/fleet/clau/ is deployed from that source and will be overwritten on next sync. Direct edits to runtime files will be lost. After editing source, sync to runtime.",
+  "source_ref": "rules.md:R22; RUNTIME.md — 'edits go into agentic-fleet-hub/fleet/clau/ then synced'",
+  "type": "rule"
+}

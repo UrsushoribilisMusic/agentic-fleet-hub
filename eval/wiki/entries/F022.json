@@ -1,0 +1,7 @@
+{
+  "id": "F022",
+  "title": "Task branch naming and WORKLOG protocol",
+  "body": "When picking up a task, immediately create a branch named task/{pb-task-id} (e.g., task/abc123xyz) and push it. Before writing code, commit a WORKLOG.md describing the plan, order of work, and key decisions. Commit incrementally. If session ends mid-task, the next agent checks out the branch and reads WORKLOG.md to resume. Approved task branches are garbage-collected by cleanup_task_branches.sh.",
+  "source_ref": "AGENTS/RULES.md Kanban rule #6 (Task Branch Protocol)",
+  "type": "fact"
+}

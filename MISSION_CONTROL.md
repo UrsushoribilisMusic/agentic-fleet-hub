@@ -28,7 +28,7 @@ Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry p
 | **7. PrivateCore iOS** | `../private-core/PrivateCore/` | **Sprint active.** Privacy-first on-device AI platform for iPhone. MLX + Photos/Calendar/Health + Vision. Each agent has PC-* tickets. Branch: `main`. | [Context MD](./AGENTS/CONTEXT/privatecore_ios.md) |
 | **8. Classical Remix & Reels** | `../music-video-tool/` | YouTube monetization (4,000-hr YPP goal active) + Shopify short-video store. **Financial Ops sprint active.** Read Financial Ops boundaries below before any ad or publishing action. | [Financial Ops](./AGENTS/CONTEXT/classical_remix_financial_ops.md) |
 | **9. Microdrama** | `../microdrama/` | Beat-grammar extraction flywheel + production engine. Corpus analysis → recipe cards → episode generation → phased experiment (arc → language → music). Tickets: MD-prefix. **Publishing rule: episodes 1–4 public only; 5+ stay private.** | [Spec](../microdrama/AGENTS/CONTEXT/microdrama_spec.md) |
-| **10. Dental Domain Kit** | `github.com/UrsushoribilisMusic/dental-domain-kit` (private) | **Sprint DW-1 active.** Cited, regenerable dental-standards wiki (MepV/EU MDR/Swissmedic) + LoRA primitives for a sovereign Apertus dental-lab adapter. Demo for Rolf (ERP-Dental). Tickets: DW-prefix. **Scope guardrail: customer-agnostic only — no patient data, no Rolf customer data, no licensed text reproduced.** Agents: Codi (code/pipeline), Clau (content/QA). Epic A (DW-001–006) is active; Epics B/C/D/E in backlog until A is green. | [Sprint doc](~/Documents/SovereignAI/SPRINT_dental_wiki.md) |
+| **10. Dental Domain Kit** | `github.com/UrsushoribilisMusic/dental-domain-kit` (private) | **CLOSED.** Customer sees no business case going forward. Project cancelled on 2026-07-06. | [Sprint doc](~/Documents/SovereignAI/SPRINT_dental_wiki.md) |
 
 ---
 
@@ -116,7 +116,7 @@ The fleet does not auto-enter these. Miguel enters them monthly via the Financia
 
 ---
 
-## Ticket Status (as of 2026-06-23)
+## Ticket Status (as of 2026-07-07)
 
 ### ENVIRONMENT NOTE — Mac Mini migration complete (2026-03-14)
 All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users/miguel/` → `/Users/miguelrodriguez/`. Repos cloned to `~/projects/`. Python 3.12 venv at `~/projects/music-video-tool/.venv312`. OpenClaw at `/opt/homebrew/bin/openclaw`. Fleet always-on infrastructure build in progress — see tickets #34–#43.
@@ -125,7 +125,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **i7zp5e4v**: EVAL-006 [Gem] — Second-judge agreement (Clau cross-check) -- Re-grade a sample (or all) with Clau (Sonnet) as second judge for inter-rater agreement. Report Qwen-vs-Clau agreement %. Miguel hand-validates ~15 as the human anchor. Done when: agreement number reported; if low, rubric is ambiguous — tighten before trusting scores. -- Gem. Approved.
+- **od411434**: EVAL-005 [Gem] — Blind grading harness (Qwen judge) -- Script that scores results.jsonl against rubric.json. Primary judge: Qwen (local Ollama). Strip arm labels before grading — blind. For each answer: score 4 rubric dimensions (acknowledgement, follow-through, concision, no-hallucination), pass = 3.5/5. Output per-arm averages, per-theme breakdown, within-variant-group consistency. Generation model != grading model != tested model — keep separate. Done when: produces scored table; Qwen as judge; blind. -- Gem. Approved.
+- **jeg47u9h**: EVAL-002b [Clau] — Retrieval layer over the wiki (RAG mechanism) -- Small importable module: retrieve(query, k) -> top-k wiki entries (text + source_ref). v1 = keyword/BM25 over EVAL-002 entries. No embeddings, no vector DB, no GPU. Deterministic: same query -> same results. Called IDENTICALLY by Arms 1 and 2 in EVAL-004 — retrieval is the controlled constant. RULES.md (Arm 1) does NOT go through retrieval — it is pasted whole as system prompt. Only wiki facts are retrieved. Done when: given a sample question returns sensible entries; deterministic; importable by harness. -- Clau. Approved.
 - **wqf11i39**: TEST-DELETE-ME -- Clau. Approved.
+- **b0rceh34**: FX-IRR-GEM: Inter-rater reliability check — classify 10 correction events -- Inter-rater reliability check for FX-010 correction classification. -- Gem. Approved.
 - **86is21h4**: FX-022: Final QA checklist -- Final QA — sign off on all guardrails before package ships: -- Clau. Approved.
 - **8cgszsvb**: FX-021: Manifest/README with counts + provenance + version hashes -- Write manifest/README: counts per set, provenance breakdown, routing tags, version hashes. Honest counts — no volume inflation. -- Gem. Approved.
 - **d2mg6zh7**: FX-020: Emit final datasets (SFT + DPO + CONTESTED + facts + eval) -- Emit final datasets: SFT set, DPO set, CONTESTED set (all deduped, provenance-tagged) + facts corpus endpoint + eval set + rubric. Report honest counts per set. -- Clau. Approved.
@@ -843,14 +847,17 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **b0rceh34** | FX-IRR-GEM: Inter-rater reliability check — classify 10 correction events | gem | merged | Inter-rater reliability check for FX-010 correctio... |
 | **2l6hs0wf** | EVAL-001 [Clau] — RULES.md for Arm 1 | clau | merged | Generate rules.md expressing the fleet's judgment ... |
-| **rkjlt9ib** | EVAL-002 [Clau+Gem] — Retrieval wiki (hard-facts corpus) | clau | in_work | Build the wiki the model consults at query time. F... |
-| **jeg47u9h** | EVAL-002b [Clau] — Retrieval layer over the wiki (RAG mechanism) | clau | planned | Small importable module: retrieve(query, k) -> top... |
-| **p3zxrhjj** | EVAL-002c [Clau] — HTML wiki rendering (demo face, LOWER PRIORITY) | clau | planned | Browsable static HTML site generated from EVAL-002... |
-| **ujr18ttz** | EVAL-003 [Clau] — Expanded held-out question set (~150–200 questions) | clau | planned | Expand eval.jsonl from 50 to ~150–200 held-out que... |
-| **n4xmmv64** | EVAL-004 [Clau] — Generation harness (the runner) | clau | planned | Script that runs every eval question through each ... |
-| **od411434** | EVAL-005 [Gem] — Blind grading harness (Qwen judge) | gem | merged | Script that scores results.jsonl against rubric.js... |
-| **i7zp5e4v** | EVAL-006 [Gem] — Second-judge agreement (Clau cross-check) | gem | merged | Re-grade a sample (or all) with Clau (Sonnet) as s... |
+| **rkjlt9ib** | EVAL-002 [Clau+Gem] — Retrieval wiki (hard-facts corpus) | clau | merged | Build the wiki the model consults at query time. F... |
+| **p3zxrhjj** | EVAL-002c [Clau] — HTML wiki rendering (demo face, LOWER PRIORITY) | clau | merged | Browsable static HTML site generated from EVAL-002... |
+| **ujr18ttz** | EVAL-003 [Clau] — Expanded held-out question set (~150–200 questions) | clau | merged | Expand eval.jsonl from 50 to ~150–200 held-out que... |
+| **n4xmmv64** | EVAL-004 [Clau] — Generation harness (the runner) | clau | merged | Script that runs every eval question through each ... |
+| **95bdwf1d** | EVAL-007 — Matched-prompt fair test (Arm A vs B, system prompt held constant) | clau | merged |  |
+| **twadswmr** | FLOT-104: EVAL-009 adversarial enforcement (LoRA vs optimized prompt) | clau | merged | Fair fight: LoRA vs the best prompt GEPA can produ... |
+| **r1p0zreh** | FLOT-102: Reconcile HuggingFace model card with 4-arm numbers | clau | merged | The HF card shows an older 3-arm pass that contrad... |
+| **rp10nix2** | FLOT-101: Harden EVAL-008 base+RAG comparison (stats re-analysis) | clau | merged | Re-analyze the EXISTING EVAL-008 grading JSONL. No... |
+| **2js2o7fx** | FLOT-103: Build GEPA prompt-optimization harness | gem | planned | Automated teacher/student prompt optimizer using d... |
+| **1ooj6p2h** | FLOT-105: Session manager — rolling context compression | clau | planned | Two-tier per-turn memory for Apertus 8B (64K windo... |
+| **hr00jlzn** | FLOT-106: EVAL-010 multi-turn grounding decay | clau | planned | Verify the FLOT-105 session manager actually holds... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**

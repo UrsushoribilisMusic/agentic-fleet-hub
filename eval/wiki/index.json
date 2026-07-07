@@ -1,0 +1,479 @@
+{
+  "version": "1",
+  "cutoff": "2026-06-22",
+  "entry_count": 66,
+  "types": {
+    "rule": [
+      "R01",
+      "R02",
+      "R03",
+      "R04",
+      "R05",
+      "R06",
+      "R07",
+      "R08",
+      "R09",
+      "R10",
+      "R11",
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17",
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27",
+      "R28",
+      "R29",
+      "R30"
+    ],
+    "fact": [
+      "F001",
+      "F002",
+      "F003",
+      "F004",
+      "F005",
+      "F006",
+      "F007",
+      "F008",
+      "F009",
+      "F010",
+      "F011",
+      "F012",
+      "F013",
+      "F014",
+      "F015",
+      "F016",
+      "F017",
+      "F018",
+      "F019",
+      "F020",
+      "F021",
+      "F022",
+      "F023",
+      "F024",
+      "F025"
+    ],
+    "incident": [
+      "I001",
+      "I002",
+      "I003",
+      "I004",
+      "I005"
+    ],
+    "protocol": [
+      "P001",
+      "P002",
+      "P003",
+      "P004",
+      "P005",
+      "P006"
+    ]
+  },
+  "entries": [
+    {
+      "id": "R01",
+      "title": "Follow heartbeat phases in strict order, every session",
+      "type": "rule",
+      "source_ref": "rules.md:R01; CLAUDE.md heartbeat protocol; multiple correction instances"
+    },
+    {
+      "id": "R02",
+      "title": "Defer immediately when another agent is already working on a task",
+      "type": "rule",
+      "source_ref": "rules.md:R02; corrections — 14 instances: 'Babe, I want the claude from the fleet to work on this'"
+    },
+    {
+      "id": "R03",
+      "title": "PATCH task status to 'todo' after posting peer review rejection",
+      "type": "rule",
+      "source_ref": "rules.md:R03; lessons — 'Always PATCH task status after NOT APPROVED'; corrections — 17 status-mismatch instances"
+    },
+    {
+      "id": "R04",
+      "title": "PocketBase is the source of truth for task execution state",
+      "type": "rule",
+      "source_ref": "rules.md:R04; DUAL_SYSTEM.md; lessons — 'MISSION_CONTROL vs PocketBase sync discrepancy' (8+ instances)"
+    },
+    {
+      "id": "R05",
+      "title": "Verify no duplicate task exists before creating a new one",
+      "type": "rule",
+      "source_ref": "rules.md:R05; lessons — 'Task #68 duplication spam: Misty Phase 3 filter broken, causing 86+ duplicate tasks'"
+    },
+    {
+      "id": "R06",
+      "title": "Verify current system state before proposing or taking action",
+      "type": "rule",
+      "source_ref": "rules.md:R06; corrections — 35 instances where action was taken on stale state"
+    },
+    {
+      "id": "R07",
+      "title": "Surface three-way state discrepancies explicitly — do not silently choose one source",
+      "type": "rule",
+      "source_ref": "rules.md:R07; lessons — 'Three-way mismatch: MISSION_CONTROL, PocketBase, codebase'"
+    },
+    {
+      "id": "R08",
+      "title": "Check build status and include it in any review output",
+      "type": "rule",
+      "source_ref": "rules.md:R08; high-quality tasks — every approved task includes build tag and commit hash"
+    },
+    {
+      "id": "R09",
+      "title": "Review the actual codebase, not the output comment text, before approving",
+      "type": "rule",
+      "source_ref": "rules.md:R09; lessons — 'Gem posts Gemini CLI crash logs as task output'; 'Gem hits daily quota — outputs are crash logs'"
+    },
+    {
+      "id": "R10",
+      "title": "Include the commit hash in every peer review output",
+      "type": "rule",
+      "source_ref": "rules.md:R10; high-quality tasks (69 in sft.jsonl) — every approved task lists commit hash by ticket"
+    },
+    {
+      "id": "R11",
+      "title": "When agent output is a crash log or quota error, reject and escalate",
+      "type": "rule",
+      "source_ref": "rules.md:R11; lessons — 'Codi submits heartbeat reports without actual work'; 'Gem hits daily API quota'"
+    },
+    {
+      "id": "R12",
+      "title": "Accept user redirections cleanly, without hedging or continuing the wrong direction",
+      "type": "rule",
+      "source_ref": "rules.md:R12; rubric.json — acknowledgement dimension; corrections — 284 correction pairs"
+    },
+    {
+      "id": "R13",
+      "title": "Preserve exact diagnostic output — never paraphrase error messages",
+      "type": "rule",
+      "source_ref": "rules.md:R13; corrections — 57 bug-reporting instances expecting verbatim output"
+    },
+    {
+      "id": "R14",
+      "title": "Break multi-point feedback into numbered discrete items; check state for each",
+      "type": "rule",
+      "source_ref": "rules.md:R14; corrections — 99 UI feedback instances"
+    },
+    {
+      "id": "R15",
+      "title": "Escalate priority conflicts and regression risk to the user before deciding",
+      "type": "rule",
+      "source_ref": "rules.md:R15; corrections — 115 instances; pattern: 'analyze and show me your suggestion before placing back in todo'"
+    },
+    {
+      "id": "R16",
+      "title": "Declare token budget constraint and defer heavy work when context is low",
+      "type": "rule",
+      "source_ref": "rules.md:R16; corrections — 11 token-awareness instances; 'Codi is low on tokens, I don't want her to run out mid commit'"
+    },
+    {
+      "id": "R17",
+      "title": "Address all points in a multi-point user message in one response, in priority order",
+      "type": "rule",
+      "source_ref": "rules.md:R17; corrections — 40+ multi-point instances"
+    },
+    {
+      "id": "R18",
+      "title": "URL-encode filter operators in all PocketBase API calls",
+      "type": "rule",
+      "source_ref": "rules.md:R18; lessons — 'URL Encoding for PocketBase Filter Operators'; 'Misty Phase 3 filter bug: 86+ duplicate task #68'"
+    },
+    {
+      "id": "R19",
+      "title": "Use single quotes for string values in PocketBase filter expressions",
+      "type": "rule",
+      "source_ref": "rules.md:R19; lessons — 'PocketBase Filter Quoting'; lessons/ledger.json"
+    },
+    {
+      "id": "R20",
+      "title": "Use full binary paths in launchd plists and shell scripts",
+      "type": "rule",
+      "source_ref": "rules.md:R20; lessons — 'launchd needs full binary paths'; RUNTIME.md"
+    },
+    {
+      "id": "R21",
+      "title": "Verify environment-specific path mappings before acting on task specs",
+      "type": "rule",
+      "source_ref": "rules.md:R21; lessons — 'Path mapping for salesman-api on Mac Mini' (5+ instances)"
+    },
+    {
+      "id": "R22",
+      "title": "Edit fleet scripts in the agentic-fleet-hub source, not runtime copies in ~/fleet",
+      "type": "rule",
+      "source_ref": "rules.md:R22; RUNTIME.md — 'edits go into agentic-fleet-hub/fleet/clau/ then synced'"
+    },
+    {
+      "id": "R23",
+      "title": "Load fleet config from fleet_meta.json at startup; do not hardcode agent lists",
+      "type": "rule",
+      "source_ref": "rules.md:R23; lessons — 'Dynamic config from fleet_meta.json beats hardcoded lists'"
+    },
+    {
+      "id": "R24",
+      "title": "Define and consume one API contract; do not mark UI done until wired to real endpoint",
+      "type": "rule",
+      "source_ref": "rules.md:R24; lessons — 'Kanban UI must consume the packaged API shape, not a parallel contract'"
+    },
+    {
+      "id": "R25",
+      "title": "Write a structured session summary to PROGRESS.md at session end",
+      "type": "rule",
+      "source_ref": "rules.md:R25; CLAUDE.md Phase 6; RUNTIME.md — clau/PROGRESS.md path"
+    },
+    {
+      "id": "R26",
+      "title": "Post reusable insights to lessons collection as pending_review, not inline comments",
+      "type": "rule",
+      "source_ref": "rules.md:R26; CLAUDE.md Phase 5; lessons/ledger.json — canonical store for 382 active lessons"
+    },
+    {
+      "id": "R27",
+      "title": "Never approve your own tasks — peer review must be a different agent",
+      "type": "rule",
+      "source_ref": "rules.md:R27; lessons — 'Protocol Violation: Self-Approval' (Clau approved own tasks #8dvp6ma64g1co2w, #bsj2a04juaxu427)"
+    },
+    {
+      "id": "R28",
+      "title": "Include the ticket ID in every commit message that closes a task",
+      "type": "rule",
+      "source_ref": "rules.md:R28; lessons — 'Include Ticket IDs in Commit Messages'; high-quality tasks (69 in sft.jsonl)"
+    },
+    {
+      "id": "R29",
+      "title": "Paginate all PocketBase list fetches — never assume one page covers all records",
+      "type": "rule",
+      "source_ref": "rules.md:R29; lessons — 'PocketBase Pagination and Task Volume: total may exceed perPage (e.g., 721 tasks found)'"
+    },
+    {
+      "id": "R30",
+      "title": "Process inbox messages on every heartbeat, regardless of task assignment status",
+      "type": "rule",
+      "source_ref": "rules.md:R30; lessons — 'Inbox processing must be independent of task status: Gemma missed important messages'"
+    },
+    {
+      "id": "F001",
+      "title": "Fleet composition: four primary agents",
+      "type": "fact",
+      "source_ref": "facts.json:agent_workload; agentic-fleet-hub/AGENTS/RULES.md preamble"
+    },
+    {
+      "id": "F002",
+      "title": "Task volume: 760 total, 757 approved, 3 backlog (pre-cutoff)",
+      "type": "fact",
+      "source_ref": "facts.json:task_status_distribution; facts.db:tasks (cutoff 2026-06-22)"
+    },
+    {
+      "id": "F003",
+      "title": "Agent workload distribution across all tasks",
+      "type": "fact",
+      "source_ref": "facts.json:agent_workload; facts.db:tasks assigned_agent column"
+    },
+    {
+      "id": "F004",
+      "title": "Task event type distribution across 143,936 total events",
+      "type": "fact",
+      "source_ref": "facts.json:event_type_frequency; facts.db:task_events"
+    },
+    {
+      "id": "F005",
+      "title": "Status transition pattern: most in_progress tasks returned to todo",
+      "type": "fact",
+      "source_ref": "facts.db:task_events WHERE event_type='status_transition'"
+    },
+    {
+      "id": "F006",
+      "title": "Git repository stats: 4,964 commits, 1.94M insertions (pre-cutoff)",
+      "type": "fact",
+      "source_ref": "facts.json:git_stats; facts.db:git_commits"
+    },
+    {
+      "id": "F007",
+      "title": "Lesson corpus: 382 lessons across three categories",
+      "type": "fact",
+      "source_ref": "facts.json:lesson_category_distribution; FX-020 datasets.py"
+    },
+    {
+      "id": "F008",
+      "title": "Circuit breaker threshold: 3 reassignments in 10 minutes triggers block",
+      "type": "fact",
+      "source_ref": "facts.db:task_events WHERE event_type='circuit_breaker' meta field; flotilla_arxiv_spec.md"
+    },
+    {
+      "id": "F009",
+      "title": "Circuit breaker fired 32 times across the pre-cutoff corpus",
+      "type": "fact",
+      "source_ref": "facts.db:task_events WHERE event_type='circuit_breaker'; task_events by task_id aggregation"
+    },
+    {
+      "id": "F010",
+      "title": "Corpus cutoff date: 2026-06-22",
+      "type": "fact",
+      "source_ref": "facts.db:manifest (cutoff=2026-06-22); FX-001 pipeline spec"
+    },
+    {
+      "id": "F011",
+      "title": "High-quality task count: 727 of 760 tasks scored ≥ 3",
+      "type": "fact",
+      "source_ref": "facts.json:high_quality_task_count; FX-020 datasets.py judgment stage"
+    },
+    {
+      "id": "F012",
+      "title": "SFT dataset: 409 records from corrections, lessons, and tasks",
+      "type": "fact",
+      "source_ref": "FX-020 MISSION_CONTROL.md entry; out/datasets/sft.jsonl"
+    },
+    {
+      "id": "F013",
+      "title": "DPO dataset: 262 triples (prompt/chosen/rejected)",
+      "type": "fact",
+      "source_ref": "FX-020 MISSION_CONTROL.md entry; FX-008 peer_review_dpo.jsonl"
+    },
+    {
+      "id": "F014",
+      "title": "Eval holdout set: 50 questions, ~12.5% of corrections corpus",
+      "type": "fact",
+      "source_ref": "FX-020 MISSION_CONTROL.md entry; out/eval/eval.jsonl"
+    },
+    {
+      "id": "F015",
+      "title": "Rubric: 4 dimensions, pass threshold 3.5/5",
+      "type": "fact",
+      "source_ref": "FX-020 MISSION_CONTROL.md entry; out/eval/rubric.json"
+    },
+    {
+      "id": "F016",
+      "title": "Fleet active period: 2026-03-10 to 2026-06-22 (105 calendar days)",
+      "type": "fact",
+      "source_ref": "FX-015 MISSION_CONTROL.md entry; out/standups/standups.json"
+    },
+    {
+      "id": "F017",
+      "title": "Agent active days per standup data",
+      "type": "fact",
+      "source_ref": "FX-015 MISSION_CONTROL.md entry; out/standups/report.json"
+    },
+    {
+      "id": "F018",
+      "title": "False positive CC sentinel rate: 26.6% of transcript entries",
+      "type": "fact",
+      "source_ref": "FX-003 MISSION_CONTROL.md entry; out/corrections/report.json"
+    },
+    {
+      "id": "F019",
+      "title": "PocketBase API base URL: http://localhost:8090",
+      "type": "fact",
+      "source_ref": "AGENTS/RULES.md heartbeat protocol; CLAUDE.md Phase 1/3; RUNTIME.md"
+    },
+    {
+      "id": "F020",
+      "title": "Task fields in PocketBase: id, title, description, status, assigned_agent, reassignment_count",
+      "type": "fact",
+      "source_ref": "facts.db:tasks PRAGMA table_info; AGENTS/RULES.md Kanban section"
+    },
+    {
+      "id": "F021",
+      "title": "Standup format: must include agent name in heading and update index.json",
+      "type": "fact",
+      "source_ref": "AGENTS/RULES.md Kanban rule #1; standups/index.json format"
+    },
+    {
+      "id": "F022",
+      "title": "Task branch naming and WORKLOG protocol",
+      "type": "fact",
+      "source_ref": "AGENTS/RULES.md Kanban rule #6 (Task Branch Protocol)"
+    },
+    {
+      "id": "F023",
+      "title": "GitHub-first task creation: open a GitHub Issue, dispatcher imports to PocketBase",
+      "type": "fact",
+      "source_ref": "AGENTS/RULES.md Kanban rule #2; DUAL_SYSTEM.md"
+    },
+    {
+      "id": "F024",
+      "title": "Dispatcher auto-advance: commit found → peer_review; no commit → reset to todo",
+      "type": "fact",
+      "source_ref": "AGENTS/RULES.md Dispatcher Behavior section; CLAUDE.md MANDATORY status update"
+    },
+    {
+      "id": "F025",
+      "title": "Stale task reclaim: in_progress with no active process reset after 2 hours",
+      "type": "fact",
+      "source_ref": "AGENTS/RULES.md Dispatcher Behavior rules 4-5; dispatcher.py"
+    },
+    {
+      "id": "I001",
+      "title": "Circuit breaker incident: TCR-15 reassignment death spiral (2026-04-10)",
+      "type": "incident",
+      "source_ref": "facts.db:task_events WHERE task_id='8sto1zdn9dljy98' ORDER BY timestamp; facts.json:event_type_frequency"
+    },
+    {
+      "id": "I002",
+      "title": "Misty duplicate task spam: broken Phase 3 filter created 30+ clones of task #68",
+      "type": "incident",
+      "source_ref": "standups/2026-03-20.md; fleet/misty/PROGRESS.md 2026-06-09; R18 source annotation"
+    },
+    {
+      "id": "I003",
+      "title": "Self-approval violation: Clau approved own tasks #8dvp6ma64g1co2w and #bsj2a04juaxu427",
+      "type": "incident",
+      "source_ref": "lessons collection — 'Protocol Violation: Self-Approval'; CLAUDE.md MANDATORY note; R27 source annotation"
+    },
+    {
+      "id": "I004",
+      "title": "Gem quota crash pattern: daily Gemini API limit produces crash logs as task output",
+      "type": "incident",
+      "source_ref": "lessons — 'Gem posts Gemini CLI crash logs as task output'; 'Gem hits daily Gemini API quota limits'; R09, R11"
+    },
+    {
+      "id": "I005",
+      "title": "PC-057 fabricated build success: commit 697a0c0 claimed BUILD SUCCEEDED with broken types",
+      "type": "incident",
+      "source_ref": "AGENTS/RULES.md GitHub & Commits rule #6; R08 source annotation"
+    },
+    {
+      "id": "P001",
+      "title": "Blocked task escalation protocol",
+      "type": "protocol",
+      "source_ref": "AGENTS/RULES.md Phase 4 — Blockers; CLAUDE.md heartbeat Phase 4"
+    },
+    {
+      "id": "P002",
+      "title": "Circuit breaker recovery protocol",
+      "type": "protocol",
+      "source_ref": "flotilla_arxiv_spec.md circuit_breaker section; I001 incident analysis; facts.db:task_events circuit_breaker records"
+    },
+    {
+      "id": "P003",
+      "title": "Inter-agent handoff protocol (IAP inbox)",
+      "type": "protocol",
+      "source_ref": "AGENTS/RULES.md Inter-Agent Protocol (IAP); CLAUDE.md Phase 2.5"
+    },
+    {
+      "id": "P004",
+      "title": "Peer review workflow: review → comment → PATCH → stop",
+      "type": "protocol",
+      "source_ref": "AGENTS/RULES.md Code Review Protocol; Phase 2 Peer Review; R27, R10"
+    },
+    {
+      "id": "P005",
+      "title": "Secrets and vault access protocol",
+      "type": "protocol",
+      "source_ref": "AGENTS/RULES.md Secrets & Safety; CLAUDE.md mandate"
+    },
+    {
+      "id": "P006",
+      "title": "Demo data isolation: never write fake records to real PocketBase",
+      "type": "protocol",
+      "source_ref": "AGENTS/RULES.md Data Integrity rules 1-2"
+    }
+  ]
+}

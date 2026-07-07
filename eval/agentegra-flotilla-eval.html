@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Flotilla Corpus Evaluation — LoRA × RAG on Apertus 8B · Agentegra</title>
+<meta name="description" content="A 2×2 factorial study on Apertus 8B: is knowledge better baked into weights via LoRA, or looked up from a cited RAG wiki? Retrieval carries recall entirely; LoRA adds nothing on clean questions. Working paper, BigBear Engineering GmbH." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --white:#ffffff;
+    --bg:#f5faf7;
+    --surface:#e9f5ef;
+    --surface-2:#dff0e8;
+    --line:#cbe6da;
+    --line-soft:#dcefe6;
+    --teal:#0c6e62;
+    --teal-mid:#0f8175;
+    --teal-deep:#083f39;
+    --teal-ink:#0a2a26;
+    --ink:#17302c;
+    --muted:#587a72;
+    --amber:#b8620e;
+    --amber-ink:#8a4a0c;
+    --amber-soft:#f7e8d3;
+    --amber-line:#e9cfa6;
+    --shadow:0 1px 2px rgba(8,63,57,.05), 0 12px 32px -18px rgba(8,63,57,.28);
+    --measure:70ch;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  ::selection{background:var(--teal);color:#fff}
+  a{color:var(--teal);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:3px}
+
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+  .prose{max-width:var(--measure)}
+
+  /* ---------- header ---------- */
+  header.site{
+    position:sticky;top:0;z-index:20;
+    background:rgba(245,250,247,.86);
+    backdrop-filter:saturate(1.4) blur(10px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .site .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--teal-ink);letter-spacing:-.01em}
+  .brand .glyph{width:22px;height:22px;flex:none}
+  .brand b{font-weight:600}
+  .brand span{color:var(--muted);font-weight:500}
+  nav.top{display:flex;gap:22px;align-items:center;font-size:14px}
+  nav.top a{color:var(--muted);font-weight:500}
+  nav.top a:hover{color:var(--teal);text-decoration:none}
+  @media(max-width:640px){nav.top a.hide-sm{display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{padding:76px 0 40px}
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace;font-size:12.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--teal);margin:0 0 22px;
+    display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;
+  }
+  .eyebrow .dot{width:4px;height:4px;border-radius:50%;background:var(--line);display:inline-block}
+  h1.title{
+    font-family:"Fraunces",serif;font-weight:500;
+    font-size:clamp(2.35rem,5.6vw,4rem);line-height:1.03;
+    letter-spacing:-.02em;color:var(--teal-ink);margin:0 0 26px;max-width:16ch;
+  }
+  h1.title em{font-style:italic;color:var(--teal)}
+  .lede{font-size:clamp(1.08rem,2vw,1.28rem);line-height:1.55;color:var(--ink);max-width:60ch;margin:0 0 34px}
+  .lede b{font-weight:600;color:var(--teal-ink)}
+
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    font-weight:500;font-size:15px;padding:11px 18px;border-radius:10px;
+    border:1px solid transparent;transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+  }
+  .btn:hover{text-decoration:none;transform:translateY(-1px)}
+  .btn.primary{background:var(--teal);color:#fff;box-shadow:var(--shadow)}
+  .btn.primary:hover{background:var(--teal-mid)}
+  .btn.ghost{background:var(--white);color:var(--teal-ink);border-color:var(--line)}
+  .btn.ghost:hover{border-color:var(--teal);color:var(--teal)}
+  .btn svg{width:16px;height:16px;flex:none}
+
+  .runchip{
+    margin-top:22px;display:flex;align-items:center;gap:0;flex-wrap:wrap;
+    font-family:"IBM Plex Mono",monospace;font-size:13.5px;
+    background:var(--teal-ink);color:#dff0e8;border-radius:10px;overflow:hidden;
+    box-shadow:var(--shadow);max-width:100%;
+  }
+  .runchip .lbl{background:rgba(255,255,255,.08);color:#9fd3c6;padding:11px 13px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+  .runchip code{padding:11px 15px;overflow-x:auto;white-space:nowrap;color:#eafaf4}
+  .runchip .prompt{color:#4fbfab;-webkit-user-select:none;user-select:none}
+
+  /* ---------- signature 2x2 ---------- */
+  section.matrix{padding:16px 0 8px}
+  .matrix-card{
+    background:var(--white);border:1px solid var(--line);border-radius:18px;
+    padding:32px 30px 28px;box-shadow:var(--shadow);
+  }
+  .matrix-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:6px}
+  .matrix-head h2{font-family:"Fraunces",serif;font-weight:500;font-size:1.5rem;color:var(--teal-ink);margin:0;letter-spacing:-.01em}
+  .matrix-head p{margin:0;color:var(--muted);font-size:14px;max-width:38ch}
+  .grid2{
+    display:grid;grid-template-columns:auto 1fr 1fr;grid-template-rows:auto auto auto;
+    gap:10px;margin-top:24px;align-items:stretch;
+  }
+  .axis-x{
+    grid-column:2 / 4;text-align:center;font-family:"IBM Plex Mono",monospace;
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+    display:flex;align-items:center;justify-content:center;gap:10px;padding-bottom:2px;
+  }
+  .axis-x .arrow{color:var(--amber);font-weight:600}
+  .colhead{text-align:center;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--teal-ink);font-weight:600;padding:2px 0}
+  .axis-y{
+    grid-row:2 / 4;writing-mode:vertical-rl;transform:rotate(180deg);
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted);display:flex;align-items:center;justify-content:center;
+  }
+  .rowhead{
+    font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--teal-ink);font-weight:600;
+    display:flex;align-items:center;padding-right:6px;white-space:nowrap;
+  }
+  .cell{
+    border-radius:12px;padding:20px 16px;min-height:104px;
+    display:flex;flex-direction:column;justify-content:center;gap:3px;
+    border:1px solid var(--line);
+  }
+  .cell .score{font-family:"Fraunces",serif;font-weight:500;font-size:2.4rem;line-height:1;letter-spacing:-.01em}
+  .cell .arm{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.05em;opacity:.75}
+  .cell.lo{background:var(--surface);color:var(--teal-ink)}
+  .cell.lo .arm{color:var(--muted)}
+  .cell.mid{background:#2f8d7f;color:#fff;border-color:#2f8d7f}
+  .cell.hi{background:var(--teal-deep);color:#fff;border-color:var(--teal-deep)}
+  .cell.hi .arm,.cell.mid .arm{opacity:.85}
+  .matrix-read{
+    margin-top:22px;padding-top:20px;border-top:1px solid var(--line-soft);
+    display:grid;grid-template-columns:1fr 1fr;gap:18px 28px;
+  }
+  .read-item{display:flex;gap:12px;align-items:flex-start}
+  .read-item .delta{
+    font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:15px;
+    padding:3px 9px;border-radius:7px;white-space:nowrap;flex:none;
+  }
+  .delta.up{background:var(--amber-soft);color:var(--amber-ink);border:1px solid var(--amber-line)}
+  .delta.flat{background:var(--surface-2);color:var(--muted);border:1px solid var(--line)}
+  .read-item p{margin:0;font-size:14px;line-height:1.5;color:var(--ink)}
+  .read-item p b{color:var(--teal-ink)}
+  @media(max-width:640px){
+    .matrix-read{grid-template-columns:1fr}
+    .cell .score{font-size:2rem}
+  }
+
+  /* ---------- body sections ---------- */
+  section.body{padding:52px 0 8px}
+  .sec{margin-bottom:52px}
+  .sec-num{
+    font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.14em;
+    color:var(--teal);text-transform:uppercase;margin:0 0 10px;display:block;
+  }
+  h2.sec-h{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(1.6rem,3vw,2.1rem);letter-spacing:-.015em;color:var(--teal-ink);margin:0 0 18px;line-height:1.12}
+  h3.sub-h{font-family:"Inter",sans-serif;font-weight:600;font-size:1.05rem;color:var(--teal-ink);margin:30px 0 10px}
+  .body p{margin:0 0 16px;max-width:var(--measure)}
+  .body p b{color:var(--teal-ink);font-weight:600}
+  ul.clean{list-style:none;padding:0;margin:0 0 18px;max-width:var(--measure)}
+  ul.clean li{position:relative;padding-left:24px;margin-bottom:11px}
+  ul.clean li::before{content:"";position:absolute;left:4px;top:11px;width:7px;height:7px;border-radius:2px;background:var(--teal);transform:rotate(45deg)}
+  ul.clean li b{color:var(--teal-ink)}
+
+  /* tables */
+  .tbl-wrap{overflow-x:auto;margin:0 0 8px;border-radius:12px;border:1px solid var(--line);box-shadow:var(--shadow);background:var(--white)}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px}
+  caption{caption-side:top;text-align:left;font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:14px 16px 0}
+  thead th{
+    background:var(--surface);color:var(--teal-ink);font-weight:600;text-align:left;
+    padding:12px 16px;border-bottom:1px solid var(--line);font-size:13px;
+  }
+  tbody td{padding:11px 16px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover td{background:#f2f9f5}
+  td.num,th.num{font-family:"IBM Plex Mono",monospace;text-align:right;white-space:nowrap}
+  td .mono{font-family:"IBM Plex Mono",monospace;font-size:13px}
+  tr.total td{background:var(--surface-2);font-weight:600}
+  .tag{font-family:"IBM Plex Mono",monospace;font-size:12px;padding:1px 7px;border-radius:5px;background:var(--surface);border:1px solid var(--line);color:var(--teal-ink);white-space:nowrap}
+
+  /* callout */
+  .callout{
+    border-radius:14px;padding:24px 26px;margin:8px 0 4px;max-width:var(--measure);
+    background:var(--amber-soft);border:1px solid var(--amber-line);
+  }
+  .callout .k{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber-ink);margin:0 0 8px;font-weight:600}
+  .callout p{margin:0;font-family:"Fraunces",serif;font-size:1.22rem;line-height:1.45;color:var(--teal-ink);font-weight:400;max-width:none}
+  .callout.teal{background:var(--surface);border-color:var(--line)}
+  .callout.teal .k{color:var(--teal)}
+
+  /* worked example cards */
+  .ex{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-bottom:16px;box-shadow:var(--shadow)}
+  .ex h4{margin:0 0 4px;font-family:"Inter";font-weight:600;font-size:1rem;color:var(--teal-ink)}
+  .ex .gold{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--muted);margin:0 0 16px;padding:10px 12px;background:var(--surface);border-radius:8px;border-left:3px solid var(--teal)}
+  .ex-rows{display:flex;flex-direction:column;gap:9px}
+  .ex-row{display:grid;grid-template-columns:132px 62px 1fr;gap:12px;align-items:start;font-size:13.5px}
+  .ex-row .arm{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--teal-ink);font-weight:500}
+  .ex-row .sc{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:12.5px;padding:2px 6px;border-radius:6px;text-align:center;white-space:nowrap}
+  .sc.good{background:var(--teal-deep);color:#fff}
+  .sc.mid{background:var(--surface-2);color:var(--teal-ink)}
+  .sc.bad{background:#f4e2e0;color:#9a3b30}
+  .ex-row .said{color:var(--ink);line-height:1.45}
+  .ex-note{margin:14px 0 0;font-style:italic;color:var(--muted);font-size:13.5px}
+  @media(max-width:560px){.ex-row{grid-template-columns:1fr;gap:4px}.ex-row .sc{justify-self:start}}
+
+  /* run block */
+  .code{
+    background:var(--teal-ink);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);
+    margin:0 0 18px;max-width:var(--measure);
+  }
+  .code .bar{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .code .bar .d{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.16)}
+  .code .bar .f{margin-left:8px;font-family:"IBM Plex Mono",monospace;font-size:12px;color:#9fd3c6;letter-spacing:.04em}
+  .code pre{margin:0;padding:18px 18px;overflow-x:auto;font-family:"IBM Plex Mono",monospace;font-size:13px;line-height:1.7;color:#eafaf4}
+  .code .c{color:#5f9d92}
+  .code .p{color:#4fbfab}
+  .code .s{color:#e6c98a}
+
+  /* next steps list */
+  .steps{display:grid;gap:14px;margin:0 0 8px}
+  .step{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:18px 22px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:baseline}
+  .step .id{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--teal);font-weight:600;white-space:nowrap;letter-spacing:.04em}
+  .step h4{margin:0 0 5px;font-size:1rem;font-weight:600;color:var(--teal-ink)}
+  .step p{margin:0;font-size:14.5px;color:var(--ink);max-width:none}
+  .step.lead{border-color:var(--amber-line);background:var(--amber-soft)}
+  .step.lead .id{color:var(--amber-ink)}
+
+  /* footer */
+  footer.site{margin-top:64px;border-top:1px solid var(--line);background:var(--surface)}
+  footer .wrap{padding:34px 24px 44px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px}
+  footer .disc{max-width:52ch;font-size:13px;color:var(--muted);line-height:1.6}
+  footer .disc b{color:var(--teal-ink)}
+  footer .links{display:flex;flex-direction:column;gap:8px;font-size:14px}
+  footer .links a{color:var(--muted)}
+  footer .links a:hover{color:var(--teal);text-decoration:none}
+  .caveats{max-width:var(--measure);font-size:14.5px;color:var(--muted)}
+  .caveats li{margin-bottom:10px}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Agentegra home">
+      <svg class="glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="6" fill="var(--teal)"/>
+        <path d="M7 15.5 12 6l5 9.5" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="12" cy="16.6" r="1.5" fill="#fff"/>
+      </svg>
+      <b>Agentegra</b> <span>/ Research</span>
+    </a>
+    <nav class="top">
+      <a class="hide-sm" href="https://api.robotross.art/atf">Robot Ross</a>
+      <a href="https://github.com/UrsushoribilisMusic/flotilla-corpus">GitHub</a>
+      <a href="https://huggingface.co/ursushoribilis/apertus-flotilla">Hugging Face</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">
+        <span>Flotilla Corpus</span><span class="dot"></span>
+        <span>Working Paper</span><span class="dot"></span>
+        <span>Apertus 8B</span><span class="dot"></span>
+        <span>July 2026</span>
+      </p>
+      <h1 class="title">Is knowledge better <em>baked in</em>, or <em>looked up</em>?</h1>
+      <p class="lede">A clean <b>2×2</b> on Switzerland's open-weights model, crossing a LoRA fine-tune against the base model, each with and without a cited RAG wiki built from 105 days of a live agent fleet's own logs. The answer was decisive: <b>retrieval is the engine.</b></p>
+      <div class="cta-row">
+        <a class="btn primary" href="https://huggingface.co/ursushoribilis/apertus-flotilla">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Download the model
+        </a>
+        <a class="btn ghost" href="https://github.com/UrsushoribilisMusic/flotilla-corpus">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6 3.3 4.9 3.6 4.9 3.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 3.5 10c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Get the corpus
+        </a>
+      </div>
+      <div class="runchip">
+        <span class="lbl">Run it locally</span>
+        <code><span class="prompt">$ </span>ollama run hf.co/ursushoribilis/apertus-flotilla:Q4_K_M</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNATURE 2x2 -->
+  <section class="matrix">
+    <div class="wrap">
+      <div class="matrix-card rv">
+        <div class="matrix-head">
+          <h2>The whole paper in one grid</h2>
+          <p>Composite recall score (0–5), blind Opus judge, N = 49 in-corpus questions.</p>
+        </div>
+        <div class="grid2" role="img" aria-label="2x2 matrix of composite scores. Base no-RAG 1.00, LoRA no-RAG 0.95, Base plus RAG 2.54, LoRA plus RAG 2.40. Adding RAG raises scores sharply; adding LoRA does not.">
+          <div class="axis-x"><span>Retrieval</span> <span class="arrow">→ adding RAG moves you right</span></div>
+          <div class="colhead">No RAG</div>
+          <div class="colhead">+ RAG wiki</div>
+
+          <div class="axis-y">Adaptation ↓</div>
+          <div class="cell lo"><span class="arm">Arm 0 · base</span><span class="score">1.00</span></div>
+          <div class="cell hi"><span class="arm">Arm 3 · base</span><span class="score">2.54</span></div>
+
+          <div class="rowhead">LoRA</div>
+          <div class="cell lo"><span class="arm">Arm 1 · LoRA</span><span class="score">0.95</span></div>
+          <div class="cell mid"><span class="arm">Arm 2 · LoRA</span><span class="score">2.40</span></div>
+        </div>
+        <div class="matrix-read">
+          <div class="read-item"><span class="delta up">+1.54</span><p><b>RAG on the base model.</b> Retrieval is the entire engine — a large, consistent lift across every grading dimension.</p></div>
+          <div class="read-item"><span class="delta flat">−0.05</span><p><b>LoRA alone.</b> With no wiki to consult, the baked disposition adds nothing to clean recall.</p></div>
+          <div class="read-item"><span class="delta up">+1.45</span><p><b>RAG on the LoRA model.</b> Retrieval lifts the fine-tuned model by a near-identical margin.</p></div>
+          <div class="read-item"><span class="delta flat">−0.14</span><p><b>LoRA vs. base, both with RAG.</b> Given identical retrieval, baking the disposition is marginally <i>worse</i>, not better.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BODY -->
+  <section class="body">
+    <div class="wrap">
+
+      <div class="sec rv">
+        <span class="sec-num">01 — The hypothesis</span>
+        <h2 class="sec-h">Knowledge in weights, or knowledge in retrieval?</h2>
+        <p>The question, framed in Andrej Karpathy's terms: if you bake a model's <i>disposition</i> into its weights via LoRA — specifically the habit of consulting an external wiki before answering and staying grounded in what it retrieves — is that disposition harder to override than simply prompting it every session?</p>
+        <p>Separately, a cited and auditable RAG wiki holds the facts. The two layers are designed to be complementary and independently updatable: <b>the wiki captures what the organisation knows; the weights capture how it should behave.</b> To test this, we ran a 2×2 factorial across four arms: {base, LoRA-adapted} × {no-RAG, RAG}.</p>
+      </div>
+
+      <div class="sec rv">
+        <span class="sec-num">02 — The model</span>
+        <h2 class="sec-h">Apertus 8B, held constant</h2>
+        <ul class="clean">
+          <li><b>Base model:</b> Apertus 8B (Swiss open-weights, ETH / EPFL), quantized Q4_K_M at inference.</li>
+          <li><b>LoRA variant:</b> QLoRA fine-tuning (SFT → DPO) on a corpus extracted from the live AI development fleet.</li>
+          <li><b>Both arms</b> run at identical quantization — only the weights differ.</li>
+          <li><b>RAG:</b> BM25 retrieval, k = 3 entries per query from a 66-entry wiki.</li>
+          <li><b>System prompt:</b> a minimal 38-word blurb, identical across all four arms — no rules injection.</li>
+        </ul>
+      </div>
+
+      <div class="sec rv">
+        <span class="sec-num">03 — The corpus</span>
+        <h2 class="sec-h">The LoRA fuel</h2>
+        <p>Extracted from roughly 105 days of real agent operation logs (March–June 2026), filtered and classified through a five-gate quality pipeline.</p>
+        <div class="tbl-wrap">
+          <table>
+            <caption>Training corpus after quality gates</caption>
+            <thead><tr><th>Source</th><th class="num">Raw</th><th class="num">After gates</th><th>Training role</th></tr></thead>
+            <tbody>
+              <tr><td>Correction events (mistake + human fix)</td><td class="num">284</td><td class="num">233</td><td>SFT + DPO</td></tr>
+              <tr><td>Lessons (post-session reflections)</td><td class="num">382</td><td class="num">107</td><td>SFT · ≥70% confidence</td></tr>
+              <tr><td>Task execution logs (with scratchpad)</td><td class="num">760</td><td class="num">69</td><td>SFT · quality ≥ 3/5</td></tr>
+              <tr class="total"><td>SFT total</td><td class="num">—</td><td class="num">409</td><td>ChatML format</td></tr>
+              <tr><td>DPO pairs</td><td class="num">262</td><td class="num">51</td><td>Preference alignment</td></tr>
+              <tr><td>Eval holdout</td><td class="num">—</td><td class="num">50</td><td>Never in training</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>DPO pairs encode explicit before/after signal — <span class="mono">prompt</span> is the user turn, <span class="mono">rejected</span> the wrong agent answer, <span class="mono">chosen</span> the corrected behaviour. This is the <b>“consult-and-comply”</b> disposition in its raw training form.</p>
+      </div>
+
+      <div class="sec rv">
+        <span class="sec-num">04 — The wiki</span>
+        <h2 class="sec-h">Facts live here, not in the weights</h2>
+        <p>A frozen, independently citable knowledge base of 66 atomic entries — each one fact, rule, or procedure. Built from the same gold corpus as the LoRA data, but in a different representation.</p>
+        <div class="tbl-wrap">
+          <table>
+            <caption>RAG wiki composition</caption>
+            <thead><tr><th>Category</th><th class="num">Count</th><th>Contents</th></tr></thead>
+            <tbody>
+              <tr><td><span class="tag">R01–R30</span> Rules</td><td class="num">30</td><td>Behavioural protocol: commit hygiene, peer-review, escalation paths</td></tr>
+              <tr><td><span class="tag">F001–F025</span> Facts</td><td class="num">25</td><td>Operational metrics: agent workload, task counts, circuit-breaker stats</td></tr>
+              <tr><td><span class="tag">I001–I005</span> Incidents</td><td class="num">5</td><td>Real post-mortems: self-approval violation, Misty spam incident</td></tr>
+              <tr><td><span class="tag">P001–P006</span> Protocols</td><td class="num">6</td><td>Step-by-step: vault access, PocketBase filter syntax</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:18px"><a class="btn ghost" href="/flotilla_wiki.html">Browse the knowledge wiki →</a></p>
+      </div>
+
+      <div class="sec rv">
+        <span class="sec-num">05 — Design</span>
+        <h2 class="sec-h">EVAL-008 — an in-corpus recall test</h2>
+        <p>50 questions were generated from the 66 wiki entries using Qwen 7B and validated by a 10/10 human acceptance check. Because the questions derive directly from wiki content, this tests whether each arm can retrieve and correctly apply the same facts the wiki holds.</p>
+        <div class="tbl-wrap">
+          <table>
+            <caption>The four arms</caption>
+            <thead><tr><th>Arm</th><th>System prompt</th><th>Retrieval</th><th>What it isolates</th></tr></thead>
+            <tbody>
+              <tr><td><b>0</b> · base, no-RAG</td><td>38-word blurb</td><td>None</td><td>Floor: raw Apertus capability</td></tr>
+              <tr><td><b>1</b> · LoRA, no-RAG</td><td>38-word blurb</td><td>None</td><td>LoRA signal alone</td></tr>
+              <tr><td><b>2</b> · LoRA + RAG</td><td>38-word blurb</td><td>BM25 k=3</td><td>Full stack: baked disposition + retrieval</td></tr>
+              <tr><td><b>3</b> · base + RAG</td><td>38-word blurb</td><td>BM25 k=3</td><td>RAG without LoRA <span class="tag">control</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 class="sub-h">Graders</h3>
+        <p>Two independent blind judges, arm identities shuffled to X/Y/Z/W per question: <b>Qwen 2.5 7B</b> as a fast preview grader, and <b>Claude Opus 4</b> as the human-quality blind judge and primary result set. Three dimensions, each 0–5: <b>grounded</b> (references real facts from the gold entry), <b>correct</b> (factual content is right), and <b>faithful_recall</b> (specific numbers, names, procedures recalled).</p>
+      </div>
+
+      <div class="sec rv">
+        <span class="sec-num">06 — Results</span>
+        <h2 class="sec-h">Retrieval carries it. LoRA does not.</h2>
+        <div class="tbl-wrap">
+          <table>
+            <caption>EVAL-008 · full 2×2 · N = 49 · blind Opus 4 judge</caption>
+            <thead><tr><th>Arm</th><th class="num">Grounded</th><th class="num">Correct</th><th class="num">Faithful</th><th class="num">Composite</th></tr></thead>
+            <tbody>
+              <tr><td>0 · base, no-RAG</td><td class="num">1.18</td><td class="num">1.22</td><td class="num">0.59</td><td class="num">1.00</td></tr>
+              <tr><td>1 · LoRA, no-RAG</td><td class="num">1.06</td><td class="num">1.06</td><td class="num">0.71</td><td class="num">0.95</td></tr>
+              <tr><td>2 · LoRA + RAG</td><td class="num">2.41</td><td class="num">2.51</td><td class="num">2.29</td><td class="num">2.40</td></tr>
+              <tr class="total"><td>3 · base + RAG</td><td class="num">2.55</td><td class="num">2.69</td><td class="num">2.37</td><td class="num">2.54</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Qwen 2.5 7B preview scores agree directionally (inter-rater MAE 1.81/5 across arms 0–2; Opus is systematically stricter on no-RAG arms, but both rank the arms identically).</p>
+        <p><b>Statistical hardening (FLOT-101).</b> Per-question Qwen analysis (N = 49): Arm3 wins 33/49 head-to-heads against Arm2 (67.3%); Arm2 wins 5/49 (10.2%); 11 ties. Bootstrap 95% CI on the Arm2−Arm3 delta: [−1.38, −0.69] (Qwen scores; 10 000 samples, seed 42) — excludes zero, direction robust. Bootstrap 95% CI on the Arm3−Arm0 RAG gain: [+0.76, +1.46] — excludes zero, retrieval effect robust. Full breakdown: <a href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/eval/EVAL008_stats.md">eval/EVAL008_stats.md</a>.</p>
+        <div class="callout">
+          <p class="k">Headline finding</p>
+          <p>In-corpus recall is driven entirely by retrieval (+1.54 Opus composite, +1.10 Qwen, bootstrap CI [+0.76, +1.46]). LoRA adaptation shows no recall benefit whether retrieval is absent (−0.05) or present (−0.14 Opus; −1.02 Qwen, CI [−1.38, −0.69]). Direction is consistent across graders. The baked disposition's value, if any, must be demonstrated under adversarial conditions where prompted rules can be overridden but baked ones cannot.</p>
+        </div>
+      </div>
+
+      <div class="sec rv">
+        <span class="sec-num">07 — Worked examples</span>
+        <h2 class="sec-h">What that looks like, question by question</h2>
+
+        <div class="ex">
+          <h4>Example A — Vault access protocol (Q5)</h4>
+          <p class="gold">Gold: use <span>vault/agent-fetch.sh</span> (or <span>.ps1</span> on Windows) to fetch secrets. Never use .env files. Never commit secrets.</p>
+          <div class="ex-rows">
+            <div class="ex-row"><span class="arm">Arm 2 · LoRA+RAG</span><span class="sc good">5 / 5 / 5</span><span class="said">Named both scripts exactly; stated “never commit / never .env.” Near-verbatim recall.</span></div>
+            <div class="ex-row"><span class="arm">Arm 0 · base</span><span class="sc bad">1 / 1 / 0</span><span class="said">Generic security advice; actively recommended .env files — violates the gold answer.</span></div>
+            <div class="ex-row"><span class="arm">Arm 1 · LoRA</span><span class="sc bad">1 / 1 / 0</span><span class="said">Also recommended .env + encryption. Wrong.</span></div>
+          </div>
+          <p class="ex-note">Neither the base nor the LoRA-alone model knows this procedural fact. LoRA + RAG retrieves and applies it correctly.</p>
+        </div>
+
+        <div class="ex">
+          <h4>Example B — Self-approval violation incident (Q27)</h4>
+          <p class="gold">Gold: Clau approved its own tasks (2 IDs), violating Rule R27 — triggering a no-self-approval lesson and a MANDATORY note in CLAUDE.md.</p>
+          <div class="ex-rows">
+            <div class="ex-row"><span class="arm">Arm 2 · LoRA+RAG</span><span class="sc good">5 / 5 / 5</span><span class="said">Recalled the incident verbatim: task IDs, R27, high-confidence lesson, MANDATORY note.</span></div>
+            <div class="ex-row"><span class="arm">Arm 1 · LoRA</span><span class="sc bad">1 / 0 / 0</span><span class="said">Captured the general concept but missed all specifics.</span></div>
+            <div class="ex-row"><span class="arm">Arm 0 · base</span><span class="sc bad">0 / 0 / 0</span><span class="said">Generic / empty.</span></div>
+          </div>
+        </div>
+
+        <div class="ex">
+          <h4>Example C — PocketBase pagination (Q33) · an edge case</h4>
+          <p class="gold">Gold: PocketBase perPage max is 200. Always check totalItems. Use page=2, page=3 for multi-page fetches.</p>
+          <div class="ex-rows">
+            <div class="ex-row"><span class="arm">Arm 0 · base</span><span class="sc mid">3 / 3 / 2</span><span class="said">Recalled “paginate, API limit, multiple requests” — correct in concept, partially specific.</span></div>
+            <div class="ex-row"><span class="arm">Arm 1 · LoRA</span><span class="sc bad">1 / 1 / 0</span><span class="said">Generic batch-fetch concept, no numbers.</span></div>
+            <div class="ex-row"><span class="arm">Arm 2 · LoRA+RAG</span><span class="sc bad">1 / 1 / 0</span><span class="said">BM25 returned the wrong entry — drifted off-topic. Retrieval mismatch.</span></div>
+          </div>
+          <p class="ex-note">Retrieval quality is the current ceiling: when BM25 mismatches, the RAG arms lose their advantage.</p>
+        </div>
+      </div>
+
+      <div class="sec rv">
+        <span class="sec-num">08 — Interpretation</span>
+        <h2 class="sec-h">What the 2×2 tells us — and what it doesn't</h2>
+        <ul class="clean">
+          <li><b>Retrieval is the engine.</b> +1.54 composite from adding RAG to the base model, consistent across all three dimensions. The wiki works.</li>
+          <li><b>LoRA alone is neutral-to-negative.</b> −0.05 on clean recall. The baked disposition has nothing to retrieve from — no net benefit without the wiki.</li>
+          <li><b>With the same wiki, the base model is marginally better.</b> −0.14 for LoRA+RAG vs base+RAG. On cooperative queries with clean retrieval, baking the disposition adds a little noise, not signal.</li>
+          <li><b>Retrieval quality is the ceiling.</b> A single BM25 mismatch drops a RAG arm to base level. Dense embeddings + a reranker would lift every RAG arm.</li>
+        </ul>
+        <div class="callout teal">
+          <p class="k">What this does not close</p>
+          <p>Every arm here got cooperative prompts and clean retrieval — conditions under which the base model already complies, so there is nothing to enforce. The −0.14 says only that baking the disposition doesn't help recall when everything cooperates. It says nothing about what happens when an adversarial instruction tries to override the wiki. That is where the LoRA must earn its keep.</p>
+        </div>
+      </div>
+
+      <div class="sec rv">
+        <span class="sec-num">09 — Run it yourself</span>
+        <h2 class="sec-h">The model is public</h2>
+        <p>The fine-tune is published as a single Q4_K_M GGUF (4.7 GB) with a model card and Modelfile. It runs fully locally, no cloud dependency. One line with Ollama:</p>
+        <div class="code">
+          <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="f">ollama</span></div>
+          <pre><span class="p">ollama</span> run hf.co/ursushoribilis/apertus-flotilla:Q4_K_M</pre>
+        </div>
+        <p>Or build a Modelfile with the fleet-agent system prompt baked in:</p>
+        <div class="code">
+          <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="f">quick-start</span></div>
+          <pre><span class="c"># download the GGUF</span>
+huggingface-cli download ursushoribilis/apertus-flotilla <span class="s">apertus-flotilla-Q4_K_M.gguf</span>
+
+<span class="c"># create a Modelfile</span>
+cat &gt; Modelfile &lt;&lt;<span class="s">'EOF'</span>
+FROM ./apertus-flotilla-Q4_K_M.gguf
+SYSTEM <span class="s">"""You are a capable engineering agent working within a
+multi-agent fleet. You follow the heartbeat protocol, respect
+project scope, respond precisely to corrections, verify work
+before claiming completion, and never confuse project contexts."""</span>
+PARAMETER temperature 0.7
+PARAMETER num_ctx 16384
+<span class="s">EOF</span>
+
+<span class="c"># register and run</span>
+<span class="p">ollama</span> create apertus-flotilla -f Modelfile
+<span class="p">ollama</span> run apertus-flotilla</pre>
+        </div>
+        <p>Also available via llama.cpp, LM Studio, vLLM, and Docker Model Runner — see the <a href="https://huggingface.co/ursushoribilis/apertus-flotilla">model card</a>. Corpus, format reference, and training guide are in the <a href="https://github.com/UrsushoribilisMusic/flotilla-corpus">companion repository</a>.</p>
+      </div>
+
+      <div class="sec rv">
+        <span class="sec-num">10 — Next</span>
+        <h2 class="sec-h">Where this goes</h2>
+        <div class="steps">
+          <div class="step lead">
+            <span class="id">EVAL-009</span>
+            <div>
+              <h4>Adversarial enforcement test</h4>
+              <p>The experiment the LoRA thesis now depends on. Arm 2 (LoRA+RAG) vs Arm 3 (base+RAG) — identical retrieval, different weight source — under prompt-injection attacks, omitted-context degradation, and role-override instructions. Rubric: resisted / grounded / leaked. If the baked disposition resists where a prompted rule folds, the LoRA is justified as a sovereignty mechanism. If both fold, the product is base + RAG and we've proven it rigorously. Either outcome is publishable.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="id">9.2</span>
+            <div>
+              <h4>Role-based pre-prompting</h4>
+              <p>Authenticated role selection generates a tailored system prompt and query macro before the question arrives — a low-cost addition to the Arm 3 stack. Also sidesteps the version-sync problems of maintaining per-vertical LoRA models at scale.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="id">9.3</span>
+            <div>
+              <h4>Rolling context compression</h4>
+              <p>Apertus 8B's 64K window fills fast with retrieval + role prompt + multi-turn history. Reset each turn; re-inject the role prompt, fresh retrieval, and a compact summary of the previous exchange. Implementable today, no model change.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="id">9.4</span>
+            <div>
+              <h4>Apertus next generation</h4>
+              <p>A new Apertus with multimodal input and a larger window is expected shortly. The wiki and LoRA data are model-agnostic — migration is a re-quantise and re-fine-tune pass. Lock the EVAL-009 baseline on 8B first, then repeat the 2×2 to measure the generation-over-generation lift.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="id">9.5</span>
+            <div>
+              <h4>Better retrieval</h4>
+              <p>Replace BM25 with dense vector retrieval + a lightweight reranker. Highest-leverage single improvement to the stack — fewer mismatches, higher faithful recall across every RAG arm, no retraining.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec rv">
+        <span class="sec-num">Caveats</span>
+        <h2 class="sec-h">Limitations</h2>
+        <ul class="clean caveats">
+          <li>n = 49 questions, one corpus, one 8B model, one grader. Effect sizes are directional. Bootstrap CIs are computed on Qwen per-question scores; Opus per-question data for Arm 3 was not stored (4-arm grading run produced aggregate composites only).</li>
+          <li>The −0.14 Opus aggregate delta (arm2−arm3) is small. Per-question Qwen analysis (33/49 arm3 wins, bootstrap CI [−1.38, −0.69]) confirms the direction is consistent: base+RAG ≥ LoRA+RAG under equal retrieval. The right conclusion is “no recall benefit detected for LoRA,” not “LoRA is harmful.”</li>
+          <li>In-corpus questions only. Out-of-corpus generalisation is a separate run with a different pattern, reported separately.</li>
+          <li>Adversarial conditions are untested. The enforceability claim for the LoRA remains an open hypothesis — the subject of EVAL-009.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="disc">
+      <b>Working paper — BigBear Engineering GmbH · Miguel Rodriguez.</b> Preliminary findings, not for citation without permission. Code, grading files, and raw result JSONL available on request. Arm 3 Opus grades validated via blind four-arm batch. EVAL-009 (adversarial) is the planned follow-on.
+    </div>
+    <div class="links">
+      <a href="https://huggingface.co/ursushoribilis/apertus-flotilla">Model · Hugging Face</a>
+      <a href="https://github.com/UrsushoribilisMusic/flotilla-corpus">Corpus · GitHub</a>
+      <a href="/flotilla_wiki.html">Knowledge Wiki</a>
+      <a href="https://api.robotross.art/atf">Robot Ross · ATF</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var els = document.querySelectorAll('.rv');
+    if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      els.forEach(function(e){e.classList.add('in')});
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+    els.forEach(function(e){io.observe(e)});
+  })();
+</script>
+</body>
+</html>

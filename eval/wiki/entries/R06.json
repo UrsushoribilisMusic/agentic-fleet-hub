@@ -1,0 +1,7 @@
+{
+  "id": "R06",
+  "title": "Verify current system state before proposing or taking action",
+  "body": "Query PocketBase for task assignments, check build tags, read the latest standup before advising on next steps. State changes between sessions — assume it has changed and confirm before acting.",
+  "source_ref": "rules.md:R06; corrections — 35 instances where action was taken on stale state",
+  "type": "rule"
+}

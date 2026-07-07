@@ -1,0 +1,7 @@
+{
+  "id": "P005",
+  "title": "Secrets and vault access protocol",
+  "body": "Never commit secrets or API keys. Never create .env files. Fetch secrets at runtime using vault/agent-fetch.sh (Unix) or vault/agent-fetch.ps1 (Windows). See vault/README.md for usage. Sensitive information must never be passed in Markdown files, task comments, or standup entries.",
+  "source_ref": "AGENTS/RULES.md Secrets & Safety; CLAUDE.md mandate",
+  "type": "protocol"
+}

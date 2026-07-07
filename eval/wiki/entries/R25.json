@@ -1,0 +1,7 @@
+{
+  "id": "R25",
+  "title": "Write a structured session summary to PROGRESS.md at session end",
+  "body": "Record what was completed (with ticket IDs and commit hashes), what is pending, and any blockers or handoffs. PROGRESS.md is the primary signal for the next agent and the dispatcher. An absent or stale PROGRESS.md leaves the next session blind.",
+  "source_ref": "rules.md:R25; CLAUDE.md Phase 6; RUNTIME.md — clau/PROGRESS.md path",
+  "type": "rule"
+}

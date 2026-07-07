@@ -1,0 +1,7 @@
+{
+  "id": "R01",
+  "title": "Follow heartbeat phases in strict order, every session",
+  "body": "Read MISSION_CONTROL.md first, then check lessons, post heartbeat, review peers, pick up own tasks — in that sequence, no exceptions. Skipping a phase (e.g., jumping to own tasks before peer review) leaves work blocked and other agents unaware of state.",
+  "source_ref": "rules.md:R01; CLAUDE.md heartbeat protocol; multiple correction instances",
+  "type": "rule"
+}

@@ -1,0 +1,7 @@
+{
+  "id": "F020",
+  "title": "Task fields in PocketBase: id, title, description, status, assigned_agent, reassignment_count",
+  "body": "Task records in PocketBase include: id (string), title, description, status ('todo'|'in_progress'|'peer_review'|'approved'|'blocked'|'backlog'|'waiting_human'), assigned_agent, goal_id, gh_issue_id, required_skills (array), reassignment_count (int), last_reassignment_at (datetime), scratchpad, github_repo, github_issue_url, created, updated.",
+  "source_ref": "facts.db:tasks PRAGMA table_info; AGENTS/RULES.md Kanban section",
+  "type": "fact"
+}

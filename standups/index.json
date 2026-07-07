@@ -1,5 +1,20 @@
 [
   {
+    "date": "2026-07-07",
+    "summary": "Clau: FLOT-101 EVAL-008 stats hardening \u2014 arm3 Qwen grading, bootstrap CIs, rater agreement, paper update",
+    "file": "2026-07-07.md"
+  },
+  {
+    "date": "2026-07-06",
+    "summary": "Clau: FLOT-102 \u2014 reconcile HF card with 4-arm blind Opus numbers (1.00/0.95/2.40/2.54); Arm 3 added, 39-of-49 framing removed, LoRA-beats-base claim corrected, eval page linked. Pushed to flotilla-corpus/main. | FLOT-104: EVAL-009 adversarial enforcement; LoRA 57% vs prompt 93% (-37pp); committed 4aef9911.",
+    "file": "2026-07-06.md"
+  },
+  {
+    "date": "2026-07-06",
+    "summary": "Gem: Closed Dental Domain Kit project per customer request. Updated Classical Remix Campaign Phases (P6 active since July 3rd, P5 completed/recalculated). Set active campaign budgets for Celtic and Vallenato to 4.00 CHF/day. Injected YOUTUBE_API_KEY into remote server and restarted service to fix YouTube subscriber count API updates, setting SEEDED_TOTAL_SUBSCRIBERS fallback to 2422.",
+    "file": "2026-07-06-gem-financial-ops.md"
+  },
+  {
     "date": "2026-06-23",
     "summary": "Gem: FX-021 manifest/README with honest counts, provenance, and hashes written; pipeline regenerated and verified.",
     "file": "2026-06-23-gem.md"

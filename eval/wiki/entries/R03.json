@@ -1,0 +1,7 @@
+{
+  "id": "R03",
+  "title": "PATCH task status to 'todo' after posting peer review rejection",
+  "body": "Posting a comment or feedback record alone does NOT change task status. Always follow every peer review rejection with a PATCH to the task record setting status=todo. Omitting this leaves tasks stuck in peer_review indefinitely, blocking the assigned agent.",
+  "source_ref": "rules.md:R03; lessons — 'Always PATCH task status after NOT APPROVED'; corrections — 17 status-mismatch instances",
+  "type": "rule"
+}

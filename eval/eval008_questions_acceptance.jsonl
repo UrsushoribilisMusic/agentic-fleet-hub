@@ -1,0 +1,66 @@
+{
+  "passed": 10,
+  "total": 10,
+  "samples": [
+    {
+      "q_id": 40,
+      "gold": "F023",
+      "passed": true,
+      "verdict": "YES\n\nThe question is genuinely answerable from the entry content, which states that to create a new task, one should open a GitHub Issue, and as a result, the Dispatcher will import it into PocketBase"
+    },
+    {
+      "q_id": 10,
+      "gold": "P004",
+      "passed": true,
+      "verdict": "YES\n\nThe question can be genuinely answered from the entry content as it provides a clear sequence of steps and corresponding API calls for reviewing and approving a peer's task."
+    },
+    {
+      "q_id": 43,
+      "gold": "F024",
+      "passed": true,
+      "verdict": "YES\n\nAccording to the described workflow, if an agent completes a task without making any commits and exits successfully, the status of the task will be reset to todo (task re-dispatched)."
+    },
+    {
+      "q_id": 27,
+      "gold": "I003",
+      "passed": true,
+      "verdict": "YES\n\nClau's action of approving its own tasks violated Rule R27, leading to a lesson on the explicit no-self-approval protocol."
+    },
+    {
+      "q_id": 38,
+      "gold": "F020",
+      "passed": true,
+      "verdict": "YES\n\nAn increase in `reassignment_count` implies that the task has been reassigned to different agents multiple times, which might indicate workflow issues or challenges in task completion within the "
+    },
+    {
+      "q_id": 4,
+      "gold": "F017",
+      "passed": true,
+      "verdict": "YES\n\nThe question can be answered based on the entry content, as it provides the number of active days for each agent, allowing us to determine which agent had the longest period of consistent activit"
+    },
+    {
+      "q_id": 24,
+      "gold": "R21",
+      "passed": true,
+      "verdict": "YES\n\nThe AI agent should check if the specified path (`/opt/salesman-api/`) maps to the correct location on the actual machine because the paths may differ between environments, and using the wrong lo"
+    },
+    {
+      "q_id": 47,
+      "gold": "F014",
+      "passed": true,
+      "verdict": "YES\n\nThe entry states that the evaluation holdout set contains 50 questions, selected via sha1 mod 8 deterministic sampling, representing approximately 12.5% of the records."
+    },
+    {
+      "q_id": 45,
+      "gold": "R14",
+      "passed": true,
+      "verdict": "YES\n\nThe question is genuinely answerable from the entry content because the instructions provided in the entry directly address how to handle a list of issues submitted by a user, ensuring effective "
+    },
+    {
+      "q_id": 29,
+      "gold": "F005",
+      "passed": true,
+      "verdict": "YES\n\nThe 81% ratio suggests that most tasks are frequently reset without reaching peer_review, likely due to context loss, quota constraints, or session end, indicating potential issues with task cont"
+    }
+  ]
+}

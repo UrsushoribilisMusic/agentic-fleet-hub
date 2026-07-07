@@ -1,0 +1,7 @@
+{
+  "id": "F014",
+  "title": "Eval holdout set: 50 questions, ~12.5% of corrections corpus",
+  "body": "The evaluation holdout set (out/eval/eval.jsonl) contains 50 questions, selected via sha1 mod 8 deterministic sampling (approximately 12.5% of records). This set is strictly held out and never enters training (SFT or DPO). Format: ChatML with system prompt + user question + expected assistant response.",
+  "source_ref": "FX-020 MISSION_CONTROL.md entry; out/eval/eval.jsonl",
+  "type": "fact"
+}

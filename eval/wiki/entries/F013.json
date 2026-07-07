@@ -1,0 +1,7 @@
+{
+  "id": "F013",
+  "title": "DPO dataset: 262 triples (prompt/chosen/rejected)",
+  "body": "The DPO (Direct Preference Optimization) dataset contains 262 triples. 8 additional peer-review DPO pairs were extracted by FX-008 from 752 tasks: 609 with approvals, 5 with rejections, 5 with both. Chosen = last output before approval; rejected = last output before rejection signal.",
+  "source_ref": "FX-020 MISSION_CONTROL.md entry; FX-008 peer_review_dpo.jsonl",
+  "type": "fact"
+}

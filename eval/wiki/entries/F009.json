@@ -1,0 +1,7 @@
+{
+  "id": "F009",
+  "title": "Circuit breaker fired 32 times across the pre-cutoff corpus",
+  "body": "32 circuit_breaker events were recorded before cutoff 2026-06-22. The most affected task was 8sto1zdn9dljy98 (TCR-15: Configure Google Ads OpenClaw executor), which accumulated 39 total reassignments and triggered the circuit breaker multiple times on 2026-04-10 before eventually being resolved.",
+  "source_ref": "facts.db:task_events WHERE event_type='circuit_breaker'; task_events by task_id aggregation",
+  "type": "fact"
+}

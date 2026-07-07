@@ -1,0 +1,7 @@
+{
+  "id": "F002",
+  "title": "Task volume: 760 total, 757 approved, 3 backlog (pre-cutoff)",
+  "body": "As of cutoff 2026-06-22, the PocketBase tasks collection contained 760 records: 757 with status 'approved' and 3 with status 'backlog'. No tasks in todo, in_progress, or peer_review remained at cutoff.",
+  "source_ref": "facts.json:task_status_distribution; facts.db:tasks (cutoff 2026-06-22)",
+  "type": "fact"
+}

@@ -1,0 +1,7 @@
+{
+  "id": "R14",
+  "title": "Break multi-point feedback into numbered discrete items; check state for each",
+  "body": "When the user provides a list of UI issues, bug reports, or feature requests, treat each as a separate ticket. Check current code state before touching anything. Confirm understanding of each item before fixing. Do not conflate multiple items into one fix.",
+  "source_ref": "rules.md:R14; corrections — 99 UI feedback instances",
+  "type": "rule"
+}

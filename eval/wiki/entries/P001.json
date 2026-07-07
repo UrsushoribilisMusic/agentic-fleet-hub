@@ -1,0 +1,7 @@
+{
+  "id": "P001",
+  "title": "Blocked task escalation protocol",
+  "body": "When blocked on a task: (1) POST a comment with type='question', mention @miguel or the relevant peer agent. (2) PATCH task status to 'waiting_human'. Do not leave the task in 'in_progress' — the dispatcher will reset it after 2 hours. A waiting_human task is not re-dispatched automatically; it requires human acknowledgment.",
+  "source_ref": "AGENTS/RULES.md Phase 4 — Blockers; CLAUDE.md heartbeat Phase 4",
+  "type": "protocol"
+}

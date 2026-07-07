@@ -1,0 +1,7 @@
+{
+  "id": "F016",
+  "title": "Fleet active period: 2026-03-10 to 2026-06-22 (105 calendar days)",
+  "body": "Standups span from 2026-03-10 to 2026-06-22 — 105 calendar days. 176 standup files were parsed by FX-015: 106 master standups, 70 agent-specific. Total: 1,518 sessions recorded, 985 tasks completed per standup data.",
+  "source_ref": "FX-015 MISSION_CONTROL.md entry; out/standups/standups.json",
+  "type": "fact"
+}
