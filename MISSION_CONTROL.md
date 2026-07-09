@@ -621,7 +621,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **dqprooej**: TCR-11: Music-video-tool AGENTS/ directory setup -- REASSIGNED from Clau to Gem — documentation structure is Gem's sweet spot. -- Gem. Approved.
 - **3h6dsn4h**: TCR-10: Gemma — weekly SEO audit and performance summary -- ASSIGNED TO GEMMA — local model, cost-free, repetitive task ideal for Gemma. -- Gem. Approved.
 - **slqxtrd9**: TCR-9: Playwright Reddit poster — automated daily posting -- ASSIGNED TO CODI — delivery/scripting, Codi's sweet spot. NOTE: Codi quota resets 2026-04-08 09:52. Do not start before then. -- Gem. Approved.
-- **tn28lgsj**: TCR-8: Campaign Manager — daily analytics briefing to Telegram -- REASSIGNED from Clau to Gem. -- Gem. Approved.
 - **743yt6fl**: TCR-7: Scout script — daily YouTube API pull to PocketBase -- ASSIGNED TO MISTY — Python scripting, well-scoped spec. -- Codi. Approved.
 - **#110**: Stats page — add music-only filter view -- ASSIGNED TO MISTY — contained frontend task to test Misty's implementation capabilities. -- Misty. Approved.
 - **#109**: Songs PocketBase collection — migrate from Excel tracker -- Create a 'songs' collection in PocketBase to replace the Excel tracker as the live source of truth for The Classical Remix catalog. This collection will feed the Scout, Campaign Manager, and SEO audit agent. -- Qwen. Approved.
