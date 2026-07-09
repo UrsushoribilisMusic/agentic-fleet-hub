@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-07-09",
+    "summary": "Clau: Robot Ross — switched demo brain to Mistral (ministral-3:8b) for narration, SVG scene composition, chat, and freeform sketch generation (was Apertus/Haiku), Apertus kept as fallback via --brain. Fixed several bugs found along the way: Ollama timeouts too short (narration/sketch silently falling back to filler text or dying), bob_ross.py blocked drawing start on the LLM call (now async), huenit_write.py NameError crashing multi-line writes after line 1, TTS engine dropdown defaulting wrong and not wired up. Retired stale windows-local branch. robot-ross master 8956bee (not pushed).",
+    "file": "2026-07-09.md"
+  },
+  {
     "date": "2026-07-07",
     "summary": "Clau: FLOT-101 EVAL-008 stats hardening + FLOT-103 GEPA prompt-optimization harness (teacher/student Pareto, dspy, Apertus 8B student, qwen3-coder:30b teacher, baseline coop=0.767 adv=0.812). Peer reviewed FX-IRR-GEM (Gem, approved).",
     "file": "2026-07-07.md"
