@@ -27,7 +27,7 @@ Machine / runtime prerequisites
     Local Ministral / Ollama requires:
         ollama serve                     # starts the daemon on :11434
     At least one of these models must be pulled (pull once, reuse forever):
-        ollama pull ministral-3b-latest                              # preferred
+        ollama pull ministral-3:8b                                     # preferred (Ministral 3 family, official)
         ollama pull MichelRosselli/apertus:8b-instruct-2509-q4_k_m   # generic fallback
         ollama pull gemma4:e4b                                         # alt
         ollama pull gemma:latest                                       # baseline
@@ -107,6 +107,7 @@ MISTRAL_HOSTED_MODELS: List[str] = ["mistral-medium-3-5", "mistral-large-2512"]
 
 # Substring keywords in priority order — first match in available Ollama models wins.
 MINISTRAL_MODEL_PRIORITY: List[str] = [
+    "ministral-3:8b",      # official Ollama library tag (Ministral 3 family, 8B) — preferred
     "ministral-3b-latest",
     "ministral-3b-2512",
     "ministral:3b",
@@ -625,7 +626,7 @@ def main() -> None:
             Prerequisites (one-time setup):
               export MISTRAL_API_KEY=...       # hosted Mistral; env only
               ollama serve
-              ollama pull ministral-3b-latest
+              ollama pull ministral-3:8b
               ollama pull MichelRosselli/apertus:8b-instruct-2509-q4_k_m
               ollama pull gemma:latest     # alternative
 

@@ -3,11 +3,12 @@
 ATF Local Server — serves the ATF static site and exposes a /api/qa endpoint.
 
 Usage:
-    python3 ATF/tools/atf_local_server.py [--port 8770]
+    python3 ATF/tools/atf_local_server.py [--port 8771]
 
-Then open http://localhost:8770/ in your browser.
-The "Local Reasoning Session" on the landing page will call the real Apertus model
-instead of rotating mock examples.
+Then open http://localhost:8771/ in your browser.
+The "Local Reasoning Session" on the landing page will call the real model
+(hosted Mistral, or local Ministral 3 8B via Ollama) instead of rotating
+mock examples.
 
 Endpoints:
     GET  /           → serves ATF/index.html
