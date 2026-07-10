@@ -121,6 +121,12 @@ class ATFHandler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(data)
 
+    def do_HEAD(self):
+        # Some browsers send HEAD as a preflight/prefetch check before
+        # navigating; without this, BaseHTTPRequestHandler 501s it, which
+        # can make a plain link/window.open() silently fail to load.
+        self.do_GET()
+
     def do_OPTIONS(self):
         # CORS preflight
         self.send_response(200)
