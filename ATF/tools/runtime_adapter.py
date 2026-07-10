@@ -1,47 +1,57 @@
 #!/usr/bin/env python3
 """
-ATF Runtime Adapter — hosted Mistral plus local model invocation.
+ATF Runtime Adapter — local-first model invocation, hosted Mistral opt-in.
 
 This module is the stable interface layer between callers (atf_qa.py, future
 CLI tools) and the local model runtime.  Callers import this module and call
 ``query(prompt)``; they never need to know whether the backend is hosted
 Mistral, local Ministral, aichat, Ollama, or corpus-only fallback.
 
+By default nothing leaves the machine: the local Ministral model is tried
+first. Hosted Mistral is available but opt-in only (--backend hosted or
+BACKEND=hosted) — this keeps the "local reasoning, no cloud dependency"
+story true out of the box.
+
 Public interface
 ----------------
-    query(prompt, model=None, timeout=120) -> str
+    query(prompt, model=None, timeout=120, backend=None) -> str
     list_models() -> list[str]
 
 CLI usage
 ---------
     python3 ATF/tools/runtime_adapter.py --check
     python3 ATF/tools/runtime_adapter.py --list-models
-    python3 ATF/tools/runtime_adapter.py "Your prompt here"
-    python3 ATF/tools/runtime_adapter.py --backend local --model ministral "Explain X."
+    python3 ATF/tools/runtime_adapter.py "Your prompt here"                  # local Ministral (default)
+    python3 ATF/tools/runtime_adapter.py --backend hosted "Your prompt here" # opt into hosted Mistral
+    python3 ATF/tools/runtime_adapter.py --backend ollama --model apertus "Explain X."
     echo "Hello" | python3 ATF/tools/runtime_adapter.py --stdin
 
 Machine / runtime prerequisites
 --------------------------------
-    Hosted Mistral requires:
-        MISTRAL_API_KEY=<key>            # read from env only
-    Local Ministral / Ollama requires:
+    Local Ministral / Ollama (default) requires:
         ollama serve                     # starts the daemon on :11434
     At least one of these models must be pulled (pull once, reuse forever):
         ollama pull ministral-3:8b                                     # preferred (Ministral 3 family, official)
         ollama pull MichelRosselli/apertus:8b-instruct-2509-q4_k_m   # generic fallback
         ollama pull gemma4:e4b                                         # alt
         ollama pull gemma:latest                                       # baseline
+    Hosted Mistral (opt-in, --backend hosted) requires:
+        MISTRAL_API_KEY=<key>            # read from env only
     Python >= 3.9, standard library only — no pip install required.
     Optional: aichat in PATH (secondary fallback if Ollama is unreachable).
 
 Model selection
 ---------------
-    Default fallback chain:
-        1. Mistral hosted   — mistral-medium-3-5, then mistral-large-2512
-        2. Ministral local  — local Ministral 3B tags via Ollama
-        3. aichat           — subprocess fallback
-        4. Ollama generic   — Apertus/Gemma/first pulled model
-        5. corpus-only      — callers catch RuntimeError and answer from corpus
+    Default fallback chain (BACKEND unset / --backend auto or local):
+        1. Ministral local  — local Ministral 3 tags via Ollama
+        2. aichat           — subprocess fallback
+        3. Ollama generic   — Apertus/Gemma/first pulled model
+        4. corpus-only      — callers catch RuntimeError and answer from corpus
+    --backend hosted / BACKEND=hosted prepends hosted Mistral (mistral-medium-3-5,
+    then mistral-large-2512) to the front of that chain.
+    An explicit --model hint that names a backend (e.g. "apertus", "ministral",
+    "mistral-hosted:...") overrides the default chain for that call, so picking
+    a specific model always works even under the local-first default.
     Set BACKEND or --backend to auto, hosted, local, aichat, ollama, or
     corpus-only.  Set OLLAMA_HOST to override localhost:11434.
 
@@ -58,8 +68,8 @@ Output conventions
 
 Failure modes
 -------------
-    Hosted unavailable      -> falls through to local Ministral unless forced
     Local Ministral missing -> falls through to aichat / generic Ollama
+    Hosted requested/unavailable -> falls through to local Ministral
     All model backends miss -> RuntimeError so caller can use corpus-only
     Model not found         -> warning printed; auto-selection used instead
     Empty model response    -> RuntimeError (not silent empty string)
@@ -134,7 +144,10 @@ def _backend_plan(backend: Optional[str] = None) -> List[str]:
     """Return the ordered backends to try for the requested mode."""
     selected = _normalize_backend(backend)
     plans = {
-        "auto": ["hosted", "local", "aichat", "ollama"],
+        # Local-first by default — never touches the cloud unless explicitly
+        # asked to (--backend hosted / BACKEND=hosted). Keeps the "local
+        # reasoning, no cloud dependency" story true out of the box.
+        "auto": ["local", "aichat", "ollama"],
         "hosted": ["hosted", "local", "aichat", "ollama"],
         "local": ["local", "aichat", "ollama"],
         "aichat": ["aichat", "ollama"],
@@ -142,6 +155,25 @@ def _backend_plan(backend: Optional[str] = None) -> List[str]:
         "corpus-only": [],
     }
     return plans[selected]
+
+
+def _infer_backend_from_model(model: Optional[str]) -> Optional[str]:
+    """
+    If an explicit model hint clearly identifies a backend (e.g. picked from
+    the model dropdown), use it — an explicit model selection should win
+    over the local-first default policy, not get silently ignored by it.
+    """
+    if not model:
+        return None
+    lowered = model.lower()
+    if lowered.startswith("mistral-hosted:") or lowered.startswith("mistral-") or \
+            lowered in (m.lower() for m in MISTRAL_HOSTED_MODELS):
+        return "hosted"
+    if "ministral" in lowered:
+        return "local"
+    if "apertus" in lowered or "gemma" in lowered:
+        return "ollama"
+    return None
 
 
 def _backend_label(model_name: str) -> str:
@@ -173,7 +205,12 @@ def _select_hosted_model(hint: Optional[str] = None) -> str:
             deduped.append(candidate)
 
     if hint:
+        # Strip the "mistral-hosted:" list_models() prefix if present, so
+        # selecting the exact dropdown-listed name still resolves correctly.
         lowered = hint.lower()
+        if lowered.startswith("mistral-hosted:"):
+            lowered = lowered.split(":", 1)[1]
+            hint = hint.split(":", 1)[1]
         for model_name in deduped:
             if lowered in model_name.lower():
                 return model_name
@@ -490,9 +527,14 @@ def query_with_model(
     ``model_name`` is prefixed for Mistral backends:
     ``mistral-hosted:<model-id>`` or ``ministral-local:<ollama-tag>``.
     Generic Ollama returns the full model tag and aichat returns ``"aichat"``.
+
+    An explicit *model* hint that clearly names a backend (e.g. picking
+    ``"mistral-hosted:mistral-medium-3-5"`` or ``"apertus"`` from a model
+    list) overrides the local-first default so explicit choices always win.
     """
+    effective_backend = backend or _infer_backend_from_model(model)
     errors = []
-    for candidate in _backend_plan(backend):
+    for candidate in _backend_plan(effective_backend):
         try:
             if candidate == "hosted":
                 text, used_model = _mistral_hosted_generate(prompt, model, timeout)
@@ -630,7 +672,9 @@ def main() -> None:
               ollama pull MichelRosselli/apertus:8b-instruct-2509-q4_k_m
               ollama pull gemma:latest     # alternative
 
-            Backend fallback priority:
+            Backend fallback priority (default, local-first):
+              Ministral local -> aichat -> Ollama -> corpus-only
+            With --backend hosted / BACKEND=hosted, Mistral hosted is tried first:
               Mistral hosted -> Ministral local -> aichat -> Ollama -> corpus-only
 
             Environment:
