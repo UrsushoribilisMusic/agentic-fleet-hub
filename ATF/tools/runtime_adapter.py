@@ -147,10 +147,17 @@ def _backend_plan(backend: Optional[str] = None) -> List[str]:
         # Local-first by default — never touches the cloud unless explicitly
         # asked to (--backend hosted / BACKEND=hosted). Keeps the "local
         # reasoning, no cloud dependency" story true out of the box.
-        "auto": ["local", "aichat", "ollama"],
-        "hosted": ["hosted", "local", "aichat", "ollama"],
-        "local": ["local", "aichat", "ollama"],
-        "aichat": ["aichat", "ollama"],
+        #
+        # Deliberately does NOT auto-fall-through to the generic "ollama"
+        # stage (Apertus/Gemma) on a local-Ministral timeout: that stage
+        # loads a second, different model on the same CPU-only box, which
+        # compounds load-induced contention instead of recovering from it.
+        # Apertus/Gemma are not used in the hackathon demo — still reachable
+        # via explicit --backend ollama, just never auto-triggered.
+        "auto": ["local", "aichat"],
+        "hosted": ["hosted", "local", "aichat"],
+        "local": ["local", "aichat"],
+        "aichat": ["aichat"],
         "ollama": ["ollama"],
         "corpus-only": [],
     }
