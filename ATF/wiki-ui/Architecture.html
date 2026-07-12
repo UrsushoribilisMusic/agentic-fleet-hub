@@ -423,6 +423,7 @@ button[disabled] {
 <h3>Overview</h3><ul>
 <li><a href="Overview.html">Overview</a></li>
 <li><a href="Architecture.html" style="font-weight:700">Architecture</a></li>
+<li><a href="mexico_run_summary.html">mexico_run_summary</a></li>
 </ul>
 <h3>Subsystems</h3><ul>
 <li><a href="CommerceLayer.html">Commerce Layer</a></li>
@@ -458,12 +459,12 @@ button[disabled] {
 <ul>
 <li><strong>Input channels</strong>: Shopify orders, Telegram or scripted commands, and the live voice showcase.</li>
 <li><strong>Conversation and control</strong>: <code>chat_ross.py</code> handles interactive voice sessions, while <code>bob_ross.py</code> acts as the main orchestrator for <code>write</code>, <code>draw</code>, <code>svg</code>, <code>sketch</code>, <code>check</code>, and <code>calibrate</code>.</li>
-<li><strong>Model path</strong>: Claude Haiku 4.5 is used for control/commerce-side reasoning, while Apertus 8B via Ollama is used for local narration and parsing tasks. Some voice/TTS flows also reference Kokoro, Voxtral, and system fallback engines depending on runtime mode.</li>
+<li><strong>Model path</strong>: Claude Haiku 4.5 is used for control/commerce-side reasoning, while Mistral (<code>ministral-3:8b</code> via Ollama, local-first) is used for local narration, sketch generation, and parsing tasks by default, with Apertus 8B available as an explicit fallback. Some voice/TTS flows also reference Kokoro, Voxtral, and system fallback engines depending on runtime mode.</li>
 <li><strong>Execution layer</strong>: Huenit control scripts convert text, sketches, or SVGs into G-code streamed to the robot arm.</li>
 <li><strong>Studio output</strong>: OBS records the drawing session, order data is written into the ledger, and customer-facing proof/output is produced from that recorded session.</li>
 </ul>
 <h2 id="3-robotross-architecture-layers">3. RobotRoss Architecture Layers</h2>
-<table><thead><tr><th>Layer</th><th>Component</th><th>Description</th></tr></thead><tbody><tr><td><strong>Input</strong></td><td><strong>Shopify, Telegram, Voice Showcase</strong></td><td>Human prompts, uploaded designs, or spoken requests enter through commerce, messaging, or live demo channels.</td></tr><tr><td><strong>Control</strong></td><td><strong><code>chat_ross.py</code> + <code>bob_ross.py</code></strong></td><td>Interactive session handling and the main job orchestrator decide what the robot should do next.</td></tr><tr><td><strong>Models</strong></td><td><strong>Claude Haiku 4.5, Apertus 8B, Whisper, Kokoro/Voxtral</strong></td><td>Planning, narration, STT, and spoken output are split across purpose-specific model components.</td></tr><tr><td><strong>Execution</strong></td><td><strong>Huenit scripts + robot arm</strong></td><td>SVG conversion, drawing, calligraphy, calibration, and pyrography are executed against the physical arm.</td></tr><tr><td><strong>Output</strong></td><td><strong>OBS, order ledger, shipped artwork</strong></td><td>Sessions are recorded, logged, linked back to the customer journey, and turned into video proof and physical delivery.</td></tr></tbody></table>
+<table><thead><tr><th>Layer</th><th>Component</th><th>Description</th></tr></thead><tbody><tr><td><strong>Input</strong></td><td><strong>Shopify, Telegram, Voice Showcase</strong></td><td>Human prompts, uploaded designs, or spoken requests enter through commerce, messaging, or live demo channels.</td></tr><tr><td><strong>Control</strong></td><td><strong><code>chat_ross.py</code> + <code>bob_ross.py</code></strong></td><td>Interactive session handling and the main job orchestrator decide what the robot should do next.</td></tr><tr><td><strong>Models</strong></td><td><strong>Claude Haiku 4.5, Mistral (default) / Apertus 8B (fallback), Whisper, Kokoro/Voxtral</strong></td><td>Planning, narration, STT, and spoken output are split across purpose-specific model components.</td></tr><tr><td><strong>Execution</strong></td><td><strong>Huenit scripts + robot arm</strong></td><td>SVG conversion, drawing, calligraphy, calibration, and pyrography are executed against the physical arm.</td></tr><tr><td><strong>Output</strong></td><td><strong>OBS, order ledger, shipped artwork</strong></td><td>Sessions are recorded, logged, linked back to the customer journey, and turned into video proof and physical delivery.</td></tr></tbody></table>
 <h2 id="4-diagram">4. Diagram</h2>
 <pre><code>
 Shopify / Telegram / Voice
@@ -472,7 +473,7 @@ Shopify / Telegram / Voice
   chat_ross.py / bob_ross.py
             |
             v
- Claude Haiku / Apertus / Whisper / TTS
+ Claude Haiku / Mistral (Apertus fallback) / Whisper / TTS
             |
             v
  huenit_write / huenit_draw / huenit_svg
@@ -503,7 +504,7 @@ Shopify / Telegram / Voice
 </ul>
 <h2 id="8-wall-of-fame-operating-model">8. Wall of Fame Operating Model</h2>
 <ul>
-<li>The commercial target is a <strong>10×10 Wall of Fame</strong> with 100 slots.</li>
+<li>The commercial target is an <strong>8×8 Wall of Fame</strong> with 64 slots.</li>
 <li>A customer buys a slot, submits a prompt or design, the system dispatches the job, RobotRoss draws it live, proof is recorded, and the physical artwork is shipped.</li>
 <li>This commercial journey matters for the ATF because the technical file must explain not only the robot motion, but also the customer-facing intake and proof chain.</li>
 </ul>
@@ -511,7 +512,7 @@ Shopify / Telegram / Voice
 <ul>
 <li>The two source architecture documents describe the same system but emphasize different layers: one is voice-showcase and orchestrator centric, the other is end-to-end commerce/studio centric. The ATF page intentionally merges both views.</li>
 <li>TTS references are not fully aligned across the documents: one source emphasizes Kokoro plus system fallbacks, while another also calls out Voxtral. The ATF should present these as runtime variants rather than contradictory claims.</li>
-<li>Some model assignments are mode-specific. Claude Haiku 4.5 appears in control and commerce flows, while Apertus 8B is the local narration/default local reasoning path.</li>
+<li>Some model assignments are mode-specific. Claude Haiku 4.5 appears in control and commerce flows, while Mistral (<code>ministral-3:8b</code>) is the default local narration/reasoning path, with Apertus 8B as an explicit fallback (never auto-triggered, to avoid loading two large models on the same CPU at once).</li>
 <li>The compiled wiki still depends on the quality and coverage of the ingested source corpus, so this page should keep being refreshed when the RobotRoss architecture docs change.</li>
 </ul></div>
       <aside class="infobox"><h3>Page Facts</h3><table><tr><th>Artifact</th><td>Architecture</td></tr><tr><th>Type</th><td>Compiled wiki page</td></tr><tr><th>Source</th><td>bobrossskill/ARCHITECTURE.md + robot-ross/robot-ross-architecture.txt</td></tr><tr><th>Surface</th><td>Agentegra ATF</td></tr><tr><th>Rendering</th><td>Static HTML</td></tr></table></aside>
