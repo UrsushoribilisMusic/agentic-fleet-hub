@@ -858,5 +858,17 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **2js2o7fx** | FLOT-103: Build GEPA prompt-optimization harness | clau | merged | Automated teacher/student prompt optimizer using d... |
 | **1ooj6p2h** | FLOT-105: Session manager — rolling context compression | clau | merged | Two-tier per-turn memory for Apertus 8B (64K windo... |
 | **hr00jlzn** | FLOT-106: EVAL-010 multi-turn grounding decay | clau | merged | Verify the FLOT-105 session manager actually holds... |
+| **4sm1ntns** | SM-012: Integration Testing — End-to-End Happy Path |  | planned | Smoke test the entire MVP flow: SSO → download → i... |
+| **ro2mwixu** | SM-011: Web Console — Example RAG Indices & Personas |  | planned | Pre-bake two example RAG indices and persona sets ... |
+| **8ccpa7b8** | SM-010: iOS App — Settings & Model/Persona Management |  | planned | Settings screen for advanced options: download new... |
+| **5qe8pazb** | SM-009: iOS App — Web Search Fallback |  | planned | If RAG index has no relevant results (or model ind... |
+| **yoosqsad** | SM-008: iOS App — OCR & Image Description (Vision) |  | planned | User can photograph a document or schematic, OCR t... |
+| **kljcyvx4** | SM-007: iOS App — Conversation Threading & Management |  | planned | Users can start multiple independent conversations... |
+| **pd1eaa7x** | SM-006: iOS App — Chat UI & On-Device RAG Inference |  | planned | Core inference loop: user types question, app retr... |
+| **d0nlyhva** | SM-005: iOS App Shell — Authentication & Model Download |  | planned | Bare-bones iOS app that handles SSO login and on-d... |
+| **q72x5ftz** | SM-004: RAG Index Generation Pipeline |  | planned | Backend service that takes uploaded PDFs, generate... |
+| **nhz21vuz** | SM-003: Web Console Frontend — Auth & Doc Upload |  | planned | Build the web UI for corporate admins: login, user... |
+| **84b47lio** | SM-002: Web Console Backend & Database Schema |  | planned | Build minimal web API and database schema to suppo... |
+| **anyafmqv** | SM-001: Azure AD & Google OAuth Integration |  | planned | Implement enterprise SSO so customers can invite u... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
