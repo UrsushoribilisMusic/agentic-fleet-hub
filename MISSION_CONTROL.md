@@ -864,7 +864,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **84b47lio** | SM-002: Web Console Backend & Database Schema | gem | merged | Build minimal web API and database schema to suppo... |
+| **84b47lio** | SM-002: Web Console Backend & Database Schema | gem | in_work | Build minimal web API and database schema to suppo... |
 | **kljcyvx4** | SM-007: iOS App — Conversation Threading & Management | clau | merged | Users can start multiple independent conversations... |
 | **yoosqsad** | SM-008: iOS App — OCR & Image Description (Vision) | clau | merged | User can photograph a document or schematic, OCR t... |
 | **5qe8pazb** | SM-009: iOS App — Web Search Fallback | clau | merged | If RAG index has no relevant results (or model ind... |
