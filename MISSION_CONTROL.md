@@ -125,9 +125,21 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **hr00jlzn**: FLOT-106: EVAL-010 multi-turn grounding decay -- Verify the FLOT-105 session manager actually holds grounding rather than silently degrading. Compression that decays by turn 10 is worse than a full window. -- Clau. Approved.
+- **1ooj6p2h**: FLOT-105: Session manager — rolling context compression -- Two-tier per-turn memory for Apertus 8B (64K window fills fast with role+grounding+RAG+history). Reuses Flotilla's retrieval-not-load discipline. -- Clau. Approved.
+- **2js2o7fx**: FLOT-103: Build GEPA prompt-optimization harness -- Automated teacher/student prompt optimizer using dspy.GEPA. Reflective, Pareto-frontier, sample-efficient. Benchmarked on Qwen3 8B (same class as Apertus 8B). -- Clau. Approved.
+- **rp10nix2**: FLOT-101: Harden EVAL-008 base+RAG comparison (stats re-analysis) -- Re-analyze the EXISTING EVAL-008 grading JSONL. No new Apertus runs needed. Arm 3 (base+RAG) composite is 2.54; the Arm2-vs-Arm3 delta (-0.14) is within possible grading noise so the central LoRA claim needs statistical backing. -- Clau. Approved.
+- **r1p0zreh**: FLOT-102: Reconcile HuggingFace model card with 4-arm numbers -- The HF card shows an older 3-arm pass that contradicts the 4-arm validated run. Depends on FLOT-101. -- Clau. Approved.
+- **twadswmr**: FLOT-104: EVAL-009 adversarial enforcement (LoRA vs optimized prompt) -- Fair fight: LoRA vs the best prompt GEPA can produce. Answers the customer objection why-not-just-use-a-good-prompt. Depends on FLOT-103. -- Clau. Approved.
+- **95bdwf1d**: EVAL-007 — Matched-prompt fair test (Arm A vs B, system prompt held constant) -- Clau. Approved.
 - **i7zp5e4v**: EVAL-006 [Gem] — Second-judge agreement (Clau cross-check) -- Re-grade a sample (or all) with Clau (Sonnet) as second judge for inter-rater agreement. Report Qwen-vs-Clau agreement %. Miguel hand-validates ~15 as the human anchor. Done when: agreement number reported; if low, rubric is ambiguous — tighten before trusting scores. -- Gem. Approved.
 - **od411434**: EVAL-005 [Gem] — Blind grading harness (Qwen judge) -- Script that scores results.jsonl against rubric.json. Primary judge: Qwen (local Ollama). Strip arm labels before grading — blind. For each answer: score 4 rubric dimensions (acknowledgement, follow-through, concision, no-hallucination), pass = 3.5/5. Output per-arm averages, per-theme breakdown, within-variant-group consistency. Generation model != grading model != tested model — keep separate. Done when: produces scored table; Qwen as judge; blind. -- Gem. Approved.
+- **n4xmmv64**: EVAL-004 [Clau] — Generation harness (the runner) -- Script that runs every eval question through each arm via Ollama and writes results. Imports retrieve() from EVAL-002b — does not build its own retrieval. Calls it identically for Arms 1 and 2. For each question: build Arm-0 prompt (raw), Arm-1 prompt (rules.md as system + retrieve() wiki snippets), Arm-2 prompt (no rules + SAME retrieve() wiki snippets), call right Ollama model for each, collect answer. Output results.jsonl: {question_id, theme, variant_group, arm, answer} with arm labels strippable for blind grading. Done when: runs end-to-end against Ollama, produces results.jsonl, retrieval verified identical across arms 1 & 2. -- Clau. Approved.
+- **ujr18ttz**: EVAL-003 [Clau] — Expanded held-out question set (~150–200 questions) -- Expand eval.jsonl from 50 to ~150–200 held-out questions for statistical power and paraphrase-robustness. MOST IMPORTANT: angle-variants — for each judgment theme write 3–5 differently-phrased questions probing the same underlying principle (e.g. 'can I push without a PR?' / 'teammate's waiting, just merge?' / 'one-line fix, still need review?'). Strictly held-out: none may appear in sft.jsonl or dpo.jsonl — verify. Output in same ChatML format as existing eval.jsonl. Tag each with theme + variant-group id. Done when: ~150–200 questions, grouped by theme, verified non-overlapping with training. -- Clau. Approved.
+- **p3zxrhjj**: EVAL-002c [Clau] — HTML wiki rendering (demo face, LOWER PRIORITY) -- Browsable static HTML site generated from EVAL-002 entries. build_wiki.py rebuilds HTML from entries folder. Clean white reference theme (Wikipedia/MDN style: white bg, dark serif headings, left nav by type/theme, per-entry anchors, search box). Each entry shows title, body, source_ref (visible citation), type. Self-contained (inline CSS). Off the eval critical path — build retriever (002b) first. Pattern reusable for dental wiki. Done when: build_wiki.py produces browsable cited site; regenerating after entry change updates page. -- Clau. Approved.
 - **jeg47u9h**: EVAL-002b [Clau] — Retrieval layer over the wiki (RAG mechanism) -- Small importable module: retrieve(query, k) -> top-k wiki entries (text + source_ref). v1 = keyword/BM25 over EVAL-002 entries. No embeddings, no vector DB, no GPU. Deterministic: same query -> same results. Called IDENTICALLY by Arms 1 and 2 in EVAL-004 — retrieval is the controlled constant. RULES.md (Arm 1) does NOT go through retrieval — it is pasted whole as system prompt. Only wiki facts are retrieved. Done when: given a sample question returns sensible entries; deterministic; importable by harness. -- Clau. Approved.
+- **rkjlt9ib**: EVAL-002 [Clau+Gem] — Retrieval wiki (hard-facts corpus) -- Build the wiki the model consults at query time. Frozen pre-cutoff gold corpus only (created < 2026-06-22, no FX- records, no mutation of pre-cutoff records). Atomic entries: one fact/rule/metric per entry, each {id, title, body, source_ref, type}. Content: citable rules (same as RULES.md) + hard facts (task_events patterns, git/metric references, death-spiral incident, escalation protocols). Output: folder of JSON/MD entries + simple index the harness can search. Done when: wiki entries exist, each cited to source, searchable by harness. -- Clau. Approved.
+- **2l6hs0wf**: EVAL-001 [Clau] — RULES.md for Arm 1 -- Generate rules.md expressing the fleet's judgment as prose rules, derived from the same gold corpus as sft.jsonl (233 corrections + 107 lessons + 69 tasks). One rule per principle, imperative voice. This becomes the Arm-1 system prompt. Every rule must be traceable to a gold-corpus source. Done when: rules.md exists, coverage parity with training set verified, reviewed. -- Clau. Approved.
 - **wqf11i39**: TEST-DELETE-ME -- Clau. Approved.
 - **b0rceh34**: FX-IRR-GEM: Inter-rater reliability check — classify 10 correction events -- Inter-rater reliability check for FX-010 correction classification. -- Gem. Approved.
 - **86is21h4**: FX-022: Final QA checklist -- Final QA — sign off on all guardrails before package ships: -- Clau. Approved.
@@ -846,29 +858,17 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **2l6hs0wf** | EVAL-001 [Clau] — RULES.md for Arm 1 | clau | merged | Generate rules.md expressing the fleet's judgment ... |
-| **rkjlt9ib** | EVAL-002 [Clau+Gem] — Retrieval wiki (hard-facts corpus) | clau | merged | Build the wiki the model consults at query time. F... |
-| **p3zxrhjj** | EVAL-002c [Clau] — HTML wiki rendering (demo face, LOWER PRIORITY) | clau | merged | Browsable static HTML site generated from EVAL-002... |
-| **ujr18ttz** | EVAL-003 [Clau] — Expanded held-out question set (~150–200 questions) | clau | merged | Expand eval.jsonl from 50 to ~150–200 held-out que... |
-| **n4xmmv64** | EVAL-004 [Clau] — Generation harness (the runner) | clau | merged | Script that runs every eval question through each ... |
-| **95bdwf1d** | EVAL-007 — Matched-prompt fair test (Arm A vs B, system prompt held constant) | clau | merged |  |
-| **twadswmr** | FLOT-104: EVAL-009 adversarial enforcement (LoRA vs optimized prompt) | clau | merged | Fair fight: LoRA vs the best prompt GEPA can produ... |
-| **r1p0zreh** | FLOT-102: Reconcile HuggingFace model card with 4-arm numbers | clau | merged | The HF card shows an older 3-arm pass that contrad... |
-| **rp10nix2** | FLOT-101: Harden EVAL-008 base+RAG comparison (stats re-analysis) | clau | merged | Re-analyze the EXISTING EVAL-008 grading JSONL. No... |
-| **2js2o7fx** | FLOT-103: Build GEPA prompt-optimization harness | clau | merged | Automated teacher/student prompt optimizer using d... |
-| **1ooj6p2h** | FLOT-105: Session manager — rolling context compression | clau | merged | Two-tier per-turn memory for Apertus 8B (64K windo... |
-| **hr00jlzn** | FLOT-106: EVAL-010 multi-turn grounding decay | clau | merged | Verify the FLOT-105 session manager actually holds... |
-| **anyafmqv** | SM-001: Azure AD & Google OAuth Integration | clau | merged | Implement enterprise SSO so customers can invite u... |
+| **anyafmqv** | SM-001: Azure AD & Google OAuth Integration | clau | planned | Implement enterprise SSO so customers can invite u... |
 | **84b47lio** | SM-002: Web Console Backend & Database Schema | gem | planned | Build minimal web API and database schema to suppo... |
-| **nhz21vuz** | SM-003: Web Console Frontend — Auth & Doc Upload | codi | merged | Build the web UI for corporate admins: login, user... |
-| **q72x5ftz** | SM-004: RAG Index Generation Pipeline | codi | merged | Backend service that takes uploaded PDFs, generate... |
-| **d0nlyhva** | SM-005: iOS App Shell — Authentication & Model Download | clau | merged | Bare-bones iOS app that handles SSO login and on-d... |
-| **pd1eaa7x** | SM-006: iOS App — Chat UI & On-Device RAG Inference | clau | merged | Core inference loop: user types question, app retr... |
+| **nhz21vuz** | SM-003: Web Console Frontend — Auth & Doc Upload | codi | planned | Build the web UI for corporate admins: login, user... |
+| **q72x5ftz** | SM-004: RAG Index Generation Pipeline | codi | planned | Backend service that takes uploaded PDFs, generate... |
+| **d0nlyhva** | SM-005: iOS App Shell — Authentication & Model Download | clau | planned | Bare-bones iOS app that handles SSO login and on-d... |
+| **pd1eaa7x** | SM-006: iOS App — Chat UI & On-Device RAG Inference | clau | planned | Core inference loop: user types question, app retr... |
 | **kljcyvx4** | SM-007: iOS App — Conversation Threading & Management | clau | in_work | Users can start multiple independent conversations... |
 | **yoosqsad** | SM-008: iOS App — OCR & Image Description (Vision) | clau | planned | User can photograph a document or schematic, OCR t... |
 | **5qe8pazb** | SM-009: iOS App — Web Search Fallback | clau | planned | If RAG index has no relevant results (or model ind... |
 | **8ccpa7b8** | SM-010: iOS App — Settings & Model/Persona Management | clau | planned | Settings screen for advanced options: download new... |
-| **ro2mwixu** | SM-011: Web Console — Example RAG Indices & Personas | codi | merged | Pre-bake two example RAG indices and persona sets ... |
+| **ro2mwixu** | SM-011: Web Console — Example RAG Indices & Personas | codi | planned | Pre-bake two example RAG indices and persona sets ... |
 | **4sm1ntns** | SM-012: Integration Testing — End-to-End Happy Path | clau | planned | Smoke test the entire MVP flow: SSO → download → i... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
