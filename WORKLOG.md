@@ -1,10 +1,10 @@
-CR-015 worklog
+# SM-017 Worklog
 
-Task: fleet_push financial sync.
+Task: Web Console dashboard page for `sm.flotilla.cc`.
 
 Plan:
-1. Inspect the existing Fleet Hub snapshot push contract in package/scripts/fleet_push.py and the DO-facing handler in package/server/fleet-server.mjs.
-2. Add financial PocketBase collections to build_snapshot(): watch_hours_ledger, cost_ledger, income_ledger, campaigns_snapshot.
-3. Update the server snapshot handler to accept and cache those collections without breaking existing snapshot fields.
-4. Restore scripts/financial_ops/youtube_watch_hours.py source in music-video-tool from the available bytecode/source context.
-5. Run focused syntax/tests where available, then commit and push the hub changes to master and the restored source to music-video-tool master.
+- Add a repo-tracked static dashboard file for Sovereign Mind with inline CSS and JS.
+- Preserve the backend auth flow by gating on `GET /auth/verify` and redirecting unauthenticated users to `/auth/login`.
+- Deploy the file to `/var/www/sm.flotilla.cc/index.html` on `robotsales`.
+- Update Caddy so `/auth/*`, `/api/*`, and existing `/downloads/*` continue to reach the backend/static download handling, while normal web routes serve the dashboard from `/var/www/sm.flotilla.cc/`.
+- Validate Caddy config and smoke-test the deployed domain.
