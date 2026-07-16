@@ -116,7 +116,7 @@ The fleet does not auto-enter these. Miguel enters them monthly via the Financia
 
 ---
 
-## Ticket Status (as of 2026-07-07)
+## Ticket Status (as of 2026-07-16)
 
 ### ENVIRONMENT NOTE — Mac Mini migration complete (2026-03-14)
 All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users/miguel/` → `/Users/miguelrodriguez/`. Repos cloned to `~/projects/`. Python 3.12 venv at `~/projects/music-video-tool/.venv312`. OpenClaw at `/opt/homebrew/bin/openclaw`. Fleet always-on infrastructure build in progress — see tickets #34–#43.
@@ -621,7 +621,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **dqprooej**: TCR-11: Music-video-tool AGENTS/ directory setup -- REASSIGNED from Clau to Gem — documentation structure is Gem's sweet spot. -- Gem. Approved.
 - **3h6dsn4h**: TCR-10: Gemma — weekly SEO audit and performance summary -- ASSIGNED TO GEMMA — local model, cost-free, repetitive task ideal for Gemma. -- Gem. Approved.
 - **slqxtrd9**: TCR-9: Playwright Reddit poster — automated daily posting -- ASSIGNED TO CODI — delivery/scripting, Codi's sweet spot. NOTE: Codi quota resets 2026-04-08 09:52. Do not start before then. -- Gem. Approved.
-- **tn28lgsj**: TCR-8: Campaign Manager — daily analytics briefing to Telegram -- REASSIGNED from Clau to Gem. -- Gem. Approved.
 - **743yt6fl**: TCR-7: Scout script — daily YouTube API pull to PocketBase -- ASSIGNED TO MISTY — Python scripting, well-scoped spec. -- Codi. Approved.
 - **#110**: Stats page — add music-only filter view -- ASSIGNED TO MISTY — contained frontend task to test Misty's implementation capabilities. -- Misty. Approved.
 - **#109**: Songs PocketBase collection — migrate from Excel tracker -- Create a 'songs' collection in PocketBase to replace the Excel tracker as the live source of truth for The Classical Remix catalog. This collection will feed the Scout, Campaign Manager, and SEO audit agent. -- Qwen. Approved.
@@ -857,7 +856,19 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **r1p0zreh** | FLOT-102: Reconcile HuggingFace model card with 4-arm numbers | clau | merged | The HF card shows an older 3-arm pass that contrad... |
 | **rp10nix2** | FLOT-101: Harden EVAL-008 base+RAG comparison (stats re-analysis) | clau | merged | Re-analyze the EXISTING EVAL-008 grading JSONL. No... |
 | **2js2o7fx** | FLOT-103: Build GEPA prompt-optimization harness | clau | merged | Automated teacher/student prompt optimizer using d... |
-| **1ooj6p2h** | FLOT-105: Session manager — rolling context compression | clau | in_work | Two-tier per-turn memory for Apertus 8B (64K windo... |
-| **hr00jlzn** | FLOT-106: EVAL-010 multi-turn grounding decay | clau | planned | Verify the FLOT-105 session manager actually holds... |
+| **1ooj6p2h** | FLOT-105: Session manager — rolling context compression | clau | merged | Two-tier per-turn memory for Apertus 8B (64K windo... |
+| **hr00jlzn** | FLOT-106: EVAL-010 multi-turn grounding decay | clau | merged | Verify the FLOT-105 session manager actually holds... |
+| **anyafmqv** | SM-001: Azure AD & Google OAuth Integration | clau | planned | Implement enterprise SSO so customers can invite u... |
+| **84b47lio** | SM-002: Web Console Backend & Database Schema | gem | planned | Build minimal web API and database schema to suppo... |
+| **nhz21vuz** | SM-003: Web Console Frontend — Auth & Doc Upload | codi | in_work | Build the web UI for corporate admins: login, user... |
+| **q72x5ftz** | SM-004: RAG Index Generation Pipeline | codi | planned | Backend service that takes uploaded PDFs, generate... |
+| **d0nlyhva** | SM-005: iOS App Shell — Authentication & Model Download | clau | planned | Bare-bones iOS app that handles SSO login and on-d... |
+| **pd1eaa7x** | SM-006: iOS App — Chat UI & On-Device RAG Inference | clau | planned | Core inference loop: user types question, app retr... |
+| **kljcyvx4** | SM-007: iOS App — Conversation Threading & Management | clau | planned | Users can start multiple independent conversations... |
+| **yoosqsad** | SM-008: iOS App — OCR & Image Description (Vision) | clau | planned | User can photograph a document or schematic, OCR t... |
+| **5qe8pazb** | SM-009: iOS App — Web Search Fallback | clau | planned | If RAG index has no relevant results (or model ind... |
+| **8ccpa7b8** | SM-010: iOS App — Settings & Model/Persona Management | clau | planned | Settings screen for advanced options: download new... |
+| **ro2mwixu** | SM-011: Web Console — Example RAG Indices & Personas | codi | planned | Pre-bake two example RAG indices and persona sets ... |
+| **4sm1ntns** | SM-012: Integration Testing — End-to-End Happy Path | clau | planned | Smoke test the entire MVP flow: SSO → download → i... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
