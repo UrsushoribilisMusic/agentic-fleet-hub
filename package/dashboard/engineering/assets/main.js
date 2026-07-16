@@ -779,6 +779,7 @@ function activateSection(targetId) {
   if (targetId === 'section-inbox') loadInbox();
   if (targetId === 'section-kanban') loadKanban();
   if (targetId === 'section-pbviewer') loadPBTasks();
+  if (targetId === 'section-console') loadSovereignConsole();
   
   const sidebar = document.getElementById('sidebar');
   if (sidebar) sidebar.classList.remove('is-open');
@@ -1004,6 +1005,349 @@ window.removeUser = async function(email) {
   } catch (err) { alert('Removed.'); }
 };
 
+const SM_STATE_KEY = 'sovereign-mind-console-state-v1';
+
+function smInitialState() {
+  return {
+    account: {
+      id: 'corp-acme-001',
+      name: 'Acme Corporate Knowledge',
+      domain: 'acme.example',
+      plan: 'Corporate',
+      oauthProviders: ['Google', 'Azure'],
+      lastIndexedAt: null,
+      version: 'Draft'
+    },
+    users: [
+      { email: 'admin@acme.example', role: 'Admin', status: 'active', invitedAt: '2026-07-16T08:00:00.000Z' },
+      { email: 'operator@acme.example', role: 'Member', status: 'active', invitedAt: '2026-07-16T08:20:00.000Z' }
+    ],
+    documents: [
+      { id: 'doc-safety', name: 'Safety Handbook.pdf', size: 1843200, status: 'ready', indexed: true, references: 18, exclude: false, notes: 'Core policy source.', uploadedAt: '2026-07-16T08:30:00.000Z' },
+      { id: 'doc-onboarding', name: 'Operator Onboarding.pdf', size: 943718, status: 'ready', indexed: true, references: 11, exclude: false, notes: '', uploadedAt: '2026-07-16T08:34:00.000Z' },
+      { id: 'doc-legacy', name: 'Legacy SOP Appendix.pdf', size: 734003, status: 'pending', indexed: false, references: 0, exclude: true, notes: 'Keep out until legal review completes.', uploadedAt: '2026-07-16T08:42:00.000Z' }
+    ]
+  };
+}
+
+function smLoadState() {
+  try {
+    const raw = localStorage.getItem(SM_STATE_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch (err) {
+    console.warn('SM state parse failed:', err);
+  }
+  const state = smInitialState();
+  smSaveState(state);
+  return state;
+}
+
+function smSaveState(state) {
+  localStorage.setItem(SM_STATE_KEY, JSON.stringify(state));
+}
+
+function smEscape(value) {
+  return String(value == null ? '' : value).replace(/[&<>"']/g, (ch) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  })[ch]);
+}
+
+function smFormatBytes(bytes) {
+  const n = Number(bytes || 0);
+  if (n < 1024) return n + ' B';
+  if (n < 1024 * 1024) return (n / 1024).toFixed(1) + ' KB';
+  return (n / (1024 * 1024)).toFixed(1) + ' MB';
+}
+
+function smStatusLabel(status) {
+  if (status === 'processing') return 'Processing';
+  if (status === 'ready') return 'Ready';
+  if (status === 'disabled') return 'Disabled';
+  return 'Pending';
+}
+
+function smRenderConsole() {
+  const state = smLoadState();
+  const account = state.account || smInitialState().account;
+  const docs = Array.isArray(state.documents) ? state.documents : [];
+  const users = Array.isArray(state.users) ? state.users : [];
+
+  const accountName = document.getElementById('sm-account-name');
+  const accountPlan = document.getElementById('sm-account-plan');
+  const accountId = document.getElementById('sm-account-id');
+  const accountDomain = document.getElementById('sm-account-domain');
+  const accountOauth = document.getElementById('sm-account-oauth');
+  const accountIndexed = document.getElementById('sm-account-indexed');
+  if (accountName) accountName.textContent = account.name || 'Corporate Account';
+  if (accountPlan) accountPlan.textContent = account.plan || 'Corporate';
+  if (accountId) accountId.textContent = account.id || '-';
+  if (accountDomain) accountDomain.textContent = account.domain || '-';
+  if (accountOauth) accountOauth.textContent = (account.oauthProviders || ['Google', 'Azure']).join(', ');
+  if (accountIndexed) accountIndexed.textContent = account.lastIndexedAt ? new Date(account.lastIndexedAt).toLocaleString() : 'Never';
+
+  const usersList = document.getElementById('sm-users-list');
+  if (usersList) {
+    usersList.innerHTML = users.map((user) => {
+      const disabled = user.status === 'disabled';
+      return `
+        <div class="console-row">
+          <div>
+            <strong>${smEscape(user.email)}</strong>
+            <div class="muted-text">${smEscape(user.role || 'Member')} - ${disabled ? 'blocked on next OAuth attempt' : 'can authenticate'}</div>
+          </div>
+          <div class="console-row-actions">
+            <span class="status-pill ${disabled ? 'status-disabled' : 'status-ready'}">${disabled ? 'Disabled' : 'Active'}</span>
+            <button class="btn-link" type="button" onclick="smToggleUser('${smEscape(user.email)}')">${disabled ? 'Enable' : 'Disable'}</button>
+          </div>
+        </div>
+      `;
+    }).join('') || '<p class="muted-text">No users invited yet.</p>';
+  }
+
+  const counts = {
+    pending: docs.filter((doc) => doc.status === 'pending').length,
+    processing: docs.filter((doc) => doc.status === 'processing').length,
+    ready: docs.filter((doc) => doc.status === 'ready').length
+  };
+  const pendingEl = document.getElementById('sm-count-pending');
+  const processingEl = document.getElementById('sm-count-processing');
+  const readyEl = document.getElementById('sm-count-ready');
+  if (pendingEl) pendingEl.textContent = counts.pending;
+  if (processingEl) processingEl.textContent = counts.processing;
+  if (readyEl) readyEl.textContent = counts.ready;
+
+  const documentsList = document.getElementById('sm-documents-list');
+  if (documentsList) {
+    documentsList.innerHTML = docs.map((doc) => `
+      <div class="document-row">
+        <div>
+          <strong>${smEscape(doc.name)}</strong>
+          <div class="document-meta muted-text">
+            <span>${smFormatBytes(doc.size)}</span>
+            <span>${doc.exclude ? 'Excluded from index' : 'Included in index'}</span>
+            <span>${Number(doc.references || 0)} references</span>
+          </div>
+        </div>
+        <div class="document-row-actions">
+          <span class="status-pill status-${smEscape(doc.status)}">${smStatusLabel(doc.status)}</span>
+          <button class="btn-link" type="button" onclick="smToggleDocExclude('${smEscape(doc.id)}')">${doc.exclude ? 'Include' : 'Exclude'}</button>
+        </div>
+        <textarea class="doc-notes" data-sm-doc-note="${smEscape(doc.id)}" placeholder="Admin notes for this source">${smEscape(doc.notes || '')}</textarea>
+      </div>
+    `).join('') || '<p class="muted-text">No PDFs uploaded yet.</p>';
+
+    Array.prototype.slice.call(documentsList.querySelectorAll('[data-sm-doc-note]')).forEach((textarea) => {
+      textarea.onchange = function() {
+        smUpdateDocNotes(this.getAttribute('data-sm-doc-note'), this.value);
+      };
+    });
+  }
+
+  const wikiVersion = document.getElementById('sm-wiki-version');
+  if (wikiVersion) wikiVersion.textContent = account.version || 'Draft';
+  const includedDocs = docs.filter((doc) => !doc.exclude && doc.status === 'ready');
+  const referenced = includedDocs.reduce((sum, doc) => sum + Number(doc.references || 0), 0);
+  const wikiPreview = document.getElementById('sm-wiki-preview');
+  if (wikiPreview) {
+    wikiPreview.innerHTML = `
+      <div class="wiki-metrics">
+        <div class="wiki-metric"><strong>${includedDocs.length}</strong><span class="muted-text">indexed docs</span></div>
+        <div class="wiki-metric"><strong>${docs.filter((doc) => doc.exclude).length}</strong><span class="muted-text">excluded docs</span></div>
+        <div class="wiki-metric"><strong>${referenced}</strong><span class="muted-text">references</span></div>
+        <div class="wiki-metric"><strong>${counts.pending + counts.processing}</strong><span class="muted-text">not ready</span></div>
+      </div>
+      ${includedDocs
+        .sort((a, b) => Number(b.references || 0) - Number(a.references || 0))
+        .map((doc) => `
+          <div class="wiki-row">
+            <div>
+              <strong>${smEscape(doc.name)}</strong>
+              <div class="muted-text">${Number(doc.references || 0)} references in generated wiki</div>
+            </div>
+            <span class="status-pill status-ready">Indexed</span>
+          </div>
+        `).join('') || '<p class="muted-text">Generate an index to preview referenced documents.</p>'}
+    `;
+  }
+}
+
+async function smFetchOptional(endpoint, options) {
+  try {
+    return await fetchJson(endpoint, options || {});
+  } catch (err) {
+    return null;
+  }
+}
+
+async function loadSovereignConsole() {
+  const backendState = await smFetchOptional('/fleet/api/sovereign/console');
+  if (backendState && backendState.account) {
+    smSaveState(backendState);
+  }
+  smRenderConsole();
+}
+
+function smInviteUser(email) {
+  const clean = String(email || '').trim().toLowerCase();
+  if (!clean) return;
+  const state = smLoadState();
+  state.users = Array.isArray(state.users) ? state.users : [];
+  const existing = state.users.find((user) => user.email === clean);
+  if (existing) {
+    existing.status = 'active';
+  } else {
+    state.users.push({ email: clean, role: 'Member', status: 'active', invitedAt: new Date().toISOString() });
+  }
+  smSaveState(state);
+  smFetchOptional('/fleet/api/sovereign/users/invite', {
+    method: 'POST',
+    body: JSON.stringify({ email: clean })
+  });
+  smRenderConsole();
+}
+
+window.smToggleUser = function(email) {
+  const clean = String(email || '').trim().toLowerCase();
+  const state = smLoadState();
+  const user = (state.users || []).find((item) => item.email === clean);
+  if (!user) return;
+  user.status = user.status === 'disabled' ? 'active' : 'disabled';
+  smSaveState(state);
+  smFetchOptional('/fleet/api/sovereign/users/disable', {
+    method: 'POST',
+    body: JSON.stringify({ email: clean, disabled: user.status === 'disabled' })
+  });
+  smRenderConsole();
+};
+
+function smUploadFiles(fileList) {
+  const files = Array.prototype.slice.call(fileList || []).filter((file) => {
+    return file && (file.type === 'application/pdf' || /\.pdf$/i.test(file.name));
+  });
+  if (!files.length) return;
+  const state = smLoadState();
+  state.documents = Array.isArray(state.documents) ? state.documents : [];
+  files.forEach((file) => {
+    state.documents.push({
+      id: 'doc-' + Date.now() + '-' + Math.random().toString(36).slice(2, 7),
+      name: file.name,
+      size: file.size,
+      status: 'pending',
+      indexed: false,
+      references: 0,
+      exclude: false,
+      notes: '',
+      uploadedAt: new Date().toISOString()
+    });
+  });
+  smSaveState(state);
+  smFetchOptional('/fleet/api/sovereign/documents', {
+    method: 'POST',
+    body: JSON.stringify({ documents: files.map((file) => ({ name: file.name, size: file.size, type: file.type })) })
+  });
+  smRenderConsole();
+}
+
+window.smToggleDocExclude = function(id) {
+  const state = smLoadState();
+  const doc = (state.documents || []).find((item) => item.id === id);
+  if (!doc) return;
+  doc.exclude = !doc.exclude;
+  smSaveState(state);
+  smFetchOptional('/fleet/api/sovereign/documents/' + encodeURIComponent(id), {
+    method: 'PATCH',
+    body: JSON.stringify({ exclude: doc.exclude })
+  });
+  smRenderConsole();
+};
+
+function smUpdateDocNotes(id, notes) {
+  const state = smLoadState();
+  const doc = (state.documents || []).find((item) => item.id === id);
+  if (!doc) return;
+  doc.notes = notes;
+  smSaveState(state);
+  smFetchOptional('/fleet/api/sovereign/documents/' + encodeURIComponent(id), {
+    method: 'PATCH',
+    body: JSON.stringify({ notes })
+  });
+  smRenderConsole();
+}
+
+function smGenerateIndex() {
+  const state = smLoadState();
+  state.documents = (state.documents || []).map((doc) => {
+    if (!doc.exclude && doc.status !== 'ready') return { ...doc, status: 'processing' };
+    return doc;
+  });
+  smSaveState(state);
+  smRenderConsole();
+  smFetchOptional('/fleet/api/sovereign/rag/generate', {
+    method: 'POST',
+    body: JSON.stringify({ account_id: state.account.id })
+  });
+
+  window.setTimeout(() => {
+    const next = smLoadState();
+    next.documents = (next.documents || []).map((doc, index) => {
+      if (!doc.exclude && doc.status === 'processing') {
+        return { ...doc, status: 'ready', indexed: true, references: doc.references || (index + 2) * 3 };
+      }
+      return doc;
+    });
+    next.account.lastIndexedAt = new Date().toISOString();
+    next.account.version = 'v' + next.account.lastIndexedAt.slice(0, 10).replace(/-/g, '');
+    smSaveState(next);
+    smRenderConsole();
+  }, 1400);
+}
+
+function setupSovereignConsole() {
+  const inviteForm = document.getElementById('sm-invite-form');
+  if (inviteForm) {
+    inviteForm.onsubmit = function(event) {
+      event.preventDefault();
+      const input = document.getElementById('sm-invite-email');
+      smInviteUser(input ? input.value : '');
+      if (input) input.value = '';
+    };
+  }
+
+  const dropzone = document.getElementById('sm-dropzone');
+  const fileInput = document.getElementById('sm-file-input');
+  if (fileInput) {
+    fileInput.onchange = function() {
+      smUploadFiles(this.files);
+      this.value = '';
+    };
+  }
+  if (dropzone) {
+    dropzone.ondragover = function(event) {
+      event.preventDefault();
+      dropzone.classList.add('is-dragging');
+    };
+    dropzone.ondragleave = function() {
+      dropzone.classList.remove('is-dragging');
+    };
+    dropzone.ondrop = function(event) {
+      event.preventDefault();
+      dropzone.classList.remove('is-dragging');
+      smUploadFiles(event.dataTransfer.files);
+    };
+  }
+
+  const generateBtn = document.getElementById('sm-generate-btn');
+  if (generateBtn) generateBtn.onclick = smGenerateIndex;
+
+  if (window.location.hash === '#console') {
+    activateSection('section-console');
+  }
+}
+
 window.openProjectModal = () => { const el = document.getElementById('project-modal'); if (el) el.style.display = 'flex'; };
 window.closeProjectModal = () => { const el = document.getElementById('project-modal'); if (el) el.style.display = 'none'; };
 window.openAgentModal = () => { const el = document.getElementById('agent-modal'); if (el) el.style.display = 'flex'; };
@@ -1027,6 +1371,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadDailyStandups();
   loadInbox();
   setupForms();
+  setupSovereignConsole();
 });
 
 window.clearAllProjects = async () => {

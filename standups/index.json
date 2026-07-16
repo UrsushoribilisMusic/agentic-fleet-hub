@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-07-16",
-    "summary": "Clau: SM-001 — Azure AD + Google OAuth integration. Created /projects/sovereign-mind/ auth module: MSAL + google-auth-library strategies, invitation system (email → link → provider picker → session), AES-256-GCM encrypted refresh tokens, pluggable StorageAdapter for SM-002 DB wiring. 13/13 tests passing.",
+    "summary": "Clau: SM-001 — Azure AD + Google OAuth integration. Codi: SM-003 — corporate admin console at /fleet/#console with OAuth login controls, account dashboard, user invite/disable, PDF upload/status, RAG trigger, wiki preview, and doc edit controls.",
     "file": "2026-07-16.md"
   },
   {

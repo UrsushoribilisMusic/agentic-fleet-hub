@@ -446,3 +446,266 @@ h1 { font-size: 24px; font-weight: 600; margin-bottom: 4px; color: var(--text-pr
     grid-template-columns: 1fr;
   }
 }
+
+/* Sovereign Mind corporate console */
+.console-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.console-auth-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.console-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(420px, 1.4fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.console-panel {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+.console-panel h2 {
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.console-panel-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.upload-panel,
+.wiki-panel {
+  grid-column: 1 / -1;
+}
+
+.account-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.account-facts div {
+  padding: 10px;
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius);
+  background: var(--bg-secondary);
+}
+
+.account-facts dt {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.account-facts dd {
+  font-size: 13px;
+  color: var(--text-primary);
+  overflow-wrap: anywhere;
+}
+
+.inline-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.inline-form input {
+  min-width: 0;
+  flex: 1;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  padding: 7px 10px;
+}
+
+.console-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.console-row,
+.document-row,
+.wiki-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  background: var(--bg-secondary);
+}
+
+.console-row-actions,
+.document-row-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.muted-text {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 22px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--accent-muted);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.status-pending { background: var(--warning-bg); color: var(--warning); }
+.status-processing { background: var(--accent-muted); color: var(--accent); }
+.status-ready { background: var(--success-bg); color: var(--success); }
+.status-disabled { background: var(--danger-bg); color: var(--danger); }
+.muted-pill { background: var(--bg-secondary); color: var(--text-secondary); }
+
+.dropzone {
+  position: relative;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.dropzone strong {
+  color: var(--text-primary);
+  font-size: 15px;
+}
+
+.dropzone.is-dragging {
+  border-color: var(--accent);
+  background: var(--accent-muted);
+}
+
+.dropzone input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.status-summary {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.document-table,
+.wiki-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.document-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 3px;
+}
+
+.doc-notes {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-height: 58px;
+  resize: vertical;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  padding: 8px;
+  font: inherit;
+}
+
+.wiki-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.wiki-metric {
+  padding: 10px;
+  border-radius: var(--radius);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-muted);
+}
+
+.wiki-metric strong {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 20px;
+  color: var(--text-primary);
+}
+
+@media (max-width: 980px) {
+  .console-header,
+  .console-panel-header {
+    flex-direction: column;
+  }
+
+  .console-grid,
+  .account-facts,
+  .wiki-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .console-auth-actions {
+    justify-content: flex-start;
+  }
+
+  .console-row,
+  .document-row,
+  .wiki-row {
+    grid-template-columns: 1fr;
+  }
+
+  .console-row-actions,
+  .document-row-actions {
+    justify-content: flex-start;
+  }
+}

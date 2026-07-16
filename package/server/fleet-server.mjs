@@ -10,6 +10,8 @@
  *   GOOGLE_CLIENT_SECRET   - Google OAuth client secret (optional)
  *   GOOGLE_AUTH_COOKIE_SECRET - Cookie signing secret
  *   GOOGLE_AUTH_ALLOWED_EMAILS - Comma-separated list of allowed emails (private fleet)
+ *   AZURE_CLIENT_ID        - Azure OAuth client ID (optional)
+ *   AZURE_TENANT_ID        - Azure tenant ID (default: common)
  *   PUBLIC_URL             - Base URL for OAuth callbacks (default: http://localhost:8787)
  *   POCKETBASE_URL         - PocketBase base URL for live tasks/heartbeats/activity (default: http://127.0.0.1:8090)
  *   FLEET_SYNC_TOKEN       - Shared token for hybrid snapshot ingest at POST /fleet/snapshot
@@ -99,6 +101,8 @@ async function fetchFromGitHub(filePath) {
 // OAuth (optional — set env vars to enable)
 const GOOGLE_CLIENT_ID     = process.env.GOOGLE_CLIENT_ID || "";
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET || "";
+const AZURE_CLIENT_ID      = process.env.AZURE_CLIENT_ID || "";
+const AZURE_TENANT_ID      = process.env.AZURE_TENANT_ID || "common";
 const COOKIE_SECRET        = process.env.GOOGLE_AUTH_COOKIE_SECRET || "change-me-in-production";
 const ALLOWED_EMAILS_RAW   = (process.env.GOOGLE_AUTH_ALLOWED_EMAILS || "").split(",").map(e => e.trim().toLowerCase()).filter(Boolean);
 
@@ -293,6 +297,18 @@ function buildOAuthUrl(state) {
   return `https://accounts.google.com/o/oauth2/v2/auth?${params}`;
 }
 
+function buildAzureOAuthUrl(state) {
+  const params = new URLSearchParams({
+    client_id: AZURE_CLIENT_ID,
+    redirect_uri: `${PUBLIC_URL}/auth/callback`,
+    response_type: "code",
+    response_mode: "query",
+    scope: "openid email profile User.Read",
+    state,
+  });
+  return `https://login.microsoftonline.com/${encodeURIComponent(AZURE_TENANT_ID)}/oauth2/v2.0/authorize?${params}`;
+}
+
 async function exchangeCode(code) {
   const params = new URLSearchParams({
     code,
@@ -397,46 +413,71 @@ async function handler(req, res) {
     }
   }
 
-  // ── OAuth endpoints (only if Google OAuth is configured) ─────────────────
-  if (GOOGLE_CLIENT_ID && GOOGLE_CLIENT_SECRET) {
-    if (urlPath === "/auth/login") {
-      const state = crypto.randomBytes(16).toString("hex");
-      const next = url.searchParams.get("next") || "/fleet/";
-      oauthStates.set(state, { next, expires: now() + 5 * 60 * 1000 });
+  // ── OAuth endpoints ──────────────────────────────────────────────────────
+  if (urlPath === "/auth/auth.js" && req.method === "GET") {
+    res.setHeader("Content-Type", "application/javascript; charset=utf-8");
+    res.statusCode = 200;
+    return res.end('document.documentElement.dataset.authLoading = "0";');
+  }
+
+  if (urlPath === "/auth/verify" && req.method === "GET") {
+    const email = getAuthedEmail(req);
+    return send(res, 200, email ? { ok: true, user: { email } } : { ok: false, user: null }, requestId);
+  }
+
+  if (urlPath === "/auth/login") {
+    const state = crypto.randomBytes(16).toString("hex");
+    const next = url.searchParams.get("next") || "/fleet/";
+    const provider = (url.searchParams.get("provider") || "google").toLowerCase();
+    oauthStates.set(state, { next, provider, expires: now() + 5 * 60 * 1000 });
+
+    if (provider === "azure" && AZURE_CLIENT_ID) {
+      res.statusCode = 302;
+      res.setHeader("Location", buildAzureOAuthUrl(state));
+      return res.end();
+    }
+
+    if (GOOGLE_CLIENT_ID && GOOGLE_CLIENT_SECRET) {
       res.statusCode = 302;
       res.setHeader("Location", buildOAuthUrl(state));
       return res.end();
     }
 
-    if (urlPath === "/auth/callback") {
-      const code = url.searchParams.get("code");
-      const state = url.searchParams.get("state");
-      const stateData = oauthStates.get(state);
-      if (!code || !stateData || stateData.expires < now()) {
-        return send(res, 400, { ok: false, error: "invalid_state" }, requestId);
-      }
-      oauthStates.delete(state);
-      try {
-        const email = await exchangeCode(code);
-        if (!email || (ALLOWED_EMAILS_RAW.length && !ALLOWED_EMAILS_RAW.includes(email))) {
-          return send(res, 403, { ok: false, error: "not_allowed" }, requestId);
-        }
-        const cookie = signCookie(email);
-        res.setHeader("Set-Cookie", `fleet_auth=${encodeURIComponent(cookie)}; Path=/; HttpOnly; SameSite=Lax; Max-Age=86400`);
-        res.statusCode = 302;
-        res.setHeader("Location", stateData.next);
-        return res.end();
-      } catch (e) {
-        return send(res, 500, { ok: false, error: e.message }, requestId);
-      }
-    }
+    oauthStates.delete(state);
+    return send(res, 503, { ok: false, error: "oauth_not_configured" }, requestId);
+  }
 
-    if (urlPath === "/auth/logout") {
-      res.setHeader("Set-Cookie", "fleet_auth=; Path=/; Max-Age=0");
-      res.statusCode = 302;
-      res.setHeader("Location", "/demo/");
-      return res.end();
+  if (urlPath === "/auth/callback") {
+    const code = url.searchParams.get("code");
+    const state = url.searchParams.get("state");
+    const stateData = oauthStates.get(state);
+    if (!code || !stateData || stateData.expires < now()) {
+      return send(res, 400, { ok: false, error: "invalid_state" }, requestId);
     }
+    oauthStates.delete(state);
+    if (stateData.provider === "azure") {
+      return send(res, 501, { ok: false, error: "azure_callback_not_configured" }, requestId);
+    }
+    try {
+      const email = await exchangeCode(code);
+      if (!email || (ALLOWED_EMAILS_RAW.length && !ALLOWED_EMAILS_RAW.includes(email))) {
+        return send(res, 403, { ok: false, error: "not_allowed" }, requestId);
+      }
+      const cookie = signCookie(email);
+      res.setHeader("Set-Cookie", `fleet_auth=${encodeURIComponent(cookie)}; Path=/; HttpOnly; SameSite=Lax; Max-Age=86400`);
+      res.statusCode = 302;
+      res.setHeader("Location", stateData.next);
+      return res.end();
+    } catch (e) {
+      return send(res, 500, { ok: false, error: e.message }, requestId);
+    }
+  }
+
+  if (urlPath === "/auth/logout") {
+    res.setHeader("Set-Cookie", "fleet_auth=; Path=/; Max-Age=0");
+    res.statusCode = 302;
+    res.setHeader("Location", "/demo/");
+    return res.end();
   }
 
   // ── Fleet API ─────────────────────────────────────────────────────────────

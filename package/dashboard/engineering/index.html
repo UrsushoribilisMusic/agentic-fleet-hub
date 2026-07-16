@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flotilla</title>
   <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
-  <link rel="stylesheet" href="assets/style.css?v=20260406">
+  <link rel="stylesheet" href="assets/style.css?v=20260716-sm003">
   <script>window.RobotRossAuthConfig = { enabled: true }; document.documentElement.dataset.authLoading = "1";</script>
   <script src="/auth/auth.js" defer></script>
 </head>
@@ -23,6 +23,7 @@
     <nav class="sidebar-nav" id="sidebar-nav">
       <button class="nav-button is-active" data-section-button="section-team">Team</button>
       <button class="nav-button" data-section-button="section-projects">Projects</button>
+      <button class="nav-button" data-section-button="section-console">Console</button>
 
       <button class="nav-button" data-section-button="section-kanban">Kanban</button>
       <button class="nav-button" data-section-button="section-rules">Rules</button>
@@ -122,6 +123,100 @@
         </div>
       </header>
       <div id="projects-grid" class="cards-grid"></div>
+    </section>
+
+    <section id="section-console" class="section">
+      <header class="page-header console-header">
+        <div>
+          <p class="eyebrow">Sovereign Mind</p>
+          <h1>Corporate Admin Console</h1>
+          <p class="page-subtitle">Manage account access, source documents, and generated RAG packages for the mobile app.</p>
+        </div>
+        <div class="console-auth-actions">
+          <a class="btn-link" href="/auth/login?provider=google&next=/fleet/%23console">Google OAuth</a>
+          <a class="btn-link" href="/auth/login?provider=azure&next=/fleet/%23console">Azure OAuth</a>
+          <a class="btn-link" href="/auth/logout">Sign out</a>
+        </div>
+      </header>
+
+      <div class="console-grid">
+        <article class="console-panel login-panel">
+          <div class="console-panel-header">
+            <div>
+              <p class="eyebrow">Login</p>
+              <h2>Administrator Sign-In</h2>
+            </div>
+            <span class="status-pill muted-pill">OAuth</span>
+          </div>
+          <p class="muted-text" style="margin-bottom: 12px;">Corporate admins authenticate through the configured identity provider before managing users or documents.</p>
+          <div class="console-auth-actions" style="justify-content: flex-start;">
+            <a class="btn-submit" href="/auth/login?provider=google&next=/fleet/%23console">Continue with Google</a>
+            <a class="btn-submit" href="/auth/login?provider=azure&next=/fleet/%23console">Continue with Azure</a>
+          </div>
+        </article>
+
+        <article class="console-panel account-panel">
+          <div class="console-panel-header">
+            <div>
+              <p class="eyebrow">Account</p>
+              <h2 id="sm-account-name">Loading account...</h2>
+            </div>
+            <span id="sm-account-plan" class="status-pill">Corporate</span>
+          </div>
+          <dl class="account-facts">
+            <div><dt>Customer ID</dt><dd id="sm-account-id">-</dd></div>
+            <div><dt>Domain</dt><dd id="sm-account-domain">-</dd></div>
+            <div><dt>OAuth</dt><dd id="sm-account-oauth">Google, Azure</dd></div>
+            <div><dt>Last index</dt><dd id="sm-account-indexed">Never</dd></div>
+          </dl>
+        </article>
+
+        <article class="console-panel">
+          <div class="console-panel-header">
+            <div>
+              <p class="eyebrow">Users</p>
+              <h2>Access Management</h2>
+            </div>
+          </div>
+          <form id="sm-invite-form" class="inline-form">
+            <input id="sm-invite-email" type="email" placeholder="admin@company.com" required>
+            <button type="submit" class="btn-submit">Invite</button>
+          </form>
+          <div id="sm-users-list" class="console-list"></div>
+        </article>
+
+        <article class="console-panel upload-panel">
+          <div class="console-panel-header">
+            <div>
+              <p class="eyebrow">Documents</p>
+              <h2>PDF Upload</h2>
+            </div>
+            <button id="sm-generate-btn" type="button" class="btn-submit">Generate RAG Index</button>
+          </div>
+          <div id="sm-dropzone" class="dropzone" tabindex="0">
+            <strong>Drop PDFs here</strong>
+            <span>or choose files from your desktop</span>
+            <input id="sm-file-input" type="file" accept="application/pdf,.pdf" multiple>
+          </div>
+          <div class="status-summary">
+            <span><strong id="sm-count-pending">0</strong> pending</span>
+            <span><strong id="sm-count-processing">0</strong> processing</span>
+            <span><strong id="sm-count-ready">0</strong> ready</span>
+          </div>
+          <div id="sm-documents-list" class="document-table"></div>
+        </article>
+
+        <article class="console-panel wiki-panel">
+          <div class="console-panel-header">
+            <div>
+              <p class="eyebrow">Wiki Preview</p>
+              <h2>Indexed Sources</h2>
+            </div>
+            <span id="sm-wiki-version" class="status-pill muted-pill">Draft</span>
+          </div>
+          <div id="sm-wiki-preview" class="wiki-preview"></div>
+        </article>
+      </div>
     </section>
     
 
@@ -309,6 +404,6 @@
     </div>
   </div>
 
-  <script src="assets/main.js?v=20260409d" defer></script>
+  <script src="assets/main.js?v=20260716-sm003" defer></script>
 </body>
 </html>
