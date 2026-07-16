@@ -40,6 +40,7 @@ package/
   server/
     fleet-server.mjs        Generic fleet API + static serving (Node 18+)
     setup-lib.mjs           Shared setup/bootstrap/doctor helpers
+    sovereign-rag.mjs       Sovereign Mind PDF-to-RAG package generator
     package.json            Server-only manifest kept for standalone use
   blueprint/                Template files copied into new projects
     MISSION_CONTROL.md      Project HQ (fill in {{PLACEHOLDER}} vars)
@@ -143,6 +144,17 @@ What gets synced:
 - latest `comments`
 
 The remote Fleet server caches that snapshot and uses it as a fallback for `/fleet/api/heartbeats`, `/fleet/api/tasks`, and `/fleet/api/activity` whenever it cannot reach PocketBase directly.
+
+## Sovereign Mind RAG Packages
+
+The engineering dashboard includes a corporate admin console for PDF upload and local RAG package generation. Authenticated routes under `/fleet/api/sovereign/` persist account/users/documents in `FLEET_DATA_DIR/sovereign/`.
+
+Generation flow:
+- `POST /fleet/api/sovereign/documents` stores uploaded PDF bytes and document metadata.
+- `POST /fleet/api/sovereign/rag/generate` extracts PDF text, chunks it into 512-1024 token windows, creates deterministic local embeddings, writes `chunks.jsonl`, `embeddings.jsonl`, `metadata.json`, and `wiki.md`, then zips the bundle.
+- `GET /fleet/api/sovereign/rag/packages/:version/download` returns the portable zip for iOS.
+
+For better PDF extraction in production, install Poppler so `pdftotext` is available on `PATH`. The generator has a conservative built-in fallback for simple text PDFs.
 
 ## CLI Options
 

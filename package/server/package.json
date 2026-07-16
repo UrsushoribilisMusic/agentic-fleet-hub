@@ -6,7 +6,8 @@
   "main": "fleet-server.mjs",
   "scripts": {
     "start": "node fleet-server.mjs",
-    "dev": "node --watch fleet-server.mjs"
+    "dev": "node --watch fleet-server.mjs",
+    "test:sovereign-rag": "node --test sovereign-rag.test.mjs"
   },
   "engines": {
     "node": ">=18.0.0"

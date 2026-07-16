@@ -1063,10 +1063,23 @@ function smFormatBytes(bytes) {
   return (n / (1024 * 1024)).toFixed(1) + ' MB';
 }
 
+function smReadFileAsBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const value = String(reader.result || '');
+      resolve(value.includes(',') ? value.split(',').pop() : value);
+    };
+    reader.onerror = () => reject(reader.error || new Error('file_read_failed'));
+    reader.readAsDataURL(file);
+  });
+}
+
 function smStatusLabel(status) {
   if (status === 'processing') return 'Processing';
   if (status === 'ready') return 'Ready';
   if (status === 'disabled') return 'Disabled';
+  if (status === 'failed') return 'Failed';
   return 'Pending';
 }
 
@@ -1160,6 +1173,7 @@ function smRenderConsole() {
         <div class="wiki-metric"><strong>${referenced}</strong><span class="muted-text">references</span></div>
         <div class="wiki-metric"><strong>${counts.pending + counts.processing}</strong><span class="muted-text">not ready</span></div>
       </div>
+      ${account.packageUrl ? `<p style="margin: 0 0 12px;"><a class="btn-submit" href="${smEscape(account.packageUrl)}">Download iOS Package</a></p>` : ''}
       ${includedDocs
         .sort((a, b) => Number(b.references || 0) - Number(a.references || 0))
         .map((doc) => `
@@ -1224,15 +1238,12 @@ window.smToggleUser = function(email) {
   smRenderConsole();
 };
 
-function smUploadFiles(fileList) {
+async function smUploadFiles(fileList) {
   const files = Array.prototype.slice.call(fileList || []).filter((file) => {
     return file && (file.type === 'application/pdf' || /\.pdf$/i.test(file.name));
   });
   if (!files.length) return;
-  const state = smLoadState();
-  state.documents = Array.isArray(state.documents) ? state.documents : [];
-  files.forEach((file) => {
-    state.documents.push({
+  const pendingDocs = files.map((file) => ({
       id: 'doc-' + Date.now() + '-' + Math.random().toString(36).slice(2, 7),
       name: file.name,
       size: file.size,
@@ -1242,13 +1253,35 @@ function smUploadFiles(fileList) {
       exclude: false,
       notes: '',
       uploadedAt: new Date().toISOString()
-    });
-  });
+  }));
+  const state = smLoadState();
+  state.documents = Array.isArray(state.documents) ? state.documents : [];
+  state.documents = state.documents.concat(pendingDocs);
   smSaveState(state);
-  smFetchOptional('/fleet/api/sovereign/documents', {
-    method: 'POST',
-    body: JSON.stringify({ documents: files.map((file) => ({ name: file.name, size: file.size, type: file.type })) })
-  });
+  smRenderConsole();
+
+  try {
+    const documents = await Promise.all(files.map(async (file, index) => ({
+      id: pendingDocs[index].id,
+      name: file.name,
+      size: file.size,
+      type: file.type || 'application/pdf',
+      contentBase64: await smReadFileAsBase64(file)
+    })));
+    const backendState = await smFetchOptional('/fleet/api/sovereign/documents', {
+      method: 'POST',
+      body: JSON.stringify({ documents })
+    });
+    if (backendState && backendState.account) smSaveState(backendState);
+  } catch (err) {
+    const failed = smLoadState();
+    failed.documents = (failed.documents || []).map((doc) => (
+      pendingDocs.some((item) => item.id === doc.id)
+        ? { ...doc, status: 'failed', error: err.message || 'upload_failed' }
+        : doc
+    ));
+    smSaveState(failed);
+  }
   smRenderConsole();
 }
 
@@ -1278,7 +1311,7 @@ function smUpdateDocNotes(id, notes) {
   smRenderConsole();
 }
 
-function smGenerateIndex() {
+async function smGenerateIndex() {
   const state = smLoadState();
   state.documents = (state.documents || []).map((doc) => {
     if (!doc.exclude && doc.status !== 'ready') return { ...doc, status: 'processing' };
@@ -1286,24 +1319,22 @@ function smGenerateIndex() {
   });
   smSaveState(state);
   smRenderConsole();
-  smFetchOptional('/fleet/api/sovereign/rag/generate', {
+  const result = await smFetchOptional('/fleet/api/sovereign/rag/generate', {
     method: 'POST',
     body: JSON.stringify({ account_id: state.account.id })
   });
-
-  window.setTimeout(() => {
-    const next = smLoadState();
-    next.documents = (next.documents || []).map((doc, index) => {
-      if (!doc.exclude && doc.status === 'processing') {
-        return { ...doc, status: 'ready', indexed: true, references: doc.references || (index + 2) * 3 };
-      }
-      return doc;
-    });
-    next.account.lastIndexedAt = new Date().toISOString();
-    next.account.version = 'v' + next.account.lastIndexedAt.slice(0, 10).replace(/-/g, '');
-    smSaveState(next);
-    smRenderConsole();
-  }, 1400);
+  if (result && result.state) {
+    smSaveState(result.state);
+  } else if (result && result.account) {
+    smSaveState(result);
+  } else {
+    const failed = smLoadState();
+    failed.documents = (failed.documents || []).map((doc) => (
+      doc.status === 'processing' ? { ...doc, status: 'failed', error: 'generation_failed' } : doc
+    ));
+    smSaveState(failed);
+  }
+  smRenderConsole();
 }
 
 function setupSovereignConsole() {

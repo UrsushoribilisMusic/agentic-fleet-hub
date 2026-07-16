@@ -590,6 +590,7 @@ h1 { font-size: 24px; font-weight: 600; margin-bottom: 4px; color: var(--text-pr
 .status-processing { background: var(--accent-muted); color: var(--accent); }
 .status-ready { background: var(--success-bg); color: var(--success); }
 .status-disabled { background: var(--danger-bg); color: var(--danger); }
+.status-failed { background: var(--danger-bg); color: var(--danger); }
 .muted-pill { background: var(--bg-secondary); color: var(--text-secondary); }
 
 .dropzone {

@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-07-16",
-    "summary": "Clau: SM-001 — Azure AD + Google OAuth integration. Codi: SM-003 — corporate admin console at /fleet/#console with OAuth login controls, account dashboard, user invite/disable, PDF upload/status, RAG trigger, wiki preview, and doc edit controls.",
+    "summary": "Clau: SM-001 — Azure AD + Google OAuth integration. Codi: SM-003 — corporate admin console. Codi: SM-004 — local PDF-to-RAG package pipeline with chunking, embeddings, wiki/metadata, zip download, backend routes, and console upload/generate integration.",
     "file": "2026-07-16.md"
   },
   {

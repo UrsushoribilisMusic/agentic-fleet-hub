@@ -43,6 +43,15 @@ import {
   writeBootstrapFiles,
   writeJson,
 } from "./setup-lib.mjs";
+import {
+  addSovereignDocuments,
+  generateRagIndex,
+  inviteSovereignUser,
+  loadSovereignState,
+  patchSovereignDocument,
+  resolvePackageZip,
+  setSovereignUserDisabled,
+} from "./sovereign-rag.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -162,6 +171,9 @@ function getMimeType(ext) {
     ".mjs":  "application/javascript; charset=utf-8",
     ".css":  "text/css; charset=utf-8",
     ".json": "application/json; charset=utf-8",
+    ".jsonl":"application/jsonl; charset=utf-8",
+    ".md":   "text/markdown; charset=utf-8",
+    ".zip":  "application/zip",
     ".png":  "image/png",
     ".jpg":  "image/jpeg",
     ".svg":  "image/svg+xml",
@@ -630,6 +642,75 @@ async function handler(req, res) {
         const snapshot = readFleetSnapshot();
         return send(res, snapshot ? 200 : 500, snapshot ? snapshot.collections.comments : { ok: false, error: "pb_activity_error" }, requestId);
       }
+    }
+
+    // GET /fleet/api/sovereign/console — corporate account, users, docs, packages
+    if (urlPath === "/fleet/api/sovereign/console" && req.method === "GET") {
+      return send(res, 200, loadSovereignState(FLEET_DATA_DIR), requestId);
+    }
+
+    // POST /fleet/api/sovereign/users/invite
+    if (urlPath === "/fleet/api/sovereign/users/invite" && req.method === "POST") {
+      try {
+        const body = await readBody(req);
+        return send(res, 200, inviteSovereignUser(FLEET_DATA_DIR, body.email), requestId);
+      } catch (error) {
+        return send(res, 400, { ok: false, error: error.message }, requestId);
+      }
+    }
+
+    // POST /fleet/api/sovereign/users/disable
+    if (urlPath === "/fleet/api/sovereign/users/disable" && req.method === "POST") {
+      try {
+        const body = await readBody(req);
+        return send(res, 200, setSovereignUserDisabled(FLEET_DATA_DIR, body.email, body.disabled === true), requestId);
+      } catch (error) {
+        return send(res, 404, { ok: false, error: error.message }, requestId);
+      }
+    }
+
+    // POST /fleet/api/sovereign/documents — upload PDF records with optional base64 PDF bytes
+    if (urlPath === "/fleet/api/sovereign/documents" && req.method === "POST") {
+      try {
+        const body = await readBody(req);
+        return send(res, 201, addSovereignDocuments(FLEET_DATA_DIR, body.documents || []), requestId);
+      } catch (error) {
+        return send(res, 400, { ok: false, error: error.message }, requestId);
+      }
+    }
+
+    // PATCH /fleet/api/sovereign/documents/:id — exclude/include and admin notes
+    const sovereignDocPatch = urlPath.match(/^\/fleet\/api\/sovereign\/documents\/([^/]+)$/);
+    if (sovereignDocPatch && req.method === "PATCH") {
+      try {
+        const body = await readBody(req);
+        return send(res, 200, patchSovereignDocument(FLEET_DATA_DIR, decodeURIComponent(sovereignDocPatch[1]), body), requestId);
+      } catch (error) {
+        return send(res, 404, { ok: false, error: error.message }, requestId);
+      }
+    }
+
+    // POST /fleet/api/sovereign/rag/generate — build downloadable RAG package
+    if (urlPath === "/fleet/api/sovereign/rag/generate" && req.method === "POST") {
+      try {
+        const body = await readBody(req);
+        return send(res, 200, await generateRagIndex(FLEET_DATA_DIR, { account_id: body.account_id }), requestId);
+      } catch (error) {
+        return send(res, 500, { ok: false, error: error.message, state: loadSovereignState(FLEET_DATA_DIR) }, requestId);
+      }
+    }
+
+    // GET /fleet/api/sovereign/rag/packages/:version/download
+    const sovereignPackageDownload = urlPath.match(/^\/fleet\/api\/sovereign\/rag\/packages\/([^/]+)\/download$/);
+    if (sovereignPackageDownload && req.method === "GET") {
+      const versionId = decodeURIComponent(sovereignPackageDownload[1]);
+      const zipPath = resolvePackageZip(FLEET_DATA_DIR, versionId);
+      if (!zipPath) return send(res, 404, { ok: false, error: "package_not_found" }, requestId);
+      res.statusCode = 200;
+      res.setHeader("Content-Type", "application/zip");
+      res.setHeader("Content-Disposition", `attachment; filename="${path.basename(zipPath)}"`);
+      if (requestId) res.setHeader("X-Request-Id", requestId);
+      return fs.createReadStream(zipPath).pipe(res);
     }
 
     // POST /fleet/api/setup
