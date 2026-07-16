@@ -869,6 +869,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **yoosqsad** | SM-008: iOS App — OCR & Image Description (Vision) | clau | merged | User can photograph a document or schematic, OCR t... |
 | **5qe8pazb** | SM-009: iOS App — Web Search Fallback | clau | merged | If RAG index has no relevant results (or model ind... |
 | **8ccpa7b8** | SM-010: iOS App — Settings & Model/Persona Management | clau | merged | Settings screen for advanced options: download new... |
-| **4sm1ntns** | SM-012: Integration Testing — End-to-End Happy Path | clau | in_work | Smoke test the entire MVP flow: SSO → download → i... |
+| **4sm1ntns** | SM-012: Integration Testing — End-to-End Happy Path | clau | merged | Smoke test the entire MVP flow: SSO → download → i... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
