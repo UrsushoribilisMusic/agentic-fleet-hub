@@ -864,19 +864,19 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **84b47lio** | SM-002: Web Console Backend & Database Schema | gem | merged | Build minimal web API and database schema to suppo... |
-| **kljcyvx4** | SM-007: iOS App — Conversation Threading & Management | clau | merged | Users can start multiple independent conversations... |
-| **yoosqsad** | SM-008: iOS App — OCR & Image Description (Vision) | clau | merged | User can photograph a document or schematic, OCR t... |
-| **5qe8pazb** | SM-009: iOS App — Web Search Fallback | clau | merged | If RAG index has no relevant results (or model ind... |
-| **8ccpa7b8** | SM-010: iOS App — Settings & Model/Persona Management | clau | merged | Settings screen for advanced options: download new... |
-| **4sm1ntns** | SM-012: Integration Testing — End-to-End Happy Path | clau | merged | Smoke test the entire MVP flow: SSO → download → i... |
+| **84b47lio** | SM-002: Web Console Backend & Database Schema | gem | planned | Build minimal web API and database schema to suppo... |
+| **kljcyvx4** | SM-007: iOS App — Conversation Threading & Management | clau | planned | Users can start multiple independent conversations... |
+| **yoosqsad** | SM-008: iOS App — OCR & Image Description (Vision) | clau | planned | User can photograph a document or schematic, OCR t... |
+| **5qe8pazb** | SM-009: iOS App — Web Search Fallback | clau | planned | If RAG index has no relevant results (or model ind... |
+| **8ccpa7b8** | SM-010: iOS App — Settings & Model/Persona Management | clau | planned | Settings screen for advanced options: download new... |
+| **4sm1ntns** | SM-012: Integration Testing — End-to-End Happy Path | clau | planned | Smoke test the entire MVP flow: SSO → download → i... |
+| **88ist8u0** | SM-013: iOS — RAG indicator in chat (show active index) | clau | merged | The chat dialog must show which RAG index is curre... |
 | **00izd04z** | SM-021: Web Console — Deploy all pages to sm.flotilla.cc | gem | planned | Deploy the web console static files to the DO serv... |
 | **yg3yq40a** | SM-020: Web Console — Product / About page (Sovereign Mind features) | codi | planned | Build the product/features page at /var/www/sm.flo... |
 | **l36s0dgq** | SM-019: Web Console — Knowledge Base / RAG Indices page | codi | planned | Build the knowledge base page at /var/www/sm.floti... |
 | **lywvtk07** | SM-018: Web Console — Document Upload page (mock UI) | codi | planned | Build the document upload page at /var/www/sm.flot... |
 | **zh85r02w** | SM-017: Web Console — Dashboard page (org info + users) | codi | in_work | Build the main dashboard page for the Sovereign Mi... |
 | **n75q83dh** | SM-016: Web Console — Google SSO auth (same app as Fleet Hub) | gem | in_work | Wire real Google OAuth into the sovereign-mind bac... |
-| **88ist8u0** | SM-013: iOS — RAG indicator in chat (show active index) | clau | in_work | The chat dialog must show which RAG index is curre... |
 | **xh6dniyu** | SM-015: iOS — Web search: auto-trigger when RAG returns no results | clau | planned | Currently, when RAG retrieval returns empty result... |
 | **61adfsi5** | SM-014: iOS — Expand sample_chunks.jsonl with Robot Ross & field service content | clau | planned | The bundled sample_chunks.jsonl currently has only... |
 
