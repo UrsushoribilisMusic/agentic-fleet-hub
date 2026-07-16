@@ -1,12 +1,8 @@
-SM-018 worklog
+SM-019 worklog
 
 Plan:
-- Reuse the SM-017 web console dashboard structure for nav, account display, and auth gate.
-- Add `sovereign-mind-web/documents.html` as a static mock upload page with no ingestion behavior.
-- Deploy the page to `robotsales:/var/www/sm.flotilla.cc/documents.html`.
-- Verify auth-gated route behavior and static file availability.
-- Post task output and move SM-018 to peer review.
-
-Key decisions:
-- Keep all CSS and JavaScript inline to match the existing static dashboard approach.
-- Disable the ingest action intentionally and expose the coming-soon copy through the native `title` tooltip and nearby muted text.
+- Reuse the existing Sovereign Mind static console structure from `sovereign-mind-web/index.html` and `documents.html`.
+- Add `sovereign-mind-web/knowledge-base.html` with the same nav, auth gate, and dark enterprise visual language.
+- Render two RAG index cards with the exact names, descriptions, statuses, chunk counts, dates, and wiki links from the ticket.
+- Include disabled "Download to Device" controls with the required tooltip text.
+- Validate the static HTML locally, deploy the file to `/var/www/sm.flotilla.cc/knowledge-base.html`, then commit and push.
