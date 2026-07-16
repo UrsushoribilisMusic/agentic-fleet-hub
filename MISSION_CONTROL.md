@@ -869,12 +869,12 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **yoosqsad** | SM-008: iOS App — OCR & Image Description (Vision) | clau | merged | User can photograph a document or schematic, OCR t... |
 | **5qe8pazb** | SM-009: iOS App — Web Search Fallback | clau | merged | If RAG index has no relevant results (or model ind... |
 | **8ccpa7b8** | SM-010: iOS App — Settings & Model/Persona Management | clau | merged | Settings screen for advanced options: download new... |
-| **4sm1ntns** | SM-012: Integration Testing — End-to-End Happy Path | clau | planned | Smoke test the entire MVP flow: SSO → download → i... |
+| **4sm1ntns** | SM-012: Integration Testing — End-to-End Happy Path | clau | in_work | Smoke test the entire MVP flow: SSO → download → i... |
 | **88ist8u0** | SM-013: iOS — RAG indicator in chat (show active index) | clau | merged | The chat dialog must show which RAG index is curre... |
 | **61adfsi5** | SM-014: iOS — Expand sample_chunks.jsonl with Robot Ross & field service content | clau | planned | The bundled sample_chunks.jsonl currently has only... |
 | **xh6dniyu** | SM-015: iOS — Web search: auto-trigger when RAG returns no results | clau | planned | Currently, when RAG retrieval returns empty result... |
 | **n75q83dh** | SM-016: Web Console — Google SSO auth (same app as Fleet Hub) | gem | planned | Wire real Google OAuth into the sovereign-mind bac... |
-| **zh85r02w** | SM-017: Web Console — Dashboard page (org info + users) | codi | in_work | Build the main dashboard page for the Sovereign Mi... |
+| **zh85r02w** | SM-017: Web Console — Dashboard page (org info + users) | codi | merged | Build the main dashboard page for the Sovereign Mi... |
 | **lywvtk07** | SM-018: Web Console — Document Upload page (mock UI) | codi | planned | Build the document upload page at /var/www/sm.flot... |
 | **l36s0dgq** | SM-019: Web Console — Knowledge Base / RAG Indices page | codi | planned | Build the knowledge base page at /var/www/sm.floti... |
 | **yg3yq40a** | SM-020: Web Console — Product / About page (Sovereign Mind features) | codi | planned | Build the product/features page at /var/www/sm.flo... |
