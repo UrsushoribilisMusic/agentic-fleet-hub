@@ -490,6 +490,8 @@ h1 { font-size: 24px; font-weight: 600; margin-bottom: 4px; color: var(--text-pr
 }
 
 .upload-panel,
+.examples-panel,
+.personas-panel,
 .wiki-panel {
   grid-column: 1 / -1;
 }
@@ -636,10 +638,61 @@ h1 { font-size: 24px; font-weight: 600; margin-bottom: 4px; color: var(--text-pr
 }
 
 .document-table,
+.example-list,
+.persona-list,
 .wiki-preview {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.example-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius);
+  padding: 12px;
+  background: var(--bg-secondary);
+}
+
+.example-row p {
+  margin: 4px 0 0;
+}
+
+.persona-row {
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius);
+  background: var(--bg-secondary);
+  padding: 10px 12px;
+}
+
+.persona-row summary {
+  cursor: pointer;
+  list-style-position: inside;
+}
+
+.persona-row summary span {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 3px;
+  max-width: calc(100% - 24px);
+  vertical-align: top;
+}
+
+.persona-row pre {
+  margin: 10px 0 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.5;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-primary);
+  padding: 10px;
 }
 
 .document-meta {
@@ -701,6 +754,7 @@ h1 { font-size: 24px; font-weight: 600; margin-bottom: 4px; color: var(--text-pr
 
   .console-row,
   .document-row,
+  .example-row,
   .wiki-row {
     grid-template-columns: 1fr;
   }

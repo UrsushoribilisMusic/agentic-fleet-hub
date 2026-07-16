@@ -6,8 +6,11 @@ import path from "node:path";
 import {
   addSovereignDocuments,
   generateRagIndex,
+  getSovereignPersonas,
+  loadSovereignConsoleState,
   loadSovereignState,
   retrieveFromIndex,
+  resolvePackageZip,
 } from "./sovereign-rag.mjs";
 
 function makePdfLikeBuffer(text) {
@@ -91,4 +94,41 @@ test("different document sets produce distinct fingerprints and packages", async
 
   assert.notEqual(first.metadata.doc_list_fingerprint, second.metadata.doc_list_fingerprint);
   assert.notEqual(first.package.local_path, second.package.local_path);
+});
+
+test("loads free example packages and preloaded personas", () => {
+  const baseDir = fs.mkdtempSync(path.join(os.tmpdir(), "sm-rag-"));
+  const state = loadSovereignConsoleState(baseDir);
+
+  assert.equal(state.examples.length, 2);
+  assert.deepEqual(state.examples.map((example) => example.id).sort(), [
+    "industrial-troubleshooting",
+    "robot-ross-atf",
+  ]);
+  for (const example of state.examples) {
+    assert.equal(example.free, true);
+    assert.equal(example.auth_required, false);
+    assert.ok(example.download_url.includes("/fleet/api/sovereign/rag/packages/"));
+    assert.ok(fs.existsSync(example.local_path));
+    assert.equal(resolvePackageZip(baseDir, example.version_id), example.local_path);
+  }
+
+  const personas = getSovereignPersonas();
+  assert.deepEqual(personas.map((persona) => persona.name), [
+    "Field Engineer",
+    "Product Manager",
+    "Technical Writer",
+  ]);
+  assert.ok(personas.every((persona) => persona.system_prompt.includes("provided RAG context")));
+});
+
+test("example package is searchable with normal retrieval path", () => {
+  const baseDir = fs.mkdtempSync(path.join(os.tmpdir(), "sm-rag-"));
+  const state = loadSovereignConsoleState(baseDir);
+  const industrial = state.examples.find((example) => example.id === "industrial-troubleshooting");
+  assert.ok(industrial);
+
+  const hits = retrieveFromIndex(path.dirname(industrial.local_path), "hydraulic pressure drift calibrated gauge", 3);
+  assert.ok(hits.length > 0);
+  assert.match(hits[0].text, /Hydraulic pressure|calibrated gauge/i);
 });

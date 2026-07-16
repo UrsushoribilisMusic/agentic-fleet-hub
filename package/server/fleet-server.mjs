@@ -47,6 +47,7 @@ import {
   addSovereignDocuments,
   generateRagIndex,
   inviteSovereignUser,
+  loadSovereignConsoleState,
   loadSovereignState,
   patchSovereignDocument,
   resolvePackageZip,
@@ -646,7 +647,7 @@ async function handler(req, res) {
 
     // GET /fleet/api/sovereign/console — corporate account, users, docs, packages
     if (urlPath === "/fleet/api/sovereign/console" && req.method === "GET") {
-      return send(res, 200, loadSovereignState(FLEET_DATA_DIR), requestId);
+      return send(res, 200, loadSovereignConsoleState(FLEET_DATA_DIR), requestId);
     }
 
     // POST /fleet/api/sovereign/users/invite

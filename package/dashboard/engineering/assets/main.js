@@ -1026,7 +1026,9 @@ function smInitialState() {
       { id: 'doc-safety', name: 'Safety Handbook.pdf', size: 1843200, status: 'ready', indexed: true, references: 18, exclude: false, notes: 'Core policy source.', uploadedAt: '2026-07-16T08:30:00.000Z' },
       { id: 'doc-onboarding', name: 'Operator Onboarding.pdf', size: 943718, status: 'ready', indexed: true, references: 11, exclude: false, notes: '', uploadedAt: '2026-07-16T08:34:00.000Z' },
       { id: 'doc-legacy', name: 'Legacy SOP Appendix.pdf', size: 734003, status: 'pending', indexed: false, references: 0, exclude: true, notes: 'Keep out until legal review completes.', uploadedAt: '2026-07-16T08:42:00.000Z' }
-    ]
+    ],
+    examples: [],
+    personas: []
   };
 }
 
@@ -1088,6 +1090,8 @@ function smRenderConsole() {
   const account = state.account || smInitialState().account;
   const docs = Array.isArray(state.documents) ? state.documents : [];
   const users = Array.isArray(state.users) ? state.users : [];
+  const examples = Array.isArray(state.examples) ? state.examples : [];
+  const personas = Array.isArray(state.personas) ? state.personas : [];
 
   const accountName = document.getElementById('sm-account-name');
   const accountPlan = document.getElementById('sm-account-plan');
@@ -1162,6 +1166,36 @@ function smRenderConsole() {
 
   const wikiVersion = document.getElementById('sm-wiki-version');
   if (wikiVersion) wikiVersion.textContent = account.version || 'Draft';
+
+  const examplesList = document.getElementById('sm-examples-list');
+  if (examplesList) {
+    examplesList.innerHTML = examples.map((example) => `
+      <div class="example-row">
+        <div>
+          <strong>${smEscape(example.title)}</strong>
+          <div class="muted-text">${smEscape(example.domain || 'Example index')} - ${Number(example.chunk_count || 0)} chunks - ${smFormatBytes(example.size_bytes)}</div>
+          <p class="muted-text">${smEscape(example.description || '')}</p>
+        </div>
+        <a class="btn-submit" href="${smEscape(example.download_url)}">Download</a>
+      </div>
+    `).join('') || '<p class="muted-text">Example downloads are prepared by the backend.</p>';
+  }
+
+  const personasList = document.getElementById('sm-personas-list');
+  if (personasList) {
+    personasList.innerHTML = personas.map((persona) => `
+      <details class="persona-row" open>
+        <summary>
+          <span>
+            <strong>${smEscape(persona.name)}</strong>
+            <span class="muted-text">${smEscape(persona.summary || '')}</span>
+          </span>
+        </summary>
+        <pre>${smEscape(persona.system_prompt || '')}</pre>
+      </details>
+    `).join('') || '<p class="muted-text">Personas load with the trial package metadata.</p>';
+  }
+
   const includedDocs = docs.filter((doc) => !doc.exclude && doc.status === 'ready');
   const referenced = includedDocs.reduce((sum, doc) => sum + Number(doc.references || 0), 0);
   const wikiPreview = document.getElementById('sm-wiki-preview');

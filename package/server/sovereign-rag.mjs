@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
-import { execFile } from "node:child_process";
+import { execFile, execFileSync } from "node:child_process";
 import { promisify } from "node:util";
 
 const execFileAsync = promisify(execFile);
@@ -10,6 +10,113 @@ const MIN_CHUNK_TOKENS = 512;
 const TARGET_CHUNK_TOKENS = 768;
 const MAX_CHUNK_TOKENS = 1024;
 const CHUNK_OVERLAP_TOKENS = 80;
+
+const EXAMPLE_PERSONAS = [
+  {
+    id: "field-engineer",
+    name: "Field Engineer",
+    summary: "Prioritizes diagnostics, safety steps, observed symptoms, and next actions.",
+    system_prompt:
+      "You are Sovereign Mind in Field Engineer mode. Answer from the provided RAG context first. Be concrete, operational, and safety-aware. Start with the most likely diagnosis, list checks in the order a technician should perform them, call out lockout/tagout or escalation needs, and cite source chunk IDs when available. If the context is insufficient, say exactly what measurement, log, photo, or manual section is missing.",
+  },
+  {
+    id: "product-manager",
+    name: "Product Manager",
+    summary: "Turns source material into customer impact, requirements, tradeoffs, and rollout notes.",
+    system_prompt:
+      "You are Sovereign Mind in Product Manager mode. Answer from the provided RAG context first. Translate technical details into user impact, requirements, risks, dependencies, and release decisions. Keep recommendations scoped and cite source chunk IDs when available. If evidence is missing, state the assumption and identify what stakeholder or document should confirm it.",
+  },
+  {
+    id: "technical-writer",
+    name: "Technical Writer",
+    summary: "Produces clear documentation, SOP text, release notes, and source-grounded explanations.",
+    system_prompt:
+      "You are Sovereign Mind in Technical Writer mode. Answer from the provided RAG context first. Write concise, structured documentation that a new operator can follow. Prefer headings, numbered procedures, warnings, and glossary definitions. Preserve source terminology, avoid unsupported claims, and cite source chunk IDs when available. If the material conflicts, identify the conflict before drafting final text.",
+  },
+];
+
+function repeatParagraphs(paragraphs, cycles = 18) {
+  const rows = [];
+  for (let i = 0; i < cycles; i += 1) {
+    for (const paragraph of paragraphs) rows.push(paragraph);
+  }
+  return rows.join("\n\n");
+}
+
+const EXAMPLE_INDEX_SPECS = [
+  {
+    id: "robot-ross-atf",
+    version_id: "example-robot-ross-atf-v1",
+    title: "Robot Ross ATF Wiki",
+    domain: "Automated technical file",
+    description: "Robot Ross operational wiki with compliance, job orchestration, hardware interface, calibration, narration, and video proof references.",
+    sources: [
+      {
+        id: "atf-overview",
+        name: "Robot Ross ATF Overview.md",
+        text: repeatParagraphs([
+          "Robot Ross is a robot painting system with an automated technical file. The ATF records the architecture, order flow, operational ledger, wiki pages, and cited question answering layer so an operator can explain what the robot did and why.",
+          "The system treats every job as traceable evidence. Shopify order data, bidding decisions, calibration events, hardware commands, narration, and video proof are compiled into reference pages that can be queried locally.",
+          "A compliant answer should cite the relevant ATF page, distinguish observed events from generated summaries, and preserve the chain from customer request to robot action."
+        ]),
+      },
+      {
+        id: "atf-hardware",
+        name: "Robot Ross Hardware Interface.md",
+        text: repeatParagraphs([
+          "The hardware interface controls robot motion, brush handling, drawing surfaces, and job state transitions. Operators verify the arm is homed, the work area is clear, and the drawing surface is registered before a painting job starts.",
+          "Calibration aligns the physical canvas with the coordinate system used by generated drawing paths. A failed calibration blocks production because later path commands may be accurate in software but unsafe or misplaced in the physical cell.",
+          "When troubleshooting a job, inspect the command ledger, robot status, calibration timestamp, and video proof before changing hardware parameters."
+        ]),
+      },
+      {
+        id: "atf-compliance",
+        name: "Robot Ross Compliance.md",
+        text: repeatParagraphs([
+          "The ATF supports transparency and oversight by keeping a local evidence trail. The wiki summarizes sources, while raw ledgers remain the authority for exact event timing and machine actions.",
+          "EU AI Act alignment depends on logging, transparency, human oversight, and traceability. The ATF does not replace engineering judgment; it gives reviewers a grounded record for audits and incident review.",
+          "If a generated explanation cannot be traced to a ledger event or wiki source, the answer must say the evidence is unavailable instead of inventing a justification."
+        ]),
+      },
+    ],
+  },
+  {
+    id: "industrial-troubleshooting",
+    version_id: "example-industrial-troubleshooting-v1",
+    title: "Industrial Troubleshooting Guide",
+    domain: "Generic industrial operations",
+    description: "Domain-agnostic maintenance guide for pumps, conveyors, sensors, PLC alarms, lockout/tagout, and shift handover.",
+    sources: [
+      {
+        id: "industrial-safety",
+        name: "Industrial Safety and Isolation.md",
+        text: repeatParagraphs([
+          "Before inspecting moving equipment, isolate energy sources, apply lockout/tagout, verify zero energy, and communicate the work boundary to the shift lead. Never bypass an interlock to speed diagnosis.",
+          "Escalate immediately when a fault involves exposed conductors, unknown stored pressure, repeated emergency stops, smoke, abnormal heat, or safety device tampering.",
+          "A good troubleshooting note records symptom, asset ID, alarm code, first observed time, operating mode, recent changes, checks performed, and the decision to return to service or escalate."
+        ]),
+      },
+      {
+        id: "industrial-pumps",
+        name: "Pump and Hydraulic Troubleshooting.md",
+        text: repeatParagraphs([
+          "Low pump output can come from blocked inlet strainers, air ingress, worn impellers, incorrect rotation, closed valves, low reservoir level, or a pressure relief valve stuck open.",
+          "Hydraulic pressure drift should be checked with a calibrated gauge at the test port, then compared against the HMI value. If the gauge and HMI disagree, inspect the pressure transducer, wiring, scaling, and PLC input card.",
+          "Cavitation symptoms include rattling noise, vibration, fluctuating discharge pressure, and loss of flow. Stop and inspect suction conditions before increasing speed or forcing production."
+        ]),
+      },
+      {
+        id: "industrial-controls",
+        name: "PLC Sensors and Conveyor Faults.md",
+        text: repeatParagraphs([
+          "For a conveyor no-start condition, check emergency stop chain, guard doors, drive ready state, overload reset, permissive sensors, jam detection, and whether the PLC is holding a fault latch.",
+          "Photo-eye failures are often caused by dirty lenses, misalignment, reflective targets, damaged cables, incorrect teach settings, or lighting changes. Clean and align before replacing the sensor.",
+          "When a PLC alarm repeats after reset, compare the alarm timestamp with mechanical observations and recent maintenance. Repeated alarms should not be cleared without identifying the triggering condition."
+        ]),
+      },
+    ],
+  },
+];
 
 function ensureDir(dir) {
   fs.mkdirSync(dir, { recursive: true });
@@ -65,6 +172,8 @@ function defaultState() {
     users: [],
     documents: [],
     packages: [],
+    examples: [],
+    personas: EXAMPLE_PERSONAS,
     notifications: [],
   };
 }
@@ -80,6 +189,8 @@ export function loadSovereignState(baseDir) {
     users: Array.isArray(state.users) ? state.users : [],
     documents: Array.isArray(state.documents) ? state.documents : [],
     packages: Array.isArray(state.packages) ? state.packages : [],
+    examples: Array.isArray(state.examples) ? state.examples : [],
+    personas: Array.isArray(state.personas) && state.personas.length ? state.personas : EXAMPLE_PERSONAS,
     notifications: Array.isArray(state.notifications) ? state.notifications : [],
   };
 }
@@ -352,6 +463,118 @@ async function zipDirectory(sourceDir, zipPath) {
   } catch (error) {
     throw new Error(`zip_failed:${error.message}`);
   }
+}
+
+function zipDirectorySync(sourceDir, zipPath) {
+  try {
+    execFileSync("zip", ["-qr", zipPath, "."], { cwd: sourceDir, timeout: 120_000 });
+  } catch (error) {
+    throw new Error(`zip_failed:${error.message}`);
+  }
+}
+
+function sourceRecord(source) {
+  return {
+    id: source.id,
+    name: source.name,
+    sha256: crypto.createHash("sha256").update(source.text).digest("hex"),
+    notes: "",
+  };
+}
+
+function buildExamplePackage(baseDir, spec) {
+  const paths = getPaths(baseDir);
+  const versionId = spec.version_id;
+  const packageDir = path.join(paths.packages, versionId);
+  const bundleDir = path.join(packageDir, "bundle");
+  const zipPath = path.join(packageDir, `${versionId}.zip`);
+  const downloadUrl = `/fleet/api/sovereign/rag/packages/${encodeURIComponent(versionId)}/download`;
+
+  if (!fs.existsSync(zipPath)) {
+    fs.rmSync(packageDir, { recursive: true, force: true });
+    ensureDir(bundleDir);
+    const generatedAt = "2026-07-16T00:00:00.000Z";
+    const documents = spec.sources.map(sourceRecord);
+    const fingerprint = crypto
+      .createHash("sha256")
+      .update(spec.sources.map((source) => `${source.id}:${source.name}:${source.text}`).join("\n"))
+      .digest("hex");
+    const chunks = [];
+    for (const source of spec.sources) {
+      chunks.push(...chunkText(source.text, sourceRecord(source)));
+    }
+    const embeddings = chunks.map((chunk) => ({
+      chunk_id: chunk.id,
+      vector: embedText(chunk.text),
+    }));
+    const metadata = {
+      version_id: versionId,
+      generated_at: generatedAt,
+      customer_id: "trial",
+      example_id: spec.id,
+      example_title: spec.title,
+      doc_list_fingerprint: fingerprint,
+      embedding_model: "local-hashing-embedding-v1",
+      embedding_dimensions: EMBEDDING_DIMENSIONS,
+      personas: EXAMPLE_PERSONAS.map((persona) => ({
+        id: persona.id,
+        name: persona.name,
+        summary: persona.summary,
+        system_prompt: persona.system_prompt,
+      })),
+      chunking: {
+        min_tokens: MIN_CHUNK_TOKENS,
+        target_tokens: TARGET_CHUNK_TOKENS,
+        max_tokens: MAX_CHUNK_TOKENS,
+        overlap_tokens: CHUNK_OVERLAP_TOKENS,
+      },
+      documents: documents.map((doc) => ({
+        id: doc.id,
+        name: doc.name,
+        sha256: doc.sha256,
+        chunks: chunks.filter((chunk) => chunk.source_doc_id === doc.id).length,
+      })),
+      chunk_count: chunks.length,
+    };
+
+    writeJsonl(path.join(bundleDir, "chunks.jsonl"), chunks);
+    writeJsonl(path.join(bundleDir, "embeddings.jsonl"), embeddings);
+    writeJson(path.join(bundleDir, "metadata.json"), metadata);
+    fs.writeFileSync(path.join(bundleDir, "wiki.md"), buildWiki(metadata, documents, chunks));
+    zipDirectorySync(bundleDir, zipPath);
+  }
+
+  const sizeBytes = fs.statSync(zipPath).size;
+  return {
+    id: spec.id,
+    version_id: versionId,
+    title: spec.title,
+    domain: spec.domain,
+    description: spec.description,
+    free: true,
+    auth_required: false,
+    chunk_count: readJson(path.join(bundleDir, "metadata.json"), {}).chunk_count || 0,
+    size_bytes: sizeBytes,
+    download_url: downloadUrl,
+    local_path: zipPath,
+  };
+}
+
+export function ensureSovereignExamples(baseDir) {
+  return EXAMPLE_INDEX_SPECS.map((spec) => buildExamplePackage(baseDir, spec));
+}
+
+export function getSovereignPersonas() {
+  return EXAMPLE_PERSONAS.map((persona) => ({ ...persona }));
+}
+
+export function loadSovereignConsoleState(baseDir) {
+  const state = loadSovereignState(baseDir);
+  return {
+    ...state,
+    examples: ensureSovereignExamples(baseDir),
+    personas: getSovereignPersonas(),
+  };
 }
 
 function appendFailure(paths, message) {
