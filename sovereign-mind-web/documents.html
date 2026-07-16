@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sovereign Mind Console</title>
+  <title>Documents | Sovereign Mind Console</title>
   <style>
     :root {
       color-scheme: dark;
@@ -256,58 +256,19 @@
       box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.12);
     }
 
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-
-    .stat,
-    .card {
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(17, 31, 51, 0.96), rgba(13, 24, 40, 0.96));
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-    }
-
-    .stat {
-      min-height: 118px;
-      padding: 22px;
-      display: grid;
-      align-content: space-between;
-      gap: 16px;
-    }
-
-    .stat-label {
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .stat-value {
-      font-size: 30px;
-      line-height: 1;
-      font-weight: 800;
-    }
-
-    .stat-note {
-      color: var(--faint);
-      font-size: 13px;
-      line-height: 1.35;
-    }
-
     .content-grid {
       display: grid;
-      grid-template-columns: 0.82fr 1.18fr;
+      grid-template-columns: 1.38fr 0.62fr;
       gap: 18px;
       align-items: start;
     }
 
     .card {
       overflow: hidden;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(17, 31, 51, 0.96), rgba(13, 24, 40, 0.96));
+      border-radius: 8px;
+      box-shadow: var(--shadow);
     }
 
     .card-head {
@@ -334,122 +295,75 @@
       padding: 24px;
     }
 
-    .org-name {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 24px;
-    }
-
-    .org-mark {
-      width: 54px;
-      height: 54px;
-      border-radius: 8px;
+    .upload-zone {
+      min-height: 318px;
       display: grid;
       place-items: center;
-      background: rgba(59, 130, 246, 0.16);
-      border: 1px solid rgba(96, 165, 250, 0.28);
-      color: #dbeafe;
-      font-size: 18px;
-      font-weight: 850;
+      padding: 34px;
+      border: 2px dashed rgba(125, 211, 252, 0.44);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(14, 165, 233, 0.08), rgba(15, 23, 42, 0.35)),
+        rgba(15, 23, 42, 0.46);
+      text-align: center;
     }
 
-    .org-name h3 {
-      font-size: 22px;
-    }
-
-    .org-name p {
-      margin-top: 5px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .meta-list {
+    .upload-icon {
+      width: 78px;
+      height: 78px;
       display: grid;
-      gap: 12px;
+      place-items: center;
+      margin: 0 auto 18px;
+      border-radius: 8px;
+      border: 1px solid rgba(96, 165, 250, 0.24);
+      background: rgba(37, 99, 235, 0.14);
+      color: #bfdbfe;
     }
 
-    .meta-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 13px 0;
-      border-top: 1px solid rgba(148, 163, 184, 0.12);
+    .upload-zone h2 {
+      font-size: clamp(22px, 3vw, 31px);
+      line-height: 1.15;
     }
 
-    .meta-row span:first-child {
+    .upload-zone p {
+      margin-top: 10px;
       color: var(--muted);
-      font-size: 13px;
-      font-weight: 700;
+      line-height: 1.55;
     }
 
-    .badge {
+    .browse {
       display: inline-flex;
       align-items: center;
-      min-height: 28px;
-      padding: 5px 10px;
-      border-radius: 999px;
-      font-size: 12px;
+      justify-content: center;
+      gap: 8px;
+      min-height: 42px;
+      margin-top: 22px;
+      padding: 0 18px;
+      border-radius: 7px;
+      border: 1px solid rgba(96, 165, 250, 0.34);
+      background: rgba(37, 99, 235, 0.28);
+      color: #f8fbff;
+      font-size: 14px;
       font-weight: 800;
+      cursor: pointer;
+    }
+
+    .browse:hover {
+      border-color: rgba(125, 211, 252, 0.54);
+      background: rgba(37, 99, 235, 0.36);
+    }
+
+    .file-input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
       white-space: nowrap;
-      border: 1px solid rgba(148, 163, 184, 0.18);
-      color: #dbeafe;
-      background: rgba(30, 41, 59, 0.88);
+      clip-path: inset(50%);
     }
 
-    .badge.enterprise {
-      color: #bfdbfe;
-      border-color: rgba(96, 165, 250, 0.28);
-      background: rgba(37, 99, 235, 0.18);
-    }
-
-    .badge.active {
-      color: #bbf7d0;
-      border-color: rgba(74, 222, 128, 0.25);
-      background: rgba(22, 101, 52, 0.22);
-    }
-
-    .badge.admin {
-      color: #fde68a;
-      border-color: rgba(251, 191, 36, 0.28);
-      background: rgba(146, 64, 14, 0.22);
-    }
-
-    .users {
-      display: grid;
-      gap: 12px;
-    }
-
-    .user-row {
-      display: grid;
-      grid-template-columns: 44px minmax(0, 1fr) auto;
-      align-items: center;
-      gap: 14px;
-      padding: 14px;
-      border: 1px solid rgba(148, 163, 184, 0.14);
-      border-radius: 8px;
-      background: rgba(15, 23, 42, 0.5);
-    }
-
-    .user-row .avatar {
-      width: 44px;
-      height: 44px;
-    }
-
-    .user-email {
-      min-width: 0;
-      font-weight: 750;
-      overflow-wrap: anywhere;
-    }
-
-    .user-meta {
-      margin-top: 4px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .notice {
+    .note {
       margin-top: 18px;
       padding: 14px 16px;
       border: 1px solid rgba(96, 165, 250, 0.18);
@@ -458,6 +372,98 @@
       background: rgba(37, 99, 235, 0.1);
       font-size: 13px;
       line-height: 1.5;
+    }
+
+    .format-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .format-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      color: #dbeafe;
+      background: rgba(30, 41, 59, 0.88);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .limit {
+      padding-top: 16px;
+      border-top: 1px solid rgba(148, 163, 184, 0.12);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .queue {
+      margin-top: 18px;
+    }
+
+    .empty-state {
+      min-height: 236px;
+      display: grid;
+      place-items: center;
+      padding: 30px;
+      text-align: center;
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.46);
+    }
+
+    .empty-illustration {
+      width: 112px;
+      height: 86px;
+      margin: 0 auto 16px;
+      color: #7dd3fc;
+    }
+
+    .empty-state h3 {
+      font-size: 18px;
+    }
+
+    .empty-state p {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .actions {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .tooltip-wrap {
+      display: inline-flex;
+    }
+
+    .ingest {
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 7px;
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      background: rgba(71, 85, 105, 0.34);
+      color: rgba(226, 232, 240, 0.52);
+      font-size: 14px;
+      font-weight: 850;
+      cursor: not-allowed;
+    }
+
+    .action-help {
+      max-width: 470px;
+      color: var(--faint);
+      font-size: 13px;
+      line-height: 1.45;
     }
 
     @media (max-width: 920px) {
@@ -483,7 +489,6 @@
         justify-content: space-between;
       }
 
-      .stats-grid,
       .content-grid {
         grid-template-columns: 1fr;
       }
@@ -504,20 +509,11 @@
         padding-top: 28px;
       }
 
-      .stat,
       .card-body,
-      .card-head {
+      .card-head,
+      .upload-zone {
         padding-left: 16px;
         padding-right: 16px;
-      }
-
-      .user-row {
-        grid-template-columns: 40px minmax(0, 1fr);
-      }
-
-      .user-row .badge {
-        grid-column: 2;
-        justify-self: start;
       }
 
       .account {
@@ -541,8 +537,8 @@
         </a>
 
         <nav class="nav" aria-label="Primary navigation">
-          <a href="/" aria-current="page">Dashboard</a>
-          <a href="/documents.html">Documents</a>
+          <a href="/">Dashboard</a>
+          <a href="/documents.html" aria-current="page">Documents</a>
           <a href="/knowledge-base">Knowledge Base</a>
           <a href="/about">About</a>
         </nav>
@@ -558,96 +554,93 @@
     <main>
       <section class="page-head" aria-labelledby="pageTitle">
         <div>
-          <h1 id="pageTitle">Dashboard</h1>
-          <p class="subtitle">Organization overview, index status, and authorized users for the Robot Ross Sovereign Mind workspace.</p>
+          <h1 id="pageTitle">Documents</h1>
+          <p class="subtitle">Stage source material for Robot Ross knowledge base ingestion. This is a mock console surface until the production pipeline is enabled.</p>
         </div>
         <div class="environment"><span class="pulse" aria-hidden="true"></span> Production</div>
       </section>
 
-      <section class="stats-grid" aria-label="Quick stats">
-        <article class="stat">
-          <span class="stat-label">RAG Indices</span>
-          <strong class="stat-value">2</strong>
-          <span class="stat-note">Available for device download</span>
-        </article>
-        <article class="stat">
-          <span class="stat-label">Documents ingested</span>
-          <strong class="stat-value">0</strong>
-          <span class="stat-note">Pending pipeline</span>
-        </article>
-        <article class="stat">
-          <span class="stat-label">Last sync</span>
-          <strong class="stat-value">Never</strong>
-          <span class="stat-note">No production sync has run</span>
-        </article>
-      </section>
-
       <section class="content-grid">
-        <article class="card" aria-labelledby="orgTitle">
-          <div class="card-head">
-            <div>
-              <h2 id="orgTitle">Organization</h2>
-              <p>Corporate account</p>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="org-name">
-              <div class="org-mark" aria-hidden="true">RR</div>
+        <div>
+          <article class="card" aria-labelledby="uploadTitle">
+            <div class="card-head">
               <div>
-                <h3>Robot Ross</h3>
-                <p>Sovereign Mind tenant</p>
+                <h2 id="uploadTitle">Upload documents</h2>
+                <p>Multiple files can be selected for the future ingestion queue.</p>
               </div>
             </div>
-            <div class="meta-list">
-              <div class="meta-row">
-                <span>Plan</span>
-                <span class="badge enterprise">Enterprise</span>
+            <div class="card-body">
+              <div class="upload-zone" aria-label="Document upload drop zone">
+                <div>
+                  <div class="upload-icon" aria-hidden="true">
+                    <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M21 28V10" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+                      <path d="M13.5 17.5 21 10l7.5 7.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M10 26v4.5A3.5 3.5 0 0 0 13.5 34h15A3.5 3.5 0 0 0 32 30.5V26" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <h2>Drop PDF, DOCX, or TXT files here</h2>
+                  <p>Drag documents into this zone or use Browse to select several files at once.</p>
+                  <label class="browse" for="documentFiles">Browse</label>
+                  <input class="file-input" id="documentFiles" type="file" multiple accept=".pdf,.docx,.txt,.md,.markdown,.csv,application/pdf,text/plain,text/markdown,text/csv,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                </div>
               </div>
-              <div class="meta-row">
-                <span>Status</span>
-                <span class="badge active">Active</span>
-              </div>
-            </div>
-          </div>
-        </article>
 
-        <article class="card" aria-labelledby="usersTitle">
+              <div class="note">Documents uploaded here will be chunked, embedded, and added to your organization knowledge base. Processing takes 2–5 minutes per document.</div>
+
+              <div class="actions">
+                <span class="tooltip-wrap" title="Document ingestion pipeline is coming soon. Files will be processed into your RAG index automatically.">
+                  <button class="ingest" type="button" disabled>Ingest into Knowledge Base</button>
+                </span>
+                <p class="action-help">Document ingestion pipeline is coming soon. Files will be processed into your RAG index automatically.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="card queue" aria-labelledby="queueTitle">
+            <div class="card-head">
+              <div>
+                <h2 id="queueTitle">Document queue</h2>
+                <p>Pending uploads will appear here once ingestion is wired.</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="empty-state">
+                <div>
+                  <svg class="empty-illustration" viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect x="35" y="18" width="70" height="86" rx="8" fill="rgba(96,165,250,0.12)" stroke="rgba(125,211,252,0.72)" stroke-width="3"/>
+                    <path d="M52 42h36M52 56h36M52 70h24" stroke="rgba(191,219,254,0.82)" stroke-width="4" stroke-linecap="round"/>
+                    <rect x="74" y="33" width="58" height="70" rx="8" fill="rgba(15,23,42,0.86)" stroke="rgba(148,163,184,0.42)" stroke-width="3"/>
+                    <path d="M90 57h26M90 71h26M90 85h15" stroke="rgba(148,163,184,0.72)" stroke-width="4" stroke-linecap="round"/>
+                    <circle cx="34" cy="95" r="7" fill="rgba(52,211,153,0.7)"/>
+                    <circle cx="127" cy="27" r="5" fill="rgba(251,191,36,0.72)"/>
+                  </svg>
+                  <h3>No documents uploaded yet</h3>
+                  <p>The upload queue is empty. Browse or drop files above when the ingestion pipeline is available.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <aside class="card" aria-labelledby="formatsTitle">
           <div class="card-head">
             <div>
-              <h2 id="usersTitle">Allowed users</h2>
-              <p>3 authorized accounts</p>
+              <h2 id="formatsTitle">Supported formats</h2>
+              <p>Accepted document types</p>
             </div>
           </div>
           <div class="card-body">
-            <div class="users">
-              <div class="user-row">
-                <span class="avatar" aria-hidden="true">MB</span>
-                <div>
-                  <div class="user-email">miguel@bigbearengineering.com</div>
-                  <div class="user-meta">Workspace administrator</div>
-                </div>
-                <span class="badge admin">Admin</span>
-              </div>
-              <div class="user-row">
-                <span class="avatar" aria-hidden="true">MR</span>
-                <div>
-                  <div class="user-email">miguel.an.rodriguez@gmail.com</div>
-                  <div class="user-meta">Standard member access</div>
-                </div>
-                <span class="badge">Member</span>
-              </div>
-              <div class="user-row">
-                <span class="avatar" aria-hidden="true">UH</span>
-                <div>
-                  <div class="user-email">ursushoribilis@gmail.com</div>
-                  <div class="user-meta">Standard member access</div>
-                </div>
-                <span class="badge">Member</span>
-              </div>
+            <div class="format-list" aria-label="Supported file formats">
+              <span class="format-pill">PDF</span>
+              <span class="format-pill">DOCX</span>
+              <span class="format-pill">TXT</span>
+              <span class="format-pill">Markdown</span>
+              <span class="format-pill">CSV</span>
             </div>
-            <div class="notice">Access is enforced by the Sovereign Mind auth service. This page redirects to sign-in when `/auth/verify` does not return an authenticated session.</div>
+            <p class="limit"><strong>Max file size:</strong> 50 MB per file.</p>
           </div>
-        </article>
+        </aside>
       </section>
     </main>
   </div>
