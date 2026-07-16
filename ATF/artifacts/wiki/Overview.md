@@ -25,21 +25,21 @@ The system follows a three-layer architecture:
 - [[Compliance]]: EU AI Act mapping and architectural traceability.
 
 ## 5. Hardware Requirements
-- **Computer**: Mac Mini M4 (Apple Silicon)
+- **Computer**: Mac Mini M4 (Apple Silicon, production/Shopify pipeline) or a Windows laptop (hackathon/demo build, browser-based Control Center)
 - **Robot**: Huenit Robotic Arm
-- **Cameras**: Reolink 4K (Main) + macOS Screen Capture (Board)
-- **Audio**: BlackHole 2ch for internal routing
+- **Cameras**: Reolink 4K (Main) + macOS Screen Capture (Board) — Mac Mini build only
+- **Audio**: BlackHole 2ch for internal routing — Mac Mini build only
 
 ## 6. Software Stack
-- **OS**: macOS (darwin) for Artist; Ubuntu (Linux) for Salesman.
-- **LLM**: Apertus 8B (local via Ollama)
-- **Agent Framework**: OpenClaw
+- **OS**: macOS (darwin) for Artist (production); Windows for the Mistral-hackathon build; Ubuntu (Linux) for Salesman.
+- **LLM**: Mistral (`ministral-3:8b`, local via Ollama) — default as of the 2026-07 Windows/Mistral-hackathon build. Apertus 8B remains available as an explicit fallback (`--brain apertus`), not auto-triggered.
+- **Agent Framework**: OpenClaw (Mac Mini production flow); `control_center.py` local web UI + ATF (`atf_local_server.py`) for the Windows hackathon build.
 - **Utilities**: OBS Studio, ffmpeg, Python 3.12, Node.js
 
 ## 7. Uncertainty & Contradictions
 - **Calibration Persistence**: Source code indicates calibration is required after every restart (`READY_FLAG` in `/tmp`), but some docs suggest it might be semi-persistent.
 - **Pen Pressure**: Manual leveling of the table is mentioned as a physical requirement that software cannot currently compensate for.
-- **Narration Latency**: There is an inherent delay while Apertus 8B generates narration, which `bob_ross.py` handles with a wait period, but the impact on "live" feel is a point of ongoing optimization.
+- **Narration Latency**: Narration generation now runs asynchronously in a background thread (`bob_ross.py`, 2026-07-09) — the arm starts drawing on generic filler commentary immediately rather than blocking on the ~60-90s local LLM call, swapping to the real narration once it lands.
 
 ---
 **Sources:**

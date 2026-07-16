@@ -423,6 +423,7 @@ button[disabled] {
 <h3>Overview</h3><ul>
 <li><a href="Overview.html">Overview</a></li>
 <li><a href="Architecture.html">Architecture</a></li>
+<li><a href="mexico_run_summary.html">mexico_run_summary</a></li>
 </ul>
 <h3>Subsystems</h3><ul>
 <li><a href="CommerceLayer.html">Commerce Layer</a></li>
@@ -446,7 +447,12 @@ button[disabled] {
     <p class="lede">Compiled RobotRoss knowledge page generated from RobotRoss source code, architecture notes, and operational documentation.</p>
     <div class="toc"><h3>Contents</h3><ol><li style="margin-left:0px"><a href="#1-role">1. Role</a></li><li style="margin-left:0px"><a href="#2-main-orchestrator-bob-ross-py">2. Main Orchestrator: `bob_ross.py`</a></li><li style="margin-left:0px"><a href="#3-job-lifecycle">3. Job Lifecycle</a></li><li style="margin-left:0px"><a href="#4-notes-and-open-points">4. Notes and Open Points</a></li></ol></div>
     <div class="wiki-grid">
-      <div><h1 id="job-orchestration-subsystem">Job Orchestration Subsystem</h1>
+      <div>
+<figure class="hero-image">
+  <img src="../assets/media/images/ControlCenter.png" alt="Job Orchestration">
+  <figcaption>ControlCenter.png</figcaption>
+</figure>
+<h1 id="job-orchestration-subsystem">Job Orchestration Subsystem</h1>
 <h2 id="1-role">1. Role</h2>
 <p>The Job Orchestration subsystem is the central &quot;brain&quot; of the RobotRoss artist side. It is primarily implemented in <code>bob_ross.py</code> and coordinates all other subsystems to fulfill drawing orders.</p>
 <h2 id="2-main-orchestrator-bob-ross-py">2. Main Orchestrator: <code>bob_ross.py</code></h2>
@@ -455,7 +461,7 @@ button[disabled] {
 <li><strong>Order Intake</strong>: Accepts commands like <code>sketch</code>, <code>write</code>, <code>draw</code>, or <code>svg</code>.</li>
 <li><strong>Readiness Check</strong>: Verifies hardware connection, calibration state, and local model (Ollama) availability.</li>
 <li><strong>Locking Mechanism</strong>: Uses <code>/tmp/robot_ross_running.lock</code> to ensure only one job runs at a time.</li>
-<li><a href="Narration.html">Narration</a> <strong>Generation</strong>: Calls Apertus 8B to generate poetic commentary based on the job prompt.</li>
+<li><a href="Narration.html">Narration</a> <strong>Generation</strong>: Calls the local LLM (Mistral <code>ministral-3:8b</code> by default, Apertus 8B as an explicit fallback) in a background thread to generate poetic commentary based on the job prompt — drawing starts immediately on generic filler commentary rather than waiting for generation.</li>
 <li><a href="VideoProof.html">Video Proof</a> <strong>Control</strong>: Triggers OBS Studio recording via WebSocket.</li>
 <li><strong>Execution Control</strong>: Spawns hardware-level scripts (<code>huenit_svg.py</code>, etc.) to move the arm.</li>
 <li><strong>Cleanup</strong>: Releases the job lock and triggers post-processing of the video proof.</li>

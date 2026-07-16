@@ -8,7 +8,7 @@ This script manages the high-level workflow of a drawing job:
 1. **Order Intake**: Accepts commands like `sketch`, `write`, `draw`, or `svg`.
 2. **Readiness Check**: Verifies hardware connection, calibration state, and local model (Ollama) availability.
 3. **Locking Mechanism**: Uses `/tmp/robot_ross_running.lock` to ensure only one job runs at a time.
-4. [[Narration]] **Generation**: Calls Apertus 8B to generate poetic commentary based on the job prompt.
+4. [[Narration]] **Generation**: Calls the local LLM (Mistral `ministral-3:8b` by default, Apertus 8B as an explicit fallback) in a background thread to generate poetic commentary based on the job prompt — drawing starts immediately on generic filler commentary rather than waiting for generation.
 5. [[VideoProof]] **Control**: Triggers OBS Studio recording via WebSocket.
 6. **Execution Control**: Spawns hardware-level scripts (`huenit_svg.py`, etc.) to move the arm.
 7. **Cleanup**: Releases the job lock and triggers post-processing of the video proof.

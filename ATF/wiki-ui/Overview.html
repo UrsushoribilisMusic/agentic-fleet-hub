@@ -423,6 +423,7 @@ button[disabled] {
 <h3>Overview</h3><ul>
 <li><a href="Overview.html" style="font-weight:700">Overview</a></li>
 <li><a href="Architecture.html">Architecture</a></li>
+<li><a href="mexico_run_summary.html">mexico_run_summary</a></li>
 </ul>
 <h3>Subsystems</h3><ul>
 <li><a href="CommerceLayer.html">Commerce Layer</a></li>
@@ -485,23 +486,23 @@ button[disabled] {
 </ul>
 <h2 id="5-hardware-requirements">5. Hardware Requirements</h2>
 <ul>
-<li><strong>Computer</strong>: Mac Mini M4 (Apple Silicon)</li>
+<li><strong>Computer</strong>: Mac Mini M4 (Apple Silicon, production/Shopify pipeline) or a Windows laptop (hackathon/demo build, browser-based Control Center)</li>
 <li><strong>Robot</strong>: Huenit Robotic Arm</li>
-<li><strong>Cameras</strong>: Reolink 4K (Main) + macOS Screen Capture (Board)</li>
-<li><strong>Audio</strong>: BlackHole 2ch for internal routing</li>
+<li><strong>Cameras</strong>: Reolink 4K (Main) + macOS Screen Capture (Board) — Mac Mini build only</li>
+<li><strong>Audio</strong>: BlackHole 2ch for internal routing — Mac Mini build only</li>
 </ul>
 <h2 id="6-software-stack">6. Software Stack</h2>
 <ul>
-<li><strong>OS</strong>: macOS (darwin) for Artist; Ubuntu (Linux) for Salesman.</li>
-<li><strong>LLM</strong>: Apertus 8B (local via Ollama)</li>
-<li><strong>Agent Framework</strong>: OpenClaw</li>
+<li><strong>OS</strong>: macOS (darwin) for Artist (production); Windows for the Mistral-hackathon build; Ubuntu (Linux) for Salesman.</li>
+<li><strong>LLM</strong>: Mistral (<code>ministral-3:8b</code>, local via Ollama) — default as of the 2026-07 Windows/Mistral-hackathon build. Apertus 8B remains available as an explicit fallback (<code>--brain apertus</code>), not auto-triggered.</li>
+<li><strong>Agent Framework</strong>: OpenClaw (Mac Mini production flow); <code>control_center.py</code> local web UI + ATF (<code>atf_local_server.py</code>) for the Windows hackathon build.</li>
 <li><strong>Utilities</strong>: OBS Studio, ffmpeg, Python 3.12, Node.js</li>
 </ul>
 <h2 id="7-notes-and-open-points">7. Notes and Open Points</h2>
 <ul>
 <li><strong>Calibration Persistence</strong>: Source code indicates calibration is required after every restart (<code>READY_FLAG</code> in <code>/tmp</code>), but some docs suggest it might be semi-persistent.</li>
 <li><strong>Pen Pressure</strong>: Manual leveling of the table is mentioned as a physical requirement that software cannot currently compensate for.</li>
-<li><strong>Narration Latency</strong>: There is an inherent delay while Apertus 8B generates narration, which <code>bob_ross.py</code> handles with a wait period, but the impact on &quot;live&quot; feel is a point of ongoing optimization.</li>
+<li><strong>Narration Latency</strong>: Narration generation now runs asynchronously in a background thread (<code>bob_ross.py</code>, 2026-07-09) — the arm starts drawing on generic filler commentary immediately rather than blocking on the ~60-90s local LLM call, swapping to the real narration once it lands.</li>
 </ul>
 <hr>
 <p><strong>Sources:</strong></p>

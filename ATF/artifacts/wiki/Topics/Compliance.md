@@ -19,7 +19,7 @@ As defined in [[atf_eu_ai_act_mapping]], all wiki and ledger entries must mainta
 
 ## 4. Uncertainty & Contradictions
 - **Dynamic Policy**: The EU AI Act is evolving. The mapping in this wiki represents the *current* architectural state but may require adjustment as technical standards for agentic commerce are finalized.
-- **On-premise Isolation**: While local LLM usage (Apertus 8B) enhances data sovereignty, it creates challenges for centralized compliance reporting that must be addressed via the [[OrderManagement]] offline ledger.
+- **On-premise Isolation**: While local LLM usage (Mistral `ministral-3:8b` by default, Apertus 8B as fallback) enhances data sovereignty, it creates challenges for centralized compliance reporting that must be addressed via the [[OrderManagement]] offline ledger. ATF itself defaults to local-first inference too (hosted Mistral is opt-in only), keeping the same data-sovereignty story for its own Q&A.
 
 ---
 **Sources:**
