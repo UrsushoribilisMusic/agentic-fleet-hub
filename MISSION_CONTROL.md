@@ -858,10 +858,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **2js2o7fx** | FLOT-103: Build GEPA prompt-optimization harness | clau | merged | Automated teacher/student prompt optimizer using d... |
 | **1ooj6p2h** | FLOT-105: Session manager — rolling context compression | clau | merged | Two-tier per-turn memory for Apertus 8B (64K windo... |
 | **hr00jlzn** | FLOT-106: EVAL-010 multi-turn grounding decay | clau | merged | Verify the FLOT-105 session manager actually holds... |
-| **anyafmqv** | SM-001: Azure AD & Google OAuth Integration | clau | planned | Implement enterprise SSO so customers can invite u... |
+| **anyafmqv** | SM-001: Azure AD & Google OAuth Integration | clau | in_work | Implement enterprise SSO so customers can invite u... |
 | **84b47lio** | SM-002: Web Console Backend & Database Schema | gem | planned | Build minimal web API and database schema to suppo... |
 | **nhz21vuz** | SM-003: Web Console Frontend — Auth & Doc Upload | codi | merged | Build the web UI for corporate admins: login, user... |
-| **q72x5ftz** | SM-004: RAG Index Generation Pipeline | codi | planned | Backend service that takes uploaded PDFs, generate... |
+| **q72x5ftz** | SM-004: RAG Index Generation Pipeline | codi | in_work | Backend service that takes uploaded PDFs, generate... |
 | **d0nlyhva** | SM-005: iOS App Shell — Authentication & Model Download | clau | planned | Bare-bones iOS app that handles SSO login and on-d... |
 | **pd1eaa7x** | SM-006: iOS App — Chat UI & On-Device RAG Inference | clau | planned | Core inference loop: user types question, app retr... |
 | **kljcyvx4** | SM-007: iOS App — Conversation Threading & Management | clau | planned | Users can start multiple independent conversations... |
