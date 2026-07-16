@@ -261,7 +261,7 @@ def _detect_aichat_model() -> str:
                         return line.split(":", 1)[1].strip()
         except OSError:
             pass
-    return "apertus:latest"
+    return "ministral-3:8b"
 
 
 def call_model(prompt: str, model_hint: Optional[str] = None) -> tuple:
@@ -401,7 +401,7 @@ def main():
               python3 ATF/tools/atf_qa.py "What is the bidding rule?"
               python3 ATF/tools/atf_qa.py --shell
               python3 ATF/tools/atf_qa.py --list-sources
-              python3 ATF/tools/atf_qa.py --model apertus:latest "How does calibration work?"
+              python3 ATF/tools/atf_qa.py --model ministral-3:8b "How does calibration work?"
 
             Model backend priority (first available wins):
               1. Mistral hosted via runtime_adapter.py (MISTRAL_API_KEY)

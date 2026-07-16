@@ -423,6 +423,7 @@ button[disabled] {
 <h3>Overview</h3><ul>
 <li><a href="Overview.html">Overview</a></li>
 <li><a href="Architecture.html">Architecture</a></li>
+<li><a href="mexico_run_summary.html">mexico_run_summary</a></li>
 </ul>
 <h3>Subsystems</h3><ul>
 <li><a href="CommerceLayer.html">Commerce Layer</a></li>
@@ -457,7 +458,7 @@ button[disabled] {
 <h2 id="4-notes-and-open-points">4. Notes and Open Points</h2>
 <ul>
 <li><strong>Dynamic Policy</strong>: The EU AI Act is evolving. The mapping in this wiki represents the <em>current</em> architectural state but may require adjustment as technical standards for agentic commerce are finalized.</li>
-<li><strong>On-premise Isolation</strong>: While local LLM usage (Apertus 8B) enhances data sovereignty, it creates challenges for centralized compliance reporting that must be addressed via the <a href="OrderManagement.html">Order Management</a> offline ledger.</li>
+<li><strong>On-premise Isolation</strong>: While local LLM usage (Mistral <code>ministral-3:8b</code> by default, Apertus 8B as fallback) enhances data sovereignty, it creates challenges for centralized compliance reporting that must be addressed via the <a href="OrderManagement.html">Order Management</a> offline ledger. ATF itself defaults to local-first inference too (hosted Mistral is opt-in only), keeping the same data-sovereignty story for its own Q&amp;A.</li>
 </ul>
 <hr>
 <p><strong>Sources:</strong></p>

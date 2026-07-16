@@ -9,7 +9,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Iterable
 
-ROOT = Path("/Users/miguelrodriguez/projects/agentic-fleet-hub/ATF")
+ROOT = Path(__file__).resolve().parent.parent  # ATF/tools/build_static_views.py -> ATF/
 WIKI_SRC = ROOT / "artifacts" / "wiki"
 LEDGER_SRC = ROOT / "artifacts" / "ledger" / "mexico_events.jsonl"
 WIKI_OUT = ROOT / "wiki-ui"
@@ -622,7 +622,7 @@ RobotRoss combines customer-facing input channels, an orchestration layer, local
 ## 2. System Flow
 - **Input channels**: Shopify orders, Telegram or scripted commands, and the live voice showcase.
 - **Conversation and control**: `chat_ross.py` handles interactive voice sessions, while `bob_ross.py` acts as the main orchestrator for `write`, `draw`, `svg`, `sketch`, `check`, and `calibrate`.
-- **Model path**: Claude Haiku 4.5 is used for control/commerce-side reasoning, while Apertus 8B via Ollama is used for local narration and parsing tasks. Some voice/TTS flows also reference Kokoro, Voxtral, and system fallback engines depending on runtime mode.
+- **Model path**: Claude Haiku 4.5 is used for control/commerce-side reasoning, while Mistral (`ministral-3:8b` via Ollama, local-first) is used for local narration, sketch generation, and parsing tasks by default, with Apertus 8B available as an explicit fallback. Some voice/TTS flows also reference Kokoro, Voxtral, and system fallback engines depending on runtime mode.
 - **Execution layer**: Huenit control scripts convert text, sketches, or SVGs into G-code streamed to the robot arm.
 - **Studio output**: OBS records the drawing session, order data is written into the ledger, and customer-facing proof/output is produced from that recorded session.
 
@@ -631,7 +631,7 @@ RobotRoss combines customer-facing input channels, an orchestration layer, local
 | :--- | :--- | :--- |
 | **Input** | **Shopify, Telegram, Voice Showcase** | Human prompts, uploaded designs, or spoken requests enter through commerce, messaging, or live demo channels. |
 | **Control** | **`chat_ross.py` + `bob_ross.py`** | Interactive session handling and the main job orchestrator decide what the robot should do next. |
-| **Models** | **Claude Haiku 4.5, Apertus 8B, Whisper, Kokoro/Voxtral** | Planning, narration, STT, and spoken output are split across purpose-specific model components. |
+| **Models** | **Claude Haiku 4.5, Mistral (default) / Apertus 8B (fallback), Whisper, Kokoro/Voxtral** | Planning, narration, STT, and spoken output are split across purpose-specific model components. |
 | **Execution** | **Huenit scripts + robot arm** | SVG conversion, drawing, calligraphy, calibration, and pyrography are executed against the physical arm. |
 | **Output** | **OBS, order ledger, shipped artwork** | Sessions are recorded, logged, linked back to the customer journey, and turned into video proof and physical delivery. |
 
@@ -643,7 +643,7 @@ Shopify / Telegram / Voice
   chat_ross.py / bob_ross.py
             |
             v
- Claude Haiku / Apertus / Whisper / TTS
+ Claude Haiku / Mistral (Apertus fallback) / Whisper / TTS
             |
             v
  huenit_write / huenit_draw / huenit_svg
@@ -673,14 +673,14 @@ The ATF is layered over the live RobotRoss system rather than replacing it:
 - **Studio and proof**: OBS captures the run, while the order ledger tracks received time, buyer, content, status, and produced video links.
 
 ## 8. Wall of Fame Operating Model
-- The commercial target is a **10×10 Wall of Fame** with 100 slots.
+- The commercial target is an **8×8 Wall of Fame** with 64 slots.
 - A customer buys a slot, submits a prompt or design, the system dispatches the job, RobotRoss draws it live, proof is recorded, and the physical artwork is shipped.
 - This commercial journey matters for the ATF because the technical file must explain not only the robot motion, but also the customer-facing intake and proof chain.
 
 ## 9. Notes and Open Points
 - The two source architecture documents describe the same system but emphasize different layers: one is voice-showcase and orchestrator centric, the other is end-to-end commerce/studio centric. The ATF page intentionally merges both views.
 - TTS references are not fully aligned across the documents: one source emphasizes Kokoro plus system fallbacks, while another also calls out Voxtral. The ATF should present these as runtime variants rather than contradictory claims.
-- Some model assignments are mode-specific. Claude Haiku 4.5 appears in control and commerce flows, while Apertus 8B is the local narration/default local reasoning path.
+- Some model assignments are mode-specific. Claude Haiku 4.5 appears in control and commerce flows, while Mistral (`ministral-3:8b`) is the default local narration/reasoning path, with Apertus 8B as an explicit fallback (never auto-triggered, to avoid loading two large models on the same CPU at once).
 - The compiled wiki still depends on the quality and coverage of the ingested source corpus, so this page should keep being refreshed when the RobotRoss architecture docs change.
 """
     voice_content = """# Voice Control
@@ -896,6 +896,7 @@ def find_image_for_page(stem: str) -> Path | None:
         "CommerceLayer": "CommerceLayer.png",
         "HardwareInterface": "HardwareInterface.jpeg",
         "OrderManagement": "OrderManagement.jpeg",
+        "JobOrchestration": "ControlCenter.png",
     }
     if stem in explicit:
         candidate = IMAGE_DIR / explicit[stem]
@@ -962,7 +963,7 @@ def build_wiki() -> None:
     for page in pages:
         content = page.read_text(encoding="utf-8")
         stem = page.stem
-        rel = str(page.relative_to(WIKI_SRC.parent))
+        rel = page.relative_to(WIKI_SRC.parent).as_posix()
         page_html, toc = markdown_to_html(content)
         if stem == "Overview":
             page_html = re.sub(
@@ -991,7 +992,7 @@ def build_wiki() -> None:
   </article>
 </main>
 """
-        (WIKI_OUT / f"{stem}.html").write_text(render_shell(stem, body, "../"), encoding="utf-8")
+        (WIKI_OUT / f"{stem}.html").write_text(render_shell(stem, body, "../"), encoding="utf-8", newline="\n")
         page_cards.append(
             f"""
 <div class="card">
@@ -1021,7 +1022,7 @@ def build_wiki() -> None:
   </article>
 </main>
 """
-        (WIKI_OUT / f"{stem}.html").write_text(render_shell(page["title"], body, "../"), encoding="utf-8")
+        (WIKI_OUT / f"{stem}.html").write_text(render_shell(page["title"], body, "../"), encoding="utf-8", newline="\n")
 
     index_body = """
 <main class="frame home">
@@ -1035,7 +1036,7 @@ def build_wiki() -> None:
 window.location.replace("Overview.html");
 </script>
 """
-    (WIKI_OUT / "index.html").write_text(render_shell("RobotRoss Wiki", index_body, "../"), encoding="utf-8")
+    (WIKI_OUT / "index.html").write_text(render_shell("RobotRoss Wiki", index_body, "../"), encoding="utf-8", newline="\n")
 
 
 def summarize_jobs(events: Iterable[dict]) -> list[dict]:
@@ -1228,7 +1229,7 @@ applySearch();
 </main>
 {script}
 """
-    (LEDGER_OUT / "index.html").write_text(render_shell("RobotRoss Ledger Dashboard", body, "../"), encoding="utf-8")
+    (LEDGER_OUT / "index.html").write_text(render_shell("RobotRoss Ledger Dashboard", body, "../"), encoding="utf-8", newline="\n")
 
 
 def build_landing() -> None:
@@ -1239,7 +1240,7 @@ def build_landing() -> None:
         },
         {
             "question": "Which model is doing the narration?",
-            "answer": "Narration is generated by a local language model. The current corpus references Apertus 8B via Ollama for Bob Ross-style commentary.",
+            "answer": "Narration is generated by a local language model via Ollama. Mistral (ministral-3:8b) is the default for Bob Ross-style commentary as of the Mistral hackathon build, with Apertus 8B available as an explicit fallback.",
         },
         {
             "question": "Where do the ledger events come from?",
@@ -1308,7 +1309,7 @@ setInterval(() => {{
 }}, 5000);
 </script>
 """
-    LANDING_OUT.write_text(render_shell("RobotRoss Automated Technical File", body, ""), encoding="utf-8")
+    LANDING_OUT.write_text(render_shell("RobotRoss Automated Technical File", body, ""), encoding="utf-8", newline="\n")
 
 
 def main() -> None:
