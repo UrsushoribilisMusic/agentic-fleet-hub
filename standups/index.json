@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-07-16",
+    "summary": "Clau: SM-001 — Azure AD + Google OAuth integration. Created /projects/sovereign-mind/ auth module: MSAL + google-auth-library strategies, invitation system (email → link → provider picker → session), AES-256-GCM encrypted refresh tokens, pluggable StorageAdapter for SM-002 DB wiring. 13/13 tests passing.",
+    "file": "2026-07-16.md"
+  },
+  {
     "date": "2026-07-10",
     "summary": "Clau: ATF switched to local-first Mistral default (was silently preferring hosted whenever MISTRAL_API_KEY was set), bumped to the real ministral-3:8b tag, added HEAD support. Integrated ATF chat Q&A into Robot Ross Control Center (real wiki+ledger RAG answers for questions, unchanged fast local-brain path for draw commands), wired chat replies to real backend TTS (was silently using browser Web Speech API), added a wrong-Python-interpreter self-healing guard. Traced a real incident (concurrent sketch+chat load causing Ollama to double-load Apertus+Ministral at 100% CPU each) to ATF's fallback chain auto-loading Apertus on timeout -- removed that auto-fallback since Apertus isn't used in the hackathon demo. Fixed an orphaned-timer bug causing repeating error messages in chat. Checkpoint tagged hackathon-atf-chat-working-2026-07-10 (robot-ross a640016, local only).",
     "file": "2026-07-10.md"
