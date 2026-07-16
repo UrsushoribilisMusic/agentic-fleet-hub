@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Sovereign Mind</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07111f;
+      --panel: #0d1828;
+      --panel-2: #111f33;
+      --line: rgba(148, 163, 184, 0.2);
+      --line-strong: rgba(96, 165, 250, 0.32);
+      --text: #e5edf8;
+      --muted: #8ea0b9;
+      --faint: #64748b;
+      --blue: #4ea1ff;
+      --blue-2: #7dd3fc;
+      --green: #34d399;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.24), transparent 36rem),
+        radial-gradient(circle at 82% 18%, rgba(20, 184, 166, 0.13), transparent 30rem),
+        linear-gradient(180deg, #07111f 0%, #081421 52%, #050b14 100%);
+      color: var(--text);
+    }
+
+    .shell {
+      min-height: 100vh;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--line);
+      background: rgba(7, 17, 31, 0.88);
+      backdrop-filter: blur(18px);
+    }
+
+    .topbar-inner {
+      width: min(1180px, calc(100% - 40px));
+      min-height: 76px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 230px;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .logo {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: linear-gradient(145deg, rgba(37, 99, 235, 0.32), rgba(14, 165, 233, 0.12));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      font-weight: 800;
+      letter-spacing: 0;
+      color: #dbeafe;
+    }
+
+    .wordmark {
+      display: grid;
+      gap: 2px;
+    }
+
+    .wordmark strong {
+      font-size: 15px;
+      line-height: 1.1;
+    }
+
+    .wordmark span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px;
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.62);
+    }
+
+    .nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 650;
+      padding: 9px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .nav a[aria-current="page"] {
+      color: #f8fbff;
+      background: rgba(59, 130, 246, 0.18);
+      box-shadow: inset 0 0 0 1px rgba(96, 165, 250, 0.16);
+    }
+
+    .nav a:hover {
+      border-color: rgba(96, 165, 250, 0.22);
+      background: rgba(30, 41, 59, 0.82);
+      color: #f8fbff;
+    }
+
+    .nav-cta {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 14px;
+      border-radius: 7px;
+      border: 1px solid rgba(96, 165, 250, 0.35);
+      background: rgba(37, 99, 235, 0.22);
+      color: #f8fbff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover {
+      background: rgba(37, 99, 235, 0.32);
+    }
+
+    main {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 54px 0 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    ul {
+      margin: 0;
+    }
+
+    .hero {
+      min-height: calc(100vh - 76px);
+      display: grid;
+      align-content: center;
+      padding: 18px 0 70px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 42px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 22px;
+      padding: 8px 11px;
+      border: 1px solid rgba(96, 165, 250, 0.2);
+      border-radius: 999px;
+      color: #bfdbfe;
+      background: rgba(37, 99, 235, 0.12);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.12);
+    }
+
+    h1 {
+      max-width: 780px;
+      font-size: clamp(42px, 7vw, 86px);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 660px;
+      margin-top: 22px;
+      color: #b8c5d6;
+      font-size: clamp(18px, 2vw, 23px);
+      line-height: 1.45;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 7px;
+      padding: 0 18px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .button-primary {
+      border: 1px solid rgba(96, 165, 250, 0.35);
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.95), rgba(14, 116, 144, 0.9));
+      color: #f8fbff;
+      box-shadow: 0 16px 40px rgba(37, 99, 235, 0.2);
+    }
+
+    .button-secondary {
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      background: rgba(15, 23, 42, 0.7);
+      color: #d7e3f3;
+    }
+
+    .button:hover {
+      filter: brightness(1.08);
+    }
+
+    .device-panel {
+      min-height: 500px;
+      display: grid;
+      align-content: space-between;
+      gap: 22px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(17, 31, 51, 0.98), rgba(13, 24, 40, 0.96)),
+        var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .device-screen {
+      min-height: 326px;
+      padding: 20px;
+      border: 1px solid rgba(96, 165, 250, 0.2);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(15, 23, 42, 0.62), rgba(2, 6, 23, 0.76)),
+        rgba(15, 23, 42, 0.54);
+    }
+
+    .screen-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .offline-badge {
+      color: #bbf7d0;
+    }
+
+    .chat-stack {
+      display: grid;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .bubble {
+      max-width: 86%;
+      padding: 13px 14px;
+      border-radius: 8px;
+      color: #dbeafe;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .bubble.user {
+      justify-self: end;
+      background: rgba(37, 99, 235, 0.24);
+      border: 1px solid rgba(96, 165, 250, 0.26);
+    }
+
+    .bubble.ai {
+      justify-self: start;
+      background: rgba(30, 41, 59, 0.82);
+      border: 1px solid rgba(148, 163, 184, 0.16);
+    }
+
+    .secure-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .secure-stat {
+      padding: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.54);
+    }
+
+    .secure-stat strong {
+      display: block;
+      color: #f8fbff;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+
+    .secure-stat span {
+      display: block;
+      margin-top: 4px;
+      color: var(--faint);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .section {
+      padding: 70px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 24px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      min-height: 260px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(180deg, rgba(17, 31, 51, 0.96), rgba(13, 24, 40, 0.96));
+      box-shadow: var(--shadow);
+    }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 8px;
+      color: #bfdbfe;
+      border: 1px solid rgba(96, 165, 250, 0.24);
+      background: rgba(37, 99, 235, 0.14);
+    }
+
+    .card h3 {
+      font-size: 21px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .card p {
+      margin-top: 12px;
+      color: #b8c5d6;
+      font-size: 15px;
+      line-height: 1.58;
+    }
+
+    .privacy {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(320px, 1.08fr);
+      gap: 26px;
+      align-items: start;
+    }
+
+    .privacy-panel {
+      padding: 26px;
+      border: 1px solid rgba(52, 211, 153, 0.24);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(6, 78, 59, 0.22), rgba(15, 23, 42, 0.62)),
+        rgba(13, 24, 40, 0.9);
+      box-shadow: var(--shadow);
+    }
+
+    .privacy-panel h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .privacy-panel p {
+      margin-top: 12px;
+      color: #b8c5d6;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .privacy-list {
+      display: grid;
+      gap: 14px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .privacy-list li {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+      padding: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.16);
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.54);
+      color: #d7e3f3;
+      line-height: 1.5;
+    }
+
+    .check {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: #bbf7d0;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(52, 211, 153, 0.24);
+      font-weight: 900;
+    }
+
+    .persona-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .persona-card {
+      padding: 22px;
+      border: 1px solid rgba(148, 163, 184, 0.16);
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.54);
+    }
+
+    .persona-card h3 {
+      font-size: 19px;
+      letter-spacing: 0;
+    }
+
+    .persona-card p {
+      margin-top: 10px;
+      color: #b8c5d6;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    footer {
+      padding: 34px 0 46px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    footer a {
+      color: #bfdbfe;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 960px) {
+      .topbar-inner {
+        min-height: auto;
+        padding: 14px 0;
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .brand {
+        min-width: 0;
+      }
+
+      .nav {
+        width: 100%;
+        overflow-x: auto;
+      }
+
+      .nav-cta {
+        width: max-content;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-grid,
+      .privacy {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-grid,
+      .persona-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .topbar-inner,
+      main {
+        width: min(100% - 24px, 1180px);
+      }
+
+      main {
+        padding-top: 34px;
+      }
+
+      .hero {
+        padding-bottom: 48px;
+      }
+
+      .hero-actions,
+      .button,
+      .nav-cta {
+        width: 100%;
+      }
+
+      .device-panel {
+        min-height: auto;
+        padding: 16px;
+      }
+
+      .secure-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 52px 0;
+      }
+
+      .card,
+      .privacy-panel,
+      .persona-card {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="/" aria-label="Sovereign Mind dashboard">
+          <span class="logo" aria-hidden="true">SM</span>
+          <span class="wordmark">
+            <strong>Sovereign Mind</strong>
+            <span>Enterprise Console</span>
+          </span>
+        </a>
+
+        <nav class="nav" aria-label="Primary navigation">
+          <a href="/">Dashboard</a>
+          <a href="/documents.html">Documents</a>
+          <a href="/knowledge-base.html">Knowledge Base</a>
+          <a href="/about.html" aria-current="page">About</a>
+        </nav>
+
+        <a class="nav-cta" href="https://testflight.apple.com/join/PLACEHOLDER" rel="noopener noreferrer">Get the iOS App</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="heroTitle">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> Local-first enterprise AI</div>
+            <h1 id="heroTitle">Private AI for Field Teams</h1>
+            <p class="hero-copy">On-device intelligence with enterprise data security. No cloud. No compromise.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="https://testflight.apple.com/join/PLACEHOLDER" rel="noopener noreferrer">Get the iOS App</a>
+              <a class="button button-secondary" href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub" target="_blank" rel="noopener noreferrer">View Documentation</a>
+            </div>
+          </div>
+
+          <aside class="device-panel" aria-label="Sovereign Mind secure chat preview">
+            <div class="device-screen">
+              <div class="screen-top">
+                <span>Robot Ross ATF Wiki</span>
+                <span class="offline-badge">Offline ready</span>
+              </div>
+              <div class="chat-stack">
+                <div class="bubble user">What should I check before signing off this field repair?</div>
+                <div class="bubble ai">I found three relevant steps in your organization's service procedure: verify lockout state, confirm replacement part revision, and attach the inspection note to the work order.</div>
+                <div class="bubble user">Was that answer sent to a server?</div>
+                <div class="bubble ai">No. Retrieval, reasoning, and response generation ran on this device.</div>
+              </div>
+            </div>
+            <div class="secure-strip" aria-label="Security properties">
+              <div class="secure-stat">
+                <strong>0</strong>
+                <span>Cloud queries</span>
+              </div>
+              <div class="secure-stat">
+                <strong>100%</strong>
+                <span>On device</span>
+              </div>
+              <div class="secure-stat">
+                <strong>SSO</strong>
+                <span>Enterprise access</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="featuresTitle">
+        <div class="section-head">
+          <h2 id="featuresTitle">Built for secure field operations</h2>
+          <p>Sovereign Mind brings local language models, grounded retrieval, and enterprise identity into one deployable mobile workflow.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="card">
+            <div class="icon" aria-hidden="true">CPU</div>
+            <h3>On-Device Inference</h3>
+            <p>Models run entirely on your device, no data is sent to the cloud, and teams can keep working when connectivity drops.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon" aria-hidden="true">RAG</div>
+            <h3>RAG Knowledge Base</h3>
+            <p>Ground AI answers in your organization docs with custom knowledge bases, avoiding hallucinations from the internet.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon" aria-hidden="true">SSO</div>
+            <h3>Enterprise SSO</h3>
+            <p>Azure AD and Google Workspace login, org-level access control, and invite-based user management keep access governed.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section privacy" aria-labelledby="privacyTitle">
+        <div class="privacy-panel">
+          <h2 id="privacyTitle">Your data never leaves your device</h2>
+          <p>Sovereign Mind is designed for teams that need answers in the field without exporting sensitive operational context.</p>
+        </div>
+
+        <ul class="privacy-list">
+          <li><span class="check" aria-hidden="true">OK</span><span>models downloaded once then run locally.</span></li>
+          <li><span class="check" aria-hidden="true">OK</span><span>Queries never sent to any server.</span></li>
+          <li><span class="check" aria-hidden="true">OK</span><span>Documents processed on-device after download.</span></li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="personasTitle">
+        <div class="section-head">
+          <h2 id="personasTitle">Personas for every operator</h2>
+          <p>Switch the assistant's style to match the task without changing the underlying secure knowledge base.</p>
+        </div>
+
+        <div class="persona-grid">
+          <article class="persona-card">
+            <h3>Field Engineer</h3>
+            <p>Prioritizes practical troubleshooting, safety checks, part references, and step-by-step repair guidance.</p>
+          </article>
+
+          <article class="persona-card">
+            <h3>Technical Writer</h3>
+            <p>Turns field notes and source documents into clear procedures, summaries, release notes, and operator-ready instructions.</p>
+          </article>
+
+          <article class="persona-card">
+            <h3>Product Manager</h3>
+            <p>Extracts customer pain points, feature requests, and workflow gaps from support material and field documentation.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div style="width:min(1180px, calc(100% - 40px)); margin:0 auto;">
+        Contact: <a href="mailto:miguel@bigbearengineering.com">miguel@bigbearengineering.com</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
