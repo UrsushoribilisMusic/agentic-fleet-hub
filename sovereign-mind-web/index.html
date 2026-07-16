@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sovereign Mind Console</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07111f;
+      --panel: #0d1828;
+      --panel-2: #111f33;
+      --line: rgba(148, 163, 184, 0.2);
+      --line-strong: rgba(96, 165, 250, 0.32);
+      --text: #e5edf8;
+      --muted: #8ea0b9;
+      --faint: #64748b;
+      --blue: #4ea1ff;
+      --blue-2: #7dd3fc;
+      --green: #34d399;
+      --amber: #fbbf24;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.22), transparent 36rem),
+        linear-gradient(180deg, #07111f 0%, #081421 52%, #050b14 100%);
+      color: var(--text);
+    }
+
+    body.auth-pending main,
+    body.auth-pending header {
+      visibility: hidden;
+    }
+
+    .auth-loading {
+      position: fixed;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      background: var(--bg);
+      z-index: 20;
+    }
+
+    body:not(.auth-pending) .auth-loading {
+      display: none;
+    }
+
+    .shell {
+      min-height: 100vh;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--line);
+      background: rgba(7, 17, 31, 0.88);
+      backdrop-filter: blur(18px);
+    }
+
+    .topbar-inner {
+      width: min(1180px, calc(100% - 40px));
+      min-height: 76px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 230px;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .logo {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: linear-gradient(145deg, rgba(37, 99, 235, 0.32), rgba(14, 165, 233, 0.12));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      font-weight: 800;
+      letter-spacing: 0;
+      color: #dbeafe;
+    }
+
+    .wordmark {
+      display: grid;
+      gap: 2px;
+    }
+
+    .wordmark strong {
+      font-size: 15px;
+      line-height: 1.1;
+    }
+
+    .wordmark span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px;
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.62);
+    }
+
+    .nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 650;
+      padding: 9px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .nav a[aria-current="page"] {
+      color: #f8fbff;
+      background: rgba(59, 130, 246, 0.18);
+      box-shadow: inset 0 0 0 1px rgba(96, 165, 250, 0.16);
+    }
+
+    .account {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 255px;
+      justify-content: flex-end;
+    }
+
+    .avatar {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #dbeafe;
+      background: linear-gradient(145deg, #1d4ed8, #0f766e);
+      border: 1px solid rgba(191, 219, 254, 0.35);
+      font-size: 12px;
+      font-weight: 800;
+      flex: 0 0 auto;
+    }
+
+    .account-email {
+      max-width: 210px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .signout {
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      background: rgba(15, 23, 42, 0.66);
+      color: #d7e3f3;
+      border-radius: 7px;
+      padding: 9px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .signout:hover,
+    .nav a:hover {
+      border-color: rgba(96, 165, 250, 0.22);
+      background: rgba(30, 41, 59, 0.82);
+      color: #f8fbff;
+    }
+
+    main {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 42px 0 56px;
+    }
+
+    .page-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .environment {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      color: #bfdbfe;
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(96, 165, 250, 0.2);
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.12);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .stat,
+    .card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(17, 31, 51, 0.96), rgba(13, 24, 40, 0.96));
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat {
+      min-height: 118px;
+      padding: 22px;
+      display: grid;
+      align-content: space-between;
+      gap: 16px;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .stat-value {
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 800;
+    }
+
+    .stat-note {
+      color: var(--faint);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .card {
+      overflow: hidden;
+    }
+
+    .card-head {
+      padding: 22px 24px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .card-head h2 {
+      font-size: 17px;
+      letter-spacing: 0;
+    }
+
+    .card-head p {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .card-body {
+      padding: 24px;
+    }
+
+    .org-name {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .org-mark {
+      width: 54px;
+      height: 54px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: rgba(59, 130, 246, 0.16);
+      border: 1px solid rgba(96, 165, 250, 0.28);
+      color: #dbeafe;
+      font-size: 18px;
+      font-weight: 850;
+    }
+
+    .org-name h3 {
+      font-size: 22px;
+    }
+
+    .org-name p {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .meta-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 13px 0;
+      border-top: 1px solid rgba(148, 163, 184, 0.12);
+    }
+
+    .meta-row span:first-child {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      color: #dbeafe;
+      background: rgba(30, 41, 59, 0.88);
+    }
+
+    .badge.enterprise {
+      color: #bfdbfe;
+      border-color: rgba(96, 165, 250, 0.28);
+      background: rgba(37, 99, 235, 0.18);
+    }
+
+    .badge.active {
+      color: #bbf7d0;
+      border-color: rgba(74, 222, 128, 0.25);
+      background: rgba(22, 101, 52, 0.22);
+    }
+
+    .badge.admin {
+      color: #fde68a;
+      border-color: rgba(251, 191, 36, 0.28);
+      background: rgba(146, 64, 14, 0.22);
+    }
+
+    .users {
+      display: grid;
+      gap: 12px;
+    }
+
+    .user-row {
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 14px;
+      padding: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.5);
+    }
+
+    .user-row .avatar {
+      width: 44px;
+      height: 44px;
+    }
+
+    .user-email {
+      min-width: 0;
+      font-weight: 750;
+      overflow-wrap: anywhere;
+    }
+
+    .user-meta {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .notice {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border: 1px solid rgba(96, 165, 250, 0.18);
+      border-radius: 8px;
+      color: #bfdbfe;
+      background: rgba(37, 99, 235, 0.1);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 920px) {
+      .topbar-inner {
+        min-height: auto;
+        padding: 14px 0;
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .brand,
+      .account {
+        min-width: 0;
+        width: 100%;
+      }
+
+      .nav {
+        width: 100%;
+        overflow-x: auto;
+      }
+
+      .account {
+        justify-content: space-between;
+      }
+
+      .stats-grid,
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .page-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .topbar-inner,
+      main {
+        width: min(100% - 24px, 1180px);
+      }
+
+      main {
+        padding-top: 28px;
+      }
+
+      .stat,
+      .card-body,
+      .card-head {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .user-row {
+        grid-template-columns: 40px minmax(0, 1fr);
+      }
+
+      .user-row .badge {
+        grid-column: 2;
+        justify-self: start;
+      }
+
+      .account {
+        display: grid;
+        grid-template-columns: 36px minmax(0, 1fr) auto;
+      }
+    }
+  </style>
+</head>
+<body class="auth-pending">
+  <div class="auth-loading" role="status" aria-live="polite">Verifying session...</div>
+  <div class="shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="/" aria-label="Sovereign Mind dashboard">
+          <span class="logo" aria-hidden="true">SM</span>
+          <span class="wordmark">
+            <strong>Sovereign Mind</strong>
+            <span>Enterprise Console</span>
+          </span>
+        </a>
+
+        <nav class="nav" aria-label="Primary navigation">
+          <a href="/" aria-current="page">Dashboard</a>
+          <a href="/documents">Documents</a>
+          <a href="/knowledge-base">Knowledge Base</a>
+          <a href="/about">About</a>
+        </nav>
+
+        <div class="account">
+          <span class="avatar" id="currentUserInitials" aria-hidden="true">MR</span>
+          <span class="account-email" id="currentUserEmail">miguel@bigbearengineering.com</span>
+          <button class="signout" id="signOutButton" type="button">Sign out</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-head" aria-labelledby="pageTitle">
+        <div>
+          <h1 id="pageTitle">Dashboard</h1>
+          <p class="subtitle">Organization overview, index status, and authorized users for the Robot Ross Sovereign Mind workspace.</p>
+        </div>
+        <div class="environment"><span class="pulse" aria-hidden="true"></span> Production</div>
+      </section>
+
+      <section class="stats-grid" aria-label="Quick stats">
+        <article class="stat">
+          <span class="stat-label">RAG Indices</span>
+          <strong class="stat-value">2</strong>
+          <span class="stat-note">Available for device download</span>
+        </article>
+        <article class="stat">
+          <span class="stat-label">Documents ingested</span>
+          <strong class="stat-value">0</strong>
+          <span class="stat-note">Pending pipeline</span>
+        </article>
+        <article class="stat">
+          <span class="stat-label">Last sync</span>
+          <strong class="stat-value">Never</strong>
+          <span class="stat-note">No production sync has run</span>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="card" aria-labelledby="orgTitle">
+          <div class="card-head">
+            <div>
+              <h2 id="orgTitle">Organization</h2>
+              <p>Corporate account</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="org-name">
+              <div class="org-mark" aria-hidden="true">RR</div>
+              <div>
+                <h3>Robot Ross</h3>
+                <p>Sovereign Mind tenant</p>
+              </div>
+            </div>
+            <div class="meta-list">
+              <div class="meta-row">
+                <span>Plan</span>
+                <span class="badge enterprise">Enterprise</span>
+              </div>
+              <div class="meta-row">
+                <span>Status</span>
+                <span class="badge active">Active</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" aria-labelledby="usersTitle">
+          <div class="card-head">
+            <div>
+              <h2 id="usersTitle">Allowed users</h2>
+              <p>3 authorized accounts</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="users">
+              <div class="user-row">
+                <span class="avatar" aria-hidden="true">MB</span>
+                <div>
+                  <div class="user-email">miguel@bigbearengineering.com</div>
+                  <div class="user-meta">Workspace administrator</div>
+                </div>
+                <span class="badge admin">Admin</span>
+              </div>
+              <div class="user-row">
+                <span class="avatar" aria-hidden="true">MR</span>
+                <div>
+                  <div class="user-email">miguel.an.rodriguez@gmail.com</div>
+                  <div class="user-meta">Standard member access</div>
+                </div>
+                <span class="badge">Member</span>
+              </div>
+              <div class="user-row">
+                <span class="avatar" aria-hidden="true">UH</span>
+                <div>
+                  <div class="user-email">ursushoribilis@gmail.com</div>
+                  <div class="user-meta">Standard member access</div>
+                </div>
+                <span class="badge">Member</span>
+              </div>
+            </div>
+            <div class="notice">Access is enforced by the Sovereign Mind auth service. This page redirects to sign-in when `/auth/verify` does not return an authenticated session.</div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      var fallbackEmail = "miguel@bigbearengineering.com";
+
+      function initialsFromEmail(email) {
+        if (!email || email.indexOf("@") === -1) return "SM";
+        var local = email.split("@")[0].replace(/[^a-zA-Z0-9.]+/g, ".");
+        var parts = local.split(".").filter(Boolean);
+        if (parts.length >= 2) {
+          return (parts[0][0] + parts[1][0]).toUpperCase();
+        }
+        return local.slice(0, 2).toUpperCase();
+      }
+
+      function redirectToLogin() {
+        window.location.replace("/auth/login");
+      }
+
+      function sessionEmail(payload) {
+        if (!payload || typeof payload !== "object") return fallbackEmail;
+        if (payload.email) return payload.email;
+        if (payload.user && payload.user.email) return payload.user.email;
+        if (payload.account && payload.account.email) return payload.account.email;
+        return fallbackEmail;
+      }
+
+      function isAuthenticated(payload) {
+        if (!payload || typeof payload !== "object") return true;
+        if (payload.authenticated === false) return false;
+        if (payload.ok === false) return false;
+        if (payload.valid === false) return false;
+        return true;
+      }
+
+      fetch("/auth/verify", {
+        method: "GET",
+        credentials: "include",
+        cache: "no-store",
+        headers: { "Accept": "application/json" }
+      })
+        .then(function (response) {
+          if (!response.ok) redirectToLogin();
+          return response.json().catch(function () { return {}; });
+        })
+        .then(function (payload) {
+          if (!isAuthenticated(payload)) {
+            redirectToLogin();
+            return;
+          }
+
+          var email = sessionEmail(payload);
+          document.getElementById("currentUserEmail").textContent = email;
+          document.getElementById("currentUserInitials").textContent = initialsFromEmail(email);
+          document.body.classList.remove("auth-pending");
+        })
+        .catch(redirectToLogin);
+
+      document.getElementById("signOutButton").addEventListener("click", function () {
+        fetch("/auth/logout", {
+          method: "POST",
+          credentials: "include",
+          headers: { "Accept": "application/json" }
+        }).finally(function () {
+          window.location.replace("/auth/login");
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
