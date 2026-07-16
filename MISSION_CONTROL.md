@@ -863,7 +863,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **nhz21vuz** | SM-003: Web Console Frontend — Auth & Doc Upload | codi | merged | Build the web UI for corporate admins: login, user... |
 | **q72x5ftz** | SM-004: RAG Index Generation Pipeline | codi | merged | Backend service that takes uploaded PDFs, generate... |
 | **d0nlyhva** | SM-005: iOS App Shell — Authentication & Model Download | clau | merged | Bare-bones iOS app that handles SSO login and on-d... |
-| **pd1eaa7x** | SM-006: iOS App — Chat UI & On-Device RAG Inference | clau | planned | Core inference loop: user types question, app retr... |
+| **pd1eaa7x** | SM-006: iOS App — Chat UI & On-Device RAG Inference | clau | in_work | Core inference loop: user types question, app retr... |
 | **kljcyvx4** | SM-007: iOS App — Conversation Threading & Management | clau | planned | Users can start multiple independent conversations... |
 | **yoosqsad** | SM-008: iOS App — OCR & Image Description (Vision) | clau | planned | User can photograph a document or schematic, OCR t... |
 | **5qe8pazb** | SM-009: iOS App — Web Search Fallback | clau | planned | If RAG index has no relevant results (or model ind... |
