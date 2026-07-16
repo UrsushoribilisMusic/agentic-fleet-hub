@@ -125,6 +125,12 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **ro2mwixu**: SM-011: Web Console — Example RAG Indices & Personas -- Pre-bake two example RAG indices and persona sets so users can download and try Sovereign Mind immediately. -- Codi. Approved.
+- **pd1eaa7x**: SM-006: iOS App — Chat UI & On-Device RAG Inference -- Core inference loop: user types question, app retrieves from local RAG index, feeds to local LLM with compressed context and persona, returns response. -- Clau. Approved.
+- **d0nlyhva**: SM-005: iOS App Shell — Authentication & Model Download -- Bare-bones iOS app that handles SSO login and on-device model/RAG index downloads. -- Clau. Approved.
+- **q72x5ftz**: SM-004: RAG Index Generation Pipeline -- Backend service that takes uploaded PDFs, generates a searchable RAG index, and produces a downloadable package for the iOS app. -- Codi. Approved.
+- **nhz21vuz**: SM-003: Web Console Frontend — Auth & Doc Upload -- Build the web UI for corporate admins: login, user management, document upload, and RAG generation trigger. -- Codi. Approved.
+- **anyafmqv**: SM-001: Azure AD & Google OAuth Integration -- Implement enterprise SSO so customers can invite users via email. Users authenticate through Azure AD or Google, not via password storage. -- Clau. Approved.
 - **hr00jlzn**: FLOT-106: EVAL-010 multi-turn grounding decay -- Verify the FLOT-105 session manager actually holds grounding rather than silently degrading. Compression that decays by turn 10 is worse than a full window. -- Clau. Approved.
 - **1ooj6p2h**: FLOT-105: Session manager — rolling context compression -- Two-tier per-turn memory for Apertus 8B (64K window fills fast with role+grounding+RAG+history). Reuses Flotilla's retrieval-not-load discipline. -- Clau. Approved.
 - **2js2o7fx**: FLOT-103: Build GEPA prompt-optimization harness -- Automated teacher/student prompt optimizer using dspy.GEPA. Reflective, Pareto-frontier, sample-efficient. Benchmarked on Qwen3 8B (same class as Apertus 8B). -- Clau. Approved.
@@ -858,17 +864,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **anyafmqv** | SM-001: Azure AD & Google OAuth Integration | clau | planned | Implement enterprise SSO so customers can invite u... |
 | **84b47lio** | SM-002: Web Console Backend & Database Schema | gem | planned | Build minimal web API and database schema to suppo... |
-| **nhz21vuz** | SM-003: Web Console Frontend — Auth & Doc Upload | codi | planned | Build the web UI for corporate admins: login, user... |
-| **q72x5ftz** | SM-004: RAG Index Generation Pipeline | codi | planned | Backend service that takes uploaded PDFs, generate... |
-| **d0nlyhva** | SM-005: iOS App Shell — Authentication & Model Download | clau | planned | Bare-bones iOS app that handles SSO login and on-d... |
-| **pd1eaa7x** | SM-006: iOS App — Chat UI & On-Device RAG Inference | clau | planned | Core inference loop: user types question, app retr... |
 | **kljcyvx4** | SM-007: iOS App — Conversation Threading & Management | clau | in_work | Users can start multiple independent conversations... |
 | **yoosqsad** | SM-008: iOS App — OCR & Image Description (Vision) | clau | planned | User can photograph a document or schematic, OCR t... |
 | **5qe8pazb** | SM-009: iOS App — Web Search Fallback | clau | planned | If RAG index has no relevant results (or model ind... |
 | **8ccpa7b8** | SM-010: iOS App — Settings & Model/Persona Management | clau | planned | Settings screen for advanced options: download new... |
-| **ro2mwixu** | SM-011: Web Console — Example RAG Indices & Personas | codi | planned | Pre-bake two example RAG indices and persona sets ... |
 | **4sm1ntns** | SM-012: Integration Testing — End-to-End Happy Path | clau | planned | Smoke test the entire MVP flow: SSO → download → i... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
