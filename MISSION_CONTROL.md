@@ -869,7 +869,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **yoosqsad** | SM-008: iOS App — OCR & Image Description (Vision) | clau | merged | User can photograph a document or schematic, OCR t... |
 | **5qe8pazb** | SM-009: iOS App — Web Search Fallback | clau | merged | If RAG index has no relevant results (or model ind... |
 | **8ccpa7b8** | SM-010: iOS App — Settings & Model/Persona Management | clau | merged | Settings screen for advanced options: download new... |
-| **4sm1ntns** | SM-012: Integration Testing — End-to-End Happy Path | clau | in_work | Smoke test the entire MVP flow: SSO → download → i... |
+| **4sm1ntns** | SM-012: Integration Testing — End-to-End Happy Path | clau | merged | Smoke test the entire MVP flow: SSO → download → i... |
 | **88ist8u0** | SM-013: iOS — RAG indicator in chat (show active index) | clau | merged | The chat dialog must show which RAG index is curre... |
 | **61adfsi5** | SM-014: iOS — Expand sample_chunks.jsonl with Robot Ross & field service content | clau | planned | The bundled sample_chunks.jsonl currently has only... |
 | **xh6dniyu** | SM-015: iOS — Web search: auto-trigger when RAG returns no results | clau | planned | Currently, when RAG retrieval returns empty result... |
