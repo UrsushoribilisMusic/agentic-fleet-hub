@@ -868,7 +868,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **yoosqsad** | SM-008: iOS App — OCR & Image Description (Vision) | clau | planned | User can photograph a document or schematic, OCR t... |
 | **5qe8pazb** | SM-009: iOS App — Web Search Fallback | clau | planned | If RAG index has no relevant results (or model ind... |
 | **8ccpa7b8** | SM-010: iOS App — Settings & Model/Persona Management | clau | planned | Settings screen for advanced options: download new... |
-| **ro2mwixu** | SM-011: Web Console — Example RAG Indices & Personas | codi | in_work | Pre-bake two example RAG indices and persona sets ... |
+| **ro2mwixu** | SM-011: Web Console — Example RAG Indices & Personas | codi | merged | Pre-bake two example RAG indices and persona sets ... |
 | **4sm1ntns** | SM-012: Integration Testing — End-to-End Happy Path | clau | planned | Smoke test the entire MVP flow: SSO → download → i... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
