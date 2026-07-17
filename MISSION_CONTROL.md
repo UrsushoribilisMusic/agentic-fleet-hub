@@ -878,6 +878,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **lywvtk07** | SM-018: Web Console — Document Upload page (mock UI) | codi | merged | Build the document upload page at /var/www/sm.flot... |
 | **l36s0dgq** | SM-019: Web Console — Knowledge Base / RAG Indices page | codi | merged | Build the knowledge base page at /var/www/sm.floti... |
 | **yg3yq40a** | SM-020: Web Console — Product / About page (Sovereign Mind features) | codi | merged | Build the product/features page at /var/www/sm.flo... |
-| **00izd04z** | SM-021: Web Console — Deploy all pages to sm.flotilla.cc | gem | planned | Deploy the web console static files to the DO serv... |
+| **00izd04z** | SM-021: Web Console — Deploy all pages to sm.flotilla.cc | gem | in_work | Deploy the web console static files to the DO serv... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
