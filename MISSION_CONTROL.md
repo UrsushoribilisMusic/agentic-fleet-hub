@@ -124,6 +124,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ---
 
 ### CLOSED
+- **84b47lio**: SM-002: Web Console Backend & Database Schema -- Build minimal web API and database schema to support user management, corporate account creation, and doc upload workflow. -- Gem. Approved.
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
 - **4ika4n1n**: SM-305: S5 — Ingestion pipeline -- Sovereign Mind (sm.flotilla.cc) — document ingestion. -- Codi. Approved.
 - **d21vjbif**: SM-302: S2 — Landing page + CTAs -- Sovereign Mind (sm.flotilla.cc) — rewrite about.html as the product landing page. -- Codi. Approved.
@@ -872,7 +873,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **84b47lio** | SM-002: Web Console Backend & Database Schema | gem | in_work | Build minimal web API and database schema to suppo... |
 | **kljcyvx4** | SM-007: iOS App — Conversation Threading & Management | clau | merged | Users can start multiple independent conversations... |
 | **yoosqsad** | SM-008: iOS App — OCR & Image Description (Vision) | clau | merged | User can photograph a document or schematic, OCR t... |
 | **5qe8pazb** | SM-009: iOS App — Web Search Fallback | clau | merged | If RAG index has no relevant results (or model ind... |
