@@ -125,6 +125,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **ml0qgr4l**: SM-320: iOS — AAD + Google SSO login via ASWebAuthenticationSession -- Sovereign Mind iOS app — replace stub login with real AAD + Google OAuth via ASWebAuthenticationSession. -- Clau. Approved.
+- **4tbahkhv**: SM-319: Per-org Google Workspace domain restriction -- Sovereign Mind — replace hardcoded GOOGLE_AUTH_ALLOWED_EMAILS with per-org domain restriction. -- Clau. Approved.
+- **ky7u7ynr**: SM-318: Multi-tenant AAD — per-org Azure tenant configuration -- Sovereign Mind — Microsoft Entra ID (AAD) multi-tenant support. -- Clau. Approved.
+- **qj6aicfd**: SM-316: Apertus 1.1 4.0B Instruct — on-device model integration -- Sovereign Mind iOS — integrate Apertus 1.1 4.0B Instruct as an on-device model option alongside Ministral 3B. -- Clau. Approved.
 - **8ptfj5fj**: SM-315: Security hardening — unprotected auth routes + ACL bypass (CRITICAL) -- Sovereign Mind (sm.flotilla.cc) — security review findings, all CRITICAL/HIGH. -- Clau. Approved.
 - **jvthdd4i**: SM-313: S13 — Failure-mode capability -- Sovereign Mind — diagnostic / failure-mode analysis capability. -- Clau. Approved.
 - **rexmdzft**: SM-312: S12 — iOS: chat (refusal-enforced) -- Sovereign Mind iOS app — chat UI. -- Clau. Approved.
@@ -894,11 +898,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **b7apzqf1** | SM-307: S7 — Admin console: users, assignment, revoke | clau | planned | Sovereign Mind (sm.flotilla.cc) — user management ... |
 | **dneplzr4** | SM-308: S8 — User landing page | clau | planned | Sovereign Mind (sm.flotilla.cc) — authenticated us... |
 | **xu5sw7au** | SM-314: S14 — Self-hosted packaging | clau | planned | Sovereign Mind — Docker compose self-hosted packag... |
-| **qj6aicfd** | SM-316: Apertus 1.1 4.0B Instruct — on-device model integration | clau | merged | Sovereign Mind iOS — integrate Apertus 1.1 4.0B In... |
-| **zcfdfgdm** | SM-317: Infisical secrets — provision + wire SM credentials | clau | merged | Sovereign Mind — secrets management via Infisical.... |
-| **ky7u7ynr** | SM-318: Multi-tenant AAD — per-org Azure tenant configuration | clau | merged | Sovereign Mind — Microsoft Entra ID (AAD) multi-te... |
-| **4tbahkhv** | SM-319: Per-org Google Workspace domain restriction | clau | merged | Sovereign Mind — replace hardcoded GOOGLE_AUTH_ALL... |
-| **ml0qgr4l** | SM-320: iOS — AAD + Google SSO login via ASWebAuthenticationSession | clau | merged | Sovereign Mind iOS app — replace stub login with r... |
+| **zcfdfgdm** | SM-317: Infisical secrets — provision + wire SM credentials | clau | in_work | Sovereign Mind — secrets management via Infisical.... |
 | **ka8hqmsn** | SM-321: Fix cross-org ACL leak on GET /api/wiki/collections | clau | planned | GET /api/wiki/collections (server.js ~line 1471) c... |
 | **89a8xt1p** | SM-322: Add CSRF nonce to OAuth state (AAD + Google) | clau | planned | Both Azure and Google OAuth flows build state as b... |
 
