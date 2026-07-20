@@ -879,19 +879,19 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **l36s0dgq** | SM-019: Web Console — Knowledge Base / RAG Indices page | codi | merged | Build the knowledge base page at /var/www/sm.floti... |
 | **yg3yq40a** | SM-020: Web Console — Product / About page (Sovereign Mind features) | codi | merged | Build the product/features page at /var/www/sm.flo... |
 | **00izd04z** | SM-021: Web Console — Deploy all pages to sm.flotilla.cc | gem | merged | Deploy the web console static files to the DO serv... |
-| **xu5sw7au** | SM-314: S14 — Self-hosted packaging |  | planned | Sovereign Mind — Docker compose self-hosted packag... |
-| **jvthdd4i** | SM-313: S13 — Failure-mode capability |  | planned | Sovereign Mind — diagnostic / failure-mode analysi... |
-| **rexmdzft** | SM-312: S12 — iOS: chat (refusal-enforced) |  | planned | Sovereign Mind iOS app — chat UI.... |
-| **xd1q7gxz** | SM-311: S11 — iOS: collection download + sync |  | planned | Sovereign Mind iOS app — collection sync.... |
-| **mo3paua7** | SM-310: S10 — iOS: login + model download |  | planned | Sovereign Mind iOS app — first-run: org login + Mi... |
-| **5topq6g3** | SM-309: S9 — Wiki viewer (web) |  | planned | Sovereign Mind (sm.flotilla.cc) — generated wiki v... |
-| **dneplzr4** | SM-308: S8 — User landing page |  | planned | Sovereign Mind (sm.flotilla.cc) — authenticated us... |
-| **b7apzqf1** | SM-307: S7 — Admin console: users, assignment, revoke |  | planned | Sovereign Mind (sm.flotilla.cc) — user management ... |
-| **28uff0pk** | SM-306: S6 — Admin console: collections + preview inference |  | planned | Sovereign Mind (sm.flotilla.cc) — admin collection... |
-| **4ika4n1n** | SM-305: S5 — Ingestion pipeline |  | planned | Sovereign Mind (sm.flotilla.cc) — document ingesti... |
-| **jk90dfyl** | SM-304: S4 — Data model |  | planned | Sovereign Mind (sm.flotilla.cc) — schema definitio... |
-| **wockrcui** | SM-303: S3 — Onboarding flow |  | planned | Sovereign Mind (sm.flotilla.cc) — end-to-end onboa... |
-| **d21vjbif** | SM-302: S2 — Landing page + CTAs |  | planned | Sovereign Mind (sm.flotilla.cc) — rewrite about.ht... |
-| **5l5zbe9y** | SM-301: S1 — Access cleanup |  | planned | Sovereign Mind (sm.flotilla.cc) — access control p... |
+| **5l5zbe9y** | SM-301: S1 — Access cleanup | clau | in_work | Sovereign Mind (sm.flotilla.cc) — access control p... |
+| **d21vjbif** | SM-302: S2 — Landing page + CTAs | clau | planned | Sovereign Mind (sm.flotilla.cc) — rewrite about.ht... |
+| **wockrcui** | SM-303: S3 — Onboarding flow | clau | planned | Sovereign Mind (sm.flotilla.cc) — end-to-end onboa... |
+| **jk90dfyl** | SM-304: S4 — Data model | clau | planned | Sovereign Mind (sm.flotilla.cc) — schema definitio... |
+| **4ika4n1n** | SM-305: S5 — Ingestion pipeline | clau | planned | Sovereign Mind (sm.flotilla.cc) — document ingesti... |
+| **28uff0pk** | SM-306: S6 — Admin console: collections + preview inference | clau | planned | Sovereign Mind (sm.flotilla.cc) — admin collection... |
+| **b7apzqf1** | SM-307: S7 — Admin console: users, assignment, revoke | clau | planned | Sovereign Mind (sm.flotilla.cc) — user management ... |
+| **dneplzr4** | SM-308: S8 — User landing page | clau | planned | Sovereign Mind (sm.flotilla.cc) — authenticated us... |
+| **5topq6g3** | SM-309: S9 — Wiki viewer (web) | clau | planned | Sovereign Mind (sm.flotilla.cc) — generated wiki v... |
+| **mo3paua7** | SM-310: S10 — iOS: login + model download | clau | planned | Sovereign Mind iOS app — first-run: org login + Mi... |
+| **xd1q7gxz** | SM-311: S11 — iOS: collection download + sync | clau | planned | Sovereign Mind iOS app — collection sync.... |
+| **rexmdzft** | SM-312: S12 — iOS: chat (refusal-enforced) | clau | planned | Sovereign Mind iOS app — chat UI.... |
+| **jvthdd4i** | SM-313: S13 — Failure-mode capability | clau | planned | Sovereign Mind — diagnostic / failure-mode analysi... |
+| **xu5sw7au** | SM-314: S14 — Self-hosted packaging | clau | planned | Sovereign Mind — Docker compose self-hosted packag... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
