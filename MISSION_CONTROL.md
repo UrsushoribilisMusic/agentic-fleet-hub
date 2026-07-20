@@ -894,7 +894,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **8ccpa7b8** | SM-010: iOS App — Settings & Model/Persona Management | clau | in_work | Settings screen for advanced options: download new... |
 | **88ist8u0** | SM-013: iOS — RAG indicator in chat (show active index) | clau | in_work | The chat dialog must show which RAG index is curre... |
 | **5l5zbe9y** | SM-301: S1 — Access cleanup | clau | in_work | Sovereign Mind (sm.flotilla.cc) — access control p... |
-| **wockrcui** | SM-303: S3 — Onboarding flow | clau | in_work | Sovereign Mind (sm.flotilla.cc) — end-to-end onboa... |
+| **wockrcui** | SM-303: S3 — Onboarding flow | clau | merged | Sovereign Mind (sm.flotilla.cc) — end-to-end onboa... |
 | **b7apzqf1** | SM-307: S7 — Admin console: users, assignment, revoke | clau | planned | Sovereign Mind (sm.flotilla.cc) — user management ... |
 | **dneplzr4** | SM-308: S8 — User landing page | clau | planned | Sovereign Mind (sm.flotilla.cc) — authenticated us... |
 | **xu5sw7au** | SM-314: S14 — Self-hosted packaging | clau | planned | Sovereign Mind — Docker compose self-hosted packag... |
