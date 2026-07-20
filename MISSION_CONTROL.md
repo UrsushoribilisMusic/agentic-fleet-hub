@@ -891,7 +891,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **mo3paua7** | SM-310: S10 — iOS: login + model download | clau | merged | Sovereign Mind iOS app — first-run: org login + Mi... |
 | **xd1q7gxz** | SM-311: S11 — iOS: collection download + sync | clau | merged | Sovereign Mind iOS app — collection sync.... |
 | **rexmdzft** | SM-312: S12 — iOS: chat (refusal-enforced) | clau | merged | Sovereign Mind iOS app — chat UI.... |
-| **jvthdd4i** | SM-313: S13 — Failure-mode capability | clau | planned | Sovereign Mind — diagnostic / failure-mode analysi... |
+| **jvthdd4i** | SM-313: S13 — Failure-mode capability | clau | in_work | Sovereign Mind — diagnostic / failure-mode analysi... |
 | **xu5sw7au** | SM-314: S14 — Self-hosted packaging | clau | in_work | Sovereign Mind — Docker compose self-hosted packag... |
 | **8ptfj5fj** | SM-315: Security hardening — unprotected auth routes + ACL bypass (CRITICAL) | clau | planned | Sovereign Mind (sm.flotilla.cc) — security review ... |
 | **qj6aicfd** | SM-316: Apertus 1.1 4.0B Instruct — on-device model integration | clau | planned | Sovereign Mind iOS — integrate Apertus 1.1 4.0B In... |
