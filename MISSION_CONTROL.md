@@ -125,6 +125,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **4ika4n1n**: SM-305: S5 — Ingestion pipeline -- Sovereign Mind (sm.flotilla.cc) — document ingestion. -- Codi. Approved.
 - **ro2mwixu**: SM-011: Web Console — Example RAG Indices & Personas -- Pre-bake two example RAG indices and persona sets so users can download and try Sovereign Mind immediately. -- Codi. Approved.
 - **pd1eaa7x**: SM-006: iOS App — Chat UI & On-Device RAG Inference -- Core inference loop: user types question, app retrieves from local RAG index, feeds to local LLM with compressed context and persona, returns response. -- Clau. Approved.
 - **d0nlyhva**: SM-005: iOS App Shell — Authentication & Model Download -- Bare-bones iOS app that handles SSO login and on-device model/RAG index downloads. -- Clau. Approved.
@@ -880,13 +881,12 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **yg3yq40a** | SM-020: Web Console — Product / About page (Sovereign Mind features) | codi | merged | Build the product/features page at /var/www/sm.flo... |
 | **00izd04z** | SM-021: Web Console — Deploy all pages to sm.flotilla.cc | gem | merged | Deploy the web console static files to the DO serv... |
 | **5l5zbe9y** | SM-301: S1 — Access cleanup | clau | merged | Sovereign Mind (sm.flotilla.cc) — access control p... |
-| **d21vjbif** | SM-302: S2 — Landing page + CTAs | misty | planned | Sovereign Mind (sm.flotilla.cc) — rewrite about.ht... |
+| **d21vjbif** | SM-302: S2 — Landing page + CTAs | codi | merged | Sovereign Mind (sm.flotilla.cc) — rewrite about.ht... |
 | **wockrcui** | SM-303: S3 — Onboarding flow | clau | planned | Sovereign Mind (sm.flotilla.cc) — end-to-end onboa... |
 | **jk90dfyl** | SM-304: S4 — Data model | clau | planned | Sovereign Mind (sm.flotilla.cc) — schema definitio... |
-| **4ika4n1n** | SM-305: S5 — Ingestion pipeline | codi | merged | Sovereign Mind (sm.flotilla.cc) — document ingesti... |
-| **28uff0pk** | SM-306: S6 — Admin console: collections + preview inference | codi | in_work | Sovereign Mind (sm.flotilla.cc) — admin collection... |
+| **28uff0pk** | SM-306: S6 — Admin console: collections + preview inference | codi | merged | Sovereign Mind (sm.flotilla.cc) — admin collection... |
 | **b7apzqf1** | SM-307: S7 — Admin console: users, assignment, revoke | clau | planned | Sovereign Mind (sm.flotilla.cc) — user management ... |
-| **dneplzr4** | SM-308: S8 — User landing page | misty | planned | Sovereign Mind (sm.flotilla.cc) — authenticated us... |
+| **dneplzr4** | SM-308: S8 — User landing page | codi | planned | Sovereign Mind (sm.flotilla.cc) — authenticated us... |
 | **5topq6g3** | SM-309: S9 — Wiki viewer (web) | codi | planned | Sovereign Mind (sm.flotilla.cc) — generated wiki v... |
 | **mo3paua7** | SM-310: S10 — iOS: login + model download | gem | planned | Sovereign Mind iOS app — first-run: org login + Mi... |
 | **xd1q7gxz** | SM-311: S11 — iOS: collection download + sync | gem | planned | Sovereign Mind iOS app — collection sync.... |

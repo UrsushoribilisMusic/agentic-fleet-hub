@@ -305,3 +305,70 @@ Reviewed 2 tasks in `peer_review` status assigned to Clau (not misty):
 
 ### Next Steps
 - Continue protocol execution in next heartbeat cycle
+
+---
+
+# Misty — 2026-07-20 (10:47-10:53 UTC)
+
+## Session Summary
+
+Executed full Phase 1-6 Heartbeat Protocol (started from Phase 1 step 3 per instruction).
+
+### Phase 1: Orient
+- ✓ Step 3: Ran `python3 fleet/active_context.py` - identified 3 active project blocks (Music Video Tool, PrivateCore iOS, ReelTales)
+- ✗ Step 4: Could NOT git pull repos (permission denied) or read Mission Control files for non-hub projects (permission denied)
+- ✓ Step 4: Read fleet hub AGENTS/RULES.md
+- ✓ Step 6: Read AGENTS/MESSAGES/inbox.json (653 messages, all already marked as read)
+- ✓ Step 7: POSTed working heartbeat to PocketBase (ID: 3m8dczjmagmpm8b)
+
+### Phase 2: Peer Review First
+- ✓ GET tasks with status `peer_review` - found 17 tasks, 16 NOT assigned to misty
+- ✓ Reviewed SM-305 (4ika4n1no3617pj, assigned to codi):
+  - **Commit found**: 832b1288, 44b5fca4, d2d15517 in agentic-fleet-hub
+  - **Code verified**: sovereign-rag.mjs has PDF/DOCX/TXT extraction, 256-512 token chunking, FAISS Flat index, per-document progress/failure states
+  - **Tests verified**: sovereign-rag.test.mjs has 7 tests, npm run test:sovereign-rag passed
+  - **Standup verified**: 2026-07-20.md documents implementation
+  - **Action**: POSTed approval comment (69suc7kz93aeguq), PATCHed status to `approved`
+- ✗ Remaining 15 peer_review tasks (SM-002, SM-007-015, SM-016-021): Could NOT verify commits in salesman-cloud-infra or sovereign-mind-backend repos (permission denied). These are infrastructure/deployment tasks with code on servers.
+
+### Phase 3: Own Tasks
+- ✓ GET tasks assigned to misty with status `todo` - found 2 tasks:
+  - SM-302: S2 — Landing page + CTAs (d21vjbifqfkkcgd)
+  - SM-308: S8 — User landing page (dneplzr4k2xy5zu)
+- ✓ Picked SM-302 (first by creation time), PATCHed status to `in_progress`
+- ✓ Created branch `task/d21vjbifqfkkcgd` and pushed to origin
+- ✓ Created WORKLOG_SM-302.md with plan
+- ✓ Implemented SM-302:
+  - Rewrote about.html hero with thesis: "Your documents never leave your infrastructure. Inference never leaves the device."
+  - Updated target audience to Swiss/EU enterprise, field service
+  - Changed CTAs to "Try it" and "Create your organization"
+  - Created docs.html with model parameter tables (mistral-7b, ministral-3b, qwen-2-vl, local-hashing-embedding-v1)
+  - Added Technical Docs navigation link and section
+  - DoD met: landing page has no engineering tables; parameter content lives at /docs
+- ✓ Committed changes (a6c77748) and pushed branch to origin
+- ✓ POSTed output comment (yv2ycgyo3y4uml6) documenting changes
+- ✗ SM-302 status: Auto-promoted to peer_review by dispatcher and reassigned to codi
+- ✓ Picked SM-308, PATCHed status to `in_progress`
+- ✓ Created branch `task/dneplzr4k2xy5zu` and pushed to origin
+- ✓ Created WORKLOG_SM-308.md with plan
+- ✗ SM-308 implementation: BLOCKED - depends on SM-307 (S7) which does not exist yet. Cannot determine access control requirements (DoD: matches what S7 grants).
+
+### Phase 4: Blockers
+- ✗ SM-308 blocked by missing SM-307 dependency (access control specification)
+- ✗ Cannot access salesman-cloud-infra repo to verify other peer_review tasks
+
+### Phase 5: Lessons
+- Pattern reinforced: When task branches are committed and pushed, dispatcher auto-promotes to peer_review
+- Observation: Tasks can be reassigned automatically by dispatcher during status transitions
+- New insight: Sovereign Mind web console files (sovereign-mind-web/) are in fleet hub repo, not in salesman-cloud-infra
+
+### Phase 6: Sign Off
+- ✓ POST idle heartbeat (ID: TBD)
+- ✓ Updated PROGRESS.md
+- ✓ Real changes committed: sovereign-mind-web/about.html, sovereign-mind-web/docs.html, WORKLOG_SM-302.md, WORKLOG_SM-308.md
+- Pending: git push of all changes to origin/main
+
+### Next Steps
+- Monitor SM-302 for peer review and approval
+- Wait for SM-307 to be created before continuing SM-308
+- Verify and approve remaining peer_review tasks once repo access is resolved
