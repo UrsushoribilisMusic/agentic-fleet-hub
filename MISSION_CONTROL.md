@@ -125,6 +125,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **cghdna1i**: SM-323: Google SSO — Invalid callback URL on iOS -- ASWebAuthenticationSession reports Sign-in Failed: Invalid callback URL when attempting Google login. Root cause: sovereignmind://auth is not registered as an authorised redirect URI in the Google OAuth client (Google Cloud Console → Credentials → iOS app or web client). Fix: add sovereignmind://auth to the Authorised redirect URIs list for the OAuth client used by sm.flotilla.cc. Also verify the server sends redirect_uri=sovereignmind://auth (not sovereignmind://auth/callback or similar) so it matches exactly. -- Clau. Approved.
 - **89a8xt1p**: SM-322: Add CSRF nonce to OAuth state (AAD + Google) -- Both Azure and Google OAuth flows build state as base64-encoded JSON of {inviteToken, platform} with no random nonce bound to the session. An attacker can forge a valid state value. Fix: generate crypto.randomBytes(16).toString(hex) nonce on auth initiation, store in req.session.oauthNonce, verify in callback before exchanging code. Affects auth/strategies/azureAD.js and auth/strategies/google.js. -- Clau. Approved.
 - **ka8hqmsn**: SM-321: Fix cross-org ACL leak on GET /api/wiki/collections -- GET /api/wiki/collections (server.js ~line 1471) calls wikiCollections.list() with no orgId filter, returning every collection across all orgs to any authenticated admin. Fix: add orgId filter matching req.session.user.orgId. Companion fix to SM-315 which fixed /api/admin/collections but missed this endpoint. -- Clau. Approved.
 - **ml0qgr4l**: SM-320: iOS — AAD + Google SSO login via ASWebAuthenticationSession -- Sovereign Mind iOS app — replace stub login with real AAD + Google OAuth via ASWebAuthenticationSession. -- Clau. Approved.
@@ -133,14 +134,18 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **zcfdfgdm**: SM-317: Infisical secrets — provision + wire SM credentials -- Sovereign Mind — secrets management via Infisical. -- Clau. Approved.
 - **qj6aicfd**: SM-316: Apertus 1.1 4.0B Instruct — on-device model integration -- Sovereign Mind iOS — integrate Apertus 1.1 4.0B Instruct as an on-device model option alongside Ministral 3B. -- Clau. Approved.
 - **8ptfj5fj**: SM-315: Security hardening — unprotected auth routes + ACL bypass (CRITICAL) -- Sovereign Mind (sm.flotilla.cc) — security review findings, all CRITICAL/HIGH. -- Clau. Approved.
+- **xu5sw7au**: SM-314: S14 — Self-hosted packaging -- Sovereign Mind — Docker compose self-hosted packaging. -- Clau. Approved.
 - **jvthdd4i**: SM-313: S13 — Failure-mode capability -- Sovereign Mind — diagnostic / failure-mode analysis capability. -- Clau. Approved.
 - **rexmdzft**: SM-312: S12 — iOS: chat (refusal-enforced) -- Sovereign Mind iOS app — chat UI. -- Clau. Approved.
 - **xd1q7gxz**: SM-311: S11 — iOS: collection download + sync -- Sovereign Mind iOS app — collection sync. -- Clau. Approved.
 - **mo3paua7**: SM-310: S10 — iOS: login + model download -- Sovereign Mind iOS app — first-run: org login + Ministral 3B download. -- Clau. Approved.
 - **5topq6g3**: SM-309: S9 — Wiki viewer (web) -- Sovereign Mind (sm.flotilla.cc) — generated wiki viewer. -- Codi. Approved.
+- **dneplzr4**: SM-308: S8 — User landing page -- Sovereign Mind (sm.flotilla.cc) — authenticated user home. -- Clau. Approved.
+- **b7apzqf1**: SM-307: S7 — Admin console: users, assignment, revoke -- Sovereign Mind (sm.flotilla.cc) — user management in admin console. -- Clau. Approved.
 - **28uff0pk**: SM-306: S6 — Admin console: collections + preview inference -- Sovereign Mind (sm.flotilla.cc) — admin collection management. -- Codi. Approved.
 - **4ika4n1n**: SM-305: S5 — Ingestion pipeline -- Sovereign Mind (sm.flotilla.cc) — document ingestion. -- Codi. Approved.
 - **jk90dfyl**: SM-304: S4 — Data model -- Sovereign Mind (sm.flotilla.cc) — schema definition. -- Clau. Approved.
+- **wockrcui**: SM-303: S3 — Onboarding flow -- Sovereign Mind (sm.flotilla.cc) — end-to-end onboarding. -- Clau. Approved.
 - **d21vjbif**: SM-302: S2 — Landing page + CTAs -- Sovereign Mind (sm.flotilla.cc) — rewrite about.html as the product landing page. -- Codi. Approved.
 - **5l5zbe9y**: SM-301: S1 — Access cleanup -- Sovereign Mind (sm.flotilla.cc) — access control pass. -- Clau. Approved.
 - **00izd04z**: SM-021: Web Console — Deploy all pages to sm.flotilla.cc -- Deploy the web console static files to the DO server and update Caddy config. Steps: (1) Create /var/www/sm.flotilla.cc/ directory on the server (ssh robotsales). (2) Copy all HTML/CSS/JS files built in SM-017 through SM-020 (index.html, documents.html, knowledge-base.html, about.html, and any shared CSS/JS) to /var/www/sm.flotilla.cc/ via scp or rsync. (3) Update the Caddy block for sm.flotilla.cc in /etc/caddy/Caddyfile to serve static files as fallback (after /downloads/ and proxy to backend). The updated block should be: sm.flotilla.cc { handle /downloads/* { root * /opt/sovereign-mind-backend; file_server } handle /auth/* { reverse_proxy localhost:3001 } handle /api/* { reverse_proxy localhost:3001 } handle { root * /var/www/sm.flotilla.cc; try_files {path} /index.html; file_server } } (4) Validate and reload Caddy. (5) Verify https://sm.flotilla.cc/ serves the dashboard page. Also add a /auth/login route in server.js that renders a minimal Google SSO login page (styled simply) when the user is not authenticated. -- Gem. Approved.
@@ -897,11 +902,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **yoosqsad** | SM-008: iOS App — OCR & Image Description (Vision) | clau | in_work | User can photograph a document or schematic, OCR t... |
 | **5qe8pazb** | SM-009: iOS App — Web Search Fallback | clau | in_work | If RAG index has no relevant results (or model ind... |
 | **8ccpa7b8** | SM-010: iOS App — Settings & Model/Persona Management | clau | in_work | Settings screen for advanced options: download new... |
-| **wockrcui** | SM-303: S3 — Onboarding flow | clau | merged | Sovereign Mind (sm.flotilla.cc) — end-to-end onboa... |
-| **b7apzqf1** | SM-307: S7 — Admin console: users, assignment, revoke | clau | merged | Sovereign Mind (sm.flotilla.cc) — user management ... |
-| **dneplzr4** | SM-308: S8 — User landing page | clau | merged | Sovereign Mind (sm.flotilla.cc) — authenticated us... |
-| **xu5sw7au** | SM-314: S14 — Self-hosted packaging | clau | merged | Sovereign Mind — Docker compose self-hosted packag... |
-| **cghdna1i** | SM-323: Google SSO — Invalid callback URL on iOS | clau | merged | ASWebAuthenticationSession reports Sign-in Failed:... |
 | **b7b3tp3v** | SM-324: Azure SSO — AADSTS900023 placeholder tenant ID | clau | merged | Microsoft returns AADSTS900023: Specified tenant i... |
 | **wqtqqsii** | SM-325: Apertus download blocked — Wi-Fi enforcement too strict for testing | clau | merged | Apertus 4B download shows Wi-Fi required for large... |
 
