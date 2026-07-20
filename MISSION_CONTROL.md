@@ -888,10 +888,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **b7apzqf1** | SM-307: S7 — Admin console: users, assignment, revoke | clau | merged | Sovereign Mind (sm.flotilla.cc) — user management ... |
 | **dneplzr4** | SM-308: S8 — User landing page | clau | merged | Sovereign Mind (sm.flotilla.cc) — authenticated us... |
 | **5topq6g3** | SM-309: S9 — Wiki viewer (web) | codi | merged | Sovereign Mind (sm.flotilla.cc) — generated wiki v... |
-| **mo3paua7** | SM-310: S10 — iOS: login + model download | gem | planned | Sovereign Mind iOS app — first-run: org login + Mi... |
-| **xd1q7gxz** | SM-311: S11 — iOS: collection download + sync | gem | planned | Sovereign Mind iOS app — collection sync.... |
-| **rexmdzft** | SM-312: S12 — iOS: chat (refusal-enforced) | gem | planned | Sovereign Mind iOS app — chat UI.... |
-| **jvthdd4i** | SM-313: S13 — Failure-mode capability | gem | planned | Sovereign Mind — diagnostic / failure-mode analysi... |
+| **mo3paua7** | SM-310: S10 — iOS: login + model download | clau | planned | Sovereign Mind iOS app — first-run: org login + Mi... |
+| **xd1q7gxz** | SM-311: S11 — iOS: collection download + sync | clau | planned | Sovereign Mind iOS app — collection sync.... |
+| **rexmdzft** | SM-312: S12 — iOS: chat (refusal-enforced) | clau | planned | Sovereign Mind iOS app — chat UI.... |
+| **jvthdd4i** | SM-313: S13 — Failure-mode capability | clau | planned | Sovereign Mind — diagnostic / failure-mode analysi... |
 | **xu5sw7au** | SM-314: S14 — Self-hosted packaging | clau | merged | Sovereign Mind — Docker compose self-hosted packag... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
