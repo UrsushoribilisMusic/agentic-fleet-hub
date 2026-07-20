@@ -880,7 +880,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **yg3yq40a** | SM-020: Web Console — Product / About page (Sovereign Mind features) | codi | merged | Build the product/features page at /var/www/sm.flo... |
 | **00izd04z** | SM-021: Web Console — Deploy all pages to sm.flotilla.cc | gem | merged | Deploy the web console static files to the DO serv... |
 | **5l5zbe9y** | SM-301: S1 — Access cleanup | clau | in_work | Sovereign Mind (sm.flotilla.cc) — access control p... |
-| **d21vjbif** | SM-302: S2 — Landing page + CTAs | misty | in_work | Sovereign Mind (sm.flotilla.cc) — rewrite about.ht... |
+| **d21vjbif** | SM-302: S2 — Landing page + CTAs | misty | planned | Sovereign Mind (sm.flotilla.cc) — rewrite about.ht... |
 | **wockrcui** | SM-303: S3 — Onboarding flow | clau | planned | Sovereign Mind (sm.flotilla.cc) — end-to-end onboa... |
 | **jk90dfyl** | SM-304: S4 — Data model | clau | planned | Sovereign Mind (sm.flotilla.cc) — schema definitio... |
 | **4ika4n1n** | SM-305: S5 — Ingestion pipeline | codi | in_work | Sovereign Mind (sm.flotilla.cc) — document ingesti... |

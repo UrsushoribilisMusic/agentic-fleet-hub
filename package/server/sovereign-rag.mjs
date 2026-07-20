@@ -6,10 +6,12 @@ import { promisify } from "node:util";
 
 const execFileAsync = promisify(execFile);
 const EMBEDDING_DIMENSIONS = 384;
-const MIN_CHUNK_TOKENS = 512;
-const TARGET_CHUNK_TOKENS = 768;
-const MAX_CHUNK_TOKENS = 1024;
-const CHUNK_OVERLAP_TOKENS = 80;
+const MIN_CHUNK_TOKENS = 256;
+const TARGET_CHUNK_TOKENS = 384;
+const MAX_CHUNK_TOKENS = 512;
+const CHUNK_OVERLAP_TOKENS = 48;
+const MAX_COLLECTION_CHUNKS = 5_000;
+const INDEX_KIND = "faiss_flat";
 
 const EXAMPLE_PERSONAS = [
   {
@@ -140,8 +142,29 @@ function stableId(prefix, input) {
 }
 
 function normalizeDocumentName(name) {
-  const base = String(name || "document.pdf").replace(/[^\w .()-]/g, "_").trim();
-  return base || "document.pdf";
+  const base = String(name || "document.txt").replace(/[^\w .()-]/g, "_").trim();
+  return base || "document.txt";
+}
+
+function extensionForDocument(doc) {
+  const nameExt = path.extname(String(doc.name || "")).toLowerCase();
+  if ([".pdf", ".docx", ".txt", ".md", ".csv"].includes(nameExt)) return nameExt;
+  const type = String(doc.type || "").toLowerCase();
+  if (type.includes("pdf")) return ".pdf";
+  if (type.includes("wordprocessingml") || type.includes("docx")) return ".docx";
+  if (type.includes("markdown")) return ".md";
+  if (type.includes("csv")) return ".csv";
+  return ".txt";
+}
+
+function documentPhase(name, progress, error = null) {
+  return {
+    name,
+    status: error ? "failed" : name,
+    progress,
+    at: new Date().toISOString(),
+    error,
+  };
 }
 
 function getPaths(baseDir) {
@@ -232,19 +255,23 @@ export function addSovereignDocuments(baseDir, documents) {
     const contentBase64 = typeof doc.contentBase64 === "string" ? doc.contentBase64 : "";
     const pdfBytes = contentBase64 ? Buffer.from(contentBase64, "base64") : null;
     const id = doc.id || stableId("doc", `${name}:${doc.size || 0}:${contentBase64.slice(0, 64)}:${Date.now()}`);
-    const fileName = `${id}.pdf`;
+    const ext = extensionForDocument({ ...doc, name });
+    const fileName = `${id}${ext}`;
     const originalPath = path.join(paths.documents, fileName);
     if (pdfBytes?.length) fs.writeFileSync(originalPath, pdfBytes);
     const record = {
       id,
       name,
       size: Number(doc.size || pdfBytes?.length || 0),
-      type: doc.type || "application/pdf",
+      type: doc.type || "text/plain",
       status: "pending",
+      progress: 0,
+      failure_state: null,
       indexed: false,
       references: 0,
       exclude: false,
       notes: "",
+      processing_steps: [documentPhase("pending", 0)],
       uploadedAt: new Date().toISOString(),
       originalPath: pdfBytes?.length ? originalPath : null,
       sha256: pdfBytes?.length ? crypto.createHash("sha256").update(pdfBytes).digest("hex") : null,
@@ -384,6 +411,47 @@ export async function extractPdfText(filePath) {
   return fallbackPdfText(buffer);
 }
 
+function decodeXmlText(xml) {
+  return String(xml || "")
+    .replace(/<w:tab\/>/g, "\t")
+    .replace(/<w:br\/>/g, "\n")
+    .replace(/<\/w:p>/g, "\n\n")
+    .replace(/<[^>]+>/g, "")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, "\"")
+    .replace(/&apos;/g, "'")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+export async function extractDocxText(filePath) {
+  try {
+    const { stdout } = await execFileAsync("unzip", ["-p", filePath, "word/document.xml"], {
+      maxBuffer: 100 * 1024 * 1024,
+      timeout: 60_000,
+    });
+    return decodeXmlText(stdout);
+  } catch (error) {
+    throw new Error(`docx_text_extraction_failed:${path.basename(filePath)}:${error.message}`);
+  }
+}
+
+export async function extractDocumentText(doc) {
+  if (!doc.originalPath || !fs.existsSync(doc.originalPath)) {
+    throw new Error(`missing_document:${doc.name}`);
+  }
+  const ext = path.extname(doc.originalPath).toLowerCase();
+  const type = String(doc.type || "").toLowerCase();
+  if (ext === ".pdf" || type.includes("pdf")) return extractPdfText(doc.originalPath);
+  if (ext === ".docx" || type.includes("wordprocessingml") || type.includes("docx")) return extractDocxText(doc.originalPath);
+  if ([".txt", ".md", ".csv"].includes(ext) || type.startsWith("text/")) {
+    return fs.readFileSync(doc.originalPath, "utf8");
+  }
+  throw new Error(`unsupported_document_type:${doc.name}`);
+}
+
 export function embedText(text) {
   const vector = new Array(EMBEDDING_DIMENSIONS).fill(0);
   const tokens = tokenize(String(text || "").toLowerCase().replace(/[^\p{L}\p{N}\s-]/gu, " "));
@@ -428,27 +496,37 @@ function buildWiki(metadata, documents, chunks) {
     byDoc.get(chunk.source_doc_id).push(chunk);
   }
   const lines = [
-    `# RAG Index Reference: ${metadata.customer_id}`,
+    `# ${metadata.collection_title || "Sovereign Mind Collection"}`,
     "",
     `Generated: ${metadata.generated_at}`,
     `Version: ${metadata.version_id}`,
     `Document fingerprint: ${metadata.doc_list_fingerprint}`,
+    `Index: ${metadata.index.kind} (${metadata.index.metric}, ${metadata.embedding_dimensions} dimensions)`,
+    `Chunks: ${metadata.chunk_count}`,
     "",
-    "## Sources",
+    "## Collection Summary",
+    "",
+    `This version contains ${metadata.document_status.succeeded} ingested document(s), ${metadata.document_status.failed} failed document(s), and ${metadata.chunk_count} searchable chunks. Retrieval uses the top 5 matching chunks by default.`,
+    "",
+    "## Source Documents",
     "",
   ];
   for (const doc of documents) {
     const docChunks = byDoc.get(doc.id) || [];
     lines.push(`### ${doc.name}`, "");
     lines.push(`- Document ID: \`${doc.id}\``);
+    lines.push(`- Status: ${doc.status}`);
     lines.push(`- SHA-256: \`${doc.sha256 || "unavailable"}\``);
     lines.push(`- Chunks: ${docChunks.length}`);
+    if (doc.error) lines.push(`- Failure: ${doc.error}`);
     if (doc.notes) lines.push(`- Admin notes: ${doc.notes}`);
     lines.push("");
+    if (!docChunks.length) continue;
     for (const chunk of docChunks) {
       lines.push(`#### ${chunk.id}`);
       lines.push("");
       lines.push(`Tokens: ${chunk.token_count}`);
+      lines.push(`Source: ${chunk.source_doc_name}`);
       lines.push("");
       lines.push(chunk.text.slice(0, 700));
       lines.push("");
@@ -516,6 +594,11 @@ function buildExamplePackage(baseDir, spec) {
       doc_list_fingerprint: fingerprint,
       embedding_model: "local-hashing-embedding-v1",
       embedding_dimensions: EMBEDDING_DIMENSIONS,
+      index: {
+        kind: INDEX_KIND,
+        metric: "cosine",
+        faiss_factory: "Flat",
+      },
       personas: EXAMPLE_PERSONAS.map((persona) => ({
         id: persona.id,
         name: persona.name,
@@ -527,13 +610,20 @@ function buildExamplePackage(baseDir, spec) {
         target_tokens: TARGET_CHUNK_TOKENS,
         max_tokens: MAX_CHUNK_TOKENS,
         overlap_tokens: CHUNK_OVERLAP_TOKENS,
+        max_collection_chunks: MAX_COLLECTION_CHUNKS,
       },
       documents: documents.map((doc) => ({
         id: doc.id,
         name: doc.name,
         sha256: doc.sha256,
+        status: "published",
         chunks: chunks.filter((chunk) => chunk.source_doc_id === doc.id).length,
       })),
+      document_status: {
+        total: documents.length,
+        succeeded: documents.length,
+        failed: 0,
+      },
       chunk_count: chunks.length,
     };
 
@@ -582,6 +672,15 @@ function appendFailure(paths, message) {
   fs.appendFileSync(path.join(paths.logs, "rag-generation.log"), `${new Date().toISOString()} ${message}\n`);
 }
 
+function markDocument(doc, status, progress, error = null) {
+  doc.status = status;
+  doc.progress = progress;
+  doc.error = error;
+  doc.failure_state = error ? status : null;
+  if (!Array.isArray(doc.processing_steps)) doc.processing_steps = [];
+  doc.processing_steps.push(documentPhase(status, progress, error));
+}
+
 export async function generateRagIndex(baseDir, options = {}) {
   const paths = getPaths(baseDir);
   let state = loadSovereignState(baseDir);
@@ -590,8 +689,9 @@ export async function generateRagIndex(baseDir, options = {}) {
   if (!selectedDocs.length) throw new Error("no_documents_selected");
 
   for (const doc of selectedDocs) {
-    doc.status = "processing";
-    doc.error = null;
+    markDocument(doc, "queued", 5);
+    doc.indexed = false;
+    doc.references = 0;
   }
   saveSovereignState(baseDir, state);
 
@@ -604,18 +704,43 @@ export async function generateRagIndex(baseDir, options = {}) {
     ensureDir(bundleDir);
 
     const allChunks = [];
+    const publishedDocs = [];
+    const failedDocs = [];
     for (const doc of selectedDocs) {
-      if (!doc.originalPath || !fs.existsSync(doc.originalPath)) {
-        throw new Error(`missing_pdf:${doc.name}`);
+      try {
+        markDocument(doc, "extracting_text", 20);
+        saveSovereignState(baseDir, state);
+        const text = await extractDocumentText(doc);
+        if (tokenize(text).length < 20) throw new Error(`needs_ocr:${doc.name}`);
+
+        markDocument(doc, "chunking", 45);
+        saveSovereignState(baseDir, state);
+        const chunks = chunkText(text, doc);
+        if (!chunks.length) throw new Error(`no_chunks_generated:${doc.name}`);
+        if (allChunks.length + chunks.length > MAX_COLLECTION_CHUNKS) {
+          throw new Error(`max_chunks_exceeded:${doc.name}:${allChunks.length + chunks.length}/${MAX_COLLECTION_CHUNKS}`);
+        }
+
+        markDocument(doc, "embedding", 70);
+        saveSovereignState(baseDir, state);
+        for (const chunk of chunks) allChunks.push(chunk);
+        doc.references = chunks.length;
+        doc.indexed = true;
+        markDocument(doc, "published", 100);
+        saveSovereignState(baseDir, state);
+        publishedDocs.push(doc);
+      } catch (error) {
+        const message = error.message || String(error);
+        const status = message.startsWith("needs_ocr:") ? "needs_ocr" : "failed";
+        doc.references = 0;
+        doc.indexed = false;
+        markDocument(doc, status, 100, message);
+        saveSovereignState(baseDir, state);
+        failedDocs.push(doc);
+        appendFailure(paths, `${doc.id} ${doc.name}: ${message}`);
       }
-      const text = await extractPdfText(doc.originalPath);
-      if (tokenize(text).length < 20) throw new Error(`pdf_text_extraction_failed:${doc.name}`);
-      const chunks = chunkText(text, doc);
-      doc.references = chunks.length;
-      doc.indexed = true;
-      doc.status = "ready";
-      allChunks.push(...chunks);
     }
+    if (!allChunks.length) throw new Error("all_documents_failed");
 
     const embeddings = allChunks.map((chunk) => ({
       chunk_id: chunk.id,
@@ -628,24 +753,51 @@ export async function generateRagIndex(baseDir, options = {}) {
       doc_list_fingerprint: fingerprint,
       embedding_model: "local-hashing-embedding-v1",
       embedding_dimensions: EMBEDDING_DIMENSIONS,
+      retrieval: {
+        default_top_k: 5,
+      },
+      index: {
+        kind: INDEX_KIND,
+        metric: "cosine",
+        faiss_factory: "Flat",
+      },
       chunking: {
         min_tokens: MIN_CHUNK_TOKENS,
         target_tokens: TARGET_CHUNK_TOKENS,
         max_tokens: MAX_CHUNK_TOKENS,
         overlap_tokens: CHUNK_OVERLAP_TOKENS,
+        max_collection_chunks: MAX_COLLECTION_CHUNKS,
       },
       documents: selectedDocs.map((doc) => ({
         id: doc.id,
         name: doc.name,
         sha256: doc.sha256,
+        status: doc.status,
+        failure_state: doc.failure_state,
+        error: doc.error,
         chunks: doc.references,
       })),
+      document_status: {
+        total: selectedDocs.length,
+        succeeded: publishedDocs.length,
+        failed: failedDocs.length,
+      },
       chunk_count: allChunks.length,
     };
 
     writeJsonl(path.join(bundleDir, "chunks.jsonl"), allChunks);
     writeJsonl(path.join(bundleDir, "embeddings.jsonl"), embeddings);
     writeJson(path.join(bundleDir, "metadata.json"), metadata);
+    writeJson(path.join(bundleDir, "index.json"), {
+      kind: INDEX_KIND,
+      metric: "cosine",
+      faiss_factory: "Flat",
+      embedding_dimensions: EMBEDDING_DIMENSIONS,
+      chunk_count: allChunks.length,
+      vectors_file: "embeddings.jsonl",
+      chunks_file: "chunks.jsonl",
+      default_top_k: 5,
+    });
     fs.writeFileSync(path.join(bundleDir, "wiki.md"), buildWiki(metadata, selectedDocs, allChunks));
     const zipPath = path.join(packageDir, `${versionId}.zip`);
     await zipDirectory(bundleDir, zipPath);
@@ -655,12 +807,7 @@ export async function generateRagIndex(baseDir, options = {}) {
     state = loadSovereignState(baseDir);
     for (const doc of state.documents) {
       const updated = selectedDocs.find((item) => item.id === doc.id);
-      if (updated) Object.assign(doc, {
-        status: "ready",
-        indexed: true,
-        references: updated.references,
-        error: null,
-      });
+      if (updated) Object.assign(doc, updated);
     }
     state.account.lastIndexedAt = generatedAt;
     state.account.version = versionId;
@@ -674,6 +821,7 @@ export async function generateRagIndex(baseDir, options = {}) {
       customer_id: customerId,
       doc_list_fingerprint: fingerprint,
       chunk_count: allChunks.length,
+      document_status: metadata.document_status,
       size_bytes: sizeBytes,
       download_url: state.account.packageUrl,
       local_path: zipPath,
@@ -683,9 +831,10 @@ export async function generateRagIndex(baseDir, options = {}) {
   } catch (error) {
     state = loadSovereignState(baseDir);
     for (const doc of state.documents) {
-      if (!doc.exclude && doc.status === "processing") {
+      if (!doc.exclude && ["queued", "extracting_text", "chunking", "embedding"].includes(doc.status)) {
         doc.status = "failed";
         doc.error = error.message;
+        doc.failure_state = "failed";
       }
     }
     state.account.lastError = error.message;
@@ -702,6 +851,7 @@ export async function generateRagIndex(baseDir, options = {}) {
 }
 
 export function retrieveFromIndex(packageDir, query, k = 5) {
+  const limit = Math.max(1, Math.min(5, Number(k) || 5));
   const bundleDir = fs.existsSync(path.join(packageDir, "bundle")) ? path.join(packageDir, "bundle") : packageDir;
   const chunksPath = path.join(bundleDir, "chunks.jsonl");
   const embeddingsPath = path.join(bundleDir, "embeddings.jsonl");
@@ -716,7 +866,7 @@ export function retrieveFromIndex(packageDir, query, k = 5) {
   return chunks
     .map((chunk) => ({ ...chunk, score: cosine(queryEmbedding, embeddings.get(chunk.id) || []) }))
     .sort((a, b) => b.score - a.score)
-    .slice(0, k);
+    .slice(0, limit);
 }
 
 export function resolvePackageZip(baseDir, versionId) {
