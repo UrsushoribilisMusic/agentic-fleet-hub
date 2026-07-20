@@ -901,8 +901,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **b7apzqf1** | SM-307: S7 — Admin console: users, assignment, revoke | clau | merged | Sovereign Mind (sm.flotilla.cc) — user management ... |
 | **dneplzr4** | SM-308: S8 — User landing page | clau | merged | Sovereign Mind (sm.flotilla.cc) — authenticated us... |
 | **xu5sw7au** | SM-314: S14 — Self-hosted packaging | clau | merged | Sovereign Mind — Docker compose self-hosted packag... |
+| **cghdna1i** | SM-323: Google SSO — Invalid callback URL on iOS | clau | in_work | ASWebAuthenticationSession reports Sign-in Failed:... |
 | **wqtqqsii** | SM-325: Apertus download blocked — Wi-Fi enforcement too strict for testing | clau | planned | Apertus 4B download shows Wi-Fi required for large... |
 | **b7b3tp3v** | SM-324: Azure SSO — AADSTS900023 placeholder tenant ID | clau | planned | Microsoft returns AADSTS900023: Specified tenant i... |
-| **cghdna1i** | SM-323: Google SSO — Invalid callback URL on iOS | clau | planned | ASWebAuthenticationSession reports Sign-in Failed:... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
