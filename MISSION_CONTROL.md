@@ -884,7 +884,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **4sm1ntns** | SM-012: Integration Testing — End-to-End Happy Path | clau | merged | Smoke test the entire MVP flow: SSO → download → i... |
 | **88ist8u0** | SM-013: iOS — RAG indicator in chat (show active index) | clau | merged | The chat dialog must show which RAG index is curre... |
 | **xh6dniyu** | SM-015: iOS — Web search: auto-trigger when RAG returns no results | clau | merged | Currently, when RAG retrieval returns empty result... |
-| **5l5zbe9y** | SM-301: S1 — Access cleanup | clau | in_work | Sovereign Mind (sm.flotilla.cc) — access control p... |
+| **5l5zbe9y** | SM-301: S1 — Access cleanup | clau | merged | Sovereign Mind (sm.flotilla.cc) — access control p... |
 | **wockrcui** | SM-303: S3 — Onboarding flow | clau | planned | Sovereign Mind (sm.flotilla.cc) — end-to-end onboa... |
 | **b7apzqf1** | SM-307: S7 — Admin console: users, assignment, revoke | clau | planned | Sovereign Mind (sm.flotilla.cc) — user management ... |
 | **dneplzr4** | SM-308: S8 — User landing page | clau | planned | Sovereign Mind (sm.flotilla.cc) — authenticated us... |
