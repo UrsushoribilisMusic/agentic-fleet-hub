@@ -874,7 +874,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **84b47lio** | SM-002: Web Console Backend & Database Schema | gem | planned | Build minimal web API and database schema to suppo... |
 | **kljcyvx4** | SM-007: iOS App — Conversation Threading & Management | clau | merged | Users can start multiple independent conversations... |
 | **yoosqsad** | SM-008: iOS App — OCR & Image Description (Vision) | clau | merged | User can photograph a document or schematic, OCR t... |
-| **5qe8pazb** | SM-009: iOS App — Web Search Fallback | clau | planned | If RAG index has no relevant results (or model ind... |
+| **5qe8pazb** | SM-009: iOS App — Web Search Fallback | clau | in_work | If RAG index has no relevant results (or model ind... |
 | **8ccpa7b8** | SM-010: iOS App — Settings & Model/Persona Management | clau | planned | Settings screen for advanced options: download new... |
 | **4sm1ntns** | SM-012: Integration Testing — End-to-End Happy Path | clau | planned | Smoke test the entire MVP flow: SSO → download → i... |
 | **88ist8u0** | SM-013: iOS — RAG indicator in chat (show active index) | clau | planned | The chat dialog must show which RAG index is curre... |
