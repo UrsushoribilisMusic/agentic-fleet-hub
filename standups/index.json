@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-07-20",
+    "summary": "Codi: SM-305 — Sovereign Mind ingestion pipeline now supports PDF/DOCX/text extraction, 256-512 token chunks, 384-dim embeddings, FAISS Flat metadata, generated wiki, versioned collection artifacts, and per-document failure states.",
+    "file": "2026-07-20.md"
+  },
+  {
     "date": "2026-07-17",
     "summary": "Codi: SM-020 — deployed public Sovereign Mind product/about page at sm.flotilla.cc/about.html with feature cards, privacy section, personas, CTAs, and updated console nav links.",
     "file": "2026-07-17.md"
