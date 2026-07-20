@@ -893,9 +893,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **yoosqsad** | SM-008: iOS App — OCR & Image Description (Vision) | clau | merged | User can photograph a document or schematic, OCR t... |
-| **5qe8pazb** | SM-009: iOS App — Web Search Fallback | clau | merged | If RAG index has no relevant results (or model ind... |
-| **8ccpa7b8** | SM-010: iOS App — Settings & Model/Persona Management | clau | merged | Settings screen for advanced options: download new... |
+| **yoosqsad** | SM-008: iOS App — OCR & Image Description (Vision) | clau | in_work | User can photograph a document or schematic, OCR t... |
+| **5qe8pazb** | SM-009: iOS App — Web Search Fallback | clau | in_work | If RAG index has no relevant results (or model ind... |
+| **8ccpa7b8** | SM-010: iOS App — Settings & Model/Persona Management | clau | in_work | Settings screen for advanced options: download new... |
 | **5l5zbe9y** | SM-301: S1 — Access cleanup | clau | merged | Sovereign Mind (sm.flotilla.cc) — access control p... |
 | **wockrcui** | SM-303: S3 — Onboarding flow | clau | merged | Sovereign Mind (sm.flotilla.cc) — end-to-end onboa... |
 | **b7apzqf1** | SM-307: S7 — Admin console: users, assignment, revoke | clau | merged | Sovereign Mind (sm.flotilla.cc) — user management ... |
