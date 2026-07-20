@@ -882,7 +882,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **61adfsi5** | SM-014: iOS — Expand sample_chunks.jsonl with Robot Ross & field service content | clau | merged | The bundled sample_chunks.jsonl currently has only... |
 | **xh6dniyu** | SM-015: iOS — Web search: auto-trigger when RAG returns no results | clau | merged | Currently, when RAG retrieval returns empty result... |
 | **5l5zbe9y** | SM-301: S1 — Access cleanup | clau | merged | Sovereign Mind (sm.flotilla.cc) — access control p... |
-| **wockrcui** | SM-303: S3 — Onboarding flow | clau | in_work | Sovereign Mind (sm.flotilla.cc) — end-to-end onboa... |
+| **wockrcui** | SM-303: S3 — Onboarding flow | clau | merged | Sovereign Mind (sm.flotilla.cc) — end-to-end onboa... |
 | **jk90dfyl** | SM-304: S4 — Data model | clau | planned | Sovereign Mind (sm.flotilla.cc) — schema definitio... |
 | **28uff0pk** | SM-306: S6 — Admin console: collections + preview inference | codi | merged | Sovereign Mind (sm.flotilla.cc) — admin collection... |
 | **b7apzqf1** | SM-307: S7 — Admin console: users, assignment, revoke | clau | planned | Sovereign Mind (sm.flotilla.cc) — user management ... |
