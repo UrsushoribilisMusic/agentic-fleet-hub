@@ -886,7 +886,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **jk90dfyl** | SM-304: S4 — Data model | clau | merged | Sovereign Mind (sm.flotilla.cc) — schema definitio... |
 | **28uff0pk** | SM-306: S6 — Admin console: collections + preview inference | codi | merged | Sovereign Mind (sm.flotilla.cc) — admin collection... |
 | **b7apzqf1** | SM-307: S7 — Admin console: users, assignment, revoke | clau | merged | Sovereign Mind (sm.flotilla.cc) — user management ... |
-| **dneplzr4** | SM-308: S8 — User landing page | misty | planned | Sovereign Mind (sm.flotilla.cc) — authenticated us... |
+| **dneplzr4** | SM-308: S8 — User landing page | clau | planned | Sovereign Mind (sm.flotilla.cc) — authenticated us... |
 | **5topq6g3** | SM-309: S9 — Wiki viewer (web) | codi | merged | Sovereign Mind (sm.flotilla.cc) — generated wiki v... |
 | **mo3paua7** | SM-310: S10 — iOS: login + model download | gem | planned | Sovereign Mind iOS app — first-run: org login + Mi... |
 | **xd1q7gxz** | SM-311: S11 — iOS: collection download + sync | gem | planned | Sovereign Mind iOS app — collection sync.... |
