@@ -873,7 +873,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **84b47lio** | SM-002: Web Console Backend & Database Schema | gem | planned | Build minimal web API and database schema to suppo... |
 | **kljcyvx4** | SM-007: iOS App — Conversation Threading & Management | clau | merged | Users can start multiple independent conversations... |
-| **yoosqsad** | SM-008: iOS App — OCR & Image Description (Vision) | clau | planned | User can photograph a document or schematic, OCR t... |
+| **yoosqsad** | SM-008: iOS App — OCR & Image Description (Vision) | clau | in_work | User can photograph a document or schematic, OCR t... |
 | **5qe8pazb** | SM-009: iOS App — Web Search Fallback | clau | planned | If RAG index has no relevant results (or model ind... |
 | **8ccpa7b8** | SM-010: iOS App — Settings & Model/Persona Management | clau | planned | Settings screen for advanced options: download new... |
 | **4sm1ntns** | SM-012: Integration Testing — End-to-End Happy Path | clau | planned | Smoke test the entire MVP flow: SSO → download → i... |
@@ -888,7 +888,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **b7apzqf1** | SM-307: S7 — Admin console: users, assignment, revoke | clau | planned | Sovereign Mind (sm.flotilla.cc) — user management ... |
 | **dneplzr4** | SM-308: S8 — User landing page | misty | planned | Sovereign Mind (sm.flotilla.cc) — authenticated us... |
 | **5topq6g3** | SM-309: S9 — Wiki viewer (web) | codi | in_work | Sovereign Mind (sm.flotilla.cc) — generated wiki v... |
-| **mo3paua7** | SM-310: S10 — iOS: login + model download | gem | in_work | Sovereign Mind iOS app — first-run: org login + Mi... |
+| **mo3paua7** | SM-310: S10 — iOS: login + model download | gem | planned | Sovereign Mind iOS app — first-run: org login + Mi... |
 | **xd1q7gxz** | SM-311: S11 — iOS: collection download + sync | gem | planned | Sovereign Mind iOS app — collection sync.... |
 | **rexmdzft** | SM-312: S12 — iOS: chat (refusal-enforced) | gem | planned | Sovereign Mind iOS app — chat UI.... |
 | **jvthdd4i** | SM-313: S13 — Failure-mode capability | gem | planned | Sovereign Mind — diagnostic / failure-mode analysi... |
