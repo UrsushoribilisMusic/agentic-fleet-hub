@@ -888,12 +888,16 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **wockrcui** | SM-303: S3 — Onboarding flow | clau | in_work | Sovereign Mind (sm.flotilla.cc) — end-to-end onboa... |
 | **b7apzqf1** | SM-307: S7 — Admin console: users, assignment, revoke | clau | in_work | Sovereign Mind (sm.flotilla.cc) — user management ... |
 | **dneplzr4** | SM-308: S8 — User landing page | clau | in_work | Sovereign Mind (sm.flotilla.cc) — authenticated us... |
-| **mo3paua7** | SM-310: S10 — iOS: login + model download | clau | in_work | Sovereign Mind iOS app — first-run: org login + Mi... |
+| **mo3paua7** | SM-310: S10 — iOS: login + model download | clau | merged | Sovereign Mind iOS app — first-run: org login + Mi... |
 | **xd1q7gxz** | SM-311: S11 — iOS: collection download + sync | clau | planned | Sovereign Mind iOS app — collection sync.... |
 | **rexmdzft** | SM-312: S12 — iOS: chat (refusal-enforced) | clau | planned | Sovereign Mind iOS app — chat UI.... |
 | **jvthdd4i** | SM-313: S13 — Failure-mode capability | clau | planned | Sovereign Mind — diagnostic / failure-mode analysi... |
 | **xu5sw7au** | SM-314: S14 — Self-hosted packaging | clau | in_work | Sovereign Mind — Docker compose self-hosted packag... |
 | **8ptfj5fj** | SM-315: Security hardening — unprotected auth routes + ACL bypass (CRITICAL) | clau | planned | Sovereign Mind (sm.flotilla.cc) — security review ... |
 | **qj6aicfd** | SM-316: Apertus 1.1 4.0B Instruct — on-device model integration | clau | planned | Sovereign Mind iOS — integrate Apertus 1.1 4.0B In... |
+| **ml0qgr4l** | SM-320: iOS — AAD + Google SSO login via ASWebAuthenticationSession | clau | planned | Sovereign Mind iOS app — replace stub login with r... |
+| **4tbahkhv** | SM-319: Per-org Google Workspace domain restriction | clau | planned | Sovereign Mind — replace hardcoded GOOGLE_AUTH_ALL... |
+| **ky7u7ynr** | SM-318: Multi-tenant AAD — per-org Azure tenant configuration | clau | planned | Sovereign Mind — Microsoft Entra ID (AAD) multi-te... |
+| **zcfdfgdm** | SM-317: Infisical secrets — provision + wire SM credentials | clau | planned | Sovereign Mind — secrets management via Infisical.... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
