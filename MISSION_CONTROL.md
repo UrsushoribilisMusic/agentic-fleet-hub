@@ -898,7 +898,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **b7apzqf1** | SM-307: S7 — Admin console: users, assignment, revoke | clau | merged | Sovereign Mind (sm.flotilla.cc) — user management ... |
 | **dneplzr4** | SM-308: S8 — User landing page | clau | merged | Sovereign Mind (sm.flotilla.cc) — authenticated us... |
 | **xu5sw7au** | SM-314: S14 — Self-hosted packaging | clau | merged | Sovereign Mind — Docker compose self-hosted packag... |
-| **zcfdfgdm** | SM-317: Infisical secrets — provision + wire SM credentials | clau | in_work | Sovereign Mind — secrets management via Infisical.... |
+| **zcfdfgdm** | SM-317: Infisical secrets — provision + wire SM credentials | clau | planned | Sovereign Mind — secrets management via Infisical.... |
 | **ka8hqmsn** | SM-321: Fix cross-org ACL leak on GET /api/wiki/collections | clau | merged | GET /api/wiki/collections (server.js ~line 1471) c... |
 | **89a8xt1p** | SM-322: Add CSRF nonce to OAuth state (AAD + Google) | clau | merged | Both Azure and Google OAuth flows build state as b... |
 
