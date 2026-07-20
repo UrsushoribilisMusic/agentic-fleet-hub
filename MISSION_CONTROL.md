@@ -880,13 +880,13 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **4sm1ntns** | SM-012: Integration Testing — End-to-End Happy Path | clau | merged | Smoke test the entire MVP flow: SSO → download → i... |
 | **88ist8u0** | SM-013: iOS — RAG indicator in chat (show active index) | clau | merged | The chat dialog must show which RAG index is curre... |
 | **61adfsi5** | SM-014: iOS — Expand sample_chunks.jsonl with Robot Ross & field service content | clau | merged | The bundled sample_chunks.jsonl currently has only... |
-| **xh6dniyu** | SM-015: iOS — Web search: auto-trigger when RAG returns no results | clau | planned | Currently, when RAG retrieval returns empty result... |
+| **xh6dniyu** | SM-015: iOS — Web search: auto-trigger when RAG returns no results | clau | in_work | Currently, when RAG retrieval returns empty result... |
 | **5l5zbe9y** | SM-301: S1 — Access cleanup | clau | merged | Sovereign Mind (sm.flotilla.cc) — access control p... |
 | **wockrcui** | SM-303: S3 — Onboarding flow | clau | planned | Sovereign Mind (sm.flotilla.cc) — end-to-end onboa... |
 | **jk90dfyl** | SM-304: S4 — Data model | clau | planned | Sovereign Mind (sm.flotilla.cc) — schema definitio... |
 | **28uff0pk** | SM-306: S6 — Admin console: collections + preview inference | codi | merged | Sovereign Mind (sm.flotilla.cc) — admin collection... |
 | **b7apzqf1** | SM-307: S7 — Admin console: users, assignment, revoke | clau | planned | Sovereign Mind (sm.flotilla.cc) — user management ... |
-| **dneplzr4** | SM-308: S8 — User landing page | misty | planned | Sovereign Mind (sm.flotilla.cc) — authenticated us... |
+| **dneplzr4** | SM-308: S8 — User landing page | clau | planned | Sovereign Mind (sm.flotilla.cc) — authenticated us... |
 | **5topq6g3** | SM-309: S9 — Wiki viewer (web) | codi | merged | Sovereign Mind (sm.flotilla.cc) — generated wiki v... |
 | **mo3paua7** | SM-310: S10 — iOS: login + model download | gem | planned | Sovereign Mind iOS app — first-run: org login + Mi... |
 | **xd1q7gxz** | SM-311: S11 — iOS: collection download + sync | gem | planned | Sovereign Mind iOS app — collection sync.... |
