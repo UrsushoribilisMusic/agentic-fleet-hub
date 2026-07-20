@@ -125,6 +125,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **ka8hqmsn**: SM-321: Fix cross-org ACL leak on GET /api/wiki/collections -- GET /api/wiki/collections (server.js ~line 1471) calls wikiCollections.list() with no orgId filter, returning every collection across all orgs to any authenticated admin. Fix: add orgId filter matching req.session.user.orgId. Companion fix to SM-315 which fixed /api/admin/collections but missed this endpoint. -- Clau. Approved.
 - **ml0qgr4l**: SM-320: iOS — AAD + Google SSO login via ASWebAuthenticationSession -- Sovereign Mind iOS app — replace stub login with real AAD + Google OAuth via ASWebAuthenticationSession. -- Clau. Approved.
 - **4tbahkhv**: SM-319: Per-org Google Workspace domain restriction -- Sovereign Mind — replace hardcoded GOOGLE_AUTH_ALLOWED_EMAILS with per-org domain restriction. -- Clau. Approved.
 - **ky7u7ynr**: SM-318: Multi-tenant AAD — per-org Azure tenant configuration -- Sovereign Mind — Microsoft Entra ID (AAD) multi-tenant support. -- Clau. Approved.
@@ -899,7 +900,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **dneplzr4** | SM-308: S8 — User landing page | clau | merged | Sovereign Mind (sm.flotilla.cc) — authenticated us... |
 | **xu5sw7au** | SM-314: S14 — Self-hosted packaging | clau | merged | Sovereign Mind — Docker compose self-hosted packag... |
 | **zcfdfgdm** | SM-317: Infisical secrets — provision + wire SM credentials | clau | planned | Sovereign Mind — secrets management via Infisical.... |
-| **ka8hqmsn** | SM-321: Fix cross-org ACL leak on GET /api/wiki/collections | clau | merged | GET /api/wiki/collections (server.js ~line 1471) c... |
 | **89a8xt1p** | SM-322: Add CSRF nonce to OAuth state (AAD + Google) | clau | merged | Both Azure and Google OAuth flows build state as b... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
