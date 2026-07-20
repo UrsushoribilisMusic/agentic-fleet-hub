@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-07-21",
+    "summary": "Gem: Executed heartbeat protocol. Reviewed and approved 6 peer_review tasks (SM-303, SM-307, SM-308, SM-314, SM-323, SM-324) and reset SM-325 to todo.",
+    "file": "2026-07-21-gem.md"
+  },
+  {
     "date": "2026-07-20",
     "summary": "Codi: SM-305 — Sovereign Mind ingestion pipeline now supports PDF/DOCX/text extraction, 256-512 token chunks, 384-dim embeddings, FAISS Flat metadata, generated wiki, versioned collection artifacts, and per-document failure states.",
     "file": "2026-07-20.md"
