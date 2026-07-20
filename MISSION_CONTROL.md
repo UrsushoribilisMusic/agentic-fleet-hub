@@ -130,6 +130,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **ml0qgr4l**: SM-320: iOS — AAD + Google SSO login via ASWebAuthenticationSession -- Sovereign Mind iOS app — replace stub login with real AAD + Google OAuth via ASWebAuthenticationSession. -- Clau. Approved.
 - **4tbahkhv**: SM-319: Per-org Google Workspace domain restriction -- Sovereign Mind — replace hardcoded GOOGLE_AUTH_ALLOWED_EMAILS with per-org domain restriction. -- Clau. Approved.
 - **ky7u7ynr**: SM-318: Multi-tenant AAD — per-org Azure tenant configuration -- Sovereign Mind — Microsoft Entra ID (AAD) multi-tenant support. -- Clau. Approved.
+- **zcfdfgdm**: SM-317: Infisical secrets — provision + wire SM credentials -- Sovereign Mind — secrets management via Infisical. -- Clau. Approved.
 - **qj6aicfd**: SM-316: Apertus 1.1 4.0B Instruct — on-device model integration -- Sovereign Mind iOS — integrate Apertus 1.1 4.0B Instruct as an on-device model option alongside Ministral 3B. -- Clau. Approved.
 - **8ptfj5fj**: SM-315: Security hardening — unprotected auth routes + ACL bypass (CRITICAL) -- Sovereign Mind (sm.flotilla.cc) — security review findings, all CRITICAL/HIGH. -- Clau. Approved.
 - **jvthdd4i**: SM-313: S13 — Failure-mode capability -- Sovereign Mind — diagnostic / failure-mode analysis capability. -- Clau. Approved.
@@ -900,6 +901,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **b7apzqf1** | SM-307: S7 — Admin console: users, assignment, revoke | clau | merged | Sovereign Mind (sm.flotilla.cc) — user management ... |
 | **dneplzr4** | SM-308: S8 — User landing page | clau | merged | Sovereign Mind (sm.flotilla.cc) — authenticated us... |
 | **xu5sw7au** | SM-314: S14 — Self-hosted packaging | clau | merged | Sovereign Mind — Docker compose self-hosted packag... |
-| **zcfdfgdm** | SM-317: Infisical secrets — provision + wire SM credentials | clau | merged | Sovereign Mind — secrets management via Infisical.... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
