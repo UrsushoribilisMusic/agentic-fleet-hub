@@ -897,7 +897,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **qj6aicfd** | SM-316: Apertus 1.1 4.0B Instruct — on-device model integration | clau | merged | Sovereign Mind iOS — integrate Apertus 1.1 4.0B In... |
 | **zcfdfgdm** | SM-317: Infisical secrets — provision + wire SM credentials | clau | merged | Sovereign Mind — secrets management via Infisical.... |
 | **ky7u7ynr** | SM-318: Multi-tenant AAD — per-org Azure tenant configuration | clau | merged | Sovereign Mind — Microsoft Entra ID (AAD) multi-te... |
-| **4tbahkhv** | SM-319: Per-org Google Workspace domain restriction | clau | in_work | Sovereign Mind — replace hardcoded GOOGLE_AUTH_ALL... |
+| **4tbahkhv** | SM-319: Per-org Google Workspace domain restriction | clau | merged | Sovereign Mind — replace hardcoded GOOGLE_AUTH_ALL... |
 | **ml0qgr4l** | SM-320: iOS — AAD + Google SSO login via ASWebAuthenticationSession | clau | planned | Sovereign Mind iOS app — replace stub login with r... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
