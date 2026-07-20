@@ -895,7 +895,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **xu5sw7au** | SM-314: S14 — Self-hosted packaging | clau | in_work | Sovereign Mind — Docker compose self-hosted packag... |
 | **8ptfj5fj** | SM-315: Security hardening — unprotected auth routes + ACL bypass (CRITICAL) | clau | merged | Sovereign Mind (sm.flotilla.cc) — security review ... |
 | **qj6aicfd** | SM-316: Apertus 1.1 4.0B Instruct — on-device model integration | clau | merged | Sovereign Mind iOS — integrate Apertus 1.1 4.0B In... |
-| **zcfdfgdm** | SM-317: Infisical secrets — provision + wire SM credentials | clau | in_work | Sovereign Mind — secrets management via Infisical.... |
+| **zcfdfgdm** | SM-317: Infisical secrets — provision + wire SM credentials | clau | merged | Sovereign Mind — secrets management via Infisical.... |
 | **ky7u7ynr** | SM-318: Multi-tenant AAD — per-org Azure tenant configuration | clau | planned | Sovereign Mind — Microsoft Entra ID (AAD) multi-te... |
 | **4tbahkhv** | SM-319: Per-org Google Workspace domain restriction | clau | planned | Sovereign Mind — replace hardcoded GOOGLE_AUTH_ALL... |
 | **ml0qgr4l** | SM-320: iOS — AAD + Google SSO login via ASWebAuthenticationSession | clau | planned | Sovereign Mind iOS app — replace stub login with r... |
