@@ -903,7 +903,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **yoosqsad** | SM-008: iOS App — OCR & Image Description (Vision) | clau | merged | User can photograph a document or schematic, OCR t... |
 | **5qe8pazb** | SM-009: iOS App — Web Search Fallback | clau | merged | If RAG index has no relevant results (or model ind... |
-| **8ccpa7b8** | SM-010: iOS App — Settings & Model/Persona Management | clau | planned | Settings screen for advanced options: download new... |
+| **8ccpa7b8** | SM-010: iOS App — Settings & Model/Persona Management | clau | in_work | Settings screen for advanced options: download new... |
 | **dgiqmkrm** | FLOT-107-A: YouTube revenue ingestion — API scope, PB schema, daily snapshot | clau | merged | Add yt-analytics-monetary.readonly scope to the da... |
 | **pau9nrhj** | FLOT-107-B: /stats/ long-form table — revenue columns + YouTube links | gem | merged | Depends on FLOT-107-A (schema + snapshot must land... |
 | **0evhhre8** | FLOT-107-C: /fleet/ FinOps tiles — Revenue 30d, Est. RPM, AdSense income line | codi | merged | Depends on FLOT-107-A. Can run parallel to FLOT-10... |
