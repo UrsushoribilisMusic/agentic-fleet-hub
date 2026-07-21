@@ -902,7 +902,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **yoosqsad** | SM-008: iOS App — OCR & Image Description (Vision) | clau | merged | User can photograph a document or schematic, OCR t... |
-| **5qe8pazb** | SM-009: iOS App — Web Search Fallback | clau | planned | If RAG index has no relevant results (or model ind... |
+| **5qe8pazb** | SM-009: iOS App — Web Search Fallback | clau | in_work | If RAG index has no relevant results (or model ind... |
 | **8ccpa7b8** | SM-010: iOS App — Settings & Model/Persona Management | clau | planned | Settings screen for advanced options: download new... |
 | **dgiqmkrm** | FLOT-107-A: YouTube revenue ingestion — API scope, PB schema, daily snapshot | clau | merged | Add yt-analytics-monetary.readonly scope to the da... |
 | **pau9nrhj** | FLOT-107-B: /stats/ long-form table — revenue columns + YouTube links | gem | merged | Depends on FLOT-107-A (schema + snapshot must land... |
