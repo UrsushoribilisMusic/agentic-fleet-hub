@@ -906,6 +906,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **dgiqmkrm** | FLOT-107-A: YouTube revenue ingestion — API scope, PB schema, daily snapshot | clau | planned | Add yt-analytics-monetary.readonly scope to the da... |
+| **dgiqmkrm** | FLOT-107-A: YouTube revenue ingestion — API scope, PB schema, daily snapshot | clau | in_work | Add yt-analytics-monetary.readonly scope to the da... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
