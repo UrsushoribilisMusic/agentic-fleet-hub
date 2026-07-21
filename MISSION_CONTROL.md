@@ -125,6 +125,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **0evhhre8**: FLOT-107-C: /fleet/ FinOps tiles — Revenue 30d, Est. RPM, AdSense income line -- Depends on FLOT-107-A. Can run parallel to FLOT-107-B. -- Codi. Approved.
+- **pau9nrhj**: FLOT-107-B: /stats/ long-form table — revenue columns + YouTube links -- Depends on FLOT-107-A (schema + snapshot must land first). -- Gem. Approved.
 - **wqtqqsii**: SM-325: Apertus download blocked — Wi-Fi enforcement too strict for testing -- Apertus 4B download shows Wi-Fi required for large downloads and cannot proceed. During testing the device was on 5G (no Wi-Fi available), so the SM-310 Wi-Fi enforcement is technically correct. Two follow-ups needed: (1) verify NWPathMonitor path detection has no false positives when on Wi-Fi calling as well as cellular; (2) add a developer/demo bypass in settings (or detect Debug builds) so testers can download over cellular without shipping that to prod users. -- Clau. Approved.
 - **b7b3tp3v**: SM-324: Azure SSO — AADSTS900023 placeholder tenant ID -- Microsoft returns AADSTS900023: Specified tenant identifier placeholder is neither a valid DNS name nor a valid external domain. The Azure MSAL authority URL is being built with the literal string placeholder as tenant ID, meaning no real Azure app registration credentials have been provisioned yet. Fix requires two steps: (1) Miguel registers a multi-tenant Azure AD app and stores AZURE_CLIENT_ID + AZURE_CLIENT_SECRET in Infisical, (2) code must fall back to common when no org-level azure_tenant_id is set, not literal placeholder. Server also needs restart after credentials land. -- Clau. Approved.
 - **cghdna1i**: SM-323: Google SSO — Invalid callback URL on iOS -- ASWebAuthenticationSession reports Sign-in Failed: Invalid callback URL when attempting Google login. Root cause: sovereignmind://auth is not registered as an authorised redirect URI in the Google OAuth client (Google Cloud Console → Credentials → iOS app or web client). Fix: add sovereignmind://auth to the Authorised redirect URIs list for the OAuth client used by sm.flotilla.cc. Also verify the server sends redirect_uri=sovereignmind://auth (not sovereignmind://auth/callback or similar) so it matches exactly. -- Clau. Approved.
@@ -161,6 +163,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **88ist8u0**: SM-013: iOS — RAG indicator in chat (show active index) -- The chat dialog must show which RAG index is currently loaded. Add a persistent subtitle or banner below the navigation bar that displays the active index display name (e.g. "Robot Ross ATF Wiki" or "Enterprise Knowledge Base"). The indicator should update when the user switches indices. It should be subtle — not blocking chat content — but clearly legible. Reference: ConversationThread.ragIndexID is already available in ChatSession via activeIndexID. Show it in the ChatView toolbar or as a caption below the nav title using .navigationSubtitle or a small HStack below the toolbar. -- Clau. Approved.
 - **4sm1ntns**: SM-012: Integration Testing — End-to-End Happy Path -- Smoke test the entire MVP flow: SSO → download → inference → threading. -- Clau. Approved.
 - **ro2mwixu**: SM-011: Web Console — Example RAG Indices & Personas -- Pre-bake two example RAG indices and persona sets so users can download and try Sovereign Mind immediately. -- Codi. Approved.
+- **8ccpa7b8**: SM-010: iOS App — Settings & Model/Persona Management -- Settings screen for advanced options: download new RAG indices, swap models, manage personas, clear cache. -- Clau. Approved.
+- **5qe8pazb**: SM-009: iOS App — Web Search Fallback -- If RAG index has no relevant results (or model indicates not found), optionally trigger web search to find external sources. -- Clau. Approved.
+- **yoosqsad**: SM-008: iOS App — OCR & Image Description (Vision) -- User can photograph a document or schematic, OCR the text, and optionally request a persona-driven description. -- Clau. Approved.
 - **kljcyvx4**: SM-007: iOS App — Conversation Threading & Management -- Users can start multiple independent conversations, name them, and switch between threads. -- Clau. Approved.
 - **pd1eaa7x**: SM-006: iOS App — Chat UI & On-Device RAG Inference -- Core inference loop: user types question, app retrieves from local RAG index, feeds to local LLM with compressed context and persona, returns response. -- Clau. Approved.
 - **d0nlyhva**: SM-005: iOS App Shell — Authentication & Model Download -- Bare-bones iOS app that handles SSO login and on-device model/RAG index downloads. -- Clau. Approved.
@@ -901,11 +906,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **yoosqsad** | SM-008: iOS App — OCR & Image Description (Vision) | clau | merged | User can photograph a document or schematic, OCR t... |
-| **5qe8pazb** | SM-009: iOS App — Web Search Fallback | clau | merged | If RAG index has no relevant results (or model ind... |
-| **8ccpa7b8** | SM-010: iOS App — Settings & Model/Persona Management | clau | merged | Settings screen for advanced options: download new... |
-| **dgiqmkrm** | FLOT-107-A: YouTube revenue ingestion — API scope, PB schema, daily snapshot | clau | merged | Add yt-analytics-monetary.readonly scope to the da... |
-| **pau9nrhj** | FLOT-107-B: /stats/ long-form table — revenue columns + YouTube links | gem | merged | Depends on FLOT-107-A (schema + snapshot must land... |
-| **0evhhre8** | FLOT-107-C: /fleet/ FinOps tiles — Revenue 30d, Est. RPM, AdSense income line | codi | merged | Depends on FLOT-107-A. Can run parallel to FLOT-10... |
+| **dgiqmkrm** | FLOT-107-A: YouTube revenue ingestion — API scope, PB schema, daily snapshot | clau | in_work | Add yt-analytics-monetary.readonly scope to the da... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
