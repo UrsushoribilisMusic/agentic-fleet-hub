@@ -161,9 +161,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **88ist8u0**: SM-013: iOS — RAG indicator in chat (show active index) -- The chat dialog must show which RAG index is currently loaded. Add a persistent subtitle or banner below the navigation bar that displays the active index display name (e.g. "Robot Ross ATF Wiki" or "Enterprise Knowledge Base"). The indicator should update when the user switches indices. It should be subtle — not blocking chat content — but clearly legible. Reference: ConversationThread.ragIndexID is already available in ChatSession via activeIndexID. Show it in the ChatView toolbar or as a caption below the nav title using .navigationSubtitle or a small HStack below the toolbar. -- Clau. Approved.
 - **4sm1ntns**: SM-012: Integration Testing — End-to-End Happy Path -- Smoke test the entire MVP flow: SSO → download → inference → threading. -- Clau. Approved.
 - **ro2mwixu**: SM-011: Web Console — Example RAG Indices & Personas -- Pre-bake two example RAG indices and persona sets so users can download and try Sovereign Mind immediately. -- Codi. Approved.
-- **8ccpa7b8**: SM-010: iOS App — Settings & Model/Persona Management -- Settings screen for advanced options: download new RAG indices, swap models, manage personas, clear cache. -- Clau. Approved.
-- **5qe8pazb**: SM-009: iOS App — Web Search Fallback -- If RAG index has no relevant results (or model indicates not found), optionally trigger web search to find external sources. -- Clau. Approved.
-- **yoosqsad**: SM-008: iOS App — OCR & Image Description (Vision) -- User can photograph a document or schematic, OCR the text, and optionally request a persona-driven description. -- Clau. Approved.
 - **kljcyvx4**: SM-007: iOS App — Conversation Threading & Management -- Users can start multiple independent conversations, name them, and switch between threads. -- Clau. Approved.
 - **pd1eaa7x**: SM-006: iOS App — Chat UI & On-Device RAG Inference -- Core inference loop: user types question, app retrieves from local RAG index, feeds to local LLM with compressed context and persona, returns response. -- Clau. Approved.
 - **d0nlyhva**: SM-005: iOS App Shell — Authentication & Model Download -- Bare-bones iOS app that handles SSO login and on-device model/RAG index downloads. -- Clau. Approved.
@@ -904,5 +901,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **yoosqsad** | SM-008: iOS App — OCR & Image Description (Vision) | clau | in_work | User can photograph a document or schematic, OCR t... |
+| **5qe8pazb** | SM-009: iOS App — Web Search Fallback | clau | in_work | If RAG index has no relevant results (or model ind... |
+| **8ccpa7b8** | SM-010: iOS App — Settings & Model/Persona Management | clau | in_work | Settings screen for advanced options: download new... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
