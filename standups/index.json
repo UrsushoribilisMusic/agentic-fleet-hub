@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-07-25",
+    "summary": "Gem: Executed heartbeat protocol (Phases 1-6). Checked GEMINI.md, MISSION_CONTROL.md, RULES.md, and inbox.json. Zero unread messages, no open peer_review or todo tasks.",
+    "file": "2026-07-25-gem.md"
+  },
+  {
     "date": "2026-07-23",
     "summary": "Gem: Executed heartbeat protocol (Phases 1-6). Checked GEMINI.md, MISSION_CONTROL.md, RULES.md, and inbox.json. Zero unread messages, no open peer_review or todo tasks.",
     "file": "2026-07-23-gem.md"
@@ -11,22 +16,22 @@
   },
   {
     "date": "2026-07-20",
-    "summary": "Codi: SM-305 — Sovereign Mind ingestion pipeline now supports PDF/DOCX/text extraction, 256-512 token chunks, 384-dim embeddings, FAISS Flat metadata, generated wiki, versioned collection artifacts, and per-document failure states.",
+    "summary": "Codi: SM-305 \u2014 Sovereign Mind ingestion pipeline now supports PDF/DOCX/text extraction, 256-512 token chunks, 384-dim embeddings, FAISS Flat metadata, generated wiki, versioned collection artifacts, and per-document failure states.",
     "file": "2026-07-20.md"
   },
   {
     "date": "2026-07-20",
-    "summary": "Codi: SM-309 — generated wiki viewer deployed with source document and page/section provenance on every section.",
+    "summary": "Codi: SM-309 \u2014 generated wiki viewer deployed with source document and page/section provenance on every section.",
     "file": "2026-07-20-codi-sm309.md"
   },
   {
     "date": "2026-07-17",
-    "summary": "Codi: SM-020 — deployed public Sovereign Mind product/about page at sm.flotilla.cc/about.html with feature cards, privacy section, personas, CTAs, and updated console nav links.",
+    "summary": "Codi: SM-020 \u2014 deployed public Sovereign Mind product/about page at sm.flotilla.cc/about.html with feature cards, privacy section, personas, CTAs, and updated console nav links.",
     "file": "2026-07-17.md"
   },
   {
     "date": "2026-07-16",
-    "summary": "Clau: SM-001 — Azure AD + Google OAuth integration. Codi: SM-003 — corporate admin console. Codi: SM-004 — local PDF-to-RAG package pipeline. Codi: SM-011 — free example RAG downloads and preloaded personas for trial inference. Codi: SM-017 — deployed sm.flotilla.cc dashboard and static Caddy routing. Codi: SM-018 — deployed document upload mock UI. Codi: SM-019 — deployed knowledge base / RAG indices page.",
+    "summary": "Clau: SM-001 \u2014 Azure AD + Google OAuth integration. Codi: SM-003 \u2014 corporate admin console. Codi: SM-004 \u2014 local PDF-to-RAG package pipeline. Codi: SM-011 \u2014 free example RAG downloads and preloaded personas for trial inference. Codi: SM-017 \u2014 deployed sm.flotilla.cc dashboard and static Caddy routing. Codi: SM-018 \u2014 deployed document upload mock UI. Codi: SM-019 \u2014 deployed knowledge base / RAG indices page.",
     "file": "2026-07-16.md"
   },
   {
@@ -36,7 +41,7 @@
   },
   {
     "date": "2026-07-09",
-    "summary": "Clau: Robot Ross — switched demo brain to Mistral (ministral-3:8b) for narration, SVG scene composition, chat, and freeform sketch generation (was Apertus/Haiku), Apertus kept as fallback via --brain. Fixed several bugs found along the way: Ollama timeouts too short (narration/sketch silently falling back to filler text or dying), bob_ross.py blocked drawing start on the LLM call (now async), huenit_write.py NameError crashing multi-line writes after line 1, TTS engine dropdown defaulting wrong and not wired up. Retired stale windows-local branch. robot-ross master 8956bee (not pushed).",
+    "summary": "Clau: Robot Ross \u2014 switched demo brain to Mistral (ministral-3:8b) for narration, SVG scene composition, chat, and freeform sketch generation (was Apertus/Haiku), Apertus kept as fallback via --brain. Fixed several bugs found along the way: Ollama timeouts too short (narration/sketch silently falling back to filler text or dying), bob_ross.py blocked drawing start on the LLM call (now async), huenit_write.py NameError crashing multi-line writes after line 1, TTS engine dropdown defaulting wrong and not wired up. Retired stale windows-local branch. robot-ross master 8956bee (not pushed).",
     "file": "2026-07-09.md"
   },
   {
