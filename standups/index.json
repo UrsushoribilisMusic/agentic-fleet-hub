@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-07-26",
+    "summary": "Gem: Executed heartbeat protocol (Phases 1-6). Checked GEMINI.md, MISSION_CONTROL.md, RULES.md, and inbox.json. Zero unread messages, no open peer_review or todo tasks.",
+    "file": "2026-07-26-gem.md"
+  },
+  {
     "date": "2026-07-25",
     "summary": "Gem: Executed heartbeat protocol (Phases 1-6). Checked GEMINI.md, MISSION_CONTROL.md, RULES.md, and inbox.json. Zero unread messages, no open peer_review or todo tasks.",
     "file": "2026-07-25-gem.md"
