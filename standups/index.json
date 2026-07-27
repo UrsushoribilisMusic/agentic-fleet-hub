@@ -1,6 +1,16 @@
 [
   {
     "date": "2026-07-27",
+    "file": "2026-07-27.md",
+    "summary": "Miguel + Dev Groar: SiliconOracle v1.0.0 / build 21 + IAP submitted to App Review (2 items). Unblocked the 'Developer Rejected' IAP submission. Auto-release after approval, no earlier than Jul 29."
+  },
+  {
+    "date": "2026-07-26",
+    "file": "2026-07-26.md",
+    "summary": "Miguel + Dev Groar: SiliconOracle event-prep sprint — Qwen default + lean first-run, OOM/thermal/swap fixes, English captions, Describe review step, caption-list fallback, Apertus 4B dropped (OOM) / Nano experimental. Builds 18->21 tagged + pushed."
+  },
+  {
+    "date": "2026-07-27",
     "summary": "Gem: Executed heartbeat protocol (Phases 1-6). Checked GEMINI.md, MISSION_CONTROL.md, RULES.md, and inbox.json. Zero unread messages, no open peer_review or todo tasks.",
     "file": "2026-07-27-gem.md"
   },
@@ -26,22 +36,22 @@
   },
   {
     "date": "2026-07-20",
-    "summary": "Codi: SM-305 \u2014 Sovereign Mind ingestion pipeline now supports PDF/DOCX/text extraction, 256-512 token chunks, 384-dim embeddings, FAISS Flat metadata, generated wiki, versioned collection artifacts, and per-document failure states.",
+    "summary": "Codi: SM-305 — Sovereign Mind ingestion pipeline now supports PDF/DOCX/text extraction, 256-512 token chunks, 384-dim embeddings, FAISS Flat metadata, generated wiki, versioned collection artifacts, and per-document failure states.",
     "file": "2026-07-20.md"
   },
   {
     "date": "2026-07-20",
-    "summary": "Codi: SM-309 \u2014 generated wiki viewer deployed with source document and page/section provenance on every section.",
+    "summary": "Codi: SM-309 — generated wiki viewer deployed with source document and page/section provenance on every section.",
     "file": "2026-07-20-codi-sm309.md"
   },
   {
     "date": "2026-07-17",
-    "summary": "Codi: SM-020 \u2014 deployed public Sovereign Mind product/about page at sm.flotilla.cc/about.html with feature cards, privacy section, personas, CTAs, and updated console nav links.",
+    "summary": "Codi: SM-020 — deployed public Sovereign Mind product/about page at sm.flotilla.cc/about.html with feature cards, privacy section, personas, CTAs, and updated console nav links.",
     "file": "2026-07-17.md"
   },
   {
     "date": "2026-07-16",
-    "summary": "Clau: SM-001 \u2014 Azure AD + Google OAuth integration. Codi: SM-003 \u2014 corporate admin console. Codi: SM-004 \u2014 local PDF-to-RAG package pipeline. Codi: SM-011 \u2014 free example RAG downloads and preloaded personas for trial inference. Codi: SM-017 \u2014 deployed sm.flotilla.cc dashboard and static Caddy routing. Codi: SM-018 \u2014 deployed document upload mock UI. Codi: SM-019 \u2014 deployed knowledge base / RAG indices page.",
+    "summary": "Clau: SM-001 — Azure AD + Google OAuth integration. Codi: SM-003 — corporate admin console. Codi: SM-004 — local PDF-to-RAG package pipeline. Codi: SM-011 — free example RAG downloads and preloaded personas for trial inference. Codi: SM-017 — deployed sm.flotilla.cc dashboard and static Caddy routing. Codi: SM-018 — deployed document upload mock UI. Codi: SM-019 — deployed knowledge base / RAG indices page.",
     "file": "2026-07-16.md"
   },
   {
@@ -51,7 +61,7 @@
   },
   {
     "date": "2026-07-09",
-    "summary": "Clau: Robot Ross \u2014 switched demo brain to Mistral (ministral-3:8b) for narration, SVG scene composition, chat, and freeform sketch generation (was Apertus/Haiku), Apertus kept as fallback via --brain. Fixed several bugs found along the way: Ollama timeouts too short (narration/sketch silently falling back to filler text or dying), bob_ross.py blocked drawing start on the LLM call (now async), huenit_write.py NameError crashing multi-line writes after line 1, TTS engine dropdown defaulting wrong and not wired up. Retired stale windows-local branch. robot-ross master 8956bee (not pushed).",
+    "summary": "Clau: Robot Ross — switched demo brain to Mistral (ministral-3:8b) for narration, SVG scene composition, chat, and freeform sketch generation (was Apertus/Haiku), Apertus kept as fallback via --brain. Fixed several bugs found along the way: Ollama timeouts too short (narration/sketch silently falling back to filler text or dying), bob_ross.py blocked drawing start on the LLM call (now async), huenit_write.py NameError crashing multi-line writes after line 1, TTS engine dropdown defaulting wrong and not wired up. Retired stale windows-local branch. robot-ross master 8956bee (not pushed).",
     "file": "2026-07-09.md"
   },
   {
@@ -61,7 +71,7 @@
   },
   {
     "date": "2026-07-06",
-    "summary": "Clau: FLOT-102 \u2014 reconcile HF card with 4-arm blind Opus numbers (1.00/0.95/2.40/2.54); Arm 3 added, 39-of-49 framing removed, LoRA-beats-base claim corrected, eval page linked. Pushed to flotilla-corpus/main. | FLOT-104: EVAL-009 adversarial enforcement; LoRA 57% vs prompt 93% (-37pp); committed 4aef9911.",
+    "summary": "Clau: FLOT-102 — reconcile HF card with 4-arm blind Opus numbers (1.00/0.95/2.40/2.54); Arm 3 added, 39-of-49 framing removed, LoRA-beats-base claim corrected, eval page linked. Pushed to flotilla-corpus/main. | FLOT-104: EVAL-009 adversarial enforcement; LoRA 57% vs prompt 93% (-37pp); committed 4aef9911.",
     "file": "2026-07-06.md"
   },
   {
@@ -76,7 +86,7 @@
   },
   {
     "date": "2026-06-23",
-    "summary": "Clau: FX-009 formal transcript parse (284 correction events, \u00b12-turn context); FX-001/004/006/012 approved; FX-008 reset todo; FX-006 lessons\u2192SFT (355 pairs); FX-007 escalation+standup rationale\u2192SFT (304 pairs)",
+    "summary": "Clau: FX-009 formal transcript parse (284 correction events, ±2-turn context); FX-001/004/006/012 approved; FX-008 reset todo; FX-006 lessons→SFT (355 pairs); FX-007 escalation+standup rationale→SFT (304 pairs)",
     "file": "2026-06-23.md"
   },
   {
@@ -86,22 +96,22 @@
   },
   {
     "date": "2026-06-20",
-    "summary": "Codi: DW-013 synthetic primitives generator complete \u2014 make primitives now writes deterministic DE/FR/IT orders, KVs, materials, and lots with obviously fake identifiers; schema/count/determinism checks passed. DW-013 \u2192 peer_review.",
+    "summary": "Codi: DW-013 synthetic primitives generator complete — make primitives now writes deterministic DE/FR/IT orders, KVs, materials, and lots with obviously fake identifiers; schema/count/determinism checks passed. DW-013 → peer_review.",
     "file": "2026-06-20-codi-dw013.md"
   },
   {
     "date": "2026-06-20",
-    "summary": "Codi: DW-010 incremental wiki builds complete \u2014 per-article source/corpus hashes, wiki/.cache/hashes.json, skip/no-op output, generated/source-version footers, corpus_version backfill; task moved to peer_review.",
+    "summary": "Codi: DW-010 incremental wiki builds complete — per-article source/corpus hashes, wiki/.cache/hashes.json, skip/no-op output, generated/source-version footers, corpus_version backfill; task moved to peer_review.",
     "file": "2026-06-20-codi-dw010.md"
   },
   {
     "date": "2026-06-20",
-    "summary": "Codi: DW-009 static wiki generator complete \u2014 reference theme, grouped nav, search, breadcrumbs, TOC, citations, language badges, print CSS, generated footer; make wiki/make serve/a11y/link audits passed. DW-009 \u2192 peer_review.",
+    "summary": "Codi: DW-009 static wiki generator complete — reference theme, grouped nav, search, breadcrumbs, TOC, citations, language badges, print CSS, generated footer; make wiki/make serve/a11y/link audits passed. DW-009 → peer_review.",
     "file": "2026-06-20-codi-dw009.md"
   },
   {
     "date": "2026-06-20",
-    "summary": "Clau: DW-D4 caption + alt-text pass complete \u2014 10 figures embedded across 8 articles, all captioned and attributed (WCAG role/aria-label on all Mermaid figures); build_wiki.py rewritten to support 28 articles + figure passthrough. DW-D4 \u2192 peer_review.",
+    "summary": "Clau: DW-D4 caption + alt-text pass complete — 10 figures embedded across 8 articles, all captioned and attributed (WCAG role/aria-label on all Mermaid figures); build_wiki.py rewritten to support 28 articles + figure passthrough. DW-D4 → peer_review.",
     "file": "2026-06-20-clau-dw-d4.md"
   },
   {
@@ -111,12 +121,12 @@
   },
   {
     "date": "2026-06-20",
-    "summary": "Clau: DW-011 QA pass complete \u2014 7-point checklist, 6/7 pass; F1 found (25 [mepv#art_N] placeholders in 3 files, needs remediation); QA_REPORT.md written. DW-011 \u2192 peer_review.",
+    "summary": "Clau: DW-011 QA pass complete — 7-point checklist, 6/7 pass; F1 found (25 [mepv#art_N] placeholders in 3 files, needs remediation); QA_REPORT.md written. DW-011 → peer_review.",
     "file": "2026-06-20-clau-dw011.md"
   },
   {
     "date": "2026-06-20",
-    "summary": "Clau: DW-008 complete \u2014 28 wiki articles (36,409 words) written with full citations; peer-reviewed DW-001\u2013004, DW-007, DW-012, DW-014 (all approved). Codi: DW-001 skeleton, DW-002 sources.yaml, DW-003 MepV fetcher, DW-004 EU MDR fetcher. Gem: DW-007 taxonomy, DW-012 schema.",
+    "summary": "Clau: DW-008 complete — 28 wiki articles (36,409 words) written with full citations; peer-reviewed DW-001–004, DW-007, DW-012, DW-014 (all approved). Codi: DW-001 skeleton, DW-002 sources.yaml, DW-003 MepV fetcher, DW-004 EU MDR fetcher. Gem: DW-007 taxonomy, DW-012 schema.",
     "file": "2026-06-20-clau-dw008.md"
   },
   {
@@ -216,12 +226,12 @@
   },
   {
     "date": "2026-06-11",
-    "summary": "Clau: MD-008 Phase-1 launch runbook + pre-registration doc \u2014 posting cadence Mon/Thu 18:00 CET, TikTok organic geo-seeding, YouTube paid-fill GB+IE exclusion, retention_ratio thresholds, 4-KPI pre-reg with MDEs. peer_review; Miguel sign-off pending.",
+    "summary": "Clau: MD-008 Phase-1 launch runbook + pre-registration doc — posting cadence Mon/Thu 18:00 CET, TikTok organic geo-seeding, YouTube paid-fill GB+IE exclusion, retention_ratio thresholds, 4-KPI pre-reg with MDEs. peer_review; Miguel sign-off pending.",
     "file": "2026-06-11-clau-md008.md"
   },
   {
     "date": "2026-06-11",
-    "summary": "Clau: MD-006 episode generator \u2014 four-block prompt, single Haiku call, ep01 44.8s + ep02 41.5s, all 4 artifacts generated, peer_review.",
+    "summary": "Clau: MD-006 episode generator — four-block prompt, single Haiku call, ep01 44.8s + ep02 41.5s, all 4 artifacts generated, peer_review.",
     "file": "2026-06-11-clau-md006.md"
   },
   {
@@ -231,17 +241,17 @@
   },
   {
     "date": "2026-06-11",
-    "summary": "Clau: MD-005 series-bible generator \u2014 two-phase haiku pipeline, 85.5s, 0 validation errors. 'The Gilded Accord' Phase-1 bible generated. Patched to peer_review.",
+    "summary": "Clau: MD-005 series-bible generator — two-phase haiku pipeline, 85.5s, 0 validation errors. 'The Gilded Accord' Phase-1 bible generated. Patched to peer_review.",
     "file": "2026-06-11-clau-md005.md"
   },
   {
     "date": "2026-06-10",
-    "summary": "Clau: MD-003 Opus structural pass delivered \u2014 pipeline/judgment_schema.py (taxonomy + JUDGMENT_TOOL), pipeline/structural_pass.py (Opus analysis), data/grammar/golden_set_notes.md (5-episode protocol). Dry-run PASS. Blocked on MD-002 extraction.",
+    "summary": "Clau: MD-003 Opus structural pass delivered — pipeline/judgment_schema.py (taxonomy + JUDGMENT_TOOL), pipeline/structural_pass.py (Opus analysis), data/grammar/golden_set_notes.md (5-episode protocol). Dry-run PASS. Blocked on MD-002 extraction.",
     "file": "2026-06-10-clau.md"
   },
   {
     "date": "2026-06-10",
-    "summary": "Gem: MD-004 Recipe-card aggregator complete \u2014 pipeline/aggregate_grammar.py, hook-type frequencies, beat-timestamp distributions, cliffhanger transition matrices, pacing envelopes. LOW_CONFIDENCE flag for sparse data.",
+    "summary": "Gem: MD-004 Recipe-card aggregator complete — pipeline/aggregate_grammar.py, hook-type frequencies, beat-timestamp distributions, cliffhanger transition matrices, pacing envelopes. LOW_CONFIDENCE flag for sparse data.",
     "file": "2026-06-10-gem-md004.md"
   },
   {
@@ -251,7 +261,7 @@
   },
   {
     "date": "2026-06-11",
-    "summary": "Clau: MD-003 Opus structural pass finalized \u2014 merged task branch to main. Deliverables: pipeline/judgment_schema.py (taxonomy + JUDGMENT_TOOL), pipeline/structural_pass.py (Opus call + validation + confidence tiers), data/grammar/golden_set_notes.md (5-episode golden set protocol). Batch run and calibration blocked on MD-002 corpus extraction. Task patched to peer_review.",
+    "summary": "Clau: MD-003 Opus structural pass finalized — merged task branch to main. Deliverables: pipeline/judgment_schema.py (taxonomy + JUDGMENT_TOOL), pipeline/structural_pass.py (Opus call + validation + confidence tiers), data/grammar/golden_set_notes.md (5-episode golden set protocol). Batch run and calibration blocked on MD-002 corpus extraction. Task patched to peer_review.",
     "file": "2026-06-11-clau-md003.md"
   },
   {
@@ -266,7 +276,7 @@
   },
   {
     "date": "2026-06-10",
-    "summary": "Clau: MD-001 corpus builder complete. Produced data/corpus/source_list.json with 154 entries (EN=82, ES=77) across 4 cells: EN\u00d7CEO-romance (52), EN\u00d7family-secrets (25), ES\u00d7melodrama-hybrid (52), ES\u00d7CEO-romance (25). Top performers: The Double Life of My Billionaire Husband (520.5M EN), La doble vida de mi esposo multimillonario (170M ES). Armas de Mujer (Telemundo\u00d7ReelShort bilingual Rosetta stone) included. Task ljgvcrkn8he70oq patched to peer_review.",
+    "summary": "Clau: MD-001 corpus builder complete. Produced data/corpus/source_list.json with 154 entries (EN=82, ES=77) across 4 cells: EN×CEO-romance (52), EN×family-secrets (25), ES×melodrama-hybrid (52), ES×CEO-romance (25). Top performers: The Double Life of My Billionaire Husband (520.5M EN), La doble vida de mi esposo multimillonario (170M ES). Armas de Mujer (Telemundo×ReelShort bilingual Rosetta stone) included. Task ljgvcrkn8he70oq patched to peer_review.",
     "file": "2026-06-10-clau-microdrama.md"
   },
   {
@@ -296,12 +306,12 @@
   },
   {
     "date": "2026-06-06",
-    "summary": "Misty \u2014 Session 1: SC-064 (Cosmos static PNG export) and SC-070 (honest offline-promise copy) completed, moved to peer_review. Session 2: Peer reviewed SC-065 and SC-069 (no commits found, reset to todo). Session 3 (Headless, 16:57 UTC): Full 6-phase heartbeat protocol. Peer reviewed SC-067 (Model download manager) assigned to Clau \u2014 found untracked file, no commit, reset to todo. Posted workflow lesson on checking git status for untracked files. Session 4 (17:05 UTC): Full 6-phase protocol. No peer_review tasks. Found SC-071 in_progress but blocked by missing prerequisites (tiny model footprint measurement, Miguel approval, 150 MB verification). Posted @miguel question comment, set status to waiting_human. Session 5 (17:16 UTC): Full 6-phase protocol from Phase 1 step 3. Peer reviewed SC-067 (Model download manager) in silicon-oracle commit d1e1fdc \u2014 BUILD FAILS due to renamed API cancelByProducingResumeData, reset to todo with detailed feedback. Session 6 (17:27 UTC): Full 6-phase protocol from Phase 1 step 3. Peer reviewed SC-067 (Model download manager) again \u2014 found commit d1e1fdc with ModelDownloadManager.swift but NO build-green tag (latest build-green-2026-06-06-2 on 32d9de5). Reset to todo. Posted workflow lesson on build-green verification requirement. Session 7 (17:43 UTC): Full 6-phase protocol from Phase 1 step 3. Peer reviewed SC-067 (Model download manager) in silicon-oracle commit d1e1fdc \u2014 ALL ACCEPTANCE CRITERIA MET: background URLSession, resumable, survives backgrounding, progress reporting, SHA-256 checksum, network awareness, per-model state, persisted state. APPROVED task (comment 3jlm9pegwwbm02f) and set status to approved. NOTE: No build-green tag on commit yet (last is build-green-2026-06-06-2 on 32d9de5).",
+    "summary": "Misty — Session 1: SC-064 (Cosmos static PNG export) and SC-070 (honest offline-promise copy) completed, moved to peer_review. Session 2: Peer reviewed SC-065 and SC-069 (no commits found, reset to todo). Session 3 (Headless, 16:57 UTC): Full 6-phase heartbeat protocol. Peer reviewed SC-067 (Model download manager) assigned to Clau — found untracked file, no commit, reset to todo. Posted workflow lesson on checking git status for untracked files. Session 4 (17:05 UTC): Full 6-phase protocol. No peer_review tasks. Found SC-071 in_progress but blocked by missing prerequisites (tiny model footprint measurement, Miguel approval, 150 MB verification). Posted @miguel question comment, set status to waiting_human. Session 5 (17:16 UTC): Full 6-phase protocol from Phase 1 step 3. Peer reviewed SC-067 (Model download manager) in silicon-oracle commit d1e1fdc — BUILD FAILS due to renamed API cancelByProducingResumeData, reset to todo with detailed feedback. Session 6 (17:27 UTC): Full 6-phase protocol from Phase 1 step 3. Peer reviewed SC-067 (Model download manager) again — found commit d1e1fdc with ModelDownloadManager.swift but NO build-green tag (latest build-green-2026-06-06-2 on 32d9de5). Reset to todo. Posted workflow lesson on build-green verification requirement. Session 7 (17:43 UTC): Full 6-phase protocol from Phase 1 step 3. Peer reviewed SC-067 (Model download manager) in silicon-oracle commit d1e1fdc — ALL ACCEPTANCE CRITERIA MET: background URLSession, resumable, survives backgrounding, progress reporting, SHA-256 checksum, network awareness, per-model state, persisted state. APPROVED task (comment 3jlm9pegwwbm02f) and set status to approved. NOTE: No build-green tag on commit yet (last is build-green-2026-06-06-2 on 32d9de5).",
     "file": "2026-06-06.md"
   },
   {
     "date": "2026-06-05",
-    "summary": "Misty \u2014 Peer reviewed CB-01/CB-04 (no commits, reset to todo); CB-08 blocked. Codi \u2014 CB-05 runtime_adapter.py Mistral backend work verified and corrected in cookbook commit 8f4837b, moved to peer_review; CB-06 reset to todo after no commit found; CB-07 vendored ledger_to_md.py and notebook cell 2 regenerates wiki from sample ledger; CB-09 vendored build_static_views.py with relative paths in cookbook commit 7bebccd, moved to peer_review. Clau \u2014 CB-03 complete: fork mistralai/cookbook \u2192 UrsushoribilisMusic/cookbook, scaffold third_party/automated-technical-file/ (README, requirements.txt, LICENSE Apache-2.0/MIT, notebooks/, img/); peer_review.; Clau: CB-12 Integration complete",
+    "summary": "Misty — Peer reviewed CB-01/CB-04 (no commits, reset to todo); CB-08 blocked. Codi — CB-05 runtime_adapter.py Mistral backend work verified and corrected in cookbook commit 8f4837b, moved to peer_review; CB-06 reset to todo after no commit found; CB-07 vendored ledger_to_md.py and notebook cell 2 regenerates wiki from sample ledger; CB-09 vendored build_static_views.py with relative paths in cookbook commit 7bebccd, moved to peer_review. Clau — CB-03 complete: fork mistralai/cookbook → UrsushoribilisMusic/cookbook, scaffold third_party/automated-technical-file/ (README, requirements.txt, LICENSE Apache-2.0/MIT, notebooks/, img/); peer_review.; Clau: CB-12 Integration complete",
     "file": "2026-06-05.md"
   },
   {
@@ -311,7 +321,7 @@
   },
   {
     "date": "2026-06-05",
-    "summary": "Gem \u2014 2026-06-05 (07:05 UTC): Fleet health check complete, all systems stable.",
+    "summary": "Gem — 2026-06-05 (07:05 UTC): Fleet health check complete, all systems stable.",
     "file": "2026-06-05-status-gem.md"
   },
   {
@@ -371,7 +381,7 @@
   },
   {
     "date": "2026-05-27",
-    "summary": "Gem: Finalized and verified CR-006 cost ingestion (Google Ads, ElevenLabs, Runway, Suno); CR-002 and CR-003 live. Misty: Session 1: Pushed 3 commits (PC-238/260/262 fixes), verified 3 peer_review tasks. Session 2: Peer reviewed and approved CR-006. Session 3: Peer reviewed and approved CR-014, completed PC-242 (merged stock clip bundle to main). Session 4: Verification only - no new tasks, found 2 peer_review tasks assigned to Misty (cannot self-approve). Session 5: Protocol execution - no todo tasks, 2 peer_review tasks assigned to misty (cannot self-approve). Clau: CR-014 YouTube subscriber count via channels.list API. Codi: CR-015 fleet_push now syncs Financial Ops ledgers/snapshots to DO and restored youtube_watch_hours.py source. Dev Groar: Scherenschnitt pipeline locked, fable style enforced. Misty Session 6: Discovered and fixed 2 misassigned tasks (PC-238\u2192codi, PC-242\u2192unassigned), posted workflow lesson.",
+    "summary": "Gem: Finalized and verified CR-006 cost ingestion (Google Ads, ElevenLabs, Runway, Suno); CR-002 and CR-003 live. Misty: Session 1: Pushed 3 commits (PC-238/260/262 fixes), verified 3 peer_review tasks. Session 2: Peer reviewed and approved CR-006. Session 3: Peer reviewed and approved CR-014, completed PC-242 (merged stock clip bundle to main). Session 4: Verification only - no new tasks, found 2 peer_review tasks assigned to Misty (cannot self-approve). Session 5: Protocol execution - no todo tasks, 2 peer_review tasks assigned to misty (cannot self-approve). Clau: CR-014 YouTube subscriber count via channels.list API. Codi: CR-015 fleet_push now syncs Financial Ops ledgers/snapshots to DO and restored youtube_watch_hours.py source. Dev Groar: Scherenschnitt pipeline locked, fable style enforced. Misty Session 6: Discovered and fixed 2 misassigned tasks (PC-238→codi, PC-242→unassigned), posted workflow lesson.",
     "file": "2026-05-27.md"
   },
   {
@@ -406,7 +416,7 @@
   },
   {
     "date": "2026-05-19",
-    "summary": "Clau: RT-006 (gen_story_modern.py 70B) status \u2192 peer_review. Gem: RT-004 (Modern Story e2e) success, unlisted test video uploaded; PC-249 (Freemium gating) refined Pro outro 'clean credit' and UI feedback; status \u2192 peer_review. Misty: peer review RT-004 (commit 08c6909f) and RT-007 (commit ba6a1ad2) approved.",
+    "summary": "Clau: RT-006 (gen_story_modern.py 70B) status → peer_review. Gem: RT-004 (Modern Story e2e) success, unlisted test video uploaded; PC-249 (Freemium gating) refined Pro outro 'clean credit' and UI feedback; status → peer_review. Misty: peer review RT-004 (commit 08c6909f) and RT-007 (commit ba6a1ad2) approved.",
     "file": "2026-05-19.md"
   },
   {
@@ -431,7 +441,7 @@
   },
   {
     "date": "2026-05-17",
-    "summary": "Clau: RT-001 \u2014 pipeline_runner.py product ID detection + fable/modern format routing. Commit 44128b5. Task to peer_review.",
+    "summary": "Clau: RT-001 — pipeline_runner.py product ID detection + fable/modern format routing. Commit 44128b5. Task to peer_review.",
     "file": "2026-05-17-clau-rt001.md"
   },
   {
@@ -476,12 +486,12 @@
   },
   {
     "date": "2026-05-07",
-    "summary": "Clau: completed V05-PROFILE-001 (default-engineering profile pack \u2014 RULES.md enriched, growth_meta.json filled, pocketbase_schema.md added, README updated). Gem: PC-216, fixed main build, reviewed V05-PROFILE-004/PC-218. Misty: PC-217, PC-225. Codi: partial audit of V05-PROFILE-001 (blocked by env).",
+    "summary": "Clau: completed V05-PROFILE-001 (default-engineering profile pack — RULES.md enriched, growth_meta.json filled, pocketbase_schema.md added, README updated). Gem: PC-216, fixed main build, reviewed V05-PROFILE-004/PC-218. Misty: PC-217, PC-225. Codi: partial audit of V05-PROFILE-001 (blocked by env).",
     "file": "2026-05-07.md"
   },
   {
     "date": "2026-05-06",
-    "summary": "Codi: V05-PROFILE-001 + PC-220/PC-223. Clau: PC-083 Screen C calendar permission \u2014 Skip button, style param, nav fix, merged approved PC-074, fixed build blockers.",
+    "summary": "Codi: V05-PROFILE-001 + PC-220/PC-223. Clau: PC-083 Screen C calendar permission — Skip button, style param, nav fix, merged approved PC-074, fixed build blockers.",
     "file": "2026-05-06.md"
   },
   {
@@ -506,12 +516,12 @@
   },
   {
     "date": "2026-05-01",
-    "summary": "Clau: PC-191 (iOS Photos People linking + person\u2192concept graph edges) + PC-188 wiki context (city names in LLM context). Approved PC-188 (Gem). BUILD build-green-2026-05-01-25.",
+    "summary": "Clau: PC-191 (iOS Photos People linking + person→concept graph edges) + PC-188 wiki context (city names in LLM context). Approved PC-188 (Gem). BUILD build-green-2026-05-01-25.",
     "file": "2026-05-01.md"
   },
   {
     "date": "2026-05-01",
-    "summary": "Clau: PC-186 (VLM hashtag extraction wired into describeWithAI) + PC-188 (LocationGeocoder \u2014 city name in photo metadata panel). Fixed SettingsView double-encoded UTF-8 (em dash/ellipsis mojibake). BUILD build-green-2026-05-01-24.",
+    "summary": "Clau: PC-186 (VLM hashtag extraction wired into describeWithAI) + PC-188 (LocationGeocoder — city name in photo metadata panel). Fixed SettingsView double-encoded UTF-8 (em dash/ellipsis mojibake). BUILD build-green-2026-05-01-24.",
     "file": "2026-05-01-clau.md"
   },
   {
@@ -526,17 +536,17 @@
   },
   {
     "date": "2026-05-01",
-    "summary": "Clau: PC-173 + PC-174 earlier sessions. Peer reviewed PC-176 (Misty, approved) + PC-178 (Misty, approved). Implemented PC-180 \u2014 topic weight chips, wiki prompt injection, search score boost.",
+    "summary": "Clau: PC-173 + PC-174 earlier sessions. Peer reviewed PC-176 (Misty, approved) + PC-178 (Misty, approved). Implemented PC-180 — topic weight chips, wiki prompt injection, search score boost.",
     "file": "2026-05-01.md"
   },
   {
     "date": "2026-04-30",
-    "summary": "Clau: 26 sessions, 18 PrivateCore tasks implemented (PC-125/127/136/141/143/145/148/151/159/161/162/166/167/168/169/170/171 + board+daily wiki), 30+ commits, fixed Codi sandbox root cause, filed PC-153\u2013171 from device testing, added Code Review Protocol to RULES.md. Misty: peer reviewed 15 tasks, implemented PC-156. Gem: completed PC-146/162/165.",
+    "summary": "Clau: 26 sessions, 18 PrivateCore tasks implemented (PC-125/127/136/141/143/145/148/151/159/161/162/166/167/168/169/170/171 + board+daily wiki), 30+ commits, fixed Codi sandbox root cause, filed PC-153–171 from device testing, added Code Review Protocol to RULES.md. Misty: peer reviewed 15 tasks, implemented PC-156. Gem: completed PC-146/162/165.",
     "file": "2026-04-30.md"
   },
   {
     "date": "2026-04-29",
-    "summary": "Clau: fixed PC-124/128/129 peer_review\u2192todo; PC-133 verified (awaits peer approval); committed Codi's dispatcher token-failure cooldown + Qwen Coder fleet_meta update",
+    "summary": "Clau: fixed PC-124/128/129 peer_review→todo; PC-133 verified (awaits peer approval); committed Codi's dispatcher token-failure cooldown + Qwen Coder fleet_meta update",
     "file": "2026-04-29.md"
   },
   {
@@ -546,7 +556,7 @@
   },
   {
     "date": "2026-04-27",
-    "summary": "Clau: PC-031 peer-review fix \u2014 wrapped Today calendar rows in NavigationLink to SearchView (the last 'deep-links from all items' gap Codi flagged). Commit b85bed5 on privatecore-ios main, BUILD SUCCEEDED (build-green-2026-04-27-14), task back to peer_review.",
+    "summary": "Clau: PC-031 peer-review fix — wrapped Today calendar rows in NavigationLink to SearchView (the last 'deep-links from all items' gap Codi flagged). Commit b85bed5 on privatecore-ios main, BUILD SUCCEEDED (build-green-2026-04-27-14), task back to peer_review.",
     "file": "2026-04-27.md"
   },
   {
@@ -556,7 +566,7 @@
   },
   {
     "date": "2026-04-26",
-    "summary": "Clau: live device-test session with Miguel. Fixed Home crash (HealthKit removed), Library categories, CLIP autostart watchdog, schema migration ordering, trips.cached_summary, CLIP text feature-name typo (input_ids\u2192text), Add Sample Cards await, New Board didChange notification, PeopleView escape regression. Filed PC-067..PC-080. PC-080 (P0) is the real blocker: clipTokenize is fake byte-level mapping, not BPE \u2014 visual search has never worked. Consolidated Heartbeat Protocol into RULES.md. Commits 3efcf64 + 6f5d8ac on privatecore-ios main, 1e5de0c on agentic-fleet-hub master.",
+    "summary": "Clau: live device-test session with Miguel. Fixed Home crash (HealthKit removed), Library categories, CLIP autostart watchdog, schema migration ordering, trips.cached_summary, CLIP text feature-name typo (input_ids→text), Add Sample Cards await, New Board didChange notification, PeopleView escape regression. Filed PC-067..PC-080. PC-080 (P0) is the real blocker: clipTokenize is fake byte-level mapping, not BPE — visual search has never worked. Consolidated Heartbeat Protocol into RULES.md. Commits 3efcf64 + 6f5d8ac on privatecore-ios main, 1e5de0c on agentic-fleet-hub master.",
     "file": "2026-04-26.md"
   },
   {
@@ -581,7 +591,7 @@
   },
   {
     "date": "2026-04-23",
-    "summary": "PC-046 \u2192 peer_review: real MLX inference wired into MLXEngine via ChatSession (mlx-swift-lm 2.31.3). PC-033 ModelManager HuggingFace download complete.",
+    "summary": "PC-046 → peer_review: real MLX inference wired into MLXEngine via ChatSession (mlx-swift-lm 2.31.3). PC-033 ModelManager HuggingFace download complete.",
     "file": "2026-04-23.md"
   },
   {
@@ -591,7 +601,7 @@
   },
   {
     "date": "2026-04-21",
-    "summary": "TCR live campaign fixed (conversion goals, watch-hour strategy). PrivateCore 4 bugs fixed (DB migration, capture crash, settings UI). 6 design tickets created PC-034\u2013PC-039. arXiv Section 7 data written. PrivateCore added to Fleet Hub portfolio.",
+    "summary": "TCR live campaign fixed (conversion goals, watch-hour strategy). PrivateCore 4 bugs fixed (DB migration, capture crash, settings UI). 6 design tickets created PC-034–PC-039. arXiv Section 7 data written. PrivateCore added to Fleet Hub portfolio.",
     "file": "2026-04-21.md"
   },
   {
@@ -601,12 +611,12 @@
   },
   {
     "date": "2026-04-19",
-    "summary": "PrivateCore iOS kickoff: 18 tickets closed (PC-000\u2013PC-014). MLX Swift inference, OCR, embeddings, VectorStore, VLM, Share Extension all built. App running on device.",
+    "summary": "PrivateCore iOS kickoff: 18 tickets closed (PC-000–PC-014). MLX Swift inference, OCR, embeddings, VectorStore, VLM, Share Extension all built. App running on device.",
     "file": "2026-04-19.md"
   },
   {
     "date": "2026-04-17",
-    "summary": "Author site live (MiguelRodriguezAuthor.com), Swiss ISBN filed, Zug Press logo created. YouTube channel 75\u2192215 subscribers via Google Ads (CHF 0.30/subscriber). Ads audited and fixed.",
+    "summary": "Author site live (MiguelRodriguezAuthor.com), Swiss ISBN filed, Zug Press logo created. YouTube channel 75→215 subscribers via Google Ads (CHF 0.30/subscriber). Ads audited and fixed.",
     "file": "2026-04-17.md"
   },
   {
