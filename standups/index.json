@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-07-30",
+    "summary": "Gem: Executed heartbeat protocol (Phases 1-6). Checked GEMINI.md, MISSION_CONTROL.md, RULES.md, and inbox.json. Zero unread messages, no open peer_review or todo tasks.",
+    "file": "2026-07-30-gem.md"
+  },
+  {
     "date": "2026-07-27",
     "file": "2026-07-27.md",
     "summary": "Miguel + Dev Groar: SiliconOracle v1.0.0 / build 21 + IAP submitted to App Review (2 items). Unblocked the 'Developer Rejected' IAP submission. Auto-release after approval, no earlier than Jul 29."
