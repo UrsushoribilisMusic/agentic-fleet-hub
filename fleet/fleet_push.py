@@ -434,6 +434,7 @@ def build_snapshot():
             "messages": fetch_inbox(),
             "standups": fetch_standups(),
             "songs": fetch_collection_safe("songs", {"sort": "-combined_views", "perPage": 200}, context="songs"),
+            "channel_revenue_daily": fetch_collection_safe("channel_revenue_daily", {"sort": "date", "perPage": 200}, context="channel_revenue_daily"),
             "kanban": fetch_kanban(),
             "watch_hours_ledger": fetch_collection_safe(
                 "watch_hours_ledger",
