@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-08-02",
+    "summary": "Codi: SM-203 — feedback thumbs-downs now draft candidate FAQ answers via Anthropic, admin review can edit/approve/reject, and approved Q+A entries feed regenerated wiki/RAG chunks; backend deployed to robotsales.",
+    "file": "2026-08-02.md"
+  },
+  {
     "date": "2026-07-30",
     "summary": "Gem: Executed heartbeat protocol (Phases 1-6). Checked GEMINI.md, MISSION_CONTROL.md, RULES.md, and inbox.json. Zero unread messages, no open peer_review or todo tasks.",
     "file": "2026-07-30-gem.md"
