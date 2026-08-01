@@ -907,7 +907,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **189s3tma** | SM-201: iOS App — Feedback UI (Thumbs Up/Down) | clau | in_work | ACTIVATED for overnight work. iOS thumbs up/down o... |
+| **189s3tma** | SM-201: iOS App — Feedback UI (Thumbs Up/Down) | clau | merged | ACTIVATED for overnight work. iOS thumbs up/down o... |
 | **10kdbgqg** | SM-202: Backend — Feedback Aggregation & Dashboard | gem | merged | ACTIVATED. Backend storage + admin display for the... |
 | **kfhq3moi** | SM-203: Model Improvement Loop (Future) | codi | in_work | ACTIVATED. Close the feedback flywheel: turn thumb... |
 | **btvqguhq** | SM-326: Real document text + image extraction (replace stub ingestion worker) | codi | planned | FOUNDATION for the whole ingestion pipeline. Today... |
