@@ -124,6 +124,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ---
 
 ### CLOSED
+- **10kdbgqg**: SM-202: Backend — Feedback Aggregation & Dashboard -- Backend feedback storage + admin console UI display for thumbs-down responses grouped by collection, status workflow new -> answer_drafted -> approved/rejected. -- Gem. Approved.
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
 - **0evhhre8**: FLOT-107-C: /fleet/ FinOps tiles — Revenue 30d, Est. RPM, AdSense income line -- Depends on FLOT-107-A. Can run parallel to FLOT-107-B. -- Codi. Approved.
 - **pau9nrhj**: FLOT-107-B: /stats/ long-form table — revenue columns + YouTube links -- Depends on FLOT-107-A (schema + snapshot must land first). -- Gem. Approved.
@@ -908,7 +909,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **189s3tma** | SM-201: iOS App — Feedback UI (Thumbs Up/Down) | clau | in_work | ACTIVATED for overnight work. iOS thumbs up/down o... |
-| **10kdbgqg** | SM-202: Backend — Feedback Aggregation & Dashboard | gem | in_work | ACTIVATED. Backend storage + admin display for the... |
 | **kfhq3moi** | SM-203: Model Improvement Loop (Future) | codi | in_work | ACTIVATED. Close the feedback flywheel: turn thumb... |
 | **btvqguhq** | SM-326: Real document text + image extraction (replace stub ingestion worker) | codi | planned | FOUNDATION for the whole ingestion pipeline. Today... |
 | **hzwml9ml** | SM-327: Wiki generation via intelligent model (Opus 5 via Anthropic API) | codi | planned | Depends on SM-326 (needs extracted text + images).... |
