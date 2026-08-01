@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-08-02",
-    "summary": "Codi: SM-203 feedback loop moved to peer review; SM-326 real document extraction added for PDF/DOCX/TXT/MD/CSV with embedded PDF image assets, document text storage, SQLite worker extraction, and admin debug endpoint.",
+    "summary": "Codi: SM-203 feedback loop, SM-326 real document extraction, and SM-327 Anthropic wiki draft generation moved to peer review.",
     "file": "2026-08-02.md"
   },
   {
