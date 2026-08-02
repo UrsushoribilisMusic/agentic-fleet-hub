@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-08-02",
-    "summary": "Clau: FLOT-118 X composer + link-in-reply pattern; Codi: FLOT-112 retarget + circuit breaker, account halt, 47/48 tests pass",
+    "summary": "Clau: FLOT-118 X composer + link-in-reply pattern; Codi: FLOT-112 retarget + circuit breaker, account halt, 54/55 tests pass",
     "file": "2026-08-02.md"
   },
   {
