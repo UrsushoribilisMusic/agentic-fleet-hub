@@ -918,5 +918,19 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **10kdbgqg** | SM-202: Backend — Feedback Aggregation & Dashboard | gem | merged | ACTIVATED. Backend storage + admin display for the... |
+| **e615w0yx** | FLOT-120: Cross-platform scheduling | codi | planned | P1. Reddit + X on the SAME 48h cadence, offset by ... |
+| **k0yw9olb** | FLOT-119: X verification + traction | codi | planned | P1. X has no AutoModerator, but behavioural enforc... |
+| **tl60uh9k** | FLOT-118: X composer + link-in-reply pattern | clau | planned | P1. NEVER put the URL in the main post: (1) cost —... |
+| **y0qn6pog** | FLOT-117: X API client + cost guard | codi | planned | P0 for the X arm. X killed the free tier (6 Feb 20... |
+| **3pr384ow** | FLOT-116: Reddit account identity update (Agentegra) | gem | planned | P1 — before first post. Profile still reads 'Big B... |
+| **pgwatbei** | FLOT-115: Pre-departure dry run | clau | planned | P0 — MUST complete Tuesday. (1) Fire full pipeline... |
+| **9kmk46ao** | FLOT-114: Alerting + failure visibility | gem | planned | P1. Telegram is the ONLY channel. Alert on: post s... |
+| **iyvmia5y** | FLOT-113: Traction tracking | gem | planned | P2. Separate launchd job daily 14:00. For each sub... |
+| **74om3go4** | FLOT-112: Retarget + circuit breaker | codi | planned | P0. On bounced → next entry in fallback_subs, re-q... |
+| **f42jxtjn** | FLOT-111: Bounce detection (3-signal) ★ core | codi | planned | P0 CORE. Problem: Reddit returns HTTP 200 + valid ... |
+| **8dsaafh8** | FLOT-110: Submission executor + schedule | codi | planned | P1. launchd plist fires every 48h at 09:00 (stagge... |
+| **yzjynmup** | FLOT-109: Post composer (per-sub drafts) | clau | planned | P1. Draft title+body from body_seed, tuned per tar... |
+| **gxtanj8q** | FLOT-108: Content manifest schema | codi | planned | P0. Operator supplies three lists → normalise into... |
+| **kzrqjwxc** | FLOT-107: Reddit OAuth client + credential provisioning | codi | planned | P0 (blocks everything downstream). Register a SCRI... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
