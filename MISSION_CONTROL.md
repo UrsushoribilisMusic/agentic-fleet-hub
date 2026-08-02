@@ -918,7 +918,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **gxtanj8q** | FLOT-108: Content manifest schema | codi | planned | P0. Operator supplies three lists → normalise into... |
+| **gxtanj8q** | FLOT-108: Content manifest schema | codi | in_work | P0. Operator supplies three lists → normalise into... |
 | **yzjynmup** | FLOT-109: Post composer (per-sub drafts) | clau | in_work | P1. Draft title+body from body_seed, tuned per tar... |
 | **8dsaafh8** | FLOT-110: Submission executor + schedule | codi | planned | P1. launchd plist fires every 48h at 09:00 (stagge... |
 | **f42jxtjn** | FLOT-111: Bounce detection (3-signal) ★ core | codi | planned | P0 CORE. Problem: Reddit returns HTTP 200 + valid ... |
