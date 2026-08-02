@@ -925,7 +925,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **f42jxtjn** | FLOT-111: Bounce detection (3-signal) ★ core | codi | planned | P0 CORE. Problem: Reddit returns HTTP 200 + valid ... |
 | **74om3go4** | FLOT-112: Retarget + circuit breaker | codi | planned | P0. On bounced → next entry in fallback_subs, re-q... |
 | **iyvmia5y** | FLOT-113: Traction tracking | gem | merged | P2. Separate launchd job daily 14:00. For each sub... |
-| **9kmk46ao** | FLOT-114: Alerting + failure visibility | gem | planned | P1. Telegram is the ONLY channel. Alert on: post s... |
+| **9kmk46ao** | FLOT-114: Alerting + failure visibility | gem | in_work | P1. Telegram is the ONLY channel. Alert on: post s... |
 | **pgwatbei** | FLOT-115: Pre-departure dry run | clau | planned | P0 — MUST complete Tuesday. (1) Fire full pipeline... |
 | **3pr384ow** | FLOT-116: Reddit account identity update (Agentegra) | gem | planned | P1 — before first post. Profile still reads 'Big B... |
 | **y0qn6pog** | FLOT-117: X API client + cost guard | codi | planned | P0 for the X arm. X killed the free tier (6 Feb 20... |
