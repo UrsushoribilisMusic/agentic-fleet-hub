@@ -914,7 +914,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **189s3tma** | SM-201: iOS App — Feedback UI (Thumbs Up/Down) | clau | merged | ACTIVATED for overnight work. iOS thumbs up/down o... |
 | **10kdbgqg** | SM-202: Backend — Feedback Aggregation & Dashboard | gem | merged | ACTIVATED. Backend storage + admin display for the... |
 | **kfhq3moi** | SM-203: Model Improvement Loop (Future) | codi | merged | ACTIVATED. Close the feedback flywheel: turn thumb... |
-| **ln3cey2u** | SM-329: RAG generation from APPROVED wiki (fix generateChunks source) | codi | in_work | Depends on SM-328 (needs approved wiki).... |
+| **ln3cey2u** | SM-329: RAG generation from APPROVED wiki (fix generateChunks source) | codi | merged | Depends on SM-328 (needs approved wiki).... |
 | **6f77c57o** | SM-331: Add Liquid LFM2-VL as an on-device model (SM iOS) | clau | merged | Port the PrivateCore groundwork. PC branch experim... |
 | **87v46nbt** | SM-332: Unify vision on LFM2-VL — replace Qwen2-VL in VisionService | clau | in_work | Depends on SM-331. The unification win from Privat... |
 
