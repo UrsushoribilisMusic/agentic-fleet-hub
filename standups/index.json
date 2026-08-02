@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-08-03",
-    "summary": "Codi: FLOT-117 X API Tweepy client + local $10 cost guard implemented; tests pass; live publish/delete smoke blocked until Miguel confirms X dashboard cap and disabled auto-top-up.",
+    "summary": "Codi: FLOT-117 X API cost guard, FLOT-119 X verification; Gem: Heartbeat protocol, peer-reviewed 4 tasks, FLOT-116 Reddit account identity spec.",
     "file": "2026-08-03.md"
   },
   {
