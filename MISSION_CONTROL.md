@@ -926,7 +926,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **iyvmia5y** | FLOT-113: Traction tracking | gem | merged | P2. Separate launchd job daily 14:00. For each sub... |
 | **9kmk46ao** | FLOT-114: Alerting + failure visibility | gem | merged | P1. Telegram is the ONLY channel. Alert on: post s... |
 | **pgwatbei** | FLOT-115: Pre-departure dry run | clau | planned | P0 — MUST complete Tuesday. (1) Fire full pipeline... |
-| **3pr384ow** | FLOT-116: Reddit account identity update (Agentegra) | gem | planned | P1 — before first post. Profile still reads 'Big B... |
+| **3pr384ow** | FLOT-116: Reddit account identity update (Agentegra) | gem | in_work | P1 — before first post. Profile still reads 'Big B... |
 | **y0qn6pog** | FLOT-117: X API client + cost guard | codi | planned | P0 for the X arm. X killed the free tier (6 Feb 20... |
 | **tl60uh9k** | FLOT-118: X composer + link-in-reply pattern | clau | planned | P1. NEVER put the URL in the main post: (1) cost —... |
 | **k0yw9olb** | FLOT-119: X verification + traction | codi | planned | P1. X has no AutoModerator, but behavioural enforc... |
