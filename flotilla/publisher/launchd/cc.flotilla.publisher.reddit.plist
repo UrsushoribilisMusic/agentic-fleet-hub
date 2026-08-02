@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>cc.flotilla.publisher.reddit</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/miguelrodriguez/flotilla/publisher/.venv/bin/python</string>
+    <string>/Users/miguelrodriguez/flotilla/publisher/submission_executor.py</string>
+    <string>--manifest</string>
+    <string>/Users/miguelrodriguez/flotilla/publisher/manifest.json</string>
+  </array>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/miguelrodriguez/flotilla/publisher</string>
+
+  <!-- Load this job at 09:00 local time. StartInterval keeps the Reddit cadence
+       at 48h and staggered one hour ahead of the 10:00 YouTube stats job. -->
+  <key>StartInterval</key>
+  <integer>172800</integer>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>StandardOutPath</key>
+  <string>/Users/miguelrodriguez/flotilla/publisher/logs/reddit_executor.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/miguelrodriguez/flotilla/publisher/logs/reddit_executor.err.log</string>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>POCKETBASE_URL</key>
+    <string>http://localhost:8090</string>
+    <key>INFISICAL_DOMAIN</key>
+    <string>https://eu.infisical.com</string>
+  </dict>
+</dict>
+</plist>

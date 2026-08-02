@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flotilla-publisher"
+version = "0.1.0"
+description = "Flotilla unattended social publisher clients"
+requires-python = ">=3.9"
+dependencies = [
+  "praw>=7.8.1,<8",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<9",
+]
+
+[project.scripts]
+flotilla-reddit-smoke = "flotilla_publisher.reddit_smoke:main"
+flotilla-manifest-validate = "manifest_schema:main"
+flotilla-submission-executor = "submission_executor:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

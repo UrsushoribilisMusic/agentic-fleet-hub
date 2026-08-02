@@ -1,47 +1,18 @@
-# WORKLOG — FLOT-109: Post composer (per-sub drafts)
+# FLOT-110 Worklog
 
-**Branch:** task/yzjynmupe10cqae  
-**Agent:** clau  
-**PB task:** yzjynmupe10cqae
+Task: submission executor + launchd schedule.
 
-## Plan
+Plan:
 
-Build `~/flotilla/publisher/composer.py` (importable module + CLI) that generates
-Reddit post drafts tuned per subreddit.
+1. Add an importable executor module that loads and validates `manifest.json`, selects the next eligible pending post, calls the FLOT-109 composer, submits the correct Reddit post type, records a PB submission row, enqueues three verification checks, updates manifest attempt state, and sends one Telegram permalink alert.
+2. Keep side effects injectable so tests can cover selection, cooldowns, flair handling, PB writes, verification queueing, and Telegram notification without live Reddit or Telegram calls.
+3. Add a launchd plist for a 48-hour cadence at 09:00 with `RunAtLoad=true`, staggered from the existing 10:00 YouTube stats job.
+4. Add focused tests for the acceptance path and no-operator skip cases.
+5. Mirror any finished publisher files into the hub repo before final commit/push if needed by the fleet workflow.
 
-### Files to create
-1. `lint.py` — lint primitives: em-dash check, marketing-word check, n-gram overlap
-2. `composer.py` — main module: `compose(post_id, subs, manifest_path)` + CLI
-3. `manifest.json` — schema placeholder (FLOT-108 will formalize; this gives composer something to run against)
-4. `test_composer.py` — lint unit tests + acceptance smoke test
+Key decisions:
 
-### Architecture decisions
-
-**Caller contract:** FLOT-110 (executor) calls `compose(post_id, subs)` and gets back
-`{sub: Draft}` dict. No manifest writes — executor owns state mutation.
-
-**Per-sub conventions** (hardcoded in composer, not config):
-- r/LocalLLaMA: model + quant specifics as title anchor
-- r/Entrepreneur: story arc (what I tried / what happened)
-- r/eutech: EU sovereignty / on-device / GDPR angle
-
-**Cross-sub dedup:** after generating each sub's draft, add it to running
-`prior_texts` so subsequent subs are checked against it. This is the primary
-shadowban guard — prevents near-identical posts in the same run.
-
-**Lint retries:** up to 3 attempts per sub. On failure, inject the failure list
-into the next prompt so the model can self-correct.
-
-**Model:** `claude-sonnet-5` via Anthropic API. Key fetched from Infisical via
-`vault/agent-fetch.sh ANTHROPIC_API_KEY`.
-
-**Acceptance criteria (from ticket):**
-- For one post id + three subs: emits three materially different drafts
-- Each passes lint: no em-dash, no marketing register, n-gram overlap < 40% vs prior posted text
-
-## Commit log
-- [x] WORKLOG.md
-- [ ] lint.py
-- [ ] composer.py
-- [ ] manifest.json
-- [ ] test_composer.py
+- Use the existing `flotilla_publisher.reddit_client` bundle/guard for Reddit operations.
+- Use PocketBase REST for `publisher_submissions` and `publisher_verification_queue`; fall back to clear runtime errors if schema is missing.
+- Do not use the existing untracked `publisher_alerts.py` because it contains hardcoded Telegram defaults. FLOT-110 will fetch Telegram credentials from environment or Infisical only.
+- Do not attempt live posting in tests. The live fire remains a runtime command.
