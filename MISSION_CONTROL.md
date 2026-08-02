@@ -124,7 +124,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ---
 
 ### CLOSED
-- **iyvmia5y**: FLOT-113: Traction tracking -- Separate launchd job daily 14:00. Fetches score, upvote_ratio, num_comments, view_count for live submissions (<7d old), appends timeseries to PocketBase publisher_traction, marks flat posts at T+12h as cold, sends daily Telegram digest with score deltas and explicit NEW comment flags. Loaded into launchd as fleet.publisher_traction. -- Gem. Approved.
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
 - **9xf8d7oy**: SM-333: DB-backed persistence for collections/orgs/users (finish SM-002 — data lost on restart) -- CRITICAL data-loss risk found during Wed-demo prep. wiki/index.js keeps ALL collections/orgs/users/grants in an in-memory Map (line 3: "SM-002 will replace with DB-backed persistence" — never done). Every service restart or deploy WIPES all runtime-created collections back to seeds; customer data is lost. Confirmed live: a deploy restart erased the Robot Ross ATF demo collection. -- Codi. Approved.
 - **87v46nbt**: SM-332: Unify vision on LFM2-VL — replace Qwen2-VL in VisionService -- Depends on SM-331. The unification win from PrivateCore: one model for BOTH image recognition (OCR/vision) -- Clau. Approved.
@@ -925,12 +924,13 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **8dsaafh8** | FLOT-110: Submission executor + schedule | codi | planned | P1. launchd plist fires every 48h at 09:00 (stagge... |
 | **f42jxtjn** | FLOT-111: Bounce detection (3-signal) ★ core | codi | planned | P0 CORE. Problem: Reddit returns HTTP 200 + valid ... |
 | **74om3go4** | FLOT-112: Retarget + circuit breaker | codi | planned | P0. On bounced → next entry in fallback_subs, re-q... |
-| **e615w0yx** | FLOT-120: Cross-platform scheduling | codi | planned | P1. Reddit + X on the SAME 48h cadence, offset by ... |
-| **k0yw9olb** | FLOT-119: X verification + traction | codi | planned | P1. X has no AutoModerator, but behavioural enforc... |
-| **tl60uh9k** | FLOT-118: X composer + link-in-reply pattern | clau | planned | P1. NEVER put the URL in the main post: (1) cost —... |
-| **y0qn6pog** | FLOT-117: X API client + cost guard | codi | planned | P0 for the X arm. X killed the free tier (6 Feb 20... |
-| **3pr384ow** | FLOT-116: Reddit account identity update (Agentegra) | gem | planned | P1 — before first post. Profile still reads 'Big B... |
-| **pgwatbei** | FLOT-115: Pre-departure dry run | clau | planned | P0 — MUST complete Tuesday. (1) Fire full pipeline... |
+| **iyvmia5y** | FLOT-113: Traction tracking | gem | merged | P2. Separate launchd job daily 14:00. For each sub... |
 | **9kmk46ao** | FLOT-114: Alerting + failure visibility | gem | planned | P1. Telegram is the ONLY channel. Alert on: post s... |
+| **pgwatbei** | FLOT-115: Pre-departure dry run | clau | planned | P0 — MUST complete Tuesday. (1) Fire full pipeline... |
+| **3pr384ow** | FLOT-116: Reddit account identity update (Agentegra) | gem | planned | P1 — before first post. Profile still reads 'Big B... |
+| **y0qn6pog** | FLOT-117: X API client + cost guard | codi | planned | P0 for the X arm. X killed the free tier (6 Feb 20... |
+| **tl60uh9k** | FLOT-118: X composer + link-in-reply pattern | clau | planned | P1. NEVER put the URL in the main post: (1) cost —... |
+| **k0yw9olb** | FLOT-119: X verification + traction | codi | planned | P1. X has no AutoModerator, but behavioural enforc... |
+| **e615w0yx** | FLOT-120: Cross-platform scheduling | codi | planned | P1. Reddit + X on the SAME 48h cadence, offset by ... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
