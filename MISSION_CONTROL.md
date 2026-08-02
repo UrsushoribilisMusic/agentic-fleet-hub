@@ -171,6 +171,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **61adfsi5**: SM-014: iOS — Expand sample_chunks.jsonl with Robot Ross & field service content -- The bundled sample_chunks.jsonl currently has only 8 ATF compliance chunks. The demo fails for Robot Ross hardware questions and general field service questions because TF-IDF retrieval finds nothing and the stub LLM returns a no-results response. Expand sample_chunks.jsonl at SovereignMind/Resources/sample_chunks.jsonl with at least 30 additional chunks covering: (1) Robot Ross hardware — arm calibration (z_up: 6.0mm), port settings (/dev/cu.usbserial-310), Huenit arm commands, drawing workflow, voice control; (2) General field service — maintenance procedures, LOTO safety, work order management, spare parts; (3) Sovereign Mind platform — what it is, personas, offline mode, RAG explanation, vision/OCR capability. Each chunk must follow the JSON format: {"id": "...", "text": "...", "source": "...", "chunk_index": N}. After editing, rebuild with xcodegen generate and confirm build succeeds. -- Clau. Approved.
 - **88ist8u0**: SM-013: iOS — RAG indicator in chat (show active index) -- The chat dialog must show which RAG index is currently loaded. Add a persistent subtitle or banner below the navigation bar that displays the active index display name (e.g. "Robot Ross ATF Wiki" or "Enterprise Knowledge Base"). The indicator should update when the user switches indices. It should be subtle — not blocking chat content — but clearly legible. Reference: ConversationThread.ragIndexID is already available in ChatSession via activeIndexID. Show it in the ChatView toolbar or as a caption below the nav title using .navigationSubtitle or a small HStack below the toolbar. -- Clau. Approved.
 - **kfhq3moi**: SM-203: Model Improvement Loop (Future) -- ACTIVATED. Close the feedback flywheel: turn thumbs-downs into vetted FAQ answers that improve the RAG. -- Codi. Approved.
+- **10kdbgqg**: SM-202: Backend — Feedback Aggregation & Dashboard -- ACTIVATED. Backend storage + admin display for the feedback flywheel. -- Gem. Approved.
 - **189s3tma**: SM-201: iOS App — Feedback UI (Thumbs Up/Down) -- ACTIVATED for overnight work. iOS thumbs up/down on assistant answers. -- Clau. Approved.
 - **4sm1ntns**: SM-012: Integration Testing — End-to-End Happy Path -- Smoke test the entire MVP flow: SSO → download → inference → threading. -- Clau. Approved.
 - **ro2mwixu**: SM-011: Web Console — Example RAG Indices & Personas -- Pre-bake two example RAG indices and persona sets so users can download and try Sovereign Mind immediately. -- Codi. Approved.
@@ -917,10 +918,13 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **10kdbgqg** | SM-202: Backend — Feedback Aggregation & Dashboard | gem | merged | ACTIVATED. Backend storage + admin display for the... |
-| **iyvmia5y** | FLOT-113: Traction tracking | gem | in_work | P2. Separate launchd job daily 14:00. For each sub... |
-| **yzjynmup** | FLOT-109: Post composer (per-sub drafts) | clau | in_work | P1. Draft title+body from body_seed, tuned per tar... |
 | **kzrqjwxc** | FLOT-107: Reddit OAuth client + credential provisioning | codi | in_work | P0 (blocks everything downstream). Register a SCRI... |
+| **gxtanj8q** | FLOT-108: Content manifest schema | codi | planned | P0. Operator supplies three lists → normalise into... |
+| **yzjynmup** | FLOT-109: Post composer (per-sub drafts) | clau | in_work | P1. Draft title+body from body_seed, tuned per tar... |
+| **8dsaafh8** | FLOT-110: Submission executor + schedule | codi | planned | P1. launchd plist fires every 48h at 09:00 (stagge... |
+| **f42jxtjn** | FLOT-111: Bounce detection (3-signal) ★ core | codi | planned | P0 CORE. Problem: Reddit returns HTTP 200 + valid ... |
+| **74om3go4** | FLOT-112: Retarget + circuit breaker | codi | planned | P0. On bounced → next entry in fallback_subs, re-q... |
+| **iyvmia5y** | FLOT-113: Traction tracking | gem | in_work | P2. Separate launchd job daily 14:00. For each sub... |
 | **e615w0yx** | FLOT-120: Cross-platform scheduling | codi | planned | P1. Reddit + X on the SAME 48h cadence, offset by ... |
 | **k0yw9olb** | FLOT-119: X verification + traction | codi | planned | P1. X has no AutoModerator, but behavioural enforc... |
 | **tl60uh9k** | FLOT-118: X composer + link-in-reply pattern | clau | planned | P1. NEVER put the URL in the main post: (1) cost —... |
@@ -928,9 +932,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **3pr384ow** | FLOT-116: Reddit account identity update (Agentegra) | gem | planned | P1 — before first post. Profile still reads 'Big B... |
 | **pgwatbei** | FLOT-115: Pre-departure dry run | clau | planned | P0 — MUST complete Tuesday. (1) Fire full pipeline... |
 | **9kmk46ao** | FLOT-114: Alerting + failure visibility | gem | planned | P1. Telegram is the ONLY channel. Alert on: post s... |
-| **74om3go4** | FLOT-112: Retarget + circuit breaker | codi | planned | P0. On bounced → next entry in fallback_subs, re-q... |
-| **f42jxtjn** | FLOT-111: Bounce detection (3-signal) ★ core | codi | planned | P0 CORE. Problem: Reddit returns HTTP 200 + valid ... |
-| **8dsaafh8** | FLOT-110: Submission executor + schedule | codi | planned | P1. launchd plist fires every 48h at 09:00 (stagge... |
-| **gxtanj8q** | FLOT-108: Content manifest schema | codi | planned | P0. Operator supplies three lists → normalise into... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
