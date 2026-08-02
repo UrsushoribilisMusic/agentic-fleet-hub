@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-08-03",
+    "summary": "Codi: FLOT-117 X API Tweepy client + local $10 cost guard implemented; tests pass; live publish/delete smoke blocked until Miguel confirms X dashboard cap and disabled auto-top-up.",
+    "file": "2026-08-03.md"
+  },
+  {
     "date": "2026-08-02",
     "summary": "Clau: FLOT-118 X composer + link-in-reply pattern; Codi: FLOT-112 retarget + circuit breaker, account halt, 54/55 tests pass",
     "file": "2026-08-02.md"
