@@ -125,7 +125,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **87v46nbt**: SM-332: Unify vision on LFM2-VL — replace Qwen2-VL in VisionService -- Depends on SM-331. The unification win from PrivateCore: one model for BOTH image recognition (OCR/vision) -- Clau. Approved.
+- **6f77c57o**: SM-331: Add Liquid LFM2-VL as an on-device model (SM iOS) -- Port the PrivateCore groundwork. PC branch experiment/liquid-lfm2-unified uses -- Clau. Approved.
 - **0078vw9c**: SM-330: Images in wiki rendering — web viewer + iOS WikiView -- Depends on SM-326/327 (extracted + referenced images). The 'plus' Miguel asked for. -- Clau. Approved.
+- **ln3cey2u**: SM-329: RAG generation from APPROVED wiki (fix generateChunks source) -- Depends on SM-328 (needs approved wiki). -- Codi. Approved.
 - **dmcy90ku**: SM-328: Wiki review/approval + page editing UI (admin console) -- Depends on SM-327 (needs generated draft). The human-in-the-loop gate. -- Gem. Approved.
 - **hzwml9ml**: SM-327: Wiki generation via intelligent model (Opus 5 via Anthropic API) -- Depends on SM-326 (needs extracted text + images). -- Codi. Approved.
 - **btvqguhq**: SM-326: Real document text + image extraction (replace stub ingestion worker) -- FOUNDATION for the whole ingestion pipeline. Today worker/ingestion.js is a STUB (sleeps, marks -- Codi. Approved.
@@ -166,6 +169,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **xh6dniyu**: SM-015: iOS — Web search: auto-trigger when RAG returns no results -- Currently, when RAG retrieval returns empty results, the InferenceEngine yields needsWebSearch=true, ChatSession sets pendingWebSearchQuery, and the ChatView shows a banner with a "Search the web" button the user must tap manually. This is a UX friction point. When sm.webSearchAuto is true (default false), auto-trigger the web search without showing the banner or requiring user tap. When false, keep the existing manual banner. Additionally: (1) improve the banner copy to say "No match in knowledge base — tap to search the web"; (2) after auto-search, the response should note it came from web, not the knowledge base. Reference: ChatSession.triggerWebSearch() is already wired. The auto-trigger should call it automatically when needsWebSearch is true and webSearchAuto is enabled. -- Clau. Approved.
 - **61adfsi5**: SM-014: iOS — Expand sample_chunks.jsonl with Robot Ross & field service content -- The bundled sample_chunks.jsonl currently has only 8 ATF compliance chunks. The demo fails for Robot Ross hardware questions and general field service questions because TF-IDF retrieval finds nothing and the stub LLM returns a no-results response. Expand sample_chunks.jsonl at SovereignMind/Resources/sample_chunks.jsonl with at least 30 additional chunks covering: (1) Robot Ross hardware — arm calibration (z_up: 6.0mm), port settings (/dev/cu.usbserial-310), Huenit arm commands, drawing workflow, voice control; (2) General field service — maintenance procedures, LOTO safety, work order management, spare parts; (3) Sovereign Mind platform — what it is, personas, offline mode, RAG explanation, vision/OCR capability. Each chunk must follow the JSON format: {"id": "...", "text": "...", "source": "...", "chunk_index": N}. After editing, rebuild with xcodegen generate and confirm build succeeds. -- Clau. Approved.
 - **88ist8u0**: SM-013: iOS — RAG indicator in chat (show active index) -- The chat dialog must show which RAG index is currently loaded. Add a persistent subtitle or banner below the navigation bar that displays the active index display name (e.g. "Robot Ross ATF Wiki" or "Enterprise Knowledge Base"). The indicator should update when the user switches indices. It should be subtle — not blocking chat content — but clearly legible. Reference: ConversationThread.ragIndexID is already available in ChatSession via activeIndexID. Show it in the ChatView toolbar or as a caption below the nav title using .navigationSubtitle or a small HStack below the toolbar. -- Clau. Approved.
+- **kfhq3moi**: SM-203: Model Improvement Loop (Future) -- ACTIVATED. Close the feedback flywheel: turn thumbs-downs into vetted FAQ answers that improve the RAG. -- Codi. Approved.
+- **189s3tma**: SM-201: iOS App — Feedback UI (Thumbs Up/Down) -- ACTIVATED for overnight work. iOS thumbs up/down on assistant answers. -- Clau. Approved.
 - **4sm1ntns**: SM-012: Integration Testing — End-to-End Happy Path -- Smoke test the entire MVP flow: SSO → download → inference → threading. -- Clau. Approved.
 - **ro2mwixu**: SM-011: Web Console — Example RAG Indices & Personas -- Pre-bake two example RAG indices and persona sets so users can download and try Sovereign Mind immediately. -- Codi. Approved.
 - **8ccpa7b8**: SM-010: iOS App — Settings & Model/Persona Management -- Settings screen for advanced options: download new RAG indices, swap models, manage personas, clear cache. -- Clau. Approved.
@@ -911,11 +916,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **189s3tma** | SM-201: iOS App — Feedback UI (Thumbs Up/Down) | clau | merged | ACTIVATED for overnight work. iOS thumbs up/down o... |
 | **10kdbgqg** | SM-202: Backend — Feedback Aggregation & Dashboard | gem | merged | ACTIVATED. Backend storage + admin display for the... |
-| **kfhq3moi** | SM-203: Model Improvement Loop (Future) | codi | merged | ACTIVATED. Close the feedback flywheel: turn thumb... |
-| **ln3cey2u** | SM-329: RAG generation from APPROVED wiki (fix generateChunks source) | codi | merged | Depends on SM-328 (needs approved wiki).... |
-| **6f77c57o** | SM-331: Add Liquid LFM2-VL as an on-device model (SM iOS) | clau | merged | Port the PrivateCore groundwork. PC branch experim... |
-| **87v46nbt** | SM-332: Unify vision on LFM2-VL — replace Qwen2-VL in VisionService | clau | merged | Depends on SM-331. The unification win from Privat... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
