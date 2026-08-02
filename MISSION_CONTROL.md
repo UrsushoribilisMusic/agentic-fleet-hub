@@ -125,6 +125,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **9xf8d7oy**: SM-333: DB-backed persistence for collections/orgs/users (finish SM-002 — data lost on restart) -- CRITICAL data-loss risk found during Wed-demo prep. wiki/index.js keeps ALL collections/orgs/users/grants in an in-memory Map (line 3: "SM-002 will replace with DB-backed persistence" — never done). Every service restart or deploy WIPES all runtime-created collections back to seeds; customer data is lost. Confirmed live: a deploy restart erased the Robot Ross ATF demo collection. -- Codi. Approved.
 - **87v46nbt**: SM-332: Unify vision on LFM2-VL — replace Qwen2-VL in VisionService -- Depends on SM-331. The unification win from PrivateCore: one model for BOTH image recognition (OCR/vision) -- Clau. Approved.
 - **6f77c57o**: SM-331: Add Liquid LFM2-VL as an on-device model (SM iOS) -- Port the PrivateCore groundwork. PC branch experiment/liquid-lfm2-unified uses -- Clau. Approved.
 - **0078vw9c**: SM-330: Images in wiki rendering — web viewer + iOS WikiView -- Depends on SM-326/327 (extracted + referenced images). The 'plus' Miguel asked for. -- Clau. Approved.
@@ -917,6 +918,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **10kdbgqg** | SM-202: Backend — Feedback Aggregation & Dashboard | gem | merged | ACTIVATED. Backend storage + admin display for the... |
-| **9xf8d7oy** | SM-333: DB-backed persistence for collections/orgs/users (finish SM-002 — data lost on restart) | codi | merged | CRITICAL data-loss risk found during Wed-demo prep... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
