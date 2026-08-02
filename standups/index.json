@@ -11,7 +11,7 @@
   },
   {
     "date": "2026-08-02",
-    "summary": "Codi: SM-203 feedback loop, SM-326 extraction, SM-327 drafts, SM-329 RAG chunks, FLOT-107 Reddit OAuth scaffold, FLOT-108 publisher manifest schema, and FLOT-110 Reddit submission executor/schedule (live fire blocked by Infisical auth).",
+    "summary": "Codi: SM-203 feedback loop, SM-326 extraction, SM-327 drafts, SM-329 RAG chunks, FLOT-107 Reddit OAuth scaffold, FLOT-108 manifest schema, FLOT-110 submission executor, and FLOT-111 three-signal Reddit bounce verification (live fire blocked by Infisical auth).",
     "file": "2026-08-02.md"
   },
   {
