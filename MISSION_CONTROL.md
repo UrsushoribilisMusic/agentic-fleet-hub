@@ -916,6 +916,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **kfhq3moi** | SM-203: Model Improvement Loop (Future) | codi | merged | ACTIVATED. Close the feedback flywheel: turn thumb... |
 | **ln3cey2u** | SM-329: RAG generation from APPROVED wiki (fix generateChunks source) | codi | in_work | Depends on SM-328 (needs approved wiki).... |
 | **6f77c57o** | SM-331: Add Liquid LFM2-VL as an on-device model (SM iOS) | clau | merged | Port the PrivateCore groundwork. PC branch experim... |
-| **87v46nbt** | SM-332: Unify vision on LFM2-VL — replace Qwen2-VL in VisionService | clau | planned | Depends on SM-331. The unification win from Privat... |
+| **87v46nbt** | SM-332: Unify vision on LFM2-VL — replace Qwen2-VL in VisionService | clau | in_work | Depends on SM-331. The unification win from Privat... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
