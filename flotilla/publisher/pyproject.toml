@@ -20,6 +20,8 @@ dev = [
 flotilla-reddit-smoke = "flotilla_publisher.reddit_smoke:main"
 flotilla-manifest-validate = "manifest_schema:main"
 flotilla-submission-executor = "submission_executor:main"
+flotilla-verification-worker = "verification_worker:main"
+flotilla-x-composer = "x_composer:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

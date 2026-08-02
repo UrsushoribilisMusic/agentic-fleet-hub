@@ -1,14 +1,21 @@
 """
-Lint primitives for Reddit post drafts (FLOT-109).
+Lint primitives for Flotilla publisher drafts (FLOT-109, FLOT-118).
 
-Three checks, all required to pass before a draft is accepted:
+Shared checks:
   1. No em-dash (—, U+2014)
   2. No marketing register words
-  3. N-gram overlap < 40% vs any prior posted text
+  3. N-gram overlap < 40% vs any prior posted text (cross-platform)
+
+X-specific checks (FLOT-118):
+  4. No URL in hook (link-in-reply pattern)
+  5. Hook ≤ 280 chars
 """
 
 from __future__ import annotations
 import re
+
+_URL_RE = re.compile(r"https?://\S+|www\.\S+", re.IGNORECASE)
+X_CHAR_LIMIT = 280
 
 # Phrases / words that disqualify a draft regardless of context.
 # Keep sorted for diffability.
@@ -92,6 +99,39 @@ def check_overlap(
     if worst >= threshold:
         return [f"n-gram overlap {worst:.0%} >= {threshold:.0%} limit"]
     return []
+
+
+def check_x_no_url(text: str) -> list[str]:
+    """Hook must never contain a URL (link-in-reply pattern)."""
+    if _URL_RE.search(text):
+        return ["hook must not contain a URL (use link-in-reply pattern)"]
+    return []
+
+
+def check_x_char_limit(text: str, limit: int = X_CHAR_LIMIT) -> list[str]:
+    if len(text) > limit:
+        return [f"hook is {len(text)} chars, limit is {limit}"]
+    return []
+
+
+def lint_x(hook: str, prior_texts: list[str]) -> list[str]:
+    """
+    Run all lint checks against an X hook draft.
+
+    Args:
+        hook: tweet text (no URL, first-person, ≤280 chars)
+        prior_texts: Reddit and prior X texts for cross-platform overlap check
+
+    Returns:
+        List of failure strings. Empty = lint clean.
+    """
+    failures: list[str] = []
+    failures += check_x_no_url(hook)
+    failures += check_x_char_limit(hook)
+    failures += check_em_dash(hook)
+    failures += check_marketing(hook)
+    failures += check_overlap(hook, prior_texts)
+    return failures
 
 
 def lint(title: str, body: str, prior_texts: list[str]) -> list[str]:

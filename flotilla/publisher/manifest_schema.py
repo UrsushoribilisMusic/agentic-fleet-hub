@@ -105,7 +105,21 @@ def _normalize_post(post: dict[str, Any]) -> dict[str, Any]:
     normalized["min_gap_hours"] = int(normalized.get("min_gap_hours", 48))
     normalized["status"] = normalized.get("status") or "pending"
     normalized["attempts"] = list(normalized.get("attempts") or [])
+    normalized["x_variant"] = _normalize_x_variant(normalized.get("x_variant"))
     return normalized
+
+
+def _normalize_x_variant(value: Any) -> Any:
+    if value is None:
+        return None
+    if not isinstance(value, dict):
+        return None
+    hook = value.get("hook")
+    reply_text = value.get("reply_text")
+    return {
+        "hook": str(hook).strip() if hook is not None else None,
+        "reply_text": str(reply_text).strip() if reply_text is not None else None,
+    }
 
 
 def _normalize_subreddit(subreddit: dict[str, Any]) -> dict[str, Any]:
@@ -166,6 +180,7 @@ def _validate_posts(
         if post.get("status") not in POST_STATUSES:
             errors.append(f"{prefix}.status must be one of {sorted(POST_STATUSES)}")
         _validate_attempts(post.get("attempts"), prefix, errors)
+        _validate_x_variant(post.get("x_variant"), f"{prefix}.x_variant", errors)
 
 
 def _validate_subreddits(subreddits: list[Any], errors: list[str]) -> set[str]:
@@ -222,6 +237,21 @@ def _validate_attempts(attempts: Any, prefix: str, errors: list[str]) -> None:
             errors.append(
                 f"{attempt_prefix}.outcome must be one of {sorted(ATTEMPT_OUTCOMES)}"
             )
+
+
+def _validate_x_variant(value: Any, prefix: str, errors: list[str]) -> None:
+    """x_variant is optional (null = not yet drafted). When present, validate fields."""
+    if value is None:
+        return
+    if not isinstance(value, dict):
+        errors.append(f"{prefix} must be an object or null")
+        return
+    hook = value.get("hook")
+    if hook is not None and not _non_empty_string(hook):
+        errors.append(f"{prefix}.hook must be a non-empty string or null")
+    if hook is not None and isinstance(hook, str) and len(hook) > 280:
+        errors.append(f"{prefix}.hook exceeds 280 characters")
+    _validate_url_or_null(value.get("reply_text"), f"{prefix}.reply_text", errors)
 
 
 def _require_string(
