@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-08-02",
+    "summary": "Clau: FLOT-118 X composer + link-in-reply pattern; FLOT-108 peer review approved; 43/44 tests pass",
+    "file": "2026-08-02.md"
+  },
+  {
+    "date": "2026-08-02",
     "summary": "Clau: FLOT-109 composer -- lint.py + composer.py (per-sub Reddit drafts, claude-sonnet-5, cross-sub dedup); 6 unit tests passing; pushed to GitHub task/yzjynmupe10cqae",
     "file": "2026-08-02-clau-flot109.md"
   },
