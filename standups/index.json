@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-08-02",
-    "summary": "Codi: SM-203 feedback loop, SM-326 real document extraction, and SM-327 Anthropic wiki draft generation moved to peer review.",
+    "summary": "Codi: SM-203 feedback loop, SM-326 real document extraction, SM-327 Anthropic wiki draft generation, and SM-329 approved-wiki RAG chunk materialization moved to peer review.",
     "file": "2026-08-02.md"
   },
   {
