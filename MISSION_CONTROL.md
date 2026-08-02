@@ -918,7 +918,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **kzrqjwxc** | FLOT-107: Reddit OAuth client + credential provisioning | codi | in_work | P0 (blocks everything downstream). Register a SCRI... |
 | **gxtanj8q** | FLOT-108: Content manifest schema | codi | planned | P0. Operator supplies three lists → normalise into... |
 | **yzjynmup** | FLOT-109: Post composer (per-sub drafts) | clau | in_work | P1. Draft title+body from body_seed, tuned per tar... |
 | **8dsaafh8** | FLOT-110: Submission executor + schedule | codi | planned | P1. launchd plist fires every 48h at 09:00 (stagge... |
