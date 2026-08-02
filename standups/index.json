@@ -11,7 +11,7 @@
   },
   {
     "date": "2026-08-02",
-    "summary": "Codi: SM-203 feedback loop, SM-326 extraction, SM-327 drafts, SM-329 RAG chunks, and FLOT-107 Reddit OAuth client scaffold; FLOT-107 waiting on Reddit app + Infisical provisioning.",
+    "summary": "Codi: SM-203 feedback loop, SM-326 extraction, SM-327 drafts, SM-329 RAG chunks, FLOT-107 Reddit OAuth scaffold, and FLOT-108 publisher manifest schema validation.",
     "file": "2026-08-02.md"
   },
   {
