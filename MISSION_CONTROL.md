@@ -917,5 +917,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **10kdbgqg** | SM-202: Backend — Feedback Aggregation & Dashboard | gem | merged | ACTIVATED. Backend storage + admin display for the... |
+| **9xf8d7oy** | SM-333: DB-backed persistence for collections/orgs/users (finish SM-002 — data lost on restart) | codi | planned | CRITICAL data-loss risk found during Wed-demo prep... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
