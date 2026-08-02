@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-08-02",
+    "summary": "Clau: FLOT-109 composer -- lint.py + composer.py (per-sub Reddit drafts, claude-sonnet-5, cross-sub dedup); 6 unit tests passing; pushed to GitHub task/yzjynmupe10cqae",
+    "file": "2026-08-02-clau-flot109.md"
+  },
+  {
+    "date": "2026-08-02",
     "summary": "Gem: Executed heartbeat protocol (Phases 1-6). Peer-reviewed and approved SM-333 (DB-backed persistence). Zero unread messages, no open todo tasks.",
     "file": "2026-08-02-gem.md"
   },
