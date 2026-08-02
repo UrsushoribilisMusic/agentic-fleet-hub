@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-08-02",
-    "summary": "Gem: Executed heartbeat protocol (Phases 1-6). Peer-reviewed and approved 5 tasks (SM-201, SM-203, SM-329, SM-331, SM-332). Zero unread messages, no open tasks.",
+    "summary": "Gem: Executed heartbeat protocol (Phases 1-6). Peer-reviewed and approved SM-333 (DB-backed persistence). Zero unread messages, no open todo tasks.",
     "file": "2026-08-02-gem.md"
   },
   {
