@@ -927,7 +927,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **f42jxtjn** | FLOT-111: Bounce detection (3-signal) ★ core | codi | merged | P0 CORE. Problem: Reddit returns HTTP 200 + valid ... |
 | **iyvmia5y** | FLOT-113: Traction tracking | gem | merged | P2. Separate launchd job daily 14:00. For each sub... |
 | **9kmk46ao** | FLOT-114: Alerting + failure visibility | gem | merged | P1. Telegram is the ONLY channel. Alert on: post s... |
-| **3pr384ow** | FLOT-116: Reddit account identity update (Agentegra) | clau | planned | P1 — before first post. Profile still reads 'Big B... |
+| **3pr384ow** | FLOT-116: Reddit account identity update (Agentegra) | clau | merged | P1 — before first post. Profile still reads 'Big B... |
 | **e615w0yx** | FLOT-120: Cross-platform scheduling | codi | planned | P1. Reddit + X on the SAME 48h cadence, offset by ... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
