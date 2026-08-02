@@ -6,7 +6,7 @@
   },
   {
     "date": "2026-08-02",
-    "summary": "Codi: SM-203 feedback loop, SM-326 real document extraction, SM-327 Anthropic wiki draft generation, and SM-329 approved-wiki RAG chunk materialization moved to peer review.",
+    "summary": "Codi: SM-203 feedback loop, SM-326 extraction, SM-327 drafts, SM-329 RAG chunks, and FLOT-107 Reddit OAuth client scaffold; FLOT-107 waiting on Reddit app + Infisical provisioning.",
     "file": "2026-08-02.md"
   },
   {
