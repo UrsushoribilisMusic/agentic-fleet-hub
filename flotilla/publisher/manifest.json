@@ -1,0 +1,59 @@
+{
+  "_version": "0.1.0",
+  "_schema_owner": "FLOT-108 (Codi) — this file is a placeholder; full schema defined there",
+  "posts": [
+    {
+      "id": "apertus-m4-local-inference",
+      "angle": "running Apertus 8B (Q4_K_M) locally on Mac Mini M4, surprisingly usable for agent workflows",
+      "body_seed": "Been running Apertus 8B quantised at Q4_K_M on a Mac Mini M4 (24 GB unified memory) for the past few weeks as the backbone of an agentic publisher pipeline. Gets about 32 tok/s for prompt eval and around 14 tok/s generation, which is fast enough that I stopped thinking about the model and started thinking about the task. Context window is 8K in practice before it gets sluggish. The thing that surprised me: latency is low enough that you can use it interactively, not just in batch. No cloud, no API costs, GDPR-clean by construction. Still not GPT-4-class on hard reasoning but for structured output and constrained generation tasks it is very solid.",
+      "artwork": null,
+      "link": null,
+      "primary_sub": "r/LocalLLaMA",
+      "fallback_subs": ["r/Entrepreneur", "r/eutech"],
+      "min_gap_hours": 48,
+      "status": "pending",
+      "attempts": []
+    }
+  ],
+  "subreddits": [
+    {
+      "name": "r/LocalLLaMA",
+      "traction_tier": "A",
+      "allows_link_posts": true,
+      "allows_image_posts": true,
+      "requires_flair": true,
+      "flair_id": null,
+      "min_account_age_days": 0,
+      "min_karma": 0,
+      "last_posted_ts": null,
+      "cooldown_hours": 168,
+      "bot_policy": "allowed"
+    },
+    {
+      "name": "r/Entrepreneur",
+      "traction_tier": "A",
+      "allows_link_posts": true,
+      "allows_image_posts": true,
+      "requires_flair": false,
+      "flair_id": null,
+      "min_account_age_days": 0,
+      "min_karma": 0,
+      "last_posted_ts": null,
+      "cooldown_hours": 168,
+      "bot_policy": "allowed"
+    },
+    {
+      "name": "r/eutech",
+      "traction_tier": "B",
+      "allows_link_posts": true,
+      "allows_image_posts": true,
+      "requires_flair": false,
+      "flair_id": null,
+      "min_account_age_days": 0,
+      "min_karma": 0,
+      "last_posted_ts": null,
+      "cooldown_hours": 168,
+      "bot_policy": "allowed"
+    }
+  ]
+}
