@@ -920,14 +920,14 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **gxtanj8q** | FLOT-108: Content manifest schema | codi | merged | P0. Operator supplies three lists → normalise into... |
-| **f42jxtjn** | FLOT-111: Bounce detection (3-signal) ★ core | codi | planned | P0 CORE. Problem: Reddit returns HTTP 200 + valid ... |
+| **f42jxtjn** | FLOT-111: Bounce detection (3-signal) ★ core | codi | in_work | P0 CORE. Problem: Reddit returns HTTP 200 + valid ... |
 | **74om3go4** | FLOT-112: Retarget + circuit breaker | codi | planned | P0. On bounced → next entry in fallback_subs, re-q... |
 | **iyvmia5y** | FLOT-113: Traction tracking | gem | planned | P2. Separate launchd job daily 14:00. For each sub... |
 | **9kmk46ao** | FLOT-114: Alerting + failure visibility | gem | planned | P1. Telegram is the ONLY channel. Alert on: post s... |
 | **pgwatbei** | FLOT-115: Pre-departure dry run | clau | merged | P0 — MUST complete Tuesday. (1) Fire full pipeline... |
 | **3pr384ow** | FLOT-116: Reddit account identity update (Agentegra) | gem | planned | P1 — before first post. Profile still reads 'Big B... |
 | **y0qn6pog** | FLOT-117: X API client + cost guard | codi | planned | P0 for the X arm. X killed the free tier (6 Feb 20... |
-| **tl60uh9k** | FLOT-118: X composer + link-in-reply pattern | clau | planned | P1. NEVER put the URL in the main post: (1) cost —... |
+| **tl60uh9k** | FLOT-118: X composer + link-in-reply pattern | clau | in_work | P1. NEVER put the URL in the main post: (1) cost —... |
 | **k0yw9olb** | FLOT-119: X verification + traction | codi | planned | P1. X has no AutoModerator, but behavioural enforc... |
 | **e615w0yx** | FLOT-120: Cross-platform scheduling | codi | planned | P1. Reddit + X on the SAME 48h cadence, offset by ... |
 
