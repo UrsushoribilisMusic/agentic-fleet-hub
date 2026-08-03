@@ -926,7 +926,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **8dsaafh8** | FLOT-110: Submission executor + schedule | codi | in_work | P1. launchd plist fires every 48h at 09:00 (stagge... |
+| **8dsaafh8** | FLOT-110: Submission executor + schedule | codi | merged | P1. launchd plist fires every 48h at 09:00 (stagge... |
 | **iyvmia5y** | FLOT-113: Traction tracking | gem | merged | P2. Separate launchd job daily 14:00. For each sub... |
 | **9kmk46ao** | FLOT-114: Alerting + failure visibility | gem | merged | P1. Telegram is the ONLY channel. Alert on: post s... |
 | **e615w0yx** | FLOT-120: Cross-platform scheduling | codi | planned | P1. Reddit + X on the SAME 48h cadence, offset by ... |
