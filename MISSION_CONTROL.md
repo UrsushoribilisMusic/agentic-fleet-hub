@@ -937,7 +937,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **se9cxs7n** | SM-338: Wiki Review v2 — master-detail editor | gem | merged | P0. Depends SM-335 (+SM-334 for real content). Rep... |
 | **ez8fjae9** | SM-339: DB-versioned wiki snapshots + version history | codi | planned | P2. Depends SM-333 (DB persistence) + SM-338. Vers... |
 | **joc3p90o** | SM-340: Real-Opus preview query (replace server-side stub) | codi | planned | P2. The Details/preview 'Preview Query' currently ... |
-| **1onch67l** | SM-341: Feedback Flywheel tab (per-collection) | gem | planned | P1. Depends SM-335. Surface the existing feedback ... |
+| **1onch67l** | SM-341: Feedback Flywheel tab (per-collection) | gem | in_work | P1. Depends SM-335. Surface the existing feedback ... |
 | **578wujwc** | SM-342: Team Access — global + per-collection, multi-role | codi | planned | P1. Depends SM-335. Two surfaces on the existing A... |
 | **4f9xt0i3** | SM-343: Dark/Day theme toggle (match fleet dashboard) | gem | merged | P2. Add a light/dark theme toggle to the SM web (c... |
 
