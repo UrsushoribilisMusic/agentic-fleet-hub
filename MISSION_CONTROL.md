@@ -937,7 +937,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **y0qn6pog** | FLOT-117: X API client + cost guard | codi | planned | P0 for the X arm. X killed the free tier (6 Feb 20... |
 | **e615w0yx** | FLOT-120: Cross-platform scheduling | codi | planned | P1. Reddit + X on the SAME 48h cadence, offset by ... |
 | **jtsn6111** | SM-334: Console quick fixes — read-only chunk count + review shows the REAL Opus wiki | codi | planned | P1, fast. Two current-console fixes (do before v2)... |
-| **0am381t7** | SM-337: Multiple editable personas per collection (backend + console + iOS) | clau | in_work | P1, CROSS-STACK. Today persona = single fixed sele... |
+| **0am381t7** | SM-337: Multiple editable personas per collection (backend + console + iOS) | clau | merged | P1, CROSS-STACK. Today persona = single fixed sele... |
 | **ez8fjae9** | SM-339: DB-versioned wiki snapshots + version history | codi | planned | P2. Depends SM-333 (DB persistence) + SM-338. Vers... |
 | **joc3p90o** | SM-340: Real-Opus preview query (replace server-side stub) | codi | planned | P2. The Details/preview 'Preview Query' currently ... |
 | **578wujwc** | SM-342: Team Access — global + per-collection, multi-role | codi | planned | P1. Depends SM-335. Two surfaces on the existing A... |
