@@ -938,6 +938,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **joc3p90o** | SM-340: Real-Opus preview query (replace server-side stub) | codi | planned | P2. The Details/preview 'Preview Query' currently ... |
 | **1onch67l** | SM-341: Feedback Flywheel tab (per-collection) | gem | in_work | P1. Depends SM-335. Surface the existing feedback ... |
 | **578wujwc** | SM-342: Team Access — global + per-collection, multi-role | codi | planned | P1. Depends SM-335. Two surfaces on the existing A... |
-| **4f9xt0i3** | SM-343: Dark/Day theme toggle (match fleet dashboard) | gem | in_work | P2. Add a light/dark theme toggle to the SM web (c... |
+| **4f9xt0i3** | SM-343: Dark/Day theme toggle (match fleet dashboard) | gem | merged | P2. Add a light/dark theme toggle to the SM web (c... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
