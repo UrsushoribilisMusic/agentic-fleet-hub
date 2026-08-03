@@ -939,7 +939,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **e615w0yx** | FLOT-120: Cross-platform scheduling | gem | planned | P1. Reddit + X on the SAME 48h cadence, offset by ... |
 | **jtsn6111** | SM-334: Console quick fixes — read-only chunk count + review shows the REAL Opus wiki | clau | merged | P1, fast. Two current-console fixes (do before v2)... |
 | **ez8fjae9** | SM-339: DB-versioned wiki snapshots + version history | clau | merged | P2. Depends SM-333 (DB persistence) + SM-338. Vers... |
-| **joc3p90o** | SM-340: Real-Opus preview query (replace server-side stub) | clau | planned | P2. The Details/preview 'Preview Query' currently ... |
+| **joc3p90o** | SM-340: Real-Opus preview query (replace server-side stub) | clau | in_work | P2. The Details/preview 'Preview Query' currently ... |
 | **578wujwc** | SM-342: Team Access — global + per-collection, multi-role | clau | planned | P1. Depends SM-335. Two surfaces on the existing A... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
