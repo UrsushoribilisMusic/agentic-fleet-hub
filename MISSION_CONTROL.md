@@ -942,6 +942,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **y0qn6pog** | FLOT-117: X API client + cost guard | gem | planned | P0 for the X arm. X killed the free tier (6 Feb 20... |
 | **e615w0yx** | FLOT-120: Cross-platform scheduling | gem | planned | P1. Reddit + X on the SAME 48h cadence, offset by ... |
 | **jtsn6111** | SM-334: Console quick fixes — read-only chunk count + review shows the REAL Opus wiki | clau | merged | P1, fast. Two current-console fixes (do before v2)... |
-| **joc3p90o** | SM-340: Real-Opus preview query (replace server-side stub) | clau | planned | P2. The Details/preview 'Preview Query' currently ... |
+| **joc3p90o** | SM-340: Real-Opus preview query (replace server-side stub) | clau | in_work | P2. The Details/preview 'Preview Query' currently ... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
