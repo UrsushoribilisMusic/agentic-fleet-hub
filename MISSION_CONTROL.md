@@ -930,7 +930,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **9kmk46ao** | FLOT-114: Alerting + failure visibility | gem | merged | P1. Telegram is the ONLY channel. Alert on: post s... |
 | **e615w0yx** | FLOT-120: Cross-platform scheduling | codi | planned | P1. Reddit + X on the SAME 48h cadence, offset by ... |
 | **jtsn6111** | SM-334: Console quick fixes — read-only chunk count + review shows the REAL Opus wiki | codi | planned | P1, fast. Two current-console fixes (do before v2)... |
-| **0l46zzho** | SM-335: Admin Console v2 — two-level tab shell | gem | in_work | P0 for v2 (foundation for SM-336/338/341/342). Res... |
+| **0l46zzho** | SM-335: Admin Console v2 — two-level tab shell | gem | merged | P0 for v2 (foundation for SM-336/338/341/342). Res... |
 | **s587b4od** | SM-336: Collection > Details tab | gem | planned | P1. Depends SM-335. The per-collection Details sub... |
 | **0am381t7** | SM-337: Multiple editable personas per collection (backend + console + iOS) | clau | in_work | P1, CROSS-STACK. Today persona = single fixed sele... |
 | **se9cxs7n** | SM-338: Wiki Review v2 — master-detail editor | gem | planned | P0. Depends SM-335 (+SM-334 for real content). Rep... |
