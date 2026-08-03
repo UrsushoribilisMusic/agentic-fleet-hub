@@ -942,6 +942,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **jtsn6111** | SM-334: Console quick fixes — read-only chunk count + review shows the REAL Opus wiki | clau | merged | P1, fast. Two current-console fixes (do before v2)... |
 | **joc3p90o** | SM-340: Real-Opus preview query (replace server-side stub) | clau | merged | P2. The Details/preview 'Preview Query' currently ... |
 | **azrcbxs2** | SM-344: Multilingual Phase 1 — response-language setting (iOS-only) | clau | merged | P2, iOS-ONLY (device-level). Let the on-device mod... |
-| **iwcys03j** | SM-345: Multilingual Phase 2 — cross-lingual retrieval | clau | in_work | P3. The harder half: querying a corpus in a DIFFER... |
+| **iwcys03j** | SM-345: Multilingual Phase 2 — cross-lingual retrieval | clau | merged | P3. The harder half: querying a corpus in a DIFFER... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
