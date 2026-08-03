@@ -125,6 +125,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **iwcys03j**: SM-345: Multilingual Phase 2 — cross-lingual retrieval -- P3. The harder half: querying a corpus in a DIFFERENT language than the query. RAGService TF-IDF is keyword/language-specific, so a Spanish query ('sello con fuga') misses English chunks ('seal weeping') → false 'no supporting passage' refusal. Options (ship cheapest first): -- Clau. Approved.
+- **azrcbxs2**: SM-344: Multilingual Phase 1 — response-language setting (iOS-only) -- P2, iOS-ONLY (device-level). Let the on-device model answer in a chosen language. -- Clau. Approved.
 - **4f9xt0i3**: SM-343: Dark/Day theme toggle (match fleet dashboard) -- P2. Add a light/dark theme toggle to the SM web (console + landing), matching the pattern at https://api.robotross.art/fleet/ (a 'Theme' control that persists choice in localStorage and defaults to prefers-color-scheme). Theme via CSS custom properties on :root with a data-theme override so the toggle wins in both directions. Acceptance: toggle flips the whole console/landing between light and dark, persists across reloads, and both themes are legible (contrast + accent work on both grounds). -- Gem. Approved.
 - **578wujwc**: SM-342: Team Access — global + per-collection, multi-role -- P1. Depends SM-335. Two surfaces on the existing ACL (SM-307): -- Clau. Approved.
 - **1onch67l**: SM-341: Feedback Flywheel tab (per-collection) -- P1. Depends SM-335. Surface the existing feedback system (SM-202/203) as a per-collection sub-tab: list all thumbs-down feedback for the collection with status (new / answer_drafted / approved / rejected), the question, the answer that bombed, the user's comment, and the cloud-LLM candidate answer for edit/approve/reject. Approved answers land in the collection's FAQ section (every collection has an FAQ section where these live for the RAG). Acceptance: a thumbs-down from the device appears here; admin edits+approves the candidate answer; it shows up in the FAQ on next generation. -- Gem. Approved.
@@ -939,9 +941,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **9kmk46ao** | FLOT-114: Alerting + failure visibility | gem | merged | P1. Telegram is the ONLY channel. Alert on: post s... |
 | **y0qn6pog** | FLOT-117: X API client + cost guard | gem | planned | P0 for the X arm. X killed the free tier (6 Feb 20... |
 | **e615w0yx** | FLOT-120: Cross-platform scheduling | gem | planned | P1. Reddit + X on the SAME 48h cadence, offset by ... |
-| **jtsn6111** | SM-334: Console quick fixes — read-only chunk count + review shows the REAL Opus wiki | clau | merged | P1, fast. Two current-console fixes (do before v2)... |
-| **joc3p90o** | SM-340: Real-Opus preview query (replace server-side stub) | clau | merged | P2. The Details/preview 'Preview Query' currently ... |
-| **azrcbxs2** | SM-344: Multilingual Phase 1 — response-language setting (iOS-only) | clau | merged | P2, iOS-ONLY (device-level). Let the on-device mod... |
-| **iwcys03j** | SM-345: Multilingual Phase 2 — cross-lingual retrieval | clau | merged | P3. The harder half: querying a corpus in a DIFFER... |
+| **jtsn6111** | SM-334: Console quick fixes — read-only chunk count + review shows the REAL Opus wiki | clau | planned | P1, fast. Two current-console fixes (do before v2)... |
+| **joc3p90o** | SM-340: Real-Opus preview query (replace server-side stub) | clau | planned | P2. The Details/preview 'Preview Query' currently ... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
