@@ -929,5 +929,15 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **iyvmia5y** | FLOT-113: Traction tracking | gem | merged | P2. Separate launchd job daily 14:00. For each sub... |
 | **9kmk46ao** | FLOT-114: Alerting + failure visibility | gem | merged | P1. Telegram is the ONLY channel. Alert on: post s... |
 | **e615w0yx** | FLOT-120: Cross-platform scheduling | codi | planned | P1. Reddit + X on the SAME 48h cadence, offset by ... |
+| **4f9xt0i3** | SM-343: Dark/Day theme toggle (match fleet dashboard) | gem | planned | P2. Add a light/dark theme toggle to the SM web (c... |
+| **578wujwc** | SM-342: Team Access — global + per-collection, multi-role | codi | planned | P1. Depends SM-335. Two surfaces on the existing A... |
+| **1onch67l** | SM-341: Feedback Flywheel tab (per-collection) | gem | planned | P1. Depends SM-335. Surface the existing feedback ... |
+| **joc3p90o** | SM-340: Real-Opus preview query (replace server-side stub) | codi | planned | P2. The Details/preview 'Preview Query' currently ... |
+| **ez8fjae9** | SM-339: DB-versioned wiki snapshots + version history | codi | planned | P2. Depends SM-333 (DB persistence) + SM-338. Vers... |
+| **se9cxs7n** | SM-338: Wiki Review v2 — master-detail editor | gem | planned | P0. Depends SM-335 (+SM-334 for real content). Rep... |
+| **0am381t7** | SM-337: Multiple editable personas per collection (backend + console + iOS) | clau | planned | P1, CROSS-STACK. Today persona = single fixed sele... |
+| **s587b4od** | SM-336: Collection > Details tab | gem | planned | P1. Depends SM-335. The per-collection Details sub... |
+| **0l46zzho** | SM-335: Admin Console v2 — two-level tab shell | gem | planned | P0 for v2 (foundation for SM-336/338/341/342). Res... |
+| **jtsn6111** | SM-334: Console quick fixes — read-only chunk count + review shows the REAL Opus wiki | codi | planned | P1, fast. Two current-console fixes (do before v2)... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
