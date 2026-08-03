@@ -131,6 +131,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **pgwatbei**: FLOT-115: Pre-departure dry run -- P0 — MUST complete Tuesday. (1) Fire full pipeline once on real schedule against u/robotrossart profile (not a public sub); (2) confirm post lands + PB row + three verification checks queued&executed + Telegram received + traction job picks it up next cycle; (3) force a bounce, confirm classification + retarget selection; (4) force three bounces, confirm circuit breaker halts; (5) confirm launchd survives reboot (RunAtLoad); (6) delete test posts. -- Clau. Approved.
 - **74om3go4**: FLOT-112: Retarget + circuit breaker -- P0. On bounced → next entry in fallback_subs, re-queue. Circuit breaker NON-NEGOTIABLE (same failure mode as the March reassignment death spiral): -- Codi. Approved.
 - **f42jxtjn**: FLOT-111: Bounce detection (3-signal) ★ core -- P0 CORE. Problem: Reddit returns HTTP 200 + valid permalink even when AutoModerator removes the post seconds later; author still sees it. Naive success check reports 14 successes, 0 reach. -- Codi. Approved.
+- **8dsaafh8**: FLOT-110: Submission executor + schedule -- P1. launchd plist fires every 48h at 09:00 (staggered off 10:00 YT job), RunAtLoad=true. -- Codi. Approved.
 - **yzjynmup**: FLOT-109: Post composer (per-sub drafts) -- P1. Draft title+body from body_seed, tuned per target sub. -- Clau. Approved.
 - **gxtanj8q**: FLOT-108: Content manifest schema -- P0. Operator supplies three lists → normalise into versioned ~/flotilla/publisher/manifest.json. -- Codi. Approved.
 - **9xf8d7oy**: SM-333: DB-backed persistence for collections/orgs/users (finish SM-002 — data lost on restart) -- CRITICAL data-loss risk found during Wed-demo prep. wiki/index.js keeps ALL collections/orgs/users/grants in an in-memory Map (line 3: "SM-002 will replace with DB-backed persistence" — never done). Every service restart or deploy WIPES all runtime-created collections back to seeds; customer data is lost. Confirmed live: a deploy restart erased the Robot Ross ATF demo collection. -- Codi. Approved.
@@ -926,7 +927,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **8dsaafh8** | FLOT-110: Submission executor + schedule | codi | merged | P1. launchd plist fires every 48h at 09:00 (stagge... |
 | **iyvmia5y** | FLOT-113: Traction tracking | gem | merged | P2. Separate launchd job daily 14:00. For each sub... |
 | **9kmk46ao** | FLOT-114: Alerting + failure visibility | gem | merged | P1. Telegram is the ONLY channel. Alert on: post s... |
 | **e615w0yx** | FLOT-120: Cross-platform scheduling | codi | planned | P1. Reddit + X on the SAME 48h cadence, offset by ... |
