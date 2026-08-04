@@ -2,13 +2,17 @@ import math
 import os
 import sys
 import time
+from pathlib import Path
 from typing import List, Optional, Dict, Any
 
+import numpy as np
 import torch
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from transformers import AutoTokenizer, AutoModelForCausalLM
+
+import jlens as jlens_mod
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -32,15 +36,19 @@ DEVICE = "mps" if torch.backends.mps.is_available() else ("cuda" if torch.cuda.i
 
 tokenizer = None
 model = None
+mid_layer_idx: int = 0
+jlens_matrix: Optional[np.ndarray] = None
+
 
 def get_device():
     return torch.device(DEVICE)
 
+
 def load_model():
-    global tokenizer, model
+    global tokenizer, model, mid_layer_idx, jlens_matrix
     if model is not None and tokenizer is not None:
         return
-    
+
     print(f"Loading tokenizer: {MODEL_ID}...")
     tokenizer = AutoTokenizer.from_pretrained(MODEL_ID, trust_remote_code=True)
     if tokenizer.pad_token is None:
@@ -60,9 +68,17 @@ def load_model():
     model.eval()
     print("Model loaded successfully!")
 
+    # DL-2: build or load J-lens
+    mid_layer_idx = jlens_mod.get_mid_layer_idx(model)
+    print(f"Building/loading J-lens (mid_layer_idx={mid_layer_idx})...")
+    jlens_matrix = jlens_mod.load_or_build_jlens(model, tokenizer, mid_layer_idx)
+    print("J-lens ready.")
+
+
 @app.on_event("startup")
 async def startup_event():
     load_model()
+
 
 class InferRequest(BaseModel):
     question: Optional[str] = None
@@ -70,15 +86,18 @@ class InferRequest(BaseModel):
     max_new_tokens: Optional[int] = 128
     temperature: Optional[float] = 0.7
 
+
 class TokenWeight(BaseModel):
     t: str
     w: float
+
 
 class InferResponse(BaseModel):
     answer: str
     disposition: str = "idle"
     tokens: List[TokenWeight] = Field(default_factory=list)
     entropy: float
+
 
 def compute_step_entropy(logits: torch.Tensor) -> float:
     """
@@ -94,6 +113,7 @@ def compute_step_entropy(logits: torch.Tensor) -> float:
     norm_entropy = entropy / max_entropy
     return max(0.0, min(1.0, norm_entropy))
 
+
 @app.get("/")
 @app.get("/health")
 def health_check():
@@ -102,8 +122,10 @@ def health_check():
         "service": "disposition-lens-infer",
         "model": MODEL_ID,
         "device": DEVICE,
-        "model_loaded": model is not None
+        "model_loaded": model is not None,
+        "jlens_ready": jlens_matrix is not None,
     }
+
 
 @app.post("/infer", response_model=InferResponse)
 def infer(req: InferRequest):
@@ -153,12 +175,26 @@ def infer(req: InferRequest):
     mean_entropy = sum(step_entropies) / len(step_entropies) if step_entropies else 0.0
     mean_entropy = round(max(0.0, min(1.0, mean_entropy)), 4)
 
+    # DL-2: J-lens concept tokens
+    # outputs.hidden_states[0] = all layer hidden states for the prefill step
+    # shape per layer: (batch, prompt_len, hidden_size)
+    # Take the mid-layer hidden state at the final prompt position
+    concept_tokens: List[Dict] = []
+    if jlens_matrix is not None and outputs.hidden_states:
+        try:
+            h_mid_tensor = outputs.hidden_states[0][mid_layer_idx][0, -1, :]  # (hidden_size,)
+            h_mid = h_mid_tensor.float().cpu().numpy()
+            concept_tokens = jlens_mod.project_jlens(jlens_matrix, h_mid, tokenizer)
+        except Exception as exc:
+            print(f"J-lens projection failed: {exc}")
+
     return InferResponse(
         answer=answer,
-        disposition="idle",  # DL-1 placeholder, upgraded in DL-3
-        tokens=[],            # DL-1 placeholder, upgraded in DL-2
-        entropy=mean_entropy
+        disposition="idle",  # upgraded in DL-3
+        tokens=[TokenWeight(t=t["t"], w=t["w"]) for t in concept_tokens],
+        entropy=mean_entropy,
     )
+
 
 if __name__ == "__main__":
     import uvicorn

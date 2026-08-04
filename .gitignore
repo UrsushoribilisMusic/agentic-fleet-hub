@@ -41,3 +41,8 @@ fleet/logs/notifications.json
 
 # Codi patch diff artifacts (applied patches, obsolete once merged)
 PATCH-PC-*.diff
+
+# Disposition Lens — cached artefacts (large, rebuilt on first startup)
+disposition-lens/jlens_cache.npy
+.venv_gepa/
+*.npy
