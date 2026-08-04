@@ -944,6 +944,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **9kmk46ao** | FLOT-114: Alerting + failure visibility | gem | merged | P1. Telegram is the ONLY channel. Alert on: post s... |
 | **y0qn6pog** | FLOT-117: X API client + cost guard | gem | merged | P0 for the X arm. X killed the free tier (6 Feb 20... |
 | **e615w0yx** | FLOT-120: Cross-platform scheduling | gem | merged | P1. Reddit + X on the SAME 48h cadence, offset by ... |
-| **z93ojs7l** | SM-347: Replace borrowed MusicVideoTool Google OAuth client with a dedicated Sovereign Mind client | clau | in_work | The prod backend GOOGLE_CLIENT_ID points at the Mu... |
+| **z93ojs7l** | SM-347: Replace borrowed MusicVideoTool Google OAuth client with a dedicated Sovereign Mind client | clau | merged | The prod backend GOOGLE_CLIENT_ID points at the Mu... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
