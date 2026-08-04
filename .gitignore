@@ -21,6 +21,7 @@ C:*
 # Transient debug and test files in root
 debug_*.py
 test_*.py
+!disposition-lens/test_*.py
 check_*.py
 peer_review_*.py
 tasks_response.json
