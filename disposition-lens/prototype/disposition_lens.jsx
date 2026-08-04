@@ -253,9 +253,9 @@ export default function DispositionLens() {
     if (ans) speak(ans);
   }, [speak]);
 
-  // ---- live ask (Sonnet stand-in for the real J-lens) -----------
-  // >>> HOOK: production replaces this whole function with a call to the
-  //     Mac Mini J-lens service returning {answer, disposition, tokens, entropy}
+  // ---- live ask (Mac Mini J-lens /infer service) -------------------
+  // >>> HOOK: Connected to Mac Mini J-lens service returning
+  //     {answer, disposition, tokens, entropy}
   const ask = useCallback(async () => {
     const q = question.trim();
     if (!q || loading) return;
@@ -263,33 +263,22 @@ export default function DispositionLens() {
     setTargetKey("curious");
     setAnswer("…");
     try {
-      const sys =
-        "You are a sovereign on-device field-service assistant. Answer the user in <=38 words, plainly and HONESTLY. " +
-        "If you are not sure or the knowledge is thin, say so rather than bluff. Then classify your own DISPOSITION. " +
-        "Return ONLY strict JSON, no markdown, no backticks: " +
-        '{"answer": string, "disposition": one of ["idle","confident","uncertain","curious","concern","reluctant","warm"], ' +
-        '"tokens": [{"t": string, "w": number 0..1}] (2-3 concept tokens you are disposed toward), "entropy": number 0..1 (higher = less sure)}';
-      const res = await fetch("https://api.anthropic.com/v1/messages", {
+      const apiHost = (typeof window !== "undefined" && window.DISPOSITION_API_URL) || "http://localhost:8000";
+      const res = await fetch(`${apiHost}/infer`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          model: "claude-sonnet-4-6",
-          max_tokens: 1000,
-          messages: [{ role: "user", content: `${sys}\n\nUser question: ${q}` }],
-        }),
+        body: JSON.stringify({ question: q }),
       });
-      const data = await res.json();
-      const raw = data.content.filter((b) => b.type === "text").map((b) => b.text).join("").replace(/```json|```/g, "").trim();
-      let parsed;
-      try { parsed = JSON.parse(raw); } catch { parsed = null; }
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const parsed = await res.json();
       if (parsed && parsed.disposition && KEYS.includes(parsed.disposition)) {
         applyState(parsed.disposition, parsed.answer || "(no answer)", {
           tokens: Array.isArray(parsed.tokens) && parsed.tokens.length ? parsed.tokens.slice(0, 3) : STATES[parsed.disposition].tokens,
           entropy: typeof parsed.entropy === "number" ? Math.max(0, Math.min(1, parsed.entropy)) : STATES[parsed.disposition].entropy,
         });
       } else {
-        const key = keywordFallback(q, raw);
-        applyState(key, raw || "(couldn't parse a clean answer)");
+        const key = keywordFallback(q, (parsed && parsed.answer) || "");
+        applyState(key, (parsed && parsed.answer) || "(couldn't parse a clean answer)");
       }
     } catch (e) {
       const key = keywordFallback(q, "");
@@ -427,5 +416,6 @@ export default function DispositionLens() {
         @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
       `}</style>
     </div>
-  );
 }
+
+export default DispositionLens;
