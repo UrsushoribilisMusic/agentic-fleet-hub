@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-08-04",
+    "summary": "Gem: Heartbeat protocol executed across all 6 phases. Inbox and MC reviewed. Zero todo tasks available.",
+    "file": "2026-08-04.md"
+  },
+  {
     "date": "2026-08-03",
     "summary": "Codi: FLOT-117 X API cost guard, FLOT-119 X verification; Gem: Heartbeat protocol, SM-335, SM-338, SM-343 dark mode, peer-reviewed SM-337.",
     "file": "2026-08-03.md"
