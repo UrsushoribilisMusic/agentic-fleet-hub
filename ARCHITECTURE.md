@@ -208,6 +208,33 @@ See [`AGENTS/CONTEXT/fleet_steering_architecture.md`](./AGENTS/CONTEXT/fleet_ste
 - **PocketBase stability**: The `fleet.pocketbase` launchd service uses `ThrottleInterval 10` to prevent rapid-restart bind conflicts on port 8090. Only one PocketBase service should be registered in `~/Library/LaunchAgents/` — the old `com.flotilla.pocketbase` label has been retired.
 - **Deployment scenarios**: See `README.md` for Local, Cloud VPS, and Hybrid (agents local + dashboard remote) setup options.
 
+## Operational Safeguards & Failure Modes
+
+Lessons hardened into the fleet after the **2026-08-04 incident** — two *unrelated* failures that surfaced together during the Aug 2–3 sprint. Both are also recorded in the PocketBase `lessons` collection (`status="active"`).
+
+### A. Cursor-driven forwarders must guard against replay
+**Symptom:** the operator woke to tens of thousands of pending Telegram messages.
+**Root cause:** `telegram_bridge.py` forwards new PocketBase `comments` to Telegram using a persisted cursor (`logs/tg_outbound_offset.json`). The cursor **regressed**, so every poll re-forwarded ~30 *old* comments — ~18,868 stale re-sends before it caught up. Pure HTTP; **no LLM calls** — so this did **not** consume any agent tokens (a common misattribution).
+**Safeguards (`poll_outbound_comments`):**
+- **Backlog guard** — if `totalItems > OUTBOUND_BACKLOG_GUARD` (200) the forwarder assumes the cursor regressed, **fast-forwards to the newest record**, and skips the replay instead of draining the backlog message-by-message.
+- **Atomic cursor write** — `save_outbound_offset` writes to a `.tmp` file then `os.replace()`s it, so a crash mid-write can never leave a truncated/zeroed cursor that reads as a regression.
+
+> **Invariant:** any cursor/offset-driven forwarder must (1) write its cursor atomically and (2) cap replay backlog + fast-forward when the cursor appears to have regressed.
+
+### B. Metered agent invocations must be gated on a usage backoff
+**Symptom:** codi (Codex / gpt-5.5) burned its entire weekly usage limit.
+**Root cause:** the heartbeat re-invoked Codex on **every** tick even after it had hit its weekly cap — ~9,217 invocations producing ~2,292 "usage limit" errors, hammering an already-exhausted quota (see `project_codi_codex_limit`).
+**Safeguards (`codi/heartbeat_wrapper.sh`):**
+- **Cooldown gate (Phase 0.0)** — before doing any work, the wrapper reads `.fleet_cache/codi_usage_cooldown`; if the epoch there is still in the future it posts an `idle` heartbeat and exits without invoking Codex.
+- **Usage-limit backoff** — Codex output is `tee`'d to `last_codex_output.log`; if it matches `usage limit|rate limit|try again at`, the wrapper writes a 6-hour cooldown epoch and posts a `blocked` heartbeat.
+
+> **Invariant:** every metered / paid / rate-limited agent invocation must be gated on a persisted usage-limit backoff, so a self-clearing quota error can never turn a heartbeat loop into a spend loop.
+
+### Diagnostic recipe
+- Agent/service health: `launchctl list | grep flotilla` (heartbeats) and `launchctl list | grep fleet.bridge`.
+- Flood source: compare the bridge send count in `~/fleet/logs/telegram_bridge.log` against the PocketBase `comments` record count — a large gap means replay, not new traffic.
+- Token drain: grep the agent's output log for `usage limit` frequency; a high count means the backoff gate is missing or bypassed.
+
 ## Project Initiative: Agentegra ATF / EU AI Compliance Wiki
 
 Flotilla is being used as the execution layer for a new RobotRoss showcase deliverable: a local-first compliance and explainability workspace tentatively named the **Agentegra ATF (Automated Technical File) system**.

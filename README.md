@@ -70,8 +70,10 @@ These are runtime rules, not optional conventions.
 - **Automatic PB prune is disabled by default**: the delete path produced `403` / `SQLITE_BUSY` churn and is not considered safe background maintenance.
 - **Mission Control drives dispatch**: if `MISSION_CONTROL.md` is stale, the dispatcher will faithfully resurrect bad work. Queue correctness matters.
 - **Quota failures are not completions**: agent quota/billing failures should park tasks in backlog, not bounce them back into minute-by-minute redispatch loops.
+- **Metered invocations are gated on a usage-limit backoff**: an agent that hit its rate/usage limit must be put in a persisted cooldown (`.fleet_cache/<agent>_usage_cooldown`), so a self-clearing quota error can't turn a heartbeat loop into a spend loop. *(codi drain, 2026-08-04)*
+- **Cursor-driven forwarders never replay their backlog**: the Telegram bridge writes its outbound cursor atomically and fast-forwards past any oversized backlog rather than re-sending old records. *(Telegram flood, 2026-08-04)*
 
-See [`ARCHITECTURE.md`](ARCHITECTURE.md) for the detailed rationale and current implementation notes.
+See [`ARCHITECTURE.md`](ARCHITECTURE.md) for the detailed rationale and current implementation notes — including **Operational Safeguards & Failure Modes** (the 2026-08-04 incident post-mortem).
 
 ---
 
