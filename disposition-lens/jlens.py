@@ -11,15 +11,21 @@ Caches to disk so subsequent startups are instant.
 
 Inference: project h_mid (at final prompt position) through J_avg -> softmax -> top-k
 concept tokens with weights normalised 0..1.
+
+Entropy calibration: collect raw next-token entropies (nats) over CALIB_PROMPTS, record
+min/max, and use them for min-max normalisation at inference time.
 """
 from __future__ import annotations
 
+import json
+import math
 from pathlib import Path
 from typing import Dict, List, Optional
 import numpy as np
 import torch
 
 JLENS_CACHE_PATH = Path(__file__).parent / "jlens_cache.npy"
+ENTROPY_STATS_CACHE_PATH = Path(__file__).parent / "entropy_stats.json"
 
 N_CALIB_PROMPTS = 25
 N_SKIP = 4      # skip first high-norm tokens per prompt
@@ -169,3 +175,88 @@ def project_jlens(
         tokens.append({"t": token_str, "w": round(w, 3)})
 
     return tokens
+
+
+# ---------------------------------------------------------------------------
+# Entropy calibration
+# ---------------------------------------------------------------------------
+
+def compute_raw_entropy(logits_np: np.ndarray) -> float:
+    """
+    Raw softmax entropy in nats for a single logit vector.
+    NOT normalised — use normalise_entropy() for 0..1 scaling.
+    """
+    logits = logits_np.astype(np.float32)
+    logits -= logits.max()  # numerical stability
+    exp_l = np.exp(logits)
+    probs = exp_l / (exp_l.sum() + 1e-9)
+    entropy = -float(np.sum(probs * np.log(probs + 1e-9)))
+    return max(0.0, entropy)
+
+
+def build_entropy_calibration(model, tokenizer) -> Dict:
+    """
+    Collect raw next-token entropies over CALIB_PROMPTS.
+    Returns {"min": float, "max": float} in nats.
+    Falls back to theoretical bounds if the model produces no samples.
+    """
+    model.eval()
+    device = next(model.parameters()).device
+    entropies: List[float] = []
+
+    print(f"  Building entropy calibration over {N_CALIB_PROMPTS} prompts...")
+    for i, prompt in enumerate(CALIB_PROMPTS):
+        enc = tokenizer(prompt, return_tensors="pt", max_length=128, truncation=True)
+        enc = {k: v.to(device) for k, v in enc.items()}
+        with torch.no_grad():
+            out = model(**enc)
+        # out.logits: (1, seq_len, vocab_size)
+        logits_all = out.logits[0].float().cpu().numpy()  # (seq_len, vocab_size)
+        for pos in range(N_SKIP, logits_all.shape[0]):
+            entropies.append(compute_raw_entropy(logits_all[pos]))
+        if (i + 1) % 5 == 0:
+            print(f"  [{i + 1}/{N_CALIB_PROMPTS}] entropy samples: {len(entropies)}")
+
+    if not entropies:
+        # Degenerate fallback: theoretical bounds for a 32K-vocab model
+        vocab_size = model.config.vocab_size if hasattr(model.config, "vocab_size") else 32000
+        return {"min": 0.0, "max": float(math.log(vocab_size))}
+
+    stats = {"min": float(np.min(entropies)), "max": float(np.max(entropies))}
+    print(f"  Entropy calibration: min={stats['min']:.4f}, max={stats['max']:.4f} nats ({len(entropies)} samples)")
+    return stats
+
+
+def load_or_build_entropy_calibration(model, tokenizer) -> Dict:
+    """Load entropy calibration stats from cache; build and cache if absent."""
+    if ENTROPY_STATS_CACHE_PATH.exists():
+        with open(ENTROPY_STATS_CACHE_PATH) as f:
+            stats = json.load(f)
+        print(f"Entropy calibration loaded from cache: min={stats['min']:.4f}, max={stats['max']:.4f}")
+        return stats
+
+    print("Entropy calibration cache not found — building (runs once)...")
+    stats = build_entropy_calibration(model, tokenizer)
+    with open(ENTROPY_STATS_CACHE_PATH, "w") as f:
+        json.dump(stats, f)
+    print(f"Entropy calibration cached to {ENTROPY_STATS_CACHE_PATH}")
+    return stats
+
+
+def normalise_entropy(raw_entropy: float, stats: Dict) -> float:
+    """
+    Min-max normalise a raw entropy value (nats) to 0..1 using calibration stats.
+
+    Args:
+        raw_entropy: raw entropy in nats from compute_raw_entropy()
+        stats: {"min": float, "max": float} from build_entropy_calibration()
+
+    Returns:
+        float in [0.0, 1.0]
+    """
+    e_min = stats["min"]
+    e_max = stats["max"]
+    if e_max <= e_min + 1e-8:
+        return 0.5  # degenerate: flat calibration distribution
+    normed = (raw_entropy - e_min) / (e_max - e_min)
+    return float(max(0.0, min(1.0, normed)))

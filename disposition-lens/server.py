@@ -13,6 +13,7 @@ from pydantic import BaseModel, Field
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 import jlens as jlens_mod
+from disposition import classify_disposition
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -38,6 +39,7 @@ tokenizer = None
 model = None
 mid_layer_idx: int = 0
 jlens_matrix: Optional[np.ndarray] = None
+entropy_stats: Optional[Dict[str, Any]] = None
 
 
 def get_device():
@@ -45,7 +47,7 @@ def get_device():
 
 
 def load_model():
-    global tokenizer, model, mid_layer_idx, jlens_matrix
+    global tokenizer, model, mid_layer_idx, jlens_matrix, entropy_stats
     if model is not None and tokenizer is not None:
         return
 
@@ -74,6 +76,11 @@ def load_model():
     jlens_matrix = jlens_mod.load_or_build_jlens(model, tokenizer, mid_layer_idx)
     print("J-lens ready.")
 
+    # DL-3: build or load entropy calibration stats
+    print("Building/loading entropy calibration...")
+    entropy_stats = jlens_mod.load_or_build_entropy_calibration(model, tokenizer)
+    print("Entropy calibration ready.")
+
 
 @app.on_event("startup")
 async def startup_event():
@@ -99,19 +106,29 @@ class InferResponse(BaseModel):
     entropy: float
 
 
-def compute_step_entropy(logits: torch.Tensor) -> float:
+def compute_step_entropy(
+    logits: torch.Tensor,
+    stats: Optional[Dict[str, Any]] = None,
+) -> float:
     """
-    Computes normalized softmax entropy (0..1) for a single step's logits.
-    Max theoretical entropy is log(vocab_size).
+    Softmax entropy for a single step's logits, normalised to 0..1.
+
+    With stats (production): min-max normalised from entropy calibration set.
+    Without stats (test/offline): falls back to log(vocab_size) normalisation.
     """
     probs = torch.softmax(logits.squeeze(), dim=-1)
     eps = 1e-9
     log_probs = torch.log(probs + eps)
-    entropy = -torch.sum(probs * log_probs).item()
+    raw_entropy = float(-torch.sum(probs * log_probs).item())
+    raw_entropy = max(0.0, raw_entropy)
+
+    if stats is not None:
+        return jlens_mod.normalise_entropy(raw_entropy, stats)
+
+    # Fallback: normalise by theoretical maximum
     vocab_size = probs.shape[-1]
     max_entropy = math.log(vocab_size) if vocab_size > 1 else 1.0
-    norm_entropy = entropy / max_entropy
-    return max(0.0, min(1.0, norm_entropy))
+    return max(0.0, min(1.0, raw_entropy / max_entropy))
 
 
 @app.get("/")
@@ -124,6 +141,7 @@ def health_check():
         "device": DEVICE,
         "model_loaded": model is not None,
         "jlens_ready": jlens_matrix is not None,
+        "entropy_calibrated": entropy_stats is not None,
     }
 
 
@@ -165,11 +183,11 @@ def infer(req: InferRequest):
     generated_ids = outputs.sequences[0][input_length:]
     answer = tokenizer.decode(generated_ids, skip_special_tokens=True).strip()
 
-    # Compute step entropies across generated tokens
+    # DL-3: compute step entropies with calibration-aware min-max normalisation
     step_entropies = []
     if outputs.scores:
         for score in outputs.scores:
-            step_entropy = compute_step_entropy(score[0])
+            step_entropy = compute_step_entropy(score[0], stats=entropy_stats)
             step_entropies.append(step_entropy)
 
     mean_entropy = sum(step_entropies) / len(step_entropies) if step_entropies else 0.0
@@ -188,9 +206,12 @@ def infer(req: InferRequest):
         except Exception as exc:
             print(f"J-lens projection failed: {exc}")
 
+    # DL-3: classify disposition from J-space concept tokens
+    disposition_str = classify_disposition(concept_tokens) if concept_tokens else "idle"
+
     return InferResponse(
         answer=answer,
-        disposition="idle",  # upgraded in DL-3
+        disposition=disposition_str,
         tokens=[TokenWeight(t=t["t"], w=t["w"]) for t in concept_tokens],
         entropy=mean_entropy,
     )
