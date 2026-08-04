@@ -1,5 +1,3 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
-
 /**
  * SOVEREIGN MIND — DISPOSITION LENS  (prototype)
  * ------------------------------------------------------------------
@@ -168,7 +166,7 @@ function JSpace({ tokens, entropy, tint }) {
   );
 }
 
-export default function DispositionLens() {
+function DispositionLens() {
   const [targetKey, setTargetKey] = useState("idle");
   const [answer, setAnswer] = useState(STATES.idle ? "Ready. Ask me about the field service manual." : "");
   const [tokens, setTokens] = useState(STATES.idle.tokens);
@@ -418,4 +416,4 @@ export default function DispositionLens() {
     </div>
 }
 
-export default DispositionLens;
+window.DispositionLens = DispositionLens;
