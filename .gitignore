@@ -21,6 +21,7 @@ C:*
 # Transient debug and test files in root
 debug_*.py
 test_*.py
+!disposition-lens/test_*.py
 check_*.py
 peer_review_*.py
 tasks_response.json
@@ -41,3 +42,8 @@ fleet/logs/notifications.json
 
 # Codi patch diff artifacts (applied patches, obsolete once merged)
 PATCH-PC-*.diff
+
+# Disposition Lens — cached artefacts (large, rebuilt on first startup)
+disposition-lens/jlens_cache.npy
+.venv_gepa/
+*.npy

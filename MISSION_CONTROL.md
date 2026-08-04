@@ -946,6 +946,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **8gmmprds** | DL-2: Build + cache the J-lens (averaged Jacobian) → concept tokens | clau | in_work | Build and cache the J-lens for Apertus-4B: average... |
 | **f9wnnhvi** | DL-3: Lexicon disposition classifier + entropy normalisation → full contract | clau | planned | Map J-space tokens -> one of 7 dispositions via le... |
 | **j342etk8** | DL-4: Repoint the prototype HOOK → /infer + host it | gem | planned | Repoint the single '>>> HOOK' in disposition-lens/... |
 | **5h2e7pk5** | DL-5 (optional/stretch): ElevenLabs tone-by-disposition + Ministral-3B toggle | codi | planned | OPTIONAL/STRETCH — deliberately the codi task for ... |
