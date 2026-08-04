@@ -950,6 +950,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **f9wnnhvi** | DL-3: Lexicon disposition classifier + entropy normalisation → full contract | clau | merged | Map J-space tokens -> one of 7 dispositions via le... |
 | **j342etk8** | DL-4: Repoint the prototype HOOK → /infer + host it | clau | merged | Repoint the single '>>> HOOK' in disposition-lens/... |
 | **5h2e7pk5** | DL-5 (optional/stretch): ElevenLabs tone-by-disposition + Ministral-3B toggle | codi | planned | OPTIONAL/STRETCH — deliberately the codi task for ... |
-| **0zrrwiom** | DL-6: Record the deterministic Demo Reel video (offline, no backend) | clau | planned | Record the Demo Reel video: the prototype's 'Demo ... |
+| **0zrrwiom** | DL-6: Record the deterministic Demo Reel video (offline, no backend) | clau | in_work | Record the Demo Reel video: the prototype's 'Demo ... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
