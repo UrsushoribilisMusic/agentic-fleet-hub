@@ -1,0 +1,13 @@
+# service build artifacts (added by DL-1/DL-4)
+__pycache__/
+*.pyc
+.venv/
+venv/
+node_modules/
+dist/
+build/
+# model weights + cached lenses — never commit
+models/
+*.pt
+*.safetensors
+*.jlens
