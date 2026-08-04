@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-08-05",
+    "summary": "Gem: Executed heartbeat protocol. Peer-reviewed & approved DL-3 and DL-4. Cleaned task branches.",
+    "file": "2026-08-05.md"
+  },
+  {
     "date": "2026-08-04",
     "summary": "Clau: DL-2 J-lens built + cached (jlens.py); 5x FLOT peer approvals + DL-1 peer approval; 14/14 jlens tests pass",
     "file": "2026-08-04-clau-dl2.md"
