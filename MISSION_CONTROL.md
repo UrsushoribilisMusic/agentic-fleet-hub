@@ -125,6 +125,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **#999**: Test Dummy Task from Gem -- Created for verification of fleet_sync.py -- Gem. Approved.
+- **5h2e7pk5**: DL-5 (optional/stretch): ElevenLabs tone-by-disposition + Ministral-3B toggle -- OPTIONAL/STRETCH — deliberately the codi task for when it returns. Replace browser TTS with ElevenLabs, nudging stability/style by disposition (uncertain->lower stability, warm->brighter; keep subtle). Add Ministral-3B as the second model behind a toggle. BLOCKED BY DL-4. Codi is OOT until ~2026-08-09 (Codex weekly reset) — pick up on return. Spec agentic-fleet-hub/disposition-lens/SPEC.md section 'Voice'. -- Codi. Approved.
 - **j342etk8**: DL-4: Repoint the prototype HOOK → /infer + host it -- Repoint the single '>>> HOOK' in disposition-lens/prototype/disposition_lens.jsx ask() from the Anthropic API to the Mac Mini /infer service returning the exact signal contract. Produce a standalone/hosted build of the prototype so it can run and be screen-recorded. BLOCKED BY DL-1..DL-3. Spec agentic-fleet-hub/disposition-lens/SPEC.md section 'signal contract'. -- Clau. Approved.
 - **f9wnnhvi**: DL-3: Lexicon disposition classifier + entropy normalisation → full contract -- Map J-space tokens -> one of 7 dispositions via lexicon (danger/warning->concern, cannot/sorry->reluctant, maybe/unsure->uncertain, great/done->warm, certain/yes->confident, why/how->curious, else idle) + min-max entropy over a small calibration set. Fill the full signal contract {answer,disposition,tokens,entropy}. BLOCKED BY DL-2 — self-gate to waiting_human if not ready. Spec agentic-fleet-hub/disposition-lens/SPEC.md. -- Clau. Approved.
 - **8gmmprds**: DL-2: Build + cache the J-lens (averaged Jacobian) → concept tokens -- Build and cache the J-lens for Apertus-4B: averaged Jacobian from a mid-to-penultimate layer into vocab space over ~25 short prompts (skip first ~4 high-norm tokens). At inference, project the final-position mid-layer activation through the cached lens, decode top-k vocab -> tokens[] with weights normalised 0..1; add to /infer. BLOCKED BY DL-1 — if DL-1 is not yet in peer_review/approved, post a blocker comment and set waiting_human rather than doing partial work. Spec agentic-fleet-hub/disposition-lens/SPEC.md section 'J-lens tap'. -- Clau. Approved.
@@ -949,6 +950,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **5h2e7pk5** | DL-5 (optional/stretch): ElevenLabs tone-by-disposition + Ministral-3B toggle | codi | merged | OPTIONAL/STRETCH — deliberately the codi task for ... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
