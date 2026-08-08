@@ -949,6 +949,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **5h2e7pk5** | DL-5 (optional/stretch): ElevenLabs tone-by-disposition + Ministral-3B toggle | codi | planned | OPTIONAL/STRETCH — deliberately the codi task for ... |
+| **5h2e7pk5** | DL-5 (optional/stretch): ElevenLabs tone-by-disposition + Ministral-3B toggle | codi | in_work | OPTIONAL/STRETCH — deliberately the codi task for ... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
