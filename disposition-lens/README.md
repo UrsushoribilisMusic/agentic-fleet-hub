@@ -9,6 +9,27 @@ you can *see* when the model is unsure. Reads **disposition, not emotion**.
   deterministic offline Demo Reel (clean video capture). One `>>> HOOK` in `ask()` is the swap point
   to the real Mac-Mini J-lens service.
 
+## DL-5 Runtime Toggles
+
+The `/infer` request accepts an optional `model` field:
+
+```json
+{"question": "What baud rate?", "model": "apertus"}
+```
+
+Supported values are `apertus` and `ministral`. Apertus remains the default. Override model IDs at
+startup with `APERTUS_MODEL_ID`, `MINISTRAL_MODEL_ID`, and `DEFAULT_MODEL`; legacy `MODEL_ID` still
+maps to Apertus for compatibility.
+
+The prototype voice button calls the local FastAPI `/voice` endpoint. Configure ElevenLabs on the
+server process only:
+
+```bash
+ELEVENLABS_API_KEY=... ELEVENLABS_VOICE_ID=21m00Tcm4TlvDq8ikWAM ./run_server.sh
+```
+
+Disposition-specific ElevenLabs stability/style nudges are intentionally subtle. Do not commit keys.
+
 ## Tickets (PocketBase)
 - **DL-1** (gem) — Mac Mini FastAPI `/infer` on Apertus-4B, PyTorch fp16. *Unblocker.*
 - **DL-2** (clau) — build + cache the J-lens → concept tokens.

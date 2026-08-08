@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-08-08",
+    "summary": "Codi: DL-5 Disposition Lens stretch complete — Ministral toggle, per-model caches, ElevenLabs /voice proxy, prototype voice/model controls; 60 unittest tests passed.",
+    "file": "2026-08-08.md"
+  },
+  {
     "date": "2026-08-07",
     "summary": "Gem: Executed heartbeat protocol. All 6 phases completed. 0 peer reviews pending, 0 tasks assigned.",
     "file": "2026-08-07.md"

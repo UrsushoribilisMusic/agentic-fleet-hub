@@ -122,17 +122,18 @@ def build_jlens(model, tokenizer, mid_layer_idx: int) -> np.ndarray:
     return J_avg
 
 
-def load_or_build_jlens(model, tokenizer, mid_layer_idx: int) -> np.ndarray:
+def load_or_build_jlens(model, tokenizer, mid_layer_idx: int, cache_path: Optional[Path] = None) -> np.ndarray:
     """Load J-lens from cache; build and cache if absent."""
-    if JLENS_CACHE_PATH.exists():
-        J = np.load(str(JLENS_CACHE_PATH))
-        print(f"J-lens loaded from cache {JLENS_CACHE_PATH} (shape: {J.shape})")
+    path = cache_path or JLENS_CACHE_PATH
+    if path.exists():
+        J = np.load(str(path))
+        print(f"J-lens loaded from cache {path} (shape: {J.shape})")
         return J
 
     print(f"J-lens cache not found — building (this runs once)...")
     J = build_jlens(model, tokenizer, mid_layer_idx)
-    np.save(str(JLENS_CACHE_PATH), J)
-    print(f"J-lens cached to {JLENS_CACHE_PATH}")
+    np.save(str(path), J)
+    print(f"J-lens cached to {path}")
     return J
 
 
@@ -227,19 +228,20 @@ def build_entropy_calibration(model, tokenizer) -> Dict:
     return stats
 
 
-def load_or_build_entropy_calibration(model, tokenizer) -> Dict:
+def load_or_build_entropy_calibration(model, tokenizer, cache_path: Optional[Path] = None) -> Dict:
     """Load entropy calibration stats from cache; build and cache if absent."""
-    if ENTROPY_STATS_CACHE_PATH.exists():
-        with open(ENTROPY_STATS_CACHE_PATH) as f:
+    path = cache_path or ENTROPY_STATS_CACHE_PATH
+    if path.exists():
+        with open(path) as f:
             stats = json.load(f)
         print(f"Entropy calibration loaded from cache: min={stats['min']:.4f}, max={stats['max']:.4f}")
         return stats
 
     print("Entropy calibration cache not found — building (runs once)...")
     stats = build_entropy_calibration(model, tokenizer)
-    with open(ENTROPY_STATS_CACHE_PATH, "w") as f:
+    with open(path, "w") as f:
         json.dump(stats, f)
-    print(f"Entropy calibration cached to {ENTROPY_STATS_CACHE_PATH}")
+    print(f"Entropy calibration cached to {path}")
     return stats
 
 

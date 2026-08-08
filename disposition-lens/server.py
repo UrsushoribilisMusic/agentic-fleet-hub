@@ -2,12 +2,15 @@ import math
 import os
 import sys
 import time
+import urllib.error
+import urllib.request
+import json
 from pathlib import Path
 from typing import List, Optional, Dict, Any
 
 import numpy as np
 import torch
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Response
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from transformers import AutoTokenizer, AutoModelForCausalLM
@@ -32,7 +35,31 @@ app.add_middleware(
 )
 
 # Model configuration
-MODEL_ID = os.getenv("MODEL_ID", "swiss-ai/Apertus-v1.1-4B-Instruct")
+DEFAULT_MODEL_KEY = os.getenv("DEFAULT_MODEL", "apertus").lower()
+MODEL_CONFIGS = {
+    "apertus": {
+        "label": "Apertus-4B",
+        "model_id": os.getenv("APERTUS_MODEL_ID", os.getenv("MODEL_ID", "swiss-ai/Apertus-v1.1-4B-Instruct")),
+        "jlens_cache": Path(__file__).parent / "jlens_cache_apertus.npy",
+        "entropy_cache": Path(__file__).parent / "entropy_stats_apertus.json",
+    },
+    "ministral": {
+        "label": "Ministral-3B",
+        "model_id": os.getenv("MINISTRAL_MODEL_ID", "mistralai/Ministral-3-3B-Instruct-2512-BF16"),
+        "jlens_cache": Path(__file__).parent / "jlens_cache_ministral.npy",
+        "entropy_cache": Path(__file__).parent / "entropy_stats_ministral.json",
+    },
+}
+MODEL_ALIASES = {
+    "apertus": "apertus",
+    "apertus-4b": "apertus",
+    "swiss-ai/apertus-v1.1-4b-instruct": "apertus",
+    "ministral": "ministral",
+    "ministral-3b": "ministral",
+    "ministral-3-3b": "ministral",
+    "mistralai/ministral-3-3b-instruct-2512": "ministral",
+    "mistralai/ministral-3-3b-instruct-2512-bf16": "ministral",
+}
 DEVICE = "mps" if torch.backends.mps.is_available() else ("cuda" if torch.cuda.is_available() else "cpu")
 
 tokenizer = None
@@ -40,46 +67,113 @@ model = None
 mid_layer_idx: int = 0
 jlens_matrix: Optional[np.ndarray] = None
 entropy_stats: Optional[Dict[str, Any]] = None
+model_key: str = DEFAULT_MODEL_KEY if DEFAULT_MODEL_KEY in MODEL_CONFIGS else "apertus"
+model_id: str = MODEL_CONFIGS[model_key]["model_id"]
+model_runtimes: Dict[str, Dict[str, Any]] = {}
+ELEVENLABS_API_URL = os.getenv("ELEVENLABS_API_URL", "https://api.elevenlabs.io/v1")
+ELEVENLABS_VOICE_ID = os.getenv("ELEVENLABS_VOICE_ID", "21m00Tcm4TlvDq8ikWAM")
+ELEVENLABS_MODEL_ID = os.getenv("ELEVENLABS_MODEL_ID", "eleven_multilingual_v2")
+VOICE_SETTINGS = {
+    "idle": {"stability": 0.58, "similarity_boost": 0.78, "style": 0.08, "use_speaker_boost": True},
+    "confident": {"stability": 0.64, "similarity_boost": 0.80, "style": 0.12, "use_speaker_boost": True},
+    "uncertain": {"stability": 0.46, "similarity_boost": 0.77, "style": 0.10, "use_speaker_boost": True},
+    "curious": {"stability": 0.56, "similarity_boost": 0.79, "style": 0.16, "use_speaker_boost": True},
+    "concern": {"stability": 0.60, "similarity_boost": 0.81, "style": 0.07, "use_speaker_boost": True},
+    "reluctant": {"stability": 0.55, "similarity_boost": 0.78, "style": 0.06, "use_speaker_boost": True},
+    "warm": {"stability": 0.57, "similarity_boost": 0.80, "style": 0.20, "use_speaker_boost": True},
+}
 
 
 def get_device():
     return torch.device(DEVICE)
 
 
-def load_model():
-    global tokenizer, model, mid_layer_idx, jlens_matrix, entropy_stats
-    if model is not None and tokenizer is not None:
-        return
+def resolve_model_key(requested: Optional[str]) -> str:
+    raw = (requested or DEFAULT_MODEL_KEY or "apertus").strip().lower()
+    key = MODEL_ALIASES.get(raw, raw)
+    if key not in MODEL_CONFIGS:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Unsupported model '{requested}'. Use one of: {', '.join(MODEL_CONFIGS.keys())}."
+        )
+    return key
 
-    print(f"Loading tokenizer: {MODEL_ID}...")
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_ID, trust_remote_code=True)
-    if tokenizer.pad_token is None:
-        tokenizer.pad_token = tokenizer.eos_token
 
-    print(f"Loading model on {DEVICE} (fp16, output_hidden_states=True): {MODEL_ID}...")
+def load_model(requested: Optional[str] = None) -> Dict[str, Any]:
+    global tokenizer, model, mid_layer_idx, jlens_matrix, entropy_stats, model_key, model_id
+    key = resolve_model_key(requested)
+    if key in model_runtimes:
+        runtime = model_runtimes[key]
+        tokenizer = runtime["tokenizer"]
+        model = runtime["model"]
+        mid_layer_idx = runtime["mid_layer_idx"]
+        jlens_matrix = runtime["jlens_matrix"]
+        entropy_stats = runtime["entropy_stats"]
+        model_key = key
+        model_id = runtime["model_id"]
+        return runtime
+
+    config = MODEL_CONFIGS[key]
+    selected_model_id = config["model_id"]
+
+    print(f"Loading tokenizer: {selected_model_id}...")
+    selected_tokenizer = AutoTokenizer.from_pretrained(selected_model_id, trust_remote_code=True)
+    if selected_tokenizer.pad_token is None:
+        selected_tokenizer.pad_token = selected_tokenizer.eos_token
+
+    print(f"Loading model on {DEVICE} (fp16, output_hidden_states=True): {selected_model_id}...")
     device = get_device()
-    model = AutoModelForCausalLM.from_pretrained(
-        MODEL_ID,
+    selected_model = AutoModelForCausalLM.from_pretrained(
+        selected_model_id,
         dtype=torch.float16,
         output_hidden_states=True,
         trust_remote_code=True,
         device_map=DEVICE if DEVICE != "mps" else None
     )
     if DEVICE == "mps":
-        model = model.to(device)
-    model.eval()
-    print("Model loaded successfully!")
+        selected_model = selected_model.to(device)
+    selected_model.eval()
+    print(f"{config['label']} loaded successfully!")
 
     # DL-2: build or load J-lens
-    mid_layer_idx = jlens_mod.get_mid_layer_idx(model)
-    print(f"Building/loading J-lens (mid_layer_idx={mid_layer_idx})...")
-    jlens_matrix = jlens_mod.load_or_build_jlens(model, tokenizer, mid_layer_idx)
+    selected_mid_layer_idx = jlens_mod.get_mid_layer_idx(selected_model)
+    print(f"Building/loading J-lens for {config['label']} (mid_layer_idx={selected_mid_layer_idx})...")
+    selected_jlens_matrix = jlens_mod.load_or_build_jlens(
+        selected_model,
+        selected_tokenizer,
+        selected_mid_layer_idx,
+        cache_path=config["jlens_cache"],
+    )
     print("J-lens ready.")
 
     # DL-3: build or load entropy calibration stats
-    print("Building/loading entropy calibration...")
-    entropy_stats = jlens_mod.load_or_build_entropy_calibration(model, tokenizer)
+    print(f"Building/loading entropy calibration for {config['label']}...")
+    selected_entropy_stats = jlens_mod.load_or_build_entropy_calibration(
+        selected_model,
+        selected_tokenizer,
+        cache_path=config["entropy_cache"],
+    )
     print("Entropy calibration ready.")
+
+    runtime = {
+        "key": key,
+        "label": config["label"],
+        "model_id": selected_model_id,
+        "tokenizer": selected_tokenizer,
+        "model": selected_model,
+        "mid_layer_idx": selected_mid_layer_idx,
+        "jlens_matrix": selected_jlens_matrix,
+        "entropy_stats": selected_entropy_stats,
+    }
+    model_runtimes[key] = runtime
+    tokenizer = selected_tokenizer
+    model = selected_model
+    mid_layer_idx = selected_mid_layer_idx
+    jlens_matrix = selected_jlens_matrix
+    entropy_stats = selected_entropy_stats
+    model_key = key
+    model_id = selected_model_id
+    return runtime
 
 
 @app.on_event("startup")
@@ -90,6 +184,7 @@ async def startup_event():
 class InferRequest(BaseModel):
     question: Optional[str] = None
     prompt: Optional[str] = None
+    model: Optional[str] = None
     max_new_tokens: Optional[int] = 128
     temperature: Optional[float] = 0.7
 
@@ -104,6 +199,12 @@ class InferResponse(BaseModel):
     disposition: str = "idle"
     tokens: List[TokenWeight] = Field(default_factory=list)
     entropy: float
+
+
+class VoiceRequest(BaseModel):
+    text: str
+    disposition: str = "idle"
+    voice_id: Optional[str] = None
 
 
 def compute_step_entropy(
@@ -131,17 +232,25 @@ def compute_step_entropy(
     return max(0.0, min(1.0, raw_entropy / max_entropy))
 
 
+def voice_settings_for(disposition: str) -> Dict[str, Any]:
+    return VOICE_SETTINGS.get(disposition, VOICE_SETTINGS["idle"])
+
+
 @app.get("/")
 @app.get("/health")
 def health_check():
     return {
         "status": "ok",
         "service": "disposition-lens-infer",
-        "model": MODEL_ID,
+        "model": model_id,
+        "active_model": model_key,
+        "models": {key: {"label": cfg["label"], "model_id": cfg["model_id"]} for key, cfg in MODEL_CONFIGS.items()},
+        "loaded_models": sorted(model_runtimes.keys()),
         "device": DEVICE,
         "model_loaded": model is not None,
         "jlens_ready": jlens_matrix is not None,
         "entropy_calibrated": entropy_stats is not None,
+        "elevenlabs_configured": bool(os.getenv("ELEVENLABS_API_KEY")),
     }
 
 
@@ -151,24 +260,28 @@ def infer(req: InferRequest):
     if not input_text or not input_text.strip():
         raise HTTPException(status_code=400, detail="Either 'question' or 'prompt' must be provided.")
 
-    if model is None or tokenizer is None:
-        load_model()
+    runtime = load_model(req.model)
+    selected_tokenizer = runtime["tokenizer"]
+    selected_model = runtime["model"]
+    selected_mid_layer_idx = runtime["mid_layer_idx"]
+    selected_jlens_matrix = runtime["jlens_matrix"]
+    selected_entropy_stats = runtime["entropy_stats"]
 
     device = get_device()
 
     # Format input using chat template if available
     try:
         messages = [{"role": "user", "content": input_text.strip()}]
-        formatted_prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        formatted_prompt = selected_tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
     except Exception:
         formatted_prompt = f"User: {input_text.strip()}\nAssistant:"
 
-    inputs = tokenizer(formatted_prompt, return_tensors="pt").to(device)
+    inputs = selected_tokenizer(formatted_prompt, return_tensors="pt").to(device)
     input_length = inputs["input_ids"].shape[1]
 
     # Generate with output_scores=True and output_hidden_states=True
     with torch.no_grad():
-        outputs = model.generate(
+        outputs = selected_model.generate(
             **inputs,
             max_new_tokens=req.max_new_tokens or 128,
             temperature=req.temperature if req.temperature and req.temperature > 0 else 0.7,
@@ -176,18 +289,18 @@ def infer(req: InferRequest):
             output_scores=True,
             output_hidden_states=True,
             return_dict_in_generate=True,
-            pad_token_id=tokenizer.pad_token_id
+            pad_token_id=selected_tokenizer.pad_token_id
         )
 
     # Extract generated tokens
     generated_ids = outputs.sequences[0][input_length:]
-    answer = tokenizer.decode(generated_ids, skip_special_tokens=True).strip()
+    answer = selected_tokenizer.decode(generated_ids, skip_special_tokens=True).strip()
 
     # DL-3: compute step entropies with calibration-aware min-max normalisation
     step_entropies = []
     if outputs.scores:
         for score in outputs.scores:
-            step_entropy = compute_step_entropy(score[0], stats=entropy_stats)
+            step_entropy = compute_step_entropy(score[0], stats=selected_entropy_stats)
             step_entropies.append(step_entropy)
 
     mean_entropy = sum(step_entropies) / len(step_entropies) if step_entropies else 0.0
@@ -198,11 +311,11 @@ def infer(req: InferRequest):
     # shape per layer: (batch, prompt_len, hidden_size)
     # Take the mid-layer hidden state at the final prompt position
     concept_tokens: List[Dict] = []
-    if jlens_matrix is not None and outputs.hidden_states:
+    if selected_jlens_matrix is not None and outputs.hidden_states:
         try:
-            h_mid_tensor = outputs.hidden_states[0][mid_layer_idx][0, -1, :]  # (hidden_size,)
+            h_mid_tensor = outputs.hidden_states[0][selected_mid_layer_idx][0, -1, :]  # (hidden_size,)
             h_mid = h_mid_tensor.float().cpu().numpy()
-            concept_tokens = jlens_mod.project_jlens(jlens_matrix, h_mid, tokenizer)
+            concept_tokens = jlens_mod.project_jlens(selected_jlens_matrix, h_mid, selected_tokenizer)
         except Exception as exc:
             print(f"J-lens projection failed: {exc}")
 
@@ -215,6 +328,46 @@ def infer(req: InferRequest):
         tokens=[TokenWeight(t=t["t"], w=t["w"]) for t in concept_tokens],
         entropy=mean_entropy,
     )
+
+
+@app.post("/voice")
+def voice(req: VoiceRequest):
+    text = req.text.strip()
+    if not text:
+        raise HTTPException(status_code=400, detail="'text' must be provided.")
+
+    api_key = os.getenv("ELEVENLABS_API_KEY")
+    if not api_key:
+        raise HTTPException(status_code=503, detail="ELEVENLABS_API_KEY is not configured.")
+
+    voice_id = req.voice_id or ELEVENLABS_VOICE_ID
+    payload = {
+        "text": text,
+        "model_id": ELEVENLABS_MODEL_ID,
+        "voice_settings": voice_settings_for(req.disposition),
+    }
+    url = f"{ELEVENLABS_API_URL}/text-to-speech/{voice_id}"
+    request = urllib.request.Request(
+        url,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={
+            "Content-Type": "application/json",
+            "Accept": "audio/mpeg",
+            "xi-api-key": api_key,
+        },
+        method="POST",
+    )
+
+    try:
+        with urllib.request.urlopen(request, timeout=45) as response:
+            audio = response.read()
+    except urllib.error.HTTPError as exc:
+        detail = exc.read().decode("utf-8", errors="replace")[:500]
+        raise HTTPException(status_code=exc.code, detail=detail)
+    except urllib.error.URLError as exc:
+        raise HTTPException(status_code=502, detail=f"ElevenLabs request failed: {exc.reason}")
+
+    return Response(content=audio, media_type="audio/mpeg")
 
 
 if __name__ == "__main__":

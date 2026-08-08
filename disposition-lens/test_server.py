@@ -1,9 +1,10 @@
 import unittest
 import math
+from unittest.mock import patch
 import numpy as np
 import torch
 
-from server import app, compute_step_entropy
+from server import app, compute_step_entropy, resolve_model_key, MODEL_CONFIGS, voice_settings_for
 from fastapi.testclient import TestClient
 from jlens import project_jlens, CALIB_PROMPTS, N_CALIB_PROMPTS, normalise_entropy, compute_raw_entropy
 from disposition import classify_disposition, DISPOSITIONS, LEXICON
@@ -38,6 +39,45 @@ class TestHealthEndpoint(unittest.TestCase):
         data = response.json()
         self.assertEqual(data["status"], "ok")
         self.assertEqual(data["service"], "disposition-lens-infer")
+        self.assertIn("apertus", data["models"])
+        self.assertIn("ministral", data["models"])
+
+
+class TestModelSelection(unittest.TestCase):
+    def test_default_model_resolves_to_supported_key(self):
+        self.assertIn(resolve_model_key(None), MODEL_CONFIGS)
+
+    def test_apertus_aliases(self):
+        self.assertEqual(resolve_model_key("apertus"), "apertus")
+        self.assertEqual(resolve_model_key("Apertus-4B"), "apertus")
+
+    def test_ministral_aliases(self):
+        self.assertEqual(resolve_model_key("ministral"), "ministral")
+        self.assertEqual(resolve_model_key("Ministral-3B"), "ministral")
+
+    def test_unknown_model_rejected(self):
+        with self.assertRaises(Exception):
+            resolve_model_key("not-a-model")
+
+
+class TestVoiceEndpoint(unittest.TestCase):
+    def test_voice_settings_nudge_uncertain_lower_stability_than_confident(self):
+        self.assertLess(
+            voice_settings_for("uncertain")["stability"],
+            voice_settings_for("confident")["stability"],
+        )
+
+    def test_voice_settings_nudge_warm_brighter_than_idle(self):
+        self.assertGreater(
+            voice_settings_for("warm")["style"],
+            voice_settings_for("idle")["style"],
+        )
+
+    def test_voice_requires_key(self):
+        client = TestClient(app)
+        with patch.dict("os.environ", {"ELEVENLABS_API_KEY": ""}, clear=False):
+            response = client.post("/voice", json={"text": "hello", "disposition": "warm"})
+        self.assertEqual(response.status_code, 503)
 
 
 class TestProjectJlens(unittest.TestCase):

@@ -10,7 +10,7 @@
  * come from a Sonnet stand-in (Ask mode) or canned data (Demo Reel).
  * PRODUCTION: the fleet swaps this for a real J-lens tap on
  * Apertus-4B / Ministral-3B on the Mac Mini. Look for >>> HOOK markers.
- * Voice here uses the browser speechSynthesis; production => ElevenLabs/Voxtral.
+ * Voice uses ElevenLabs when configured, with subtle disposition tone nudges.
  */
 
 // ---- palette (submarine instrument) -------------------------------
@@ -34,6 +34,10 @@ const STATES = {
   warm:      { label: "Warm",       tint: "#7BD389", browY: -1, browAng: -7,  eyeOpen: 0.48, pupilX: 0,  pupilY: 0,  mouth: "grin",       entropy: 0.19, tokens: [{ t: "great", w: 0.81 }, { t: "glad", w: 0.61 }, { t: "done", w: 0.5 }] },
 };
 const KEYS = Object.keys(STATES);
+const MODELS = [
+  { key: "apertus", label: "Apertus-4B" },
+  { key: "ministral", label: "Ministral-3B" },
+];
 
 // ---- deterministic demo reel (for clean video capture) ------------
 const REEL = [
@@ -176,6 +180,8 @@ function DispositionLens() {
   const [voiceOn, setVoiceOn] = useState(false);
   const [speaking, setSpeaking] = useState(false);
   const [reeling, setReeling] = useState(false);
+  const [modelKey, setModelKey] = useState("apertus");
+  const audioRef = useRef(null);
 
   const reduceMotion = useRef(false);
   useEffect(() => {
@@ -231,24 +237,61 @@ function DispositionLens() {
     return () => { alive = false; clearTimeout(id); };
   }, []);
 
-  const speak = useCallback((text) => {
-    if (!voiceOn || !text || typeof window === "undefined" || !window.speechSynthesis) return;
-    try {
+  const stopVoice = useCallback(() => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.src = "";
+      audioRef.current = null;
+    }
+    if (typeof window !== "undefined" && window.speechSynthesis) {
       window.speechSynthesis.cancel();
-      const u = new SpeechSynthesisUtterance(text);
-      u.rate = 1.03; u.pitch = 1.0;
-      u.onstart = () => setSpeaking(true);
-      u.onend = () => setSpeaking(false);
-      window.speechSynthesis.speak(u);
-    } catch (e) { /* no-op */ }
-  }, [voiceOn]);
+    }
+    setSpeaking(false);
+  }, []);
+
+  const speak = useCallback(async (text, dispositionKey) => {
+    if (!voiceOn || !text || typeof window === "undefined") return;
+    const apiHost = window.DISPOSITION_API_URL || "http://localhost:8000";
+    stopVoice();
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 300));
+      const res = await fetch(`${apiHost}/voice`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          text,
+          disposition: dispositionKey,
+          voice_id: window.ELEVENLABS_VOICE_ID || undefined,
+        }),
+      });
+      if (!res.ok) throw new Error(`Voice HTTP ${res.status}`);
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const audio = new Audio(url);
+      audioRef.current = audio;
+      audio.onplay = () => setSpeaking(true);
+      audio.onended = () => {
+        URL.revokeObjectURL(url);
+        setSpeaking(false);
+      };
+      audio.onerror = () => {
+        URL.revokeObjectURL(url);
+        setSpeaking(false);
+      };
+      await audio.play();
+    } catch (e) {
+      setSpeaking(false);
+    }
+  }, [voiceOn, stopVoice]);
 
   const applyState = useCallback((key, ans, extra) => {
     setTargetKey(key);
     setTokens((extra && extra.tokens) || STATES[key].tokens);
     setEntropy((extra && typeof extra.entropy === "number") ? extra.entropy : STATES[key].entropy);
     if (typeof ans === "string") setAnswer(ans);
-    if (ans) speak(ans);
+    if (ans) speak(ans, key);
   }, [speak]);
 
   // ---- live ask (Mac Mini J-lens /infer service) -------------------
@@ -265,7 +308,7 @@ function DispositionLens() {
       const res = await fetch(`${apiHost}/infer`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: q }),
+        body: JSON.stringify({ question: q, model: modelKey }),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const parsed = await res.json();
@@ -284,7 +327,7 @@ function DispositionLens() {
     } finally {
       setLoading(false);
     }
-  }, [question, loading, applyState]);
+  }, [question, loading, applyState, modelKey]);
 
   // ---- demo reel ------------------------------------------------
   const reelRef = useRef(null);
@@ -292,6 +335,7 @@ function DispositionLens() {
     if (reeling) {
       setReeling(false);
       if (reelRef.current) clearTimeout(reelRef.current);
+      stopVoice();
       return;
     }
     setReeling(true);
@@ -304,7 +348,7 @@ function DispositionLens() {
       reelRef.current = setTimeout(step, 3400);
     };
     step();
-  }, [reeling, applyState]);
+  }, [reeling, applyState, stopVoice]);
   useEffect(() => () => { if (reelRef.current) clearTimeout(reelRef.current); }, []);
 
   const label = STATES[targetKey].label;
@@ -386,26 +430,36 @@ function DispositionLens() {
         </div>
 
         {/* controls */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginTop: 10 }}>
+          {MODELS.map((option) => (
+            <button
+              key={option.key}
+              onClick={() => setModelKey(option.key)}
+              style={{ background: modelKey === option.key ? "#2A4048" : "transparent", color: PALE, border: `1px solid ${modelKey === option.key ? BRASS : PANEL}`, borderRadius: 8, padding: "9px 0", fontSize: 13, cursor: "pointer" }}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
         <div style={{ display: "flex", gap: 8, marginTop: 10 }}>
           <button
             onClick={runReel}
             style={{ flex: 1, background: reeling ? "#2A4048" : "transparent", color: PALE, border: `1px solid ${PANEL}`, borderRadius: 8, padding: "9px 0", fontSize: 13, cursor: "pointer" }}
           >
-            {reeling ? "◼ Stop demo reel" : "▶ Demo reel"}
+            {reeling ? "Stop demo reel" : "Demo reel"}
           </button>
           <button
-            onClick={() => { setVoiceOn((v) => !v); if (voiceOn && window.speechSynthesis) window.speechSynthesis.cancel(); }}
+            onClick={() => { setVoiceOn((v) => !v); if (voiceOn) stopVoice(); }}
             style={{ flex: 1, background: voiceOn ? "#2A4048" : "transparent", color: PALE, border: `1px solid ${PANEL}`, borderRadius: 8, padding: "9px 0", fontSize: 13, cursor: "pointer" }}
           >
-            {voiceOn ? "🔊 Voice on" : "🔈 Voice off"}
+            {voiceOn ? "Voice on · ElevenLabs" : "Voice off"}
           </button>
         </div>
 
         {/* provenance footer */}
         <p style={{ fontSize: 11, color: MUTE, lineHeight: 1.5, marginTop: 14 }}>
-          Prototype signal: disposition + J-space tokens are a Sonnet stand-in (Ask) or canned (Demo reel).
-          Production reads the real J-space via a J-lens tap on <b style={{ color: "#9DB3B8" }}>Apertus-4B</b> / <b style={{ color: "#9DB3B8" }}>Ministral-3B</b> on
-          the Mac Mini; voice via <b style={{ color: "#9DB3B8" }}>ElevenLabs / Voxtral</b>.
+          Live signal: disposition + J-space tokens come from the Mac Mini /infer service when reachable; Demo reel is canned for capture.
+          Model: <b style={{ color: "#9DB3B8" }}>{MODELS.find((m) => m.key === modelKey).label}</b>. Voice: <b style={{ color: "#9DB3B8" }}>ElevenLabs</b> when configured.
         </p>
       </div>
 
@@ -414,6 +468,7 @@ function DispositionLens() {
         @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
       `}</style>
     </div>
+  );
 }
 
 window.DispositionLens = DispositionLens;
