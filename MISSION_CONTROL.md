@@ -950,7 +950,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **7kfeyyn1** | DL-7: Dog-avatar face — expressive dog replacing the smiley (7 dispositions) | gem | in_work | Replace/augment the porthole smiley with an expres... |
+| **7kfeyyn1** | DL-7: Dog-avatar face — expressive dog replacing the smiley (7 dispositions) | gem | merged | Replace/augment the porthole smiley with an expres... |
 | **36gh4k17** | DL-8: Fix Ministral-3B loading — /infer with model=ministral returns 500 | codi | in_work | BUG (found 2026-08-17): POST /infer {"model":"mini... |
 | **xfyt0c43** | DL-9: Disposition signal quality — later-layer tap + seed-vector match + real Jacobian (stretch) | clau | in_work | Improve the LIVE disposition signal (the mid-layer... |
 
