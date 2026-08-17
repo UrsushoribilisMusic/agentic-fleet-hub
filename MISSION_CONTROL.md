@@ -952,6 +952,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **7kfeyyn1** | DL-7: Dog-avatar face — expressive dog replacing the smiley (7 dispositions) | gem | merged | Replace/augment the porthole smiley with an expres... |
-| **36gh4k17** | DL-8: Fix Ministral-3B loading — /infer with model=ministral returns 500 | codi | in_work | BUG (found 2026-08-17): POST /infer {"model":"mini... |
+| **36gh4k17** | DL-8: Fix Ministral-3B loading — /infer with model=ministral returns 500 | codi | merged | BUG (found 2026-08-17): POST /infer {"model":"mini... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
