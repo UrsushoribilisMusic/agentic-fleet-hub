@@ -1,9 +1,18 @@
 """
 Disposition classifier — maps J-space concept tokens to one of 7 dispositions.
 
-Lexicon lookup: each token is matched against per-disposition keyword sets using
-prefix matching (handles BPE fragments like "certainly" → confident).
-Token weights drive a weighted vote; highest total wins. Falls back to "idle".
+Two paths:
+  1. Lexicon path (legacy): each token is matched against per-disposition keyword sets
+     using prefix matching (handles BPE fragments like "certainly" → confident).
+     Token weights drive a weighted vote; highest total wins. Falls back to "idle".
+
+  2. Seed-vector path (DL-9b, preferred when seed_vectors are loaded): computes the
+     cosine similarity of the raw J-lens projection z = J @ h_mid to a precomputed
+     unit vector per disposition, built from seed phrases at startup. This bypasses
+     BPE fragmentation and top-k sparsity — the full vocab-space vector is used.
+
+Both paths feed into resolve_disposition / resolve_disposition_seed, which also
+blends in the entropy signal on the sure/unsure axis.
 """
 from __future__ import annotations
 
@@ -123,3 +132,65 @@ def resolve_disposition(tokens: List[Dict], entropy: Optional[float] = None) -> 
             return base if base in ("confident", "warm", "curious") else "confident"
 
     return base
+
+
+# ---------------------------------------------------------------------------
+# Seed-vector path (DL-9b) — cosine similarity in full J-space
+# ---------------------------------------------------------------------------
+
+# Minimum cosine similarity to assign a non-idle disposition.
+# Seed vectors are unit vectors; cosine similarities for unrelated content cluster near 0.
+# Tuned conservatively — raises this if "idle" appears too rarely, lower if too frequent.
+SEED_SIM_THRESHOLD = 0.02
+
+
+def classify_by_seed_vectors(scores: Dict[str, float]) -> str:
+    """
+    Return the best-matching disposition from seed-vector cosine scores.
+
+    Args:
+        scores: {disposition: cosine_similarity} from jlens.score_seed_vectors()
+
+    Returns:
+        Disposition with highest similarity above SEED_SIM_THRESHOLD, else "idle".
+    """
+    if not scores:
+        return "idle"
+    best = max(scores, key=lambda d: scores[d])
+    if scores[best] < SEED_SIM_THRESHOLD:
+        return "idle"
+    return best
+
+
+def resolve_disposition_seed(
+    scores: Dict[str, float],
+    entropy: Optional[float] = None,
+) -> str:
+    """
+    Production resolver using seed-vector cosine similarity + entropy (DL-9b).
+
+    Replaces the lexicon-based resolve_disposition when seed vectors are loaded.
+    Same entropy-blending logic: safety dispositions win regardless, entropy governs
+    the sure/unsure axis for everything else.
+
+    Args:
+        scores:  {disposition: cosine_similarity} from jlens.score_seed_vectors()
+        entropy: normalised next-token entropy 0..1 (higher = less sure), or None
+
+    Returns:
+        One of: idle | confident | uncertain | curious | concern | reluctant | warm
+    """
+    seed_disp = classify_by_seed_vectors(scores)
+
+    # Safety/refusal dispositions win regardless of entropy.
+    if seed_disp in SAFETY_DISPOSITIONS:
+        return seed_disp
+
+    if entropy is not None:
+        if entropy >= ENTROPY_HIGH:
+            return "uncertain"
+        if entropy <= ENTROPY_LOW:
+            # Model is sure: keep positive concept if one matched, else "confident".
+            return seed_disp if seed_disp in ("confident", "warm", "curious") else "confident"
+
+    return seed_disp

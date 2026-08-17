@@ -45,6 +45,8 @@ PATCH-PC-*.diff
 
 # Disposition Lens — cached artefacts (rebuilt on first startup)
 disposition-lens/jlens_cache.npy
+disposition-lens/jlens_cache_*.npy
 disposition-lens/entropy_stats.json
+disposition-lens/seed_vectors*.npz
 .venv_gepa/
 *.npy

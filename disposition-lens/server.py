@@ -13,10 +13,10 @@ import torch
 from fastapi import FastAPI, HTTPException, Response
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForImageTextToText
 
 import jlens as jlens_mod
-from disposition import classify_disposition, resolve_disposition
+from disposition import classify_disposition, resolve_disposition, resolve_disposition_seed
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -36,18 +36,26 @@ app.add_middleware(
 
 # Model configuration
 DEFAULT_MODEL_KEY = os.getenv("DEFAULT_MODEL", "apertus").lower()
+# DL-9c (STRETCH): set USE_JVP=1 to use true autodiff JVP at inference instead of J_avg @ h
+USE_JVP = os.getenv("USE_JVP", "0").strip() == "1"
 MODEL_CONFIGS = {
     "apertus": {
         "label": "Apertus-4B",
         "model_id": os.getenv("APERTUS_MODEL_ID", os.getenv("MODEL_ID", "swiss-ai/Apertus-v1.1-4B-Instruct")),
-        "jlens_cache": Path(__file__).parent / "jlens_cache_apertus.npy",
+        "loader": AutoModelForCausalLM,
+        # DL-9a: tap moved to 3/4 depth — use _3q4 suffix to force J-lens rebuild
+        "jlens_cache": Path(__file__).parent / "jlens_cache_apertus_3q4.npy",
         "entropy_cache": Path(__file__).parent / "entropy_stats_apertus.json",
+        # DL-9b: seed vectors cache (built once at same tap layer as J-lens)
+        "seed_vectors_cache": Path(__file__).parent / "seed_vectors_apertus_3q4.npz",
     },
     "ministral": {
         "label": "Ministral-3B",
         "model_id": os.getenv("MINISTRAL_MODEL_ID", "mistralai/Ministral-3-3B-Instruct-2512-BF16"),
-        "jlens_cache": Path(__file__).parent / "jlens_cache_ministral.npy",
+        "loader": AutoModelForImageTextToText,
+        "jlens_cache": Path(__file__).parent / "jlens_cache_ministral_3q4.npy",
         "entropy_cache": Path(__file__).parent / "entropy_stats_ministral.json",
+        "seed_vectors_cache": Path(__file__).parent / "seed_vectors_ministral_3q4.npz",
     },
 }
 MODEL_ALIASES = {
@@ -67,6 +75,7 @@ model = None
 mid_layer_idx: int = 0
 jlens_matrix: Optional[np.ndarray] = None
 entropy_stats: Optional[Dict[str, Any]] = None
+seed_vectors: Optional[Dict[str, Any]] = None   # DL-9b
 model_key: str = DEFAULT_MODEL_KEY if DEFAULT_MODEL_KEY in MODEL_CONFIGS else "apertus"
 model_id: str = MODEL_CONFIGS[model_key]["model_id"]
 model_runtimes: Dict[str, Dict[str, Any]] = {}
@@ -99,22 +108,54 @@ def resolve_model_key(requested: Optional[str]) -> str:
     return key
 
 
+def unload_inactive_models(keep_key: str) -> None:
+    """
+    Keep only one heavyweight model resident on MPS.
+
+    The Mac Mini can load Apertus-4B or Ministral-3B comfortably, but keeping both
+    fp16/BF16 runtimes plus their caches live risks MPS OOM during a model switch.
+    """
+    stale_keys = [key for key in model_runtimes if key != keep_key]
+    for stale_key in stale_keys:
+        runtime = model_runtimes.pop(stale_key)
+        stale_model = runtime.get("model")
+        if stale_model is not None:
+            try:
+                stale_model.to("cpu")
+            except Exception as exc:
+                print(f"Warning: failed to move {stale_key} model to CPU before unload: {exc}")
+        for value_key in ("model", "tokenizer", "jlens_matrix", "entropy_stats", "seed_vectors"):
+            runtime[value_key] = None
+        del runtime
+    if stale_keys:
+        import gc
+        gc.collect()
+        if DEVICE == "mps":
+            torch.mps.empty_cache()
+        elif DEVICE == "cuda":
+            torch.cuda.empty_cache()
+        print(f"Unloaded inactive model runtime(s): {', '.join(stale_keys)}")
+
+
 def load_model(requested: Optional[str] = None) -> Dict[str, Any]:
-    global tokenizer, model, mid_layer_idx, jlens_matrix, entropy_stats, model_key, model_id
+    global tokenizer, model, mid_layer_idx, jlens_matrix, entropy_stats, seed_vectors, model_key, model_id
     key = resolve_model_key(requested)
     if key in model_runtimes:
+        unload_inactive_models(key)
         runtime = model_runtimes[key]
         tokenizer = runtime["tokenizer"]
         model = runtime["model"]
         mid_layer_idx = runtime["mid_layer_idx"]
         jlens_matrix = runtime["jlens_matrix"]
         entropy_stats = runtime["entropy_stats"]
+        seed_vectors = runtime["seed_vectors"]   # DL-9b
         model_key = key
         model_id = runtime["model_id"]
         return runtime
 
     config = MODEL_CONFIGS[key]
     selected_model_id = config["model_id"]
+    unload_inactive_models(key)
 
     print(f"Loading tokenizer: {selected_model_id}...")
     selected_tokenizer = AutoTokenizer.from_pretrained(selected_model_id, trust_remote_code=True)
@@ -123,7 +164,8 @@ def load_model(requested: Optional[str] = None) -> Dict[str, Any]:
 
     print(f"Loading model on {DEVICE} (fp16, output_hidden_states=True): {selected_model_id}...")
     device = get_device()
-    selected_model = AutoModelForCausalLM.from_pretrained(
+    loader = config["loader"]
+    selected_model = loader.from_pretrained(
         selected_model_id,
         dtype=torch.float16,
         output_hidden_states=True,
@@ -135,13 +177,13 @@ def load_model(requested: Optional[str] = None) -> Dict[str, Any]:
     selected_model.eval()
     print(f"{config['label']} loaded successfully!")
 
-    # DL-2: build or load J-lens
-    selected_mid_layer_idx = jlens_mod.get_mid_layer_idx(selected_model)
-    print(f"Building/loading J-lens for {config['label']} (mid_layer_idx={selected_mid_layer_idx})...")
+    # DL-9a: tap at ~3/4 depth; get_tap_layer_idx replaces get_mid_layer_idx (old: //2)
+    selected_tap_layer_idx = jlens_mod.get_tap_layer_idx(selected_model)
+    print(f"Building/loading J-lens for {config['label']} (tap_layer_idx={selected_tap_layer_idx}, ~3/4 depth)...")
     selected_jlens_matrix = jlens_mod.load_or_build_jlens(
         selected_model,
         selected_tokenizer,
-        selected_mid_layer_idx,
+        selected_tap_layer_idx,
         cache_path=config["jlens_cache"],
     )
     print("J-lens ready.")
@@ -155,22 +197,35 @@ def load_model(requested: Optional[str] = None) -> Dict[str, Any]:
     )
     print("Entropy calibration ready.")
 
+    # DL-9b: build or load seed vectors for cosine-similarity disposition scoring
+    print(f"Building/loading seed vectors for {config['label']}...")
+    selected_seed_vectors = jlens_mod.load_or_build_seed_vectors(
+        selected_model,
+        selected_tokenizer,
+        selected_jlens_matrix,
+        selected_tap_layer_idx,
+        cache_path=config["seed_vectors_cache"],
+    )
+    print(f"Seed vectors ready ({len(selected_seed_vectors)} dispositions).")
+
     runtime = {
         "key": key,
         "label": config["label"],
         "model_id": selected_model_id,
         "tokenizer": selected_tokenizer,
         "model": selected_model,
-        "mid_layer_idx": selected_mid_layer_idx,
+        "mid_layer_idx": selected_tap_layer_idx,   # kept as mid_layer_idx for compat
         "jlens_matrix": selected_jlens_matrix,
         "entropy_stats": selected_entropy_stats,
+        "seed_vectors": selected_seed_vectors,      # DL-9b
     }
     model_runtimes[key] = runtime
     tokenizer = selected_tokenizer
     model = selected_model
-    mid_layer_idx = selected_mid_layer_idx
+    mid_layer_idx = selected_tap_layer_idx
     jlens_matrix = selected_jlens_matrix
     entropy_stats = selected_entropy_stats
+    seed_vectors = selected_seed_vectors            # DL-9b
     model_key = key
     model_id = selected_model_id
     return runtime
@@ -239,6 +294,7 @@ def voice_settings_for(disposition: str) -> Dict[str, Any]:
 @app.get("/")
 @app.get("/health")
 def health_check():
+    tap_pct = round(mid_layer_idx / max(1, mid_layer_idx) * 100) if mid_layer_idx else 0
     return {
         "status": "ok",
         "service": "disposition-lens-infer",
@@ -249,7 +305,10 @@ def health_check():
         "device": DEVICE,
         "model_loaded": model is not None,
         "jlens_ready": jlens_matrix is not None,
+        "tap_layer_idx": mid_layer_idx,           # DL-9a: now 3/4 depth
         "entropy_calibrated": entropy_stats is not None,
+        "seed_vectors_ready": seed_vectors is not None,  # DL-9b
+        "use_jvp": USE_JVP,                       # DL-9c stretch
         "elevenlabs_configured": bool(os.getenv("ELEVENLABS_API_KEY")),
     }
 
@@ -263,9 +322,10 @@ def infer(req: InferRequest):
     runtime = load_model(req.model)
     selected_tokenizer = runtime["tokenizer"]
     selected_model = runtime["model"]
-    selected_mid_layer_idx = runtime["mid_layer_idx"]
+    selected_tap_layer_idx = runtime["mid_layer_idx"]   # mid_layer_idx now holds tap (3/4)
     selected_jlens_matrix = runtime["jlens_matrix"]
     selected_entropy_stats = runtime["entropy_stats"]
+    selected_seed_vectors = runtime.get("seed_vectors")  # DL-9b
 
     device = get_device()
 
@@ -306,22 +366,45 @@ def infer(req: InferRequest):
     mean_entropy = sum(step_entropies) / len(step_entropies) if step_entropies else 0.0
     mean_entropy = round(max(0.0, min(1.0, mean_entropy)), 4)
 
-    # DL-2: J-lens concept tokens
+    # DL-9a/DL-9b/DL-9c: tap at 3/4 depth; seed-vector scoring; optional JVP
     # outputs.hidden_states[0] = all layer hidden states for the prefill step
     # shape per layer: (batch, prompt_len, hidden_size)
-    # Take the mid-layer hidden state at the final prompt position
     concept_tokens: List[Dict] = []
+    disposition_str = "idle"
+
     if selected_jlens_matrix is not None and outputs.hidden_states:
         try:
-            h_mid_tensor = outputs.hidden_states[0][selected_mid_layer_idx][0, -1, :]  # (hidden_size,)
-            h_mid = h_mid_tensor.float().cpu().numpy()
-            concept_tokens = jlens_mod.project_jlens(selected_jlens_matrix, h_mid, selected_tokenizer)
-        except Exception as exc:
-            print(f"J-lens projection failed: {exc}")
+            # Tap the hidden state at 3/4-depth layer, final prompt position
+            h_tap_tensor = outputs.hidden_states[0][selected_tap_layer_idx][0, -1, :]  # (hidden_size,)
+            h_tap = h_tap_tensor.float().cpu().numpy()
 
-    # Resolve disposition: weight-gated lexicon vote + entropy as the robust axis
-    # (avoids stray low-weight tokens hijacking the face; entropy drives sure/unsure).
-    disposition_str = resolve_disposition(concept_tokens, mean_entropy)
+            if USE_JVP:
+                # DL-9c STRETCH: true autodiff JVP through remaining layers
+                concept_tokens = jlens_mod.project_jlens_jvp(
+                    selected_model, h_tap, selected_tap_layer_idx, selected_tokenizer
+                )
+            else:
+                # Standard closed-form logit-lens projection
+                concept_tokens = jlens_mod.project_jlens(selected_jlens_matrix, h_tap, selected_tokenizer)
+
+            # DL-9b: seed-vector cosine similarity for disposition classification
+            if selected_seed_vectors:
+                z_query = jlens_mod.compute_jlens_raw(selected_jlens_matrix, h_tap)
+                seed_scores = jlens_mod.score_seed_vectors(z_query, selected_seed_vectors)
+                disposition_str = resolve_disposition_seed(seed_scores, mean_entropy)
+            else:
+                # Fallback to lexicon-based classifier (DL-3)
+                disposition_str = resolve_disposition(concept_tokens, mean_entropy)
+
+        except Exception as exc:
+            print(f"J-lens / disposition failed: {exc}")
+            disposition_str = resolve_disposition(concept_tokens, mean_entropy)
+    else:
+        # No J-lens available — entropy-only fallback
+        if mean_entropy >= 0.60:
+            disposition_str = "uncertain"
+        elif mean_entropy <= 0.22:
+            disposition_str = "confident"
 
     return InferResponse(
         answer=answer,
