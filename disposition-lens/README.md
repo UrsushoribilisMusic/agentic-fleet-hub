@@ -21,6 +21,12 @@ Supported values are `apertus` and `ministral`. Apertus remains the default. Ove
 startup with `APERTUS_MODEL_ID`, `MINISTRAL_MODEL_ID`, and `DEFAULT_MODEL`; legacy `MODEL_ID` still
 maps to Apertus for compatibility.
 
+Ministral uses the HF repo `mistralai/Ministral-3-3B-Instruct-2512-BF16`. It is a Mistral3
+image/text wrapper in Transformers, so the server loads it with `AutoModelForImageTextToText`
+instead of `AutoModelForCausalLM`. On MPS, the service keeps only one heavy model resident at a
+time: asking for `model=ministral` unloads Apertus first, then lazy-loads Ministral and builds
+`jlens_cache_ministral.npy` / `entropy_stats_ministral.json` on the first request.
+
 The prototype voice button calls the local FastAPI `/voice` endpoint. Configure ElevenLabs on the
 server process only:
 

@@ -47,6 +47,7 @@ PATCH-PC-*.diff
 disposition-lens/jlens_cache.npy
 disposition-lens/jlens_cache_*.npy
 disposition-lens/entropy_stats.json
+disposition-lens/entropy_stats_*.json
 disposition-lens/seed_vectors*.npz
 .venv_gepa/
 *.npy

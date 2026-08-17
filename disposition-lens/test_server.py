@@ -6,7 +6,8 @@ import torch
 
 from server import app, compute_step_entropy, resolve_model_key, MODEL_CONFIGS, voice_settings_for
 from fastapi.testclient import TestClient
-from jlens import project_jlens, CALIB_PROMPTS, N_CALIB_PROMPTS, normalise_entropy, compute_raw_entropy
+from transformers import AutoModelForCausalLM, AutoModelForImageTextToText
+from jlens import project_jlens, CALIB_PROMPTS, N_CALIB_PROMPTS, normalise_entropy, compute_raw_entropy, get_mid_layer_idx
 from disposition import classify_disposition, DISPOSITIONS, LEXICON
 
 
@@ -55,9 +56,31 @@ class TestModelSelection(unittest.TestCase):
         self.assertEqual(resolve_model_key("ministral"), "ministral")
         self.assertEqual(resolve_model_key("Ministral-3B"), "ministral")
 
+    def test_ministral_uses_image_text_loader(self):
+        self.assertIs(MODEL_CONFIGS["ministral"]["loader"], AutoModelForImageTextToText)
+        self.assertIsNot(MODEL_CONFIGS["ministral"]["loader"], AutoModelForCausalLM)
+
     def test_unknown_model_rejected(self):
         with self.assertRaises(Exception):
             resolve_model_key("not-a-model")
+
+    def test_nested_text_config_layer_count_supported(self):
+        class TextConfig:
+            num_hidden_layers = 26
+
+        class Config:
+            text_config = TextConfig()
+
+        class NestedDecoder:
+            norm = object()
+
+        class Wrapper:
+            config = Config()
+
+            class model:
+                language_model = NestedDecoder()
+
+        self.assertEqual(get_mid_layer_idx(Wrapper()), 20)
 
 
 class TestVoiceEndpoint(unittest.TestCase):
