@@ -445,7 +445,7 @@ button[disabled] {
   <article class="content">
     <h1>Calibration</h1>
     <p class="lede">Compiled RobotRoss knowledge page generated from RobotRoss source code, architecture notes, and operational documentation.</p>
-    <div class="toc"><h3>Contents</h3><ol><li style="margin-left:0px"><a href="#1-importance">1. Importance</a></li><li style="margin-left:0px"><a href="#2-process">2. Process</a></li><li style="margin-left:0px"><a href="#3-operations">3. Operations</a></li><li style="margin-left:0px"><a href="#4-notes-and-open-points">4. Notes and Open Points</a></li></ol></div>
+    <div class="toc"><h3>Contents</h3><ol><li style="margin-left:0px"><a href="#1-importance">1. Importance</a></li><li style="margin-left:0px"><a href="#2-process">2. Process</a></li><li style="margin-left:0px"><a href="#3-operations">3. Operations</a></li><li style="margin-left:0px"><a href="#4-notes-and-open-points">4. Notes and Open Points</a></li><li style="margin-left:0px"><a href="#5-faq-from-huenit-draw-log-38-calibration-runs-2026-03-28-to-2026-07-18">5. FAQ (from `huenit_draw.log`, 38 calibration runs 2026-03-28 to 2026-07-18)</a></li></ol></div>
     <div class="wiki-grid">
       <div><h1 id="calibration-topic">Calibration Topic</h1>
 <h2 id="1-importance">1. Importance</h2>
@@ -470,11 +470,16 @@ button[disabled] {
 <li><strong>Surface Leveling</strong>: Software calibration can compensate for some tilt (<code>TILT_SLOPE</code>), but physical documentation emphasizes that the table should be as level as possible. The limit of software-based tilt compensation is not explicitly documented.</li>
 <li><strong>Auto-Calibration</strong>: There is no mention of a &quot;re-calibration&quot; trigger during long-running sessions, which might be necessary if the arm drifts or the surface shifts.</li>
 </ul>
+<h2 id="5-faq-from-huenit-draw-log-38-calibration-runs-2026-03-28-to-2026-07-18">5. FAQ (from <code>huenit_draw.log</code>, 38 calibration runs 2026-03-28 to 2026-07-18)</h2>
+<p><strong>Q: What commands does calibration actually send to the arm?</strong> A: Almost entirely <code>G1 Z&lt;value&gt; F&lt;rate&gt;</code> moves, each immediately followed by <code>M400</code> (wait for motion complete) before the next command — this pairing keeps the control script in sync with the firmware over serial. Three feedrates, three purposes: <code>F50</code> for the fine 0.1mm touch-probe jog (93% of all moves), <code>F100</code> for the coarse 0.5mm &quot;find the surface&quot; step, <code>F800</code> for travel/lift moves between the 4 tilt-probe points.</p>
+<p><strong>Q: I got <code>TIMEOUT waiting for ok on: G21</code> right after connecting. What do I do?</strong> A: Seen once, right after the serial port was opened with <code>DTR=LOW (no reset)</code>, which skips the controller&#x27;s auto-reset-on-connect and can leave the firmware unresponsive to the first command. Close and reopen the connection (allow the normal boot sequence) rather than retrying on the same connection — this fixed it immediately in the one recorded case.</p>
+<p><strong>Q: My saved calibration shows <code>tilt_y=0.000 tilt_x=0.000</code> — is my surface confirmed level?</strong> A: Not necessarily. The 4-point tilt probe asks the operator to fine-jog (W/S) at each cross-point, then confirm with Enter. Pressing Enter immediately without jogging records that point as &quot;already touching&quot; (0.00mm) — so an all-zero result can mean a genuinely flat surface, or an operator who accepted the default at every point without re-touching. In sessions where the operator did fine-jog (March 2026 data), <code>tilt_y</code> typically measured 0.038–0.061 mm/mm and <code>tilt_x</code> ±0.01 mm/mm — a real, repeatable slope along Y. <code>z_up</code> itself has never needed adjustment across any of the 38 runs; 6.00mm has held since the first calibration.</p>
 <hr>
 <p><strong>Sources:</strong></p>
 <ul>
 <li><code>~/.openclaw/workspace/skills/huenit/huenit_draw.py</code></li>
 <li><code>AGENTS/CONTEXT/robot_ross_artist.md</code></li>
+<li><code>skills/huenit/huenit_draw.log</code> (operational log)</li>
 </ul></div>
       <aside class="infobox"><h3>Page Facts</h3><table><tr><th>Artifact</th><td>Calibration</td></tr><tr><th>Type</th><td>Compiled wiki page</td></tr><tr><th>Source</th><td>wiki/Topics/Calibration.md</td></tr><tr><th>Surface</th><td>Agentegra ATF</td></tr><tr><th>Rendering</th><td>Static HTML</td></tr></table></aside>
     </div>

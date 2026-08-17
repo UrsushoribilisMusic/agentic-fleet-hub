@@ -445,7 +445,7 @@ button[disabled] {
   <article class="content">
     <h1>Job Orchestration</h1>
     <p class="lede">Compiled RobotRoss knowledge page generated from RobotRoss source code, architecture notes, and operational documentation.</p>
-    <div class="toc"><h3>Contents</h3><ol><li style="margin-left:0px"><a href="#1-role">1. Role</a></li><li style="margin-left:0px"><a href="#2-main-orchestrator-bob-ross-py">2. Main Orchestrator: `bob_ross.py`</a></li><li style="margin-left:0px"><a href="#3-job-lifecycle">3. Job Lifecycle</a></li><li style="margin-left:0px"><a href="#4-notes-and-open-points">4. Notes and Open Points</a></li></ol></div>
+    <div class="toc"><h3>Contents</h3><ol><li style="margin-left:0px"><a href="#1-role">1. Role</a></li><li style="margin-left:0px"><a href="#2-main-orchestrator-bob-ross-py">2. Main Orchestrator: `bob_ross.py`</a></li><li style="margin-left:0px"><a href="#3-job-lifecycle">3. Job Lifecycle</a></li><li style="margin-left:0px"><a href="#4-notes-and-open-points">4. Notes and Open Points</a></li><li style="margin-left:0px"><a href="#5-faq-from-bob-ross-log-101-job-runs-2026-03-19-to-2026-07-18">5. FAQ (from `bob_ross.log`, 101 job runs 2026-03-19 to 2026-07-18)</a></li></ol></div>
     <div class="wiki-grid">
       <div>
 <figure class="hero-image">
@@ -470,14 +470,17 @@ button[disabled] {
 <p>The full job lifecycle is documented in <a href="Overview.html#full-job-lifecycle">Overview</a>.</p>
 <h2 id="4-notes-and-open-points">4. Notes and Open Points</h2>
 <ul>
-<li><strong>Error Recovery</strong>: The current implementation of <code>bob_ross.py</code> uses a job lock but does not explicitly document how it handles mid-job hardware failures or power loss. If a job is interrupted, the lock might remain, requiring manual intervention.</li>
+<li><strong>Error Recovery</strong>: The current implementation of <code>bob_ross.py</code> uses a job lock but does not explicitly document how it handles mid-job hardware failures or power loss. If a job is interrupted, the lock might remain, requiring manual intervention. <strong>Confirmed by the operational log — see FAQ below.</strong></li>
 <li><strong>Hyphenation Logic</strong>: <code>bob_ross.py</code> includes a custom <code>_hyphenate_word</code> function for text wrapping. It is unclear if this logic is optimized for all languages or only English/German.</li>
 </ul>
+<h2 id="5-faq-from-bob-ross-log-101-job-runs-2026-03-19-to-2026-07-18">5. FAQ (from <code>bob_ross.log</code>, 101 job runs 2026-03-19 to 2026-07-18)</h2>
+<p><strong>Q: Control Center (or the CLI) says &quot;Robot Ross is already drawing (action=svg content=&#x27;X.svg&#x27;). Please wait.&quot; but nothing is actually drawing — how do I fix it?</strong> A: This is a stale <code>/tmp/robot_ross_running.lock</code> (on Windows: <code>C:\tmp\robot_ross_running.lock</code>) left behind by a job that never reached its cleanup step. Confirmed in the log on 2026-07-18: a <code>Bear.svg</code> job started normally, drew for about 2 minutes (only 2% complete), then the log simply stops for that job — no <code>STOP</code>, no <code>JOB END</code> — before the next job starts 24 minutes later. That pattern is consistent with the process being killed directly rather than exited via Ctrl+C/SIGTERM, since the signal handler is the only path that removes the lock file. <strong>Fix</strong>: confirm no <code>bob_ross.py</code> / <code>huenit_*.py</code> process is actually running, then delete the lock file. Across the log&#x27;s 101 job runs, roughly 64 never logged a <code>JOB END</code> at all — this is a recurring failure mode, not a one-off.</p>
 <hr>
 <p><strong>Sources:</strong></p>
 <ul>
 <li><code>~/.openclaw/workspace/skills/robot-ross/bob_ross.py</code></li>
 <li><code>AGENTS/CONTEXT/robot_ross_artist.md</code></li>
+<li><code>skills/robot-ross/bob_ross.log</code> (operational log)</li>
 </ul></div>
       <aside class="infobox"><h3>Page Facts</h3><table><tr><th>Artifact</th><td>Job Orchestration</td></tr><tr><th>Type</th><td>Compiled wiki page</td></tr><tr><th>Source</th><td>wiki/Subsystems/JobOrchestration.md</td></tr><tr><th>Surface</th><td>Agentegra ATF</td></tr><tr><th>Rendering</th><td>Static HTML</td></tr></table></aside>
     </div>
