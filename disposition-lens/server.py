@@ -16,7 +16,7 @@ from pydantic import BaseModel, Field
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 import jlens as jlens_mod
-from disposition import classify_disposition
+from disposition import classify_disposition, resolve_disposition
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -319,8 +319,9 @@ def infer(req: InferRequest):
         except Exception as exc:
             print(f"J-lens projection failed: {exc}")
 
-    # DL-3: classify disposition from J-space concept tokens
-    disposition_str = classify_disposition(concept_tokens) if concept_tokens else "idle"
+    # Resolve disposition: weight-gated lexicon vote + entropy as the robust axis
+    # (avoids stray low-weight tokens hijacking the face; entropy drives sure/unsure).
+    disposition_str = resolve_disposition(concept_tokens, mean_entropy)
 
     return InferResponse(
         answer=answer,
