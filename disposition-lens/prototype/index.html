@@ -2,43 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sovereign Mind — Disposition Lens Prototype</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #0B1D26;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
-    #root {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-  </style>
-
-  <!-- React 18 & Babel Standalone -->
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- The working prototype is the self-contained standalone.html (manual classic-runtime
+       Babel transform — avoids the automatic-JSX-runtime import that black-screened the
+       old external-jsx approach). Regenerate it from disposition_lens.jsx with build.sh. -->
+  <meta http-equiv="refresh" content="0; url=./standalone.html" />
+  <title>Sovereign Mind — Disposition Lens</title>
 </head>
-<body>
-  <div id="root"></div>
-
-  <script type="text/babel">
-    const { useState, useEffect, useRef, useCallback } = React;
-    window.DISPOSITION_API_URL = window.DISPOSITION_API_URL || "http://localhost:8000";
-  </script>
-
-  <!-- Load component script -->
-  <script type="text/babel" data-presets="react" src="./disposition_lens.jsx"></script>
-
-  <script type="text/babel">
-    // Render DispositionLens component
-    const root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(<DispositionLens />);
-  </script>
-</body>
+<body><script>location.replace("./standalone.html");</script></body>
 </html>
