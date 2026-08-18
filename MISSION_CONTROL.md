@@ -952,6 +952,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **#1** | SM-348: SM ingestion as the ONE universal wiki+RAG build pipeline (retire ATF toolchain; ATF=collection #1) | clau | planned | DESIGN/EPIC. Make SM's ingestion pipeline the ONE ... |
 | **7kfeyyn1** | DL-7: Dog-avatar face — expressive dog replacing the smiley (7 dispositions) | gem | merged | Replace/augment the porthole smiley with an expres... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
