@@ -282,12 +282,17 @@ function DogFace({ p, blink, speak }) {
   const earR = p.earR || 0;
   const earY = p.earY || 0;
 
-  // Eyebrows
+  // Eyebrows — soft tapered arch (Disney-ish): thick in the middle, tapering to
+  // rounded points, gently curved rather than a flat bar.
   const Brow = ({ cx, mirror }) => {
     const ang = (mirror ? -1 : 1) * p.browAng;
     return (
       <g transform={`translate(${cx} ${browBase + p.browY}) rotate(${ang})`}>
-        <rect x={-13} y={-3} width={26} height={5.5} rx={2.75} fill={PALE} />
+        <path
+          d="M-14,1.6 C-9,-3.4 -4,-4.4 0,-4.4 C4,-4.4 9,-3.4 14,1.6 C9,-0.3 4,0.7 0,0.7 C-4,0.7 -9,-0.3 -14,1.6 Z"
+          fill={PALE}
+          strokeLinejoin="round"
+        />
       </g>
     );
   };
@@ -627,6 +632,9 @@ function DispositionLens() {
   const [render, setRender] = useState({ ...STATES.idle, bob: 0, speakPhase: 0 });
   const [blink, setBlink] = useState(false);
   const tRef = useRef(0);
+  // Idle micro-gestures: eased offsets a scheduler nudges while the dog is just
+  // listening — glance sideways, cock its head, twitch an ear. Current vs target.
+  const idleG = useRef({ lookX: 0, lookY: 0, tilt: 0, ear: 0, tLookX: 0, tLookY: 0, tTilt: 0, tEar: 0 });
 
   // continuous animation loop
   useEffect(() => {
@@ -649,7 +657,27 @@ function DispositionLens() {
       c.tint = lerpColor(c._fromTint || target.tint, target.tint, c._mix);
       const bob = reduceMotion.current ? 0 : Math.sin(tRef.current * 1.6) * 2.2;
       const speakPhase = speaking ? (Math.sin(tRef.current * 22) + 1) / 2 : 0;
-      setRender({ ...c, mouth: target.mouth, bob, speakPhase });
+
+      // Idle micro-gestures: ease toward the scheduler's targets and layer them on
+      // top of the resting pose — but ONLY while idle, so they never fight a real
+      // disposition. A slow continuous look-around keeps the eyes alive between them.
+      const g = idleG.current;
+      const gk = 0.09;
+      g.lookX = lerp(g.lookX, g.tLookX, gk);
+      g.lookY = lerp(g.lookY, g.tLookY, gk);
+      g.tilt = lerp(g.tilt, g.tTilt, gk);
+      g.ear = lerp(g.ear, g.tEar, gk);
+      const idling = targetKey === "idle" && !reduceMotion.current;
+      const wander = idling ? Math.sin(tRef.current * 0.5) * 1.6 : 0; // slow ambient glance
+      const rp = {
+        ...c,
+        pupilX: c.pupilX + (idling ? g.lookX + wander : 0),
+        pupilY: c.pupilY + (idling ? g.lookY : 0),
+        headTilt: (c.headTilt || 0) + (idling ? g.tilt : 0),
+        earL: (c.earL || 0) - (idling ? g.ear * 7 : 0),
+        earY: (c.earY || 0) - (idling ? g.ear * 2 : 0),
+      };
+      setRender({ ...rp, mouth: target.mouth, bob, speakPhase });
       raf = requestAnimationFrame(loop);
     };
     raf = requestAnimationFrame(loop);
@@ -674,6 +702,32 @@ function DispositionLens() {
     const id = setTimeout(tick, 1500);
     return () => { alive = false; clearTimeout(id); };
   }, []);
+
+  // idle micro-gestures scheduler — picks an occasional glance / head-cock / ear-twitch
+  useEffect(() => {
+    let alive = true;
+    const g = idleG.current;
+    const settle = () => { g.tLookX = 0; g.tLookY = 0; g.tTilt = 0; g.tEar = 0; };
+    const tick = () => {
+      if (!alive) return;
+      if (targetKey === "idle" && !reduceMotion.current) {
+        settle();
+        const roll = Math.random();
+        const dir = Math.random() < 0.5 ? -1 : 1;
+        if (roll < 0.34) g.tLookX = dir * (4 + Math.random() * 3);      // glance to the side
+        else if (roll < 0.62) g.tTilt = dir * (6 + Math.random() * 6);  // cock the head
+        else if (roll < 0.82) g.tEar = 1;                              // twitch an ear
+        else g.tLookY = 2.2;                                           // glance down
+        // hold the gesture briefly, then relax back to neutral
+        setTimeout(() => { if (alive) settle(); }, 850 + Math.random() * 750);
+      } else {
+        settle();
+      }
+      setTimeout(tick, 2600 + Math.random() * 2800);
+    };
+    const id = setTimeout(tick, 2200);
+    return () => { alive = false; clearTimeout(id); };
+  }, [targetKey]);
 
   const stopVoice = useCallback(() => {
     if (audioRef.current) {
