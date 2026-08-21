@@ -966,7 +966,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **xdzsuqg5** | TS-1: Ideation intake (idea + source URLs) — reuse music-video-tool/ReelTales pattern | gem | in_work | Lightweight ideation entry point: Miguel enters an... |
 | **cwkaudyr** | TS-2: Browser-driven NotebookLM video generation (Claude-in-Chrome / Big Sis) | clau | planned | NotebookLM has no clean API → drive the browser: o... |
 | **veoepw9r** | TS-3: Productionize the hook/outro recipe (per-video copy + auto VO) | clau | planned | Turn tech-shorts/build_techshort.sh into a pipelin... |
-| **b7bwuhk6** | TS-4: Upload both videos to YouTube (reuse music-video-tool credentials) | codi | in_work | Upload the final short (vertical → YouTube Shorts)... |
 | **orgyhjsd** | TS-5: Cross-post the YouTube link to X (reuse the FLOT X-posting arm) | gem | planned | Post the YouTube URL to X using the existing FLOT ... |
 | **dnbc56xu** | TS-6: Stats tracking — add a 'tech-shorts' category to the existing stats page | codi | planned | Track reach per tech-short. REUSE the music-video-... |
 | **vjrgy6u6** | TS-7: FinOps — fold tech-shorts reach/revenue into the FinOps dashboard | clau | planned | Eventually surface tech-shorts reach + (YT) revenu... |
