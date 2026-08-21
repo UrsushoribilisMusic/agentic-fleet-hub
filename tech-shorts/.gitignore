@@ -2,3 +2,6 @@
 assets/*.mp3
 assets/*.wav
 *.mp4
+*.lock
+__pycache__/
+

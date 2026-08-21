@@ -5,13 +5,18 @@ NotebookLM Video Overview into a branded, hook-first short + long, publish to
 YouTube, cross-post the YT link to X. Monetization play; brand tie-in to Canis.
 
 ## Status (2026-08-21)
+- **Step 1 (Ideation Intake) IMPLEMENTED.** `tech-shorts/intake.py` provides:
+  - Interactive & non-interactive CLI (`python3 intake.py add/list/show/update/claim`)
+  - Zero-dependency local web console (`python3 intake.py serve --port 8766`)
+  - Programmatic Python API for downstream workers (`create_job`, `claim_next_job`, `update_job`)
+  - Atomic, lock-safe JSON queue at `tech-shorts/jobs.json`
 - **Step 3 (hook + outro) PROVEN by hand.** `build_techshort.sh` renders PIL text
   cards (this ffmpeg lacks drawtext/libfreetype) → segments → concat with the
   format-matched source. Produced 2 finals from the AISI-incident notebook:
   - `Why_AI_Agents_Spontaneously_Lie_FINAL.mp4` (short, 720x1280)
   - `Anatomy_of_an_AI_Breach_FINAL.mp4` (long, 1280x720)
 - Source notebooks:
-  - AISI incident (done): notebook.google.com/notebook/c2f91266-9fff-48fb-94e8-297e98b44d2e
+  - AISI incident (done / reference): notebook.google.com/notebook/c2f91266-9fff-48fb-94e8-297e98b44d2e
   - LinkedIn "inference moves in-house" (queued for the automation pass):
     notebook.google.com/notebook/5bbbf604-57ec-496e-b69d-9bf12e72b080
 
