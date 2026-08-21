@@ -968,6 +968,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **vjrgy6u6** | TS-7: FinOps — fold tech-shorts reach/revenue into the FinOps dashboard | clau | in_work | Eventually surface tech-shorts reach + (YT) revenu... |
+| **vjrgy6u6** | TS-7: FinOps — fold tech-shorts reach/revenue into the FinOps dashboard | clau | merged | Eventually surface tech-shorts reach + (YT) revenu... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
