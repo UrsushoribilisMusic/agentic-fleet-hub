@@ -616,10 +616,11 @@ footer {
   <div class="cta-inner">
     <h2>Be among the first.</h2>
     <p>Lifelore is in TestFlight. Leave your email and we will send you an invite when the next build is ready.</p>
-    <form class="email-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you. We will be in touch.');">
-      <input type="email" placeholder="your@email.com" required aria-label="Email address">
+    <form class="email-form" id="lf-invite-form">
+      <input type="email" id="lf-email" placeholder="your@email.com" required aria-label="Email address">
       <button type="submit">Request invite</button>
     </form>
+    <p class="cta-fine" id="lf-form-message" hidden style="margin-top: 12px;"></p>
     <p class="cta-fine">We will use this address only to send TestFlight invites. No newsletter, no tracking.</p>
   </div>
 </section>
@@ -651,6 +652,41 @@ footer {
     </div>
   </div>
 </footer>
+
+<script>
+  // Wire the invite form to the fleet contacts API (same pattern as the SM/SO forms).
+  document.getElementById('lf-invite-form').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const btn = this.querySelector('button[type=submit]');
+    const msg = document.getElementById('lf-form-message');
+    const email = document.getElementById('lf-email').value;
+    const orig = btn.textContent;
+    btn.disabled = true; btn.textContent = 'Sending…';
+    try {
+      const r = await fetch('https://api.robotross.art/fleet/api/contacts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: 'Lifelore waitlist',
+          email: email,
+          topic: 'TestFlight invite',
+          message: 'Lifelore TestFlight invite request',
+          source: 'lifelore.wiki',
+        }),
+      });
+      if (!r.ok) throw new Error();
+      msg.textContent = 'Thank you — we will send your TestFlight invite soon.';
+      msg.style.color = 'var(--teal)';
+      this.reset();
+    } catch {
+      msg.textContent = 'Something went wrong — please try again, or email miguel@bigbearengineering.com';
+      msg.style.color = 'var(--accent)';
+    } finally {
+      msg.hidden = false;
+      btn.disabled = false; btn.textContent = orig;
+    }
+  });
+</script>
 
 </body>
 </html>
