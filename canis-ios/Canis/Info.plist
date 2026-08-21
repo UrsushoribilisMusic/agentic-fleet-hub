@@ -22,6 +22,11 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<!-- CANIS-D: Brave Search API key — injected via BRAVE_API_KEY build setting.
+	     Set in Xcode > Build Settings > User-Defined > BRAVE_API_KEY.
+	     Never hard-code. Source from vault/agent-fetch.sh. -->
+	<key>BRAVE_API_KEY</key>
+	<string>$(BRAVE_API_KEY)</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchScreen</key>

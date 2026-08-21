@@ -60,4 +60,7 @@ struct DispositionReadout: Codable, Equatable {
 enum CanisGenerationEvent: Sendable {
     case text(String)
     case disposition(DispositionReadout)
+    // CANIS-D: activity events — search is not a J-space disposition; tracked separately
+    case searchStarted(query: String)
+    case searchComplete(citations: [WebSearchResult])
 }

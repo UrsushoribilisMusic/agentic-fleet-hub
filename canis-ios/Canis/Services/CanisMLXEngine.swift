@@ -151,7 +151,100 @@ actor CanisMLXEngine {
         }
     }
 
+    /// Web-search-enabled generation (CANIS-D).
+    ///
+    /// Strategy: search-before-generate (not 2-pass) to keep MLX memory pressure low.
+    /// 1. If the query looks like it needs live data OR is detected as a web-search
+    ///    trigger by keyword heuristic, run a Brave Search + body-fetch first.
+    /// 2. Inject results into the prompt as a context block.
+    /// 3. Single-pass generation with enriched context → model cites [1], [2], etc.
+    ///
+    /// Emits `.searchStarted` and `.searchComplete` events so ChatViewModel can
+    /// drive the "searching" dog animation.
+    ///
+    /// TODO(codi): wire the enriched prompt into session.streamResponse — see WORKLOG.md
+    func generateWithSearch(prompt: String, model: CanisModel, maxTokens: Int = 700) -> AsyncThrowingStream<CanisGenerationEvent, Error> {
+        AsyncThrowingStream { continuation in
+            let task = Task {
+                do {
+                    // Step 1: decide whether to search
+                    let shouldSearch = SearchContextBuilder.isLikelyWebQuery(prompt)
+                        || SearchContextBuilder.shouldSearch(in: prompt)
+
+                    var citations: [WebSearchResult] = []
+                    var effectivePrompt = prompt
+
+                    if shouldSearch {
+                        continuation.yield(.searchStarted(query: prompt))
+                        let results = (try? await WebSearchService.shared.search(query: prompt)) ?? []
+                        citations = results
+                        continuation.yield(.searchComplete(citations: results))
+                        if !results.isEmpty {
+                            effectivePrompt = SearchContextBuilder.build(results: results, query: prompt)
+                        }
+                    }
+
+                    // Step 2: load model and generate with (possibly enriched) prompt
+                    try await load(model: model)
+                    guard let container else { throw CanisMLXError.noModelLoaded }
+
+                    let active = await MainActor.run { UIApplication.shared.applicationState == .active }
+                    guard active else { throw CanisMLXError.backgroundExecution }
+
+                    let thermal = ProcessInfo.processInfo.thermalState
+                    if thermal == .serious || thermal == .critical {
+                        throw CanisMLXError.thermal(thermal)
+                    }
+
+                    generating = true
+                    MLX.Memory.clearCache()
+                    let session = MLXLMCommon.ChatSession(
+                        container,
+                        instructions: Self.systemPromptWithSearch,
+                        generateParameters: GenerateParameters(temperature: 0.6, topP: 0.9)
+                    )
+                    let dispositionEngine = DispositionReadoutEngine(model: model)
+                    var generatedText = ""
+                    var tokenCount = 0
+                    for try await chunk in session.streamResponse(to: effectivePrompt) {
+                        if Task.isCancelled { break }
+                        generatedText += chunk
+                        continuation.yield(.text(chunk))
+                        let readout = dispositionEngine.fallbackReadout(
+                            generatedText: generatedText,
+                            latestChunk: chunk
+                        )
+                        continuation.yield(.disposition(readout))
+                        tokenCount += 1
+                        if tokenCount >= maxTokens { break }
+                        if tokenCount % 10 == 0 {
+                            let stillActive = await MainActor.run { UIApplication.shared.applicationState == .active }
+                            if !stillActive { break }
+                            await Task.yield()
+                        }
+                    }
+                    generating = false
+                    // Re-emit searchComplete with citations so MessageBubbleView can render them
+                    // (first .searchComplete clears the loading state; second provides final data)
+                    if !citations.isEmpty {
+                        continuation.yield(.searchComplete(citations: citations))
+                    }
+                    continuation.finish()
+                } catch {
+                    generating = false
+                    continuation.finish(throwing: error)
+                }
+            }
+            currentTask = task
+            continuation.onTermination = { _ in task.cancel() }
+        }
+    }
+
     private static let systemPrompt = """
     You are Canis, a concise on-device assistant. Answer directly, be honest about uncertainty, and never claim cloud access. Keep replies useful and compact unless the user asks for depth.
+    """
+
+    private static let systemPromptWithSearch = """
+    You are Canis, a concise on-device assistant. When web search results are provided, answer from them and cite sources as [1], [2], etc. Be direct. Keep replies compact unless the user asks for depth.
     """
 }
