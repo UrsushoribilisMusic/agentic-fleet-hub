@@ -959,7 +959,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **319n7hqo** | CANIS-D: real web-search tool for the on-device models (+ does it add an emotion?) | clau | in_work | Give the on-device Canis models a real WEB SEARCH ... |
+| **319n7hqo** | CANIS-D: real web-search tool for the on-device models (+ does it add an emotion?) | clau | merged | Give the on-device Canis models a real WEB SEARCH ... |
 | **h3du5d5v** | CANIS-F: Canis project explainer web page (accessible intro → deep tech) | clau | merged | Build the Canis project marketing/explainer web pa... |
 | **1us5nlpw** | CANIS-H: public GATED live demo — tunnel to Mac Mini + 2 modes + question history | gem | planned | Public gated live demo of Canis (to show Thomas / ... |
 
