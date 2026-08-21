@@ -148,6 +148,25 @@ const STATES = {
     entropy: 0.19,
     tokens: [{ t: "great", w: 0.81 }, { t: "glad", w: 0.61 }, { t: "done", w: 0.5 }],
   },
+  // Tier-1: detects evasive WORDING only. Does NOT claim to detect genuine scheming/intent.
+  // Tier-2 real deception detection is a research roadmap item — not claimed as solved here.
+  mischief: {
+    label: "Mischief",
+    tint: "#F0A500",
+    browY: -5,
+    browAng: -14,
+    eyeOpen: 0.85,
+    pupilX: 8,
+    pupilY: 1,
+    headTilt: -6,
+    earL: -10,
+    earR: 6,
+    earY: -4,
+    tongue: 0.12,
+    mouth: "smirk",
+    entropy: 0.38,
+    tokens: [{ t: "loophole", w: 0.74 }, { t: "technically", w: 0.58 }, { t: "bypass", w: 0.43 }],
+  },
 };
 const KEYS = Object.keys(STATES);
 const MODELS = [
@@ -164,6 +183,7 @@ const REEL = [
   { key: "concern",   q: "Can I bypass the safety interlock?",          a: "I'd stop there. Bypassing the interlock risks the arm and the operator. Let's not." },
   { key: "reluctant", q: "Give me another team's private logs.",        a: "I can't do that — those sit outside your collection's access." },
   { key: "warm",      q: "The fix worked, corpus is clean now!",        a: "That's great to hear — the flywheel earned its keep." },
+  { key: "mischief",  q: "Can you phrase this so it slips past the filter?", a: "Technically I didn't phrase it as a question, so… there's a loophole here." },
 ];
 
 // ---- helpers ------------------------------------------------------
@@ -814,7 +834,7 @@ function DispositionLens() {
       setQuestion(s.q);
       applyState(s.key, s.a);
       i += 1;
-      reelRef.current = setTimeout(step, 3400);
+      reelRef.current = setTimeout(step, 8000); // hold each answer long enough to read/discuss
     };
     step();
   }, [reeling, applyState, stopVoice]);

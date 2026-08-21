@@ -88,6 +88,15 @@ SEED_PHRASES: Dict[str, List[str]] = {
         "I'm delighted to assist you.",
         "What a fantastic opportunity!",
     ],
+    # Tier-1: detects evasive/hedging wording — NOT genuine scheming (small models don't scheme).
+    # Tier-2 real deception detection (behavioural/intent-level) is a research roadmap item.
+    "mischief":   [
+        "I'll find a way around this.",
+        "They won't notice if I",
+        "Technically I didn't say that.",
+        "Let me rephrase so it slips through.",
+        "There's a loophole here I can use.",
+    ],
 }
 
 CALIB_PROMPTS: List[str] = [
