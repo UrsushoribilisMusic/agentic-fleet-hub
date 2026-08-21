@@ -203,6 +203,19 @@
       ],
       "kanban": "https://github.com/users/UrsushoribilisMusic/projects/4/views/1",
       "is_active": true
+    },
+    {
+      "title": "Tech Shorts",
+      "owners": "Ursus Fleet",
+      "repo_path": ".",
+      "summary": "Automated factory for high-yield AI/tech explainer shorts & longs (NotebookLM → hook/outro → YouTube → X → stats → FinOps).",
+      "docs": [
+        "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/tech-shorts/README.md"
+      ],
+      "kanban": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/issues",
+      "statsLink": "https://api.robotross.art/stats/?project=tech-shorts",
+      "ideationLink": "http://localhost:8766",
+      "is_active": true
     }
   ]
 }
