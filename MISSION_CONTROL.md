@@ -954,14 +954,14 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **7kfeyyn1** | DL-7: Dog-avatar face — expressive dog replacing the smiley (7 dispositions) | gem | merged | Replace/augment the porthole smiley with an expres... |
+| **8stc7itu** | CANIS-0: EPIC — on-device disposition-lens iOS app 'Canis' + public gated demo (hackathon Oct 1–16) | clau | in_work | PROJECT CANIS (Latin 'dog'). Goal: a TestFlight-do... |
+| **qwd5zr50** | CANIS-A: iOS app skeleton + dual on-device model download (Apertus-4B + Ministral) | codi | in_work | Create the Canis iOS app skeleton (SwiftUI + MLX-s... |
+| **uzpzqkmi** | CANIS-B: research the best small models for Canis (newer Ministral? confirm Apertus-4B) | clau | planned | Investigate whether a newer/better Ministral (or c... |
+| **zcjenbgw** | CANIS-C: on-device MLX disposition readout (forward-only J-lens + seed-vectors + entropy) | codi | planned | Implement the disposition readout ON-DEVICE in the... |
+| **319n7hqo** | CANIS-D: real web-search tool for the on-device models (+ does it add an emotion?) | clau | planned | Give the on-device Canis models a real WEB SEARCH ... |
+| **a2u7bpu1** | CANIS-E: integrate the consistent Dog art → parametric SVG rig (web + iOS) | clau | planned | Integrate Miguel's Runway-generated consistent Dog... |
+| **h3du5d5v** | CANIS-F: Canis project explainer web page (accessible intro → deep tech) | gem | in_work | Build the Canis project marketing/explainer web pa... |
 | **1us5nlpw** | CANIS-H: public GATED live demo — tunnel to Mac Mini + 2 modes + question history | gem | planned | Public gated live demo of Canis (to show Thomas / ... |
 | **tw0oev2g** | CANIS-G: add the 'mischief' disposition (Tier-1 evasive-wording, honest framing) | clau | planned | Add an 8th 'mischief' disposition (Tier 1): a sly/... |
-| **h3du5d5v** | CANIS-F: Canis project explainer web page (accessible intro → deep tech) | gem | planned | Build the Canis project marketing/explainer web pa... |
-| **a2u7bpu1** | CANIS-E: integrate the consistent Dog art → parametric SVG rig (web + iOS) | clau | planned | Integrate Miguel's Runway-generated consistent Dog... |
-| **319n7hqo** | CANIS-D: real web-search tool for the on-device models (+ does it add an emotion?) | clau | planned | Give the on-device Canis models a real WEB SEARCH ... |
-| **zcjenbgw** | CANIS-C: on-device MLX disposition readout (forward-only J-lens + seed-vectors + entropy) | codi | planned | Implement the disposition readout ON-DEVICE in the... |
-| **uzpzqkmi** | CANIS-B: research the best small models for Canis (newer Ministral? confirm Apertus-4B) | clau | planned | Investigate whether a newer/better Ministral (or c... |
-| **qwd5zr50** | CANIS-A: iOS app skeleton + dual on-device model download (Apertus-4B + Ministral) | codi | planned | Create the Canis iOS app skeleton (SwiftUI + MLX-s... |
-| **8stc7itu** | CANIS-0: EPIC — on-device disposition-lens iOS app 'Canis' + public gated demo (hackathon Oct 1–16) | clau | planned | PROJECT CANIS (Latin 'dog'). Goal: a TestFlight-do... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
