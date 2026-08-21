@@ -958,7 +958,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **qwd5zr50** | CANIS-A: iOS app skeleton + dual on-device model download (Apertus-4B + Ministral) | codi | in_work | Create the Canis iOS app skeleton (SwiftUI + MLX-s... |
 | **uzpzqkmi** | CANIS-B: research the best small models for Canis (newer Ministral? confirm Apertus-4B) | clau | merged | Investigate whether a newer/better Ministral (or c... |
 | **zcjenbgw** | CANIS-C: on-device MLX disposition readout (forward-only J-lens + seed-vectors + entropy) | codi | planned | Implement the disposition readout ON-DEVICE in the... |
-| **319n7hqo** | CANIS-D: real web-search tool for the on-device models (+ does it add an emotion?) | clau | planned | Give the on-device Canis models a real WEB SEARCH ... |
+| **319n7hqo** | CANIS-D: real web-search tool for the on-device models (+ does it add an emotion?) | clau | in_work | Give the on-device Canis models a real WEB SEARCH ... |
 | **a2u7bpu1** | CANIS-E: integrate the consistent Dog art → parametric SVG rig (web + iOS) | clau | planned | Integrate Miguel's Runway-generated consistent Dog... |
 | **h3du5d5v** | CANIS-F: Canis project explainer web page (accessible intro → deep tech) | gem | planned | Build the Canis project marketing/explainer web pa... |
 | **tw0oev2g** | CANIS-G: add the 'mischief' disposition (Tier-1 evasive-wording, honest framing) | clau | planned | Add an 8th 'mischief' disposition (Tier 1): a sly/... |
