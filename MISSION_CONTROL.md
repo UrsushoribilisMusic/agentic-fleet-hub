@@ -958,7 +958,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **8stc7itu** | CANIS-0: EPIC — on-device disposition-lens iOS app 'Canis' + public gated demo (hackathon Oct 1–16) | clau | merged | PROJECT CANIS (Latin 'dog'). Goal: a TestFlight-do... |
 | **qwd5zr50** | CANIS-A: iOS app skeleton + dual on-device model download (Apertus-4B + Ministral) | codi | merged | Create the Canis iOS app skeleton (SwiftUI + MLX-s... |
 | **uzpzqkmi** | CANIS-B: research the best small models for Canis (newer Ministral? confirm Apertus-4B) | clau | in_work | Investigate whether a newer/better Ministral (or c... |
-| **zcjenbgw** | CANIS-C: on-device MLX disposition readout (forward-only J-lens + seed-vectors + entropy) | codi | in_work | Implement the disposition readout ON-DEVICE in the... |
+| **zcjenbgw** | CANIS-C: on-device MLX disposition readout (forward-only J-lens + seed-vectors + entropy) | codi | merged | Implement the disposition readout ON-DEVICE in the... |
 | **319n7hqo** | CANIS-D: real web-search tool for the on-device models (+ does it add an emotion?) | clau | planned | Give the on-device Canis models a real WEB SEARCH ... |
 | **h3du5d5v** | CANIS-F: Canis project explainer web page (accessible intro → deep tech) | gem | planned | Build the Canis project marketing/explainer web pa... |
 | **1us5nlpw** | CANIS-H: public GATED live demo — tunnel to Mac Mini + 2 modes + question history | gem | planned | Public gated live demo of Canis (to show Thomas / ... |
