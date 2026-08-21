@@ -13,4 +13,6 @@ struct ChatMessage: Identifiable, Codable, Equatable {
     var dispositionReadout: DispositionReadout?
     var isStreaming = false
     var createdAt = Date()
+    // CANIS-D: populated when the model triggered a web search for this message
+    var citations: [WebSearchResult] = []
 }

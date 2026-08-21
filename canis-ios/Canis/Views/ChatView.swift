@@ -79,32 +79,74 @@ struct ChatView: View {
     }
 
     private var composer: some View {
-        HStack(alignment: .bottom, spacing: 10) {
-            TextField("Ask \(activeModel.displayName)", text: $viewModel.draft, axis: .vertical)
-                .textFieldStyle(.roundedBorder)
-                .lineLimit(1...4)
-                .disabled(viewModel.isStreaming || !selectedDownloaded)
+        VStack(spacing: 6) {
+            // CANIS-D: searching activity indicator — shown between Pass 1 and Pass 2
+            if viewModel.isSearching {
+                HStack(spacing: 6) {
+                    ProgressView()
+                        .scaleEffect(0.75)
+                    Text("Searching the web…")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    if let q = viewModel.searchQuery {
+                        Text(""\(q)"")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .lineLimit(1)
+                            .truncationMode(.tail)
+                    }
+                    Spacer()
+                    Text("Query sent to Brave Search")
+                        .font(.caption2)
+                        .foregroundStyle(.tertiary)
+                }
+                .padding(.horizontal, 4)
+                .transition(.opacity.combined(with: .move(edge: .bottom)))
+            }
 
-            if viewModel.isStreaming {
-                Button {
-                    viewModel.stop()
-                } label: {
-                    Image(systemName: "stop.fill")
-                        .frame(width: 32, height: 32)
+            // CANIS-D: web search toggle + disclosure
+            HStack {
+                Toggle(isOn: $viewModel.webSearchEnabled) {
+                    Label("Web Search", systemImage: viewModel.webSearchEnabled ? "globe.badge.chevron.backward" : "globe")
+                        .font(.caption)
+                        .foregroundStyle(viewModel.webSearchEnabled ? .primary : .secondary)
                 }
-                .buttonStyle(.bordered)
-                .accessibilityLabel("Stop generation")
-            } else {
-                Button {
-                    viewModel.send(using: activeModel)
-                } label: {
-                    Image(systemName: "arrow.up")
-                        .font(.headline)
-                        .frame(width: 32, height: 32)
+                .toggleStyle(.button)
+                .buttonStyle(.borderless)
+                .tint(.blue)
+                .accessibilityLabel("Toggle web search (sends query to Brave Search)")
+
+                Spacer()
+            }
+            .padding(.horizontal, 4)
+
+            HStack(alignment: .bottom, spacing: 10) {
+                TextField("Ask \(activeModel.displayName)", text: $viewModel.draft, axis: .vertical)
+                    .textFieldStyle(.roundedBorder)
+                    .lineLimit(1...4)
+                    .disabled(viewModel.isStreaming || !selectedDownloaded)
+
+                if viewModel.isStreaming {
+                    Button {
+                        viewModel.stop()
+                    } label: {
+                        Image(systemName: "stop.fill")
+                            .frame(width: 32, height: 32)
+                    }
+                    .buttonStyle(.bordered)
+                    .accessibilityLabel("Stop generation")
+                } else {
+                    Button {
+                        viewModel.send(using: activeModel)
+                    } label: {
+                        Image(systemName: "arrow.up")
+                            .font(.headline)
+                            .frame(width: 32, height: 32)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .disabled(!selectedDownloaded || viewModel.draft.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                    .accessibilityLabel("Send")
                 }
-                .buttonStyle(.borderedProminent)
-                .disabled(!selectedDownloaded || viewModel.draft.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
-                .accessibilityLabel("Send")
             }
         }
     }

@@ -25,6 +25,35 @@ struct MessageBubbleView: View {
                     .font(.caption2)
                     .foregroundStyle(.secondary)
                 }
+                // CANIS-D: citation list — shown when the model did a web search
+                if !message.citations.isEmpty, !isUser {
+                    Divider()
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Sources")
+                            .font(.caption2)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(.secondary)
+                        ForEach(Array(message.citations.enumerated()), id: \.element.id) { index, citation in
+                            HStack(alignment: .top, spacing: 4) {
+                                Text("[\(index + 1)]")
+                                    .font(.caption2)
+                                    .foregroundStyle(.secondary)
+                                    .frame(width: 20, alignment: .leading)
+                                VStack(alignment: .leading, spacing: 1) {
+                                    Text(citation.title)
+                                        .font(.caption2)
+                                        .fontWeight(.medium)
+                                        .lineLimit(1)
+                                    Text(citation.displayURL)
+                                        .font(.caption2)
+                                        .foregroundStyle(.blue)
+                                        .lineLimit(1)
+                                }
+                            }
+                        }
+                    }
+                    .padding(.top, 2)
+                }
             }
             .padding(.horizontal, 12)
             .padding(.vertical, 10)

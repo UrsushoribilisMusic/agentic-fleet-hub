@@ -7,6 +7,9 @@ final class ChatViewModel: ObservableObject {
     ]
     @Published var draft = ""
     @Published var isStreaming = false
+    @Published var isSearching = false      // CANIS-D: true while web search is in flight
+    @Published var searchQuery: String?    // CANIS-D: query shown in UI during search
+    @Published var webSearchEnabled = false // CANIS-D: user toggle
     @Published var errorMessage: String?
     @Published var currentReadout: DispositionReadout = .idle
 
@@ -22,11 +25,16 @@ final class ChatViewModel: ObservableObject {
         messages.append(ChatMessage(role: .assistant, content: "", modelID: model.rawValue, isStreaming: true))
         let assistantIndex = messages.count - 1
         isStreaming = true
+        isSearching = false
+        searchQuery = nil
         currentReadout = .idle
 
         streamTask = Task {
             do {
-                for try await event in await CanisMLXEngine.shared.generate(prompt: text, model: model) {
+                let stream = webSearchEnabled
+                    ? await CanisMLXEngine.shared.generateWithSearch(prompt: text, model: model)
+                    : await CanisMLXEngine.shared.generate(prompt: text, model: model)
+                for try await event in stream {
                     guard !Task.isCancelled, assistantIndex < messages.count else { return }
                     switch event {
                     case .text(let token):
@@ -34,6 +42,14 @@ final class ChatViewModel: ObservableObject {
                     case .disposition(let readout):
                         currentReadout = readout
                         messages[assistantIndex].dispositionReadout = readout
+                    case .searchStarted(let query):
+                        // Dog enters "searching" activity state
+                        isSearching = true
+                        searchQuery = query
+                    case .searchComplete(let citations):
+                        isSearching = false
+                        searchQuery = nil
+                        messages[assistantIndex].citations = citations
                     }
                 }
                 finishAssistantMessage(at: assistantIndex)

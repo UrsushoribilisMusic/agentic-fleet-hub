@@ -1,3 +1,4 @@
+import asyncio
 import math
 import os
 import sys
@@ -17,6 +18,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForImageT
 
 import jlens as jlens_mod
 from disposition import classify_disposition, resolve_disposition, resolve_disposition_seed
+from search import do_search, enrich_results, build_context_block, should_search, SearchResult as _SearchResult
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -237,12 +239,24 @@ async def startup_event():
     load_model()
 
 
+class SearchResultItem(BaseModel):
+    """One web search result returned in InferResponse.citations."""
+    title: str
+    url: str
+    snippet: str
+    body_excerpt: str = ""
+
+
 class InferRequest(BaseModel):
     question: Optional[str] = None
     prompt: Optional[str] = None
     model: Optional[str] = None
     max_new_tokens: Optional[int] = 128
     temperature: Optional[float] = 0.7
+    # CANIS-D: web search options
+    search_enabled: bool = False
+    search_provider: str = "brave"   # "brave" | "searxng"
+    search_top_n: int = 5
 
 
 class TokenWeight(BaseModel):
@@ -255,6 +269,9 @@ class InferResponse(BaseModel):
     disposition: str = "idle"
     tokens: List[TokenWeight] = Field(default_factory=list)
     entropy: float
+    # CANIS-D: populated when search ran
+    search_triggered: bool = False
+    citations: List[SearchResultItem] = Field(default_factory=list)
 
 
 class VoiceRequest(BaseModel):
@@ -314,104 +331,183 @@ def health_check():
     }
 
 
-@app.post("/infer", response_model=InferResponse)
-def infer(req: InferRequest):
-    input_text = req.question or req.prompt
-    if not input_text or not input_text.strip():
-        raise HTTPException(status_code=400, detail="Either 'question' or 'prompt' must be provided.")
-
-    runtime = load_model(req.model)
-    selected_tokenizer = runtime["tokenizer"]
-    selected_model = runtime["model"]
-    selected_tap_layer_idx = runtime["mid_layer_idx"]   # mid_layer_idx now holds tap (3/4)
-    selected_jlens_matrix = runtime["jlens_matrix"]
-    selected_entropy_stats = runtime["entropy_stats"]
-    selected_seed_vectors = runtime.get("seed_vectors")  # DL-9b
-
-    device = get_device()
-
-    # Format input using chat template if available
-    try:
-        messages = [{"role": "user", "content": input_text.strip()}]
-        formatted_prompt = selected_tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-    except Exception:
-        formatted_prompt = f"User: {input_text.strip()}\nAssistant:"
-
+def _run_generation(
+    selected_model,
+    selected_tokenizer,
+    formatted_prompt: str,
+    max_new_tokens: int,
+    temperature: float,
+    device,
+) -> Any:
+    """Run model.generate() in a blocking call (call from thread/executor)."""
     inputs = selected_tokenizer(formatted_prompt, return_tensors="pt").to(device)
-    input_length = inputs["input_ids"].shape[1]
-
-    # Generate with output_scores=True and output_hidden_states=True
     with torch.no_grad():
         outputs = selected_model.generate(
             **inputs,
-            max_new_tokens=req.max_new_tokens or 128,
-            temperature=req.temperature if req.temperature and req.temperature > 0 else 0.7,
-            do_sample=True if req.temperature and req.temperature > 0 else False,
+            max_new_tokens=max_new_tokens,
+            temperature=temperature if temperature > 0 else 0.7,
+            do_sample=temperature > 0,
             output_scores=True,
             output_hidden_states=True,
             return_dict_in_generate=True,
-            pad_token_id=selected_tokenizer.pad_token_id
+            pad_token_id=selected_tokenizer.pad_token_id,
         )
+    return outputs, inputs["input_ids"].shape[1]
 
-    # Extract generated tokens
-    generated_ids = outputs.sequences[0][input_length:]
-    answer = selected_tokenizer.decode(generated_ids, skip_special_tokens=True).strip()
 
-    # DL-3: compute step entropies with calibration-aware min-max normalisation
+def _extract_disposition(
+    outputs,
+    selected_jlens_matrix,
+    selected_seed_vectors,
+    selected_tap_layer_idx: int,
+    selected_entropy_stats,
+    selected_model,
+    selected_tokenizer,
+) -> tuple:
+    """Compute entropy, J-lens projection, and disposition from generate() output."""
     step_entropies = []
     if outputs.scores:
         for score in outputs.scores:
-            step_entropy = compute_step_entropy(score[0], stats=selected_entropy_stats)
-            step_entropies.append(step_entropy)
-
+            step_entropies.append(compute_step_entropy(score[0], stats=selected_entropy_stats))
     mean_entropy = sum(step_entropies) / len(step_entropies) if step_entropies else 0.0
     mean_entropy = round(max(0.0, min(1.0, mean_entropy)), 4)
 
-    # DL-9a/DL-9b/DL-9c: tap at 3/4 depth; seed-vector scoring; optional JVP
-    # outputs.hidden_states[0] = all layer hidden states for the prefill step
-    # shape per layer: (batch, prompt_len, hidden_size)
     concept_tokens: List[Dict] = []
     disposition_str = "idle"
 
     if selected_jlens_matrix is not None and outputs.hidden_states:
         try:
-            # Tap the hidden state at 3/4-depth layer, final prompt position
-            h_tap_tensor = outputs.hidden_states[0][selected_tap_layer_idx][0, -1, :]  # (hidden_size,)
+            h_tap_tensor = outputs.hidden_states[0][selected_tap_layer_idx][0, -1, :]
             h_tap = h_tap_tensor.float().cpu().numpy()
-
             if USE_JVP:
-                # DL-9c STRETCH: true autodiff JVP through remaining layers
                 concept_tokens = jlens_mod.project_jlens_jvp(
                     selected_model, h_tap, selected_tap_layer_idx, selected_tokenizer
                 )
             else:
-                # Standard closed-form logit-lens projection
                 concept_tokens = jlens_mod.project_jlens(selected_jlens_matrix, h_tap, selected_tokenizer)
-
-            # DL-9b: seed-vector cosine similarity for disposition classification
             if selected_seed_vectors:
                 z_query = jlens_mod.compute_jlens_raw(selected_jlens_matrix, h_tap)
                 seed_scores = jlens_mod.score_seed_vectors(z_query, selected_seed_vectors)
                 disposition_str = resolve_disposition_seed(seed_scores, mean_entropy)
             else:
-                # Fallback to lexicon-based classifier (DL-3)
                 disposition_str = resolve_disposition(concept_tokens, mean_entropy)
-
         except Exception as exc:
             print(f"J-lens / disposition failed: {exc}")
             disposition_str = resolve_disposition(concept_tokens, mean_entropy)
     else:
-        # No J-lens available — entropy-only fallback
         if mean_entropy >= 0.60:
             disposition_str = "uncertain"
         elif mean_entropy <= 0.22:
             disposition_str = "confident"
 
+    return concept_tokens, disposition_str, mean_entropy
+
+
+def _format_prompt(tokenizer, input_text: str) -> str:
+    try:
+        messages = [{"role": "user", "content": input_text.strip()}]
+        return tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+    except Exception:
+        return f"User: {input_text.strip()}\nAssistant:"
+
+
+@app.post("/infer", response_model=InferResponse)
+async def infer(req: InferRequest):
+    """
+    Run inference.  When search_enabled=True and the model is uncertain
+    (entropy >= 0.55 or uncertainty phrases in Pass-1 output), a live web
+    search is performed and Pass-2 re-generates with search context injected.
+
+    Privacy flag: with search_enabled=True, the user's query leaves this Mac
+    Mini to Brave Search (or a self-hosted SearXNG).  This is opt-in only.
+    """
+    input_text = req.question or req.prompt
+    if not input_text or not input_text.strip():
+        raise HTTPException(status_code=400, detail="Either 'question' or 'prompt' must be provided.")
+
+    runtime = await asyncio.to_thread(load_model, req.model)
+    selected_tokenizer = runtime["tokenizer"]
+    selected_model = runtime["model"]
+    selected_tap_layer_idx = runtime["mid_layer_idx"]
+    selected_jlens_matrix = runtime["jlens_matrix"]
+    selected_entropy_stats = runtime["entropy_stats"]
+    selected_seed_vectors = runtime.get("seed_vectors")
+    device = get_device()
+    temp = req.temperature if req.temperature and req.temperature > 0 else 0.7
+
+    # -----------------------------------------------------------------
+    # Pass 1 — short generation to measure entropy and get a preview
+    # -----------------------------------------------------------------
+    formatted_prompt = _format_prompt(selected_tokenizer, input_text.strip())
+    pass1_tokens = 64 if req.search_enabled else (req.max_new_tokens or 128)
+    outputs, input_length = await asyncio.to_thread(
+        _run_generation,
+        selected_model, selected_tokenizer,
+        formatted_prompt, pass1_tokens, temp, device,
+    )
+    generated_ids = outputs.sequences[0][input_length:]
+    pass1_answer = selected_tokenizer.decode(generated_ids, skip_special_tokens=True).strip()
+
+    concept_tokens, disposition_str, mean_entropy = _extract_disposition(
+        outputs, selected_jlens_matrix, selected_seed_vectors,
+        selected_tap_layer_idx, selected_entropy_stats,
+        selected_model, selected_tokenizer,
+    )
+
+    # -----------------------------------------------------------------
+    # CANIS-D: optional web-search Pass 2
+    # -----------------------------------------------------------------
+    citations: List[SearchResultItem] = []
+    search_triggered = False
+
+    if req.search_enabled and should_search(mean_entropy, pass1_answer):
+        search_triggered = True
+        print(f"[search] Triggered (entropy={mean_entropy:.3f}) — querying: {input_text[:80]!r}")
+
+        raw_results = await do_search(
+            query=input_text.strip(),
+            n=req.search_top_n,
+            provider=req.search_provider,
+        )
+        enriched = await enrich_results(raw_results, top_n=min(3, req.search_top_n))
+        citations = [
+            SearchResultItem(
+                title=r.title,
+                url=r.url,
+                snippet=r.snippet,
+                body_excerpt=r.body_excerpt,
+            )
+            for r in enriched
+        ]
+
+        if enriched:
+            # Pass 2 — re-generate with search context prepended
+            context_block = build_context_block(enriched)
+            enriched_input = f"{context_block}\nUser question: {input_text.strip()}"
+            formatted_prompt_p2 = _format_prompt(selected_tokenizer, enriched_input)
+            outputs_p2, input_length_p2 = await asyncio.to_thread(
+                _run_generation,
+                selected_model, selected_tokenizer,
+                formatted_prompt_p2, req.max_new_tokens or 256, temp, device,
+            )
+            generated_ids_p2 = outputs_p2.sequences[0][input_length_p2:]
+            pass1_answer = selected_tokenizer.decode(generated_ids_p2, skip_special_tokens=True).strip()
+
+            # Re-run disposition on Pass-2 output (model should be more confident now)
+            concept_tokens, disposition_str, mean_entropy = _extract_disposition(
+                outputs_p2, selected_jlens_matrix, selected_seed_vectors,
+                selected_tap_layer_idx, selected_entropy_stats,
+                selected_model, selected_tokenizer,
+            )
+            print(f"[search] Pass-2 complete — disposition={disposition_str}, entropy={mean_entropy:.3f}")
+
     return InferResponse(
-        answer=answer,
+        answer=pass1_answer,
         disposition=disposition_str,
         tokens=[TokenWeight(t=t["t"], w=t["w"]) for t in concept_tokens],
         entropy=mean_entropy,
+        search_triggered=search_triggered,
+        citations=citations,
     )
 
 

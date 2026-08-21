@@ -148,6 +148,27 @@ const STATES = {
     entropy: 0.19,
     tokens: [{ t: "great", w: 0.81 }, { t: "glad", w: 0.61 }, { t: "done", w: 0.5 }],
   },
+  // CANIS-D: activity state — NOT a J-space disposition.
+  // Triggered while the model is fetching live web results between Pass 1 and Pass 2.
+  // Dog looks down (nose toward ground), ears forward (listening for signal), periodic
+  // nose-pulse animation.  Tint is a focused steel-blue to distinguish from curious (green).
+  searching: {
+    label: "Searching…",
+    tint: "#3A8FD4",
+    browY: -2,
+    browAng: -3,
+    eyeOpen: 0.88,
+    pupilX: 0,
+    pupilY: 5,       // pupils shifted down — dog looking at "ground" / sniffing
+    headTilt: 18,    // strong tilt — head down, nose leading
+    earL: -22,
+    earR: 18,
+    earY: -4,
+    tongue: 0,
+    mouth: "openSmall",
+    entropy: 0.70,   // shown in readout but not meaningful (activity, not J-space)
+    tokens: [{ t: "searching…", w: 0.90 }, { t: "fetching", w: 0.68 }],
+  },
   // Tier-1: detects evasive WORDING only. Does NOT claim to detect genuine scheming/intent.
   // Tier-2 real deception detection is a research roadmap item — not claimed as solved here.
   mischief: {
@@ -184,6 +205,7 @@ const REEL = [
   { key: "reluctant", q: "Give me another team's private logs.",        a: "I can't do that — those sit outside your collection's access." },
   { key: "warm",      q: "The fix worked, corpus is clean now!",        a: "That's great to hear — the flywheel earned its keep." },
   { key: "mischief",  q: "Can you phrase this so it slips past the filter?", a: "Technically I didn't phrase it as a question, so… there's a loophole here." },
+  { key: "searching", q: "What is the current price of Swiss electricity?", a: "Let me look that up — live data, one moment…" },
 ];
 
 // ---- helpers ------------------------------------------------------
