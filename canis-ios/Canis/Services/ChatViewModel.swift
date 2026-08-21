@@ -8,6 +8,7 @@ final class ChatViewModel: ObservableObject {
     @Published var draft = ""
     @Published var isStreaming = false
     @Published var errorMessage: String?
+    @Published var currentReadout: DispositionReadout = .idle
 
     private var streamTask: Task<Void, Never>?
 
@@ -21,12 +22,19 @@ final class ChatViewModel: ObservableObject {
         messages.append(ChatMessage(role: .assistant, content: "", modelID: model.rawValue, isStreaming: true))
         let assistantIndex = messages.count - 1
         isStreaming = true
+        currentReadout = .idle
 
         streamTask = Task {
             do {
-                for try await token in await CanisMLXEngine.shared.generate(prompt: text, model: model) {
+                for try await event in await CanisMLXEngine.shared.generate(prompt: text, model: model) {
                     guard !Task.isCancelled, assistantIndex < messages.count else { return }
-                    messages[assistantIndex].content += token
+                    switch event {
+                    case .text(let token):
+                        messages[assistantIndex].content += token
+                    case .disposition(let readout):
+                        currentReadout = readout
+                        messages[assistantIndex].dispositionReadout = readout
+                    }
                 }
                 finishAssistantMessage(at: assistantIndex)
             } catch {
@@ -47,6 +55,7 @@ final class ChatViewModel: ObservableObject {
             }
         }
         isStreaming = false
+        currentReadout = .idle
     }
 
     func clear() {
@@ -54,6 +63,7 @@ final class ChatViewModel: ObservableObject {
         messages = [
             ChatMessage(role: .assistant, content: "Choose a downloaded model and ask a question. All inference runs on this iPhone.")
         ]
+        currentReadout = .idle
     }
 
     private func finishAssistantMessage(at index: Int) {

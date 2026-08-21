@@ -10,6 +10,7 @@ struct ChatMessage: Identifiable, Codable, Equatable {
     var role: Role
     var content: String
     var modelID: String?
+    var dispositionReadout: DispositionReadout?
     var isStreaming = false
     var createdAt = Date()
 }

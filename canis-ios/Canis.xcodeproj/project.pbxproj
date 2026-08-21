@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0841A9E43D9FFC6C50C97459 /* Disposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56E7044B572570BA522F63B /* Disposition.swift */; };
+		0CA9AD134E03AC55DD875169 /* DispositionReadoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066CA3E0A958CA8EC426747C /* DispositionReadoutTests.swift */; };
 		17BCFA28D4CE6262FA4627D7 /* MLXLMCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 617E68489CF74E1AA459E0DE /* MLXLMCommon */; };
 		21D7D4E5F6582B4315F4D7BB /* MLX in Frameworks */ = {isa = PBXBuildFile; productRef = 1383FF71984228B8099ABEA5 /* MLX */; };
 		233BACF5F883D66EDF325918 /* CanisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B74AC972B6AE5551E15378 /* CanisApp.swift */; };
@@ -14,12 +16,14 @@
 		4CB3D9B8530169A4EDED77BC /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1447D3624398A4BBB4D6BF25 /* RootView.swift */; };
 		516A617C2CE67760673B6A98 /* CanisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE42CA0CB4F8B5E1022AED1 /* CanisModel.swift */; };
 		7CA5864B8A11F97CC9807E14 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0C60EA257B754E4387BF47 /* ChatViewModel.swift */; };
+		8711935796D7D64077A40B84 /* DispositionReadoutEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30B2625ACDDF1D821963CED /* DispositionReadoutEngine.swift */; };
 		88F475018F0528DB24AA25AE /* MLXLLM in Frameworks */ = {isa = PBXBuildFile; productRef = 0CB4313946A6923BB4BF5EDF /* MLXLLM */; };
 		8FDE621598C720C99852299E /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283603D01E1BD75268D56F52 /* ChatView.swift */; };
 		9B0CDB74BAB32317E29A92A8 /* CanisMLXEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F2D8FFA5DC89A6CA9AB674 /* CanisMLXEngine.swift */; };
 		A34339FB6F7571A08EF48451 /* ModelDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6EFAAB6D11E14E26F30AA3 /* ModelDownloadManager.swift */; };
 		BAC958DD2BB7B8F2117D9D21 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFFBE105926EF9FFDDAB3F8 /* Config.swift */; };
 		BBCC7A067D83BBACFF9A919C /* ModelRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3613EF0F74827898CA8C17E3 /* ModelRowView.swift */; };
+		D37C293BE40B3521F3066442 /* DispositionAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C574CE896EBFEF177BAC32FC /* DispositionAvatarView.swift */; };
 		DC069DD856F5E6D5DD7E1796 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DD792427A70E443E4C514F /* ChatMessage.swift */; };
 		DCB2564D62B7076BDB8CC75C /* MessageBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95648EDFC9145A1B544038B7 /* MessageBubbleView.swift */; };
 		E7A318D1C6CC196A38121518 /* ModelHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC720ED2AA7C35F59520E2E /* ModelHubView.swift */; };
@@ -37,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		066CA3E0A958CA8EC426747C /* DispositionReadoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispositionReadoutTests.swift; sourceTree = "<group>"; };
 		1447D3624398A4BBB4D6BF25 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		283603D01E1BD75268D56F52 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		338C50DA373F335DB751A074 /* Canis.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Canis.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +56,9 @@
 		9FC720ED2AA7C35F59520E2E /* ModelHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelHubView.swift; sourceTree = "<group>"; };
 		AF174809CAC210D2C1A3DA9F /* CanisModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanisModelTests.swift; sourceTree = "<group>"; };
 		AFE42CA0CB4F8B5E1022AED1 /* CanisModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanisModel.swift; sourceTree = "<group>"; };
+		B56E7044B572570BA522F63B /* Disposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disposition.swift; sourceTree = "<group>"; };
+		C30B2625ACDDF1D821963CED /* DispositionReadoutEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispositionReadoutEngine.swift; sourceTree = "<group>"; };
+		C574CE896EBFEF177BAC32FC /* DispositionAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispositionAvatarView.swift; sourceTree = "<group>"; };
 		CB3DD4E5E177BF4A638747D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7DD792427A70E443E4C514F /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		EF6EFAAB6D11E14E26F30AA3 /* ModelDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDownloadManager.swift; sourceTree = "<group>"; };
@@ -93,6 +101,7 @@
 			children = (
 				AFE42CA0CB4F8B5E1022AED1 /* CanisModel.swift */,
 				D7DD792427A70E443E4C514F /* ChatMessage.swift */,
+				B56E7044B572570BA522F63B /* Disposition.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -101,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				AF174809CAC210D2C1A3DA9F /* CanisModelTests.swift */,
+				066CA3E0A958CA8EC426747C /* DispositionReadoutTests.swift */,
 			);
 			path = CanisTests;
 			sourceTree = "<group>";
@@ -110,6 +120,7 @@
 			children = (
 				76F2D8FFA5DC89A6CA9AB674 /* CanisMLXEngine.swift */,
 				9D0C60EA257B754E4387BF47 /* ChatViewModel.swift */,
+				C30B2625ACDDF1D821963CED /* DispositionReadoutEngine.swift */,
 				EF6EFAAB6D11E14E26F30AA3 /* ModelDownloadManager.swift */,
 			);
 			path = Services;
@@ -133,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				283603D01E1BD75268D56F52 /* ChatView.swift */,
+				C574CE896EBFEF177BAC32FC /* DispositionAvatarView.swift */,
 				95648EDFC9145A1B544038B7 /* MessageBubbleView.swift */,
 				9FC720ED2AA7C35F59520E2E /* ModelHubView.swift */,
 				3613EF0F74827898CA8C17E3 /* ModelRowView.swift */,
@@ -250,6 +262,9 @@
 				8FDE621598C720C99852299E /* ChatView.swift in Sources */,
 				7CA5864B8A11F97CC9807E14 /* ChatViewModel.swift in Sources */,
 				BAC958DD2BB7B8F2117D9D21 /* Config.swift in Sources */,
+				0841A9E43D9FFC6C50C97459 /* Disposition.swift in Sources */,
+				D37C293BE40B3521F3066442 /* DispositionAvatarView.swift in Sources */,
+				8711935796D7D64077A40B84 /* DispositionReadoutEngine.swift in Sources */,
 				DCB2564D62B7076BDB8CC75C /* MessageBubbleView.swift in Sources */,
 				A34339FB6F7571A08EF48451 /* ModelDownloadManager.swift in Sources */,
 				E7A318D1C6CC196A38121518 /* ModelHubView.swift in Sources */,
@@ -263,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEB659A63E9CA4E930359F26 /* CanisModelTests.swift in Sources */,
+				0CA9AD134E03AC55DD875169 /* DispositionReadoutTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
