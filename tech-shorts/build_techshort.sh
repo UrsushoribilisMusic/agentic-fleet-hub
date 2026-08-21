@@ -8,7 +8,7 @@
 # Usage: build_techshort.sh <source.mp4> <output.mp4> [hook_vo.mp3]
 
 set -e
-SRC="$1"; OUT="$2"; VO="$3"
+SRC="$1"; OUT="$2"; VO="$3"; OVO="$4"; TRIM="${5:-0}"
 { [ -z "$SRC" ] || [ -z "$OUT" ]; } && { echo "usage: $0 <source.mp4> <output.mp4> [hook_vo.mp3]"; exit 1; }
 WORK="$(mktemp -d)"
 
@@ -63,13 +63,22 @@ else
 fi
 echo "  intro built"
 
-# outro (5s, silent)
-ffmpeg -y -loop 1 -i "$WORK/outro.png" -f lavfi -i "anullsrc=r=44100:cl=mono" -t 5 \
-  -vf "fade=t=in:st=0:d=0.3,fade=t=out:st=4.6:d=0.4,format=yuv420p" \
-  -r "$FPS" -c:v libx264 -pix_fmt yuv420p -c:a aac -ar 44100 -ac 1 "$WORK/outro.mp4" -loglevel error
+# outro (voiceover length if given, else 5s), then attach audio
+if [ -n "$OVO" ] && [ -f "$OVO" ]; then OD=$(ffprobe -v error -show_entries format=duration -of default=nk=1:nw=1 "$OVO"); OD=$(printf "%.2f" "$OD"); else OD=5.0; fi
+ffmpeg -y -loop 1 -i "$WORK/outro.png" -t "$OD" -r "$FPS" -an \
+  -vf "fade=t=in:st=0:d=0.3,fade=t=out:st=$(echo "$OD-0.4"|bc):d=0.4,format=yuv420p" \
+  -c:v libx264 -pix_fmt yuv420p "$WORK/outrov.mp4" -loglevel error
+if [ -n "$OVO" ] && [ -f "$OVO" ]; then
+  ffmpeg -y -i "$WORK/outrov.mp4" -i "$OVO" -map 0:v -map 1:a -c:v copy -c:a aac -ar 44100 -ac 1 -shortest "$WORK/outro.mp4" -loglevel error
+else
+  ffmpeg -y -i "$WORK/outrov.mp4" -f lavfi -i "anullsrc=r=44100:cl=mono" -map 0:v -map 1:a -shortest -c:v copy -c:a aac "$WORK/outro.mp4" -loglevel error
+fi
 
 # normalize source, concat intro + src + outro
-ffmpeg -y -i "$SRC" -vf "scale=${W}:${H}" -r "$FPS" -c:v libx264 -pix_fmt yuv420p -c:a aac -ar 44100 -ac 1 "$WORK/src.mp4" -loglevel error
+SDUR=$(ffprobe -v error -show_entries format=duration -of default=nk=1:nw=1 "$SRC")
+KEEP=$(echo "$SDUR - $TRIM" | bc)
+[ "$(echo "$TRIM>0"|bc)" = "1" ] && echo "  trimming NotebookLM end-card: last ${TRIM}s (keep ${KEEP}s)"
+ffmpeg -y -i "$SRC" -t "$KEEP" -vf "scale=${W}:${H}" -r "$FPS" -c:v libx264 -pix_fmt yuv420p -c:a aac -ar 44100 -ac 1 "$WORK/src.mp4" -loglevel error
 ffmpeg -y -i "$WORK/intro.mp4" -i "$WORK/src.mp4" -i "$WORK/outro.mp4" \
   -filter_complex "[0:v][0:a][1:v][1:a][2:v][2:a]concat=n=3:v=1:a=1[v][a]" \
   -map "[v]" -map "[a]" -c:v libx264 -pix_fmt yuv420p -c:a aac -ar 44100 "$OUT" -loglevel error
