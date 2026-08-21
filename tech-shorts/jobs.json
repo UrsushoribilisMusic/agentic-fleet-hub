@@ -17,6 +17,7 @@
         "canis"
       ],
       "status": "assembled",
+      "trim_s": 0,
       "created_at": "2026-08-21T19:40:00Z",
       "updated_at": "2026-08-21T21:30:00Z",
       "notebook_url": "https://notebook.google.com/notebook/c2f91266-9fff-48fb-94e8-297e98b44d2e",
@@ -81,6 +82,7 @@
         "canis"
       ],
       "status": "queued",
+      "trim_s": 0,
       "created_at": "2026-08-21T21:30:00Z",
       "updated_at": "2026-08-21T22:30:00Z",
       "notebook_url": "https://notebook.google.com/notebook/5bbbf604-57ec-496e-b69d-9bf12e72b080",
