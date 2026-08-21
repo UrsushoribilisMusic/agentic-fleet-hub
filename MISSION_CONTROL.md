@@ -962,7 +962,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **ji7fpbit** | TS-0: EPIC — tech-shorts pipeline (NotebookLM → hook/outro → YouTube → X → stats → FinOps) | clau | in_work | Automate the AI/tech-shorts factory: 2–3 videos/we... |
+| **ji7fpbit** | TS-0: EPIC — tech-shorts pipeline (NotebookLM → hook/outro → YouTube → X → stats → FinOps) | clau | merged | Automate the AI/tech-shorts factory: 2–3 videos/we... |
 | **xdzsuqg5** | TS-1: Ideation intake (idea + source URLs) — reuse music-video-tool/ReelTales pattern | gem | merged | Lightweight ideation entry point: Miguel enters an... |
 | **cwkaudyr** | TS-2: Browser-driven NotebookLM video generation (Claude-in-Chrome / Big Sis) | clau | planned | NotebookLM has no clean API → drive the browser: o... |
 | **veoepw9r** | TS-3: Productionize the hook/outro recipe (per-video copy + auto VO) | clau | planned | Turn tech-shorts/build_techshort.sh into a pipelin... |
