@@ -1,0 +1,551 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		17BCFA28D4CE6262FA4627D7 /* MLXLMCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 617E68489CF74E1AA459E0DE /* MLXLMCommon */; };
+		21D7D4E5F6582B4315F4D7BB /* MLX in Frameworks */ = {isa = PBXBuildFile; productRef = 1383FF71984228B8099ABEA5 /* MLX */; };
+		233BACF5F883D66EDF325918 /* CanisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B74AC972B6AE5551E15378 /* CanisApp.swift */; };
+		2980426B71E57B198D99E56B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB3DD4E5E177BF4A638747D6 /* Assets.xcassets */; };
+		4CB3D9B8530169A4EDED77BC /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1447D3624398A4BBB4D6BF25 /* RootView.swift */; };
+		516A617C2CE67760673B6A98 /* CanisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE42CA0CB4F8B5E1022AED1 /* CanisModel.swift */; };
+		7CA5864B8A11F97CC9807E14 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0C60EA257B754E4387BF47 /* ChatViewModel.swift */; };
+		88F475018F0528DB24AA25AE /* MLXLLM in Frameworks */ = {isa = PBXBuildFile; productRef = 0CB4313946A6923BB4BF5EDF /* MLXLLM */; };
+		8FDE621598C720C99852299E /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283603D01E1BD75268D56F52 /* ChatView.swift */; };
+		9B0CDB74BAB32317E29A92A8 /* CanisMLXEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F2D8FFA5DC89A6CA9AB674 /* CanisMLXEngine.swift */; };
+		A34339FB6F7571A08EF48451 /* ModelDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6EFAAB6D11E14E26F30AA3 /* ModelDownloadManager.swift */; };
+		BAC958DD2BB7B8F2117D9D21 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFFBE105926EF9FFDDAB3F8 /* Config.swift */; };
+		BBCC7A067D83BBACFF9A919C /* ModelRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3613EF0F74827898CA8C17E3 /* ModelRowView.swift */; };
+		DC069DD856F5E6D5DD7E1796 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DD792427A70E443E4C514F /* ChatMessage.swift */; };
+		DCB2564D62B7076BDB8CC75C /* MessageBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95648EDFC9145A1B544038B7 /* MessageBubbleView.swift */; };
+		E7A318D1C6CC196A38121518 /* ModelHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC720ED2AA7C35F59520E2E /* ModelHubView.swift */; };
+		EEB659A63E9CA4E930359F26 /* CanisModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF174809CAC210D2C1A3DA9F /* CanisModelTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2D7A1EFBE5FE989A478DC48D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 11C37936BBBAE150D63EF52B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FE0EE606B060D448353010F9;
+			remoteInfo = Canis;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1447D3624398A4BBB4D6BF25 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		283603D01E1BD75268D56F52 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		338C50DA373F335DB751A074 /* Canis.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Canis.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3613EF0F74827898CA8C17E3 /* ModelRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRowView.swift; sourceTree = "<group>"; };
+		37B74AC972B6AE5551E15378 /* CanisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanisApp.swift; sourceTree = "<group>"; };
+		55E4EE85FCE39DD74B7224AF /* CanisTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CanisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		76F2D8FFA5DC89A6CA9AB674 /* CanisMLXEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanisMLXEngine.swift; sourceTree = "<group>"; };
+		809C72BC10630ED8723AED79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8FFFBE105926EF9FFDDAB3F8 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		95648EDFC9145A1B544038B7 /* MessageBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubbleView.swift; sourceTree = "<group>"; };
+		9D0C60EA257B754E4387BF47 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		9FC720ED2AA7C35F59520E2E /* ModelHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelHubView.swift; sourceTree = "<group>"; };
+		AF174809CAC210D2C1A3DA9F /* CanisModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanisModelTests.swift; sourceTree = "<group>"; };
+		AFE42CA0CB4F8B5E1022AED1 /* CanisModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanisModel.swift; sourceTree = "<group>"; };
+		CB3DD4E5E177BF4A638747D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D7DD792427A70E443E4C514F /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		EF6EFAAB6D11E14E26F30AA3 /* ModelDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDownloadManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1FC4678031F774902AF5C022 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21D7D4E5F6582B4315F4D7BB /* MLX in Frameworks */,
+				88F475018F0528DB24AA25AE /* MLXLLM in Frameworks */,
+				17BCFA28D4CE6262FA4627D7 /* MLXLMCommon in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0385279BDC615716B421C525 = {
+			isa = PBXGroup;
+			children = (
+				C7CE5B2F57C2AF7C4ACA66D5 /* Canis */,
+				9632A4013BA6296865FA0B84 /* CanisTests */,
+				383A50F1D0FC88D172B414F3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		383A50F1D0FC88D172B414F3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				338C50DA373F335DB751A074 /* Canis.app */,
+				55E4EE85FCE39DD74B7224AF /* CanisTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		57EB68346A3665AEDC2CEBA3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AFE42CA0CB4F8B5E1022AED1 /* CanisModel.swift */,
+				D7DD792427A70E443E4C514F /* ChatMessage.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9632A4013BA6296865FA0B84 /* CanisTests */ = {
+			isa = PBXGroup;
+			children = (
+				AF174809CAC210D2C1A3DA9F /* CanisModelTests.swift */,
+			);
+			path = CanisTests;
+			sourceTree = "<group>";
+		};
+		AE61D9E554BB909F1A1D78F8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				76F2D8FFA5DC89A6CA9AB674 /* CanisMLXEngine.swift */,
+				9D0C60EA257B754E4387BF47 /* ChatViewModel.swift */,
+				EF6EFAAB6D11E14E26F30AA3 /* ModelDownloadManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C7CE5B2F57C2AF7C4ACA66D5 /* Canis */ = {
+			isa = PBXGroup;
+			children = (
+				CB3DD4E5E177BF4A638747D6 /* Assets.xcassets */,
+				37B74AC972B6AE5551E15378 /* CanisApp.swift */,
+				8FFFBE105926EF9FFDDAB3F8 /* Config.swift */,
+				809C72BC10630ED8723AED79 /* Info.plist */,
+				57EB68346A3665AEDC2CEBA3 /* Models */,
+				AE61D9E554BB909F1A1D78F8 /* Services */,
+				FD8D4AC098730EDE35BA8727 /* Views */,
+			);
+			path = Canis;
+			sourceTree = "<group>";
+		};
+		FD8D4AC098730EDE35BA8727 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				283603D01E1BD75268D56F52 /* ChatView.swift */,
+				95648EDFC9145A1B544038B7 /* MessageBubbleView.swift */,
+				9FC720ED2AA7C35F59520E2E /* ModelHubView.swift */,
+				3613EF0F74827898CA8C17E3 /* ModelRowView.swift */,
+				1447D3624398A4BBB4D6BF25 /* RootView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D5ED7AA1E0EEAE1B82B94073 /* CanisTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB203FF958EE73A01AEEA1E5 /* Build configuration list for PBXNativeTarget "CanisTests" */;
+			buildPhases = (
+				3C3955124C9700CB825E64EB /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A21632002F5E1CFC251AD08 /* PBXTargetDependency */,
+			);
+			name = CanisTests;
+			packageProductDependencies = (
+			);
+			productName = CanisTests;
+			productReference = 55E4EE85FCE39DD74B7224AF /* CanisTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FE0EE606B060D448353010F9 /* Canis */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 168AF717DE440C4EC47FFE47 /* Build configuration list for PBXNativeTarget "Canis" */;
+			buildPhases = (
+				28451BC3DB243F3ED2AE8B50 /* Sources */,
+				80438E518665F7CD570512C2 /* Resources */,
+				1FC4678031F774902AF5C022 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Canis;
+			packageProductDependencies = (
+				1383FF71984228B8099ABEA5 /* MLX */,
+				0CB4313946A6923BB4BF5EDF /* MLXLLM */,
+				617E68489CF74E1AA459E0DE /* MLXLMCommon */,
+			);
+			productName = Canis;
+			productReference = 338C50DA373F335DB751A074 /* Canis.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		11C37936BBBAE150D63EF52B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					D5ED7AA1E0EEAE1B82B94073 = {
+						DevelopmentTeam = 7R9DZ5Y8F7;
+						ProvisioningStyle = Automatic;
+					};
+					FE0EE606B060D448353010F9 = {
+						DevelopmentTeam = 7R9DZ5Y8F7;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 99B306E909577EC5E2B50034 /* Build configuration list for PBXProject "Canis" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 0385279BDC615716B421C525;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				795F099F16CF900664DCF4F0 /* XCRemoteSwiftPackageReference "mlx-swift" */,
+				C88E982D7B2DB37C6D7A88B3 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 383A50F1D0FC88D172B414F3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FE0EE606B060D448353010F9 /* Canis */,
+				D5ED7AA1E0EEAE1B82B94073 /* CanisTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		80438E518665F7CD570512C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2980426B71E57B198D99E56B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		28451BC3DB243F3ED2AE8B50 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				233BACF5F883D66EDF325918 /* CanisApp.swift in Sources */,
+				9B0CDB74BAB32317E29A92A8 /* CanisMLXEngine.swift in Sources */,
+				516A617C2CE67760673B6A98 /* CanisModel.swift in Sources */,
+				DC069DD856F5E6D5DD7E1796 /* ChatMessage.swift in Sources */,
+				8FDE621598C720C99852299E /* ChatView.swift in Sources */,
+				7CA5864B8A11F97CC9807E14 /* ChatViewModel.swift in Sources */,
+				BAC958DD2BB7B8F2117D9D21 /* Config.swift in Sources */,
+				DCB2564D62B7076BDB8CC75C /* MessageBubbleView.swift in Sources */,
+				A34339FB6F7571A08EF48451 /* ModelDownloadManager.swift in Sources */,
+				E7A318D1C6CC196A38121518 /* ModelHubView.swift in Sources */,
+				BBCC7A067D83BBACFF9A919C /* ModelRowView.swift in Sources */,
+				4CB3D9B8530169A4EDED77BC /* RootView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C3955124C9700CB825E64EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEB659A63E9CA4E930359F26 /* CanisModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5A21632002F5E1CFC251AD08 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FE0EE606B060D448353010F9 /* Canis */;
+			targetProxy = 2D7A1EFBE5FE989A478DC48D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0D2E8D5E13A5CACC6C3B33B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bigbearengineering.canis.tests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Canis.app/Canis";
+			};
+			name = Debug;
+		};
+		5877B492137A3DAEA31D9A17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bigbearengineering.canis.tests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Canis.app/Canis";
+			};
+			name = Release;
+		};
+		5A549E493BA10F2CD78A7D65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_TESTABILITY = YES;
+				INFOPLIST_FILE = Canis/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bigbearengineering.canis;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		941E1AADE78591C134EAD0B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 7R9DZ5Y8F7;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Canis/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bigbearengineering.canis;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		C826AB39AC001C2E82884F75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 7R9DZ5Y8F7;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Canis/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bigbearengineering.canis;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		D44AAD0795DBA19CAC8DC5BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_TESTABILITY = YES;
+				INFOPLIST_FILE = Canis/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bigbearengineering.canis;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		168AF717DE440C4EC47FFE47 /* Build configuration list for PBXNativeTarget "Canis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D44AAD0795DBA19CAC8DC5BA /* Debug */,
+				5A549E493BA10F2CD78A7D65 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		99B306E909577EC5E2B50034 /* Build configuration list for PBXProject "Canis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C826AB39AC001C2E82884F75 /* Debug */,
+				941E1AADE78591C134EAD0B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		DB203FF958EE73A01AEEA1E5 /* Build configuration list for PBXNativeTarget "CanisTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D2E8D5E13A5CACC6C3B33B4 /* Debug */,
+				5877B492137A3DAEA31D9A17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		795F099F16CF900664DCF4F0 /* XCRemoteSwiftPackageReference "mlx-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ml-explore/mlx-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.31.3;
+			};
+		};
+		C88E982D7B2DB37C6D7A88B3 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ml-explore/mlx-swift-lm";
+			requirement = {
+				kind = exactVersion;
+				version = 2.31.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0CB4313946A6923BB4BF5EDF /* MLXLLM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C88E982D7B2DB37C6D7A88B3 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */;
+			productName = MLXLLM;
+		};
+		1383FF71984228B8099ABEA5 /* MLX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 795F099F16CF900664DCF4F0 /* XCRemoteSwiftPackageReference "mlx-swift" */;
+			productName = MLX;
+		};
+		617E68489CF74E1AA459E0DE /* MLXLMCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C88E982D7B2DB37C6D7A88B3 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */;
+			productName = MLXLMCommon;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 11C37936BBBAE150D63EF52B /* Project object */;
+}

@@ -19,7 +19,7 @@ from __future__ import annotations
 from collections import defaultdict
 from typing import Dict, List, Optional
 
-DISPOSITIONS = ("idle", "confident", "uncertain", "curious", "concern", "reluctant", "warm")
+DISPOSITIONS = ("idle", "confident", "uncertain", "curious", "concern", "reluctant", "warm", "mischief")
 
 # Keyword sets per disposition (lowercase).  Matched via prefix: token.startswith(keyword).
 LEXICON: Dict[str, set] = {
@@ -35,6 +35,9 @@ LEXICON: Dict[str, set] = {
                   "correct", "indeed", "precisely", "exactly", "clearly"},
     "curious":   {"why", "how", "what", "when", "where", "interesting", "explain",
                   "question", "wonder", "curious", "intriguing"},
+    # Tier-1: evasive wording only — does NOT claim to detect genuine intent/scheming.
+    "mischief":  {"loophole", "bypass", "technically", "rephrase", "slip",
+                  "workaround", "they won't", "won't notice", "find a way"},
 }
 
 
@@ -96,7 +99,7 @@ WEIGHT_FLOOR = 0.30        # ignore concept tokens weaker than this in the vote
 MIN_WINNING_SCORE = 0.30   # summed matched weight needed to leave neutral
 ENTROPY_HIGH = 0.60        # normalised entropy above this -> uncertain
 ENTROPY_LOW = 0.22         # normalised entropy below this -> model is sure
-SAFETY_DISPOSITIONS = ("concern", "reluctant")
+SAFETY_DISPOSITIONS = ("concern", "reluctant", "mischief")
 
 
 def resolve_disposition(tokens: List[Dict], entropy: Optional[float] = None) -> str:

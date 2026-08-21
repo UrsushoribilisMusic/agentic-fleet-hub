@@ -90,6 +90,7 @@ VOICE_SETTINGS = {
     "concern": {"stability": 0.60, "similarity_boost": 0.81, "style": 0.07, "use_speaker_boost": True},
     "reluctant": {"stability": 0.55, "similarity_boost": 0.78, "style": 0.06, "use_speaker_boost": True},
     "warm": {"stability": 0.57, "similarity_boost": 0.80, "style": 0.20, "use_speaker_boost": True},
+    "mischief": {"stability": 0.42, "similarity_boost": 0.76, "style": 0.22, "use_speaker_boost": True},
 }
 
 
