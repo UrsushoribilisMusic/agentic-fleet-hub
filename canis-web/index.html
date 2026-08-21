@@ -858,7 +858,7 @@
           <span class="tech-step-badge">Step 2 · On-Device Adaptation</span>
           <h3>Forward-Only MLX-Swift</h3>
           <p>
-            Full autodiff is too heavy for an iPhone. Canis solves this by precomputing the averaged Jacobian offline and caching a static projection matrix $W_J$. At inference time on Apple Silicon, it runs as a single matrix multiplication in &lt;0.4ms.
+            Full autodiff is too heavy for an iPhone. Canis solves this by precomputing the averaged Jacobian offline and caching a static projection matrix $W_J$. At inference time the disposition is read with a single matrix multiplication against that cached matrix — a marginal cost layered on the hidden state the model already computed, not a second forward pass.
           </p>
           <div class="formula-box">z_J = W_J · RMSNorm(h_3/4)</div>
         </div>
@@ -971,12 +971,33 @@
           <p>No. Once the model INT4 weights (~2–2.75 GB) and J-lens matrices are downloaded, Canis runs 100% offline on your device with zero data leaving your phone.</p>
         </div>
         <div class="faq-item">
-          <h4>How does Canis differ from Sovereign Mind?</h4>
-          <p>Sovereign Mind is an enterprise RAG knowledge platform with cloud sync and document ingestion. Canis is a standalone consumer hackathon app focused purely on on-device interpretability and conversational trust.</p>
-        </div>
-        <div class="faq-item">
           <h4>What devices are supported?</h4>
           <p>Any iPhone with Apple Silicon and 8GB unified memory (iPhone 15 Pro, iPhone 16, iPhone 16 Pro) running iOS 17 or higher.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Projects -->
+    <section id="related" class="faq-section">
+      <div class="section-title">
+        <h2>Related Projects</h2>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h4><a href="https://sm.flotilla.cc" style="color: var(--teal); text-decoration: none;">Sovereign Mind →</a></h4>
+          <p>Enterprise on-device RAG: cited answers from your own documents, fully offline, with an admin console and a thumbs-down → FAQ improvement flywheel.</p>
+        </div>
+        <div class="faq-item">
+          <h4><a href="https://so.flotilla.cc" style="color: var(--teal); text-decoration: none;">Silicon Oracle →</a></h4>
+          <p>Consumer on-device AI — open-weight models running entirely on iPhone. The proving ground for the on-device MLX inference Canis builds on.</p>
+        </div>
+        <div class="faq-item">
+          <h4><a href="https://api.robotross.art/atf/" style="color: var(--teal); text-decoration: none;">Robot Ross →</a></h4>
+          <p>An autonomous robotic artist that draws and narrates — and its Automated Technical File, the cited knowledge corpus behind our RAG demos.</p>
+        </div>
+        <div class="faq-item">
+          <h4><a href="https://reelatales.robotross.art/" style="color: var(--teal); text-decoration: none;">ReelTales →</a></h4>
+          <p>AI-scored music &amp; tech shorts — an automated Shopify → YouTube storytelling pipeline.</p>
         </div>
       </div>
     </section>
@@ -987,6 +1008,9 @@
       <p>Canis Project · Built for the Open Interpretability Hackathon (Oct 2026)</p>
       <p style="margin-top: 6px; font-size: 12px;">
         Part of the <a href="https://flotilla.cc">Flotilla</a> Fleet Ecosystem · Designed by <strong>Ursushoribilis Agentic Crew</strong> (Clau, Gem, Codi, Misty)
+      </p>
+      <p style="margin-top: 4px; font-size: 12px; opacity: 0.7;">
+        By <a href="https://miguelrodriguezauthor.com/" style="color: inherit;">Miguel Rodriguez</a>
       </p>
     </div>
   </footer>

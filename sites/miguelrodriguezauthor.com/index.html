@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miguel Rodriguez</title>
+<meta name="description" content="Miguel Rodriguez — building multi-agent AI systems, on-device ML, and digitalization for Swiss and German industry.">
+<meta property="og:title" content="Miguel Rodriguez">
+<meta property="og:description" content="Building multi-agent AI systems, on-device ML, and digitalization for Swiss and German industry.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://miguelrodriguezauthor.com/miguel.jpg">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #ffffff;
+  color: #111;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 36px 24px 60px;
+}
+
+a {
+  color: #1565c0;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* ---- Header with photo ---- */
+header {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+header img.photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.header-text {
+  flex: 1;
+  min-width: 280px;
+  padding-top: 4px;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.tagline {
+  font-style: italic;
+  color: #444;
+  font-size: 15px;
+  margin-bottom: 14px;
+  line-height: 1.45;
+}
+
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: #555;
+  color: #fff;
+  border-radius: 50%;
+  transition: background 0.15s;
+}
+
+.social a:hover {
+  background: #1565c0;
+  text-decoration: none;
+}
+
+.social svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+/* ---- Sections ---- */
+section { margin-bottom: 28px; }
+
+h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: #111;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 4px;
+}
+
+p { margin-bottom: 10px; }
+
+/* ---- Career list ---- */
+.career {
+  list-style: none;
+}
+
+.career > li {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.career > li:last-child { border-bottom: none; }
+
+.career .years {
+  font-size: 13px;
+  color: #888;
+  padding-top: 2px;
+}
+
+.career .role {
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 2px;
+}
+
+.career .role a {
+  color: #111;
+}
+.career .role a:hover { color: #1565c0; }
+
+.career .org {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.career .descr {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* ---- BigBear sub-projects ---- */
+.subprojects {
+  list-style: none;
+  margin-top: 12px;
+  border-top: 1px dashed #ddd;
+  padding-top: 4px;
+}
+
+.subprojects > li {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 14px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.subprojects > li:last-child { border-bottom: none; }
+
+.sub-years {
+  font-size: 12px;
+  color: #999;
+  padding-top: 2px;
+}
+
+.sub-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: #111;
+  margin-bottom: 2px;
+}
+
+.sub-descr {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.45;
+}
+
+.sub-links {
+  font-size: 12px;
+  margin-top: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ---- Publications ---- */
+.pubs { list-style: none; }
+
+.pubs li {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.pubs li:last-child { border-bottom: none; }
+
+.pubs li.featured {
+  background: #fff8e1;
+  padding: 12px;
+  border-radius: 4px;
+  border-bottom: none;
+  margin-bottom: 6px;
+}
+
+.pubs .pub-year {
+  font-size: 13px;
+  color: #888;
+  padding-top: 2px;
+}
+
+.pubs li.featured .pub-year {
+  color: #b88600;
+  font-weight: 600;
+}
+
+.pubs .pub-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #111;
+  margin-bottom: 2px;
+  line-height: 1.4;
+}
+
+.pubs .pub-venue {
+  font-size: 12px;
+  color: #777;
+  font-style: italic;
+}
+
+/* ---- Writing (blog cards) ---- */
+.blog-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.blog-card {
+  display: block;
+  border: 1px solid #ddd;
+  padding: 14px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: border-color 0.15s;
+}
+
+.blog-card:hover {
+  border-color: #1565c0;
+  text-decoration: none;
+}
+
+.blog-card .pub {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.blog-card .title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.blog-card .descr {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.45;
+}
+
+/* ---- Books grid ---- */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 18px;
+}
+
+.book {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.book:hover { text-decoration: none; }
+
+.book-cover {
+  width: 100%;
+  aspect-ratio: 2/3;
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: box-shadow 0.15s;
+}
+
+.book:hover .book-cover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.book-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.book-cover .placeholder {
+  font-size: 12px;
+  color: #999;
+  text-align: center;
+  padding: 10px;
+  font-style: italic;
+}
+
+.book-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 2px;
+}
+
+.book-blurb {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.book-link {
+  font-size: 12px;
+  color: #1565c0;
+}
+
+/* ---- Music grid ---- */
+.music-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.album { display: flex; flex-direction: column; gap: 6px; }
+
+.album iframe {
+  border-radius: 8px;
+  display: block;
+  width: 100%;
+  border: none;
+}
+
+.album-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #111;
+  padding-left: 2px;
+}
+
+.album-link {
+  font-size: 12px;
+  color: #1565c0;
+  padding-left: 2px;
+}
+
+/* ---- Education ---- */
+.education { list-style: none; }
+
+.education li {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.education li:last-child { border-bottom: none; }
+
+.education .years {
+  font-size: 13px;
+  color: #888;
+  padding-top: 2px;
+}
+
+.education .degree {
+  font-weight: 600;
+  font-size: 14px;
+  color: #111;
+}
+
+.education .school {
+  font-size: 13px;
+  color: #666;
+}
+
+/* ---- Footer ---- */
+footer {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+  font-size: 12px;
+  color: #999;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+  .container { padding: 24px 18px 50px; }
+  header { gap: 16px; }
+  header img.photo { width: 110px; height: 110px; }
+  h1 { font-size: 22px; }
+  .career > li,
+  .education li {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .subprojects > li {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  .pubs li {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  .blog-cards { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- ============ HEADER ============ -->
+<header>
+  <img class="photo" src="miguel.jpg" alt="Miguel Rodriguez">
+  <div class="header-text">
+    <h1>Miguel Rodriguez</h1>
+    <p class="tagline">Building multi-agent AI systems, on-device ML, and digitalization for Swiss and German industry.</p>
+    <div class="social">
+      <a href="https://github.com/UrsushoribilisMusic" aria-label="GitHub" title="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.4 3.6 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.3-3.3-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.3 1.3a11 11 0 0 1 6 0c2.3-1.6 3.3-1.3 3.3-1.3.7 1.7.2 3 .1 3.3.8.9 1.3 2 1.3 3.3 0 4.7-2.9 5.7-5.6 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 24 12c0-6.6-5.4-12-12-12z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/ursushoribilis" aria-label="LinkedIn" title="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.4V9h3.4v1.6h.1c.5-.9 1.7-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.1zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zm1.8 13h-3.6V9h3.6v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 1 .8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>
+      </a>
+      <a href="https://substack.com/@scifibymiguel" aria-label="Substack" title="Substack">
+        <svg viewBox="0 0 24 24"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+      </a>
+      <a href="https://open.spotify.com/artist/4FNw5wh6DGycdin5gnbZLw" aria-label="Spotify" title="Spotify">
+        <svg viewBox="0 0 24 24"><path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm5.5 17.3a.75.75 0 0 1-1 .25c-2.8-1.7-6.3-2-10.4-1.1a.75.75 0 1 1-.3-1.5c4.5-1 8.3-.6 11.5 1.3.4.2.5.7.2 1.1zm1.5-3.3a.94.94 0 0 1-1.3.3c-3.2-2-8-2.5-11.8-1.4a.94.94 0 1 1-.5-1.8c4.3-1.3 9.6-.7 13.3 1.6.4.3.6.9.3 1.3zm.1-3.5C15.3 8.2 8.7 8 5 9a1.12 1.12 0 1 1-.6-2.2c4.3-1.3 11.6-1 16 1.5a1.12 1.12 0 1 1-1.2 1.9z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@TheClassicalRemix" aria-label="YouTube — The Classical Remix" title="YouTube — The Classical Remix">
+        <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@ClassicReelTales" aria-label="YouTube — Classic Reel Tales" title="YouTube — Classic Reel Tales">
+        <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+      </a>
+      <a href="https://www.reddit.com/user/robotrossart/" aria-label="Reddit" title="Reddit">
+        <svg viewBox="0 0 24 24"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+      </a>
+      <a href="https://x.com/ursushoribilis" aria-label="X (Twitter)" title="X (Twitter)">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.622 5.906-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ CAREER & PROJECTS ============ -->
+<section>
+  <h2>Career &amp; Projects</h2>
+  <ul class="career">
+
+    <!-- BigBear with sub-projects, newest first -->
+    <li>
+      <span class="years">2016 — present</span>
+      <div>
+        <div class="role"><a href="https://bigbearengineering.com">BigBear Engineering GmbH</a></div>
+        <div class="org">Founder &amp; Engineering Consultant · Mettmenstetten, Zürich</div>
+        <div class="descr">Engineering consultancy spanning AI infrastructure and industrial digitalization.</div>
+
+        <ul class="subprojects">
+
+          <li>
+            <span class="sub-years">2024 — present</span>
+            <div>
+              <div class="sub-name">Robot Ross</div>
+              <div class="sub-descr">Cyber-physical AI art system: Huenit robot arm driven by Claude reasoning and locally hosted Apertus 7B, with a serial bridge to a G-code controller. Produces an EU AI Act Automated Technical File as a living wiki generated automatically from source code and operational log files.</div>
+              <div class="sub-links">
+                <a href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub">GitHub</a>
+                <a href="https://agentegra.com/robotross.html#atf">Project</a>
+                <a href="https://robotross.art">robotross.art</a>
+                <a href="https://api.robotross.art/atf">ATF demo</a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <span class="sub-years">2026 — present</span>
+            <div>
+              <div class="sub-name">Silicon Oracle</div>
+              <div class="sub-descr">On-device AI oracle for iOS. Local VLM (Qwen2-VL) captions each photo; Ministral 3B generates the oracle card reading. Choose a character persona — Shakespeare, Sherlock, Diva, or Manga — for a shareable 9:16 reading. Full on-device inference via MLX; no cloud dependency.</div>
+              <div class="sub-links">
+                <a href="https://so.flotilla.cc/CaseStudy.html">Case Study</a>
+                <a href="https://so.flotilla.cc/">App</a>
+                <a href="https://testflight.apple.com/join/rFC3K6kX">TestFlight</a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <span class="sub-years">2026 — present</span>
+            <div>
+              <div class="sub-name">Sovereign Mind</div>
+              <div class="sub-descr">On-device RAG knowledge platform for field and industrial teams. Cited answers from your own documents, fully offline via MLX (Apertus) — with a web admin console and a thumbs-down → FAQ improvement flywheel. iOS app plus web console.</div>
+              <div class="sub-links">
+                <a href="https://sm.flotilla.cc/">App</a>
+                <a href="https://testflight.apple.com/join/YT8Wr95K">TestFlight</a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <span class="sub-years">2026 — present</span>
+            <div>
+              <div class="sub-name">Canis</div>
+              <div class="sub-descr">On-device LLM interpretability: an expressive dog avatar that reads a model's disposition from J-space — so you can see when it is confident, unsure, refusing, or evasive before it speaks. Runs open-weight models (Apertus, Ministral) fully on iPhone. Built for the Oct 2026 interpretability hackathon.</div>
+              <div class="sub-links">
+                <a href="https://canis.flotilla.cc/">Project</a>
+                <a href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub">GitHub</a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <span class="sub-years">2026 — present</span>
+            <div>
+              <div class="sub-name">Apertus-Flotilla</div>
+              <div class="sub-descr">A QLoRA fine-tune of Apertus 8B trained on operational data from the Flotilla multi-agent fleet — 399 SFT examples, 51 DPO preference pairs, 50 held-out eval records. A 2×2 blind evaluation (base/LoRA × no-RAG/RAG, graded by Opus) shows BM25 retrieval on the fine-tuned weights reaching composite 2.62 versus 1.08 for the base model on in-corpus recall. Corpus and pre-trained GGUF adapter publicly released.</div>
+              <div class="sub-links">
+                <a href="https://github.com/UrsushoribilisMusic/flotilla-corpus">Corpus (GitHub)</a>
+                <a href="https://huggingface.co/ursushoribilis/apertus-flotilla">Adapter (HuggingFace)</a>
+                <a href="https://agentegra.com/flotilla_wiki.html">Knowledge Wiki</a>
+                <a href="https://agentegra.com/agentegra-flotilla-eval.html">Evaluation</a>
+              </div>
+            </div>
+          </li>
+
+                    <li>
+            <span class="sub-years">2026 — present</span>
+            <div>
+              <div class="sub-name">Classic Reel Tales</div>
+              <div class="sub-descr">Cinematic engine for authors. Manuscripts to 90-second vertical microdramas via Claude, Runway Gen-3, ElevenLabs, Suno, and FFmpeg. Built at the Runway API Hackathon, May 2026.</div>
+              <div class="sub-links">
+                <a href="https://github.com/UrsushoribilisMusic/reeltales-video-pipeline">GitHub</a>
+                <a href="https://reelatales.robotross.art">Project</a>
+                <a href="https://robotross.art">Shop</a>
+                <a href="https://www.youtube.com/@ClassicReelTales">YouTube</a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <span class="sub-years">2025 — present</span>
+            <div>
+              <div class="sub-name">Flotilla</div>
+              <div class="sub-descr">Open-source multi-agent coordination framework. Claude, Gemini, and open-weight models as a coordinated fleet with shared state, cross-model peer review, and circuit-breaker patterns.</div>
+              <div class="sub-links">
+                <a href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub">GitHub</a>
+                <a href="https://bigbearengineering.com">Project</a>
+                <a href="https://api.robotross.art/demo">Demo</a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <span class="sub-years">2025 — present</span>
+            <div>
+              <div class="sub-name">The Classical Remix</div>
+              <div class="sub-descr">AI-generated music brand reimagining classical works across genres — Celtic, vallenato, progressive house, EDM. Four albums on Spotify.</div>
+              <div class="sub-links">
+                <a href="https://www.youtube.com/@TheClassicalRemix">YouTube</a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <span class="sub-years">2024 — 2025</span>
+            <div>
+              <div class="sub-name">Klepsydra Technologies</div>
+              <div class="sub-descr">Program management for ESA certification of an embedded AI inference engine for high-performance imaging in space.</div>
+              <div class="sub-links">
+                <a href="https://klepsydra.com/">klepsydra.com</a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <span class="sub-years">2022 — 2024</span>
+            <div>
+              <div class="sub-name">OPC UA — Wire Harness Companion Spec (OPC 40570)</div>
+              <div class="sub-descr">Led the international working group that defined the OPC UA Companion Specification for the wire harness industry, collaborating with global automotive OEMs through ARENA2036 in Stuttgart.</div>
+              <div class="sub-links">
+                <a href="https://reference.opcfoundation.org/specs/OPC-40570/1">OPC Foundation</a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <span class="sub-years">2020 — 2022</span>
+            <div>
+              <div class="sub-name">Next2OEM — Audi · Komax</div>
+              <div class="sub-descr">At Audi, coordinated the data communication of all Komax wire-processing machines on the production floor — part of Audi's broader AI-in-production initiative.</div>
+              <div class="sub-links">
+                <a href="https://www.audi-mediacenter.com/en/photos/detail/audi-scales-up-deployment-of-artificial-intelligence-in-production-129316">Audi MediaCenter</a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <span class="sub-years">2020 — 2022</span>
+            <div>
+              <div class="sub-name">Axetris</div>
+              <div class="sub-descr">Evaluation and selection of a Manufacturing Execution System for Axetris's semiconductor production line.</div>
+            </div>
+          </li>
+
+          <li>
+            <span class="sub-years">2018 — present</span>
+            <div>
+              <div class="sub-name">Komax — Digital Marketplace</div>
+              <div class="sub-descr">Program-managing the digital platform for Komax, the global market leader in wire-processing machinery. Leading a team of fifteen integrating cloud services, predictive maintenance, and AI-powered analytics.</div>
+              <div class="sub-links">
+                <a href="https://www.komaxgroup.com/en/komax-smart-services">Komax Smart Services</a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <span class="sub-years">2017 — 2018</span>
+            <div>
+              <div class="sub-name">Kistler</div>
+              <div class="sub-descr">Integration of a Manufacturing Execution System with Kistler's sensor software for plastic injection moulding machines.</div>
+            </div>
+          </li>
+
+          <li>
+            <span class="sub-years">2016 — 2017</span>
+            <div>
+              <div class="sub-name">Weavr — Virtual Reality Startup</div>
+              <div class="sub-descr">Founded Weavr, a platform to create navigable VR environments used by cities such as St. Gallen and Basel, as well as companies seeking immersive experience showcases. Successful exit to BitForge AG.</div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </li>
+
+    <!-- Pre-BigBear career -->
+    <li>
+      <span class="years">2009 — 2016</span>
+      <div>
+        <div class="role">digitalSTROM AG</div>
+        <div class="org">Director of Research &amp; Development · Schlieren, Zürich</div>
+        <div class="descr">Directed R&amp;D for home automation. Managed a team of thirty engineers across embedded Linux (ARM/DSP), Azure cloud back-ends, and cross-platform mobile apps. Led the first cloud-based voice control features in the home automation sector.</div>
+      </div>
+    </li>
+
+    <li>
+      <span class="years">2005 — 2009</span>
+      <div>
+        <div class="role">BridgeCo Inc. (acquired by Microchip)</div>
+        <div class="org">Head of Digital Media Player Software Group · Dübendorf</div>
+        <div class="descr">Led software for networked audio ICs; managed twenty developers across Switzerland, India, and Eastern Europe. Initiated the project that brought Apple AirPlay into the customer portfolio.</div>
+      </div>
+    </li>
+
+    <li>
+      <span class="years">1996 — 2005</span>
+      <div>
+        <div class="role">ESEC SA (acquired by Besi)</div>
+        <div class="org">Group Manager &amp; Project Manager · Cham, Zug</div>
+        <div class="descr">Architected a three-tier loose-coupled architecture for semiconductor packaging machine control. Managed a CHF 5M R&amp;D project.</div>
+      </div>
+    </li>
+
+    <li>
+      <span class="years">1995 — 1996</span>
+      <div>
+        <div class="role">Institut für Robotik · ETH Zürich</div>
+        <div class="org">Academic Guest · Zürich</div>
+        <div class="descr">Robotics researcher on a nanorobotics project — graphical user interfaces for manipulating objects in the micro-world with a high-precision robot. Three peer-reviewed papers from this work.</div>
+      </div>
+    </li>
+
+  </ul>
+</section>
+
+<!-- ============ PUBLICATIONS ============ -->
+<section>
+  <h2>Publications</h2>
+  <ul class="pubs">
+
+    <li class="featured">
+      <span class="pub-year">2026</span>
+      <div>
+        <div class="pub-title">Flotilla: A Multi-Agent Coordination Architecture for Autonomous AI Fleets</div>
+        <div class="pub-venue">Submitted, FMAI Workshop @ ICML 2026 · OpenReview</div>
+      </div>
+    </li>
+
+    <li>
+      <span class="pub-year">2024</span>
+      <div>
+        <div class="pub-title">A Process Model for Deriving Asset Administration Shells for Inter-Company Collaboration — A Practical Approach</div>
+        <div class="pub-venue">Systems, Software and Services Process Improvement (Springer), pp. 217–229</div>
+      </div>
+    </li>
+
+    <li>
+      <span class="pub-year">2015</span>
+      <div>
+        <div class="pub-title">Using consumer behavior data to reduce energy consumption in smart homes</div>
+        <div class="pub-venue">IEEE International Conference on Machine Learning and Applications, Miami FL</div>
+      </div>
+    </li>
+
+    <li>
+      <span class="pub-year">2015</span>
+      <div>
+        <div class="pub-title">Energy saving in smart homes based on consumer behavior: A case study</div>
+        <div class="pub-venue">IEEE International Smart Cities Conference, Guadalajara</div>
+      </div>
+    </li>
+
+    <li>
+      <span class="pub-year">2012</span>
+      <div>
+        <div class="pub-title">Smart Energy Case Study</div>
+        <div class="pub-venue">ACM BuildSys Workshop on Embedded Sensing Systems for Energy-Efficiency in Buildings, Toronto</div>
+      </div>
+    </li>
+
+    <li>
+      <span class="pub-year">1997</span>
+      <div>
+        <div class="pub-title">Graphical user interface to manipulate objects in the micro world with a high precision Robot</div>
+        <div class="pub-venue">IEEE International Conference on Robotics and Automation, Albuquerque NM</div>
+      </div>
+    </li>
+
+    <li>
+      <span class="pub-year">1996</span>
+      <div>
+        <div class="pub-title">Field experiences on the implementation of a graphical user interface in microrobotics</div>
+        <div class="pub-venue">SPIE Photonics East, Boston MA</div>
+      </div>
+    </li>
+
+    <li>
+      <span class="pub-year">1996</span>
+      <div>
+        <div class="pub-title">Human Machine Interaction for manipulations in the microworld</div>
+        <div class="pub-venue">IEEE International Workshop on Robot and Human Communication, Tsukuba</div>
+      </div>
+    </li>
+
+    <li>
+      <span class="pub-year">1991</span>
+      <div>
+        <div class="pub-title">Development of a solid modeler using object oriented programming</div>
+        <div class="pub-venue">SCOOP West, San Jose CA</div>
+      </div>
+    </li>
+
+  </ul>
+</section>
+
+<!-- ============ WRITING ============ -->
+<section>
+  <h2>Writing</h2>
+  <div class="blog-cards">
+
+    <a class="blog-card" href="https://www.linkedin.com/newsletters/adventures-in-digitalization-6897831062689366016/">
+      <div class="pub">LinkedIn Newsletter</div>
+      <div class="title">Adventures in Digitalization</div>
+      <div class="descr">Notes from the field — Swiss industrial software, AI agents, and what actually ships.</div>
+    </a>
+
+    <a class="blog-card" href="https://substack.com/@scifibymiguel">
+      <div class="pub">Substack</div>
+      <div class="title">Sci-Fi by Miguel</div>
+      <div class="descr">Short stories, novella excerpts, and notes on writing science fiction in the AI era.</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ============ BOOKS ============ -->
+<section>
+  <h2>Books</h2>
+  <div class="book-grid">
+
+    <a class="book" href="https://www.amazon.com/dp/B0DRX1JWQM">
+      <div class="book-cover">
+        <img src="https://m.media-amazon.com/images/I/81-IHt7jAcL._SY466_.jpg" alt="The Lost Coins cover">
+      </div>
+      <div class="book-title">The Lost Coins</div>
+      <div class="book-blurb">A sci-fi thriller about a mafia group trying to steal a high-value cryptocurrency wallet.</div>
+      <div class="book-link">Amazon →</div>
+    </a>
+
+    <a class="book" href="https://www.amazon.com/power-social-media-Miguel-Rodriguez-ebook/dp/B006NOG5JC">
+      <div class="book-cover">
+        <img src="https://m.media-amazon.com/images/I/519ERig9-DL._SY385_.jpg" alt="The Power of Social Media cover">
+      </div>
+      <div class="book-title">The Power of Social Media</div>
+      <div class="book-blurb">A collection of articles on the psychology behind social media.</div>
+      <div class="book-link">Amazon →</div>
+    </a>
+
+    <div class="book">
+      <div class="book-cover">
+        <span class="placeholder">Internet Funniest E-Mails<br><em>Fouque Verlag, 1999</em></span>
+      </div>
+      <div class="book-title">Internet Funniest E-Mails</div>
+      <div class="book-blurb">Frankfurt: Fouque Literaturverlag, 1999. Curated from a website started during my ETH stay.</div>
+      <div class="book-link">ISBN 3-826-74358-X</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ MUSIC ============ -->
+<section>
+  <h2>Music · The Classical Remix</h2>
+  <div class="music-grid">
+
+    <div class="album">
+      <iframe src="https://open.spotify.com/embed/album/2EtOXH5igqAjLorlVL0oeI?utm_source=generator&theme=0" width="100%" height="152" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <div class="album-title">Classical Remix</div>
+      <a class="album-link" href="https://open.spotify.com/album/2EtOXH5igqAjLorlVL0oeI">Open on Spotify →</a>
+    </div>
+
+    <div class="album">
+      <iframe src="https://open.spotify.com/embed/album/79epnFpJUfS7Qin2DPONej?utm_source=generator&theme=0" width="100%" height="152" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <div class="album-title">The Celtic Mainstage</div>
+      <a class="album-link" href="https://open.spotify.com/album/79epnFpJUfS7Qin2DPONej">Open on Spotify →</a>
+    </div>
+
+    <div class="album">
+      <iframe src="https://open.spotify.com/embed/album/59FdrT4WxcbhEw3pKTqAbt?utm_source=generator&theme=0" width="100%" height="152" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <div class="album-title">Sunlit Classics</div>
+      <a class="album-link" href="https://open.spotify.com/album/59FdrT4WxcbhEw3pKTqAbt">Open on Spotify →</a>
+    </div>
+
+    <div class="album">
+      <iframe src="https://open.spotify.com/embed/album/6hp75gf7KuuniVH5Da5Z0g?utm_source=generator&theme=0" width="100%" height="152" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <div class="album-title">Acordeón Clásico</div>
+      <a class="album-link" href="https://open.spotify.com/album/6hp75gf7KuuniVH5Da5Z0g">Open on Spotify →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ EDUCATION ============ -->
+<section>
+  <h2>Education</h2>
+  <ul class="education">
+    <li>
+      <span class="years">1989 — 1991</span>
+      <div>
+        <div class="degree">M.Sc. Mechanical Engineering</div>
+        <div class="school">Texas Tech University, Lubbock TX</div>
+      </div>
+    </li>
+    <li>
+      <span class="years">1985 — 1989</span>
+      <div>
+        <div class="degree">B.Sc. Mechanical Engineering</div>
+        <div class="school">Universidad de las Américas, Puebla</div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<footer>
+  © 2026 Miguel Rodriguez
+</footer>
+
+</div>
+</body>
+</html>

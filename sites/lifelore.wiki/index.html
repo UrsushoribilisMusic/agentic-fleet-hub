@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lifelore — Your Life as Wikipedia</title>
+<meta name="description" content="A privacy-first personal knowledge base that runs entirely on your iPhone. Your photos, places, and notes — searchable, browsable, and yours alone. Coming 2026.">
+<meta property="og:title" content="Lifelore — Your Life as Wikipedia">
+<meta property="og:description" content="A private knowledge base built entirely on your iPhone. No cloud. No account. Coming 2026.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f3;
+  --bg-alt: #f0ece2;
+  --bg-dark: #0e1c1a;
+  --ink: #161616;
+  --ink-soft: #4a4a4a;
+  --ink-muted: #8a8a8a;
+  --ink-inverse: #f0ece2;
+  --accent: #b8392e;        /* Swiss red — but warmer, softer */
+  --accent-deep: #8c2a22;
+  --teal: #0d6b61;
+  --rule: #d8d2c4;
+  --serif: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: 'IBM Plex Mono', 'SF Mono', Menlo, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.15s;
+}
+a:hover { border-bottom-color: var(--accent); }
+
+/* ---- Nav ---- */
+nav.top {
+  padding: 24px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.brand {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+}
+
+.brand .cross {
+  width: 22px;
+  height: 22px;
+  background: var(--accent);
+  position: relative;
+  border-radius: 2px;
+}
+.brand .cross::before,
+.brand .cross::after {
+  content: '';
+  position: absolute;
+  background: var(--bg);
+}
+.brand .cross::before {
+  top: 50%;
+  left: 22%;
+  right: 22%;
+  height: 18%;
+  transform: translateY(-50%);
+}
+.brand .cross::after {
+  left: 50%;
+  top: 22%;
+  bottom: 22%;
+  width: 18%;
+  transform: translateX(-50%);
+}
+
+.nav-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* ---- Hero ---- */
+.hero {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 80px 32px 100px;
+  text-align: center;
+  position: relative;
+}
+
+.hero .eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 28px;
+  font-weight: 500;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-bottom: 32px;
+  font-variation-settings: "opsz" 144;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-tagline {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(20px, 2.6vw, 26px);
+  line-height: 1.45;
+  color: var(--ink-soft);
+  max-width: 640px;
+  margin: 0 auto 48px;
+  font-weight: 400;
+}
+
+.coming {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid var(--ink);
+  border-radius: 100px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* ---- Pitch section ---- */
+.pitch {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 32px 120px;
+}
+
+.pitch-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 64px;
+}
+
+.pitch-block h2 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  color: var(--ink);
+}
+
+.pitch-block h2 .underline {
+  background: linear-gradient(transparent 60%, var(--accent) 60%, var(--accent) 90%, transparent 90%);
+  padding: 0 2px;
+}
+
+.pitch-block p {
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.pitch-block p + p { margin-top: 16px; }
+
+.pitch-quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.5;
+  color: var(--ink);
+  padding: 24px 0 24px 28px;
+  border-left: 3px solid var(--accent);
+  margin: 24px 0;
+}
+
+/* ---- Tech credibility section (dark) ---- */
+.tech {
+  background: var(--bg-dark);
+  color: var(--ink-inverse);
+  padding: 100px 32px;
+}
+
+.tech-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.tech .label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.tech h2 {
+  font-family: var(--serif);
+  font-size: clamp(32px, 5vw, 44px);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+  color: var(--ink-inverse);
+}
+
+.tech p {
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.6;
+  color: rgba(240, 236, 226, 0.78);
+  margin-bottom: 20px;
+}
+
+.tech-pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(240, 236, 226, 0.15);
+}
+
+.pillar {
+  font-family: var(--mono);
+}
+
+.pillar .num {
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.pillar .text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(240, 236, 226, 0.65);
+  letter-spacing: 0.02em;
+}
+
+/* ---- Capabilities (what it does) ---- */
+.capabilities {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 120px 32px;
+}
+
+.cap-header {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.cap-title {
+  font-family: var(--serif);
+  font-size: clamp(32px, 5vw, 44px);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 56px;
+  max-width: 600px;
+}
+
+.cap-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.cap-list li {
+  padding: 32px 0;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.cap-list li:nth-child(odd) {
+  padding-right: 32px;
+  border-right: 1px solid var(--rule);
+}
+.cap-list li:nth-child(even) {
+  padding-left: 32px;
+}
+
+.cap-num {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 500;
+  padding-top: 4px;
+}
+
+.cap-content h3 {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.cap-content p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+/* ---- CTA ---- */
+.cta {
+  background: var(--bg-alt);
+  padding: 100px 32px;
+  text-align: center;
+}
+
+.cta-inner {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.cta h2 {
+  font-family: var(--serif);
+  font-size: clamp(32px, 5vw, 44px);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.cta p {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-bottom: 36px;
+}
+
+.email-form {
+  display: flex;
+  gap: 8px;
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+.email-form input {
+  flex: 1;
+  padding: 14px 18px;
+  border: 1px solid var(--rule);
+  background: var(--bg);
+  font-family: var(--sans);
+  font-size: 15px;
+  color: var(--ink);
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.email-form input:focus {
+  border-color: var(--accent);
+}
+
+.email-form button {
+  padding: 14px 24px;
+  background: var(--ink);
+  color: var(--bg);
+  border: none;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.15s;
+}
+
+.email-form button:hover {
+  background: var(--accent);
+}
+
+.cta-fine {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+  margin-top: 20px;
+  font-style: normal;
+}
+
+/* ---- Footer ---- */
+footer {
+  padding: 48px 32px;
+  border-top: 1px solid var(--rule);
+  background: var(--bg);
+}
+
+.footer-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.footer-inner a {
+  color: var(--ink-muted);
+  border-bottom: none;
+}
+.footer-inner a:hover { color: var(--accent); }
+
+/* ---- Responsive ---- */
+@media (max-width: 720px) {
+  .cap-list {
+    grid-template-columns: 1fr;
+  }
+  .cap-list li:nth-child(odd) {
+    padding-right: 0;
+    border-right: none;
+  }
+  .cap-list li:nth-child(even) {
+    padding-left: 0;
+  }
+  .email-form {
+    flex-direction: column;
+  }
+  .hero { padding: 56px 24px 72px; }
+  .pitch { padding: 0 24px 80px; }
+  .tech, .cta, .capabilities { padding-left: 24px; padding-right: 24px; }
+  .capabilities { padding-top: 80px; padding-bottom: 80px; }
+  .tech, .cta { padding-top: 72px; padding-bottom: 72px; }
+}
+
+/* Entrance */
+.hero > * { animation: fadeUp 0.7s ease-out backwards; }
+.hero .eyebrow { animation-delay: 0.1s; }
+.hero h1 { animation-delay: 0.2s; }
+.hero-tagline { animation-delay: 0.35s; }
+.hero .coming { animation-delay: 0.5s; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero > * { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="brand">
+    <span class="cross"></span>
+    Lifelore
+  </div>
+  <span class="nav-tag">Made in Switzerland</span>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">A private knowledge base for iPhone</div>
+  <h1>Your life as <em>Wikipedia.</em></h1>
+  <p class="hero-tagline">Every photo, place, and person you care about — woven into a personal wiki that lives only on your phone.</p>
+  <div class="coming">Coming&nbsp;2026 · TestFlight Open</div>
+</header>
+
+<section class="pitch">
+  <div class="pitch-grid">
+
+    <div class="pitch-block">
+      <h2>You already have <span class="underline">the data of a lifetime</span> in your pocket.</h2>
+      <p>Tens of thousands of photos. Years of places. Conversations, calendars, contacts, screenshots, scraps. Most of it never gets looked at again. None of it is connected.</p>
+      <p>Lifelore reads what is already on your phone — privately, locally — and turns it into something you can actually explore. A wiki of your own life, with articles for the places you have been, the people you know, and the moments that mattered.</p>
+    </div>
+
+    <div class="pitch-block">
+      <h2>And nothing leaves the device.</h2>
+      <p>Most apps that promise to organize your life do it by uploading your life. Lifelore does the opposite. Vision and language models run directly on Apple Silicon. Your photos are never sent to a server. There is no account. There is no cloud. There is no one — including us — who can see what is in there.</p>
+      <p class="pitch-quote">"It is the first time a piece of software has known me well without anyone else knowing anything about me."</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="tech">
+  <div class="tech-inner">
+    <div class="label">The technical bit, briefly</div>
+    <h2>Running a real language model on your phone is harder than it sounds. That is the entire point.</h2>
+    <p>Lifelore runs full vision-language inference on the iPhone's neural engine. Photos are understood — not just tagged. Documents are read. Places get histories. Concepts emerge from the texture of your own data, not from a generic feed.</p>
+    <p>The result is software that gets more useful the longer you use it, because it is learning from you and only from you.</p>
+
+    <div class="tech-pillars">
+      <div class="pillar">
+        <span class="num">0</span>
+        <span class="text">Bytes leave your device</span>
+      </div>
+      <div class="pillar">
+        <span class="num">100%</span>
+        <span class="text">On-device inference, Apple Silicon</span>
+      </div>
+      <div class="pillar">
+        <span class="num">No</span>
+        <span class="text">Account, signup, or cloud</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="capabilities">
+  <div class="cap-header">What it does</div>
+  <h2 class="cap-title">A wiki you did not have to write.</h2>
+  <ul class="cap-list">
+    <li>
+      <span class="cap-num">01</span>
+      <div class="cap-content">
+        <h3>Places</h3>
+        <p>Every city, neighborhood, and venue you have visited, organized as a tree from country down to the corner café. With photos, dates, and what you did there.</p>
+      </div>
+    </li>
+    <li>
+      <span class="cap-num">02</span>
+      <div class="cap-content">
+        <h3>People</h3>
+        <p>Faces clustered automatically. You name the ones that matter, and Lifelore writes their article — first appearance, shared trips, mutual context.</p>
+      </div>
+    </li>
+    <li>
+      <span class="cap-num">03</span>
+      <div class="cap-content">
+        <h3>Trips &amp; timelines</h3>
+        <p>Travels reconstructed from location and timestamp metadata. A continuous diary you never had to keep.</p>
+      </div>
+    </li>
+    <li>
+      <span class="cap-num">04</span>
+      <div class="cap-content">
+        <h3>Concept graph</h3>
+        <p>The themes of your life — work, family, music, food, places you keep returning to — visualized as a force-directed graph you can wander.</p>
+      </div>
+    </li>
+    <li>
+      <span class="cap-num">05</span>
+      <div class="cap-content">
+        <h3>Documents</h3>
+        <p>PDFs and notes are ingested, summarized, and cross-linked to the rest of your knowledge base. The lease you signed in 2019 lives next to photos from the apartment.</p>
+      </div>
+    </li>
+    <li>
+      <span class="cap-num">06</span>
+      <div class="cap-content">
+        <h3>This week</h3>
+        <p>A homepage that surfaces what was happening one year ago, five years ago, ten — quietly, without pushing notifications.</p>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<section class="cta">
+  <div class="cta-inner">
+    <h2>Be among the first.</h2>
+    <p>Lifelore is in TestFlight. Leave your email and we will send you an invite when the next build is ready.</p>
+    <form class="email-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you. We will be in touch.');">
+      <input type="email" placeholder="your@email.com" required aria-label="Email address">
+      <button type="submit">Request invite</button>
+    </form>
+    <p class="cta-fine">We will use this address only to send TestFlight invites. No newsletter, no tracking.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="https://miguelrodriguezauthor.com">By Miguel Rodriguez</a> · BigBear Engineering GmbH
+    </div>
+    <div>
+      © 2026 · Mettmenstetten, Switzerland
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
