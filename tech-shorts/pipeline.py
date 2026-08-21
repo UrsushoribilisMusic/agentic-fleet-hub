@@ -243,6 +243,7 @@ def assemble_video(
     vo_mp3: Path | None,
     out: Path,
     workdir: Path,
+    trim_s: float = 0.0,
 ) -> None:
     w = int(ffprobe(src, "width"))
     h = int(ffprobe(src, "height"))
@@ -306,10 +307,22 @@ def assemble_video(
         str(outro_mp4),
     )
 
-    # Normalize source
+    # Normalize source (optionally trim NotebookLM end-card)
     src_norm = workdir / "src.mp4"
+    trim_args: list[str] = []
+    if trim_s > 0:
+        dur_res = subprocess.run(
+            ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+             "-of", "default=nk=1:nw=1", str(src)],
+            check=True, capture_output=True, text=True,
+        )
+        src_dur = float(dur_res.stdout.strip())
+        keep = max(0.0, src_dur - trim_s)
+        trim_args = ["-t", f"{keep:.3f}"]
+        print(f"  trimming {trim_s}s end-card (keep {keep:.1f}s of {src_dur:.1f}s)")
     run_ffmpeg(
         "-i", str(src),
+        *trim_args,
         "-vf", f"scale={w}:{h}", "-r", str(fps),
         "-c:v", "libx264", "-pix_fmt", "yuv420p",
         "-c:a", "aac", "-ar", "44100", "-ac", "1",
@@ -369,6 +382,7 @@ def stage_build(job: dict, dry_run: bool) -> None:
         if existing_vo and Path(HERE / existing_vo).exists():
             vo_path = HERE / existing_vo
 
+    trim_s = float(job.get("trim_s", 0))
     slug = job["slug"]
     final_short = HERE / f"{slug}_short_FINAL.mp4"
     final_long = HERE / f"{slug}_long_FINAL.mp4"
@@ -381,7 +395,7 @@ def stage_build(job: dict, dry_run: bool) -> None:
         outro = build_outro_card(job, workdir, ws, hs)
         print(f"  cards rendered {ws}x{hs}")
         (workdir / "short").mkdir()
-        assemble_video(src_short, hook_a, hook_b, outro, vo_path, final_short, workdir / "short")
+        assemble_video(src_short, hook_a, hook_b, outro, vo_path, final_short, workdir / "short", trim_s)
 
     with tempfile.TemporaryDirectory(prefix="ts_build_long_") as tmp:
         workdir = Path(tmp)
@@ -391,7 +405,7 @@ def stage_build(job: dict, dry_run: bool) -> None:
         outro = build_outro_card(job, workdir, wl, hl)
         print(f"  cards rendered {wl}x{hl}")
         (workdir / "long").mkdir()
-        assemble_video(src_long, hook_a, hook_b, outro, vo_path, final_long, workdir / "long")
+        assemble_video(src_long, hook_a, hook_b, outro, vo_path, final_long, workdir / "long", trim_s)
 
     update_job_field(
         job_id,
@@ -547,10 +561,10 @@ def cmd_set_sources(args: argparse.Namespace) -> None:
     job = find_job(data, args.job_id)
     if job is None:
         sys.exit(f"Job not found: {args.job_id}")
-    update_job_field(
-        args.job_id,
-        assets={**job["assets"], "raw_short_mp4": args.short, "raw_long_mp4": args.long},
-    )
+    updates: dict = {"assets": {**job["assets"], "raw_short_mp4": args.short, "raw_long_mp4": args.long}}
+    if args.trim is not None:
+        updates["trim_s"] = float(args.trim)
+    update_job_field(args.job_id, **updates)
     print(f"Sources set for {args.job_id}")
 
 
@@ -634,6 +648,8 @@ def main() -> None:
     p_src.add_argument("job_id")
     p_src.add_argument("--short", required=True, help="Path to short (vertical) NotebookLM mp4")
     p_src.add_argument("--long", required=True, help="Path to long (landscape) NotebookLM mp4")
+    p_src.add_argument("--trim", type=float, default=None, metavar="SECONDS",
+                       help="Seconds to trim from end of each source (drops NotebookLM end-card)")
 
     # set-copy
     p_copy = sub.add_parser("set-copy", help="Set hook/outro copy + YouTube/X metadata")
