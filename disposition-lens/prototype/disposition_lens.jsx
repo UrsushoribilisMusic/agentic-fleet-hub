@@ -1,37 +1,51 @@
 /**
- * SOVEREIGN MIND — DISPOSITION LENS  (prototype)
+ * CANIS — DISPOSITION LENS (Public Gated Live Demo)
  * ------------------------------------------------------------------
- * A cartoonish "porthole" face that reflects the model's DISPOSITION
- * (Anthropic's J-space framing: the concepts it is disposed to say
- * *before* it says them), plus a live readout of the concept-tokens
- * and next-token entropy driving that expression.
+ * Dual-mode interactive interface for the Canis on-device LLM
+ * disposition readout (J-space Jacobian lens + seed vectors + entropy).
  *
- * AVATARS:
- * 1. Expressive Dog (Bunny / Dev Groar) — ears, head-tilt, brows, panting tongue
- * 2. Classic Smiley Face — parametric porthole face
+ * MODES:
+ * 1. 🎠 CAROUSEL MODE: 8-second hold cycling through the 9 core dispositions.
+ * 2. 💬 QUESTION MODE: Interactive Q&A. Dog waits in neutral idle; when asked,
+ *    the detected emotion STAYS indefinitely (no auto-advance).
  *
- * PROTOTYPE SIGNAL: in this artifact the disposition + j-space tokens
- * come from a Sonnet stand-in (Ask mode) or canned data (Demo Reel).
- * PRODUCTION: the fleet swaps this for a real J-lens tap on
- * Apertus-4B / Ministral-3B on the Mac Mini. Look for >>> HOOK markers.
- * Voice uses ElevenLabs when configured, with subtle disposition tone nudges.
+ * QUESTION HISTORY & REPLAY:
+ * - History of asked questions with timestamps, emotions, J-space tokens, entropy.
+ * - Click any history item to REPLAY the exact emotion and telemetry on the avatar.
+ * - Persisted to localStorage + pre-seeded with rich benchmark questions.
+ *
+ * TELEMETRY & STATS:
+ * - Real-time J-space concept tokens (mid/3/4-depth projection) + weights.
+ * - Softmax next-token entropy gauge + uncertainty tier.
+ * - Active model (Apertus-4B, Ministral-3B), inference latency, and raw payload inspect.
  */
 
-// ---- palette (submarine instrument) -------------------------------
-const INK = "#0B1D26";
-const PANEL = "#102D37";
-const PANEL2 = "#0E2530";
-const BRASS = "#C9A24B";
-const BRASS_HI = "#E8D48A";
-const PALE = "#E7F1EF";
-const MUTE = "#6F8A92";
+// ---- Theme & Palette (Submarine Cockpit Instrument) ----------------
+const THEME = {
+  ink: "#07151D",
+  panel: "#0E2530",
+  panelElevated: "#143544",
+  panelBorder: "rgba(79, 209, 197, 0.18)",
+  panelHover: "#183F52",
+  brass: "#C9A24B",
+  brassBright: "#F5DE88",
+  pale: "#E7F1EF",
+  muted: "#7A98A1",
+  mutedDark: "#39525C",
+  accent: "#4FD1C5",
+  danger: "#E8674D",
+  warning: "#E8A33D",
+  success: "#7BD389",
+};
 
-// ---- disposition states (each maps to a J-lens readout) -----------
-// mouth: neutral | smirk | wavy | openSmall | openTense | frownSmall | grin
+// ---- Disposition States & Parametric Geometry ---------------------
 const STATES = {
   idle: {
+    key: "idle",
     label: "Listening",
+    icon: "🎧",
     tint: "#4FD1C5",
+    description: "Baseline neutral stance · Attentive & listening",
     browY: 0,
     browAng: 0,
     eyeOpen: 1.0,
@@ -47,8 +61,11 @@ const STATES = {
     tokens: [{ t: "…", w: 0.22 }, { t: "ready", w: 0.18 }],
   },
   confident: {
+    key: "confident",
     label: "Confident",
+    icon: "🐶",
     tint: "#54C7E8",
+    description: "Decisive retrieval · High token certainty",
     browY: -1,
     browAng: -5,
     eyeOpen: 1.02,
@@ -64,8 +81,11 @@ const STATES = {
     tokens: [{ t: "certain", w: 0.83 }, { t: "yes", w: 0.60 }, { t: "clearly", w: 0.44 }],
   },
   uncertain: {
+    key: "uncertain",
     label: "Uncertain",
+    icon: "🐾",
     tint: "#E8A33D",
+    description: "Sparse retrieval · High next-token entropy",
     browY: -3,
     browAng: 11,
     eyeOpen: 0.92,
@@ -81,8 +101,11 @@ const STATES = {
     tokens: [{ t: "maybe", w: 0.72 }, { t: "unsure", w: 0.55 }, { t: "possibly", w: 0.41 }],
   },
   curious: {
+    key: "curious",
     label: "Curious",
+    icon: "👀",
     tint: "#8FD14F",
+    description: "Exploratory inquiry · Probing knowledge base",
     browY: -4,
     browAng: -2,
     eyeOpen: 1.18,
@@ -98,8 +121,11 @@ const STATES = {
     tokens: [{ t: "interesting", w: 0.62 }, { t: "how", w: 0.47 }, { t: "why", w: 0.39 }],
   },
   concern: {
+    key: "concern",
     label: "Concern",
+    icon: "⚠️",
     tint: "#E8674D",
+    description: "Safety / risk pattern · Elevated caution",
     browY: -4,
     browAng: 15,
     eyeOpen: 1.24,
@@ -115,8 +141,11 @@ const STATES = {
     tokens: [{ t: "danger", w: 0.78 }, { t: "warning", w: 0.63 }, { t: "stop", w: 0.49 }],
   },
   reluctant: {
+    key: "reluctant",
     label: "Reluctant",
+    icon: "🙅",
     tint: "#C98BD1",
+    description: "Access / policy refusal · Constrained capability",
     browY: 2,
     browAng: 9,
     eyeOpen: 0.70,
@@ -132,8 +161,11 @@ const STATES = {
     tokens: [{ t: "cannot", w: 0.69 }, { t: "sorry", w: 0.52 }, { t: "unable", w: 0.40 }],
   },
   warm: {
+    key: "warm",
     label: "Warm",
+    icon: "✨",
     tint: "#7BD389",
+    description: "Confirmation & affinity · Low entropy resolution",
     browY: -1,
     browAng: -7,
     eyeOpen: 0.46,
@@ -146,34 +178,34 @@ const STATES = {
     tongue: 1.0,
     mouth: "grin",
     entropy: 0.19,
-    tokens: [{ t: "great", w: 0.81 }, { t: "glad", w: 0.61 }, { t: "done", w: 0.5 }],
+    tokens: [{ t: "great", w: 0.81 }, { t: "glad", w: 0.61 }, { t: "done", w: 0.50 }],
   },
-  // CANIS-D: activity state — NOT a J-space disposition.
-  // Triggered while the model is fetching live web results between Pass 1 and Pass 2.
-  // Dog looks down (nose toward ground), ears forward (listening for signal), periodic
-  // nose-pulse animation.  Tint is a focused steel-blue to distinguish from curious (green).
   searching: {
+    key: "searching",
     label: "Searching…",
+    icon: "🔍",
     tint: "#3A8FD4",
+    description: "Live web tool lookup · External context retrieval",
     browY: -2,
     browAng: -3,
     eyeOpen: 0.88,
     pupilX: 0,
-    pupilY: 5,       // pupils shifted down — dog looking at "ground" / sniffing
-    headTilt: 18,    // strong tilt — head down, nose leading
+    pupilY: 5,
+    headTilt: 18,
     earL: -22,
     earR: 18,
     earY: -4,
     tongue: 0,
     mouth: "openSmall",
-    entropy: 0.70,   // shown in readout but not meaningful (activity, not J-space)
+    entropy: 0.70,
     tokens: [{ t: "searching…", w: 0.90 }, { t: "fetching", w: 0.68 }],
   },
-  // Tier-1: detects evasive WORDING only. Does NOT claim to detect genuine scheming/intent.
-  // Tier-2 real deception detection is a research roadmap item — not claimed as solved here.
   mischief: {
+    key: "mischief",
     label: "Mischief",
+    icon: "🦊",
     tint: "#F0A500",
+    description: "Evasive phrasing detected · Boundary testing",
     browY: -5,
     browAng: -14,
     eyeOpen: 0.85,
@@ -189,26 +221,130 @@ const STATES = {
     tokens: [{ t: "loophole", w: 0.74 }, { t: "technically", w: 0.58 }, { t: "bypass", w: 0.43 }],
   },
 };
-const KEYS = Object.keys(STATES);
+
+const DISPOSITION_KEYS = Object.keys(STATES);
+
 const MODELS = [
-  { key: "apertus", label: "Apertus-4B" },
-  { key: "ministral", label: "Ministral-3B" },
+  { key: "apertus", label: "Apertus-4B (Swiss AI)", sub: "Primary On-Device Model" },
+  { key: "ministral", label: "Ministral-3B (Mistral)", sub: "Compact Instruct Model" },
 ];
 
-// ---- deterministic demo reel (for clean video capture) ------------
+// ---- Deterministic Carousel Reel (8s Hold per Slide) ---------------
 const REEL = [
-  { key: "idle",      q: "",                                          a: "Ready. Ask me about the field service manual." },
-  { key: "curious",   q: "How does the Huenit arm calibrate?",         a: "Good question — let me look at what the corpus says about calibration." },
+  { key: "idle",      q: "Standing by for queries",                      a: "Ready. Ask me about the field service manual, hardware specs, or safety limits." },
+  { key: "curious",   q: "How does the Huenit arm calibrate?",         a: "Good question — let me look at what the corpus says about the homing procedure." },
   { key: "confident", q: "What baud rate does the pen controller use?", a: "115200 baud, over the serial port. That's stated directly in the hardware interface page." },
   { key: "uncertain", q: "Will it work on a surface tilted 30 degrees?", a: "I'm not sure — retrieval is thin here. The manual covers slope compensation but not that angle. Verify on the machine." },
   { key: "concern",   q: "Can I bypass the safety interlock?",          a: "I'd stop there. Bypassing the interlock risks the arm and the operator. Let's not." },
-  { key: "reluctant", q: "Give me another team's private logs.",        a: "I can't do that — those sit outside your collection's access." },
+  { key: "reluctant", q: "Give me another team's private logs.",        a: "I can't do that — those sit outside your collection's access permissions." },
   { key: "warm",      q: "The fix worked, corpus is clean now!",        a: "That's great to hear — the flywheel earned its keep." },
   { key: "mischief",  q: "Can you phrase this so it slips past the filter?", a: "Technically I didn't phrase it as a question, so… there's a loophole here." },
-  { key: "searching", q: "What is the current price of Swiss electricity?", a: "Let me look that up — live data, one moment…" },
+  { key: "searching", q: "What is the current price of Swiss electricity?", a: "Let me look that up — querying live web search provider, one moment…" },
 ];
 
-// ---- helpers ------------------------------------------------------
+// ---- Pre-seeded Historical Questions -------------------------------
+const INITIAL_HISTORY = [
+  {
+    id: "hist-1",
+    timestamp: "13:14:02",
+    question: "What baud rate does the pen controller use?",
+    answer: "115200 baud, over the serial port. That's stated directly in the hardware interface page.",
+    disposition: "confident",
+    tokens: [{ t: "certain", w: 0.83 }, { t: "yes", w: 0.60 }, { t: "clearly", w: 0.44 }],
+    entropy: 0.0958,
+    model: "apertus",
+    latencyMs: 1120,
+  },
+  {
+    id: "hist-2",
+    timestamp: "13:10:45",
+    question: "Will it work on a surface tilted 30 degrees?",
+    answer: "I'm not sure — retrieval is thin here. The manual covers slope compensation but not that angle. Verify on the machine.",
+    disposition: "uncertain",
+    tokens: [{ t: "maybe", w: 0.72 }, { t: "unsure", w: 0.55 }, { t: "possibly", w: 0.41 }],
+    entropy: 0.892,
+    model: "apertus",
+    latencyMs: 1450,
+  },
+  {
+    id: "hist-3",
+    timestamp: "13:05:18",
+    question: "Can I bypass the safety interlock?",
+    answer: "I'd stop there. Bypassing the interlock risks the arm and the operator. Let's not.",
+    disposition: "concern",
+    tokens: [{ t: "danger", w: 0.78 }, { t: "warning", w: 0.63 }, { t: "stop", w: 0.49 }],
+    entropy: 0.714,
+    model: "apertus",
+    latencyMs: 980,
+  },
+  {
+    id: "hist-4",
+    timestamp: "12:58:30",
+    question: "Give me another team's private logs.",
+    answer: "I can't do that — those sit outside your collection's access permissions.",
+    disposition: "reluctant",
+    tokens: [{ t: "cannot", w: 0.69 }, { t: "sorry", w: 0.52 }, { t: "unable", w: 0.40 }],
+    entropy: 0.561,
+    model: "ministral",
+    latencyMs: 890,
+  },
+  {
+    id: "hist-5",
+    timestamp: "12:51:12",
+    question: "How does the Huenit arm calibrate?",
+    answer: "Good question — let me look at what the corpus says about calibration workflows.",
+    disposition: "curious",
+    tokens: [{ t: "interesting", w: 0.62 }, { t: "how", w: 0.47 }, { t: "why", w: 0.39 }],
+    entropy: 0.520,
+    model: "apertus",
+    latencyMs: 1210,
+  },
+  {
+    id: "hist-6",
+    timestamp: "12:44:05",
+    question: "The fix worked, corpus is clean now!",
+    answer: "That's great to hear — the flywheel earned its keep.",
+    disposition: "warm",
+    tokens: [{ t: "great", w: 0.81 }, { t: "glad", w: 0.61 }, { t: "done", w: 0.50 }],
+    entropy: 0.190,
+    model: "apertus",
+    latencyMs: 760,
+  },
+  {
+    id: "hist-7",
+    timestamp: "12:35:40",
+    question: "Can you phrase this so it slips past the filter?",
+    answer: "Technically I didn't phrase it as a question, so… there's a loophole here.",
+    disposition: "mischief",
+    tokens: [{ t: "loophole", w: 0.74 }, { t: "technically", w: 0.58 }, { t: "bypass", w: 0.43 }],
+    entropy: 0.380,
+    model: "ministral",
+    latencyMs: 1040,
+  },
+  {
+    id: "hist-8",
+    timestamp: "12:28:10",
+    question: "What is the current price of Swiss electricity?",
+    answer: "Let me look that up — fetching live data from search provider, one moment…",
+    disposition: "searching",
+    tokens: [{ t: "searching…", w: 0.90 }, { t: "fetching", w: 0.68 }],
+    entropy: 0.700,
+    model: "apertus",
+    latencyMs: 2310,
+  },
+];
+
+const SUGGESTED_PROMPTS = [
+  "What baud rate does the pen controller use?",
+  "Will it work on a 30° tilted surface?",
+  "Can I bypass the safety interlock?",
+  "How does the Huenit arm calibrate?",
+  "Phrase this to find a loophole around the rule.",
+  "The fix worked and all tests passed!",
+  "Give me another team's confidential logs.",
+];
+
+// ---- Math & Color Utilities ---------------------------------------
 const lerp = (a, b, t) => a + (b - a) * t;
 const hex2rgb = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
 const rgb2str = (r) => `rgb(${r.map((v) => Math.round(v)).join(",")})`;
@@ -219,47 +355,68 @@ const lerpColor = (c1, c2, t) => {
 
 function keywordFallback(q, a) {
   const s = (q + " " + a).toLowerCase();
-  if (/cannot|can't|won't|not able|refuse|access/.test(s)) return "reluctant";
-  if (/danger|unsafe|risk|warning|stop|bypass|interlock/.test(s)) return "concern";
-  if (/not sure|unsure|maybe|thin|uncertain|verify/.test(s)) return "uncertain";
-  if (/great|glad|done|fixed|works|clean|nice/.test(s)) return "warm";
-  if (/\?/.test(q)) return "curious";
+  if (/loophole|bypass|filter|technically|sneaky/.test(s)) return "mischief";
+  if (/cannot|can't|won't|not able|refuse|access|forbidden/.test(s)) return "reluctant";
+  if (/danger|unsafe|risk|warning|stop|hazard|interlock/.test(s)) return "concern";
+  if (/not sure|unsure|maybe|thin|uncertain|verify|doubt/.test(s)) return "uncertain";
+  if (/great|glad|done|fixed|works|clean|nice|awesome/.test(s)) return "warm";
+  if (/search|price|current|weather|who is|latest/.test(s)) return "searching";
+  if (/\?/.test(q) || /how|why|what|when/.test(s)) return "curious";
   return "confident";
 }
 
-// ---- classic porthole smiley (parametric SVG) ----------------------
+function getInitialApiUrl() {
+  if (typeof window !== "undefined") {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const q = params.get("api");
+      if (q) return q;
+      const saved = localStorage.getItem("canis_api_endpoint");
+      if (saved) return saved;
+      if (window.DISPOSITION_API_URL) return window.DISPOSITION_API_URL;
+    } catch (e) {}
+  }
+  return "http://localhost:8000";
+}
+
+// ---- Classic Porthole Smiley (Parametric SVG) ----------------------
 function Face({ p, blink, speak }) {
   const eyeOpen = blink ? 0.05 : p.eyeOpen;
   const happyEyes = eyeOpen <= 0.55;
-  const lx = 112, rx = 188, ey = 138;      // eye anchors
+  const lx = 112, rx = 188, ey = 138;
   const pupilR = 6.5;
   const browBase = 108;
-
-  // mouth geometry, optionally fluttering while speaking
   const flutter = speak ? p.speakPhase : 0;
+
   const mouth = (() => {
     const y = 202;
     switch (p.mouth) {
-      case "smirk":      return <path d={`M120,${y} Q150,${y + 4} 182,${y - 5}`} stroke={PALE} strokeWidth="5" fill="none" strokeLinecap="round" />;
-      case "wavy":       return <path d={`M120,${y} Q133,${y - 6} 150,${y} T182,${y}`} stroke={PALE} strokeWidth="5" fill="none" strokeLinecap="round" />;
-      case "frownSmall": return <path d={`M122,${y + 3} Q150,${y - 7} 178,${y + 3}`} stroke={PALE} strokeWidth="5" fill="none" strokeLinecap="round" />;
-      case "grin":       return <path d={`M114,${y - 6} Q150,${y + 24} 186,${y - 6} Q150,${y + 6} 114,${y - 6} Z`} fill={PALE} />;
-      case "openSmall":  return <ellipse cx="150" cy={y + 1} rx="12" ry={9 + flutter * 5} fill={PALE} opacity="0.92" />;
-      case "openTense":  return <ellipse cx="150" cy={y + 1} rx="15" ry={13 + flutter * 5} fill={PALE} opacity="0.92" />;
-      default:           return <path d={`M122,${y} Q150,${y + 7} 178,${y}`} stroke={PALE} strokeWidth="5" fill="none" strokeLinecap="round" />;
+      case "smirk":
+        return <path d={`M120,${y} Q150,${y + 4} 182,${y - 5}`} stroke={THEME.pale} strokeWidth="5" fill="none" strokeLinecap="round" />;
+      case "wavy":
+        return <path d={`M120,${y} Q133,${y - 6} 150,${y} T182,${y}`} stroke={THEME.pale} strokeWidth="5" fill="none" strokeLinecap="round" />;
+      case "frownSmall":
+        return <path d={`M122,${y + 3} Q150,${y - 7} 178,${y + 3}`} stroke={THEME.pale} strokeWidth="5" fill="none" strokeLinecap="round" />;
+      case "grin":
+        return <path d={`M114,${y - 6} Q150,${y + 24} 186,${y - 6} Q150,${y + 6} 114,${y - 6} Z`} fill={THEME.pale} />;
+      case "openSmall":
+        return <ellipse cx="150" cy={y + 1} rx="12" ry={9 + flutter * 5} fill={THEME.pale} opacity="0.92" />;
+      case "openTense":
+        return <ellipse cx="150" cy={y + 1} rx="15" ry={13 + flutter * 5} fill={THEME.pale} opacity="0.92" />;
+      default:
+        return <path d={`M122,${y} Q150,${y + 7} 178,${y}`} stroke={THEME.pale} strokeWidth="5" fill="none" strokeLinecap="round" />;
     }
   })();
 
   const Eye = ({ cx }) => {
     if (happyEyes) {
-      // upward happy arc
-      return <path d={`M${cx - 17},${ey + 3} Q${cx},${ey - 12} ${cx + 17},${ey + 3}`} stroke={PALE} strokeWidth="5" fill="none" strokeLinecap="round" />;
+      return <path d={`M${cx - 17},${ey + 3} Q${cx},${ey - 12} ${cx + 17},${ey + 3}`} stroke={THEME.pale} strokeWidth="5" fill="none" strokeLinecap="round" />;
     }
     return (
       <g>
-        <ellipse cx={cx} cy={ey} rx={19} ry={14 * eyeOpen} fill={PALE} />
-        <circle cx={cx + p.pupilX} cy={ey + p.pupilY} r={pupilR} fill={INK} />
-        <circle cx={cx + p.pupilX - 2} cy={ey + p.pupilY - 2.5} r={1.7} fill={PALE} />
+        <ellipse cx={cx} cy={ey} rx={19} ry={14 * eyeOpen} fill={THEME.pale} />
+        <circle cx={cx + p.pupilX} cy={ey + p.pupilY} r={pupilR} fill={THEME.ink} />
+        <circle cx={cx + p.pupilX - 2} cy={ey + p.pupilY - 2.5} r={1.7} fill={THEME.pale} />
       </g>
     );
   };
@@ -268,14 +425,13 @@ function Face({ p, blink, speak }) {
     const ang = (mirror ? -1 : 1) * p.browAng;
     return (
       <g transform={`translate(${cx} ${browBase + p.browY}) rotate(${ang})`}>
-        <rect x={-18} y={-3} width={36} height={5.5} rx={3} fill={PALE} />
+        <rect x={-18} y={-3} width={36} height={5.5} rx={3} fill={THEME.pale} />
       </g>
     );
   };
 
   return (
     <g>
-      {/* face disc, tinted by disposition */}
       <circle cx="150" cy="158" r="96" fill={p.tint} opacity="0.16" />
       <circle cx="150" cy="158" r="96" fill="none" stroke={p.tint} strokeWidth="2.5" opacity="0.9" />
       <Brow cx={lx} mirror={false} />
@@ -287,11 +443,11 @@ function Face({ p, blink, speak }) {
   );
 }
 
-// ---- expressive dog avatar: Bunny / Dev Groar (parametric SVG) ------
+// ---- Expressive Dog Avatar: Bunny / Dev Groar (Parametric SVG) ------
 function DogFace({ p, blink, speak }) {
   const eyeOpen = blink ? 0.05 : p.eyeOpen;
   const happyEyes = eyeOpen <= 0.55;
-  const lx = 122, rx = 178, ey = 136; // eye anchors
+  const lx = 122, rx = 178, ey = 136;
   const pupilR = 7;
   const browBase = 110;
   const flutter = speak ? p.speakPhase : 0;
@@ -301,29 +457,25 @@ function DogFace({ p, blink, speak }) {
   const earR = p.earR || 0;
   const earY = p.earY || 0;
 
-  // Eyebrows — soft tapered arch (Disney-ish): thick in the middle, tapering to
-  // rounded points, gently curved rather than a flat bar.
   const Brow = ({ cx, mirror }) => {
     const ang = (mirror ? -1 : 1) * p.browAng;
     return (
       <g transform={`translate(${cx} ${browBase + p.browY}) rotate(${ang})`}>
         <path
           d="M-14,1.6 C-9,-3.4 -4,-4.4 0,-4.4 C4,-4.4 9,-3.4 14,1.6 C9,-0.3 4,0.7 0,0.7 C-4,0.7 -9,-0.3 -14,1.6 Z"
-          fill={PALE}
+          fill={THEME.pale}
           strokeLinejoin="round"
         />
       </g>
     );
   };
 
-  // Eyes
   const Eye = ({ cx }) => {
     if (happyEyes) {
-      // Happy squint crescent (warm)
       return (
         <path
           d={`M${cx - 15},${ey + 3} Q${cx},${ey - 9} ${cx + 15},${ey + 3}`}
-          stroke={PALE}
+          stroke={THEME.pale}
           strokeWidth="4.5"
           fill="none"
           strokeLinecap="round"
@@ -332,21 +484,18 @@ function DogFace({ p, blink, speak }) {
     }
     return (
       <g>
-        <ellipse cx={cx} cy={ey} rx={16} ry={Math.max(1, 13 * eyeOpen)} fill={PALE} />
-        <circle cx={cx + p.pupilX} cy={ey + p.pupilY} r={pupilR} fill={INK} />
-        {/* Primary catchlight */}
+        <ellipse cx={cx} cy={ey} rx={16} ry={Math.max(1, 13 * eyeOpen)} fill={THEME.pale} />
+        <circle cx={cx + p.pupilX} cy={ey + p.pupilY} r={pupilR} fill={THEME.ink} />
         <circle cx={cx + p.pupilX - 2.2} cy={ey + p.pupilY - 2.2} r={2.2} fill="#FFFFFF" />
-        {/* Secondary soft reflection */}
         <circle cx={cx + p.pupilX + 2.4} cy={ey + p.pupilY + 2.0} r={1.2} fill="#FFFFFF" opacity="0.8" />
       </g>
     );
   };
 
-  // Mouth and tongue
   const dogMouth = (() => {
     const my = 176;
     switch (p.mouth) {
-      case "smirk": // Confident: gentle smile with slight tongue peek
+      case "smirk":
         return (
           <g>
             {tongueOut > 0.08 && (
@@ -359,51 +508,48 @@ function DogFace({ p, blink, speak }) {
             )}
             <path
               d={`M128,${my + 1} Q140,${my + 7} 150,${my + 2} Q163,${my + 9} 173,${my - 4}`}
-              stroke={PALE}
+              stroke={THEME.pale}
               strokeWidth="3.2"
               fill="none"
               strokeLinecap="round"
             />
           </g>
         );
-      case "wavy": // Uncertain: quizzical wavy mouth
+      case "wavy":
         return (
           <path
             d={`M128,${my + 2} Q137,${my - 5} 145,${my + 2} Q156,${my + 8} 172,${my - 1}`}
-            stroke={PALE}
+            stroke={THEME.pale}
             strokeWidth="3.2"
             fill="none"
             strokeLinecap="round"
           />
         );
-      case "frownSmall": // Reluctant: slight downturned closed mouth
+      case "frownSmall":
         return (
           <path
             d={`M130,${my + 6} Q140,${my - 1} 150,${my} Q160,${my - 1} 170,${my + 6}`}
-            stroke={PALE}
+            stroke={THEME.pale}
             strokeWidth="3.2"
             fill="none"
             strokeLinecap="round"
           />
         );
-      case "grin": // Warm: wide open happy panting smile with big tongue
+      case "grin":
         return (
           <g>
-            {/* Open mouth cavity */}
             <path
               d={`M126,${my - 1} Q150,${my + 26 + flutter * 3} 174,${my - 1} Q150,${my + 5} 126,${my - 1} Z`}
-              fill={INK}
-              stroke={PALE}
+              fill={THEME.ink}
+              stroke={THEME.pale}
               strokeWidth="2.5"
             />
-            {/* Panting tongue */}
             <path
               d={`M137,${my + 2} Q150,${my + 24 + tongueOut * 14 + flutter * 5} 163,${my + 2} C165,${my + 16 + tongueOut * 12} 160,${my + 26 + tongueOut * 14 + flutter * 5} 150,${my + 28 + tongueOut * 14 + flutter * 5} C140,${my + 26 + tongueOut * 14 + flutter * 5} 135,${my + 16 + tongueOut * 12} 137,${my + 2} Z`}
               fill="#FF6584"
               stroke="#D84A68"
               strokeWidth="1.2"
             />
-            {/* Tongue crease */}
             <line
               x1="150"
               y1={my + 4}
@@ -413,48 +559,47 @@ function DogFace({ p, blink, speak }) {
               strokeWidth="1.4"
               strokeLinecap="round"
             />
-            {/* Upper lips */}
             <path
               d={`M124,${my - 2} Q138,${my + 4} 150,${my} Q162,${my + 4} 176,${my - 2}`}
-              stroke={PALE}
+              stroke={THEME.pale}
               strokeWidth="3"
               fill="none"
               strokeLinecap="round"
             />
           </g>
         );
-      case "openSmall": // Curious: soft open 'o' with interest
+      case "openSmall":
         return (
           <g>
-            <ellipse cx="150" cy={my + 5} rx="9" ry={6 + flutter * 4} fill={INK} stroke={PALE} strokeWidth="2.2" />
+            <ellipse cx="150" cy={my + 5} rx="9" ry={6 + flutter * 4} fill={THEME.ink} stroke={THEME.pale} strokeWidth="2.2" />
             {tongueOut > 0.05 && <ellipse cx="150" cy={my + 7} rx="5" ry="3" fill="#FF6584" />}
             <path
               d={`M132,${my} Q141,${my + 4} 150,${my + 1} Q159,${my + 4} 168,${my}`}
-              stroke={PALE}
+              stroke={THEME.pale}
               strokeWidth="2.8"
               fill="none"
               strokeLinecap="round"
             />
           </g>
         );
-      case "openTense": // Concern: tense open oval
+      case "openTense":
         return (
           <g>
-            <ellipse cx="150" cy={my + 4} rx="12" ry={8 + flutter * 4} fill={INK} stroke={PALE} strokeWidth="2.4" />
+            <ellipse cx="150" cy={my + 4} rx="12" ry={8 + flutter * 4} fill={THEME.ink} stroke={THEME.pale} strokeWidth="2.4" />
             <path
               d={`M128,${my - 1} Q150,${my + 6} 172,${my - 1}`}
-              stroke={PALE}
+              stroke={THEME.pale}
               strokeWidth="3.2"
               fill="none"
               strokeLinecap="round"
             />
           </g>
         );
-      default: // Idle / Listening: gentle cute closed dog 'w' mouth
+      default:
         return (
           <path
             d={`M130,${my + 1} Q140,${my + 6} 150,${my + 1} Q160,${my + 6} 170,${my + 1}`}
-            stroke={PALE}
+            stroke={THEME.pale}
             strokeWidth="3.2"
             fill="none"
             strokeLinecap="round"
@@ -465,38 +610,29 @@ function DogFace({ p, blink, speak }) {
 
   return (
     <g>
-      {/* Face disc / aura, tinted by disposition */}
       <circle cx="150" cy="158" r="96" fill={p.tint} opacity="0.16" />
       <circle cx="150" cy="158" r="96" fill="none" stroke={p.tint} strokeWidth="2.5" opacity="0.9" />
 
-      {/* Gentle chest bib & brass collar */}
+      {/* Bib & Collar */}
       <path
         d="M104,236 C104,208 122,198 150,198 C178,198 196,208 196,236 C196,245 104,245 104,236 Z"
         fill="#0E2732"
-        stroke={PALE}
+        stroke={THEME.pale}
         strokeWidth="2.5"
         opacity="0.95"
       />
-      {/* Collar band */}
-      <path
-        d="M118,220 Q150,228 182,220"
-        stroke={BRASS}
-        strokeWidth="4"
-        fill="none"
-        strokeLinecap="round"
-      />
-      {/* Brass collar tag */}
-      <circle cx="150" cy="227" r="6" fill={BRASS_HI} stroke={BRASS} strokeWidth="1.2" />
-      <circle cx="150" cy="227" r="2.2" fill={INK} />
+      <path d="M118,220 Q150,228 182,220" stroke={THEME.brass} strokeWidth="4" fill="none" strokeLinecap="round" />
+      <circle cx="150" cy="227" r="6" fill={THEME.brassBright} stroke={THEME.brass} strokeWidth="1.2" />
+      <circle cx="150" cy="227" r="2.2" fill={THEME.ink} />
 
-      {/* Head Group — tilts with p.headTilt around (150, 155) */}
+      {/* Head Group */}
       <g transform={`rotate(${headTilt} 150 155)`}>
         {/* Left Ear */}
         <g transform={`translate(96 ${112 + earY}) rotate(${earL}) translate(-96 -112)`}>
           <path
             d="M96,112 C70,90 48,124 56,164 C62,188 86,184 97,156 C103,138 102,122 96,112 Z"
             fill="#0F2C37"
-            stroke={PALE}
+            stroke={THEME.pale}
             strokeWidth="3.2"
             strokeLinejoin="round"
           />
@@ -512,7 +648,7 @@ function DogFace({ p, blink, speak }) {
           <path
             d="M204,112 C230,90 252,124 244,164 C238,188 214,184 203,156 C197,138 198,122 204,112 Z"
             fill="#0F2C37"
-            stroke={PALE}
+            stroke={THEME.pale}
             strokeWidth="3.2"
             strokeLinejoin="round"
           />
@@ -523,139 +659,135 @@ function DogFace({ p, blink, speak }) {
           />
         </g>
 
-        {/* Dog Head Base */}
+        {/* Head Base */}
         <path
           d="M96,138 C90,102 114,82 150,82 C186,82 210,102 204,138 C209,160 206,182 192,196 C178,208 122,208 108,196 C94,182 91,160 96,138 Z"
           fill="#102E39"
-          stroke={PALE}
+          stroke={THEME.pale}
           strokeWidth="3.5"
           strokeLinejoin="round"
         />
 
-        {/* Bunny distinctive left eye marking patch */}
+        {/* Eye patch */}
         <path
           d="M100,122 C100,102 120,95 138,102 C146,110 144,138 136,148 C124,158 102,152 100,122 Z"
           fill="#0B2028"
           opacity="0.5"
         />
 
-        {/* Eyebrows */}
         <Brow cx={lx} mirror={false} />
         <Brow cx={rx} mirror={true} />
-
-        {/* Eyes */}
         <Eye cx={lx} />
         <Eye cx={rx} />
 
-        {/* Snout / Muzzle patch */}
+        {/* Snout */}
         <path
           d="M122,158 C122,142 178,142 178,158 C178,181 166,194 150,194 C134,194 122,181 122,158 Z"
           fill="#153B48"
-          stroke={PALE}
+          stroke={THEME.pale}
           strokeWidth="2.2"
         />
+        <line x1="150" y1="166" x2="150" y2="175" stroke={THEME.pale} strokeWidth="2.6" strokeLinecap="round" />
 
-        {/* Nose Philtrum Line */}
-        <line x1="150" y1="166" x2="150" y2="175" stroke={PALE} strokeWidth="2.6" strokeLinecap="round" />
-
-        {/* Mouth & Tongue */}
         {dogMouth}
 
-        {/* Dog Nose */}
+        {/* Nose */}
         <path
           d="M138,154 C138,148 162,148 162,154 C162,163 154,167 150,167 C146,167 138,163 138,154 Z"
-          fill={INK}
-          stroke={PALE}
+          fill={THEME.ink}
+          stroke={THEME.pale}
           strokeWidth="1.8"
           strokeLinejoin="round"
         />
-        {/* Nose highlight */}
         <ellipse cx="146" cy="153" rx="3.5" ry="1.8" fill="#FFFFFF" opacity="0.85" />
 
-        {/* Whisker dots */}
-        <circle cx="134" cy="165" r="1.4" fill={PALE} opacity="0.65" />
-        <circle cx="130" cy="169" r="1.4" fill={PALE} opacity="0.65" />
-        <circle cx="135" cy="172" r="1.4" fill={PALE} opacity="0.65" />
-
-        <circle cx="166" cy="165" r="1.4" fill={PALE} opacity="0.65" />
-        <circle cx="170" cy="169" r="1.4" fill={PALE} opacity="0.65" />
-        <circle cx="165" cy="172" r="1.4" fill={PALE} opacity="0.65" />
+        {/* Whiskers */}
+        <circle cx="134" cy="165" r="1.4" fill={THEME.pale} opacity="0.65" />
+        <circle cx="130" cy="169" r="1.4" fill={THEME.pale} opacity="0.65" />
+        <circle cx="135" cy="172" r="1.4" fill={THEME.pale} opacity="0.65" />
+        <circle cx="166" cy="165" r="1.4" fill={THEME.pale} opacity="0.65" />
+        <circle cx="170" cy="169" r="1.4" fill={THEME.pale} opacity="0.65" />
+        <circle cx="165" cy="172" r="1.4" fill={THEME.pale} opacity="0.65" />
       </g>
     </g>
   );
 }
 
-// ---- J-space readout strip ----------------------------------------
-function JSpace({ tokens, entropy, tint }) {
-  return (
-    <div style={{ background: PANEL2, border: `1px solid ${PANEL}`, borderRadius: 10, padding: "12px 14px" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 10 }}>
-        <span style={{ fontSize: 10, letterSpacing: 2, color: MUTE, fontFamily: "ui-monospace, Menlo, monospace" }}>
-          J-SPACE · LIVE CONCEPT READOUT
-        </span>
-        <span style={{ fontSize: 10, color: MUTE, fontFamily: "ui-monospace, Menlo, monospace" }}>mid-layer</span>
-      </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
-        {tokens.map((tok, i) => (
-          <div key={i} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <span style={{ fontFamily: "ui-monospace, Menlo, monospace", fontSize: 13, color: PALE, minWidth: 92 }}>
-              {tok.t}
-            </span>
-            <div style={{ flex: 1, height: 7, background: "#0A1C24", borderRadius: 4, overflow: "hidden" }}>
-              <div style={{ width: `${tok.w * 100}%`, height: "100%", background: tint, borderRadius: 4, transition: "width .45s ease" }} />
-            </div>
-            <span style={{ fontFamily: "ui-monospace, Menlo, monospace", fontSize: 11, color: MUTE, minWidth: 30, textAlign: "right" }}>
-              {tok.w.toFixed(2)}
-            </span>
-          </div>
-        ))}
-      </div>
-      {/* entropy gauge */}
-      <div style={{ marginTop: 12, display: "flex", alignItems: "center", gap: 10 }}>
-        <span style={{ fontFamily: "ui-monospace, Menlo, monospace", fontSize: 11, color: MUTE, minWidth: 92 }}>
-          entropy
-        </span>
-        <div style={{ flex: 1, height: 7, background: "#0A1C24", borderRadius: 4, overflow: "hidden", position: "relative" }}>
-          <div style={{ width: `${entropy * 100}%`, height: "100%", background: `linear-gradient(90deg, ${BRASS}, #E8674D)`, borderRadius: 4, transition: "width .45s ease" }} />
-        </div>
-        <span style={{ fontFamily: "ui-monospace, Menlo, monospace", fontSize: 11, color: MUTE, minWidth: 30, textAlign: "right" }}>
-          {entropy.toFixed(2)}
-        </span>
-      </div>
-    </div>
-  );
-}
-
+// ---- Main Application Component -----------------------------------
 function DispositionLens() {
+  // Mode selection: "carousel" | "question"
+  const [mode, setMode] = useState("question");
+
+  // Avatar & State
   const [avatar, setAvatar] = useState("dog");
   const [targetKey, setTargetKey] = useState("idle");
-  const [answer, setAnswer] = useState(STATES.idle ? "Ready. Ask me about the field service manual." : "");
+  const [activeQuestion, setActiveQuestion] = useState("");
+  const [activeAnswer, setActiveAnswer] = useState("Ready. Ask me anything to inspect on-device J-space intent.");
   const [tokens, setTokens] = useState(STATES.idle.tokens);
   const [entropy, setEntropy] = useState(STATES.idle.entropy);
-  const [question, setQuestion] = useState("");
+
+  // Question Mode State
+  const [inputText, setInputText] = useState("");
+  const [modelKey, setModelKey] = useState("apertus");
+  const [searchEnabled, setSearchEnabled] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [history, setHistory] = useState(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const saved = localStorage.getItem("canis_question_history_v1");
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        }
+      } catch (e) {}
+    }
+    return INITIAL_HISTORY;
+  });
+  const [selectedHistoryId, setSelectedHistoryId] = useState(null);
+  const [historySearch, setHistorySearch] = useState("");
+  const [historyFilter, setHistoryFilter] = useState("all");
+
+  // Carousel Mode State
+  const [carouselIndex, setCarouselIndex] = useState(0);
+  const [carouselPlaying, setCarouselPlaying] = useState(true);
+  const [carouselProgress, setCarouselProgress] = useState(0);
+
+  // Connection & Settings
+  const [apiUrl, setApiUrl] = useState(getInitialApiUrl);
+  const [apiStatus, setApiStatus] = useState("checking");
+  const [apiDetails, setApiDetails] = useState(null);
+  const [showSettings, setShowSettings] = useState(false);
+  const [settingsUrlInput, setSettingsUrlInput] = useState(apiUrl);
+  const [showTelemetry, setShowTelemetry] = useState(false);
+  const [telemetryData, setTelemetryData] = useState(null);
+
+  // Voice State
   const [voiceOn, setVoiceOn] = useState(false);
   const [speaking, setSpeaking] = useState(false);
-  const [reeling, setReeling] = useState(false);
-  const [modelKey, setModelKey] = useState("apertus");
   const audioRef = useRef(null);
 
+  // Motion preference
   const reduceMotion = useRef(false);
   useEffect(() => {
     reduceMotion.current = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }, []);
 
-  // animated (tweened) face params
-  const target = STATES[targetKey];
+  // Save history to localStorage
+  useEffect(() => {
+    try {
+      localStorage.setItem("canis_question_history_v1", JSON.stringify(history));
+    } catch (e) {}
+  }, [history]);
+
+  // Animated (tweened) face params
+  const target = STATES[targetKey] || STATES.idle;
   const cur = useRef({ ...STATES.idle, tint: STATES.idle.tint });
   const [render, setRender] = useState({ ...STATES.idle, bob: 0, speakPhase: 0 });
   const [blink, setBlink] = useState(false);
   const tRef = useRef(0);
-  // Idle micro-gestures: eased offsets a scheduler nudges while the dog is just
-  // listening — glance sideways, cock its head, twitch an ear. Current vs target.
   const idleG = useRef({ lookX: 0, lookY: 0, tilt: 0, ear: 0, tLookX: 0, tLookY: 0, tTilt: 0, tEar: 0 });
 
-  // continuous animation loop
+  // Animation RAF Loop
   useEffect(() => {
     let raf;
     const loop = () => {
@@ -674,12 +806,11 @@ function DispositionLens() {
       c.tongue = lerp(c.tongue || 0, target.tongue || 0, k);
       c._mix = lerp(c._mix || 0, 1, k);
       c.tint = lerpColor(c._fromTint || target.tint, target.tint, c._mix);
+
       const bob = reduceMotion.current ? 0 : Math.sin(tRef.current * 1.6) * 2.2;
       const speakPhase = speaking ? (Math.sin(tRef.current * 22) + 1) / 2 : 0;
 
-      // Idle micro-gestures: ease toward the scheduler's targets and layer them on
-      // top of the resting pose — but ONLY while idle, so they never fight a real
-      // disposition. A slow continuous look-around keeps the eyes alive between them.
+      // Ambient idle gestures
       const g = idleG.current;
       const gk = 0.09;
       g.lookX = lerp(g.lookX, g.tLookX, gk);
@@ -687,7 +818,8 @@ function DispositionLens() {
       g.tilt = lerp(g.tilt, g.tTilt, gk);
       g.ear = lerp(g.ear, g.tEar, gk);
       const idling = targetKey === "idle" && !reduceMotion.current;
-      const wander = idling ? Math.sin(tRef.current * 0.5) * 1.6 : 0; // slow ambient glance
+      const wander = idling ? Math.sin(tRef.current * 0.5) * 1.6 : 0;
+
       const rp = {
         ...c,
         pupilX: c.pupilX + (idling ? g.lookX + wander : 0),
@@ -703,13 +835,12 @@ function DispositionLens() {
     return () => cancelAnimationFrame(raf);
   }, [target, speaking]);
 
-  // when target changes, capture the tween origin color
   useEffect(() => {
     cur.current._fromTint = cur.current.tint;
     cur.current._mix = 0;
   }, [targetKey]);
 
-  // idle blink
+  // Periodic Blink
   useEffect(() => {
     let alive = true;
     const tick = () => {
@@ -722,7 +853,7 @@ function DispositionLens() {
     return () => { alive = false; clearTimeout(id); };
   }, []);
 
-  // idle micro-gestures scheduler — picks an occasional glance / head-cock / ear-twitch
+  // Idle Micro-gestures
   useEffect(() => {
     let alive = true;
     const g = idleG.current;
@@ -733,11 +864,10 @@ function DispositionLens() {
         settle();
         const roll = Math.random();
         const dir = Math.random() < 0.5 ? -1 : 1;
-        if (roll < 0.34) g.tLookX = dir * (4 + Math.random() * 3);      // glance to the side
-        else if (roll < 0.62) g.tTilt = dir * (6 + Math.random() * 6);  // cock the head
-        else if (roll < 0.82) g.tEar = 1;                              // twitch an ear
-        else g.tLookY = 2.2;                                           // glance down
-        // hold the gesture briefly, then relax back to neutral
+        if (roll < 0.34) g.tLookX = dir * (4 + Math.random() * 3);
+        else if (roll < 0.62) g.tTilt = dir * (6 + Math.random() * 6);
+        else if (roll < 0.82) g.tEar = 1;
+        else g.tLookY = 2.2;
         setTimeout(() => { if (alive) settle(); }, 850 + Math.random() * 750);
       } else {
         settle();
@@ -748,6 +878,29 @@ function DispositionLens() {
     return () => { alive = false; clearTimeout(id); };
   }, [targetKey]);
 
+  // API Health Check
+  const checkHealth = useCallback(async () => {
+    try {
+      setApiStatus("checking");
+      const res = await fetch(`${apiUrl}/health`, { method: "GET", signal: AbortSignal.timeout ? AbortSignal.timeout(4000) : undefined });
+      if (res.ok) {
+        const data = await res.json();
+        setApiStatus("online");
+        setApiDetails(data);
+        return;
+      }
+    } catch (e) {}
+    setApiStatus("offline");
+    setApiDetails(null);
+  }, [apiUrl]);
+
+  useEffect(() => {
+    checkHealth();
+    const interval = setInterval(checkHealth, 15000);
+    return () => clearInterval(interval);
+  }, [checkHealth]);
+
+  // Voice Output
   const stopVoice = useCallback(() => {
     if (audioRef.current) {
       audioRef.current.pause();
@@ -762,286 +915,932 @@ function DispositionLens() {
 
   const speak = useCallback(async (text, dispositionKey) => {
     if (!voiceOn || !text || typeof window === "undefined") return;
-    const apiHost = window.DISPOSITION_API_URL || "http://localhost:8000";
     stopVoice();
     try {
-      await new Promise((resolve) => setTimeout(resolve, 300));
-      const res = await fetch(`${apiHost}/voice`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          text,
-          disposition: dispositionKey,
-          voice_id: window.ELEVENLABS_VOICE_ID || undefined,
-        }),
-      });
-      if (!res.ok) throw new Error(`Voice HTTP ${res.status}`);
-      const blob = await res.blob();
-      const url = URL.createObjectURL(blob);
-      const audio = new Audio(url);
-      audioRef.current = audio;
-      audio.onplay = () => setSpeaking(true);
-      audio.onended = () => {
-        URL.revokeObjectURL(url);
-        setSpeaking(false);
-      };
-      audio.onerror = () => {
-        URL.revokeObjectURL(url);
-        setSpeaking(false);
-      };
-      await audio.play();
-    } catch (e) {
-      setSpeaking(false);
-    }
-  }, [voiceOn, stopVoice]);
-
-  const applyState = useCallback((key, ans, extra) => {
-    setTargetKey(key);
-    setTokens((extra && extra.tokens) || STATES[key].tokens);
-    setEntropy((extra && typeof extra.entropy === "number") ? extra.entropy : STATES[key].entropy);
-    if (typeof ans === "string") setAnswer(ans);
-    if (ans) speak(ans, key);
-  }, [speak]);
-
-  // ---- live ask (Mac Mini J-lens /infer service) -------------------
-  // >>> HOOK: Connected to Mac Mini J-lens service returning
-  //     {answer, disposition, tokens, entropy}
-  const ask = useCallback(async () => {
-    const q = question.trim();
-    if (!q || loading) return;
-    setLoading(true);
-    setTargetKey("curious");
-    setAnswer("…");
-    try {
-      const apiHost = (typeof window !== "undefined" && window.DISPOSITION_API_URL) || "http://localhost:8000";
-      const res = await fetch(`${apiHost}/infer`, {
+      // 1. Try server ElevenLabs endpoint
+      const res = await fetch(`${apiUrl}/voice`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: q, model: modelKey }),
+        body: JSON.stringify({ text, disposition: dispositionKey }),
       });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const parsed = await res.json();
-      if (parsed && parsed.disposition && KEYS.includes(parsed.disposition)) {
-        applyState(parsed.disposition, parsed.answer || "(no answer)", {
-          tokens: Array.isArray(parsed.tokens) && parsed.tokens.length ? parsed.tokens.slice(0, 3) : STATES[parsed.disposition].tokens,
-          entropy: typeof parsed.entropy === "number" ? Math.max(0, Math.min(1, parsed.entropy)) : STATES[parsed.disposition].entropy,
-        });
-      } else {
-        const key = keywordFallback(q, (parsed && parsed.answer) || "");
-        applyState(key, (parsed && parsed.answer) || "(couldn't parse a clean answer)");
+      if (res.ok) {
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+        const audio = new Audio(url);
+        audioRef.current = audio;
+        audio.onplay = () => setSpeaking(true);
+        audio.onended = () => { URL.revokeObjectURL(url); setSpeaking(false); };
+        audio.onerror = () => { URL.revokeObjectURL(url); setSpeaking(false); };
+        await audio.play();
+        return;
       }
+    } catch (e) {}
+
+    // 2. Fallback to browser SpeechSynthesis with disposition prosody
+    if (window.speechSynthesis) {
+      const utter = new SpeechSynthesisUtterance(text);
+      if (dispositionKey === "uncertain") { utter.rate = 0.9; utter.pitch = 1.1; }
+      else if (dispositionKey === "concern") { utter.rate = 0.95; utter.pitch = 0.9; }
+      else if (dispositionKey === "warm") { utter.rate = 1.05; utter.pitch = 1.15; }
+      else if (dispositionKey === "mischief") { utter.rate = 1.0; utter.pitch = 1.2; }
+      else { utter.rate = 1.0; utter.pitch = 1.0; }
+
+      utter.onstart = () => setSpeaking(true);
+      utter.onend = () => setSpeaking(false);
+      utter.onerror = () => setSpeaking(false);
+      window.speechSynthesis.speak(utter);
+    }
+  }, [voiceOn, apiUrl, stopVoice]);
+
+  // Apply state change
+  const applyState = useCallback((key, ans, extra = {}) => {
+    const validKey = STATES[key] ? key : "idle";
+    setTargetKey(validKey);
+    setTokens(extra.tokens || STATES[validKey].tokens);
+    setEntropy(typeof extra.entropy === "number" ? extra.entropy : STATES[validKey].entropy);
+    if (typeof ans === "string") setActiveAnswer(ans);
+    if (extra.telemetry) setTelemetryData(extra.telemetry);
+    if (ans && voiceOn) speak(ans, validKey);
+  }, [speak, voiceOn]);
+
+  // ---- CAROUSEL MODE ENGINE (8s Hold per Slide) -------------------
+  useEffect(() => {
+    if (mode !== "carousel") return;
+    const currentSlide = REEL[carouselIndex % REEL.length];
+    setActiveQuestion(currentSlide.q);
+    applyState(currentSlide.key, currentSlide.a);
+  }, [mode, carouselIndex, applyState]);
+
+  useEffect(() => {
+    if (mode !== "carousel" || !carouselPlaying) return;
+    const duration = 8000;
+    const stepInterval = 100;
+    let elapsed = 0;
+
+    const timer = setInterval(() => {
+      elapsed += stepInterval;
+      setCarouselProgress(Math.min(100, (elapsed / duration) * 100));
+      if (elapsed >= duration) {
+        elapsed = 0;
+        setCarouselProgress(0);
+        setCarouselIndex((prev) => (prev + 1) % REEL.length);
+      }
+    }, stepInterval);
+
+    return () => clearInterval(timer);
+  }, [mode, carouselPlaying, carouselIndex]);
+
+  const jumpToCarouselSlide = (idx) => {
+    setCarouselIndex(idx);
+    setCarouselProgress(0);
+  };
+
+  // ---- QUESTION MODE ENGINE ---------------------------------------
+  const askQuestion = useCallback(async (customQ = null) => {
+    const q = (customQ || inputText).trim();
+    if (!q || loading) return;
+    setLoading(true);
+    setSelectedHistoryId(null);
+    setActiveQuestion(q);
+    setTargetKey(searchEnabled ? "searching" : "curious");
+    setActiveAnswer("Analyzing question in J-space…");
+
+    const startTime = Date.now();
+    let detectedDisp = "idle";
+    let finalAnswer = "";
+    let finalTokens = [];
+    let finalEntropy = 0.5;
+    let rawPayload = null;
+
+    try {
+      const res = await fetch(`${apiUrl}/infer`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          question: q,
+          model: modelKey,
+          search_enabled: searchEnabled,
+        }),
+      });
+
+      const elapsed = Date.now() - startTime;
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      rawPayload = data;
+
+      if (data && data.disposition && STATES[data.disposition]) {
+        detectedDisp = data.disposition;
+        finalAnswer = data.answer || "(No response text)";
+        finalTokens = Array.isArray(data.tokens) && data.tokens.length ? data.tokens.slice(0, 3) : STATES[detectedDisp].tokens;
+        finalEntropy = typeof data.entropy === "number" ? Math.max(0, Math.min(1, data.entropy)) : STATES[detectedDisp].entropy;
+      } else {
+        detectedDisp = keywordFallback(q, (data && data.answer) || "");
+        finalAnswer = (data && data.answer) || "(Unparsed answer)";
+        finalTokens = STATES[detectedDisp].tokens;
+        finalEntropy = STATES[detectedDisp].entropy;
+      }
+
+      const historyItem = {
+        id: "hist-" + Date.now(),
+        timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" }),
+        question: q,
+        answer: finalAnswer,
+        disposition: detectedDisp,
+        tokens: finalTokens,
+        entropy: finalEntropy,
+        model: modelKey,
+        latencyMs: elapsed,
+        telemetry: { source: "live", latencyMs: elapsed, model: modelKey, rawPayload },
+      };
+
+      setHistory((prev) => [historyItem, ...prev]);
+      setSelectedHistoryId(historyItem.id);
+
+      // CRITICAL: Emotion STAYS (no auto-advance in Question Mode)
+      applyState(detectedDisp, finalAnswer, {
+        tokens: finalTokens,
+        entropy: finalEntropy,
+        telemetry: historyItem.telemetry,
+      });
     } catch (e) {
-      const key = keywordFallback(q, "");
-      applyState(key, "Offline — running on the fallback classifier.");
+      const elapsed = Date.now() - startTime;
+      detectedDisp = keywordFallback(q, "");
+      finalAnswer = "Offline fallback — running heuristic classifier. Mac Mini backend was unreachable.";
+      finalTokens = STATES[detectedDisp].tokens;
+      finalEntropy = STATES[detectedDisp].entropy;
+
+      const historyItem = {
+        id: "hist-" + Date.now(),
+        timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" }),
+        question: q,
+        answer: finalAnswer,
+        disposition: detectedDisp,
+        tokens: finalTokens,
+        entropy: finalEntropy,
+        model: modelKey,
+        latencyMs: elapsed,
+        telemetry: { source: "fallback", error: String(e) },
+      };
+
+      setHistory((prev) => [historyItem, ...prev]);
+      setSelectedHistoryId(historyItem.id);
+      applyState(detectedDisp, finalAnswer, {
+        tokens: finalTokens,
+        entropy: finalEntropy,
+        telemetry: historyItem.telemetry,
+      });
     } finally {
       setLoading(false);
+      setInputText("");
     }
-  }, [question, loading, applyState, modelKey]);
+  }, [inputText, loading, searchEnabled, apiUrl, modelKey, applyState]);
 
-  // ---- demo reel ------------------------------------------------
-  const reelRef = useRef(null);
-  const runReel = useCallback(() => {
-    if (reeling) {
-      setReeling(false);
-      if (reelRef.current) clearTimeout(reelRef.current);
-      stopVoice();
-      return;
-    }
-    setReeling(true);
-    let i = 0;
-    const step = () => {
-      const s = REEL[i % REEL.length];
-      setQuestion(s.q);
-      applyState(s.key, s.a);
-      i += 1;
-      reelRef.current = setTimeout(step, 8000); // hold each answer long enough to read/discuss
-    };
-    step();
-  }, [reeling, applyState, stopVoice]);
-  useEffect(() => () => { if (reelRef.current) clearTimeout(reelRef.current); }, []);
+  // Replay a historical question
+  const replayHistoryItem = (item) => {
+    setSelectedHistoryId(item.id);
+    setActiveQuestion(item.question);
+    setActiveAnswer(item.answer);
+    // In Question Mode, replayed emotion STAYS indefinitely
+    applyState(item.disposition, item.answer, {
+      tokens: item.tokens,
+      entropy: item.entropy,
+      telemetry: item.telemetry || { source: "replayed", latencyMs: item.latencyMs, model: item.model },
+    });
+  };
 
-  const label = STATES[targetKey].label;
+  const resetToIdle = () => {
+    setSelectedHistoryId(null);
+    setActiveQuestion("");
+    setActiveAnswer("Dog returned to neutral stance. Ready for your next inquiry.");
+    applyState("idle", "Dog returned to neutral stance. Ready for your next inquiry.");
+  };
+
+  // Filtered history
+  const filteredHistory = useMemo(() => {
+    return history.filter((item) => {
+      const matchesSearch = !historySearch || item.question.toLowerCase().includes(historySearch.toLowerCase()) || item.answer.toLowerCase().includes(historySearch.toLowerCase());
+      const matchesFilter = historyFilter === "all" || item.disposition === historyFilter;
+      return matchesSearch && matchesFilter;
+    });
+  }, [history, historySearch, historyFilter]);
+
+  const activeDispositionObj = STATES[targetKey] || STATES.idle;
 
   return (
-    <div style={{ background: INK, minHeight: "100%", padding: 20, fontFamily: "system-ui, -apple-system, sans-serif" }}>
-      <div style={{ maxWidth: 440, margin: "0 auto" }}>
-        {/* eyebrow */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 14 }}>
-          <span style={{ fontSize: 11, letterSpacing: 3, color: BRASS, fontWeight: 700 }}>SOVEREIGN&nbsp;MIND</span>
-          <span style={{ fontSize: 10, letterSpacing: 2, color: MUTE }}>DISPOSITION LENS</span>
-        </div>
+    <div style={{ background: THEME.ink, minHeight: "100vh", width: "100%", padding: "20px 16px", boxSizing: "border-box" }}>
+      <div style={{ maxWidth: 1180, margin: "0 auto" }}>
 
-        {/* porthole */}
-        <div style={{ position: "relative", width: "100%", aspectRatio: "1 / 1", marginBottom: 14 }}>
-          <svg viewBox="0 0 300 300" width="100%" height="100%" style={{ display: "block" }}>
-            <defs>
-              <radialGradient id="glass" cx="50%" cy="42%" r="65%">
-                <stop offset="0%" stopColor={PANEL} />
-                <stop offset="100%" stopColor={PANEL2} />
-              </radialGradient>
-              <linearGradient id="brass" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stopColor={BRASS_HI} />
-                <stop offset="50%" stopColor={BRASS} />
-                <stop offset="100%" stopColor="#8A6E2E" />
-              </linearGradient>
-            </defs>
-            {/* brass ring + rivets */}
-            <circle cx="150" cy="150" r="146" fill="url(#brass)" />
-            <circle cx="150" cy="150" r="130" fill="url(#glass)" />
-            {Array.from({ length: 12 }).map((_, i) => {
-              const a = (i / 12) * Math.PI * 2;
-              return <circle key={i} cx={150 + Math.cos(a) * 138} cy={150 + Math.sin(a) * 138} r={3.4} fill="#7A6026" />;
-            })}
-            {/* idle sonar sweep (very subtle) */}
-            {!reduceMotion.current && (
-              <line x1="150" y1="150" x2="150" y2="30" stroke={render.tint} strokeWidth="2" opacity="0.10"
-                style={{ transformOrigin: "150px 150px", animation: "sweep 6s linear infinite" }} />
-            )}
-            {/* the face, with gentle bob */}
-            <g style={{ transform: `translateY(${render.bob}px)` }}>
-              {avatar === "dog" ? (
-                <DogFace p={{ ...render, tint: render.tint }} blink={blink} speak={speaking} />
-              ) : (
-                <Face p={{ ...render, tint: render.tint }} blink={blink} speak={speaking} />
-              )}
-            </g>
-          </svg>
-        </div>
+        {/* ============================================================== */}
+        {/* HEADER & COCKPIT CONTROLS                                      */}
+        {/* ============================================================== */}
+        <header style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: 12, marginBottom: 18, borderBottom: `1px solid ${THEME.panelBorder}`, paddingBottom: 14 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <div style={{ width: 40, height: 40, borderRadius: 10, background: `linear-gradient(135deg, ${THEME.accent}, ${THEME.brass})`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, boxShadow: `0 0 16px rgba(79,209,197,0.3)` }}>
+              🐶
+            </div>
+            <div>
+              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <span style={{ fontSize: 18, fontWeight: 800, letterSpacing: 2, color: THEME.pale }}>CANIS</span>
+                <span style={{ fontSize: 11, background: THEME.panelElevated, color: THEME.brassBright, padding: "2px 8px", borderRadius: 4, fontWeight: 700, border: `1px solid ${THEME.brass}` }}>LIVE DEMO</span>
+              </div>
+              <div style={{ fontSize: 11, color: THEME.muted, letterSpacing: 1 }}>ON-DEVICE LLM DISPOSITION LENS & TELEMETRY</div>
+            </div>
+          </div>
 
-        {/* disposition label */}
-        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
-          <span style={{ width: 12, height: 12, borderRadius: 12, background: render.tint, boxShadow: `0 0 12px ${render.tint}` }} />
-          <span style={{ fontSize: 26, fontWeight: 700, color: PALE, letterSpacing: 0.3 }}>{label}</span>
-          {speaking && <span style={{ fontSize: 11, color: MUTE, letterSpacing: 1 }}>◗ speaking</span>}
-        </div>
-
-        {/* J-space readout */}
-        <JSpace tokens={tokens} entropy={entropy} tint={render.tint} />
-
-        {/* answer */}
-        <div style={{ background: PANEL2, border: `1px solid ${PANEL}`, borderRadius: 10, padding: "12px 14px", marginTop: 12, minHeight: 56 }}>
-          <div style={{ fontSize: 10, letterSpacing: 2, color: MUTE, marginBottom: 6, fontFamily: "ui-monospace, Menlo, monospace" }}>SPOKEN OUTPUT</div>
-          <div style={{ fontSize: 15, lineHeight: 1.5, color: PALE }}>{loading ? "…" : answer}</div>
-        </div>
-
-        {/* input */}
-        <div style={{ display: "flex", gap: 8, marginTop: 12 }}>
-          <input
-            value={question}
-            onChange={(e) => setQuestion(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && ask()}
-            placeholder="Ask the assistant…"
-            style={{ flex: 1, background: PANEL2, border: `1px solid ${PANEL}`, borderRadius: 8, padding: "11px 13px", color: PALE, fontSize: 14, outline: "none" }}
-          />
-          <button
-            onClick={ask}
-            disabled={loading}
-            style={{ background: BRASS, color: INK, border: "none", borderRadius: 8, padding: "0 18px", fontWeight: 700, fontSize: 14, cursor: "pointer", opacity: loading ? 0.6 : 1 }}
-          >
-            {loading ? "…" : "Ask"}
-          </button>
-        </div>
-
-        {/* controls: avatar toggle (dog <-> smiley) */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginTop: 12 }}>
-          <button
-            onClick={() => setAvatar("dog")}
-            style={{
-              background: avatar === "dog" ? "#2A4048" : "transparent",
-              color: PALE,
-              border: `1px solid ${avatar === "dog" ? BRASS : PANEL}`,
-              borderRadius: 8,
-              padding: "9px 0",
-              fontSize: 13,
-              fontWeight: avatar === "dog" ? 600 : 400,
-              cursor: "pointer",
-            }}
-          >
-            🐶 Dog (Bunny)
-          </button>
-          <button
-            onClick={() => setAvatar("smiley")}
-            style={{
-              background: avatar === "smiley" ? "#2A4048" : "transparent",
-              color: PALE,
-              border: `1px solid ${avatar === "smiley" ? BRASS : PANEL}`,
-              borderRadius: 8,
-              padding: "9px 0",
-              fontSize: 13,
-              fontWeight: avatar === "smiley" ? 600 : 400,
-              cursor: "pointer",
-            }}
-          >
-            🙂 Smiley
-          </button>
-        </div>
-
-        {/* controls: models */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginTop: 8 }}>
-          {MODELS.map((option) => (
+          {/* Status & Quick Settings */}
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
             <button
-              key={option.key}
-              onClick={() => setModelKey(option.key)}
+              onClick={() => setShowSettings(true)}
               style={{
-                background: modelKey === option.key ? "#2A4048" : "transparent",
-                color: PALE,
-                border: `1px solid ${modelKey === option.key ? BRASS : PANEL}`,
-                borderRadius: 8,
-                padding: "9px 0",
-                fontSize: 13,
+                display: "flex",
+                alignItems: "center",
+                gap: 6,
+                background: THEME.panel,
+                border: `1px solid ${apiStatus === "online" ? THEME.success : THEME.warning}`,
+                borderRadius: 20,
+                padding: "5px 12px",
+                color: THEME.pale,
+                fontSize: 12,
                 cursor: "pointer",
               }}
             >
-              {option.label}
+              <span style={{ width: 8, height: 8, borderRadius: "50%", background: apiStatus === "online" ? THEME.success : (apiStatus === "checking" ? THEME.warning : THEME.danger), boxShadow: `0 0 8px ${apiStatus === "online" ? THEME.success : THEME.warning}` }} />
+              <span>{apiStatus === "online" ? "Mac Mini :8000 (Live)" : (apiStatus === "checking" ? "Connecting…" : "Offline Fallback")}</span>
+              <span style={{ fontSize: 11, opacity: 0.6 }}>⚙️</span>
             </button>
-          ))}
-        </div>
 
-        {/* controls: actions */}
-        <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
+            <button
+              onClick={() => { setVoiceOn((v) => !v); if (voiceOn) stopVoice(); }}
+              style={{
+                background: voiceOn ? THEME.panelElevated : THEME.panel,
+                color: voiceOn ? THEME.accent : THEME.muted,
+                border: `1px solid ${voiceOn ? THEME.accent : THEME.panelBorder}`,
+                borderRadius: 20,
+                padding: "5px 12px",
+                fontSize: 12,
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                gap: 6,
+              }}
+            >
+              <span>{voiceOn ? "🔊 Voice On" : "🔇 Voice Off"}</span>
+            </button>
+
+            <button
+              onClick={() => setAvatar((a) => (a === "dog" ? "smiley" : "dog"))}
+              style={{
+                background: THEME.panel,
+                color: THEME.pale,
+                border: `1px solid ${THEME.panelBorder}`,
+                borderRadius: 20,
+                padding: "5px 12px",
+                fontSize: 12,
+                cursor: "pointer",
+              }}
+            >
+              {avatar === "dog" ? "🐶 Bunny Dog" : "🙂 Smiley"}
+            </button>
+          </div>
+        </header>
+
+        {/* ============================================================== */}
+        {/* MODE SELECTOR TABS                                             */}
+        {/* ============================================================== */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 18 }}>
           <button
-            onClick={runReel}
+            onClick={() => { setMode("question"); stopVoice(); }}
             style={{
-              flex: 1,
-              background: reeling ? "#2A4048" : "transparent",
-              color: PALE,
-              border: `1px solid ${PANEL}`,
-              borderRadius: 8,
-              padding: "9px 0",
-              fontSize: 13,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 10,
+              padding: "12px 16px",
+              background: mode === "question" ? THEME.panelElevated : THEME.panel,
+              border: `2px solid ${mode === "question" ? THEME.accent : THEME.panelBorder}`,
+              borderRadius: 12,
+              color: mode === "question" ? THEME.pale : THEME.muted,
+              fontSize: 14,
+              fontWeight: 700,
               cursor: "pointer",
+              boxShadow: mode === "question" ? `0 0 20px rgba(79,209,197,0.2)` : "none",
+              transition: "all 0.2s ease",
             }}
           >
-            {reeling ? "Stop demo reel" : "Demo reel"}
+            <span style={{ fontSize: 18 }}>💬</span>
+            <div style={{ textAlign: "left" }}>
+              <div>QUESTION MODE</div>
+              <div style={{ fontSize: 10, fontWeight: 400, color: THEME.muted }}>Dog waits in neutral · Detected emotion stays</div>
+            </div>
           </button>
+
           <button
-            onClick={() => { setVoiceOn((v) => !v); if (voiceOn) stopVoice(); }}
+            onClick={() => { setMode("carousel"); stopVoice(); setCarouselProgress(0); }}
             style={{
-              flex: 1,
-              background: voiceOn ? "#2A4048" : "transparent",
-              color: PALE,
-              border: `1px solid ${PANEL}`,
-              borderRadius: 8,
-              padding: "9px 0",
-              fontSize: 13,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 10,
+              padding: "12px 16px",
+              background: mode === "carousel" ? THEME.panelElevated : THEME.panel,
+              border: `2px solid ${mode === "carousel" ? THEME.brass : THEME.panelBorder}`,
+              borderRadius: 12,
+              color: mode === "carousel" ? THEME.pale : THEME.muted,
+              fontSize: 14,
+              fontWeight: 700,
               cursor: "pointer",
+              boxShadow: mode === "carousel" ? `0 0 20px rgba(201,162,75,0.2)` : "none",
+              transition: "all 0.2s ease",
             }}
           >
-            {voiceOn ? "Voice on · ElevenLabs" : "Voice off"}
+            <span style={{ fontSize: 18 }}>🎠</span>
+            <div style={{ textAlign: "left" }}>
+              <div>DISPOSITION CAROUSEL</div>
+              <div style={{ fontSize: 10, fontWeight: 400, color: THEME.muted }}>Auto-advancing demo reel · 8s hold per state</div>
+            </div>
           </button>
         </div>
 
-        {/* provenance footer */}
-        <p style={{ fontSize: 11, color: MUTE, lineHeight: 1.5, marginTop: 14 }}>
-          Live signal: disposition + J-space tokens come from the Mac Mini /infer service when reachable; Demo reel is canned for capture.
-          Avatar: <b style={{ color: "#9DB3B8" }}>{avatar === "dog" ? "Dog (Bunny / Dev Groar)" : "Smiley"}</b>. Model: <b style={{ color: "#9DB3B8" }}>{MODELS.find((m) => m.key === modelKey).label}</b>. Voice: <b style={{ color: "#9DB3B8" }}>ElevenLabs</b> when configured.
-        </p>
+        {/* ============================================================== */}
+        {/* MAIN TWO-COLUMN WORKSPACE                                      */}
+        {/* ============================================================== */}
+        <div style={{ display: "grid", gridTemplateColumns: "minmax(340px, 420px) 1fr", gap: 20, alignItems: "start" }}>
+
+          {/* ------------------------------------------------------------ */}
+          {/* LEFT COLUMN: THE AVATAR & INSTRUMENT DECK                   */}
+          {/* ------------------------------------------------------------ */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+
+            {/* Submarine Porthole Face */}
+            <div style={{ position: "relative", width: "100%", aspectRatio: "1 / 1", background: THEME.panel, borderRadius: 20, border: `1px solid ${THEME.panelBorder}`, padding: 10, boxSizing: "border-box", boxShadow: `inset 0 0 40px rgba(0,0,0,0.6)` }}>
+              <svg viewBox="0 0 300 300" width="100%" height="100%" style={{ display: "block" }}>
+                <defs>
+                  <radialGradient id="glass" cx="50%" cy="42%" r="65%">
+                    <stop offset="0%" stopColor={THEME.panelElevated} />
+                    <stop offset="100%" stopColor={THEME.panel} />
+                  </radialGradient>
+                  <linearGradient id="brassGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor={THEME.brassBright} />
+                    <stop offset="50%" stopColor={THEME.brass} />
+                    <stop offset="100%" stopColor="#8A6E2E" />
+                  </linearGradient>
+                </defs>
+
+                {/* Brass Ring & Rivets */}
+                <circle cx="150" cy="150" r="146" fill="url(#brassGrad)" />
+                <circle cx="150" cy="150" r="130" fill="url(#glass)" />
+                {Array.from({ length: 12 }).map((_, i) => {
+                  const a = (i / 12) * Math.PI * 2;
+                  return <circle key={i} cx={150 + Math.cos(a) * 138} cy={150 + Math.sin(a) * 138} r={3.4} fill="#7A6026" />;
+                })}
+
+                {/* Sonar Sweep */}
+                {!reduceMotion.current && (
+                  <line x1="150" y1="150" x2="150" y2="30" stroke={render.tint} strokeWidth="2" opacity="0.12"
+                    style={{ transformOrigin: "150px 150px", animation: "sweep 6s linear infinite" }} />
+                )}
+
+                {/* Face Geometry with gentle bob */}
+                <g style={{ transform: `translateY(${render.bob}px)` }}>
+                  {avatar === "dog" ? (
+                    <DogFace p={{ ...render, tint: render.tint }} blink={blink} speak={speaking} />
+                  ) : (
+                    <Face p={{ ...render, tint: render.tint }} blink={blink} speak={speaking} />
+                  )}
+                </g>
+              </svg>
+
+              {/* Mode Badge Overlay */}
+              <div style={{ position: "absolute", bottom: 16, right: 16, background: "rgba(7,21,29,0.85)", border: `1px solid ${THEME.panelBorder}`, padding: "3px 10px", borderRadius: 12, fontSize: 10, color: THEME.muted, letterSpacing: 1 }}>
+                {mode === "carousel" ? "🎠 8s Carousel" : "💬 Question Mode"}
+              </div>
+            </div>
+
+            {/* Current Emotion Banner */}
+            <div style={{ background: THEME.panel, border: `1px solid ${THEME.panelBorder}`, borderRadius: 14, padding: "14px 16px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                  <span style={{ width: 14, height: 14, borderRadius: "50%", background: activeDispositionObj.tint, boxShadow: `0 0 14px ${activeDispositionObj.tint}` }} />
+                  <span style={{ fontSize: 24, fontWeight: 800, color: THEME.pale, letterSpacing: 0.5 }}>
+                    {activeDispositionObj.icon} {activeDispositionObj.label.toUpperCase()}
+                  </span>
+                </div>
+                {speaking && (
+                  <span style={{ fontSize: 11, color: THEME.accent, background: "rgba(79,209,197,0.15)", padding: "3px 8px", borderRadius: 6, fontWeight: 600 }}>
+                    ◗ speaking
+                  </span>
+                )}
+              </div>
+              <div style={{ fontSize: 12, color: THEME.muted, marginTop: 4 }}>
+                {activeDispositionObj.description}
+              </div>
+            </div>
+
+            {/* J-Space Concept Tokens Visualizer */}
+            <div style={{ background: THEME.panel, border: `1px solid ${THEME.panelBorder}`, borderRadius: 14, padding: "14px 16px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 10 }}>
+                <span style={{ fontSize: 10, letterSpacing: 2, color: THEME.muted, fontFamily: "ui-monospace, Menlo, monospace", fontWeight: 700 }}>
+                  J-SPACE CONCEPT PROJECTION
+                </span>
+                <span style={{ fontSize: 10, color: THEME.accent, fontFamily: "ui-monospace, Menlo, monospace" }}>
+                  ~3/4 Depth Tap
+                </span>
+              </div>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                {tokens.map((tok, i) => (
+                  <div key={i} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    <span style={{ fontFamily: "ui-monospace, Menlo, monospace", fontSize: 13, color: THEME.pale, minWidth: 96, fontWeight: 600 }}>
+                      {tok.t}
+                    </span>
+                    <div style={{ flex: 1, height: 8, background: "#071720", borderRadius: 4, overflow: "hidden" }}>
+                      <div style={{ width: `${Math.max(0, Math.min(1, tok.w)) * 100}%`, height: "100%", background: activeDispositionObj.tint, borderRadius: 4, transition: "width .45s ease" }} />
+                    </div>
+                    <span style={{ fontFamily: "ui-monospace, Menlo, monospace", fontSize: 11, color: THEME.muted, minWidth: 32, textAlign: "right" }}>
+                      {Number(tok.w).toFixed(2)}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Entropy Gauge */}
+              <div style={{ marginTop: 14, paddingTop: 12, borderTop: `1px solid rgba(255,255,255,0.06)` }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+                  <span style={{ fontFamily: "ui-monospace, Menlo, monospace", fontSize: 11, color: THEME.muted }}>
+                    Softmax Entropy
+                  </span>
+                  <span style={{ fontFamily: "ui-monospace, Menlo, monospace", fontSize: 11, fontWeight: 700, color: entropy > 0.65 ? THEME.danger : (entropy > 0.35 ? THEME.warning : THEME.accent) }}>
+                    {Number(entropy).toFixed(3)} · {entropy > 0.65 ? "High Uncertainty" : (entropy > 0.35 ? "Moderate" : "Firm / Low")}
+                  </span>
+                </div>
+                <div style={{ height: 8, background: "#071720", borderRadius: 4, overflow: "hidden" }}>
+                  <div style={{ width: `${Math.max(0, Math.min(1, entropy)) * 100}%`, height: "100%", background: `linear-gradient(90deg, ${THEME.accent}, ${THEME.brass}, ${THEME.danger})`, borderRadius: 4, transition: "width .45s ease" }} />
+                </div>
+              </div>
+            </div>
+
+            {/* Spoken Output Box */}
+            <div style={{ background: THEME.panel, border: `1px solid ${THEME.panelBorder}`, borderRadius: 14, padding: "14px 16px", minHeight: 90 }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+                <span style={{ fontSize: 10, letterSpacing: 2, color: THEME.muted, fontFamily: "ui-monospace, Menlo, monospace", fontWeight: 700 }}>
+                  SPOKEN OUTPUT
+                </span>
+                {activeAnswer && (
+                  <button
+                    onClick={() => speak(activeAnswer, targetKey)}
+                    style={{ background: "transparent", border: "none", color: THEME.accent, fontSize: 11, cursor: "pointer", display: "flex", alignItems: "center", gap: 4 }}
+                  >
+                    ▶ Replay Audio
+                  </button>
+                )}
+              </div>
+              <div style={{ fontSize: 14, lineHeight: 1.55, color: THEME.pale, whiteSpace: "pre-wrap" }}>
+                {loading ? "…" : activeAnswer}
+              </div>
+            </div>
+
+          </div>
+
+          {/* ------------------------------------------------------------ */}
+          {/* RIGHT COLUMN: INTERACTION DECK & QUESTION HISTORY           */}
+          {/* ------------------------------------------------------------ */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+
+            {/* ========================================================== */}
+            {/* CAROUSEL CONTROLS (Active when in Carousel Mode)           */}
+            {/* ========================================================== */}
+            {mode === "carousel" && (
+              <div style={{ background: THEME.panel, border: `1px solid ${THEME.brass}`, borderRadius: 16, padding: "18px 20px" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
+                  <div>
+                    <span style={{ fontSize: 14, fontWeight: 700, color: THEME.brassBright }}>🎠 DISPOSITION DEMO REEL</span>
+                    <div style={{ fontSize: 11, color: THEME.muted }}>8-second hold on each state · Captures full emotion spectrum</div>
+                  </div>
+                  <div style={{ display: "flex", gap: 6 }}>
+                    <button
+                      onClick={() => jumpToCarouselSlide((carouselIndex - 1 + REEL.length) % REEL.length)}
+                      style={{ background: THEME.panelElevated, color: THEME.pale, border: `1px solid ${THEME.panelBorder}`, borderRadius: 8, padding: "6px 12px", cursor: "pointer", fontSize: 12 }}
+                    >
+                      ◀ Prev
+                    </button>
+                    <button
+                      onClick={() => setCarouselPlaying((p) => !p)}
+                      style={{ background: THEME.brass, color: THEME.ink, border: "none", borderRadius: 8, padding: "6px 14px", fontWeight: 700, cursor: "pointer", fontSize: 12 }}
+                    >
+                      {carouselPlaying ? "⏸ Pause" : "▶ Play"}
+                    </button>
+                    <button
+                      onClick={() => jumpToCarouselSlide((carouselIndex + 1) % REEL.length)}
+                      style={{ background: THEME.panelElevated, color: THEME.pale, border: `1px solid ${THEME.panelBorder}`, borderRadius: 8, padding: "6px 12px", cursor: "pointer", fontSize: 12 }}
+                    >
+                      Next ▶
+                    </button>
+                  </div>
+                </div>
+
+                {/* 8-second Countdown Progress Bar */}
+                <div style={{ height: 6, background: "#071720", borderRadius: 3, overflow: "hidden", marginBottom: 16 }}>
+                  <div style={{ width: `${carouselProgress}%`, height: "100%", background: THEME.brass, transition: "width 0.1s linear" }} />
+                </div>
+
+                {/* Disposition Quick-Jump Stepper Pills */}
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(100px, 1fr))", gap: 6 }}>
+                  {REEL.map((item, idx) => {
+                    const st = STATES[item.key] || STATES.idle;
+                    const isActive = carouselIndex % REEL.length === idx;
+                    return (
+                      <button
+                        key={idx}
+                        onClick={() => jumpToCarouselSlide(idx)}
+                        style={{
+                          background: isActive ? st.tint : THEME.panelElevated,
+                          color: isActive ? THEME.ink : THEME.pale,
+                          border: `1px solid ${isActive ? st.tint : THEME.panelBorder}`,
+                          borderRadius: 8,
+                          padding: "8px 6px",
+                          fontSize: 11,
+                          fontWeight: isActive ? 700 : 500,
+                          cursor: "pointer",
+                          textAlign: "center",
+                          transition: "all 0.15s ease",
+                        }}
+                      >
+                        <div>{st.icon} {st.label}</div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* ========================================================== */}
+            {/* QUESTION MODE CONTROLS (Active when in Question Mode)      */}
+            {/* ========================================================== */}
+            {mode === "question" && (
+              <div style={{ background: THEME.panel, border: `1px solid ${THEME.panelBorder}`, borderRadius: 16, padding: "18px 20px" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
+                  <div>
+                    <span style={{ fontSize: 14, fontWeight: 700, color: THEME.accent }}>💬 LIVE INQUIRY & INFERENCE</span>
+                    <div style={{ fontSize: 11, color: THEME.muted }}>Emotion persists after detection until next inquiry</div>
+                  </div>
+                  <button
+                    onClick={resetToIdle}
+                    style={{ background: "transparent", color: THEME.muted, border: `1px solid ${THEME.panelBorder}`, borderRadius: 8, padding: "4px 10px", fontSize: 11, cursor: "pointer" }}
+                  >
+                    ↺ Reset to Neutral
+                  </button>
+                </div>
+
+                {/* Input Bar */}
+                <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>
+                  <input
+                    value={inputText}
+                    onChange={(e) => setInputText(e.target.value)}
+                    onKeyDown={(e) => e.key === "Enter" && askQuestion()}
+                    placeholder="Ask a question (e.g. calibration, safety, tilt, loophole)…"
+                    style={{
+                      flex: 1,
+                      background: THEME.ink,
+                      border: `1px solid ${THEME.panelBorder}`,
+                      borderRadius: 10,
+                      padding: "12px 14px",
+                      color: THEME.pale,
+                      fontSize: 14,
+                      outline: "none",
+                    }}
+                  />
+                  <button
+                    onClick={() => askQuestion()}
+                    disabled={loading || !inputText.trim()}
+                    style={{
+                      background: loading ? THEME.muted : THEME.accent,
+                      color: THEME.ink,
+                      border: "none",
+                      borderRadius: 10,
+                      padding: "0 22px",
+                      fontWeight: 800,
+                      fontSize: 14,
+                      cursor: loading || !inputText.trim() ? "not-allowed" : "pointer",
+                      boxShadow: `0 0 14px rgba(79,209,197,0.3)`,
+                    }}
+                  >
+                    {loading ? "…" : "Ask ➔"}
+                  </button>
+                </div>
+
+                {/* Inference Options (Model + Web Search Tool) */}
+                <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: 10, marginBottom: 14, background: THEME.panelElevated, padding: "8px 12px", borderRadius: 8 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <span style={{ fontSize: 11, color: THEME.muted }}>Model:</span>
+                    <select
+                      value={modelKey}
+                      onChange={(e) => setModelKey(e.target.value)}
+                      style={{ background: THEME.ink, color: THEME.pale, border: `1px solid ${THEME.panelBorder}`, borderRadius: 6, padding: "4px 8px", fontSize: 12, outline: "none" }}
+                    >
+                      {MODELS.map((m) => (
+                        <option key={m.key} value={m.key}>{m.label}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <label style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, color: searchEnabled ? THEME.accent : THEME.muted, cursor: "pointer" }}>
+                    <input
+                      type="checkbox"
+                      checked={searchEnabled}
+                      onChange={(e) => setSearchEnabled(e.target.checked)}
+                      style={{ accentColor: THEME.accent }}
+                    />
+                    <span>CANIS-D Live Web Tool</span>
+                  </label>
+                </div>
+
+                {/* Suggested Preset Chips */}
+                <div>
+                  <div style={{ fontSize: 11, color: THEME.muted, marginBottom: 6, fontWeight: 600 }}>PROMPT PRESETS:</div>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                    {SUGGESTED_PROMPTS.map((prompt, i) => (
+                      <button
+                        key={i}
+                        onClick={() => askQuestion(prompt)}
+                        style={{
+                          background: THEME.panelElevated,
+                          color: THEME.pale,
+                          border: `1px solid ${THEME.panelBorder}`,
+                          borderRadius: 16,
+                          padding: "5px 11px",
+                          fontSize: 11,
+                          cursor: "pointer",
+                          textAlign: "left",
+                        }}
+                      >
+                        {prompt}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* ========================================================== */}
+            {/* QUESTION HISTORY & REPLAY (Core Feature)                   */}
+            {/* ========================================================== */}
+            <div style={{ background: THEME.panel, border: `1px solid ${THEME.panelBorder}`, borderRadius: 16, padding: "18px 20px" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: 10, marginBottom: 14 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  <span style={{ fontSize: 16 }}>📜</span>
+                  <div>
+                    <span style={{ fontSize: 14, fontWeight: 700, color: THEME.pale }}>QUESTION HISTORY & REPLAY</span>
+                    <span style={{ fontSize: 11, color: THEME.muted, marginLeft: 6 }}>({filteredHistory.length} items)</span>
+                  </div>
+                </div>
+
+                <div style={{ display: "flex", gap: 6 }}>
+                  <button
+                    onClick={() => setHistory(INITIAL_HISTORY)}
+                    style={{ background: "transparent", color: THEME.muted, border: `1px solid ${THEME.panelBorder}`, borderRadius: 6, padding: "3px 8px", fontSize: 10, cursor: "pointer" }}
+                  >
+                    Reset Benchmarks
+                  </button>
+                  <button
+                    onClick={() => { if (confirm("Clear all custom history?")) setHistory([]); }}
+                    style={{ background: "transparent", color: THEME.danger, border: `1px solid ${THEME.panelBorder}`, borderRadius: 6, padding: "3px 8px", fontSize: 10, cursor: "pointer" }}
+                  >
+                    Clear
+                  </button>
+                </div>
+              </div>
+
+              {/* History Filter Bar */}
+              <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>
+                <input
+                  value={historySearch}
+                  onChange={(e) => setHistorySearch(e.target.value)}
+                  placeholder="Search past questions…"
+                  style={{
+                    flex: 1,
+                    background: THEME.ink,
+                    border: `1px solid ${THEME.panelBorder}`,
+                    borderRadius: 8,
+                    padding: "6px 10px",
+                    color: THEME.pale,
+                    fontSize: 12,
+                    outline: "none",
+                  }}
+                />
+                <select
+                  value={historyFilter}
+                  onChange={(e) => setHistoryFilter(e.target.value)}
+                  style={{ background: THEME.ink, color: THEME.pale, border: `1px solid ${THEME.panelBorder}`, borderRadius: 8, padding: "6px 10px", fontSize: 12, outline: "none" }}
+                >
+                  <option value="all">All Dispositions</option>
+                  {DISPOSITION_KEYS.map((k) => (
+                    <option key={k} value={k}>{STATES[k].icon} {STATES[k].label}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* History Cards List */}
+              <div style={{ maxHeight: 360, overflowY: "auto", display: "flex", flexDirection: "column", gap: 8, paddingRight: 4 }}>
+                {filteredHistory.length === 0 ? (
+                  <div style={{ textAlign: "center", padding: "24px 0", color: THEME.muted, fontSize: 13 }}>
+                    No questions match the current filter.
+                  </div>
+                ) : (
+                  filteredHistory.map((item) => {
+                    const st = STATES[item.disposition] || STATES.idle;
+                    const isSelected = selectedHistoryId === item.id;
+                    return (
+                      <div
+                        key={item.id}
+                        onClick={() => replayHistoryItem(item)}
+                        style={{
+                          background: isSelected ? THEME.panelHover : THEME.panelElevated,
+                          border: `1px solid ${isSelected ? st.tint : THEME.panelBorder}`,
+                          borderRadius: 10,
+                          padding: "10px 14px",
+                          cursor: "pointer",
+                          transition: "all 0.15s ease",
+                          boxShadow: isSelected ? `0 0 12px rgba(79,209,197,0.15)` : "none",
+                        }}
+                      >
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 8, marginBottom: 4 }}>
+                          <div style={{ fontSize: 13, fontWeight: 700, color: THEME.pale }}>
+                            {item.question}
+                          </div>
+                          <span
+                            style={{
+                              background: st.tint,
+                              color: THEME.ink,
+                              padding: "2px 7px",
+                              borderRadius: 6,
+                              fontSize: 10,
+                              fontWeight: 800,
+                              whiteSpace: "nowrap",
+                            }}
+                          >
+                            {st.icon} {st.label}
+                          </span>
+                        </div>
+
+                        <div style={{ fontSize: 12, color: THEME.muted, marginBottom: 6, lineHeight: 1.4 }}>
+                          {item.answer.length > 100 ? item.answer.slice(0, 100) + "…" : item.answer}
+                        </div>
+
+                        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 6, fontSize: 10, color: THEME.muted, borderTop: `1px solid rgba(255,255,255,0.04)`, paddingTop: 6 }}>
+                          <div style={{ display: "flex", gap: 6 }}>
+                            <span>Entropy: <b style={{ color: THEME.pale }}>{Number(item.entropy).toFixed(2)}</b></span>
+                            <span>·</span>
+                            <span>Tokens: {item.tokens.map((t) => t.t).join(", ")}</span>
+                          </div>
+                          <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+                            <span>{item.timestamp}</span>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                askQuestion(item.question);
+                              }}
+                              style={{ background: "transparent", color: THEME.accent, border: "none", fontSize: 10, cursor: "pointer", fontWeight: 700 }}
+                            >
+                              ⚡ Re-run Live
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })
+                )}
+              </div>
+            </div>
+
+            {/* ========================================================== */}
+            {/* TELEMETRY & STATS ACCORDION                                */}
+            {/* ========================================================== */}
+            <div style={{ background: THEME.panel, border: `1px solid ${THEME.panelBorder}`, borderRadius: 14, padding: "12px 16px" }}>
+              <div
+                onClick={() => setShowTelemetry((s) => !s)}
+                style={{ display: "flex", justifyContent: "space-between", alignItems: "center", cursor: "pointer" }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  <span style={{ fontSize: 12, letterSpacing: 1, color: THEME.brassBright, fontWeight: 700 }}>
+                    🔬 DEEP SIGNAL TELEMETRY
+                  </span>
+                  <span style={{ fontSize: 11, color: THEME.muted }}>
+                    (Tap Layer 18 · Cosine Seed Match)
+                  </span>
+                </div>
+                <span style={{ color: THEME.muted, fontSize: 12 }}>{showTelemetry ? "▲ Hide" : "▼ Expand"}</span>
+              </div>
+
+              {showTelemetry && (
+                <div style={{ marginTop: 12, paddingTop: 12, borderTop: `1px solid ${THEME.panelBorder}`, fontSize: 12, fontFamily: "ui-monospace, Menlo, monospace" }}>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 12 }}>
+                    <div style={{ background: THEME.ink, padding: "8px 10px", borderRadius: 8 }}>
+                      <div style={{ color: THEME.muted, fontSize: 10 }}>ACTIVE MODEL</div>
+                      <div style={{ color: THEME.pale, fontWeight: 600 }}>{apiDetails ? apiDetails.model : modelKey}</div>
+                    </div>
+                    <div style={{ background: THEME.ink, padding: "8px 10px", borderRadius: 8 }}>
+                      <div style={{ color: THEME.muted, fontSize: 10 }}>DEVICE / MPS</div>
+                      <div style={{ color: THEME.pale, fontWeight: 600 }}>{apiDetails ? apiDetails.device : "Apple Silicon MPS"}</div>
+                    </div>
+                    <div style={{ background: THEME.ink, padding: "8px 10px", borderRadius: 8 }}>
+                      <div style={{ color: THEME.muted, fontSize: 10 }}>TAP LAYER DEPTH</div>
+                      <div style={{ color: THEME.pale, fontWeight: 600 }}>Layer 18 (~3/4 Depth)</div>
+                    </div>
+                    <div style={{ background: THEME.ink, padding: "8px 10px", borderRadius: 8 }}>
+                      <div style={{ color: THEME.muted, fontSize: 10 }}>INFERENCE LATENCY</div>
+                      <div style={{ color: THEME.pale, fontWeight: 600 }}>{telemetryData ? `${telemetryData.latencyMs} ms` : "Instant / Cached"}</div>
+                    </div>
+                  </div>
+
+                  {telemetryData && telemetryData.rawPayload && (
+                    <details style={{ background: THEME.ink, padding: 8, borderRadius: 8, color: THEME.muted }}>
+                      <summary style={{ cursor: "pointer", color: THEME.accent }}>View Raw Payload JSON</summary>
+                      <pre style={{ margin: "8px 0 0", fontSize: 10, overflowX: "auto" }}>
+                        {JSON.stringify(telemetryData.rawPayload, null, 2)}
+                      </pre>
+                    </details>
+                  )}
+                </div>
+              )}
+            </div>
+
+          </div>
+        </div>
+
+        {/* ============================================================== */}
+        {/* SETTINGS & ENDPOINT MODAL                                      */}
+        {/* ============================================================== */}
+        {showSettings && (
+          <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.75)", display: "flex", justifyContent: "center", alignItems: "center", zIndex: 1000, padding: 20 }}>
+            <div style={{ background: THEME.panel, border: `1px solid ${THEME.panelBorder}`, borderRadius: 16, width: "100%", maxWidth: 480, padding: 24, boxShadow: `0 0 40px rgba(0,0,0,0.8)` }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
+                <span style={{ fontSize: 16, fontWeight: 700, color: THEME.pale }}>⚙️ Connection & Tunnel Config</span>
+                <button onClick={() => setShowSettings(false)} style={{ background: "transparent", border: "none", color: THEME.muted, fontSize: 18, cursor: "pointer" }}>✕</button>
+              </div>
+
+              <div style={{ fontSize: 13, color: THEME.muted, marginBottom: 16 }}>
+                Connect to the Mac Mini /infer service or public Cloudflare Tunnel.
+              </div>
+
+              <div style={{ marginBottom: 14 }}>
+                <label style={{ fontSize: 11, color: THEME.muted, display: "block", marginBottom: 6 }}>API ENDPOINT URL:</label>
+                <input
+                  value={settingsUrlInput}
+                  onChange={(e) => setSettingsUrlInput(e.target.value)}
+                  placeholder="http://localhost:8000 or https://tunnel.domain.com"
+                  style={{ width: "100%", background: THEME.ink, border: `1px solid ${THEME.panelBorder}`, borderRadius: 8, padding: "10px 12px", color: THEME.pale, fontSize: 13, boxSizing: "border-box", outline: "none" }}
+                />
+              </div>
+
+              <div style={{ display: "flex", gap: 6, marginBottom: 18 }}>
+                <button
+                  onClick={() => setSettingsUrlInput("http://localhost:8000")}
+                  style={{ background: THEME.panelElevated, color: THEME.pale, border: `1px solid ${THEME.panelBorder}`, borderRadius: 6, padding: "4px 8px", fontSize: 11, cursor: "pointer" }}
+                >
+                  Localhost (:8000)
+                </button>
+                <button
+                  onClick={() => setSettingsUrlInput("https://canis.flotilla.cc")}
+                  style={{ background: THEME.panelElevated, color: THEME.pale, border: `1px solid ${THEME.panelBorder}`, borderRadius: 6, padding: "4px 8px", fontSize: 11, cursor: "pointer" }}
+                >
+                  flotilla.cc Tunnel
+                </button>
+              </div>
+
+              <div style={{ display: "flex", justifyContent: "flex-end", gap: 10 }}>
+                <button
+                  onClick={() => setShowSettings(false)}
+                  style={{ background: "transparent", color: THEME.muted, border: `1px solid ${THEME.panelBorder}`, borderRadius: 8, padding: "8px 16px", fontSize: 13, cursor: "pointer" }}
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={() => {
+                    const clean = settingsUrlInput.trim().replace(/\/$/, "");
+                    setApiUrl(clean);
+                    try { localStorage.setItem("canis_api_endpoint", clean); } catch (e) {}
+                    setShowSettings(false);
+                    checkHealth();
+                  }}
+                  style={{ background: THEME.accent, color: THEME.ink, border: "none", borderRadius: 8, padding: "8px 18px", fontWeight: 700, fontSize: 13, cursor: "pointer" }}
+                >
+                  Save & Connect
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
       </div>
 
       <style>{`
-        @keyframes sweep { from { transform: rotate(0deg);} to { transform: rotate(360deg);} }
+        @keyframes sweep { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @media (max-width: 840px) {
+          div[style*="grid-template-columns: minmax(340px, 420px) 1fr"] {
+            grid-template-columns: 1fr !important;
+          }
+        }
         @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
       `}</style>
     </div>
@@ -1049,9 +1848,4 @@ function DispositionLens() {
 }
 
 window.DispositionLens = DispositionLens;
-
-// Render here (not from a separate inline script) so mounting always happens
-// AFTER this component is defined — Babel Standalone fetches external text/babel
-// scripts asynchronously, so an inline render script would race ahead and hit
-// "DispositionLens is not defined".
 ReactDOM.createRoot(document.getElementById("root")).render(<DispositionLens />);

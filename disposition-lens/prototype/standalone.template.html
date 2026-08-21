@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sovereign Mind — Disposition Lens</title>
+  <title>Canis — Disposition Lens Live Demo</title>
   <style>
-    body { margin:0; padding:0; background:#0B1D26;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
-    #root { display:flex; justify-content:center; align-items:center; min-height:100vh; }
-    #err { color:#E8674D; font-family:ui-monospace,Menlo,monospace; font-size:13px;
-           white-space:pre-wrap; padding:20px; max-width:800px; }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 0; background: #07151D; color: #E7F1EF;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      overflow-x: hidden; }
+    #root { width: 100%; min-height: 100vh; display: flex; justify-content: center; }
+    #err { color: #E8674D; font-family: ui-monospace, Menlo, monospace; font-size: 13px;
+           white-space: pre-wrap; padding: 24px; max-width: 800px; margin: 40px auto;
+           background: #140b0b; border: 1px solid #E8674D; border-radius: 8px; }
   </style>
   <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
@@ -29,10 +32,9 @@ __SRC__
         }).code;
         new Function("React", "ReactDOM", out)(React, ReactDOM);
       } catch (e) {
-        // Surface errors on-screen instead of a silent black void.
         var d = document.createElement("div");
         d.id = "err";
-        d.textContent = "Disposition Lens failed to start:\n\n" + (e && e.stack ? e.stack : e);
+        d.textContent = "Canis Disposition Lens failed to start:\n\n" + (e && e.stack ? e.stack : e);
         document.body.appendChild(d);
         console.error(e);
       }

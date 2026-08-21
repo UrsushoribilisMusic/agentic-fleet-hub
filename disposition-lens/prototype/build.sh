@@ -5,7 +5,7 @@ set -e
 cd "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 python3 - <<'PY'
 jsx = open("disposition_lens.jsx").read()
-prelude = ('const { useState, useEffect, useRef, useCallback } = React;\n'
+prelude = ('const { useState, useEffect, useRef, useCallback, useMemo } = React;\n'
            'window.DISPOSITION_API_URL = window.DISPOSITION_API_URL || "http://localhost:8000";\n')
 src = prelude + "\n" + jsx
 tpl = open("standalone.template.html").read()
