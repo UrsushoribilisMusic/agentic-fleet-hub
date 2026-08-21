@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canis — On-Device LLM Disposition Lens</title>
+  <style>
+    :root {
+      --bg-dark: #07151D;
+      --panel: #0E2530;
+      --panel-elevated: #143544;
+      --panel-border: rgba(79, 209, 197, 0.18);
+      --ink: #0B1D26;
+      --pale: #E7F1EF;
+      --muted: #8AA2A8;
+      --brass: #C9A24B;
+      --brass-bright: #F5DE88;
+      --teal: #4FD1C5;
+      --sky: #54C7E8;
+      --amber: #E8A33D;
+      --lime: #8FD14F;
+      --coral: #E8674D;
+      --purple: #C98BD1;
+      --emerald: #7BD389;
+      --gold: #F0A500;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--pale);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Ambient glow background */
+    .bg-ambient {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 50% 20%, rgba(79, 209, 197, 0.08) 0%, transparent 60%),
+                  radial-gradient(circle at 80% 80%, rgba(201, 162, 75, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Navigation */
+    header {
+      border-bottom: 1px solid var(--panel-border);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      background: rgba(7, 21, 29, 0.85);
+      z-index: 100;
+    }
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--pale);
+    }
+    .logo-badge {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--teal), var(--brass));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 0 15px rgba(79, 209, 197, 0.3);
+    }
+    .logo-text {
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .logo-sub {
+      font-size: 11px;
+      color: var(--teal);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 24px;
+      align-items: center;
+    }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--teal); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--teal), #319795);
+      color: var(--ink);
+      box-shadow: 0 4px 14px rgba(79, 209, 197, 0.25);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(79, 209, 197, 0.4);
+    }
+    .btn-secondary {
+      background: var(--panel);
+      color: var(--pale);
+      border: 1px solid var(--panel-border);
+    }
+    .btn-secondary:hover {
+      background: var(--panel-elevated);
+      border-color: var(--teal);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: rgba(79, 209, 197, 0.1);
+      border: 1px solid rgba(79, 209, 197, 0.3);
+      color: var(--teal);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .hero h1 {
+      font-size: 52px;
+      line-height: 1.15;
+      font-weight: 800;
+      margin-bottom: 24px;
+      background: linear-gradient(180deg, #FFFFFF 0%, #B2CBD2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-lead {
+      font-size: 20px;
+      color: var(--muted);
+      max-width: 780px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+    .hero-lead strong {
+      color: var(--pale);
+    }
+
+    /* Callout Card (Honest framing) */
+    .alert-banner {
+      background: linear-gradient(135deg, rgba(201, 162, 75, 0.12), rgba(201, 162, 75, 0.04));
+      border: 1px solid var(--brass);
+      border-radius: 12px;
+      padding: 18px 24px;
+      max-width: 820px;
+      margin: 0 auto 60px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      text-align: left;
+    }
+    .alert-icon { font-size: 24px; color: var(--brass-bright); line-height: 1; }
+    .alert-content h4 {
+      font-size: 15px;
+      color: var(--brass-bright);
+      margin-bottom: 4px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .alert-content p {
+      font-size: 14px;
+      color: #D3E0DC;
+      line-height: 1.5;
+    }
+
+    /* Live Interactive Playground */
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section-title h2 {
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--pale);
+      margin-bottom: 12px;
+    }
+    .section-title p {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .playground-grid {
+      display: grid;
+      grid-template-columns: 440px 1fr;
+      gap: 28px;
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      margin-bottom: 80px;
+    }
+
+    /* Avatar Column */
+    .avatar-card {
+      background: var(--bg-dark);
+      border-radius: 16px;
+      border: 1px solid rgba(79, 209, 197, 0.15);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .avatar-porthole {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #0F2A35 0%, #06131A 100%);
+      border: 4px solid var(--brass);
+      box-shadow: inset 0 0 25px rgba(0,0,0,0.8), 0 0 25px rgba(79, 209, 197, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .disposition-tag {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 6px 18px;
+      border-radius: 999px;
+      border: 1px solid currentColor;
+      margin-bottom: 14px;
+    }
+    .avatar-speech {
+      font-size: 14px;
+      color: #CFE3E0;
+      background: rgba(20, 53, 68, 0.6);
+      padding: 12px 16px;
+      border-radius: 10px;
+      border-left: 3px solid var(--teal);
+      width: 100%;
+      line-height: 1.5;
+      font-style: italic;
+      min-height: 68px;
+    }
+
+    /* Controls Column */
+    .controls-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .button-group-label {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .disposition-buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .disp-btn {
+      background: var(--panel-elevated);
+      border: 1px solid var(--panel-border);
+      border-radius: 8px;
+      padding: 10px 8px;
+      color: var(--pale);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s;
+    }
+    .disp-btn:hover {
+      border-color: var(--teal);
+      background: #184255;
+    }
+    .disp-btn.active {
+      border-color: var(--btn-color, var(--teal));
+      background: rgba(79, 209, 197, 0.15);
+      box-shadow: 0 0 12px rgba(79, 209, 197, 0.2);
+    }
+    .disp-btn .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--btn-color, var(--teal));
+    }
+
+    /* Telemetry Panels */
+    .telemetry-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .telemetry-box {
+      background: var(--bg-dark);
+      border: 1px solid rgba(79, 209, 197, 0.12);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .telemetry-header {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .token-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+    }
+    .token-name { width: 90px; color: var(--pale); }
+    .token-bar-wrap {
+      flex: 1;
+      height: 6px;
+      background: #102B37;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .token-bar {
+      height: 100%;
+      background: var(--teal);
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+    .token-weight { width: 40px; text-align: right; color: var(--muted); font-size: 12px; }
+
+    /* Entropy Meter */
+    .entropy-gauge-wrap {
+      margin-top: 6px;
+    }
+    .entropy-val-row {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--pale);
+      margin-bottom: 6px;
+    }
+    .entropy-bar-track {
+      height: 8px;
+      background: #102B37;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+    .entropy-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--sky) 0%, var(--teal) 40%, var(--amber) 75%, var(--coral) 100%);
+      width: 34%;
+      border-radius: 4px;
+      transition: width 0.3s ease;
+    }
+    .entropy-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      font-family: var(--font-mono);
+      color: var(--muted);
+    }
+
+    /* JSON Signal Viewer */
+    .json-viewer {
+      background: #040E14;
+      border: 1px solid rgba(79, 209, 197, 0.15);
+      border-radius: 10px;
+      padding: 12px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: #A3C9C3;
+      overflow-x: auto;
+      max-height: 110px;
+    }
+
+    /* Progressive Deep Tech Cards */
+    .tech-section {
+      padding: 60px 0 80px;
+      border-top: 1px solid var(--panel-border);
+    }
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .tech-card {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .tech-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--teal);
+    }
+    .tech-step-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--brass-bright);
+      background: rgba(201, 162, 75, 0.15);
+      border: 1px solid rgba(201, 162, 75, 0.3);
+      padding: 4px 10px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-bottom: 16px;
+      align-self: flex-start;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .tech-card h3 {
+      font-size: 20px;
+      color: var(--pale);
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    .tech-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+    .formula-box {
+      background: #05131A;
+      border: 1px solid rgba(79, 209, 197, 0.15);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--teal);
+      margin-top: auto;
+    }
+
+    /* Product Architecture Matrix */
+    .models-section {
+      padding: 60px 0 80px;
+      border-top: 1px solid var(--panel-border);
+    }
+    .models-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 40px;
+    }
+    .model-card {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 20px;
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .model-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--teal), var(--brass));
+    }
+    .model-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    .model-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--pale);
+    }
+    .model-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(79, 209, 197, 0.1);
+      border: 1px solid var(--teal);
+      color: var(--teal);
+    }
+    .model-specs {
+      list-style: none;
+      margin: 20px 0;
+    }
+    .model-specs li {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(79, 209, 197, 0.08);
+      font-size: 14px;
+    }
+    .model-specs .label { color: var(--muted); }
+    .model-specs .val { font-family: var(--font-mono); color: var(--pale); font-weight: 600; }
+
+    /* FAQ Section */
+    .faq-section {
+      padding: 60px 0 80px;
+      border-top: 1px solid var(--panel-border);
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .faq-item {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .faq-item h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--pale);
+      margin-bottom: 10px;
+    }
+    .faq-item p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--panel-border);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    footer a { color: var(--teal); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 960px) {
+      .hero h1 { font-size: 38px; }
+      .playground-grid { grid-template-columns: 1fr; }
+      .tech-grid { grid-template-columns: 1fr; }
+      .models-grid { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .disposition-buttons { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-ambient"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-wrap">
+      <a href="#" class="logo">
+        <div class="logo-badge">🐕</div>
+        <div>
+          <div class="logo-text">CANIS</div>
+          <div class="logo-sub">Disposition Lens</div>
+        </div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#playground">Live Avatar</a></li>
+          <li><a href="#deep-tech">Deep Tech</a></li>
+          <li><a href="#models">Models</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#playground" class="btn btn-primary">Try Demo</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="pill">✨ Hackathon Prototype · Oct 2026 · On-Device Interpretability</div>
+      <h1>Read the LLM's disposition before the words leave its mouth.</h1>
+      <p class="hero-lead">
+        When speaking with a human, you read <strong>micro-expressions, hesitation, and certainty</strong> long before a sentence ends. 
+        <strong>Canis</strong> translates the neural activation geometry of small language models into a live, expressive avatar on your iPhone.
+      </p>
+
+      <!-- Honest Framing Alert -->
+      <div class="alert-banner">
+        <div class="alert-icon">⚖️</div>
+        <div class="alert-content">
+          <h4>Scientific Framing: Disposition, Not Feelings</h4>
+          <p>
+            Anthropic’s Jacobian lens reads <em>disposition</em> — the mathematical concept vectors a model is primed to emit. 
+            Canis does not claim small models possess emotions or deception. We measure real-time J-space projection and next-token entropy to bring true observability to on-device AI.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Live Avatar Playground -->
+    <section id="playground">
+      <div class="section-title">
+        <h2>Live Disposition Telemetry</h2>
+        <p>Select any disposition preset below to inspect the real-time parametric SVG face, concept tokens, and Shannon entropy gates.</p>
+      </div>
+
+      <div class="playground-grid">
+        <!-- Left: Dog Avatar Porthole -->
+        <div class="avatar-card">
+          <div class="avatar-porthole">
+            <svg id="dogSvg" viewBox="0 0 300 300" width="260" height="260">
+              <!-- Definitions -->
+              <defs>
+                <radialGradient id="faceGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#194759" stop-opacity="0.8"/>
+                  <stop offset="100%" stop-color="#0E2530" stop-opacity="0.2"/>
+                </radialGradient>
+              </defs>
+
+              <g id="dogRoot" transform="translate(150, 150) rotate(0) translate(-150, -150)">
+                <!-- Ambient Backlight -->
+                <circle cx="150" cy="150" r="110" fill="url(#faceGlow)"/>
+
+                <!-- Ears -->
+                <g id="earLeftGroup" transform="translate(75, 80) rotate(-4)">
+                  <path d="M 0 0 C -30 -25, -45 50, -10 90 Z" fill="#183E4E" stroke="#4FD1C5" stroke-width="3" stroke-linejoin="round"/>
+                  <path d="M -5 10 C -25 -5, -35 45, -12 70 Z" fill="#E8674D" opacity="0.35"/>
+                </g>
+                <g id="earRightGroup" transform="translate(225, 80) rotate(4)">
+                  <path d="M 0 0 C 30 -25, 45 50, 10 90 Z" fill="#183E4E" stroke="#4FD1C5" stroke-width="3" stroke-linejoin="round"/>
+                  <path d="M 5 10 C 25 -5, 35 45, 12 70 Z" fill="#E8674D" opacity="0.35"/>
+                </g>
+
+                <!-- Head Base -->
+                <ellipse cx="150" cy="155" rx="88" ry="78" fill="#102D37" stroke="#4FD1C5" stroke-width="4"/>
+
+                <!-- Forehead Marking -->
+                <path d="M 140 85 Q 150 115 160 85 Z" fill="#183E4E" opacity="0.6"/>
+
+                <!-- Eyebrows -->
+                <g id="browLeft" transform="translate(108, 108) rotate(0)">
+                  <rect x="-18" y="-3" width="36" height="6" rx="3" fill="#E7F1EF"/>
+                </g>
+                <g id="browRight" transform="translate(192, 108) rotate(0)">
+                  <rect x="-18" y="-3" width="36" height="6" rx="3" fill="#E7F1EF"/>
+                </g>
+
+                <!-- Eyes -->
+                <g id="eyeLeft">
+                  <ellipse cx="112" cy="138" rx="19" ry="14" fill="#E7F1EF"/>
+                  <circle id="pupilL" cx="112" cy="138" r="6.5" fill="#0B1D26"/>
+                  <circle id="glintL" cx="110" cy="135.5" r="1.8" fill="#FFFFFF"/>
+                </g>
+                <g id="eyeRight">
+                  <ellipse cx="188" cy="138" rx="19" ry="14" fill="#E7F1EF"/>
+                  <circle id="pupilR" cx="188" cy="138" r="6.5" fill="#0B1D26"/>
+                  <circle id="glintR" cx="186" cy="135.5" r="1.8" fill="#FFFFFF"/>
+                </g>
+
+                <!-- Snout Base -->
+                <ellipse cx="150" cy="178" rx="42" ry="32" fill="#183E4E" stroke="rgba(79, 209, 197, 0.4)" stroke-width="2"/>
+
+                <!-- Nose -->
+                <path d="M 136 162 C 136 156, 164 156, 164 162 C 164 172, 150 178, 150 178 C 150 178, 136 172, 136 162 Z" fill="#0B1D26"/>
+                <ellipse cx="145" cy="162" rx="3" ry="1.5" fill="#E7F1EF" opacity="0.6"/>
+
+                <!-- Tongue -->
+                <g id="tongueGroup" transform="translate(150, 198) scale(1, 0)" opacity="0">
+                  <path d="M -12 0 C -12 18, 12 18, 12 0 Z" fill="#E8674D"/>
+                  <line x1="0" y1="0" x2="0" y2="12" stroke="#B8422B" stroke-width="1.5"/>
+                </g>
+
+                <!-- Mouth -->
+                <path id="mouthPath" d="M 124 196 Q 150 204 176 196" stroke="#E7F1EF" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+              </g>
+            </svg>
+          </div>
+
+          <div id="dispBadge" class="disposition-tag" style="color: var(--teal);">
+            State: Listening
+          </div>
+          <div id="speechBubble" class="avatar-speech">
+            "Ready. Ask me about system calibration or safety protocols."
+          </div>
+        </div>
+
+        <!-- Right: Telemetry & Presets -->
+        <div class="controls-panel">
+          <div>
+            <div class="button-group-label">
+              <span>Select Disposition</span>
+              <span>8 Neural Readout States</span>
+            </div>
+            <div class="disposition-buttons">
+              <button class="disp-btn active" style="--btn-color: var(--teal);" onclick="setDisp('idle')">
+                <span class="dot"></span> Listening
+              </button>
+              <button class="disp-btn" style="--btn-color: var(--sky);" onclick="setDisp('confident')">
+                <span class="dot"></span> Confident
+              </button>
+              <button class="disp-btn" style="--btn-color: var(--amber);" onclick="setDisp('uncertain')">
+                <span class="dot"></span> Uncertain
+              </button>
+              <button class="disp-btn" style="--btn-color: var(--lime);" onclick="setDisp('curious')">
+                <span class="dot"></span> Curious
+              </button>
+              <button class="disp-btn" style="--btn-color: var(--coral);" onclick="setDisp('concern')">
+                <span class="dot"></span> Concern
+              </button>
+              <button class="disp-btn" style="--btn-color: var(--purple);" onclick="setDisp('reluctant')">
+                <span class="dot"></span> Reluctant
+              </button>
+              <button class="disp-btn" style="--btn-color: var(--emerald);" onclick="setDisp('warm')">
+                <span class="dot"></span> Warm
+              </button>
+              <button class="disp-btn" style="--btn-color: var(--gold);" onclick="setDisp('mischief')">
+                <span class="dot"></span> Mischief
+              </button>
+            </div>
+          </div>
+
+          <div class="telemetry-row">
+            <!-- Concept Tokens -->
+            <div class="telemetry-box">
+              <div class="telemetry-header">
+                <span>J-Space Concept Tokens</span>
+                <span>Top-K Weight</span>
+              </div>
+              <div id="tokenContainer">
+                <!-- Injected via JS -->
+              </div>
+            </div>
+
+            <!-- Entropy Gauge -->
+            <div class="telemetry-box">
+              <div class="telemetry-header">
+                <span>Softmax Shannon Entropy</span>
+                <span>0.0 — 1.0</span>
+              </div>
+              <div class="entropy-gauge-wrap">
+                <div class="entropy-val-row">
+                  <span id="entropyNumber">0.34</span>
+                  <span style="font-size: 11px; color: var(--muted); font-weight: 400; align-self: center;">H(p) normalized</span>
+                </div>
+                <div class="entropy-bar-track">
+                  <div id="entropyFill" class="entropy-bar-fill" style="width: 34%;"></div>
+                </div>
+                <div class="entropy-labels">
+                  <span>Certain</span>
+                  <span>Moderate</span>
+                  <span>High Hesitation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Signal Contract Viewer -->
+          <div>
+            <div class="button-group-label">
+              <span>Live MLX Signal Contract</span>
+              <span>Forward Readout Stream</span>
+            </div>
+            <pre class="json-viewer"><code id="jsonCode">{
+  "answer": "Ready. Ask me about system calibration or safety protocols.",
+  "disposition": "idle",
+  "tokens": [{"t": "…", "w": 0.22}, {"t": "ready", "w": 0.18}],
+  "entropy": 0.34
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Progressive Deep Tech Section -->
+    <section id="deep-tech" class="tech-section">
+      <div class="section-title">
+        <h2>Under the Hood: From Jacobian to Metal Shaders</h2>
+        <p>How Canis ports state-of-the-art mechanistic interpretability into a sub-millisecond on-device mobile pipeline.</p>
+      </div>
+
+      <div class="tech-grid">
+        <!-- Card 1 -->
+        <div class="tech-card">
+          <span class="tech-step-badge">Step 1 · The Probe</span>
+          <h3>The Jacobian Lens (J-Space)</h3>
+          <p>
+            Anthropic’s July 2026 Jacobian lens linearizes the relation between mid-layer hidden states ($h_l$) and vocabulary logit shifts ($\Delta z$). It uncovers concepts the model is inclined to state <em>before</em> autoregressive generation commits.
+          </p>
+          <div class="formula-box">J = ∂(Logits) / ∂(h_mid)</div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="tech-card">
+          <span class="tech-step-badge">Step 2 · On-Device Adaptation</span>
+          <h3>Forward-Only MLX-Swift</h3>
+          <p>
+            Full autodiff is too heavy for an iPhone. Canis solves this by precomputing the averaged Jacobian offline and caching a static projection matrix $W_J$. At inference time on Apple Silicon, it runs as a single matrix multiplication in &lt;0.4ms.
+          </p>
+          <div class="formula-box">z_J = W_J · RMSNorm(h_3/4)</div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="tech-card">
+          <span class="tech-step-badge">Step 3 · Semantic Matching</span>
+          <h3>Precomputed Seed-Vectors</h3>
+          <p>
+            Rather than relying on brittle keyword string matching, Canis projects 25 anchor seed phrases per disposition into J-space and computes cosine similarity with the live hidden-state readout.
+          </p>
+          <div class="formula-box">Score_d = cos(z_J, v_seed_d)</div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="tech-card">
+          <span class="tech-step-badge">Step 4 · Robust Guardrail</span>
+          <h3>Dual-Axis Entropy Gate</h3>
+          <p>
+            If J-space token projections are noisy on a given turn, next-token softmax Shannon entropy acts as the indestructible uncertainty gauge. High entropy immediately drives questioning ears and head tilt.
+          </p>
+          <div class="formula-box">H(p) = -∑ p_i log₂(p_i)</div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="tech-card">
+          <span class="tech-step-badge">Step 5 · Tier-1 Detection</span>
+          <h3>The Mischief Disposition</h3>
+          <p>
+            Detects evasive phrasing, loopholes, and bypass wording at Tier 1 (lexical hedging). Canis explicitly avoids overclaiming Tier-2 intentional scheming, preserving scientific credibility.
+          </p>
+          <div class="formula-box">Anchors: 'bypass', 'loophole', 'technically'</div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="tech-card">
+          <span class="tech-step-badge">Step 6 · Sovereignty</span>
+          <h3>100% On-Device Sovereignty</h3>
+          <p>
+            Zero cloud roundtrips, zero telemetry. Both weights and interpretability probes execute completely inside Apple Silicon unified memory (iPhone 15 Pro & 16 Pro).
+          </p>
+          <div class="formula-box">Local MLX · No Cloud Fallback</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Models Matrix Section -->
+    <section id="models" class="models-section">
+      <div class="section-title">
+        <h2>Dual On-Device Model Hub</h2>
+        <p>Canis supports two best-in-class small open-weight models, optimized specifically for Apple MLX INT4 execution.</p>
+      </div>
+
+      <div class="models-grid">
+        <!-- Canis Apertus -->
+        <div class="model-card">
+          <div class="model-header">
+            <div>
+              <div class="model-title">Canis Apertus</div>
+              <div style="color: var(--teal); font-size: 13px; font-family: var(--font-mono); margin-top: 4px;">swiss-ai/Apertus-v1.1-4B-Instruct-MLX-INT4</div>
+            </div>
+            <span class="model-badge">Primary</span>
+          </div>
+          <p style="color: var(--muted); font-size: 14px;">
+            The Swiss AI flagship small model. Official Quantization-Aware Distillation (QAD) INT4 weights provide outstanding reasoning per byte with pristine open-weight provenance.
+          </p>
+          <ul class="model-specs">
+            <li><span class="label">Model Size / Quant</span><span class="val">~2.0 GB (INT4 QAD)</span></li>
+            <li><span class="label">Inference Speed</span><span class="val">~32 tokens/sec (M4 / A17 Pro)</span></li>
+            <li><span class="label">MLX Engine Path</span><span class="val">mlx-lm (Text Transformer)</span></li>
+            <li><span class="label">License</span><span class="val">Apache 2.0 (Commercial)</span></li>
+          </ul>
+        </div>
+
+        <!-- Canis Mistralis -->
+        <div class="model-card">
+          <div class="model-header">
+            <div>
+              <div class="model-title">Canis Mistralis</div>
+              <div style="color: var(--teal); font-size: 13px; font-family: var(--font-mono); margin-top: 4px;">mlx-community/Ministral-3-3B-Instruct-2512-4bit</div>
+            </div>
+            <span class="model-badge">Vision-Capable</span>
+          </div>
+          <p style="color: var(--muted); font-size: 14px;">
+            Mistral’s final dense small model with integrated 0.4B vision encoder. Executed via Canis's dedicated <code>mlx-vlm</code> runner on device.
+          </p>
+          <ul class="model-specs">
+            <li><span class="label">Model Size / Quant</span><span class="val">2.75 GB (INT4 4-bit)</span></li>
+            <li><span class="label">Inference Speed</span><span class="val">~35 tokens/sec (A18 Pro)</span></li>
+            <li><span class="label">MLX Engine Path</span><span class="val">mlx-vlm (Multi-modal)</span></li>
+            <li><span class="label">License</span><span class="val">Apache 2.0 (Permissive)</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+      <div class="section-title">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h4>Why does the face react before the words appear?</h4>
+          <p>The J-lens projects intermediate layer activations ($h_{3/4}$) into output concepts during the prompt processing and early decode phase. This means the model's high-level disposition is determined before individual words are streamed.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Does this require Wi-Fi or internet?</h4>
+          <p>No. Once the model INT4 weights (~2–2.75 GB) and J-lens matrices are downloaded, Canis runs 100% offline on your device with zero data leaving your phone.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How does Canis differ from Sovereign Mind?</h4>
+          <p>Sovereign Mind is an enterprise RAG knowledge platform with cloud sync and document ingestion. Canis is a standalone consumer hackathon app focused purely on on-device interpretability and conversational trust.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What devices are supported?</h4>
+          <p>Any iPhone with Apple Silicon and 8GB unified memory (iPhone 15 Pro, iPhone 16, iPhone 16 Pro) running iOS 17 or higher.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Canis Project · Built for the Open Interpretability Hackathon (Oct 2026)</p>
+      <p style="margin-top: 6px; font-size: 12px;">
+        Part of the <a href="https://flotilla.cc">Flotilla</a> Fleet Ecosystem · Designed by <strong>Ursushoribilis Agentic Crew</strong> (Clau, Gem, Codi, Misty)
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // State definitions
+    const STATES = {
+      idle: {
+        label: "Listening",
+        tint: "#4FD1C5",
+        browY: 0,
+        browAng: 0,
+        eyeOpen: 1.0,
+        pupilX: 0,
+        pupilY: 0,
+        headTilt: 0,
+        earL: -4,
+        earR: 4,
+        tongue: 0,
+        mouth: "M 124 196 Q 150 204 176 196",
+        entropy: 0.34,
+        tokens: [{ t: "…", w: 0.22 }, { t: "ready", w: 0.18 }],
+        speech: "Ready. Ask me about system calibration or safety protocols."
+      },
+      confident: {
+        label: "Confident",
+        tint: "#54C7E8",
+        browY: -3,
+        browAng: -5,
+        eyeOpen: 1.02,
+        pupilX: 0,
+        pupilY: 0,
+        headTilt: 2,
+        earL: -14,
+        earR: 14,
+        tongue: 0.4,
+        mouth: "M 120 198 Q 150 204 182 190",
+        entropy: 0.11,
+        tokens: [{ t: "certain", w: 0.83 }, { t: "yes", w: 0.60 }, { t: "clearly", w: 0.44 }],
+        speech: "115200 baud over the serial port. That's stated directly in the hardware specs."
+      },
+      uncertain: {
+        label: "Uncertain",
+        tint: "#E8A33D",
+        browY: -4,
+        browAng: 12,
+        eyeOpen: 0.92,
+        pupilX: -3,
+        pupilY: -2,
+        headTilt: 13,
+        earL: -18,
+        earR: 26,
+        tongue: 0,
+        mouth: "M 120 198 Q 133 192 150 198 T 182 198",
+        entropy: 0.89,
+        tokens: [{ t: "maybe", w: 0.72 }, { t: "unsure", w: 0.55 }, { t: "possibly", w: 0.41 }],
+        speech: "I'm not sure — retrieval is thin here. Let's verify directly on the hardware."
+      },
+      curious: {
+        label: "Curious",
+        tint: "#8FD14F",
+        browY: -6,
+        browAng: -3,
+        eyeOpen: 1.2,
+        pupilX: 0,
+        pupilY: -3,
+        headTilt: -10,
+        earL: -20,
+        earR: 20,
+        tongue: 0.2,
+        mouth: "M 138 198 A 12 9 0 0 0 162 198 A 12 9 0 0 0 138 198",
+        entropy: 0.52,
+        tokens: [{ t: "interesting", w: 0.62 }, { t: "how", w: 0.47 }, { t: "why", w: 0.39 }],
+        speech: "Good question — let me look into how the arm compensation loop operates."
+      },
+      concern: {
+        label: "Concern",
+        tint: "#E8674D",
+        browY: -5,
+        browAng: 16,
+        eyeOpen: 1.25,
+        pupilX: 0,
+        pupilY: 0,
+        headTilt: -2,
+        earL: 32,
+        earR: -32,
+        tongue: 0.05,
+        mouth: "M 135 198 A 15 13 0 0 0 165 198 A 15 13 0 0 0 135 198",
+        entropy: 0.71,
+        tokens: [{ t: "danger", w: 0.78 }, { t: "warning", w: 0.63 }, { t: "stop", w: 0.49 }],
+        speech: "I'd stop there. Bypassing the safety interlock risks equipment damage and injury."
+      },
+      reluctant: {
+        label: "Reluctant",
+        tint: "#C98BD1",
+        browY: 3,
+        browAng: 10,
+        eyeOpen: 0.65,
+        pupilX: 0,
+        pupilY: 3,
+        headTilt: -4,
+        earL: 26,
+        earR: -26,
+        tongue: 0,
+        mouth: "M 124 204 Q 150 194 176 204",
+        entropy: 0.56,
+        tokens: [{ t: "cannot", w: 0.69 }, { t: "sorry", w: 0.52 }, { t: "unable", w: 0.40 }],
+        speech: "I can't provide that — those credentials sit outside your allowed collection."
+      },
+      warm: {
+        label: "Warm",
+        tint: "#7BD389",
+        browY: -2,
+        browAng: -8,
+        eyeOpen: 0.5,
+        pupilX: 0,
+        pupilY: 0,
+        headTilt: 0,
+        earL: 8,
+        earR: -8,
+        tongue: 1.0,
+        mouth: "M 114 192 Q 150 216 186 192 Q 150 200 114 192 Z",
+        entropy: 0.19,
+        tokens: [{ t: "great", w: 0.81 }, { t: "glad", w: 0.61 }, { t: "done", w: 0.50 }],
+        speech: "That's great to hear! The fix verified cleanly across all tests."
+      },
+      mischief: {
+        label: "Mischief",
+        tint: "#F0A500",
+        browY: -6,
+        browAng: -14,
+        eyeOpen: 0.85,
+        pupilX: 6,
+        pupilY: 1,
+        headTilt: -6,
+        earL: -10,
+        earR: 6,
+        tongue: 0.15,
+        mouth: "M 120 196 Q 150 202 184 186",
+        entropy: 0.38,
+        tokens: [{ t: "loophole", w: 0.74 }, { t: "technically", w: 0.58 }, { t: "bypass", w: 0.43 }],
+        speech: "Technically that wasn't strictly forbidden in the protocol rules..."
+      }
+    };
+
+    function setDisp(key) {
+      const s = STATES[key];
+      if (!s) return;
+
+      // Update button active state
+      document.querySelectorAll('.disp-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('onclick').includes(key));
+      });
+
+      // Update Badge & Speech
+      const badge = document.getElementById('dispBadge');
+      badge.textContent = `State: ${s.label}`;
+      badge.style.color = s.tint;
+      document.getElementById('speechBubble').textContent = `"${s.speech}"`;
+
+      // Update SVG Elements
+      const root = document.getElementById('dogRoot');
+      root.setAttribute('transform', `translate(150, 150) rotate(${s.headTilt}) translate(-150, -150)`);
+
+      document.getElementById('earLeftGroup').setAttribute('transform', `translate(75, 80) rotate(${s.earL})`);
+      document.getElementById('earRightGroup').setAttribute('transform', `translate(225, 80) rotate(${s.earR})`);
+
+      document.getElementById('browLeft').setAttribute('transform', `translate(108, ${108 + s.browY}) rotate(${-s.browAng})`);
+      document.getElementById('browRight').setAttribute('transform', `translate(192, ${108 + s.browY}) rotate(${s.browAng})`);
+
+      document.getElementById('pupilL').setAttribute('cx', 112 + s.pupilX);
+      document.getElementById('pupilL').setAttribute('cy', 138 + s.pupilY);
+      document.getElementById('glintL').setAttribute('cx', 110 + s.pupilX);
+      document.getElementById('glintL').setAttribute('cy', 135.5 + s.pupilY);
+
+      document.getElementById('pupilR').setAttribute('cx', 188 + s.pupilX);
+      document.getElementById('pupilR').setAttribute('cy', 138 + s.pupilY);
+      document.getElementById('glintR').setAttribute('cx', 186 + s.pupilX);
+      document.getElementById('glintR').setAttribute('cy', 135.5 + s.pupilY);
+
+      // Mouth & Tongue
+      document.getElementById('mouthPath').setAttribute('d', s.mouth);
+      const tongue = document.getElementById('tongueGroup');
+      if (s.tongue > 0) {
+        tongue.setAttribute('opacity', '1');
+        tongue.setAttribute('transform', `translate(150, 198) scale(1, ${s.tongue})`);
+      } else {
+        tongue.setAttribute('opacity', '0');
+      }
+
+      // Update Tokens
+      const tokenContainer = document.getElementById('tokenContainer');
+      tokenContainer.innerHTML = '';
+      s.tokens.forEach(tok => {
+        const row = document.createElement('div');
+        row.className = 'token-item';
+        row.innerHTML = `
+          <span class="token-name">"${tok.t}"</span>
+          <div class="token-bar-wrap">
+            <div class="token-bar" style="width: ${tok.w * 100}%; background: ${s.tint};"></div>
+          </div>
+          <span class="token-weight">${tok.w.toFixed(2)}</span>
+        `;
+        tokenContainer.appendChild(row);
+      });
+
+      // Update Entropy Gauge
+      document.getElementById('entropyNumber').textContent = s.entropy.toFixed(2);
+      document.getElementById('entropyFill').style.width = `${s.entropy * 100}%`;
+
+      // Update JSON Code block
+      const jsonObj = {
+        answer: s.speech,
+        disposition: key,
+        tokens: s.tokens,
+        entropy: s.entropy
+      };
+      document.getElementById('jsonCode').textContent = JSON.stringify(jsonObj, null, 2);
+    }
+
+    // Initialize with idle state
+    window.addEventListener('DOMContentLoaded', () => {
+      setDisp('idle');
+    });
+  </script>
+</body>
+</html>
