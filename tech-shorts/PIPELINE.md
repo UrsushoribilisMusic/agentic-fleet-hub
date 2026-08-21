@@ -5,6 +5,10 @@ NotebookLM Video Overview into a branded, hook-first short + long, publish to
 YouTube, cross-post the YT link to X. Monetization play; brand tie-in to Canis.
 
 ## Status (2026-08-21)
+- **Step 2 SCAFFOLDED (TS-2).** `notebooklm_driver.py` harness is built with dry-run,
+  status, and full orchestration. Browser steps 1-5 are stubs pending Miguel's demo
+  click-path walkthrough. After demo: fill `CLICK_PROTOCOL.md` and wire selectors.
+  `python3 notebooklm_driver.py run <job_id> --dry-run` works today.
 - **Steps 1 + 3–5 AUTOMATED.** `pipeline.py` is the master coordinator:
   - `python3 pipeline.py run <job_id>` → build (PIL + VO + ffmpeg) → YouTube upload → X post
   - `python3 pipeline.py status` — shows all jobs with asset/upload/post state
