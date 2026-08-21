@@ -967,7 +967,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **veoepw9r** | TS-3: Productionize the hook/outro recipe (per-video copy + auto VO) | clau | in_work | Turn tech-shorts/build_techshort.sh into a pipelin... |
+| **veoepw9r** | TS-3: Productionize the hook/outro recipe (per-video copy + auto VO) | clau | merged | Turn tech-shorts/build_techshort.sh into a pipelin... |
 | **vjrgy6u6** | TS-7: FinOps — fold tech-shorts reach/revenue into the FinOps dashboard | clau | planned | Eventually surface tech-shorts reach + (YT) revenu... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
