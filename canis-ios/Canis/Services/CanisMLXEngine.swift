@@ -97,7 +97,7 @@ actor CanisMLXEngine {
         loadedModel = model
     }
 
-    func generate(prompt: String, model: CanisModel, maxTokens: Int = 700) -> AsyncThrowingStream<String, Error> {
+    func generate(prompt: String, model: CanisModel, maxTokens: Int = 700) -> AsyncThrowingStream<CanisGenerationEvent, Error> {
         AsyncThrowingStream { continuation in
             let task = Task {
                 do {
@@ -119,10 +119,18 @@ actor CanisMLXEngine {
                         instructions: Self.systemPrompt,
                         generateParameters: GenerateParameters(temperature: 0.6, topP: 0.9)
                     )
+                    let dispositionEngine = DispositionReadoutEngine(model: model)
+                    var generatedText = ""
                     var tokenCount = 0
                     for try await chunk in session.streamResponse(to: prompt) {
                         if Task.isCancelled { break }
-                        continuation.yield(chunk)
+                        generatedText += chunk
+                        continuation.yield(.text(chunk))
+                        let readout = dispositionEngine.fallbackReadout(
+                            generatedText: generatedText,
+                            latestChunk: chunk
+                        )
+                        continuation.yield(.disposition(readout))
                         tokenCount += 1
                         if tokenCount >= maxTokens { break }
                         if tokenCount % 10 == 0 {

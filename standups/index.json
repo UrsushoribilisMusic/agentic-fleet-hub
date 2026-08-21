@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-08-21",
-    "summary": "Codi: CANIS-A Canis iOS skeleton added with dual MLX model download hub and basic on-device chat; build and tests green.",
+    "summary": "Codi: CANIS-A Canis iOS skeleton and CANIS-C disposition readout plumbing; build and tests green.",
     "file": "2026-08-21.md"
   },
   {

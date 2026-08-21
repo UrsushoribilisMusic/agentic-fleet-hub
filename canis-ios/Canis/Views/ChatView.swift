@@ -21,6 +21,10 @@ struct ChatView: View {
                     .padding(.vertical, 10)
                     .background(.thinMaterial)
 
+                DispositionAvatarView(readout: viewModel.currentReadout)
+                    .padding(.horizontal, 16)
+                    .padding(.top, 12)
+
                 ScrollViewReader { proxy in
                     ScrollView {
                         LazyVStack(spacing: 12) {

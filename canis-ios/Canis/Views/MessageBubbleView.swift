@@ -17,6 +17,14 @@ struct MessageBubbleView: View {
                         .font(.caption2)
                         .foregroundStyle(.secondary)
                 }
+                if let readout = message.dispositionReadout, !isUser {
+                    HStack(spacing: 6) {
+                        Text(readout.disposition.label)
+                        Text("H \(readout.entropy, specifier: "%.2f")")
+                    }
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+                }
             }
             .padding(.horizontal, 12)
             .padding(.vertical, 10)
