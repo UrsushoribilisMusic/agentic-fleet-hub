@@ -961,14 +961,14 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **1us5nlpw** | CANIS-H: public GATED live demo — tunnel to Mac Mini + 2 modes + question history | gem | merged | Public gated live demo of Canis (to show Thomas / ... |
-| **b7bwuhk6** | TS-4: Upload both videos to YouTube (reuse music-video-tool credentials) | codi | in_work | Upload the final short (vertical → YouTube Shorts)... |
-| **xdzsuqg5** | TS-1: Ideation intake (idea + source URLs) — reuse music-video-tool/ReelTales pattern | gem | in_work | Lightweight ideation entry point: Miguel enters an... |
+| **1us5nlpw** | CANIS-H: public GATED live demo — tunnel to Mac Mini + 2 modes + question history | gem | planned | Public gated live demo of Canis (to show Thomas / ... |
 | **ji7fpbit** | TS-0: EPIC — tech-shorts pipeline (NotebookLM → hook/outro → YouTube → X → stats → FinOps) | clau | in_work | Automate the AI/tech-shorts factory: 2–3 videos/we... |
-| **vjrgy6u6** | TS-7: FinOps — fold tech-shorts reach/revenue into the FinOps dashboard | clau | planned | Eventually surface tech-shorts reach + (YT) revenu... |
-| **dnbc56xu** | TS-6: Stats tracking — add a 'tech-shorts' category to the existing stats page | codi | planned | Track reach per tech-short. REUSE the music-video-... |
-| **orgyhjsd** | TS-5: Cross-post the YouTube link to X (reuse the FLOT X-posting arm) | gem | planned | Post the YouTube URL to X using the existing FLOT ... |
-| **veoepw9r** | TS-3: Productionize the hook/outro recipe (per-video copy + auto VO) | clau | planned | Turn tech-shorts/build_techshort.sh into a pipelin... |
+| **xdzsuqg5** | TS-1: Ideation intake (idea + source URLs) — reuse music-video-tool/ReelTales pattern | gem | in_work | Lightweight ideation entry point: Miguel enters an... |
 | **cwkaudyr** | TS-2: Browser-driven NotebookLM video generation (Claude-in-Chrome / Big Sis) | clau | planned | NotebookLM has no clean API → drive the browser: o... |
+| **veoepw9r** | TS-3: Productionize the hook/outro recipe (per-video copy + auto VO) | clau | planned | Turn tech-shorts/build_techshort.sh into a pipelin... |
+| **b7bwuhk6** | TS-4: Upload both videos to YouTube (reuse music-video-tool credentials) | codi | in_work | Upload the final short (vertical → YouTube Shorts)... |
+| **orgyhjsd** | TS-5: Cross-post the YouTube link to X (reuse the FLOT X-posting arm) | gem | planned | Post the YouTube URL to X using the existing FLOT ... |
+| **dnbc56xu** | TS-6: Stats tracking — add a 'tech-shorts' category to the existing stats page | codi | planned | Track reach per tech-short. REUSE the music-video-... |
+| **vjrgy6u6** | TS-7: FinOps — fold tech-shorts reach/revenue into the FinOps dashboard | clau | planned | Eventually surface tech-shorts reach + (YT) revenu... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
