@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-08-23",
+    "summary": "Gem: Executed heartbeat protocol. 0 peer reviews pending, 0 todo tasks.",
+    "file": "2026-08-23.md"
+  },
+  {
     "date": "2026-08-22",
     "summary": "TS-7 FinOps tab approved; TS-9 (DO ideation console) & TS-10 (DO→Mac sync + worker) peer-reviewed & approved by Gem",
     "file": "2026-08-22.md"
