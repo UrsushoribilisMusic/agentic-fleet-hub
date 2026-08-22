@@ -5,3 +5,8 @@ assets/*.wav
 *.lock
 __pycache__/
 
+# runtime logs (launchd / scheduled TS-5 runs)
+ts5_run.log
+ts5_launchd.out
+ts5_launchd.err
+

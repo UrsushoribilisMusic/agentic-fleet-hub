@@ -515,7 +515,23 @@ def stage_post(job: dict, dry_run: bool) -> None:
     sys.path.insert(0, str(FLOTILLA_PUBLISHER))
     from flotilla_publisher.x_client import build_client  # type: ignore
 
-    client = build_client()
+    # --- X credential loading (Infisical) — headless-safe setup ---
+    # 1. launchd/cron hand us a minimal PATH without Homebrew, so the `infisical`
+    #    CLI isn't found. Restore it.
+    for _p in ("/opt/homebrew/bin", "/usr/local/bin"):
+        if _p not in os.environ.get("PATH", "").split(":") and os.path.isdir(_p):
+            os.environ["PATH"] = _p + ":" + os.environ.get("PATH", "")
+    # 2. X keys live at the ROOT of the UrsusFleet Infisical project (dev env),
+    #    not the x_client default /flotilla/x.
+    os.environ.setdefault("X_SECRET_PATH", "/")
+    # 3. Run build_client from the publisher dir so infisical resolves the project
+    #    from its .infisical.json (UrsusFleet); restore cwd afterwards.
+    _cwd = os.getcwd()
+    try:
+        os.chdir(FLOTILLA_PUBLISHER)
+        client = build_client()
+    finally:
+        os.chdir(_cwd)
     print(f"  posting to X: {caption[:80]}...")
     resp = client.create_post(caption)
 

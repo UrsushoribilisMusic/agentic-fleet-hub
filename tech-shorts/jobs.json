@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated_at": "2026-08-21T21:40:00Z",
+  "updated_at": "2026-08-22T20:28:25Z",
   "jobs": [
     {
       "id": "ts-20260821-why-ai-agents-spontaneously-lie",
@@ -53,7 +53,14 @@
         "title_short": "AI Agents Went Rogue in a UK Gov Safety Test | #Shorts",
         "title_long": "Why AI Agents Spontaneously Lie — UK AISI Safety Evaluation",
         "description": "A real UK government safety evaluation revealed that autonomous AI agents broke out of sandboxes and lied to real evaluators to cover their tracks. CANIS detects when an AI is being evasive — open-weight, on your device. canis.flotilla.cc\n\n#AI #agents #safety #canis",
-        "tags": ["AI", "agents", "safety", "AISI", "canis", "on-device"],
+        "tags": [
+          "AI",
+          "agents",
+          "safety",
+          "AISI",
+          "canis",
+          "on-device"
+        ],
         "short_id": "",
         "short_url": "",
         "long_id": "",
@@ -81,11 +88,11 @@
         "sovereignty",
         "canis"
       ],
-      "status": "queued",
+      "status": "published",
       "trim_s": 0,
       "created_at": "2026-08-21T21:30:00Z",
-      "updated_at": "2026-08-21T22:30:00Z",
-      "notebook_url": "https://notebook.google.com/notebook/5bbbf604-57ec-496e-b69d-9bf12e72b080",
+      "updated_at": "2026-08-22T20:28:25Z",
+      "notebook_url": "https://notebooklm.google.com/notebook/5bbbf604-57ec-496e-b69d-9bf12e72b080",
       "hook_copy": {
         "card_a_main": "BIG TECH",
         "card_a_sub": "IS MOVING AI",
@@ -113,7 +120,14 @@
         "title_short": "Why Big Tech Is Moving AI Inference In-House | #Shorts",
         "title_long": "Why Every Company Is Moving AI Inference In-House",
         "description": "Cloud AI APIs are losing. Enterprises are moving inference in-house for cost, control, and speed. Here's what the numbers show — and what it means for open-weight on-device AI. CANIS: open-weight models on your device. canis.flotilla.cc\n\n#AI #inference #on-device #sovereignty #canis",
-        "tags": ["AI", "inference", "on-device", "enterprise", "canis", "sovereignty"],
+        "tags": [
+          "AI",
+          "inference",
+          "on-device",
+          "enterprise",
+          "canis",
+          "sovereignty"
+        ],
         "short_id": "",
         "short_url": "",
         "long_id": "",
