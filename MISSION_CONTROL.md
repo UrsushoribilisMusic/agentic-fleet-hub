@@ -969,5 +969,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **8wjnn00n** | TS-10: Plumbing — sync DO-captured ideas into the Mac pipeline (+ headless NotebookLM) | clau | planned | The ideation console (TS-9) runs on the DO droplet... |
+| **xkkfn75i** | TS-9: Deploy ideation console publicly on DO behind Flotilla OAuth | clau | planned | Make the tech-shorts ideation intake (tech-shorts/... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
