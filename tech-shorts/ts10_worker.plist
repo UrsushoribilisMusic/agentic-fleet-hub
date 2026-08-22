@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  TS-10 Mac worker daemon.
+
+  Polls the DO tech-shorts intake queue every 2 minutes, claims queued jobs,
+  and runs the full pipeline (NotebookLM → build → upload → X post).
+
+  Install:
+    cp ~/projects/agentic-fleet-hub/tech-shorts/ts10_worker.plist \
+       ~/Library/LaunchAgents/cc.flotilla.ts10-worker.plist
+    launchctl load ~/Library/LaunchAgents/cc.flotilla.ts10-worker.plist
+
+  Unload:
+    launchctl unload ~/Library/LaunchAgents/cc.flotilla.ts10-worker.plist
+
+  Logs:
+    ~/Library/Logs/ts10_worker.out
+    ~/Library/Logs/ts10_worker.err
+
+  Note: The worker runs `mac_worker.py watch --tunnel --interval 120`.
+  SSH must work passwordlessly to `robotsales` from the Mac Mini user.
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>cc.flotilla.ts10-worker</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>/Users/miguelrodriguez/projects/agentic-fleet-hub/tech-shorts/mac_worker.py</string>
+        <string>watch</string>
+        <string>--tunnel</string>
+        <string>--interval</string>
+        <string>120</string>
+    </array>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/miguelrodriguez/Library/Logs/ts10_worker.out</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/miguelrodriguez/Library/Logs/ts10_worker.err</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>DO_INTAKE_URL</key>
+        <string>http://localhost:8766</string>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    </dict>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/miguelrodriguez/projects/agentic-fleet-hub/tech-shorts</string>
+</dict>
+</plist>
