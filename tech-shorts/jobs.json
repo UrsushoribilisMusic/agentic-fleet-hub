@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated_at": "2026-08-22T20:52:33Z",
+  "updated_at": "2026-08-24T08:14:12Z",
   "jobs": [
     {
       "id": "ts-20260821-why-ai-agents-spontaneously-lie",
@@ -138,6 +138,48 @@
         "post_id": "",
         "post_url": "",
         "caption": "Why every company is moving AI inference in-house — cost, control, speed. The numbers explain it. {yt_url} #AI #inference #on-device"
+      },
+      "stats": {
+        "views": 0,
+        "likes": 0,
+        "comments": 0,
+        "last_synced_at": ""
+      }
+    },
+    {
+      "id": "ts-20260824-under-the-hood-of-llms-accessing-their-disposition",
+      "slug": "under-the-hood-of-llms-accessing-their-disposition",
+      "title": "Under the hood of LLM's : Accessing their disposition",
+      "source_urls": [
+        "https://www.anthropic.com/research/global-workspace",
+        "https://transformer-circuits.pub/2026/workspace/index.html"
+      ],
+      "idea_notes": "Imagine you could read the disposition of the LLM that you are interacting with. When you interact with a person you can read signals from their body language that are currently not available from LLM's",
+      "tags": [],
+      "status": "queued",
+      "created_at": "2026-08-24T08:14:12Z",
+      "updated_at": "2026-08-24T08:14:12Z",
+      "notebook_url": "",
+      "hook_copy": {},
+      "outro_copy": {},
+      "assets": {
+        "raw_short_mp4": "",
+        "raw_long_mp4": "",
+        "hook_vo_audio": "",
+        "final_short_mp4": "",
+        "final_long_mp4": ""
+      },
+      "youtube": {
+        "short_id": "",
+        "short_url": "",
+        "long_id": "",
+        "long_url": "",
+        "published_at": ""
+      },
+      "x_post": {
+        "post_id": "",
+        "post_url": "",
+        "caption": ""
       },
       "stats": {
         "views": 0,
