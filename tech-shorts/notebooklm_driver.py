@@ -107,8 +107,10 @@ class NotebookLMDriver:
         workdir: Path,
         existing_notebook_url: str = "",
         headless: bool = False,
+        source_files: Optional[list[str]] = None,
     ):
         self.source_urls = source_urls
+        self.source_files = source_files or []
         self.workdir = workdir
         self.existing_notebook_url = existing_notebook_url
         self.headless = headless
@@ -168,15 +170,20 @@ class NotebookLMDriver:
 
     def add_sources(self) -> None:
         """
-        Add each source URL from self.source_urls to the open notebook.
+        Add each source URL from self.source_urls and each local file from
+        self.source_files to the open notebook.
 
         Skips URLs already present in the source list.
+        For local files, uses NotebookLM's "Upload file" dialog.
 
         TODO(after-demo): fill in Playwright selectors from CLICK_PROTOCOL.md §Step 2.
+        Hint for file uploads: use page.set_input_files(UPLOAD_INPUT_SELECTOR, file_path)
+        after clicking the "Upload file" button in NotebookLM's source panel.
         """
         raise NotImplementedError(
             "Step 2 not yet wired — see CLICK_PROTOCOL.md §Step 2.\n"
-            "Wire after Miguel's demo walkthrough."
+            "Wire after Miguel's demo walkthrough.\n"
+            f"Sources to add: {len(self.source_urls)} URL(s), {len(self.source_files)} file(s)."
         )
 
     # ── Step 3 ─────────────────────────────────────────────────────────────
@@ -275,16 +282,26 @@ class NotebookLMDriver:
 
 def dry_run_report(job: dict, workdir: Path) -> None:
     """Print what the driver would do without opening a browser."""
+    sf = job.get("source_file") or {}
+    source_file_path = Path(sf["path"]) if sf.get("path") else None
     print("\n[dry-run] NotebookLM driver plan:")
     print(f"  job_id:      {job['id']}")
     print(f"  title:       {job['title']}")
-    print(f"  source_urls: {', '.join(job.get('source_urls', []))}")
+    print(f"  source_urls: {', '.join(job.get('source_urls', [])) or '(none)'}")
+    if source_file_path:
+        exists = "✓" if source_file_path.exists() else "✗ NOT FOUND"
+        print(f"  source_file: {sf.get('original_name')} ({exists})")
+        print(f"               {source_file_path}")
+    else:
+        print(f"  source_file: (none)")
     print(f"  notebook:    {job.get('notebook_url') or '(will create new)'}")
     print(f"  workdir:     {workdir}")
+    n_urls = len(job.get("source_urls", []))
+    n_files = 1 if source_file_path else 0
     short_out = workdir / f"{job['id']}_short.mp4"
     long_out  = workdir / f"{job['id']}_long.mp4"
     print(f"\n  Step 1 — open/create notebook at {NOTEBOOKLM_URL}")
-    print(f"  Step 2 — add {len(job.get('source_urls', []))} source URL(s)")
+    print(f"  Step 2 — add {n_urls} source URL(s) + {n_files} local file(s)")
     print(f"  Step 3 — trigger Video Overview (short + long)")
     print(f"  Step 4 — wait up to {VIDEO_READY_TIMEOUT}s for both videos")
     print(f"  Step 5 — download:")
@@ -308,12 +325,18 @@ def cmd_run(args: argparse.Namespace) -> None:
         dry_run_report(job, workdir)
         return
 
+    sf = job.get("source_file") or {}
+    source_files: list[str] = []
+    if sf.get("path"):
+        source_files = [sf["path"]]
+
     print(f"\n── TS-2: NotebookLM driver for {job['id']} ──")
     driver = NotebookLMDriver(
         source_urls=job.get("source_urls", []),
         workdir=workdir,
         existing_notebook_url=job.get("notebook_url", ""),
         headless=args.headless,
+        source_files=source_files,
     )
 
     try:
