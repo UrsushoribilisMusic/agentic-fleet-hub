@@ -884,6 +884,114 @@ WEB_HTML = """<!DOCTYPE html>
         }
         .btn-action:hover { border-color: var(--teal); color: var(--teal); }
 
+        /* Pipeline progress bar */
+        .pipeline-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .pipeline-row::-webkit-scrollbar { display: none; }
+
+        .pipeline-step {
+            font-size: 0.68rem;
+            font-weight: 600;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            white-space: nowrap;
+            background: var(--ink-card);
+            color: var(--mute);
+            border: 1px solid var(--ink-border);
+        }
+
+        .pipeline-step.done {
+            background: rgba(34, 197, 94, 0.12);
+            color: #4ade80;
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+
+        .pipeline-step.active {
+            background: rgba(79, 209, 197, 0.15);
+            color: var(--teal);
+            border-color: var(--teal-dim);
+        }
+
+        .pipeline-arrow {
+            color: var(--mute);
+            font-size: 0.6rem;
+            padding: 0 0.25rem;
+            flex-shrink: 0;
+        }
+
+        /* Asset / published links section */
+        .asset-section {
+            background: rgba(0, 0, 0, 0.18);
+            border: 1px solid var(--ink-border);
+            border-radius: 6px;
+            padding: 0.55rem 0.75rem;
+            margin-bottom: 0.7rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .asset-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .asset-label {
+            font-size: 0.68rem;
+            color: var(--mute);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            min-width: 3.2rem;
+        }
+
+        .asset-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 0.28rem 0.6rem;
+            border-radius: 4px;
+            transition: background 0.15s ease;
+            min-height: 32px; /* phone-friendly tap target */
+        }
+
+        .asset-link.drive {
+            background: rgba(79, 209, 197, 0.1);
+            color: var(--teal);
+            border: 1px solid var(--teal-dim);
+        }
+        .asset-link.drive:hover { background: rgba(79, 209, 197, 0.22); }
+
+        .asset-link.youtube {
+            background: rgba(255, 80, 80, 0.1);
+            color: #ff6b6b;
+            border: 1px solid rgba(255, 80, 80, 0.3);
+        }
+        .asset-link.youtube:hover { background: rgba(255, 80, 80, 0.2); }
+
+        .asset-link.xpost {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--white);
+            border: 1px solid var(--ink-border);
+        }
+        .asset-link.xpost:hover { background: rgba(255, 255, 255, 0.12); }
+
+        .asset-pub-date {
+            font-size: 0.7rem;
+            color: var(--mute);
+            margin-left: 0.25rem;
+        }
+
         .empty-state {
             text-align: center;
             padding: 3rem 1rem;
@@ -938,6 +1046,10 @@ WEB_HTML = """<!DOCTYPE html>
                 <div class="stat-item">
                     <span class="stat-val" id="stat-assembled" style="color: #c084fc;">0</span>
                     <span class="stat-lbl">Assembled</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-val" id="stat-published" style="color: #4ade80;">0</span>
+                    <span class="stat-lbl">Published</span>
                 </div>
             </div>
         </header>
@@ -1039,7 +1151,60 @@ WEB_HTML = """<!DOCTYPE html>
             document.getElementById('stat-active').textContent =
                 allJobs.filter(j => j.status === 'in_progress' || j.status === 'raw_videos_ready').length;
             document.getElementById('stat-assembled').textContent =
-                allJobs.filter(j => j.status === 'assembled' || j.status === 'published').length;
+                allJobs.filter(j => j.status === 'assembled').length;
+            document.getElementById('stat-published').textContent =
+                allJobs.filter(j => j.status === 'published').length;
+        }
+
+        function pipelineSteps(status) {
+            const ORDER = ['queued', 'in_progress', 'raw_videos_ready', 'assembled', 'published'];
+            const LABELS = ['Idea', 'Processing', 'Raw Assets', 'Assembled', 'Published'];
+            const cur = ORDER.indexOf(status);
+            return LABELS.map((lbl, i) => {
+                const cls = i < cur ? 'done' : (i === cur ? 'active' : '');
+                return `<span class="pipeline-step ${cls}">${lbl}</span>`;
+            }).join('<span class="pipeline-arrow">›</span>');
+        }
+
+        function assetLinks(job) {
+            const drive = job.drive || {};
+            const yt = job.youtube || {};
+            const xp = job.x_post || {};
+
+            const hasDrive = drive.folder_url || drive.infographic_url || drive.slidedeck_url;
+            const hasYT = yt.short_url || yt.long_url;
+            const hasX = xp.post_url;
+
+            if (!hasDrive && !hasYT && !hasX) return '';
+
+            const rows = [];
+
+            if (hasDrive) {
+                let links = '';
+                if (drive.folder_url)
+                    links += `<a href="${escapeHtml(drive.folder_url)}" target="_blank" rel="noopener" class="asset-link drive">📁 Folder</a>`;
+                if (drive.infographic_url)
+                    links += `<a href="${escapeHtml(drive.infographic_url)}" target="_blank" rel="noopener" class="asset-link drive">🖼 Infographic</a>`;
+                if (drive.slidedeck_url)
+                    links += `<a href="${escapeHtml(drive.slidedeck_url)}" target="_blank" rel="noopener" class="asset-link drive">📊 Slides</a>`;
+                rows.push(`<div class="asset-row"><span class="asset-label">Drive</span>${links}</div>`);
+            }
+
+            if (hasYT) {
+                const pubDate = yt.published_at ? `<span class="asset-pub-date">${yt.published_at.split('T')[0]}</span>` : '';
+                let links = '';
+                if (yt.short_url)
+                    links += `<a href="${escapeHtml(yt.short_url)}" target="_blank" rel="noopener" class="asset-link youtube">▶ Short</a>`;
+                if (yt.long_url)
+                    links += `<a href="${escapeHtml(yt.long_url)}" target="_blank" rel="noopener" class="asset-link youtube">▶ Long</a>`;
+                rows.push(`<div class="asset-row"><span class="asset-label">YouTube</span>${links}${pubDate}</div>`);
+            }
+
+            if (hasX) {
+                rows.push(`<div class="asset-row"><span class="asset-label">X Post</span><a href="${escapeHtml(xp.post_url)}" target="_blank" rel="noopener" class="asset-link xpost">✕ View Post</a></div>`);
+            }
+
+            return `<div class="asset-section">${rows.join('')}</div>`;
         }
 
         function renderQueue() {
@@ -1068,8 +1233,12 @@ WEB_HTML = """<!DOCTYPE html>
                                 <div class="job-title">${escapeHtml(job.title)}</div>
                                 <div style="font-family: var(--mono); font-size: 0.75rem; color: var(--mute);">${escapeHtml(job.id)}</div>
                             </div>
-                            <span class="status-badge ${job.status}">${job.status.replace('_', ' ')}</span>
+                            <span class="status-badge ${job.status}">${job.status.replace(/_/g, ' ')}</span>
                         </div>
+
+                        <div class="pipeline-row">${pipelineSteps(job.status)}</div>
+
+                        ${assetLinks(job)}
 
                         ${job.idea_notes ? `<div class="job-notes">${escapeHtml(job.idea_notes)}</div>` : ''}
 
