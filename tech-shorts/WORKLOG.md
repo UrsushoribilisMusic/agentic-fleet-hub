@@ -1,31 +1,37 @@
-# WORKLOG: TS-11 — Ideation intake: accept uploaded file (PDF/MD/TXT)
+# TS-13 WORKLOG — Ideation console = dashboard
 
-**Task ID**: rvgclqmgq67debd  
-**Branch**: task/rvgclqmgq67debd  
-**Agent**: clau
+**PB task**: `jsyjldnaw0kr484`
+**Branch**: `task/jsyjldnaw0kr484`
+
+## Goal
+Turn the ideation page (`intake.py` web console, TS-9) into a per-job dashboard:
+- Per-card pipeline progress bar (idea → processing → raw assets → assembled → published)
+- Drive links section (folder, infographic, slidedeck) sourced from `job.drive.*` (TS-12)
+- YouTube links section (short + long) from `job.youtube.*`
+- X post link from `job.x_post.post_url`
+- Published stats counter in the header strip
+
+## Depends on
+- TS-9: `intake.py` web console (deployed on DO, auth-gated)
+- TS-12: `asset_store.py` — populates `job.drive.*` and wires YouTube URLs into `job.youtube.*`
+
+## Data already in job record
+```
+job.drive.folder_url
+job.drive.infographic_url
+job.drive.slidedeck_url
+job.youtube.short_url / long_url / published_at
+job.x_post.post_url
+```
 
 ## Plan
+1. Add CSS: `.pipeline-row`, `.pipeline-step.done/active`, `.asset-section`, `.asset-row`, `.asset-link.drive/youtube/xpost`
+2. Update `stats-strip` HTML: rename "Assembled" → just assembled count; add "Published" stat
+3. Update `renderStats()` JS to match
+4. Add `pipelineSteps(job)` helper function
+5. Update `renderQueue()` job card template: insert pipeline bar + asset section between header and notes
+6. No new backend endpoints needed — all data already in `/api/jobs` response
 
-Extend `intake.py` and `notebooklm_driver.py` to accept a source file (PDF/MD/TXT) alongside or instead of source URLs.
-
-### Key decisions
-- File storage: `tech-shorts/uploads/<job_id>/<original_filename>` (relative to `HERE`)
-- Job record field: `source_file: {path, original_name, size_bytes, mime_type}` (empty dict when no file)
-- Max size: 50 MB; allowed extensions: `.pdf`, `.md`, `.markdown`, `.txt`
-- Web console: 2-step submit — create job via JSON, then if file selected, POST multipart to `/api/jobs/<id>/source-file`
-- CLI: `--source-file <path>` flag on `add` subcommand (avoids clash with top-level `--file` for jobs.json)
-- Multipart parsing via `cgi.FieldStorage` (deprecated but stdlib zero-dep; suppressed warning)
-
-### Files to change
-1. `tech-shorts/intake.py` — constants, helpers, job schema, server endpoints, HTML, CLI
-2. `tech-shorts/notebooklm_driver.py` — add `source_files` to driver, update dry_run_report
-3. `tech-shorts/test_intake.py` — add source file tests
-
-### Steps
-1. [x] Create task branch + worklog
-2. [ ] Implement intake.py changes
-3. [ ] Implement notebooklm_driver.py changes
-4. [ ] Implement test_intake.py additions
-5. [ ] Run tests
-6. [ ] Commit + push
-7. [ ] Patch PB status to peer_review
+## Commit order
+1. Add CSS + JS changes to `WEB_HTML` in `intake.py`
+2. Commit + push
