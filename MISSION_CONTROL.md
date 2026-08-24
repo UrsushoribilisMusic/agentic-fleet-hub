@@ -971,7 +971,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **rvgclqmg** | TS-11: Ideation intake — accept an uploaded file (PDF/MD/TXT) as a source | clau | planned | Extend the tech-shorts ideation intake (tech-short... |
+| **rvgclqmg** | TS-11: Ideation intake — accept an uploaded file (PDF/MD/TXT) as a source | clau | in_work | Extend the tech-shorts ideation intake (tech-short... |
 | **jsyjldna** | TS-13: Ideation console = dashboard (links to published videos + Drive assets) | clau | planned | Turn the ideation page (TS-9) into a per-job dashb... |
 | **dl0x6rdi** | TS-12: Central asset store (local structured + Google Drive mirror) | clau | planned | Downloads folder is not a safe home for generated ... |
 
