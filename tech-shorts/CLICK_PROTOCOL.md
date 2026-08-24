@@ -38,7 +38,11 @@ The browser-driven step (TS-2). NotebookLM = notebook.google.com ("Gemini Notebo
 
 ## Failure recovery (seen intermittently)
 - A generation can **fail** — the Studio panel shows e.g. *"Slide Deck generation failed. Try a new one."* with a **Delete** button on that row.
-- Recovery: click **Delete** on the failed item → re-open its tile (Slide Deck / Video Overview / …) → Customize (re-enter the same settings, e.g. Lego style) → **Generate** again. Failures are transient (server load); a retry usually succeeds. The driver should detect "generation failed" text and auto-retry (cap at ~2 attempts).
+- Recovery: click **Delete** on the failed item → re-open its tile (Slide Deck / Video Overview / …) → Customize (re-enter the same settings, e.g. Lego style) → **Generate** again.
+- **Retry policy: up to 3 attempts.** If a generation still fails after **3 retries, STOP and flag Miguel** — a persistent failure is usually a **content-policy/censor block or a token/quota limit**, not transient server load, and needs a human look.
+
+## Polling cadence (generation is slow + async)
+- After clicking **Generate**, **first check at ~10 min**; if not ready, **re-check every ~5 min** until the Studio item flips from "Generating… this may take a while" to a clickable finished artifact, then download it.
 
 ## Notes for the driver (`notebooklm_driver.py`)
 - Prefer role/text locators: `getByRole('button', {name:'Create new'})`, `'Add sources'`, `'Generate'`, tile by text `'Video Overview'`, format card `'Cinematic'`/`'Short'`, menu item `'Download'`.
