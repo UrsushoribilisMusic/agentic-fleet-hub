@@ -972,7 +972,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **rvgclqmg** | TS-11: Ideation intake — accept an uploaded file (PDF/MD/TXT) as a source | clau | merged | Extend the tech-shorts ideation intake (tech-short... |
-| **dl0x6rdi** | TS-12: Central asset store (local structured + Google Drive mirror) | clau | in_work | Downloads folder is not a safe home for generated ... |
+| **dl0x6rdi** | TS-12: Central asset store (local structured + Google Drive mirror) | clau | merged | Downloads folder is not a safe home for generated ... |
 | **jsyjldna** | TS-13: Ideation console = dashboard (links to published videos + Drive assets) | clau | planned | Turn the ideation page (TS-9) into a per-job dashb... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
