@@ -30,8 +30,8 @@
     <array>
         <string>/usr/bin/python3</string>
         <string>/Users/miguelrodriguez/projects/agentic-fleet-hub/tech-shorts/mac_worker.py</string>
-        <string>watch</string>
         <string>--tunnel</string>
+        <string>watch</string>
         <string>--interval</string>
         <string>120</string>
     </array>
@@ -54,6 +54,8 @@
         <string>http://localhost:8766</string>
         <key>PATH</key>
         <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+        <key>PYTHONUNBUFFERED</key>
+        <string>1</string>
     </dict>
 
     <key>WorkingDirectory</key>

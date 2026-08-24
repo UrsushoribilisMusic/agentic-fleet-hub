@@ -177,11 +177,20 @@ def run_job(
                 continue
             ok = stage_notebooklm(job_id, dry_run)
             if not ok:
+<<<<<<< Updated upstream
                 print(f"\n  Halting at notebooklm stage — manual intervention needed.")
                 print(f"  Once raw mp4s are ready, resume with:")
                 print(f"    python3 mac_worker.py run --job {job_id} --stage build\n")
+=======
+                print(f"\n  ⏸  NotebookLM step is browser-manual (driver is a stub).")
+                print(f"  Job left IN_PROGRESS (not failed) — generate the videos in NotebookLM,")
+                print(f"  download them, then resume with:")
+                print(f"    python3 mac_worker.py run --job {job_id} --stage store\n")
+>>>>>>> Stashed changes
                 if not dry_run:
-                    post_status(job_id, "failed", base_url)
+                    # Do NOT mark failed — leave in_progress so it's flagged for the
+                    # manual NotebookLM step and won't be re-claimed (claim only takes 'queued').
+                    post_status(job_id, "in_progress", base_url)
                 return
             if not dry_run:
                 # Refresh local state — driver wrote raw paths
@@ -326,6 +335,18 @@ def cmd_watch(args: argparse.Namespace) -> None:
                     print(f"[{ts}] queue empty — sleeping {interval}s")
             else:
                 print(f"[worker] API not reachable — retrying in {interval}s")
+                if args.tunnel:
+                    # Self-heal a dropped SSH tunnel (laptop sleep, network blip):
+                    # KeepAlive won't help because the Python loop is still alive.
+                    print("[worker] re-establishing SSH tunnel ...")
+                    try:
+                        close_tunnel()
+                    except Exception:
+                        pass
+                    try:
+                        open_tunnel()
+                    except Exception as e:
+                        print(f"[worker] tunnel reopen failed: {e}")
             time.sleep(interval)
     except KeyboardInterrupt:
         print("\n[worker] stopped")
