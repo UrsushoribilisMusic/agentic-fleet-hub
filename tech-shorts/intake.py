@@ -41,10 +41,13 @@ import contextlib
 import datetime
 import fcntl
 import json
+import mimetypes
 import os
 import re
+import shutil
 import sys
 import urllib.parse
+import warnings
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
@@ -52,6 +55,11 @@ from typing import Any, Dict, List, Optional, Tuple
 
 HERE = Path(__file__).resolve().parent
 DEFAULT_JOBS_FILE = HERE / "jobs.json"
+_env_uploads = os.environ.get("TS_UPLOADS_DIR")
+UPLOADS_DIR = Path(_env_uploads) if _env_uploads else (HERE / "uploads")
+
+MAX_SOURCE_FILE_BYTES = 50 * 1024 * 1024  # 50 MB
+ALLOWED_SOURCE_FILE_EXTS = {".pdf", ".md", ".markdown", ".txt"}
 
 VALID_STATUSES = {
     "queued",
@@ -131,6 +139,44 @@ def clean_tags(tags_input: Any) -> List[str]:
     return list(dict.fromkeys(tags))
 
 
+def validate_source_file(filename: str, size: int) -> None:
+    """Raise ValueError if the filename extension or size is not allowed."""
+    ext = Path(filename).suffix.lower()
+    if ext not in ALLOWED_SOURCE_FILE_EXTS:
+        raise ValueError(
+            f"File type '{ext}' is not allowed. "
+            f"Accepted: {', '.join(sorted(ALLOWED_SOURCE_FILE_EXTS))}"
+        )
+    if size > MAX_SOURCE_FILE_BYTES:
+        mb = size / 1024 / 1024
+        raise ValueError(f"File too large ({mb:.1f} MB). Maximum is 50 MB.")
+
+
+def store_source_file(job_id: str, file_bytes: bytes, original_name: str) -> Dict[str, Any]:
+    """
+    Persist an uploaded source file and return its metadata dict.
+
+    Stored at: <UPLOADS_DIR>/<job_id>/<original_name>
+    Returns: {"path": <absolute path string>, "original_name": ..., "size_bytes": ..., "mime_type": ...}
+    """
+    dest_dir = UPLOADS_DIR / job_id
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    dest_path = dest_dir / original_name
+    dest_path.write_bytes(file_bytes)
+
+    mime_type, _ = mimetypes.guess_type(original_name)
+    if mime_type is None:
+        ext = Path(original_name).suffix.lower()
+        mime_type = {"pdf": "application/pdf"}.get(ext.lstrip("."), "text/plain")
+
+    return {
+        "path": str(dest_path),
+        "original_name": original_name,
+        "size_bytes": len(file_bytes),
+        "mime_type": mime_type,
+    }
+
+
 @contextlib.contextmanager
 def file_lock(lock_path: Path):
     """File-based lock for cross-process concurrency."""
@@ -202,6 +248,7 @@ def create_job(
     hook_copy: Optional[Dict[str, Any]] = None,
     outro_copy: Optional[Dict[str, Any]] = None,
     jobs_file: Optional[Path] = None,
+    source_file_meta: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
     """Create and persist a new tech-short job record."""
     title = (title or "").strip()
@@ -234,6 +281,7 @@ def create_job(
         "slug": slug,
         "title": title,
         "source_urls": urls,
+        "source_file": source_file_meta or {},
         "idea_notes": (idea_notes or "").strip(),
         "tags": tag_list,
         "status": status,
@@ -372,6 +420,10 @@ def update_job(job_id_or_slug: str, jobs_file: Optional[Path] = None, **updates)
 
     if "notebook_url" in updates:
         job["notebook_url"] = str(updates["notebook_url"] or "").strip()
+
+    if "source_file" in updates:
+        if isinstance(updates["source_file"], dict):
+            job["source_file"] = updates["source_file"]
 
     # Nested dictionary updates
     for nested_key in ("hook_copy", "outro_copy", "assets", "youtube", "x_post", "stats"):
@@ -570,7 +622,7 @@ WEB_HTML = """<!DOCTYPE html>
             margin-top: 0.2rem;
         }
 
-        input[type="text"], textarea, select {
+        input[type="text"], input[type="file"], textarea, select {
             width: 100%;
             background: var(--ink);
             border: 1px solid var(--ink-border);
@@ -580,6 +632,42 @@ WEB_HTML = """<!DOCTYPE html>
             font-family: inherit;
             font-size: 0.95rem;
             transition: all 0.2s ease;
+        }
+
+        input[type="file"] {
+            padding: 0.5rem 0.7rem;
+            cursor: pointer;
+        }
+
+        input[type="file"]::file-selector-button {
+            background: var(--ink-card);
+            border: 1px solid var(--ink-border);
+            border-radius: 4px;
+            color: var(--white);
+            padding: 0.3rem 0.7rem;
+            margin-right: 0.75rem;
+            font-family: inherit;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        input[type="file"]::file-selector-button:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+        }
+
+        .file-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            background: rgba(79, 209, 197, 0.12);
+            border: 1px solid var(--teal-dim);
+            border-radius: 4px;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.75rem;
+            color: var(--teal);
+            margin-top: 0.3rem;
+            font-family: var(--mono);
         }
 
         input[type="text"]:focus, textarea:focus, select:focus {
@@ -881,7 +969,14 @@ WEB_HTML = """<!DOCTYPE html>
                         <input type="text" id="tags" placeholder="safety, agents, aisi, canis, on-device">
                     </div>
 
-                    <button type="submit" class="btn">
+                    <div class="form-group">
+                        <label for="source-file">Source File <span style="color:var(--mute);font-weight:400;">(optional)</span></label>
+                        <input type="file" id="source-file" accept=".pdf,.md,.markdown,.txt">
+                        <div class="hint">PDF, Markdown, or TXT — max 50 MB. Uploaded to NotebookLM as a source.</div>
+                        <div id="file-preview" style="display:none;margin-top:0.4rem;"></div>
+                    </div>
+
+                    <button type="submit" class="btn" id="submit-btn">
                         ⚡ Enqueue Tech-Short Job
                     </button>
                 </form>
@@ -963,6 +1058,8 @@ WEB_HTML = """<!DOCTYPE html>
                 const urls = job.source_urls || [];
                 const tags = job.tags || [];
                 const dateStr = job.created_at ? job.created_at.split('T')[0] : '';
+                const sf = job.source_file || {};
+                const hasFile = !!(sf.original_name);
 
                 return `
                     <div class="job-card ${statusClass}">
@@ -979,6 +1076,16 @@ WEB_HTML = """<!DOCTYPE html>
                         ${urls.length ? `
                             <div class="url-pills">
                                 ${urls.map(u => `<a href="${escapeHtml(u)}" target="_blank" rel="noopener" class="url-link">🔗 ${escapeHtml(u)}</a>`).join('')}
+                            </div>
+                        ` : ''}
+
+                        ${hasFile ? `
+                            <div style="margin-bottom:0.8rem;">
+                                <a href="/api/jobs/${encodeURIComponent(job.id)}/source-file"
+                                   class="file-badge" style="text-decoration:none;" download="${escapeHtml(sf.original_name)}">
+                                   📎 ${escapeHtml(sf.original_name)}
+                                   ${sf.size_bytes ? ` (${sf.size_bytes < 1048576 ? Math.round(sf.size_bytes/1024) + ' KB' : (sf.size_bytes/1048576).toFixed(1) + ' MB'})` : ''}
+                                </a>
                             </div>
                         ` : ''}
 
@@ -1014,6 +1121,35 @@ WEB_HTML = """<!DOCTYPE html>
                 .replace(/"/g, '&quot;');
         }
 
+        // File picker preview
+        document.getElementById('source-file').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            const preview = document.getElementById('file-preview');
+            if (!file) {
+                preview.style.display = 'none';
+                return;
+            }
+            const allowedExts = ['.pdf', '.md', '.markdown', '.txt'];
+            const ext = file.name.slice(file.name.lastIndexOf('.')).toLowerCase();
+            if (!allowedExts.includes(ext)) {
+                preview.innerHTML = `<span style="color:var(--coral);font-size:0.8rem;">✗ ${escapeHtml(file.name)} — unsupported type</span>`;
+                preview.style.display = 'block';
+                e.target.value = '';
+                return;
+            }
+            if (file.size > 50 * 1024 * 1024) {
+                preview.innerHTML = `<span style="color:var(--coral);font-size:0.8rem;">✗ File too large (${(file.size/1024/1024).toFixed(1)} MB). Max 50 MB.</span>`;
+                preview.style.display = 'block';
+                e.target.value = '';
+                return;
+            }
+            const sizeFmt = file.size < 1024 * 1024
+                ? `${(file.size/1024).toFixed(0)} KB`
+                : `${(file.size/1024/1024).toFixed(1)} MB`;
+            preview.innerHTML = `<span class="file-badge">📎 ${escapeHtml(file.name)} (${sizeFmt})</span>`;
+            preview.style.display = 'block';
+        });
+
         // Intake Form Submit
         document.getElementById('intake-form').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -1021,10 +1157,17 @@ WEB_HTML = """<!DOCTYPE html>
             const urls = document.getElementById('urls').value.trim();
             const notes = document.getElementById('notes').value.trim();
             const tags = document.getElementById('tags').value.trim();
+            const fileInput = document.getElementById('source-file');
+            const file = fileInput.files[0] || null;
 
             if (!title) return;
 
+            const submitBtn = document.getElementById('submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enqueueing…';
+
             try {
+                // Step 1: Create job record
                 const res = await fetch('/api/jobs', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -1043,11 +1186,34 @@ WEB_HTML = """<!DOCTYPE html>
                 }
 
                 const created = await res.json();
-                showToast(`Enqueued: ${created.title}`);
+
+                // Step 2: Upload source file if one was selected
+                if (file) {
+                    submitBtn.textContent = 'Uploading file…';
+                    const fd = new FormData();
+                    fd.append('file', file);
+                    const uploadRes = await fetch(
+                        `/api/jobs/${encodeURIComponent(created.id)}/source-file`,
+                        { method: 'POST', body: fd }
+                    );
+                    if (!uploadRes.ok) {
+                        const uploadErr = await uploadRes.json();
+                        alert('Job created but file upload failed: ' + (uploadErr.error || 'Unknown error'));
+                    } else {
+                        showToast(`Enqueued: ${created.title} (+ file attached)`);
+                    }
+                } else {
+                    showToast(`Enqueued: ${created.title}`);
+                }
+
                 document.getElementById('intake-form').reset();
+                document.getElementById('file-preview').style.display = 'none';
                 fetchJobs();
             } catch (err) {
                 alert('Failed to connect: ' + err.message);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = '⚡ Enqueue Tech-Short Job';
             }
         });
 
@@ -1125,6 +1291,32 @@ class IntakeHTTPHandler(BaseHTTPRequestHandler):
 
     jobs_file: Optional[Path] = None
 
+    def _parse_multipart(self) -> Tuple[Dict[str, str], Dict[str, Any]]:
+        """Parse multipart/form-data from request body. Returns (fields, files)."""
+        import cgi
+        content_type = self.headers.get("Content-Type", "")
+        environ = {
+            "REQUEST_METHOD": "POST",
+            "CONTENT_TYPE": content_type,
+            "CONTENT_LENGTH": self.headers.get("Content-Length", "0"),
+        }
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore", DeprecationWarning)
+            form = cgi.FieldStorage(fp=self.rfile, headers=self.headers, environ=environ)
+        fields: Dict[str, str] = {}
+        files: Dict[str, Any] = {}
+        for key in form.keys():
+            item = form[key]
+            if hasattr(item, "filename") and item.filename:
+                files[key] = {
+                    "filename": item.filename,
+                    "data": item.file.read(),
+                    "type": item.type or "",
+                }
+            else:
+                fields[key] = item.value if hasattr(item, "value") else str(item)
+        return fields, files
+
     def _send_json(self, data: Any, status: int = HTTPStatus.OK):
         payload = json.dumps(data, indent=2, ensure_ascii=False).encode("utf-8")
         self.send_response(status)
@@ -1169,6 +1361,35 @@ class IntakeHTTPHandler(BaseHTTPRequestHandler):
             self._send_json({"jobs": jobs, "total": len(jobs)})
             return
 
+        # Download uploaded source file: GET /api/jobs/<id>/source-file
+        if path.endswith("/source-file") and "/api/jobs/" in path:
+            job_id = urllib.parse.unquote(
+                path[len("/api/jobs/"):path.rfind("/source-file")]
+            )
+            job = get_job(job_id, jobs_file=self.jobs_file)
+            if not job:
+                self._send_json({"error": "Job not found"}, status=HTTPStatus.NOT_FOUND)
+                return
+            sf = job.get("source_file") or {}
+            if not sf.get("path"):
+                self._send_json({"error": "No source file attached"}, status=HTTPStatus.NOT_FOUND)
+                return
+            file_path = Path(sf["path"])
+            if not file_path.exists():
+                self._send_json({"error": "File not found on disk"}, status=HTTPStatus.NOT_FOUND)
+                return
+            data = file_path.read_bytes()
+            self.send_response(HTTPStatus.OK)
+            self.send_header("Content-Type", sf.get("mime_type", "application/octet-stream"))
+            self.send_header("Content-Length", str(len(data)))
+            self.send_header(
+                "Content-Disposition",
+                f'attachment; filename="{sf.get("original_name", "source")}"',
+            )
+            self.end_headers()
+            self.wfile.write(data)
+            return
+
         if path.startswith("/api/jobs/"):
             job_id = urllib.parse.unquote(path[len("/api/jobs/"):])
             job = get_job(job_id, jobs_file=self.jobs_file)
@@ -1184,6 +1405,47 @@ class IntakeHTTPHandler(BaseHTTPRequestHandler):
         parsed = urllib.parse.urlparse(self.path)
         path = parsed.path.rstrip("/")
 
+        # File upload is multipart — route it before consuming rfile as JSON
+        if path.endswith("/source-file") and path.startswith("/api/jobs/"):
+            content_type = self.headers.get("Content-Type", "")
+            if not content_type.startswith("multipart/form-data"):
+                self._send_json(
+                    {"error": "Expected multipart/form-data"},
+                    status=HTTPStatus.BAD_REQUEST,
+                )
+                return
+            job_id = urllib.parse.unquote(
+                path[len("/api/jobs/"):path.rfind("/source-file")]
+            )
+            job = get_job(job_id, jobs_file=self.jobs_file)
+            if not job:
+                self._send_json({"error": "Job not found"}, status=HTTPStatus.NOT_FOUND)
+                return
+            try:
+                _fields, files = self._parse_multipart()
+            except Exception as e:
+                self._send_json({"error": f"Multipart parse error: {e}"}, status=HTTPStatus.BAD_REQUEST)
+                return
+            if "file" not in files:
+                self._send_json({"error": "No 'file' field in upload"}, status=HTTPStatus.BAD_REQUEST)
+                return
+            upload = files["file"]
+            original_name = upload["filename"]
+            file_bytes = upload["data"]
+            try:
+                validate_source_file(original_name, len(file_bytes))
+            except ValueError as e:
+                self._send_json({"error": str(e)}, status=HTTPStatus.BAD_REQUEST)
+                return
+            try:
+                meta = store_source_file(job["id"], file_bytes, original_name)
+                update_job(job["id"], jobs_file=self.jobs_file, source_file=meta)
+                self._send_json({"ok": True, "source_file": meta, "job_id": job["id"]})
+            except Exception as e:
+                self._send_json({"error": str(e)}, status=HTTPStatus.INTERNAL_SERVER_ERROR)
+            return
+
+        # All other POST routes expect JSON
         length = int(self.headers.get("Content-Length", 0))
         body = self.rfile.read(length) if length > 0 else b"{}"
         try:
@@ -1300,6 +1562,7 @@ def cli_add(args):
     urls = args.urls
     notes = args.notes
     tags = args.tags
+    source_file_path: Optional[Path] = getattr(args, "source_file", None)
 
     # Interactive mode if title not provided
     if not title:
@@ -1313,9 +1576,32 @@ def cli_add(args):
             urls = urls_input
             notes = input("3. Core Thesis / Hook angle (optional): ").strip()
             tags = input("4. Tags (e.g. safety, canis) (optional): ").strip()
+            file_input = input("5. Source file path (PDF/MD/TXT, optional — press Enter to skip): ").strip()
+            if file_input:
+                source_file_path = Path(file_input)
         except (KeyboardInterrupt, EOFError):
             print("\nCancelled.")
             sys.exit(0)
+
+    # Validate and read source file if provided
+    source_file_meta: Optional[Dict[str, Any]] = None
+    if source_file_path:
+        source_file_path = Path(source_file_path)
+        if not source_file_path.exists():
+            print(f"Error: Source file not found: {source_file_path}", file=sys.stderr)
+            sys.exit(1)
+        file_bytes = source_file_path.read_bytes()
+        try:
+            validate_source_file(source_file_path.name, len(file_bytes))
+        except ValueError as e:
+            print(f"Error: {e}", file=sys.stderr)
+            sys.exit(1)
+        # File is stored after job creation so we have the job_id
+        _pending_file_bytes = file_bytes
+        _pending_file_name = source_file_path.name
+    else:
+        _pending_file_bytes = None
+        _pending_file_name = None
 
     try:
         job = create_job(
@@ -1327,6 +1613,13 @@ def cli_add(args):
             status=args.status,
             jobs_file=args.file,
         )
+
+        # Store the source file now that we have a job_id
+        if _pending_file_bytes is not None:
+            source_file_meta = store_source_file(job["id"], _pending_file_bytes, _pending_file_name)
+            update_job(job["id"], jobs_file=args.file, source_file=source_file_meta)
+            job["source_file"] = source_file_meta
+
         if args.json:
             print(json.dumps(job, indent=2))
         else:
@@ -1335,6 +1628,10 @@ def cli_add(args):
             print(f"  Title:       {job['title']}")
             print(f"  Status:      {STATUS_BADGES.get(job['status'], job['status'])}")
             print(f"  URLs ({len(job['source_urls'])}):   {', '.join(job['source_urls']) if job['source_urls'] else '(none)'}")
+            if job.get("source_file", {}).get("original_name"):
+                sf = job["source_file"]
+                size_kb = sf.get("size_bytes", 0) // 1024
+                print(f"  File:        {sf['original_name']} ({size_kb} KB) → {sf['path']}")
             if job['idea_notes']:
                 print(f"  Notes:       {job['idea_notes']}")
             if job['tags']:
@@ -1392,6 +1689,12 @@ def cli_show(args):
         print(f"    • {u}")
     if not job.get("source_urls"):
         print("    (none)")
+    sf = job.get("source_file") or {}
+    if sf.get("original_name"):
+        size_kb = (sf.get("size_bytes", 0) or 0) // 1024
+        print(f"  Source File:  {sf['original_name']} ({size_kb} KB) — {sf.get('path', '?')}")
+    else:
+        print(f"  Source File:  (none)")
     print(f"  Notes:        {job.get('idea_notes') or '(none)'}")
     print(f"  Tags:         {', '.join(job.get('tags', [])) or '(none)'}")
 
@@ -1492,6 +1795,12 @@ def main():
     p_add.add_argument("--notes", "-n", type=str, help="Idea notes / angle / thesis")
     p_add.add_argument("--tags", type=str, help="Comma-separated tags")
     p_add.add_argument("--notebook-url", type=str, help="Direct NotebookLM URL if already created")
+    p_add.add_argument(
+        "--source-file",
+        type=Path,
+        metavar="FILE",
+        help="Local PDF, Markdown, or TXT file to attach as source (max 50 MB)",
+    )
     p_add.add_argument("--status", type=str, default="queued", choices=sorted(VALID_STATUSES), help="Initial status")
     p_add.add_argument("--json", action="store_true", help="Output created job as JSON")
     p_add.set_defaults(func=cli_add)

@@ -22,6 +22,7 @@ C:*
 debug_*.py
 test_*.py
 !disposition-lens/test_*.py
+!tech-shorts/test_intake.py
 check_*.py
 peer_review_*.py
 tasks_response.json

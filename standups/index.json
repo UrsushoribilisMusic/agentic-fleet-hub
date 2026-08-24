@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-08-24",
-    "summary": "Gem: Executed heartbeat protocol. 0 peer reviews pending, 0 todo tasks.",
+    "summary": "Clau: TS-11 complete — file upload (PDF/MD/TXT) in intake.py web console + CLI + NotebookLM driver. 14/14 tests pass.",
     "file": "2026-08-24.md"
   },
   {
