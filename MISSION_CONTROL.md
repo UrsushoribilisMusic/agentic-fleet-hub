@@ -971,5 +971,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **rvgclqmg** | TS-11: Ideation intake — accept an uploaded file (PDF/MD/TXT) as a source | clau | planned | Extend the tech-shorts ideation intake (tech-short... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
