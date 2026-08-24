@@ -1,168 +1,48 @@
-# NotebookLM Click Protocol (TS-2)
+# NotebookLM click-path protocol (captured 2026-08-24, live walkthrough with Miguel)
 
-Template for wiring the real browser steps after Miguel's demo.
-Each section maps 1-to-1 to a method in `notebooklm_driver.py`.
+The browser-driven step (TS-2). NotebookLM = notebook.google.com ("Gemini Notebook", Video Overviews powered by Gemini). No clean API → drive the browser. Locate elements by **visible text / role** (window size varies; pixel coords below are only backup hints from a 1469×836 capture).
 
-Fill in `SELECTOR`, `ACTION`, and `EXPECTED` after the demo walkthrough.
+## Full creation → download flow
 
----
+### 1 · Main list → create notebook
+- URL: `https://notebook.google.com/` (main list, "My notebooks"). If it opens the last notebook instead, click the **top-left logo/icon** to return to the list.
+- Click **"+ Create new"** (top-right). → opens an untitled notebook (`/notebook/<uuid>`).
 
-## Step 1 — open_or_create_notebook(source_urls)
+### 2 · Add sources
+- In the left **"Sources"** panel, click **"+ Add sources"** (top-left of panel). → opens the Add-sources dialog (`?addSource=true`), titled *"Create Audio and Video Overviews from …"*.
+- **Source types** (buttons in the dialog):
+  - **URL**: type the URL into the box → click the blue **submit arrow (→)**. Repeat per URL. (Also a **"Websites"** button.)
+  - **Upload files**: `Upload files` button — pdf, images, docs, audio (→ this is the TS-11 file-source path).
+  - **Copied text**: `Copied text` button — paste md/txt content (→ TS-11 path for .md/.txt).
+  - **Drive**: `Drive` button.
+- Counter shows `n / 300` sources. Add each source from the job.
+- After sources are added, NotebookLM **auto-generates a summary** in the Chat pane and **auto-titles** the notebook from the sources. Wait for the summary to render before proceeding.
 
-**Goal:** Land on a notebook page that has zero or more of our source URLs already
-added. Return the notebook URL (for recording in `jobs.json`).
+### 3 · Video Overview (the deliverable) — run TWICE
+- Right **"Studio"** panel → click the **"Video Overview"** tile (top-right of the tile grid).
+- Dialog **"Customize Video Overview"**:
+  - **Format** cards: **Cinematic** (default ✓) · **Explainer** · **Short (New!)**.
+  - Optional **"What should the video focus on?"** chips + **Custom topic** box → *leave blank for Gemini's creative license* (our default).
+  - Click **"Generate"**.
+- **Two generations per job**: run once with **Cinematic**, then re-open Video Overview and run again with **Short**. They generate **in parallel** (Studio shows both "Generating … Video Overview… This may take a while").
+- ⏱ Videos take **~10–15 min** (server-load dependent; faster in CET morning before US peak).
 
-**Sub-steps:**
+### 4 · Publishing extras (optional, not required for the video)
+- **Infographic** tile → *"Customize Infographic"*: language · **orientation** (Landscape/Portrait/Square) · **visual style** (Auto-select / Kawaii / Clay / Sketch Note / **Anime** ← our default / more via ">") · detail (Concise/**Standard**/Detailed) · optional description → **Generate**. Finishes fast; great still image for **X / Reddit** posts (post with the notebook/video URL).
+- **Slide Deck** tile → *"Customize Slide Deck"*: **Detailed Deck** (our default — more per page) / Presenter Slides · length (Short/**Default**) · description → type **"Use the Lego artwork style"** → **Generate**. (For Reddit posts. Many slides go unused; some are gems.)
 
-1. Navigate to `https://notebooklm.google.com/`
-2. If an existing notebook URL is stored in the job (`job["notebook_url"]`), open it.
-   Otherwise create a new notebook.
+### 5 · Preview & download (same for videos, infographic, slide deck)
+- In the **Studio** panel, click the finished artifact (e.g. its title link) → opens a **preview modal**.
+- Top-right modal controls: Share · minimize · **✕ close** · **⋮ (three-dot menu)**.
+- Click **⋮ → "Download"**. (Menu also has "Delete".) → downloads the file (mp4 for videos, image for infographic, deck for slides) to `~/Downloads`.
 
-**Create new notebook click path:**
-```
-SELECTOR:  (fill in after demo — e.g. button[aria-label="New notebook"])
-ACTION:    click
-EXPECTED:  modal or new notebook page opens
-```
+## Notes for the driver (`notebooklm_driver.py`)
+- Prefer role/text locators: `getByRole('button', {name:'Create new'})`, `'Add sources'`, `'Generate'`, tile by text `'Video Overview'`, format card `'Cinematic'`/`'Short'`, menu item `'Download'`.
+- Auth: uses the logged-in Chrome session (Miguel's Google account). Keep session warm; no headless login.
+- The long generation wait needs polling: watch the Studio item flip from "Generating … This may take a while" to a clickable finished artifact, then open → ⋮ → Download.
+- Two video files per job (Cinematic + Short) → both land in ~/Downloads; hand off to `build_edge.sh`/`pipeline.py` for hook/outro assembly.
+- Downloaded filename is NotebookLM's title (e.g. the auto-title) — capture the newest mp4 in ~/Downloads after the download click.
 
-**Name/title the notebook (optional):**
-```
-SELECTOR:  (fill in)
-ACTION:    type(<title>)
-EXPECTED:  (fill in)
-```
-
----
-
-## Step 2 — add_sources(source_urls)
-
-**Goal:** Add each source URL to the notebook if not already present.
-
-**Open "Add source" flow:**
-```
-SELECTOR:  (fill in — e.g. button with text "Add source" or + icon)
-ACTION:    click
-EXPECTED:  source-add dialog opens
-```
-
-**Switch to "Website" / URL tab (if needed):**
-```
-SELECTOR:  (fill in — e.g. tab button "Website" or "URL")
-ACTION:    click
-EXPECTED:  URL input field visible
-```
-
-**Paste URL and confirm:**
-```
-SELECTOR:  (fill in — e.g. input[placeholder*="URL"])
-ACTION:    fill(<url>)
-SELECTOR2: (fill in — confirm/insert button)
-ACTION2:   click
-EXPECTED:  source appears in source list, spinner then checkmark
-```
-
-**Wait for source to finish loading:**
-```
-EXPECTED:  (fill in — e.g. spinner disappears, source title appears in sidebar)
-TIMEOUT:   60s per source
-```
-
----
-
-## Step 3 — trigger_video_overview()
-
-**Goal:** Click the button that starts Video Overview generation for both the
-short (9:16 vertical) and the long (16:9 landscape) formats.
-
-**Open "Audio/Video" or "Studio" panel:**
-```
-SELECTOR:  (fill in after demo)
-ACTION:    click
-EXPECTED:  panel opens showing Audio Overview + Video Overview options
-```
-
-**Trigger Short (9:16 vertical) generation:**
-```
-SELECTOR:  (fill in — likely a "Generate" or "Create" button near the short video option)
-ACTION:    click
-EXPECTED:  progress indicator / spinner appears
-```
-
-**Trigger Long (16:9 landscape) generation:**
-```
-SELECTOR:  (fill in)
-ACTION:    click
-EXPECTED:  second progress indicator appears
-```
-
-**Notes from demo:** (fill in)
-
----
-
-## Step 4 — wait_for_video_ready(timeout_s=900)
-
-**Goal:** Poll until both videos show a "Download" or "Ready" state.
-
-**"Ready" indicator for Short:**
-```
-SELECTOR:  (fill in — e.g. button[aria-label*="Download"] near short video)
-CONDITION: element is visible AND enabled
-POLL:      every 15s
-TIMEOUT:   900s (15 min)
-```
-
-**"Ready" indicator for Long:**
-```
-SELECTOR:  (fill in)
-CONDITION: element is visible AND enabled
-POLL:      every 15s
-TIMEOUT:   900s
-```
-
-**Error / failed state:**
-```
-SELECTOR:  (fill in — e.g. error toast or retry button)
-ACTION:    raise RuntimeError("NotebookLM video generation failed")
-```
-
----
-
-## Step 5 — download_mp4s()
-
-**Goal:** Download both mp4s to `workdir/{job_id}_short.mp4` and
-`workdir/{job_id}_long.mp4`.
-
-**Download Short:**
-```
-SELECTOR:  (fill in — download button for the short/vertical video)
-ACTION:    click → intercept browser download event → save to workdir
-FILENAME:  {job_id}_short.mp4
-```
-
-**Download Long:**
-```
-SELECTOR:  (fill in — download button for the long/landscape video)
-ACTION:    click → intercept browser download event → save to workdir
-FILENAME:  {job_id}_long.mp4
-```
-
-**Playwright download interception pattern (already wired in driver):**
-```python
-with page.expect_download() as dl_info:
-    page.click(DOWNLOAD_SELECTOR)
-download = dl_info.value
-download.save_as(workdir / filename)
-```
-
----
-
-## Known unknowns (to resolve during demo)
-
-- [ ] Does NotebookLM require Google OAuth on every launch or does cookie jar work?
-- [ ] Are the Short and Long formats triggered from the same panel or different pages?
-- [ ] What does the "Video Overview" UI look like — is it a separate "Video" tab,
-      or buried in "Audio Overview" > dropdown?
-- [ ] Is there a rate limit or cooldown between video generations?
-- [ ] What filename does NotebookLM assign to downloaded mp4s (for dedup)?
-- [ ] Do Short and Long generate in parallel or sequentially?
-- [ ] Approximate generation time for a 1-article notebook?
+## Reference capture: this session
+- Notebook: "A Global Workspace in Language Models" (auto-titled), 2 sources (anthropic.com/research/global-workspace + transformer-circuits.pub/2026/workspace).
+- Generated: Cinematic + Short video overviews (Video Overview ×2), Infographic "Inside the AI J-Space Mindscape" (Anime), Slide Deck (Detailed, Lego style).
