@@ -612,15 +612,20 @@
       .disposition-buttons { grid-template-columns: repeat(2, 1fr); }
     }
 
-    /* Graceful PDF/print page breaks — keep cards and headings intact */
+    /* Graceful PDF/print pagination — tight spacing, keep only small cards intact */
     @media print {
       html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       header { position: static; }
-      section { padding: 26px 0; }
-      .section-title { break-after: avoid; page-break-after: avoid; }
-      .tech-card, .model-card, .faq-item, .alert-banner, .avatar-card,
-      .controls-panel, .telemetry-box { break-inside: avoid; page-break-inside: avoid; }
-      .tech-grid, .models-grid, .faq-grid { break-inside: auto; }
+      section { padding: 12px 0 !important; }
+      .hero { padding: 22px 0 10px !important; }
+      .tech-section { padding: 12px 0 !important; }
+      .section-title { margin-bottom: 12px; break-after: avoid; page-break-after: avoid; }
+      .hero-lead { margin-bottom: 16px !important; }
+      /* keep individual small cards from splitting */
+      .tech-card, .model-card, .faq-item { break-inside: avoid; page-break-inside: avoid; }
+      /* let the big interactive / lower-priority blocks flow and split freely */
+      .avatar-card, .controls-panel, .telemetry-box, .playground-grid,
+      .tech-grid, .models-grid, .faq-grid { break-inside: auto; page-break-inside: auto; }
     }
   </style>
 </head>
