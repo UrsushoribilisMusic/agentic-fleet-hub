@@ -349,43 +349,62 @@ def stage_build(job: dict, dry_run: bool) -> None:
                                   "card_b_main", "card_b_sub", "card_b_footer")):
         raise ValueError("hook_copy is incomplete — run set-copy first")
 
-    raw_short = job["assets"].get("raw_short_mp4", "")
-    raw_long = job["assets"].get("raw_long_mp4", "")
+    # Accept both legacy (raw_short/long_mp4) and canonical store names (raw_short/raw_cinematic_mp4)
+    assets = job["assets"]
+    raw_short = assets.get("raw_short_mp4", "")
+    raw_long = assets.get("raw_long_mp4", "") or assets.get("raw_cinematic_mp4", "")
     if not raw_short or not raw_long:
-        raise ValueError("raw source paths not set — run set-sources first")
+        raise ValueError("raw source paths not set — run set-sources or store-raw first")
 
     src_short = Path(raw_short)
     src_long = Path(raw_long)
     if not src_short.exists():
         raise FileNotFoundError(f"Short source not found: {src_short}")
     if not src_long.exists():
-        raise FileNotFoundError(f"Long source not found: {src_long}")
+        raise FileNotFoundError(f"Long/Cinematic source not found: {src_long}")
 
     if dry_run:
         print(f"[dry-run] would build from {src_short} and {src_long}")
         return
 
-    # VO: generate if not already present
-    vo_path = HERE / "assets" / f"{job['slug']}_hook_vo.mp3"
-    if not vo_path.exists() and hc.get("vo_text"):
-        print(f"  generating ElevenLabs VO...")
-        generate_vo(hc["vo_text"], vo_path)
-    elif vo_path.exists():
-        print(f"  reusing VO: {vo_path}")
+    # Determine output directory: prefer asset store, fall back to HERE
+    store_dir = assets.get("store_dir", "")
+    if store_dir and Path(store_dir).is_dir():
+        out_dir = Path(store_dir)
     else:
-        vo_path = None
-        print("  no vo_text set, building silent hook")
+        try:
+            from asset_store import asset_dir as _asset_dir
+            out_dir = _asset_dir(job)
+        except ImportError:
+            out_dir = HERE
+
+    # VO: generate if not already present
+    vo_path = out_dir / f"{job['slug']}_hook_vo.mp3"
+    if not vo_path.exists():
+        # Fallback to legacy location
+        legacy_vo = HERE / "assets" / f"{job['slug']}_hook_vo.mp3"
+        if legacy_vo.exists():
+            vo_path = legacy_vo
+        elif hc.get("vo_text"):
+            print(f"  generating ElevenLabs VO...")
+            generate_vo(hc["vo_text"], vo_path)
+        else:
+            vo_path = None
+            print("  no vo_text set, building silent hook")
+    else:
+        print(f"  reusing VO: {vo_path}")
 
     # Existing hand-built VO fallback
     if vo_path is None:
-        existing_vo = job["assets"].get("hook_vo_audio", "")
-        if existing_vo and Path(HERE / existing_vo).exists():
+        existing_vo = assets.get("hook_vo_audio", "")
+        if existing_vo and Path(existing_vo).exists():
+            vo_path = Path(existing_vo)
+        elif existing_vo and (HERE / existing_vo).exists():
             vo_path = HERE / existing_vo
 
     trim_s = float(job.get("trim_s", 0))
-    slug = job["slug"]
-    final_short = HERE / f"{slug}_short_FINAL.mp4"
-    final_long = HERE / f"{slug}_long_FINAL.mp4"
+    final_short = out_dir / "final_short.mp4"
+    final_long = out_dir / "final_long.mp4"
 
     with tempfile.TemporaryDirectory(prefix="ts_build_") as tmp:
         workdir = Path(tmp)
@@ -411,13 +430,14 @@ def stage_build(job: dict, dry_run: bool) -> None:
         job_id,
         status="assembled",
         assets={
-            **job["assets"],
+            **assets,
+            "store_dir": str(out_dir),
             "hook_vo_audio": str(vo_path) if vo_path else "",
             "final_short_mp4": str(final_short),
             "final_long_mp4": str(final_long),
         },
     )
-    print(f"  job {job_id} → assembled")
+    print(f"  job {job_id} → assembled ({out_dir})")
 
 
 # ── Upload stage ──────────────────────────────────────────────────────────────
@@ -478,17 +498,22 @@ def stage_upload(job: dict, dry_run: bool) -> None:
     long_url = long_result.get("url", f"https://youtu.be/{long_id}")
     print(f"  long uploaded: {long_url}")
 
-    update_job_field(
-        job_id,
-        status="uploaded",
-        youtube={
-            **job.get("youtube", {}),
-            "short_id": short_id,
-            "short_url": short_url,
-            "long_id": long_id,
-            "long_url": long_url,
-        },
-    )
+    yt_update = {
+        **job.get("youtube", {}),
+        "short_id": short_id,
+        "short_url": short_url,
+        "long_id": long_id,
+        "long_url": long_url,
+    }
+    update_job_field(job_id, status="uploaded", youtube=yt_update)
+
+    # TS-12: record canonical YouTube URLs in the asset store record
+    try:
+        from asset_store import sync_record
+        sync_record(job_id, youtube=yt_update)
+    except Exception:
+        pass  # non-fatal — URLs already in jobs.json via update_job_field above
+
     print(f"  job {job_id} → uploaded")
     print(f"  IMPORTANT: open YouTube Studio and enable 'Altered content' on both videos before publishing.")
 

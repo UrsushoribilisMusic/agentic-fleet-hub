@@ -89,6 +89,36 @@ def stage_notebooklm(job_id: str, dry_run: bool = False) -> bool:
     return True
 
 
+def stage_store(job_id: str, dry_run: bool = False) -> bool:
+    """Move raw NotebookLM downloads to the canonical asset store, then Drive-upload."""
+    print("\n── stage: store ──────────────────────────")
+    if dry_run:
+        print("  [dry-run] would move raw assets to ~/flotilla/tech-shorts/assets/<slug>/")
+        print("  [dry-run] would upload infographic.png + slidedeck.pdf to Drive")
+        return True
+    try:
+        from asset_store import store_raw_assets, upload_drive
+        paths = store_raw_assets(job_id, search_downloads=False)
+        if not paths:
+            print("  no raw assets found to store (raw/ subdir empty, --from-downloads not set)")
+            print("  continuing — build stage will use job.assets paths as-is")
+        else:
+            print(f"\n  ✓  {len(paths)} assets stored")
+        print("\n  uploading shareable assets to Drive ...")
+        try:
+            links = upload_drive(job_id)
+            for k, v in links.items():
+                print(f"  {k}: {v}")
+        except Exception as e:
+            print(f"  ⚠  Drive upload skipped: {e}")
+            print("  continuing pipeline — Drive upload can be retried manually")
+        print(f"\n  ✓  store stage done for {job_id}")
+        return True
+    except Exception as e:
+        print(f"\n  ✗  store stage failed: {e}")
+        return False
+
+
 def stage_build(job_id: str, dry_run: bool = False) -> bool:
     print("\n── stage: build ──────────────────────────")
     rc = _python(PIPELINE_PY, "run", job_id, "--stage", "build", *(["--dry-run"] if dry_run else []))
@@ -146,7 +176,10 @@ def run_job(
     """
     Execute the full pipeline for a single job and post status back to DO.
 
-    stage order: notebooklm → build → upload → post
+    stage order: notebooklm → store → build → upload → post
+
+    The 'store' stage (TS-12) moves raw NotebookLM downloads into
+    ~/flotilla/tech-shorts/assets/<slug>/ and uploads shareable assets to Drive.
 
     If start_stage is given, skip all earlier stages (useful for resuming).
     The job must already be merged into local jobs.json before calling.
@@ -160,15 +193,18 @@ def run_job(
     print(f"  Stage start: {start_stage or 'notebooklm'}")
     print(f"{'='*60}\n")
 
-    stages = ["notebooklm", "build", "upload", "post"]
+    stages = ["notebooklm", "store", "build", "upload", "post"]
     if start_stage and start_stage in stages:
         stages = stages[stages.index(start_stage):]
 
-    # Check if raw mp4s are already set (allows skipping notebooklm stage)
+    # Check if raw mp4s are already present (either canonical store or legacy paths)
     assets = job.get("assets", {})
-    raw_short = assets.get("raw_short_mp4", "")
-    raw_long = assets.get("raw_long_mp4", "")
-    has_raws = bool(raw_short and Path(raw_short).exists() and raw_long and Path(raw_long).exists())
+    raw_candidates = [
+        assets.get("raw_cinematic_mp4", ""),
+        assets.get("raw_short_mp4", ""),
+        assets.get("raw_long_mp4", ""),
+    ]
+    has_raws = any(p and Path(p).exists() for p in raw_candidates)
 
     for stage in stages:
         if stage == "notebooklm":
@@ -179,18 +215,37 @@ def run_job(
             if not ok:
                 print(f"\n  Halting at notebooklm stage — manual intervention needed.")
                 print(f"  Once raw mp4s are ready, resume with:")
-                print(f"    python3 mac_worker.py run --job {job_id} --stage build\n")
+                print(f"    python3 mac_worker.py run --job {job_id} --stage store\n")
                 if not dry_run:
                     post_status(job_id, "failed", base_url)
                 return
             if not dry_run:
-                # Refresh local state — driver wrote raw paths
                 local = _local_job_state(job_id)
                 ra = local.get("assets", {})
                 post_status(
                     job_id, "raw_videos_ready", base_url,
                     assets={"raw_short_mp4": ra.get("raw_short_mp4", ""),
                             "raw_long_mp4": ra.get("raw_long_mp4", "")},
+                )
+
+        elif stage == "store":
+            ok = stage_store(job_id, dry_run)
+            if not ok:
+                print(f"\n  Store stage failed — check asset_store.py logs.")
+                if not dry_run:
+                    post_status(job_id, "failed", base_url)
+                return
+            if not dry_run:
+                local = _local_job_state(job_id)
+                la = local.get("assets", {})
+                drive = local.get("drive", {})
+                post_status(
+                    job_id, "assets_stored", base_url,
+                    assets={k: la.get(k, "") for k in (
+                        "store_dir", "raw_cinematic_mp4", "raw_short_mp4",
+                        "infographic_png", "slidedeck_pdf",
+                    )},
+                    drive=drive,
                 )
 
         elif stage == "build":
@@ -363,8 +418,13 @@ def cmd_status(args: argparse.Namespace) -> None:
                 yt = j.get("youtube", {})
                 xp = j.get("x_post", {})
                 print(f"  {j.get('status','?'):16} {j['id']}")
-                print(f"    raw_short: {j.get('assets',{}).get('raw_short_mp4') or '(not set)'}")
-                print(f"    final:     {j.get('assets',{}).get('final_short_mp4') or '(not built)'}")
+                ja = j.get("assets", {})
+                print(f"    store:     {ja.get('store_dir') or '(not set)'}")
+                print(f"    cinematic: {ja.get('raw_cinematic_mp4') or ja.get('raw_long_mp4') or '(not set)'}")
+                print(f"    short_raw: {ja.get('raw_short_mp4') or '(not set)'}")
+                print(f"    final:     {ja.get('final_short_mp4') or '(not built)'}")
+                jd = j.get("drive", {})
+                print(f"    drive:     {jd.get('folder_url') or '(not uploaded)'}")
                 print(f"    yt_short:  {yt.get('short_url') or '(not uploaded)'}")
                 print(f"    x_post:    {xp.get('post_url') or '(not posted)'}")
                 print()
@@ -397,7 +457,7 @@ def main() -> None:
     p_run.add_argument("--job", metavar="JOB_ID", help="Run a specific job (skip claim)")
     p_run.add_argument(
         "--stage",
-        choices=["notebooklm", "build", "upload", "post"],
+        choices=["notebooklm", "store", "build", "upload", "post"],
         help="Start from this stage (skip earlier stages)",
     )
     p_run.add_argument("--dry-run", action="store_true", help="Print plan, don't execute")
