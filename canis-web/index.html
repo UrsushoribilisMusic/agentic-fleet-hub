@@ -611,6 +611,17 @@
       .faq-grid { grid-template-columns: 1fr; }
       .disposition-buttons { grid-template-columns: repeat(2, 1fr); }
     }
+
+    /* Graceful PDF/print page breaks — keep cards and headings intact */
+    @media print {
+      html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      header { position: static; }
+      section { padding: 26px 0; }
+      .section-title { break-after: avoid; page-break-after: avoid; }
+      .tech-card, .model-card, .faq-item, .alert-banner, .avatar-card,
+      .controls-panel, .telemetry-box { break-inside: avoid; page-break-inside: avoid; }
+      .tech-grid, .models-grid, .faq-grid { break-inside: auto; }
+    }
   </style>
 </head>
 <body>
@@ -628,8 +639,10 @@
       </a>
       <nav>
         <ul>
+          <li><a href="#why">Why</a></li>
           <li><a href="#playground">Live Avatar</a></li>
           <li><a href="#deep-tech">Deep Tech</a></li>
+          <li><a href="architecture.html">Architecture</a></li>
           <li><a href="#models">Models</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#playground" class="btn btn-primary">Try Demo</a></li>
@@ -657,6 +670,34 @@
             Anthropic’s Jacobian lens reads <em>disposition</em> — the mathematical concept vectors a model is primed to emit. 
             Canis does not claim small models possess emotions or deception. We measure real-time J-space projection and next-token entropy to bring true observability to on-device AI.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why It Matters / Raison d'être -->
+    <section id="why" class="tech-section">
+      <div class="section-title">
+        <h2>Why It Matters</h2>
+        <p>The case for making a model's inner state legible — to anyone, on their own device.</p>
+      </div>
+      <p class="hero-lead" style="max-width: 840px; margin: 0 auto 34px; text-align: center;">
+        People increasingly act on — and delegate to — AI systems they cannot see inside. A model that is guessing, hedging, or evading produces output that looks exactly as fluent and confident as output it is sure about, so the only signal users get actively <strong>hides</strong> the model's real state — driving misplaced trust. As AI turns <strong>agentic</strong>, that opacity moves from annoying to risky. And the general public has little intuition for how these systems actually work, which weakens informed adoption and public debate. Canis closes the gap: it turns a model's hidden disposition into something a person can simply <em>see</em>.
+      </p>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <span class="tech-step-badge">Responsible AI</span>
+          <h3>Transparency &amp; accountability you can see</h3>
+          <p>Canis surfaces uncertainty and evasiveness in real time, so people can calibrate trust and keep autonomous systems in check — the model's disposition made visible in the interface, not buried in logs. A dedicated safety axis flags concern and reluctance.</p>
+        </div>
+        <div class="tech-card">
+          <span class="tech-step-badge">Sustainable AI</span>
+          <h3>Small models, on the edge — digital sufficiency</h3>
+          <p>Canis runs small open-weight models fully on-device: no data-center inference, minimal energy, works offline. It's a concrete argument that useful AI need not be centralized or large — and that a sufficient model, honestly communicated, can be enough.</p>
+        </div>
+        <div class="tech-card">
+          <span class="tech-step-badge">Public interest</span>
+          <h3>AI literacy, made tangible</h3>
+          <p>By making an abstract idea — model uncertainty — something anyone can literally watch, Canis strengthens public understanding of how AI actually works. Open, reproducible, and built on Switzerland's own public model, Apertus.</p>
         </div>
       </div>
     </section>

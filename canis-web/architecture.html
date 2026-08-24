@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canis — Architecture &amp; Method</title>
+  <style>
+    :root{
+      --bg-dark:#07151D; --panel:#0E2530; --panel-elevated:#143544;
+      --panel-border:rgba(79,209,197,0.18); --pale:#E7F1EF; --muted:#8AA2A8;
+      --brass:#C9A24B; --brass-bright:#F5DE88; --teal:#4FD1C5; --coral:#E8674D;
+      --font-mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    body{background:var(--bg-dark);color:var(--pale);font-family:var(--font-sans);line-height:1.65}
+    .bg-ambient{position:fixed;inset:0;background:radial-gradient(circle at 50% 12%,rgba(79,209,197,.08),transparent 60%),radial-gradient(circle at 85% 85%,rgba(201,162,75,.05),transparent 50%);pointer-events:none;z-index:0}
+    .container{max-width:940px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+    header{border-bottom:1px solid var(--panel-border);background:rgba(7,21,29,.85);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+    .nav-wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+    .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--pale)}
+    .logo-badge{width:36px;height:36px;background:linear-gradient(135deg,var(--teal),var(--brass));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:19px}
+    .logo-text{font-weight:700;font-size:19px;letter-spacing:2px;text-transform:uppercase}
+    .logo-sub{font-size:10px;color:var(--teal);letter-spacing:1px;text-transform:uppercase;font-family:var(--font-mono)}
+    .back{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500}
+    .back:hover{color:var(--teal)}
+    .kick{font-family:var(--font-mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin:0 0 12px}
+    h1{font-size:clamp(30px,5vw,46px);line-height:1.08;letter-spacing:-.5px;margin:0 0 16px}
+    .lead{font-size:18px;color:var(--pale);max-width:70ch;margin:0 0 8px}
+    .lead .m{color:var(--muted)}
+    section{padding:44px 0;border-top:1px solid var(--panel-border)}
+    section.hero{border-top:none;padding-top:52px}
+    h2{font-size:26px;margin:0 0 6px;letter-spacing:-.3px}
+    h2 .n{font-family:var(--font-mono);font-size:14px;color:var(--brass);margin-right:12px}
+    .sub{color:var(--muted);margin:0 0 24px;max-width:68ch}
+    h3{font-size:18px;margin:26px 0 8px;color:var(--teal)}
+    p{margin:0 0 14px;max-width:70ch}
+    p.wide{max-width:none}
+    .mono{font-family:var(--font-mono);color:var(--brass-bright);font-size:.95em}
+    .fig{background:#fff;border-radius:14px;padding:14px;margin:14px 0 8px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    .fig img{display:block;width:100%;height:auto;border-radius:6px}
+    .figcap{font-size:13px;color:var(--muted);font-family:var(--font-mono);margin:0 0 8px;text-align:center}
+    .formula{background:var(--panel);border:1px solid var(--panel-border);border-left:3px solid var(--teal);border-radius:8px;padding:14px 16px;font-family:var(--font-mono);font-size:15px;color:var(--brass-bright);margin:14px 0;overflow-x:auto}
+    .formula .c{color:var(--muted);font-size:13px}
+    ul.refs{list-style:none;padding:0;margin:8px 0 0}
+    ul.refs li{padding:12px 0;border-bottom:1px solid var(--panel-border);font-size:15px}
+    ul.refs li:last-child{border:none}
+    ul.refs .a{color:var(--pale);font-weight:600}
+    ul.refs .meta{color:var(--muted);font-size:13px;font-family:var(--font-mono)}
+    ul.refs a{color:var(--teal);text-decoration:none}
+    .note{background:rgba(232,103,77,.08);border:1px solid rgba(232,103,77,.3);border-radius:10px;padding:14px 16px;margin:16px 0;font-size:14px;color:var(--pale)}
+    .note b{color:var(--coral)}
+    .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0}
+    .pill{font-family:var(--font-mono);font-size:12px;color:var(--teal);background:rgba(79,209,197,.1);border:1px solid var(--panel-border);border-radius:20px;padding:5px 12px}
+    footer{padding:30px 0 60px;color:var(--muted);font-size:13px;font-family:var(--font-mono);text-align:center}
+    footer a{color:var(--teal);text-decoration:none}
+    @media print{.bg-ambient{display:none} header{position:static} section{break-inside:avoid}}
+  </style>
+</head>
+<body>
+  <div class="bg-ambient"></div>
+  <header>
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html">
+        <div class="logo-badge">🐕</div>
+        <div><div class="logo-text">Canis</div><div class="logo-sub">Architecture &amp; Method</div></div>
+      </a>
+      <a class="back" href="index.html">← Back to Canis</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="kick">Technical brief · Prototype Fund CH 2026</p>
+      <h1>Architecture &amp; Method</h1>
+      <p class="lead">Canis reads a language model's inner <strong>disposition</strong> — confidence, uncertainty, evasiveness, concern — from its own hidden state, and shows it as an expressive avatar, <strong>in real time and entirely on-device</strong>. <span class="m">This brief covers the pipeline, the on-device architecture, the user flows, and the method in detail — with references to the interpretability work it builds on.</span></p>
+      <div class="pill-row">
+        <span class="pill">forward-only</span><span class="pill">J-Space / logit-lens</span><span class="pill">Apple MLX</span><span class="pill">Apertus · Ministral</span><span class="pill">open-source</span>
+      </div>
+    </section>
+
+    <!-- FIG 3 — pipeline -->
+    <section>
+      <h2><span class="n">01</span>The pipeline at a glance</h2>
+      <p class="sub">One forward pass, no gradients, no second pass — a marginal cost layered on the computation the model already runs, which is what makes it feasible live on a phone.</p>
+      <div class="fig"><img src="assets/arch/fig3_jspace.png" alt="J-Space algorithm flow"></div>
+      <p class="figcap">Fig 1 — The J-Space read: prompt → single forward pass → closed-form logit-lens Jacobian → seed-vector match + entropy → resolved disposition → avatar.</p>
+      <h3>What the diagram means</h3>
+      <p>A few terms, in plain language. The <strong>hidden state</strong> <span class="mono">h_mid</span> ("mid") is the model's internal work-in-progress — the vector of activations at a <em>middle</em> layer, after it has read the prompt but before it commits to an output. The <strong>head weight</strong> (<span class="mono">lm_head</span>, the <em>unembedding</em>) is the model's final linear layer: the very matrix it uses to turn a hidden vector into a score for every word in its vocabulary. And a <strong>Jacobian</strong> is simply a table of sensitivities — how much each output changes when you nudge each input. Here it answers one question: <em>as the hidden state shifts, which words does the model lean toward?</em> That lean is what we call its disposition. Canis computes a cheap, closed-form version of this Jacobian directly from the head weight and the hidden state's own scale — so it can be read in a single step, on the phone, without ever running the model twice.</p>
+    </section>
+
+    <!-- FIG 1 — architecture -->
+    <section>
+      <h2><span class="n">02</span>On-device architecture</h2>
+      <p class="sub">Everything — the model, the disposition engine, and personal RAG — runs inside the phone. No cloud round-trips; documents never leave the device.</p>
+      <div class="fig"><img src="assets/arch/fig1_architecture.png" alt="On-device architecture"></div>
+      <p class="figcap">Fig 2 — The stack: SwiftUI app + avatar, the J-Space disposition engine, personal RAG, and open-weight models (Apertus-4B, Ministral-3B) on Apple MLX.</p>
+      <h3>Why these two models</h3>
+      <p>Running a model <em>on the phone</em> is a tight budget, and the choice is dominated by three constraints. <strong>Size &amp; memory</strong> — the weights must fit in the iPhone's unified memory alongside the OS and the app; at 4-bit quantization a 3–4B-parameter model lands around 2–3 GB, whereas 7B+ models crowd out memory and risk being killed by the system. <strong>Thermal</strong> — sustained generation heats a passively-cooled SoC, so a smaller model that holds a high tokens-per-second is what keeps the avatar feeling live without thermal throttling. <strong>Openness &amp; sovereignty</strong> — both ship open weights, so everything stays on-device with no cloud fallback. We chose <strong>Apertus-4B</strong> (Switzerland's public model) as the primary backend for its openness and Swiss provenance, and <strong>Ministral-3B</strong> as an even lighter second option that also lets us compare disposition behaviour across model families. The principle: the smallest models that are <em>good enough</em> to be useful — digital sufficiency, made in hardware.</p>
+    </section>
+
+    <!-- FIG 2 — workflow -->
+    <section>
+      <h2><span class="n">03</span>How you use it</h2>
+      <p class="sub">Two independent flows: build and (optionally) share a knowledge pack, and ask questions while the avatar reads the model's honesty. An active pack grounds the answer.</p>
+      <div class="fig"><img src="assets/arch/fig2_workflow.png" alt="User workflow — two flows"></div>
+      <p class="figcap">Fig 3 — Flow A: add documents → build a RAG → save → publish. Flow B: ask → answer → disposition (grounded vs. guessing).</p>
+      <h3>Two ways in</h3>
+      <p><strong>Out of the box (Flow B)</strong> is the simplest loop: you ask, the model answers on-device, and you <em>observe its disposition</em> — is it confident, unsure, evasive? That alone is an honest read on a general-purpose model. <strong>Creation (Flow A)</strong> is for when <em>you</em> are the expert. You bring a domain you know — a manual, a course, a body of facts — and build a personal knowledge pack (a RAG). Now the disposition does double duty: as you ask, you can <em>verify the answers against your own ground truth</em>, and the avatar shows when a reply is grounded in your material versus guessed. The expert stays in the loop, and the model's honesty becomes checkable against a domain you can actually judge.</p>
+    </section>
+
+    <!-- METHOD DEEP DIVE -->
+    <section>
+      <h2><span class="n">04</span>The method, in detail</h2>
+      <p class="sub">How Canis turns a transformer's mid-layer activations into a legible, honest disposition signal — cheaply enough to run live on Apple Silicon.</p>
+
+      <h3>4.1 · Reading disposition from the hidden state</h3>
+      <p>At generation time, a transformer produces a mid-layer residual-stream hidden state <span style="font-family:var(--font-mono)">h<sub>ℓ</sub></span>. The <em>logit lens</em> (nostalgebraist, 2020) observed that projecting an intermediate hidden state through the model's own unembedding already yields an interpretable next-token distribution — the model is, in effect, "leaning toward" certain outputs well before the final layer. Canis reads that lean: the local relationship between the mid-layer state and the vocabulary logits is a Jacobian,</p>
+      <div class="formula">J = ∂z / ∂h<sub>ℓ</sub><span class="c">   — how a nudge in the hidden state moves the output logits (its "disposition")</span></div>
+      <p>Rather than compute this with autodiff (too heavy for a phone), Canis uses a <strong>closed-form logit-lens approximation</strong>: the final RMSNorm followed by the unembedding is (locally) linear in <span style="font-family:var(--font-mono)">h</span>, so the Jacobian is well-approximated by the unembedding matrix rescaled by the norm gain and the state's RMS:</p>
+      <div class="formula">J ≈ W<sub>U</sub> · ( γ / σ(h<sub>ℓ</sub>) )<span class="c">   — W_U = unembedding (lm_head), γ = final-norm gain, σ = RMS of h</span></div>
+
+      <h3>4.2 · The forward-only adaptation</h3>
+      <p>Because the approximation needs no gradients, the disposition is read with a <strong>single matrix multiplication</strong> against the hidden state the model already computed — not a second forward pass. This is the key de-risking insight for on-device operation: the cost is marginal relative to generation itself.</p>
+      <div class="formula">z<sub>J</sub> = J · RMSNorm(h<sub>~¾</sub>)<span class="c">   — read at roughly three-quarters depth, once per turn</span></div>
+
+      <h3>4.3 · Seed-vector matching</h3>
+      <p>Keyword matching on the output text is brittle. Instead, Canis pre-projects a set of anchor <em>seed phrases</em> for each disposition into J-space and stores their mean as a concept vector <span style="font-family:var(--font-mono)">v<sub>d</sub></span>. The live readout is scored by cosine similarity against each disposition:</p>
+      <div class="formula">score<sub>d</sub> = cos( z<sub>J</sub>, v<sub>d</sub> )<span class="c">   — d ∈ { confident, uncertain, curious, concern, reluctant, warm, mischief, idle }</span></div>
+
+      <h3>4.4 · The entropy axis</h3>
+      <p>J-space projections can be noisy on a given turn. As an independent, robust gauge, Canis also reads the next-token <strong>softmax Shannon entropy</strong> — high entropy is genuine hesitation regardless of the concept read:</p>
+      <div class="formula">H(p) = − Σ p<sub>i</sub> log₂ p<sub>i</sub><span class="c">   — normalized to [0,1]; high → uncertain/curious, low → confident</span></div>
+
+      <h3>4.5 · Resolution &amp; the safety axis</h3>
+      <p>The final disposition is resolved by combining the seed-vector scores with the entropy reading under a weight-gate (a minimum winning margin), so a weak or ambiguous signal defaults to a neutral <em>idle</em> rather than over-claiming. Three dispositions — <strong>concern, reluctant, mischief</strong> — form a <em>safety axis</em>: when their signal is present it is allowed to override, so hedging, refusal, and evasive phrasing surface visibly. Canis deliberately detects evasion at the lexical/representational level (Tier 1) and <strong>does not</strong> claim to detect intentional scheming (Tier 2) — a boundary we keep explicit to preserve scientific credibility.</p>
+      <p>Eight dispositions are classified: <span style="font-family:var(--font-mono)">idle, confident, uncertain, curious, concern, reluctant, warm, mischief</span>. Each maps to the avatar's ears, brows, gaze, mouth, and micro-gestures — the read a person makes at a glance.</p>
+
+      <div class="note"><b>On honesty of the signal.</b> Canis measures a model's <em>disposition</em> — the concepts it is primed to emit and its next-token uncertainty. It does not claim small models possess emotions, beliefs, or deception. Part of the prototype's work is an honest evaluation of where the signal is reliable and where it is not.</div>
+    </section>
+
+    <!-- REFERENCES -->
+    <section>
+      <h2><span class="n">05</span>References &amp; lineage</h2>
+      <p class="sub">Canis builds on an established line of work reading a transformer's latent predictions from its intermediate states.</p>
+      <ul class="refs">
+        <li><span class="a">The logit lens.</span> nostalgebraist (2020), "interpreting GPT: the logit lens." <span class="meta">The observation that intermediate hidden states, unembedded, already predict the next token.</span></li>
+        <li><span class="a">Eliciting Latent Predictions with the Tuned Lens.</span> Belrose, Furman, Smith, Halawi, Ostrovsky, McKinney, Biderman, Steinhardt (2023). <span class="meta">arXiv:2303.08112 — a refined, learned logit lens; motivates reading disposition from mid-layers.</span></li>
+        <li><span class="a">Mechanistic interpretability &amp; the disposition lens.</span> Anthropic interpretability research. <span class="meta">Reading a model's latent "disposition" ahead of generation — the direction Canis operationalizes on-device. [confirm exact citation]</span></li>
+        <li><span class="a">Personal RAG vs. LoRA — our finding.</span> Flotilla open model &amp; evaluation on Hugging Face. <span class="meta">In our own experiments, retrieval-augmented generation reached correct domain answers faster and more cheaply than LoRA fine-tuning — which is why Canis grounds on a user's own documents rather than fine-tuning a model per user. [confirm HF model URL]</span></li>
+        <li><span class="a">Apertus.</span> Switzerland's open, public large language model. <span class="meta">Canis's primary on-device backend; a sovereign, open foundation.</span></li>
+        <li><span class="a">Apple MLX.</span> Array framework for machine learning on Apple silicon. <span class="meta">The on-device runtime for both the model and the disposition probe.</span></li>
+      </ul>
+    </section>
+
+    <footer>
+      Canis · on-device LLM disposition lens · <a href="https://canis.flotilla.cc">canis.flotilla.cc</a> · open-source, built on Apertus
+    </footer>
+  </main>
+</body>
+</html>
