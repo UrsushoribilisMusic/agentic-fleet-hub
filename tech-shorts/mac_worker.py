@@ -177,16 +177,10 @@ def run_job(
                 continue
             ok = stage_notebooklm(job_id, dry_run)
             if not ok:
-<<<<<<< Updated upstream
-                print(f"\n  Halting at notebooklm stage — manual intervention needed.")
-                print(f"  Once raw mp4s are ready, resume with:")
-                print(f"    python3 mac_worker.py run --job {job_id} --stage build\n")
-=======
                 print(f"\n  ⏸  NotebookLM step is browser-manual (driver is a stub).")
-                print(f"  Job left IN_PROGRESS (not failed) — generate the videos in NotebookLM,")
-                print(f"  download them, then resume with:")
-                print(f"    python3 mac_worker.py run --job {job_id} --stage store\n")
->>>>>>> Stashed changes
+                print(f"  Job left IN_PROGRESS (not failed). Once the raw mp4s are")
+                print(f"  downloaded + set on the job, resume with:")
+                print(f"    python3 mac_worker.py run --job {job_id}\n")
                 if not dry_run:
                     # Do NOT mark failed — leave in_progress so it's flagged for the
                     # manual NotebookLM step and won't be re-claimed (claim only takes 'queued').
