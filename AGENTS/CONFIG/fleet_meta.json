@@ -118,7 +118,7 @@
       "docs": [
         "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/robot_ross_artist.md"
       ],
-      "kanban": "https://github.com/users/UrsushoribilisMusic/projects/1/views/1",
+      "kanban": "",
       "statsLink": "https://api.robotross.art/stats/#robot",
       "is_active": false
     },
@@ -130,7 +130,7 @@
       "docs": [
         "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/music_video_tool.md"
       ],
-      "kanban": "https://github.com/users/UrsushoribilisMusic/projects/3/views/1",
+      "kanban": "",
       "statsLink": "https://api.robotross.art/stats/?project=music",
       "is_active": true
     },
@@ -154,7 +154,7 @@
       "docs": [
         "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/the_lost_coins_story.md"
       ],
-      "kanban": "https://github.com/users/UrsushoribilisMusic/projects/4/views/1",
+      "kanban": "",
       "statsLink": "https://api.robotross.art/stats/#story",
       "is_active": false
     },
@@ -166,7 +166,7 @@
       "docs": [
         "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/robot_ross_salesman.md"
       ],
-      "kanban": "https://github.com/users/UrsushoribilisMusic/projects/1/views/1",
+      "kanban": "",
       "is_active": false
     },
     {
@@ -177,7 +177,7 @@
       "docs": [
         "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/privatecore_ios.md"
       ],
-      "kanban": "https://github.com/UrsushoribilisMusic/privatecore-ios/issues",
+      "kanban": "",
       "notes": "Repo uses 'main' branch, not 'master'. Use: git pull origin main",
       "is_active": true
     },
@@ -189,8 +189,20 @@
       "docs": [
         "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/AGENTS/CONTEXT/reeltales.md"
       ],
-      "kanban": "https://github.com/users/UrsushoribilisMusic/projects/3/views/1",
+      "kanban": "",
       "statsLink": "https://api.robotross.art/reeltales/",
+      "is_active": true
+    },
+    {
+      "title": "Agentegra",
+      "owners": "Ursus Fleet",
+      "repo_path": "../dental-domain-kit",
+      "summary": "Sovereign AI for the dental-lab domain. Cited, regenerable regulatory wiki (MepV, EU MDR, Swissmedic) and LoRA primitives scaffolding a QLoRA-8B Apertus adapter. Swiss-AI grant demonstrator.",
+      "docs": [
+        "https://github.com/UrsushoribilisMusic/dental-domain-kit/blob/main/README.md"
+      ],
+      "kanban": "",
+      "wikiLink": "/fleet/wiki/",
       "is_active": true
     },
     {
@@ -201,7 +213,7 @@
       "docs": [
         "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/ARCHITECTURE.md"
       ],
-      "kanban": "https://github.com/users/UrsushoribilisMusic/projects/4/views/1",
+      "kanban": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/issues",
       "is_active": true
     },
     {
@@ -215,6 +227,41 @@
       "kanban": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/issues",
       "statsLink": "https://api.robotross.art/stats/?project=tech-shorts",
       "ideationLink": "http://localhost:8766",
+      "is_active": true,
+      "web": "https://ideas.flotilla.cc"
+    },
+    {
+      "title": "Canis",
+      "owners": "Ursus Fleet",
+      "repo_path": "../agentic-fleet-hub/disposition-lens",
+      "summary": "On-device disposition lens: an expressive avatar that reads a language model's inner 'disposition' via a forward-only J-space logit-lens and shows it live, on-device. iOS app + public gated demo for the Apertus hackathon.",
+      "docs": [
+        "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/tree/master/disposition-lens"
+      ],
+      "web": "https://canis.flotilla.cc",
+      "kanban": "",
+      "is_active": true
+    },
+    {
+      "title": "Sovereign Mind",
+      "owners": "Ursus Fleet",
+      "repo_path": "../sovereign-mind",
+      "summary": "On-device RAG + enterprise SSO for field and industrial teams. Private document intelligence that runs on-device; iOS app plus a web control console.",
+      "docs": [],
+      "web": "https://sm.flotilla.cc",
+      "kanban": "",
+      "is_active": true
+    },
+    {
+      "title": "SiliconOracle",
+      "owners": "Ursus Fleet",
+      "repo_path": "../silicon-oracle",
+      "summary": "Privacy-first on-device AI iOS app. Local LLM inference (MLX) over your own documents and context — no cloud, no subscriptions.",
+      "docs": [
+        "https://github.com/UrsushoribilisMusic/silicon-oracle"
+      ],
+      "web": "https://so.flotilla.cc",
+      "kanban": "",
       "is_active": true
     }
   ]
