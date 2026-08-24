@@ -36,6 +36,10 @@ The browser-driven step (TS-2). NotebookLM = notebook.google.com ("Gemini Notebo
 - Top-right modal controls: Share · minimize · **✕ close** · **⋮ (three-dot menu)**.
 - Click **⋮ → "Download"**. (Menu also has "Delete".) → downloads the file (mp4 for videos, image for infographic, deck for slides) to `~/Downloads`.
 
+## Failure recovery (seen intermittently)
+- A generation can **fail** — the Studio panel shows e.g. *"Slide Deck generation failed. Try a new one."* with a **Delete** button on that row.
+- Recovery: click **Delete** on the failed item → re-open its tile (Slide Deck / Video Overview / …) → Customize (re-enter the same settings, e.g. Lego style) → **Generate** again. Failures are transient (server load); a retry usually succeeds. The driver should detect "generation failed" text and auto-retry (cap at ~2 attempts).
+
 ## Notes for the driver (`notebooklm_driver.py`)
 - Prefer role/text locators: `getByRole('button', {name:'Create new'})`, `'Add sources'`, `'Generate'`, tile by text `'Video Overview'`, format card `'Cinematic'`/`'Short'`, menu item `'Download'`.
 - Auth: uses the logged-in Chrome session (Miguel's Google account). Keep session warm; no headless login.
