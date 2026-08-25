@@ -7,7 +7,9 @@
     "start": "node server.js",
     "migrate": "node db/migrate.js",
     "worker": "node ingestion/worker.js",
-    "test:pipeline": "node scripts/test-pipeline.js"
+    "test:pipeline": "node scripts/test-pipeline.js",
+    "test:c106": "node scripts/test-c106-job-status-apns.js",
+    "test:c107": "node scripts/test-c107-wiki-review.js"
   },
   "dependencies": {
     "better-sqlite3": "^12.11.1",

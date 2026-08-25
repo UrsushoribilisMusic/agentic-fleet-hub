@@ -6,6 +6,8 @@ const fs = require('fs');
 const crypto = require('crypto');
 const { v4: uuidv4 } = require('uuid');
 const { buildPack } = require('../ingestion/pack-builder');
+const { statusLabel } = require('../ingestion/status');
+const { registerDeviceToken } = require('../notifications/apns');
 const { canisConsoleHtml } = require('../ui/console');
 
 const UPLOADS_DIR = process.env.CANIS_UPLOADS_DIR
@@ -135,6 +137,20 @@ function buildRouter(db) {
     return res.json({ id: user.id, email: user.email, displayName: user.display_name });
   });
 
+  // ── POST /devices/apns ───────────────────────────────────────────────────────
+  // Registers the current iOS device for pack completion/failure notifications.
+
+  router.post('/devices/apns', auth, (req, res) => {
+    try {
+      const registered = registerDeviceToken(db, req.canisUser.id, req.body && req.body.token);
+      return res.status(201).json(registered);
+    } catch (err) {
+      return res.status(err.statusCode || 400).json({
+        error: err.message || 'Could not register this device for notifications',
+      });
+    }
+  });
+
   // ── POST /documents ───────────────────────────────────────────────────────────
   // Accept a base64-encoded file body: { filename, content, mimeType? }
 
@@ -174,7 +190,7 @@ function buildRouter(db) {
 
   router.get('/documents', auth, (req, res) => {
     const docs = db.prepare(`
-      SELECT id, filename, status, page_count, word_count, created_at, updated_at
+      SELECT id, filename, status, page_count, word_count, error_msg, created_at, updated_at
       FROM canis_documents WHERE user_id = ? ORDER BY created_at DESC
     `).all(req.canisUser.id);
 
@@ -182,8 +198,10 @@ function buildRouter(db) {
       id: d.id,
       filename: d.filename,
       status: d.status,
+      statusLabel: statusLabel(d.status),
       pageCount: d.page_count,
       wordCount: d.word_count,
+      errorReason: d.status === 'failed' ? d.error_msg : null,
       createdAt: d.created_at,
       updatedAt: d.updated_at,
     })));
@@ -211,12 +229,79 @@ function buildRouter(db) {
       id: doc.id,
       filename: doc.filename,
       status: doc.status,
+      statusLabel: statusLabel(doc.status),
       pageCount: doc.page_count,
       wordCount: doc.word_count,
       chunkCount,
       wikiSectionCount: wikiCount,
-      errorMsg: doc.error_msg,
+      errorReason: doc.status === 'failed' ? doc.error_msg : null,
       updatedAt: doc.updated_at,
+    });
+  });
+
+  // ── GET /jobs/status ─────────────────────────────────────────────────────────
+
+  router.get('/jobs/status', auth, (req, res) => {
+    const docs = db.prepare(`
+      SELECT id, filename, status, page_count, word_count, error_msg, created_at, updated_at
+      FROM canis_documents WHERE user_id = ? ORDER BY created_at DESC
+    `).all(req.canisUser.id);
+
+    const pack = db.prepare(`
+      SELECT version, chunk_count, doc_count, wiki_count, created_at
+      FROM canis_packs WHERE user_id = ?
+      ORDER BY version DESC LIMIT 1
+    `).get(req.canisUser.id);
+
+    const notifications = db.prepare(`
+      SELECT event_type, title, body, status, failure_reason, created_at
+      FROM canis_push_notifications
+      WHERE user_id = ?
+      ORDER BY created_at DESC
+      LIMIT 10
+    `).all(req.canisUser.id);
+
+    const inFlightStatuses = new Set(['pending', 'extracting', 'chunked', 'wiki_ready']);
+    const inFlight = docs.filter((d) => inFlightStatuses.has(d.status)).length;
+    const failed = docs.filter((d) => d.status === 'failed').length;
+
+    return res.json({
+      status: inFlight > 0 ? 'processing' : (failed > 0 ? 'attention_needed' : 'ready'),
+      processingCount: inFlight,
+      failedCount: failed,
+      documents: docs.map((d) => ({
+        id: d.id,
+        filename: d.filename,
+        status: d.status,
+        statusLabel: statusLabel(d.status),
+        pageCount: d.page_count,
+        wordCount: d.word_count,
+        errorReason: d.status === 'failed' ? d.error_msg : null,
+        createdAt: d.created_at,
+        updatedAt: d.updated_at,
+      })),
+      pack: pack ? {
+        version: pack.version,
+        status: inFlight > 0 ? 'building' : 'ready',
+        chunkCount: pack.chunk_count,
+        docCount: pack.doc_count,
+        wikiSectionCount: pack.wiki_count,
+        createdAt: pack.created_at,
+      } : {
+        version: 0,
+        status: inFlight > 0 ? 'building' : 'none',
+        chunkCount: 0,
+        docCount: 0,
+        wikiSectionCount: 0,
+      },
+      notifications: notifications.map((n) => ({
+        eventType: n.event_type,
+        title: n.title,
+        body: n.body,
+        status: n.status,
+        failureReason: n.failure_reason,
+        createdAt: n.created_at,
+      })),
     });
   });
 

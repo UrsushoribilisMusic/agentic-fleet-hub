@@ -523,6 +523,12 @@ function canisConsoleHtml(user = {}, token = '') {
     }
     .doc-info h4 { font-size: 14px; font-weight: 600; }
     .doc-meta { font-size: 12px; color: var(--text-dim); display: flex; gap: 8px; }
+    .doc-error {
+      margin-top: 6px;
+      color: var(--danger);
+      font-size: 12px;
+      line-height: 1.4;
+    }
 
     /* Toast */
     .toast {
@@ -902,17 +908,24 @@ function canisConsoleHtml(user = {}, token = '') {
       list.innerHTML = currentDocs.map(d => {
         const name = escapeHtml(d.filename);
         const status = escapeHtml(d.status);
-        const statusColor = d.status === 'packed' || d.status === 'wiki_ready' ? 'var(--success)' : 'var(--warning)';
+        const label = escapeHtml(d.statusLabel || d.status);
+        const statusColor = d.status === 'failed'
+          ? 'var(--danger)'
+          : (d.status === 'packed' || d.status === 'wiki_ready' ? 'var(--success)' : 'var(--warning)');
+        const error = d.errorReason
+          ? '<div class="doc-error">' + escapeHtml(d.errorReason) + '</div>'
+          : '';
 
         return \`
           <div class="doc-card">
             <div class="doc-info">
               <h4>\${name}</h4>
               <div class="doc-meta">
-                <span style="color:\${statusColor}; font-weight:600;">\${status}</span> ·
+                <span style="color:\${statusColor}; font-weight:600;" title="\${status}">\${label}</span> ·
                 <span>\${d.pageCount || 0} pages</span> ·
                 <span>\${d.wordCount || 0} words</span>
               </div>
+              \${error}
             </div>
             <button class="btn-danger" onclick="deleteDoc('\${d.id}')">Delete</button>
           </div>
@@ -1026,6 +1039,11 @@ function canisConsoleHtml(user = {}, token = '') {
     loadWiki();
     loadDocs();
     loadPack();
+    setInterval(() => {
+      loadDocs();
+      loadPack();
+      loadWiki();
+    }, 5000);
   </script>
 </body>
 </html>`;

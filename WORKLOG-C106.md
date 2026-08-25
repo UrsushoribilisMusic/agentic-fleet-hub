@@ -1,4 +1,4 @@
-# Codi Worklog — WP1 C-106
+# Codi Worklog - WP1 C-106
 
 Task: WP1 C-106 Job status & APNs completion push.
 

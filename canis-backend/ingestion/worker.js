@@ -5,6 +5,8 @@ const { extractText } = require('./extractor');
 const { chunkText } = require('./chunker');
 const { generateWikiSections } = require('./wiki');
 const { buildPack } = require('./pack-builder');
+const { humanizeProcessingError } = require('./status');
+const { notifyUser } = require('../notifications/apns');
 
 const POLL_MS = parseInt(process.env.CANIS_WORKER_POLL_MS || '5000', 10);
 const MAX_BATCH = parseInt(process.env.CANIS_WORKER_BATCH || '5', 10);
@@ -83,11 +85,17 @@ async function processDocument(doc, db) {
 
     return { success: true, userId: doc.user_id };
   } catch (err) {
+    const safeReason = humanizeProcessingError(err);
     console.error('[canis-worker] failed', doc.id, ':', err.message);
     db.prepare(
       "UPDATE canis_documents SET status='failed', error_msg=?, updated_at=? WHERE id=?"
-    ).run(err.message, now(), doc.id);
-    return { success: false, userId: doc.user_id };
+    ).run(safeReason, now(), doc.id);
+    await notifyUser(db, doc.user_id, 'processing_failed', {
+      documentId: doc.id,
+      filename: doc.filename,
+      reason: safeReason,
+    });
+    return { success: false, userId: doc.user_id, reason: safeReason };
   }
 }
 
@@ -143,6 +151,15 @@ async function tick() {
         '[canis-worker] pack v' + pack.version + ' built for user ' + userId +
         ' — ' + pack.chunkCount + ' chunks, ' + pack.wikiCount + ' wiki sections'
       );
+      const pushes = await notifyUser(db, userId, 'pack_ready', {
+        version: pack.version,
+        chunkCount: pack.chunkCount,
+        wikiCount: pack.wikiCount,
+      });
+      if (pushes.length > 0) {
+        console.log('[canis-worker] completion push attempts for user ' + userId + ': ' +
+          pushes.map((p) => p.status).join(', '));
+      }
     } catch (err) {
       console.error('[canis-worker] pack build failed for user ' + userId + ':', err.message);
     }
