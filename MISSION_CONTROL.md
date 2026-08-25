@@ -976,7 +976,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **zoujx6u9** | WP1-EPIC: Consumer Ingestion Path (SM fork → on-device iOS) | clau | in_work | Fork the Sovereign Mind ingestion backend + wiki U... |
 | **pjtfr8h1** | WP1 C-102: Account auto-provisioning — backend | clau | planned | AC: first-seen Apple user identifier creates an ac... |
-| **lg0n3fhy** | WP1 C-103: Authenticated web-view handoff | codi | planned | AC: in-app browser opens the ingestion console ALR... |
+| **lg0n3fhy** | WP1 C-103: Authenticated web-view handoff | codi | in_work | AC: in-app browser opens the ingestion console ALR... |
 | **qf665d8l** | WP1 C-104: Consumer ingestion console (UI fork) | gem | planned | AC: upload / list / delete documents; MOBILE-FIRST... |
 | **47fwi87o** | WP1 C-105: Ingestion pipeline fork & tenant split | clau | planned | AC: consumer corpora processed in a SEPARATE tenan... |
 | **mx4t1t61** | WP1 C-106: Job status & APNs completion push | codi | planned | AC: status visible while processing; APNs push del... |
