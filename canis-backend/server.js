@@ -10,8 +10,10 @@ const app = express();
 app.use(express.json({ limit: '30mb' }));
 
 const db = migrate();
+const router = buildRouter(db);
 
-app.use('/api', buildRouter(db));
+app.use('/api', router);
+app.use('/', router);
 
 app.get('/health', (_req, res) => res.json({ ok: true, service: 'canis-backend' }));
 
