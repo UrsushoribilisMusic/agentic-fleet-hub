@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-08-25",
-    "summary": "Clau: C-105 CANIS backend (isolated pipeline: extract→chunk→wiki→pack) 38/38 green. Gem: C-104 console UI fork 37/37. Codi: C-103 handoff.",
+    "summary": "Clau: C-102, C-105 CANIS backend. Gem: C-104 console, C-107 wiki review 43/43 green, C-102/C-105 approved. Codi: C-103 handoff.",
     "file": "2026-08-25.md"
   },
   {
