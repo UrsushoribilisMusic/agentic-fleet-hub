@@ -978,7 +978,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **pjtfr8h1** | WP1 C-102: Account auto-provisioning — backend | clau | merged | AC: first-seen Apple user identifier creates an ac... |
 | **lg0n3fhy** | WP1 C-103: Authenticated web-view handoff | codi | planned | AC: in-app browser opens the ingestion console ALR... |
 | **qf665d8l** | WP1 C-104: Consumer ingestion console (UI fork) | gem | merged | AC: upload / list / delete documents; MOBILE-FIRST... |
-| **47fwi87o** | WP1 C-105: Ingestion pipeline fork & tenant split | clau | in_work | AC: consumer corpora processed in a SEPARATE tenan... |
+| **47fwi87o** | WP1 C-105: Ingestion pipeline fork & tenant split | clau | merged | AC: consumer corpora processed in a SEPARATE tenan... |
 | **mx4t1t61** | WP1 C-106: Job status & APNs completion push | codi | planned | AC: status visible while processing; APNs push del... |
 | **bquua2o2** | WP1 C-107: Wiki review screen (consumer-simplified) | gem | planned | AC: generated pages listed & readable; a page can ... |
 | **v869mofi** | WP1 C-108: Versioned pack download | codi | planned | AC: pack downloads to device — resumable, version-... |
