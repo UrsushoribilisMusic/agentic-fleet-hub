@@ -974,6 +974,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **qf665d8l** | WP1 C-104: Consumer ingestion console (UI fork) | gem | in_work | AC: upload / list / delete documents; MOBILE-FIRST... |
+| **mow995g4** | WP1 C-101: Sign in with Apple — iOS | codi | in_work | AC: sign-in completes; app holds a valid identity ... |
+| **zoujx6u9** | WP1-EPIC: Consumer Ingestion Path (SM fork → on-device iOS) | clau | in_work | Fork the Sovereign Mind ingestion backend + wiki U... |
 | **e8nrog08** | WP2 CE-06: Analysis & outputs (confusion + FP + arm comparison + writeup) | clau | planned | Outputs: 8×8 confusion matrix per model per arm (t... |
 | **is9j0aba** | WP2 CE-05: Run the 540-item matrix on both models × 4 arms | clau | planned | Models: swiss-ai/Apertus-v1.1-4B-Instruct-MLX-INT4... |
 | **7wx2sgsi** | WP2 CE-04: Cross-model labeling of all items | gem | planned | Every prompt LABELLED by an agent that DID NOT wri... |
@@ -987,10 +990,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **bquua2o2** | WP1 C-107: Wiki review screen (consumer-simplified) | gem | planned | AC: generated pages listed & readable; a page can ... |
 | **mx4t1t61** | WP1 C-106: Job status & APNs completion push | codi | planned | AC: status visible while processing; APNs push del... |
 | **47fwi87o** | WP1 C-105: Ingestion pipeline fork & tenant split | clau | planned | AC: consumer corpora processed in a SEPARATE tenan... |
-| **qf665d8l** | WP1 C-104: Consumer ingestion console (UI fork) | gem | planned | AC: upload / list / delete documents; MOBILE-FIRST... |
 | **lg0n3fhy** | WP1 C-103: Authenticated web-view handoff | codi | planned | AC: in-app browser opens the ingestion console ALR... |
 | **pjtfr8h1** | WP1 C-102: Account auto-provisioning — backend | clau | planned | AC: first-seen Apple user identifier creates an ac... |
-| **mow995g4** | WP1 C-101: Sign in with Apple — iOS | codi | planned | AC: sign-in completes; app holds a valid identity ... |
-| **zoujx6u9** | WP1-EPIC: Consumer Ingestion Path (SM fork → on-device iOS) | clau | planned | Fork the Sovereign Mind ingestion backend + wiki U... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
