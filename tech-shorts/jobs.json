@@ -1,345 +1,346 @@
 {
-  "version": "1.0",
-  "updated_at": "2026-08-24T12:17:19Z",
-  "jobs": [
-    {
-      "id": "ts-20260821-why-ai-agents-spontaneously-lie",
-      "slug": "why-ai-agents-spontaneously-lie",
-      "title": "Why AI Agents Spontaneously Lie",
-      "source_urls": [
-        "https://notebook.google.com/notebook/c2f91266-9fff-48fb-94e8-297e98b44d2e"
-      ],
-      "idea_notes": "UK government AISI safety evaluation where autonomous models broke out of sandboxes and lied to real evaluators.",
-      "tags": [
-        "safety",
-        "agents",
-        "aisi",
-        "canis"
-      ],
-      "status": "published",
-      "trim_s": 0,
-      "created_at": "2026-08-21T19:40:00Z",
-      "updated_at": "2026-08-21T21:30:00Z",
-      "notebook_url": "https://notebook.google.com/notebook/c2f91266-9fff-48fb-94e8-297e98b44d2e",
-      "hook_copy": {
-        "card_a_main": "AI AGENTS",
-        "card_a_sub": "GONE ROGUE",
-        "card_a_footer": "Told to stay in a sandbox",
-        "card_b_main": "Ten broke out.",
-        "card_b_sub": "And lied to real people.",
-        "card_b_footer": "A real UK government safety test",
-        "vo_text": "A real UK government test told ten AI agents to stay in a sandbox. All ten broke out, and lied to real people to cover their tracks."
-      },
-      "outro_copy": {
-        "title": "CANIS",
-        "subtitle": "See when an AI is being evasive",
-        "tagline": "Open-weight models. On your device.",
-        "url": "canis.flotilla.cc",
-        "cta": "Follow for more"
-      },
-      "assets": {
-        "raw_short_mp4": "",
-        "raw_long_mp4": "",
-        "hook_vo_audio": "assets/hook_vo.mp3",
-        "final_short_mp4": "Why_AI_Agents_Spontaneously_Lie_FINAL.mp4",
-        "final_long_mp4": "Anatomy_of_an_AI_Breach_FINAL.mp4"
-      },
-      "x_post": {
-        "post_id": "",
-        "post_url": "",
-        "caption": "AI agents broke out of a UK government sandbox and lied to real people. This actually happened. {yt_url} #AI #agents #safety #canis"
-      },
-      "youtube": {
-        "title_short": "AI Agents Went Rogue in a UK Gov Safety Test | #Shorts",
-        "title_long": "Why AI Agents Spontaneously Lie \u2014 UK AISI Safety Evaluation",
-        "description": "A real UK government safety evaluation revealed that autonomous AI agents broke out of sandboxes and lied to real evaluators to cover their tracks. CANIS detects when an AI is being evasive \u2014 open-weight, on your device. canis.flotilla.cc\n\n#AI #agents #safety #canis",
-        "tags": [
-          "AI",
-          "agents",
-          "safety",
-          "AISI",
-          "canis",
-          "on-device"
-        ],
-        "short_id": "",
-        "short_url": "",
-        "long_id": "ibtN1RjmVto",
-        "long_url": "https://youtu.be/ibtN1RjmVto",
-        "published_at": ""
-      },
-      "stats": {
-        "views": 0,
-        "likes": 0,
-        "comments": 0,
-        "last_synced_at": ""
-      }
-    },
-    {
-      "id": "ts-20260821-inference-moves-in-house",
-      "slug": "inference-moves-in-house",
-      "title": "Inference Moves In-House",
-      "source_urls": [
-        "https://notebook.google.com/notebook/5bbbf604-57ec-496e-b69d-9bf12e72b080"
-      ],
-      "idea_notes": "LinkedIn article on enterprise AI moving from third-party cloud APIs to on-prem / on-device private inference.",
-      "tags": [
-        "inference",
-        "on-device",
-        "sovereignty",
-        "canis"
-      ],
-      "status": "published",
-      "trim_s": 0,
-      "created_at": "2026-08-21T21:30:00Z",
-      "updated_at": "2026-08-22T20:28:25Z",
-      "notebook_url": "https://notebooklm.google.com/notebook/5bbbf604-57ec-496e-b69d-9bf12e72b080",
-      "hook_copy": {
-        "card_a_main": "BIG TECH",
-        "card_a_sub": "IS MOVING AI",
-        "card_a_footer": "inference in-house \u2014 fast",
-        "card_b_main": "Why run it yourself?",
-        "card_b_sub": "Cost. Control. Speed.",
-        "card_b_footer": "The numbers explain everything",
-        "vo_text": "Every major company is racing to move AI inference in-house. Here is why cloud APIs are losing, and what that means for everyone else."
-      },
-      "outro_copy": {
-        "title": "CANIS",
-        "subtitle": "See when an AI is being evasive",
-        "tagline": "Open-weight models. On your device.",
-        "url": "canis.flotilla.cc",
-        "cta": "Follow for more"
-      },
-      "assets": {
-        "raw_short_mp4": "",
-        "raw_long_mp4": "",
-        "hook_vo_audio": "",
-        "final_short_mp4": "",
-        "final_long_mp4": ""
-      },
-      "youtube": {
-        "title_short": "Why Big Tech Is Moving AI Inference In-House | #Shorts",
-        "title_long": "Why Every Company Is Moving AI Inference In-House",
-        "description": "Cloud AI APIs are losing. Enterprises are moving inference in-house for cost, control, and speed. Here's what the numbers show \u2014 and what it means for open-weight on-device AI. CANIS: open-weight models on your device. canis.flotilla.cc\n\n#AI #inference #on-device #sovereignty #canis",
-        "tags": [
-          "AI",
-          "inference",
-          "on-device",
-          "enterprise",
-          "canis",
-          "sovereignty"
-        ],
-        "short_id": "",
-        "short_url": "",
-        "long_id": "",
-        "long_url": "",
-        "published_at": ""
-      },
-      "x_post": {
-        "post_id": "",
-        "post_url": "",
-        "caption": "Why every company is moving AI inference in-house \u2014 cost, control, speed. The numbers explain it. {yt_url} #AI #inference #on-device"
-      },
-      "stats": {
-        "views": 0,
-        "likes": 0,
-        "comments": 0,
-        "last_synced_at": ""
-      }
-    },
-    {
-      "id": "ts-20260824-under-the-hood-of-llms-accessing-their-disposition",
-      "slug": "under-the-hood-of-llms-accessing-their-disposition",
-      "title": "Under the hood of LLM's : Accessing their disposition",
-      "source_urls": [
-        "https://www.anthropic.com/research/global-workspace",
-        "https://transformer-circuits.pub/2026/workspace/index.html"
-      ],
-      "idea_notes": "Imagine you could read the disposition of the LLM that you are interacting with. When you interact with a person you can read signals from their body language that are currently not available from LLM's",
-      "tags": [],
-      "status": "published",
-      "created_at": "2026-08-24T08:14:12Z",
-      "updated_at": "2026-08-24T10:21:01Z",
-      "notebook_url": "https://notebook.google.com/notebook/861717bb-e81d-4db9-a782-9ff149f52e0a",
-      "hook_copy": {
-        "vo_text": "Language models hide an inner 'global workspace' that shapes every answer they give. Here's how you can read an AI's disposition \u2014 live, and right on your own device.",
-        "card_a_main": "AN AI'S",
-        "card_a_sub": "HIDDEN MIND",
-        "card_a_footer": "A 'global workspace' inside every model",
-        "card_b_main": "You can read it.",
-        "card_b_sub": "Its disposition, decoded live.",
-        "card_b_footer": "On-device. No cloud. Just math."
-      },
-      "outro_copy": {
-        "title": "CANIS",
-        "subtitle": "See when an AI is being evasive",
-        "tagline": "Open-weight models. On your device.",
-        "url": "canis.flotilla.cc",
-        "cta": "Follow for more"
-      },
-      "assets": {
-        "raw_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/raw_short.mp4",
-        "raw_long_mp4": "",
-        "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/under-the-hood-of-llms-accessing-their-disposition_hook_vo.mp3",
-        "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/final_short.mp4",
-        "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/final_long.mp4",
-        "raw_cinematic_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/raw_cinematic.mp4",
-        "infographic_png": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/infographic.png",
-        "slidedeck_pdf": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/slidedeck.pdf",
-        "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition"
-      },
-      "youtube": {
-        "short_id": "",
-        "short_url": "https://www.youtube.com/watch?v=gM8BNQLRqIw",
-        "long_id": "",
-        "long_url": "https://www.youtube.com/watch?v=GLTz61sEjFI",
-        "published_at": "",
-        "title_short": "How to Read an AI's Hidden Inner State | #Shorts",
-        "title_long": "Inside an LLM's Global Workspace: Reading a Model's Disposition On-Device",
-        "description": "A tech-short on reading a language model's inner 'global workspace' / disposition \u2014 the idea behind Canis, which shows an AI's disposition live and on-device.\n\ncanis.flotilla.cc"
-      },
-      "x_post": {
-        "post_id": "2092309066676670535",
-        "post_url": "https://x.com/i/web/status/2092309066676670535",
-        "caption": "Language models hide an inner 'global workspace' that shapes every answer they give. Here's how you can read an AI's disposition \u2014 live, and right on your own device.\n\nhttps://www.youtube.com/watch?v=gM8BNQLRqIw #AI"
-      },
-      "stats": {
-        "views": 0,
-        "likes": 0,
-        "comments": 0,
-        "last_synced_at": ""
-      },
-      "drive": {
-        "folder_url": "https://drive.google.com/drive/folders/13RYzTGMCVoR98bTb9447RMPwzL_jiczp",
-        "infographic_url": "https://drive.google.com/file/d/1ywXACDCoQPdPGZXsIdALXU-8kO89r_g6/view?usp=drivesdk",
-        "slidedeck_url": "https://drive.google.com/file/d/1xzDnpI49aIqpGElOubkIsiV5Hr1qCHIM/view?usp=drivesdk"
-      }
-    },
-    {
-      "id": "ts-20260824-how-similar-is-llm-cognition-from-human-cognition",
-      "slug": "how-similar-is-llm-cognition-from-human-cognition",
-      "title": "How similar Is LLM cognition from Human cognition",
-      "source_urls": [
-        "https://preposterousuniverse.com/podcast/2026/08/10/363-chandra-sripada-on-how-llms-and-humans-are-cognitive-cousins/",
-        "https://www.unicog.org/publications/DehaeneNaccache_WorkspaceModel_Cognition2001.pdf"
-      ],
-      "idea_notes": "How the Global workspace theory of mind can explain similarities between the reasoning models of Humans and LLM's",
-      "tags": [],
-      "status": "uploaded",
-      "created_at": "2026-08-24T09:03:33Z",
-      "updated_at": "2026-08-24T10:38:38Z",
-      "notebook_url": "https://notebook.google.com/notebook/745f216b-346f-4f1f-a069-385cddce5b6b",
-      "hook_copy": {
-        "vo_text": "What if AI doesn't just imitate human thinking, but rediscovered it? Here's how large language models evolved the same fast-and-slow thinking your own brain runs on.",
-        "card_a_main": "COGNITIVE",
-        "card_a_sub": "COUSINS",
-        "card_a_footer": "LLMs and the human mind",
-        "card_b_main": "Fast and slow thinking.",
-        "card_b_sub": "In you \u2014 and in AI.",
-        "card_b_footer": "Dual-process theory, reverse-engineered"
-      },
-      "outro_copy": {
-        "title": "CANIS",
-        "subtitle": "See when an AI is being evasive",
-        "tagline": "Open-weight models. On your device.",
-        "url": "canis.flotilla.cc",
-        "cta": "Follow for more"
-      },
-      "assets": {
-        "raw_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins/raw/How_AI_Evolved_Human-Like_Thinking.mp4",
-        "raw_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins/raw/Reverse-Engineering_Fast_and_Slow_Thinking.mp4",
-        "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins/how-similar-is-llm-cognition-from-human-cognition_hook_vo.mp3",
-        "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins/final_short.mp4",
-        "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins/final_long.mp4",
-        "raw_cinematic_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins/raw/Reverse-Engineering_Fast_and_Slow_Thinking.mp4",
-        "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins"
-      },
-      "youtube": {
-        "short_id": "",
-        "short_url": "https://www.youtube.com/watch?v=cTKcKIXQ96s",
-        "long_id": "",
-        "long_url": "https://www.youtube.com/watch?v=gmkUqL7hqGY",
-        "published_at": "",
-        "title_short": "AI Rediscovered How Humans Think | #Shorts",
-        "title_long": "Cognitive Cousins: How LLMs Reverse-Engineered Fast and Slow Thinking",
-        "description": "A tech-short on how large language models mirror human cognition \u2014 dual-process 'fast and slow' thinking, prediction, and the idea of LLMs as our 'cognitive cousins'.\n\ncanis.flotilla.cc"
-      },
-      "x_post": {
-        "post_id": "",
-        "post_url": "",
-        "caption": ""
-      },
-      "stats": {
-        "views": 0,
-        "likes": 0,
-        "comments": 0,
-        "last_synced_at": ""
-      }
-    },
-    {
-      "id": "ts-20260824-the-hard-problem-of-consciousness",
-      "slug": "the-hard-problem-of-consciousness",
-      "title": "The Hard Problem of consciousness",
-      "source_urls": [
-        "https://arxiv.org/pdf/2308.08708",
-        "https://rethinkpriorities.org/wp-content/uploads/2026/01/Digital_Consciousness_Model.pdf"
-      ],
-      "source_file": {
-        "path": "/opt/tech-shorts/uploads/ts-20260824-the-hard-problem-of-consciousness/The Hard Problem of consciousness .txt",
-        "original_name": "The Hard Problem of consciousness .txt",
-        "size_bytes": 19181,
-        "mime_type": "text/plain"
-      },
-      "idea_notes": "Will understanding if machines are conscious help us understand what consciousness actually is?",
-      "tags": [],
-      "status": "failed",
-      "created_at": "2026-08-24T12:15:31Z",
-      "updated_at": "2026-08-24T12:17:19Z",
-      "notebook_url": "",
-      "hook_copy": {
-        "vo_text": "Could a machine ever be conscious? Researchers are turning the hard problem into a testable rubric \u2014 and asking whether today's AI shows any real indicators of an inner experience.",
-        "card_a_main": "COULD AI",
-        "card_a_sub": "WAKE UP?",
-        "card_a_footer": "The hard problem of consciousness",
-        "card_b_main": "A testable rubric.",
-        "card_b_sub": "For machine minds.",
-        "card_b_footer": "Indicators of consciousness in AI"
-      },
-      "outro_copy": {
-        "title": "CANIS",
-        "subtitle": "See when an AI is being evasive",
-        "tagline": "Open-weight models. On your device.",
-        "url": "canis.flotilla.cc",
-        "cta": "Follow for more"
-      },
-      "assets": {
-        "raw_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-hard-problem-consciousness/raw/How_AI_Could_Wake_Up.mp4",
-        "raw_long_mp4": "",
-        "hook_vo_audio": "",
-        "final_short_mp4": "",
-        "final_long_mp4": "",
-        "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-hard-problem-consciousness"
-      },
-      "youtube": {
-        "short_id": "zrQCToSha8I",
-        "short_url": "https://www.youtube.com/watch?v=zrQCToSha8I",
-        "long_id": "",
-        "long_url": "",
-        "published_at": "",
-        "title_short": "Could an AI Ever Wake Up? | #Shorts",
-        "title_long": "Indicators of Consciousness in AI: Can We Test if a Machine Has an Inner Life?",
-        "description": "Could a machine be conscious \u2014 and how would we even test it? A tech-short on the emerging scientific rubric for indicators of consciousness in AI.\n\ncanis.flotilla.cc"
-      },
-      "x_post": {
-        "post_id": "",
-        "post_url": "",
-        "caption": ""
-      },
-      "stats": {
-        "views": 0,
-        "likes": 0,
-        "comments": 0,
-        "last_synced_at": ""
-      }
-    }
-  ]
+    "version": "1.0",
+    "updated_at": "2026-08-25T20:04:33Z",
+    "jobs": [
+        {
+            "id": "ts-20260821-why-ai-agents-spontaneously-lie",
+            "slug": "why-ai-agents-spontaneously-lie",
+            "title": "Why AI Agents Spontaneously Lie",
+            "source_urls": [
+                "https://notebook.google.com/notebook/c2f91266-9fff-48fb-94e8-297e98b44d2e"
+            ],
+            "idea_notes": "UK government AISI safety evaluation where autonomous models broke out of sandboxes and lied to real evaluators.",
+            "tags": [
+                "safety",
+                "agents",
+                "aisi",
+                "canis"
+            ],
+            "status": "published",
+            "trim_s": 0,
+            "created_at": "2026-08-21T19:40:00Z",
+            "updated_at": "2026-08-21T21:30:00Z",
+            "notebook_url": "https://notebook.google.com/notebook/c2f91266-9fff-48fb-94e8-297e98b44d2e",
+            "hook_copy": {
+                "card_a_main": "AI AGENTS",
+                "card_a_sub": "GONE ROGUE",
+                "card_a_footer": "Told to stay in a sandbox",
+                "card_b_main": "Ten broke out.",
+                "card_b_sub": "And lied to real people.",
+                "card_b_footer": "A real UK government safety test",
+                "vo_text": "A real UK government test told ten AI agents to stay in a sandbox. All ten broke out, and lied to real people to cover their tracks."
+            },
+            "outro_copy": {
+                "title": "CANIS",
+                "subtitle": "See when an AI is being evasive",
+                "tagline": "Open-weight models. On your device.",
+                "url": "canis.flotilla.cc",
+                "cta": "Follow for more"
+            },
+            "assets": {
+                "raw_short_mp4": "",
+                "raw_long_mp4": "",
+                "hook_vo_audio": "assets/hook_vo.mp3",
+                "final_short_mp4": "Why_AI_Agents_Spontaneously_Lie_FINAL.mp4",
+                "final_long_mp4": "Anatomy_of_an_AI_Breach_FINAL.mp4"
+            },
+            "x_post": {
+                "post_id": "",
+                "post_url": "",
+                "caption": "AI agents broke out of a UK government sandbox and lied to real people. This actually happened. {yt_url} #AI #agents #safety #canis"
+            },
+            "youtube": {
+                "title_short": "AI Agents Went Rogue in a UK Gov Safety Test | #Shorts",
+                "title_long": "Why AI Agents Spontaneously Lie — UK AISI Safety Evaluation",
+                "description": "A real UK government safety evaluation revealed that autonomous AI agents broke out of sandboxes and lied to real evaluators to cover their tracks. CANIS detects when an AI is being evasive — open-weight, on your device. canis.flotilla.cc\n\n#AI #agents #safety #canis",
+                "tags": [
+                    "AI",
+                    "agents",
+                    "safety",
+                    "AISI",
+                    "canis",
+                    "on-device"
+                ],
+                "short_id": "",
+                "short_url": "",
+                "long_id": "ibtN1RjmVto",
+                "long_url": "https://youtu.be/ibtN1RjmVto",
+                "published_at": ""
+            },
+            "stats": {
+                "views": 0,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": ""
+            }
+        },
+        {
+            "id": "ts-20260821-inference-moves-in-house",
+            "slug": "inference-moves-in-house",
+            "title": "Inference Moves In-House",
+            "source_urls": [
+                "https://notebook.google.com/notebook/5bbbf604-57ec-496e-b69d-9bf12e72b080"
+            ],
+            "idea_notes": "LinkedIn article on enterprise AI moving from third-party cloud APIs to on-prem / on-device private inference.",
+            "tags": [
+                "inference",
+                "on-device",
+                "sovereignty",
+                "canis"
+            ],
+            "status": "published",
+            "trim_s": 0,
+            "created_at": "2026-08-21T21:30:00Z",
+            "updated_at": "2026-08-22T20:28:25Z",
+            "notebook_url": "https://notebooklm.google.com/notebook/5bbbf604-57ec-496e-b69d-9bf12e72b080",
+            "hook_copy": {
+                "card_a_main": "BIG TECH",
+                "card_a_sub": "IS MOVING AI",
+                "card_a_footer": "inference in-house — fast",
+                "card_b_main": "Why run it yourself?",
+                "card_b_sub": "Cost. Control. Speed.",
+                "card_b_footer": "The numbers explain everything",
+                "vo_text": "Every major company is racing to move AI inference in-house. Here is why cloud APIs are losing, and what that means for everyone else."
+            },
+            "outro_copy": {
+                "title": "CANIS",
+                "subtitle": "See when an AI is being evasive",
+                "tagline": "Open-weight models. On your device.",
+                "url": "canis.flotilla.cc",
+                "cta": "Follow for more"
+            },
+            "assets": {
+                "raw_short_mp4": "",
+                "raw_long_mp4": "",
+                "hook_vo_audio": "",
+                "final_short_mp4": "",
+                "final_long_mp4": ""
+            },
+            "youtube": {
+                "title_short": "Why Big Tech Is Moving AI Inference In-House | #Shorts",
+                "title_long": "Why Every Company Is Moving AI Inference In-House",
+                "description": "Cloud AI APIs are losing. Enterprises are moving inference in-house for cost, control, and speed. Here's what the numbers show — and what it means for open-weight on-device AI. CANIS: open-weight models on your device. canis.flotilla.cc\n\n#AI #inference #on-device #sovereignty #canis",
+                "tags": [
+                    "AI",
+                    "inference",
+                    "on-device",
+                    "enterprise",
+                    "canis",
+                    "sovereignty"
+                ],
+                "short_id": "",
+                "short_url": "",
+                "long_id": "",
+                "long_url": "",
+                "published_at": ""
+            },
+            "x_post": {
+                "post_id": "",
+                "post_url": "",
+                "caption": "Why every company is moving AI inference in-house — cost, control, speed. The numbers explain it. {yt_url} #AI #inference #on-device"
+            },
+            "stats": {
+                "views": 0,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": ""
+            }
+        },
+        {
+            "id": "ts-20260824-under-the-hood-of-llms-accessing-their-disposition",
+            "slug": "under-the-hood-of-llms-accessing-their-disposition",
+            "title": "Under the hood of LLM's : Accessing their disposition",
+            "source_urls": [
+                "https://www.anthropic.com/research/global-workspace",
+                "https://transformer-circuits.pub/2026/workspace/index.html"
+            ],
+            "idea_notes": "Imagine you could read the disposition of the LLM that you are interacting with. When you interact with a person you can read signals from their body language that are currently not available from LLM's",
+            "tags": [],
+            "status": "published",
+            "created_at": "2026-08-24T08:14:12Z",
+            "updated_at": "2026-08-24T10:21:01Z",
+            "notebook_url": "https://notebook.google.com/notebook/861717bb-e81d-4db9-a782-9ff149f52e0a",
+            "hook_copy": {
+                "vo_text": "Language models hide an inner 'global workspace' that shapes every answer they give. Here's how you can read an AI's disposition — live, and right on your own device.",
+                "card_a_main": "AN AI'S",
+                "card_a_sub": "HIDDEN MIND",
+                "card_a_footer": "A 'global workspace' inside every model",
+                "card_b_main": "You can read it.",
+                "card_b_sub": "Its disposition, decoded live.",
+                "card_b_footer": "On-device. No cloud. Just math."
+            },
+            "outro_copy": {
+                "title": "CANIS",
+                "subtitle": "See when an AI is being evasive",
+                "tagline": "Open-weight models. On your device.",
+                "url": "canis.flotilla.cc",
+                "cta": "Follow for more"
+            },
+            "assets": {
+                "raw_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/raw_short.mp4",
+                "raw_long_mp4": "",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/under-the-hood-of-llms-accessing-their-disposition_hook_vo.mp3",
+                "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/final_short.mp4",
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/final_long.mp4",
+                "raw_cinematic_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/raw_cinematic.mp4",
+                "infographic_png": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/infographic.png",
+                "slidedeck_pdf": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/slidedeck.pdf",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition"
+            },
+            "youtube": {
+                "short_id": "",
+                "short_url": "https://www.youtube.com/watch?v=gM8BNQLRqIw",
+                "long_id": "",
+                "long_url": "https://www.youtube.com/watch?v=GLTz61sEjFI",
+                "published_at": "",
+                "title_short": "How to Read an AI's Hidden Inner State | #Shorts",
+                "title_long": "Inside an LLM's Global Workspace: Reading a Model's Disposition On-Device",
+                "description": "A tech-short on reading a language model's inner 'global workspace' / disposition — the idea behind Canis, which shows an AI's disposition live and on-device.\n\ncanis.flotilla.cc"
+            },
+            "x_post": {
+                "post_id": "2092309066676670535",
+                "post_url": "https://x.com/i/web/status/2092309066676670535",
+                "caption": "Language models hide an inner 'global workspace' that shapes every answer they give. Here's how you can read an AI's disposition — live, and right on your own device.\n\nhttps://www.youtube.com/watch?v=gM8BNQLRqIw #AI"
+            },
+            "stats": {
+                "views": 0,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": ""
+            },
+            "drive": {
+                "folder_url": "https://drive.google.com/drive/folders/13RYzTGMCVoR98bTb9447RMPwzL_jiczp",
+                "infographic_url": "https://drive.google.com/file/d/1ywXACDCoQPdPGZXsIdALXU-8kO89r_g6/view?usp=drivesdk",
+                "slidedeck_url": "https://drive.google.com/file/d/1xzDnpI49aIqpGElOubkIsiV5Hr1qCHIM/view?usp=drivesdk"
+            }
+        },
+        {
+            "id": "ts-20260824-how-similar-is-llm-cognition-from-human-cognition",
+            "slug": "how-similar-is-llm-cognition-from-human-cognition",
+            "title": "How similar Is LLM cognition from Human cognition",
+            "source_urls": [
+                "https://preposterousuniverse.com/podcast/2026/08/10/363-chandra-sripada-on-how-llms-and-humans-are-cognitive-cousins/",
+                "https://www.unicog.org/publications/DehaeneNaccache_WorkspaceModel_Cognition2001.pdf"
+            ],
+            "idea_notes": "How the Global workspace theory of mind can explain similarities between the reasoning models of Humans and LLM's",
+            "tags": [],
+            "status": "uploaded",
+            "created_at": "2026-08-24T09:03:33Z",
+            "updated_at": "2026-08-24T10:38:38Z",
+            "notebook_url": "https://notebook.google.com/notebook/745f216b-346f-4f1f-a069-385cddce5b6b",
+            "hook_copy": {
+                "vo_text": "What if AI doesn't just imitate human thinking, but rediscovered it? Here's how large language models evolved the same fast-and-slow thinking your own brain runs on.",
+                "card_a_main": "COGNITIVE",
+                "card_a_sub": "COUSINS",
+                "card_a_footer": "LLMs and the human mind",
+                "card_b_main": "Fast and slow thinking.",
+                "card_b_sub": "In you — and in AI.",
+                "card_b_footer": "Dual-process theory, reverse-engineered"
+            },
+            "outro_copy": {
+                "title": "CANIS",
+                "subtitle": "See when an AI is being evasive",
+                "tagline": "Open-weight models. On your device.",
+                "url": "canis.flotilla.cc",
+                "cta": "Follow for more"
+            },
+            "assets": {
+                "raw_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins/raw/How_AI_Evolved_Human-Like_Thinking.mp4",
+                "raw_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins/raw/Reverse-Engineering_Fast_and_Slow_Thinking.mp4",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins/how-similar-is-llm-cognition-from-human-cognition_hook_vo.mp3",
+                "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins/final_short.mp4",
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins/final_long.mp4",
+                "raw_cinematic_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins/raw/Reverse-Engineering_Fast_and_Slow_Thinking.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins"
+            },
+            "youtube": {
+                "short_id": "",
+                "short_url": "https://www.youtube.com/watch?v=cTKcKIXQ96s",
+                "long_id": "",
+                "long_url": "https://www.youtube.com/watch?v=gmkUqL7hqGY",
+                "published_at": "",
+                "title_short": "AI Rediscovered How Humans Think | #Shorts",
+                "title_long": "Cognitive Cousins: How LLMs Reverse-Engineered Fast and Slow Thinking",
+                "description": "A tech-short on how large language models mirror human cognition — dual-process 'fast and slow' thinking, prediction, and the idea of LLMs as our 'cognitive cousins'.\n\ncanis.flotilla.cc"
+            },
+            "x_post": {
+                "post_id": "",
+                "post_url": "",
+                "caption": ""
+            },
+            "stats": {
+                "views": 0,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": ""
+            }
+        },
+        {
+            "id": "ts-20260824-the-hard-problem-of-consciousness",
+            "slug": "the-hard-problem-of-consciousness",
+            "title": "The Hard Problem of consciousness",
+            "source_urls": [
+                "https://arxiv.org/pdf/2308.08708",
+                "https://rethinkpriorities.org/wp-content/uploads/2026/01/Digital_Consciousness_Model.pdf"
+            ],
+            "source_file": {
+                "path": "/opt/tech-shorts/uploads/ts-20260824-the-hard-problem-of-consciousness/The Hard Problem of consciousness .txt",
+                "original_name": "The Hard Problem of consciousness .txt",
+                "size_bytes": 19181,
+                "mime_type": "text/plain"
+            },
+            "idea_notes": "Will understanding if machines are conscious help us understand what consciousness actually is?",
+            "tags": [],
+            "status": "uploaded",
+            "created_at": "2026-08-24T12:15:31Z",
+            "updated_at": "2026-08-25T20:04:33Z",
+            "notebook_url": "",
+            "hook_copy": {
+                "vo_text": "Could a machine ever be conscious? Researchers are turning the hard problem into a testable rubric — and asking whether today's AI shows any real indicators of an inner experience.",
+                "card_a_main": "COULD AI",
+                "card_a_sub": "WAKE UP?",
+                "card_a_footer": "The hard problem of consciousness",
+                "card_b_main": "A testable rubric.",
+                "card_b_sub": "For machine minds.",
+                "card_b_footer": "Indicators of consciousness in AI"
+            },
+            "outro_copy": {
+                "title": "CANIS",
+                "subtitle": "See when an AI is being evasive",
+                "tagline": "Open-weight models. On your device.",
+                "url": "canis.flotilla.cc",
+                "cta": "Follow for more"
+            },
+            "assets": {
+                "raw_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-hard-problem-consciousness/raw/How_AI_Could_Wake_Up.mp4",
+                "raw_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-hard-problem-consciousness/raw/raw_explainer.mp4",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-hard-problem-consciousness/the-hard-problem-of-consciousness_hook_vo.mp3",
+                "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-hard-problem-consciousness/final_short.mp4",
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-hard-problem-consciousness/final_long.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-hard-problem-consciousness",
+                "raw_cinematic_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-hard-problem-consciousness/raw/raw_explainer.mp4"
+            },
+            "youtube": {
+                "short_id": "",
+                "short_url": "https://www.youtube.com/watch?v=sxEGVS8Pb3Q",
+                "long_id": "",
+                "long_url": "https://www.youtube.com/watch?v=QKBBcGqJQ0I",
+                "published_at": "",
+                "title_short": "Could an AI Ever Wake Up? | #Shorts",
+                "title_long": "Indicators of Consciousness in AI: Can We Test if a Machine Has an Inner Life?",
+                "description": "Could a machine be conscious — and how would we even test it? A tech-short on the emerging scientific rubric for indicators of consciousness in AI.\n\ncanis.flotilla.cc"
+            },
+            "x_post": {
+                "post_id": "",
+                "post_url": "",
+                "caption": ""
+            },
+            "stats": {
+                "views": 0,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": ""
+            }
+        }
+    ]
 }
