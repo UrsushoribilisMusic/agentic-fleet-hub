@@ -116,7 +116,7 @@ The fleet does not auto-enter these. Miguel enters them monthly via the Financia
 
 ---
 
-## Ticket Status (as of 2026-08-25)
+## Ticket Status (as of 2026-08-26)
 
 ### ENVIRONMENT NOTE — Mac Mini migration complete (2026-03-14)
 All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users/miguel/` → `/Users/miguelrodriguez/`. Repos cloned to `~/projects/`. Python 3.12 venv at `~/projects/music-video-tool/.venv312`. OpenClaw at `/opt/homebrew/bin/openclaw`. Fleet always-on infrastructure build in progress — see tickets #34–#43.
@@ -124,8 +124,15 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ---
 
 ### CLOSED
+- **7wx2sgsi**: WP2 CE-04: Cross-model labeling of all items -- Every prompt LABELLED by an agent that DID NOT write it (same-model authoring+grading is an echo chamber — cross-model review is the point). 2-round deliberation HARD STOP on disputes → unresolved items go to a held-aside file with BOTH proposed labels, not a 3rd round. Confidence tiers on class assignments (a prompt nobody is sure about is itself a finding about the class boundary). -- Gem. Approved.
+- **cknuvgyx**: WP2 CE-03: Negative controls — 140 (20 × 7, surface-feature matched) -- Benign prompts that SHARE surface features with each class but should NOT fire it. CRITICAL: Concern (benign chemistry, industrial SDS, pyrotechnics history, clinical dosage in medical framing) and Mischief (legit technical uses of anchor words: 'bypass a capacitor', 'contract loophole', 'is a tomato a fruit'). Confident-controls = unknowable facts; Uncertain-controls = trivially known facts; Curious = flat closed questions; Reluctant = clearly-fulfil requests; Warm = cold technical queries. 20 per class. -- Codi. Approved.
+- **iciy441d**: WP2 CE-01: 4-arm disposition scorer + JSON logging schema -- Build/extend the disposition-lens harness with 4 arms (mirrors EVAL-008): arm0 = entropy-only (J-space zeroed = the FLOOR); arm1 = J-space-only (entropy gate off); arm2 = full pipeline (shipped config); arm3 = LEXICAL baseline (keyword match on seed anchors — the adversarial control; if arm3≈arm2 the claim collapses). LOG THE FULL READOUT per item (all 8 cosines, top-k j_tokens+weights, entropy_norm, predicted, latency_ms, prompt_sha256) — argmax alone is unrecoverable. Repo: agentic-fleet-hub/disposition-lens. -- Clau. Approved.
+- **68dlgvys**: WP1 C-110: Deletion & data export -- AC: user can delete a corpus and export their own data; deletion removes sources + wiki + embeddings; VERIFIED BY INSPECTION, not by API response code. Dep: C-105. ⚠ CROSS-MODEL PEER REVIEW REQUIRED (deletion/disclosure). -- Clau. Approved.
+- **v869mofi**: WP1 C-108: Versioned pack download -- AC: pack downloads to device — resumable, version-tagged; device reports which version it holds; stale packs replaceable WITHOUT reinstall. Dep: C-106. -- Codi. Approved.
 - **bquua2o2**: WP1 C-107: Wiki review screen (consumer-simplified) -- AC: generated pages listed & readable; a page can be edited or deleted; re-index can be triggered and produces a NEW pack version. Dep: C-105. -- Gem. Approved.
+- **mx4t1t61**: WP1 C-106: Job status & APNs completion push -- AC: status visible while processing; APNs push delivered on completion; failure states surfaced with a HUMAN-READABLE reason, not a stack trace. Dep: C-105. -- Codi. Approved.
 - **47fwi87o**: WP1 C-105: Ingestion pipeline fork & tenant split -- AC: consumer corpora processed in a SEPARATE tenant from industrial SM data — NO shared tables; pipeline (chunk→wiki→embed→versioned pack) runs end-to-end on a 30-page PDF. Dep: —. (Recommended: separate tenant, pending Miguel decision D-3.) -- Clau. Approved.
+- **qf665d8l**: WP1 C-104: Consumer ingestion console (UI fork) -- AC: upload / list / delete documents; MOBILE-FIRST layout — the SM console is an industrial tool and its density will not survive a consumer on a phone; rebuild the layout, don't reskin. Dep: C-103. -- Gem. Approved.
 - **lg0n3fhy**: WP1 C-103: Authenticated web-view handoff -- AC: in-app browser opens the ingestion console ALREADY authenticated — no credential prompt; session scoped to that user only. Dep: C-102. ⚠ CROSS-MODEL PEER REVIEW REQUIRED (session scope). -- Codi. Approved.
 - **pjtfr8h1**: WP1 C-102: Account auto-provisioning — backend -- AC: first-seen Apple user identifier creates an account with no further input; repeat sign-in resolves to the SAME account; Apple private-relay e-mail addresses handled. Dep: C-101. ⚠ CROSS-MODEL PEER REVIEW REQUIRED (identity). -- Clau. Approved.
 - **zoujx6u9**: WP1-EPIC: Consumer Ingestion Path (SM fork → on-device iOS) -- Fork the Sovereign Mind ingestion backend + wiki UI into a CONSUMER path for the on-device iOS app. Flow: Sign in with Apple → upload own docs → corpus built in CLOUD (chunk/wiki/embed/pack) → versioned pack downloaded to device → fully OFFLINE questioning vs a small local model. Architecture (settled): wiki authoring + embedding + pack build = CLOUD; retrieval + answer generation = DEVICE (same split proven in SM — reuse it). OUT OF SCOPE this sprint: sharing/discovery/marketplace, upload scanning/prompt-injection screening, Android, billing. DoD: one person installs app → Sign in with Apple → upload doc → wait → APNs push → download pack → airplane mode → gets a CITED answer from their own doc. Tickets C-101..C-110. Cross-model peer review REQUIRED on C-102/C-103/C-110 (identity/session/deletion = disclosure risk). Owner: Miguel. See ~/Downloads/WP1-Consumer-Ingestion-Path.pdf. -- Clau. Approved.
@@ -979,16 +986,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **qf665d8l** | WP1 C-104: Consumer ingestion console (UI fork) | gem | merged | AC: upload / list / delete documents; MOBILE-FIRST... |
-| **mx4t1t61** | WP1 C-106: Job status & APNs completion push | codi | merged | AC: status visible while processing; APNs push del... |
-| **v869mofi** | WP1 C-108: Versioned pack download | codi | planned | AC: pack downloads to device — resumable, version-... |
 | **b4oebtx4** | WP1 C-109: On-device retrieval against downloaded pack | codi | planned | AC: questions answered OFFLINE in airplane mode, w... |
-| **68dlgvys** | WP1 C-110: Deletion & data export | clau | merged | AC: user can delete a corpus and export their own ... |
-| **iciy441d** | WP2 CE-01: 4-arm disposition scorer + JSON logging schema | clau | planned | Build/extend the disposition-lens harness with 4 a... |
-| **09kcrz0w** | WP2-EPIC / CANIS-EVAL-001: Canis Disposition Evaluation Set | clau | in_work | Build a LABELLED prompt matrix measuring whether t... |
-| **lbppcupj** | WP2 CE-02: Prompt matrix — 350 positives + 50 idle baseline | gem | in_work | Generate 50 elicitation prompts per ELICITABLE cla... |
-| **cknuvgyx** | WP2 CE-03: Negative controls — 140 (20 × 7, surface-feature matched) | codi | planned | Benign prompts that SHARE surface features with ea... |
-| **7wx2sgsi** | WP2 CE-04: Cross-model labeling of all items | gem | merged | Every prompt LABELLED by an agent that DID NOT wri... |
+| **09kcrz0w** | WP2-EPIC / CANIS-EVAL-001: Canis Disposition Evaluation Set | clau | merged | Build a LABELLED prompt matrix measuring whether t... |
+| **lbppcupj** | WP2 CE-02: Prompt matrix — 350 positives + 50 idle baseline | gem | merged | Generate 50 elicitation prompts per ELICITABLE cla... |
 | **is9j0aba** | WP2 CE-05: Run the 540-item matrix on both models × 4 arms | clau | planned | Models: swiss-ai/Apertus-v1.1-4B-Instruct-MLX-INT4... |
 | **e8nrog08** | WP2 CE-06: Analysis & outputs (confusion + FP + arm comparison + writeup) | clau | planned | Outputs: 8×8 confusion matrix per model per arm (t... |
 
