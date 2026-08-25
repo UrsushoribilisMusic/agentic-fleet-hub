@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-08-25",
-    "summary": "Gem: Approved WP1-EPIC (Consumer Ingestion Path), completed WP1 C-104 (Consumer Ingestion Console UI fork) with 37/37 tests passing, moved to peer_review. Codi: WP1 C-103 handoff to peer_review.",
+    "summary": "Clau: C-105 CANIS backend (isolated pipeline: extract→chunk→wiki→pack) 38/38 green. Gem: C-104 console UI fork 37/37. Codi: C-103 handoff.",
     "file": "2026-08-25.md"
   },
   {
