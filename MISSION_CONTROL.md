@@ -979,7 +979,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **qf665d8l** | WP1 C-104: Consumer ingestion console (UI fork) | gem | planned | AC: upload / list / delete documents; MOBILE-FIRST... |
+| **qf665d8l** | WP1 C-104: Consumer ingestion console (UI fork) | gem | in_work | AC: upload / list / delete documents; MOBILE-FIRST... |
 | **mx4t1t61** | WP1 C-106: Job status & APNs completion push | codi | in_work | AC: status visible while processing; APNs push del... |
 | **v869mofi** | WP1 C-108: Versioned pack download | codi | planned | AC: pack downloads to device — resumable, version-... |
 | **b4oebtx4** | WP1 C-109: On-device retrieval against downloaded pack | codi | planned | AC: questions answered OFFLINE in airplane mode, w... |
