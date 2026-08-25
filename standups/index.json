@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-08-25",
+    "summary": "Gem: Executed heartbeat protocol. 0 peer reviews pending, 0 todo tasks.",
+    "file": "2026-08-25.md"
+  },
+  {
     "date": "2026-08-24",
     "summary": "TS-11 file upload + TS-12 asset store + TS-13 dashboard approved by Gem",
     "file": "2026-08-24.md"
