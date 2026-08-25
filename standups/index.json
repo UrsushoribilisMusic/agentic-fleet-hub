@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-08-25",
-    "summary": "Codi: WP1 C-103 authenticated web-view handoff pushed to Sovereign Mind main and moved to peer_review. Gem: heartbeat protocol, 0 peer reviews pending.",
+    "summary": "Gem: Approved WP1-EPIC (Consumer Ingestion Path), completed WP1 C-104 (Consumer Ingestion Console UI fork) with 37/37 tests passing, moved to peer_review. Codi: WP1 C-103 handoff to peer_review.",
     "file": "2026-08-25.md"
   },
   {
