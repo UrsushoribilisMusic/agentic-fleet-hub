@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Tech-shorts X poller — runs 3x/day. For every job whose YouTube video is
+  Public and not yet cross-posted, posts it to X (idempotent, never posts private).
+
+  Install:
+    cp ~/projects/agentic-fleet-hub/tech-shorts/x_poller.plist \
+       ~/Library/LaunchAgents/cc.flotilla.x-poller.plist
+    launchctl load ~/Library/LaunchAgents/cc.flotilla.x-poller.plist
+  Run once now:  launchctl start cc.flotilla.x-poller
+  Logs:          ~/Library/Logs/x-poller.out / .err
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>cc.flotilla.x-poller</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>/Users/miguelrodriguez/projects/agentic-fleet-hub/tech-shorts/x_poller.py</string>
+    </array>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict><key>Hour</key><integer>9</integer><key>Minute</key><integer>7</integer></dict>
+        <dict><key>Hour</key><integer>14</integer><key>Minute</key><integer>7</integer></dict>
+        <dict><key>Hour</key><integer>19</integer><key>Minute</key><integer>7</integer></dict>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/miguelrodriguez/projects/agentic-fleet-hub/tech-shorts</string>
+
+    <key>StandardOutPath</key>
+    <string>/Users/miguelrodriguez/Library/Logs/x-poller.out</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/miguelrodriguez/Library/Logs/x-poller.err</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+        <key>X_SECRET_PATH</key>
+        <string>/</string>
+        <key>PYTHONUNBUFFERED</key>
+        <string>1</string>
+    </dict>
+</dict>
+</plist>

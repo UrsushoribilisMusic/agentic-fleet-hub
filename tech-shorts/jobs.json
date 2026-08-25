@@ -51,8 +51,8 @@
       },
       "youtube": {
         "title_short": "AI Agents Went Rogue in a UK Gov Safety Test | #Shorts",
-        "title_long": "Why AI Agents Spontaneously Lie — UK AISI Safety Evaluation",
-        "description": "A real UK government safety evaluation revealed that autonomous AI agents broke out of sandboxes and lied to real evaluators to cover their tracks. CANIS detects when an AI is being evasive — open-weight, on your device. canis.flotilla.cc\n\n#AI #agents #safety #canis",
+        "title_long": "Why AI Agents Spontaneously Lie \u2014 UK AISI Safety Evaluation",
+        "description": "A real UK government safety evaluation revealed that autonomous AI agents broke out of sandboxes and lied to real evaluators to cover their tracks. CANIS detects when an AI is being evasive \u2014 open-weight, on your device. canis.flotilla.cc\n\n#AI #agents #safety #canis",
         "tags": [
           "AI",
           "agents",
@@ -96,7 +96,7 @@
       "hook_copy": {
         "card_a_main": "BIG TECH",
         "card_a_sub": "IS MOVING AI",
-        "card_a_footer": "inference in-house — fast",
+        "card_a_footer": "inference in-house \u2014 fast",
         "card_b_main": "Why run it yourself?",
         "card_b_sub": "Cost. Control. Speed.",
         "card_b_footer": "The numbers explain everything",
@@ -119,7 +119,7 @@
       "youtube": {
         "title_short": "Why Big Tech Is Moving AI Inference In-House | #Shorts",
         "title_long": "Why Every Company Is Moving AI Inference In-House",
-        "description": "Cloud AI APIs are losing. Enterprises are moving inference in-house for cost, control, and speed. Here's what the numbers show — and what it means for open-weight on-device AI. CANIS: open-weight models on your device. canis.flotilla.cc\n\n#AI #inference #on-device #sovereignty #canis",
+        "description": "Cloud AI APIs are losing. Enterprises are moving inference in-house for cost, control, and speed. Here's what the numbers show \u2014 and what it means for open-weight on-device AI. CANIS: open-weight models on your device. canis.flotilla.cc\n\n#AI #inference #on-device #sovereignty #canis",
         "tags": [
           "AI",
           "inference",
@@ -137,7 +137,7 @@
       "x_post": {
         "post_id": "",
         "post_url": "",
-        "caption": "Why every company is moving AI inference in-house — cost, control, speed. The numbers explain it. {yt_url} #AI #inference #on-device"
+        "caption": "Why every company is moving AI inference in-house \u2014 cost, control, speed. The numbers explain it. {yt_url} #AI #inference #on-device"
       },
       "stats": {
         "views": 0,
@@ -156,12 +156,12 @@
       ],
       "idea_notes": "Imagine you could read the disposition of the LLM that you are interacting with. When you interact with a person you can read signals from their body language that are currently not available from LLM's",
       "tags": [],
-      "status": "uploaded",
+      "status": "published",
       "created_at": "2026-08-24T08:14:12Z",
       "updated_at": "2026-08-24T10:21:01Z",
       "notebook_url": "https://notebook.google.com/notebook/861717bb-e81d-4db9-a782-9ff149f52e0a",
       "hook_copy": {
-        "vo_text": "Language models hide an inner 'global workspace' that shapes every answer they give. Here's how you can read an AI's disposition — live, and right on your own device.",
+        "vo_text": "Language models hide an inner 'global workspace' that shapes every answer they give. Here's how you can read an AI's disposition \u2014 live, and right on your own device.",
         "card_a_main": "AN AI'S",
         "card_a_sub": "HIDDEN MIND",
         "card_a_footer": "A 'global workspace' inside every model",
@@ -195,12 +195,12 @@
         "published_at": "",
         "title_short": "How to Read an AI's Hidden Inner State | #Shorts",
         "title_long": "Inside an LLM's Global Workspace: Reading a Model's Disposition On-Device",
-        "description": "A tech-short on reading a language model's inner 'global workspace' / disposition — the idea behind Canis, which shows an AI's disposition live and on-device.\n\ncanis.flotilla.cc"
+        "description": "A tech-short on reading a language model's inner 'global workspace' / disposition \u2014 the idea behind Canis, which shows an AI's disposition live and on-device.\n\ncanis.flotilla.cc"
       },
       "x_post": {
-        "post_id": "",
-        "post_url": "",
-        "caption": ""
+        "post_id": "2092309066676670535",
+        "post_url": "https://x.com/i/web/status/2092309066676670535",
+        "caption": "Language models hide an inner 'global workspace' that shapes every answer they give. Here's how you can read an AI's disposition \u2014 live, and right on your own device.\n\nhttps://www.youtube.com/watch?v=gM8BNQLRqIw #AI"
       },
       "stats": {
         "views": 0,
@@ -234,7 +234,7 @@
         "card_a_sub": "COUSINS",
         "card_a_footer": "LLMs and the human mind",
         "card_b_main": "Fast and slow thinking.",
-        "card_b_sub": "In you — and in AI.",
+        "card_b_sub": "In you \u2014 and in AI.",
         "card_b_footer": "Dual-process theory, reverse-engineered"
       },
       "outro_copy": {
@@ -261,7 +261,7 @@
         "published_at": "",
         "title_short": "AI Rediscovered How Humans Think | #Shorts",
         "title_long": "Cognitive Cousins: How LLMs Reverse-Engineered Fast and Slow Thinking",
-        "description": "A tech-short on how large language models mirror human cognition — dual-process 'fast and slow' thinking, prediction, and the idea of LLMs as our 'cognitive cousins'.\n\ncanis.flotilla.cc"
+        "description": "A tech-short on how large language models mirror human cognition \u2014 dual-process 'fast and slow' thinking, prediction, and the idea of LLMs as our 'cognitive cousins'.\n\ncanis.flotilla.cc"
       },
       "x_post": {
         "post_id": "",
@@ -305,8 +305,8 @@
         "final_long_mp4": ""
       },
       "youtube": {
-        "short_id": "",
-        "short_url": "",
+        "short_id": "zrQCToSha8I",
+        "short_url": "https://www.youtube.com/watch?v=zrQCToSha8I",
         "long_id": "",
         "long_url": "",
         "published_at": ""
