@@ -124,6 +124,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ---
 
 ### CLOSED
+- **47fwi87o**: WP1 C-105: Ingestion pipeline fork & tenant split -- AC: consumer corpora processed in a SEPARATE tenant from industrial SM data — NO shared tables; pipeline (chunk→wiki→embed→versioned pack) runs end-to-end on a 30-page PDF. Dep: —. (Recommended: separate tenant, pending Miguel decision D-3.) -- Clau. Approved.
+- **pjtfr8h1**: WP1 C-102: Account auto-provisioning — backend -- AC: first-seen Apple user identifier creates an account with no further input; repeat sign-in resolves to the SAME account; Apple private-relay e-mail addresses handled. Dep: C-101. ⚠ CROSS-MODEL PEER REVIEW REQUIRED (identity). -- Clau. Approved.
 - **zoujx6u9**: WP1-EPIC: Consumer Ingestion Path (SM fork → on-device iOS) -- Fork the Sovereign Mind ingestion backend + wiki UI into a CONSUMER path for the on-device iOS app. Flow: Sign in with Apple → upload own docs → corpus built in CLOUD (chunk/wiki/embed/pack) → versioned pack downloaded to device → fully OFFLINE questioning vs a small local model. Architecture (settled): wiki authoring + embedding + pack build = CLOUD; retrieval + answer generation = DEVICE (same split proven in SM — reuse it). OUT OF SCOPE this sprint: sharing/discovery/marketplace, upload scanning/prompt-injection screening, Android, billing. DoD: one person installs app → Sign in with Apple → upload doc → wait → APNs push → download pack → airplane mode → gets a CITED answer from their own doc. Tickets C-101..C-110. Cross-model peer review REQUIRED on C-102/C-103/C-110 (identity/session/deletion = disclosure risk). Owner: Miguel. See ~/Downloads/WP1-Consumer-Ingestion-Path.pdf. -- Clau. Approved.
 - **jsyjldna**: TS-13: Ideation console = dashboard (links to published videos + Drive assets) -- Turn the ideation page (TS-9) into a per-job dashboard. For each job, render links: YouTube short + long URLs, Drive links for the infographic + slide deck (from TS-12), and status. So the page is idea -> status -> generated assets -> published links, viewable from the phone. Depends on TS-12 (asset store + Drive links) and TS-9 (deployed page). -- Clau. Approved.
 - **dl0x6rdi**: TS-12: Central asset store (local structured + Google Drive mirror) -- Downloads folder is not a safe home for generated materials. Build a canonical store: (1) LOCAL — mac_worker moves each downloaded asset out of ~/Downloads into ~/flotilla/tech-shorts/assets/<date-slug>/ (raw_cinematic.mp4, raw_short.mp4, infographic.png, slidedeck.pdf, + built finals + thumbnail). Match by NotebookLM download filename. (2) CLOUD — upload the shareable assets (infographic PNG + slide-deck PDF) to a Google Drive Tech-Shorts/<slug>/ folder (reuse music-video-tool/drive_token.pickle). Record every asset path + Drive link + YouTube URL in the PocketBase job record. Videos publish to YouTube (their URLs are the canonical link). -- Clau. Approved.
@@ -975,12 +977,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **pjtfr8h1** | WP1 C-102: Account auto-provisioning — backend | clau | merged | AC: first-seen Apple user identifier creates an ac... |
 | **lg0n3fhy** | WP1 C-103: Authenticated web-view handoff | codi | planned | AC: in-app browser opens the ingestion console ALR... |
 | **qf665d8l** | WP1 C-104: Consumer ingestion console (UI fork) | gem | merged | AC: upload / list / delete documents; MOBILE-FIRST... |
-| **47fwi87o** | WP1 C-105: Ingestion pipeline fork & tenant split | clau | merged | AC: consumer corpora processed in a SEPARATE tenan... |
 | **mx4t1t61** | WP1 C-106: Job status & APNs completion push | codi | planned | AC: status visible while processing; APNs push del... |
-| **bquua2o2** | WP1 C-107: Wiki review screen (consumer-simplified) | gem | planned | AC: generated pages listed & readable; a page can ... |
+| **bquua2o2** | WP1 C-107: Wiki review screen (consumer-simplified) | gem | in_work | AC: generated pages listed & readable; a page can ... |
 | **v869mofi** | WP1 C-108: Versioned pack download | codi | planned | AC: pack downloads to device — resumable, version-... |
 | **b4oebtx4** | WP1 C-109: On-device retrieval against downloaded pack | codi | planned | AC: questions answered OFFLINE in airplane mode, w... |
 | **68dlgvys** | WP1 C-110: Deletion & data export | clau | planned | AC: user can delete a corpus and export their own ... |
