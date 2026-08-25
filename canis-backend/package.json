@@ -1,0 +1,21 @@
+{
+  "name": "canis-backend",
+  "version": "0.1.0",
+  "description": "CANIS consumer ingestion backend — fully isolated from Sovereign Mind industrial data",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "migrate": "node db/migrate.js",
+    "worker": "node ingestion/worker.js",
+    "test:pipeline": "node scripts/test-pipeline.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.11.1",
+    "express": "^4.19.2",
+    "pdf-parse": "^1.1.1",
+    "uuid": "^10.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
