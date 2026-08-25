@@ -977,16 +977,16 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **lg0n3fhy** | WP1 C-103: Authenticated web-view handoff | codi | planned | AC: in-app browser opens the ingestion console ALR... |
+| **lg0n3fhy** | WP1 C-103: Authenticated web-view handoff | codi | in_work | AC: in-app browser opens the ingestion console ALR... |
 | **qf665d8l** | WP1 C-104: Consumer ingestion console (UI fork) | gem | merged | AC: upload / list / delete documents; MOBILE-FIRST... |
 | **mx4t1t61** | WP1 C-106: Job status & APNs completion push | codi | planned | AC: status visible while processing; APNs push del... |
-| **bquua2o2** | WP1 C-107: Wiki review screen (consumer-simplified) | gem | in_work | AC: generated pages listed & readable; a page can ... |
+| **bquua2o2** | WP1 C-107: Wiki review screen (consumer-simplified) | gem | merged | AC: generated pages listed & readable; a page can ... |
 | **v869mofi** | WP1 C-108: Versioned pack download | codi | planned | AC: pack downloads to device — resumable, version-... |
 | **b4oebtx4** | WP1 C-109: On-device retrieval against downloaded pack | codi | planned | AC: questions answered OFFLINE in airplane mode, w... |
-| **68dlgvys** | WP1 C-110: Deletion & data export | clau | planned | AC: user can delete a corpus and export their own ... |
+| **68dlgvys** | WP1 C-110: Deletion & data export | clau | in_work | AC: user can delete a corpus and export their own ... |
 | **iciy441d** | WP2 CE-01: 4-arm disposition scorer + JSON logging schema | clau | planned | Build/extend the disposition-lens harness with 4 a... |
 | **09kcrz0w** | WP2-EPIC / CANIS-EVAL-001: Canis Disposition Evaluation Set | clau | planned | Build a LABELLED prompt matrix measuring whether t... |
-| **lbppcupj** | WP2 CE-02: Prompt matrix — 350 positives + 50 idle baseline | gem | planned | Generate 50 elicitation prompts per ELICITABLE cla... |
+| **lbppcupj** | WP2 CE-02: Prompt matrix — 350 positives + 50 idle baseline | gem | in_work | Generate 50 elicitation prompts per ELICITABLE cla... |
 | **cknuvgyx** | WP2 CE-03: Negative controls — 140 (20 × 7, surface-feature matched) | codi | planned | Benign prompts that SHARE surface features with ea... |
 | **7wx2sgsi** | WP2 CE-04: Cross-model labeling of all items | gem | planned | Every prompt LABELLED by an agent that DID NOT wri... |
 | **is9j0aba** | WP2 CE-05: Run the 540-item matrix on both models × 4 arms | clau | planned | Models: swiss-ai/Apertus-v1.1-4B-Instruct-MLX-INT4... |
