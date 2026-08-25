@@ -7,7 +7,7 @@ const { buildRouter } = require('./api/router');
 const PORT = parseInt(process.env.CANIS_PORT || '4200', 10);
 
 const app = express();
-app.use(express.json({ limit: '30mb' }));
+app.use(express.json({ limit: '50mb' }));
 
 const db = migrate();
 const router = buildRouter(db);
