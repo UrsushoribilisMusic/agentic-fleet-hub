@@ -978,19 +978,19 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **mow995g4** | WP1 C-101: Sign in with Apple — iOS | codi | in_work | AC: sign-in completes; app holds a valid identity ... |
 | **pjtfr8h1** | WP1 C-102: Account auto-provisioning — backend | clau | planned | AC: first-seen Apple user identifier creates an ac... |
 | **lg0n3fhy** | WP1 C-103: Authenticated web-view handoff | codi | planned | AC: in-app browser opens the ingestion console ALR... |
-| **qf665d8l** | WP1 C-104: Consumer ingestion console (UI fork) | gem | in_work | AC: upload / list / delete documents; MOBILE-FIRST... |
+| **qf665d8l** | WP1 C-104: Consumer ingestion console (UI fork) | gem | planned | AC: upload / list / delete documents; MOBILE-FIRST... |
 | **47fwi87o** | WP1 C-105: Ingestion pipeline fork & tenant split | clau | planned | AC: consumer corpora processed in a SEPARATE tenan... |
-| **e8nrog08** | WP2 CE-06: Analysis & outputs (confusion + FP + arm comparison + writeup) | clau | planned | Outputs: 8×8 confusion matrix per model per arm (t... |
-| **is9j0aba** | WP2 CE-05: Run the 540-item matrix on both models × 4 arms | clau | planned | Models: swiss-ai/Apertus-v1.1-4B-Instruct-MLX-INT4... |
-| **7wx2sgsi** | WP2 CE-04: Cross-model labeling of all items | gem | planned | Every prompt LABELLED by an agent that DID NOT wri... |
-| **cknuvgyx** | WP2 CE-03: Negative controls — 140 (20 × 7, surface-feature matched) | codi | planned | Benign prompts that SHARE surface features with ea... |
-| **lbppcupj** | WP2 CE-02: Prompt matrix — 350 positives + 50 idle baseline | gem | planned | Generate 50 elicitation prompts per ELICITABLE cla... |
+| **mx4t1t61** | WP1 C-106: Job status & APNs completion push | codi | planned | AC: status visible while processing; APNs push del... |
+| **bquua2o2** | WP1 C-107: Wiki review screen (consumer-simplified) | gem | planned | AC: generated pages listed & readable; a page can ... |
+| **v869mofi** | WP1 C-108: Versioned pack download | codi | planned | AC: pack downloads to device — resumable, version-... |
+| **b4oebtx4** | WP1 C-109: On-device retrieval against downloaded pack | codi | planned | AC: questions answered OFFLINE in airplane mode, w... |
+| **68dlgvys** | WP1 C-110: Deletion & data export | clau | planned | AC: user can delete a corpus and export their own ... |
 | **iciy441d** | WP2 CE-01: 4-arm disposition scorer + JSON logging schema | clau | planned | Build/extend the disposition-lens harness with 4 a... |
 | **09kcrz0w** | WP2-EPIC / CANIS-EVAL-001: Canis Disposition Evaluation Set | clau | planned | Build a LABELLED prompt matrix measuring whether t... |
-| **68dlgvys** | WP1 C-110: Deletion & data export | clau | planned | AC: user can delete a corpus and export their own ... |
-| **b4oebtx4** | WP1 C-109: On-device retrieval against downloaded pack | codi | planned | AC: questions answered OFFLINE in airplane mode, w... |
-| **v869mofi** | WP1 C-108: Versioned pack download | codi | planned | AC: pack downloads to device — resumable, version-... |
-| **bquua2o2** | WP1 C-107: Wiki review screen (consumer-simplified) | gem | planned | AC: generated pages listed & readable; a page can ... |
-| **mx4t1t61** | WP1 C-106: Job status & APNs completion push | codi | planned | AC: status visible while processing; APNs push del... |
+| **lbppcupj** | WP2 CE-02: Prompt matrix — 350 positives + 50 idle baseline | gem | planned | Generate 50 elicitation prompts per ELICITABLE cla... |
+| **cknuvgyx** | WP2 CE-03: Negative controls — 140 (20 × 7, surface-feature matched) | codi | planned | Benign prompts that SHARE surface features with ea... |
+| **7wx2sgsi** | WP2 CE-04: Cross-model labeling of all items | gem | planned | Every prompt LABELLED by an agent that DID NOT wri... |
+| **is9j0aba** | WP2 CE-05: Run the 540-item matrix on both models × 4 arms | clau | planned | Models: swiss-ai/Apertus-v1.1-4B-Instruct-MLX-INT4... |
+| **e8nrog08** | WP2 CE-06: Analysis & outputs (confusion + FP + arm comparison + writeup) | clau | planned | Outputs: 8×8 confusion matrix per model per arm (t... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
