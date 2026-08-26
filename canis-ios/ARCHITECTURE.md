@@ -24,9 +24,21 @@ Each completed model directory gets a `.complete` marker. MLX loading requires `
 
 Release builds allow only Wi-Fi downloads. Debug builds include `setCellularBypass(_:)` for tester/demo devices without Wi-Fi.
 
+## Knowledge Pack Storage
+
+Downloaded user knowledge packs live under:
+
+```text
+Documents/knowledge-packs/current.sqlite
+```
+
+`KnowledgePackStore` downloads the latest authenticated pack from the Canis backend, replaces stale packs in place, and persists the installed version metadata beside the SQLite file. The backend URL and Canis session token are operator-editable in `ModelHubView` so simulator runs can use `127.0.0.1`, while physical-device demos can point at the Mac/backend LAN or deployed URL before airplane mode.
+
 ## Inference Path
 
 `CanisMLXEngine` serializes model residency and token streaming. It unloads on backgrounding, clears MLX cache on memory warning, and swaps models by unloading the previous resident container before loading the next one.
+
+Before normal chat generation, `generateWithKnowledge` asks `KnowledgePackRetriever` for local wiki-section hits from `current.sqlite`. If a hit exists, the prompt is grounded with only the offline wiki context, local wiki citations are emitted through the same source-rendering UI used by web search, and the streamed answer is forced to include at least `[1]` if the model omits the citation marker. With no installed/relevant pack, chat falls back to plain on-device generation.
 
 ## Disposition Readout
 

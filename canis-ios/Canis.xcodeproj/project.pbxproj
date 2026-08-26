@@ -9,21 +9,26 @@
 /* Begin PBXBuildFile section */
 		0841A9E43D9FFC6C50C97459 /* Disposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56E7044B572570BA522F63B /* Disposition.swift */; };
 		0CA9AD134E03AC55DD875169 /* DispositionReadoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066CA3E0A958CA8EC426747C /* DispositionReadoutTests.swift */; };
+		0DD4BBC67B14DC094A74DD8A /* KnowledgePackRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6CFD212F2CBA7EE626F85A /* KnowledgePackRetriever.swift */; };
 		17BCFA28D4CE6262FA4627D7 /* MLXLMCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 617E68489CF74E1AA459E0DE /* MLXLMCommon */; };
 		21D7D4E5F6582B4315F4D7BB /* MLX in Frameworks */ = {isa = PBXBuildFile; productRef = 1383FF71984228B8099ABEA5 /* MLX */; };
 		233BACF5F883D66EDF325918 /* CanisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B74AC972B6AE5551E15378 /* CanisApp.swift */; };
 		2980426B71E57B198D99E56B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB3DD4E5E177BF4A638747D6 /* Assets.xcassets */; };
 		4CB3D9B8530169A4EDED77BC /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1447D3624398A4BBB4D6BF25 /* RootView.swift */; };
 		516A617C2CE67760673B6A98 /* CanisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE42CA0CB4F8B5E1022AED1 /* CanisModel.swift */; };
+		5B08C20234F4A0ED2C7819D9 /* KnowledgePackRetrieverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9ED7CC60EC8F3291A6D884 /* KnowledgePackRetrieverTests.swift */; };
+		66A241EADC7E0107A68CB076 /* WebSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED72734D6B7B284C62D6D4C8 /* WebSearchService.swift */; };
 		7CA5864B8A11F97CC9807E14 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0C60EA257B754E4387BF47 /* ChatViewModel.swift */; };
 		8711935796D7D64077A40B84 /* DispositionReadoutEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30B2625ACDDF1D821963CED /* DispositionReadoutEngine.swift */; };
 		88F475018F0528DB24AA25AE /* MLXLLM in Frameworks */ = {isa = PBXBuildFile; productRef = 0CB4313946A6923BB4BF5EDF /* MLXLLM */; };
+		8EDFDC4C52F805A76ED534CC /* WebSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5AB7646D027D8B2BC222F /* WebSearchResult.swift */; };
 		8FDE621598C720C99852299E /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283603D01E1BD75268D56F52 /* ChatView.swift */; };
 		9B0CDB74BAB32317E29A92A8 /* CanisMLXEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F2D8FFA5DC89A6CA9AB674 /* CanisMLXEngine.swift */; };
 		A34339FB6F7571A08EF48451 /* ModelDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6EFAAB6D11E14E26F30AA3 /* ModelDownloadManager.swift */; };
 		BAC958DD2BB7B8F2117D9D21 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFFBE105926EF9FFDDAB3F8 /* Config.swift */; };
 		BBCC7A067D83BBACFF9A919C /* ModelRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3613EF0F74827898CA8C17E3 /* ModelRowView.swift */; };
 		D37C293BE40B3521F3066442 /* DispositionAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C574CE896EBFEF177BAC32FC /* DispositionAvatarView.swift */; };
+		D6C73EBD9E8FDC81A9C5CCD1 /* KnowledgePackStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FF72C1BABFA45B20489A0B /* KnowledgePackStore.swift */; };
 		DC069DD856F5E6D5DD7E1796 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DD792427A70E443E4C514F /* ChatMessage.swift */; };
 		DCB2564D62B7076BDB8CC75C /* MessageBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95648EDFC9145A1B544038B7 /* MessageBubbleView.swift */; };
 		E7A318D1C6CC196A38121518 /* ModelHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC720ED2AA7C35F59520E2E /* ModelHubView.swift */; };
@@ -48,12 +53,16 @@
 		3613EF0F74827898CA8C17E3 /* ModelRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRowView.swift; sourceTree = "<group>"; };
 		37B74AC972B6AE5551E15378 /* CanisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanisApp.swift; sourceTree = "<group>"; };
 		55E4EE85FCE39DD74B7224AF /* CanisTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CanisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D9ED7CC60EC8F3291A6D884 /* KnowledgePackRetrieverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowledgePackRetrieverTests.swift; sourceTree = "<group>"; };
 		76F2D8FFA5DC89A6CA9AB674 /* CanisMLXEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanisMLXEngine.swift; sourceTree = "<group>"; };
+		7CD5AB7646D027D8B2BC222F /* WebSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSearchResult.swift; sourceTree = "<group>"; };
 		809C72BC10630ED8723AED79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8B6CFD212F2CBA7EE626F85A /* KnowledgePackRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowledgePackRetriever.swift; sourceTree = "<group>"; };
 		8FFFBE105926EF9FFDDAB3F8 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		95648EDFC9145A1B544038B7 /* MessageBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubbleView.swift; sourceTree = "<group>"; };
 		9D0C60EA257B754E4387BF47 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		9FC720ED2AA7C35F59520E2E /* ModelHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelHubView.swift; sourceTree = "<group>"; };
+		A2FF72C1BABFA45B20489A0B /* KnowledgePackStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowledgePackStore.swift; sourceTree = "<group>"; };
 		AF174809CAC210D2C1A3DA9F /* CanisModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanisModelTests.swift; sourceTree = "<group>"; };
 		AFE42CA0CB4F8B5E1022AED1 /* CanisModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanisModel.swift; sourceTree = "<group>"; };
 		B56E7044B572570BA522F63B /* Disposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disposition.swift; sourceTree = "<group>"; };
@@ -61,6 +70,7 @@
 		C574CE896EBFEF177BAC32FC /* DispositionAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispositionAvatarView.swift; sourceTree = "<group>"; };
 		CB3DD4E5E177BF4A638747D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7DD792427A70E443E4C514F /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		ED72734D6B7B284C62D6D4C8 /* WebSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSearchService.swift; sourceTree = "<group>"; };
 		EF6EFAAB6D11E14E26F30AA3 /* ModelDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDownloadManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +112,7 @@
 				AFE42CA0CB4F8B5E1022AED1 /* CanisModel.swift */,
 				D7DD792427A70E443E4C514F /* ChatMessage.swift */,
 				B56E7044B572570BA522F63B /* Disposition.swift */,
+				7CD5AB7646D027D8B2BC222F /* WebSearchResult.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -111,6 +122,7 @@
 			children = (
 				AF174809CAC210D2C1A3DA9F /* CanisModelTests.swift */,
 				066CA3E0A958CA8EC426747C /* DispositionReadoutTests.swift */,
+				5D9ED7CC60EC8F3291A6D884 /* KnowledgePackRetrieverTests.swift */,
 			);
 			path = CanisTests;
 			sourceTree = "<group>";
@@ -121,7 +133,10 @@
 				76F2D8FFA5DC89A6CA9AB674 /* CanisMLXEngine.swift */,
 				9D0C60EA257B754E4387BF47 /* ChatViewModel.swift */,
 				C30B2625ACDDF1D821963CED /* DispositionReadoutEngine.swift */,
+				8B6CFD212F2CBA7EE626F85A /* KnowledgePackRetriever.swift */,
+				A2FF72C1BABFA45B20489A0B /* KnowledgePackStore.swift */,
 				EF6EFAAB6D11E14E26F30AA3 /* ModelDownloadManager.swift */,
+				ED72734D6B7B284C62D6D4C8 /* WebSearchService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -265,11 +280,15 @@
 				0841A9E43D9FFC6C50C97459 /* Disposition.swift in Sources */,
 				D37C293BE40B3521F3066442 /* DispositionAvatarView.swift in Sources */,
 				8711935796D7D64077A40B84 /* DispositionReadoutEngine.swift in Sources */,
+				0DD4BBC67B14DC094A74DD8A /* KnowledgePackRetriever.swift in Sources */,
+				D6C73EBD9E8FDC81A9C5CCD1 /* KnowledgePackStore.swift in Sources */,
 				DCB2564D62B7076BDB8CC75C /* MessageBubbleView.swift in Sources */,
 				A34339FB6F7571A08EF48451 /* ModelDownloadManager.swift in Sources */,
 				E7A318D1C6CC196A38121518 /* ModelHubView.swift in Sources */,
 				BBCC7A067D83BBACFF9A919C /* ModelRowView.swift in Sources */,
 				4CB3D9B8530169A4EDED77BC /* RootView.swift in Sources */,
+				8EDFDC4C52F805A76ED534CC /* WebSearchResult.swift in Sources */,
+				66A241EADC7E0107A68CB076 /* WebSearchService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +298,7 @@
 			files = (
 				EEB659A63E9CA4E930359F26 /* CanisModelTests.swift in Sources */,
 				0CA9AD134E03AC55DD875169 /* DispositionReadoutTests.swift in Sources */,
+				5B08C20234F4A0ED2C7819D9 /* KnowledgePackRetrieverTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

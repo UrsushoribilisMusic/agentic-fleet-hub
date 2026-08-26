@@ -2,8 +2,11 @@ import SwiftUI
 
 struct ModelHubView: View {
     @EnvironmentObject private var downloads: ModelDownloadManager
+    @EnvironmentObject private var knowledgePacks: KnowledgePackStore
     @Binding var activeModelID: String
     @State private var diskSpaceAlertBytes: Int64?
+    @State private var packTokenDraft = ""
+    @State private var packBaseURLDraft = Config.CanisAPI.defaultBaseURL
     #if DEBUG
     @AppStorage("canis.allowCellularDownload") private var cellularBypass = false
     #endif
@@ -43,6 +46,45 @@ struct ModelHubView: View {
                     }
                 }
 
+                Section("Knowledge Pack") {
+                    knowledgePackStatusRow
+
+                    SecureField("Canis session token", text: $packTokenDraft)
+                        .textInputAutocapitalization(.never)
+                        .autocorrectionDisabled()
+                        .onSubmit {
+                            savePackSettings()
+                        }
+
+                    TextField("Canis API URL", text: $packBaseURLDraft)
+                        .textInputAutocapitalization(.never)
+                        .autocorrectionDisabled()
+                        .keyboardType(.URL)
+                        .onSubmit {
+                            savePackSettings()
+                        }
+
+                    HStack {
+                        Button {
+                            savePackSettings()
+                            Task { await knowledgePacks.downloadLatest() }
+                        } label: {
+                            Label("Download Latest", systemImage: "square.and.arrow.down")
+                        }
+                        .disabled(isPackBusy)
+
+                        Spacer()
+
+                        Button(role: .destructive) {
+                            knowledgePacks.deletePack()
+                        } label: {
+                            Image(systemName: "trash")
+                        }
+                        .disabled(!knowledgePacks.state.isReady || isPackBusy)
+                        .accessibilityLabel("Delete knowledge pack")
+                    }
+                }
+
                 #if DEBUG
                 Section("Debug") {
                     Toggle("Allow cellular model downloads", isOn: $cellularBypass)
@@ -77,6 +119,43 @@ struct ModelHubView: View {
         }
         .task {
             await downloads.refreshStorageUsage()
+            packTokenDraft = knowledgePacks.apiToken
+            packBaseURLDraft = knowledgePacks.apiBaseURLString
+        }
+    }
+
+    private var isPackBusy: Bool {
+        if case .checking = knowledgePacks.state { return true }
+        if case .downloading = knowledgePacks.state { return true }
+        return false
+    }
+
+    private func savePackSettings() {
+        knowledgePacks.saveSettings(token: packTokenDraft, apiBaseURLString: packBaseURLDraft)
+    }
+
+    @ViewBuilder
+    private var knowledgePackStatusRow: some View {
+        switch knowledgePacks.state {
+        case .notInstalled:
+            Label("No pack installed", systemImage: "tray")
+                .foregroundStyle(.secondary)
+        case .checking:
+            HStack {
+                ProgressView()
+                Text("Checking pack")
+            }
+        case .downloading:
+            HStack {
+                ProgressView()
+                Text("Downloading pack")
+            }
+        case .ready(let version, let docCount, let wikiSectionCount):
+            Label("Pack v\(version) - \(docCount) docs - \(wikiSectionCount) wiki pages", systemImage: "checkmark.circle.fill")
+                .foregroundStyle(.green)
+        case .failed(let message):
+            Label(message, systemImage: "exclamationmark.triangle")
+                .foregroundStyle(.orange)
         }
     }
 

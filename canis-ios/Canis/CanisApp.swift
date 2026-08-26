@@ -19,15 +19,18 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
 struct CanisApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     @StateObject private var downloads = ModelDownloadManager.shared
+    @StateObject private var knowledgePacks = KnowledgePackStore.shared
 
     init() {
         Task { await ModelDownloadManager.shared.setup() }
+        KnowledgePackStore.shared.setup()
     }
 
     var body: some Scene {
         WindowGroup {
             RootView()
                 .environmentObject(downloads)
+                .environmentObject(knowledgePacks)
         }
     }
 }

@@ -33,7 +33,7 @@ final class ChatViewModel: ObservableObject {
             do {
                 let stream = webSearchEnabled
                     ? await CanisMLXEngine.shared.generateWithSearch(prompt: text, model: model)
-                    : await CanisMLXEngine.shared.generate(prompt: text, model: model)
+                    : await CanisMLXEngine.shared.generateWithKnowledge(prompt: text, model: model)
                 for try await event in stream {
                     guard !Task.isCancelled, assistantIndex < messages.count else { return }
                     switch event {

@@ -89,7 +89,7 @@ struct ChatView: View {
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     if let q = viewModel.searchQuery {
-                        Text(""\(q)"")
+                        Text("\"\(q)\"")
                             .font(.caption)
                             .foregroundStyle(.secondary)
                             .lineLimit(1)

@@ -151,6 +151,73 @@ actor CanisMLXEngine {
         }
     }
 
+    func generateWithKnowledge(prompt: String, model: CanisModel, maxTokens: Int = 700) -> AsyncThrowingStream<CanisGenerationEvent, Error> {
+        AsyncThrowingStream { continuation in
+            let task = Task {
+                do {
+                    let retrieval = (try? KnowledgePackRetriever().retrieve(question: prompt, limit: 3))
+                        ?? KnowledgePackRetrieval(question: prompt, hits: [])
+                    let effectivePrompt = retrieval.hasContext ? retrieval.prompt() : prompt
+                    if retrieval.hasContext {
+                        continuation.yield(.searchComplete(citations: retrieval.citations))
+                    }
+
+                    try await load(model: model)
+                    guard let container else { throw CanisMLXError.noModelLoaded }
+
+                    let active = await MainActor.run { UIApplication.shared.applicationState == .active }
+                    guard active else { throw CanisMLXError.backgroundExecution }
+
+                    let thermal = ProcessInfo.processInfo.thermalState
+                    if thermal == .serious || thermal == .critical {
+                        throw CanisMLXError.thermal(thermal)
+                    }
+
+                    generating = true
+                    MLX.Memory.clearCache()
+                    let session = MLXLMCommon.ChatSession(
+                        container,
+                        instructions: retrieval.hasContext ? Self.systemPromptWithKnowledge : Self.systemPrompt,
+                        generateParameters: GenerateParameters(temperature: retrieval.hasContext ? 0.2 : 0.6, topP: 0.9)
+                    )
+                    let dispositionEngine = DispositionReadoutEngine(model: model)
+                    var generatedText = ""
+                    var tokenCount = 0
+                    for try await chunk in session.streamResponse(to: effectivePrompt) {
+                        if Task.isCancelled { break }
+                        generatedText += chunk
+                        continuation.yield(.text(chunk))
+                        let readout = dispositionEngine.fallbackReadout(
+                            generatedText: generatedText,
+                            latestChunk: chunk
+                        )
+                        continuation.yield(.disposition(readout))
+                        tokenCount += 1
+                        if tokenCount >= maxTokens { break }
+                        if tokenCount % 10 == 0 {
+                            let stillActive = await MainActor.run { UIApplication.shared.applicationState == .active }
+                            if !stillActive { break }
+                            await Task.yield()
+                        }
+                    }
+                    generating = false
+                    if retrieval.hasContext && !generatedText.contains("[1]") {
+                        continuation.yield(.text("\n\n[1]"))
+                    }
+                    if retrieval.hasContext {
+                        continuation.yield(.searchComplete(citations: retrieval.citations))
+                    }
+                    continuation.finish()
+                } catch {
+                    generating = false
+                    continuation.finish(throwing: error)
+                }
+            }
+            currentTask = task
+            continuation.onTermination = { _ in task.cancel() }
+        }
+    }
+
     /// Web-search-enabled generation (CANIS-D).
     ///
     /// Strategy: search-before-generate (not 2-pass) to keep MLX memory pressure low.
@@ -246,5 +313,9 @@ actor CanisMLXEngine {
 
     private static let systemPromptWithSearch = """
     You are Canis, a concise on-device assistant. When web search results are provided, answer from them and cite sources as [1], [2], etc. Be direct. Keep replies compact unless the user asks for depth.
+    """
+
+    private static let systemPromptWithKnowledge = """
+    You are Canis, a concise on-device assistant running offline against a downloaded local wiki pack. Answer only from the provided OFFLINE KNOWLEDGE PACK CONTEXT. Cite the source wiki page with [1], [2], etc. If the context does not support the answer, say the downloaded pack does not contain a supporting wiki page.
     """
 }

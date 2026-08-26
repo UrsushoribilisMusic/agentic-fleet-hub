@@ -15,7 +15,10 @@ struct WebSearchResult: Codable, Identifiable, Equatable, Sendable {
 
 extension WebSearchResult {
     var displayURL: String {
-        URL(string: url)?.host ?? url
+        if URL(string: url)?.scheme == "canis" {
+            return "Local wiki page"
+        }
+        return URL(string: url)?.host ?? url
     }
 
     var citationText: String {

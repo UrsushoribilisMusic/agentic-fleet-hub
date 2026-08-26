@@ -21,4 +21,5 @@ struct RootView: View {
 #Preview {
     RootView()
         .environmentObject(ModelDownloadManager.shared)
+        .environmentObject(KnowledgePackStore.shared)
 }

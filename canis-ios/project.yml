@@ -49,6 +49,7 @@ targets:
         CFBundleShortVersionString: "0.1"
         CFBundleVersion: "1"
         LSRequiresIPhoneOS: true
+        BRAVE_API_KEY: "$(BRAVE_API_KEY)"
         UILaunchScreen: {}
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
