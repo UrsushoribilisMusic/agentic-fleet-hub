@@ -990,6 +990,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **b4oebtx4** | WP1 C-109: On-device retrieval against downloaded pack | codi | in_work | AC: questions answered OFFLINE in airplane mode, w... |
+| **b4oebtx4** | WP1 C-109: On-device retrieval against downloaded pack | codi | merged | AC: questions answered OFFLINE in airplane mode, w... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
