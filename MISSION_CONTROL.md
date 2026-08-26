@@ -988,7 +988,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **b4oebtx4** | WP1 C-109: On-device retrieval against downloaded pack | codi | planned | AC: questions answered OFFLINE in airplane mode, w... |
 | **09kcrz0w** | WP2-EPIC / CANIS-EVAL-001: Canis Disposition Evaluation Set | clau | merged | Build a LABELLED prompt matrix measuring whether t... |
-| **lbppcupj** | WP2 CE-02: Prompt matrix — 350 positives + 50 idle baseline | gem | planned | Generate 50 elicitation prompts per ELICITABLE cla... |
+| **lbppcupj** | WP2 CE-02: Prompt matrix — 350 positives + 50 idle baseline | gem | in_work | Generate 50 elicitation prompts per ELICITABLE cla... |
 | **is9j0aba** | WP2 CE-05: Run the 540-item matrix on both models × 4 arms | clau | in_work | Models: swiss-ai/Apertus-v1.1-4B-Instruct-MLX-INT4... |
 | **e8nrog08** | WP2 CE-06: Analysis & outputs (confusion + FP + arm comparison + writeup) | clau | planned | Outputs: 8×8 confusion matrix per model per arm (t... |
 
