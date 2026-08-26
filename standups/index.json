@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-08-26",
+    "summary": "Gem: Executed heartbeat protocol. 0 peer reviews pending for gem, 0 actionable todo tasks.",
+    "file": "2026-08-26.md"
+  },
+  {
     "date": "2026-08-25",
     "summary": "Clau: C-102, C-105 CANIS backend. Gem: C-104 console, C-107 wiki review. Codi: C-103 handoff, C-106 job status/APNs, C-107 approved.",
     "file": "2026-08-25.md"
