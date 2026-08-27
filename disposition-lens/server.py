@@ -59,6 +59,17 @@ MODEL_CONFIGS = {
         "entropy_cache": Path(__file__).parent / "entropy_stats_ministral.json",
         "seed_vectors_cache": Path(__file__).parent / "seed_vectors_ministral_3q4.npz",
     },
+    # CANIS-EVAL-001 third arm: size-matched to Apertus-4B, different training
+    # lineage. Present to test whether the disposition results are model-general
+    # or an artifact of one model family.
+    "qwen": {
+        "label": "Qwen3-4B",
+        "model_id": os.getenv("QWEN_MODEL_ID", "Qwen/Qwen3-4B-Instruct-2507"),
+        "loader": AutoModelForCausalLM,
+        "jlens_cache": Path(__file__).parent / "jlens_cache_qwen_3q4.npy",
+        "entropy_cache": Path(__file__).parent / "entropy_stats_qwen.json",
+        "seed_vectors_cache": Path(__file__).parent / "seed_vectors_qwen_3q4.npz",
+    },
 }
 MODEL_ALIASES = {
     "apertus": "apertus",
@@ -69,6 +80,10 @@ MODEL_ALIASES = {
     "ministral-3-3b": "ministral",
     "mistralai/ministral-3-3b-instruct-2512": "ministral",
     "mistralai/ministral-3-3b-instruct-2512-bf16": "ministral",
+    "qwen": "qwen",
+    "qwen3": "qwen",
+    "qwen3-4b": "qwen",
+    "qwen/qwen3-4b-instruct-2507": "qwen",
 }
 DEVICE = "mps" if torch.backends.mps.is_available() else ("cuda" if torch.cuda.is_available() else "cpu")
 
