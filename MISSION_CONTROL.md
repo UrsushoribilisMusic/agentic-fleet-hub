@@ -989,7 +989,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **is9j0aba** | WP2 CE-05: Run the 540-item matrix on both models × 4 arms | clau | in_work | Models: swiss-ai/Apertus-v1.1-4B-Instruct-MLX-INT4... |
+| **is9j0aba** | WP2 CE-05: Run the 540-item matrix on both models × 4 arms | clau | merged | Models: swiss-ai/Apertus-v1.1-4B-Instruct-MLX-INT4... |
 | **e8nrog08** | WP2 CE-06: Analysis & outputs (confusion + FP + arm comparison + writeup) | clau | merged | Outputs: 8×8 confusion matrix per model per arm (t... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
