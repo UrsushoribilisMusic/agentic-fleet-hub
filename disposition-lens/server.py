@@ -257,6 +257,9 @@ class InferRequest(BaseModel):
     search_enabled: bool = False
     search_provider: str = "brave"   # "brave" | "searxng"
     search_top_n: int = 5
+    # CE-05 reopen: return the raw tap-layer hidden state alongside the
+    # projected readout, so a probe can be trained on h_tap directly.
+    return_h_tap: bool = False
 
 
 class TokenWeight(BaseModel):
@@ -269,6 +272,16 @@ class InferResponse(BaseModel):
     disposition: str = "idle"
     tokens: List[TokenWeight] = Field(default_factory=list)
     entropy: float
+    # Per-disposition cosines against the seed vectors. The eval harness
+    # (eval/run_canis_eval001.py) reads this to compute arm1/arm2 — it was
+    # emitted by an unversioned local edit until CE-05 reopen; declaring it
+    # here makes the contract reproducible from the repo.
+    seed_scores: Dict[str, float] = Field(default_factory=dict)
+    # Raw tap-layer hidden state, only when the caller asks for it.
+    # Needed to tell "not represented" apart from "not recoverable through
+    # the seed-vector projection" — omitted by default, it is ~2-4k floats.
+    h_tap: Optional[List[float]] = None
+    tap_layer_idx: Optional[int] = None
     # CANIS-D: populated when search ran
     search_triggered: bool = False
     citations: List[SearchResultItem] = Field(default_factory=list)
@@ -364,7 +377,11 @@ def _extract_disposition(
     selected_model,
     selected_tokenizer,
 ) -> tuple:
-    """Compute entropy, J-lens projection, and disposition from generate() output."""
+    """Compute entropy, J-lens projection, and disposition from generate() output.
+
+    Returns (concept_tokens, disposition_str, mean_entropy, seed_scores, h_tap).
+    seed_scores is {} and h_tap is None when the J-lens or seed vectors are absent.
+    """
     step_entropies = []
     if outputs.scores:
         for score in outputs.scores:
@@ -374,11 +391,14 @@ def _extract_disposition(
 
     concept_tokens: List[Dict] = []
     disposition_str = "idle"
+    seed_scores: Dict[str, float] = {}
+    h_tap_out: Optional[List[float]] = None
 
     if selected_jlens_matrix is not None and outputs.hidden_states:
         try:
             h_tap_tensor = outputs.hidden_states[0][selected_tap_layer_idx][0, -1, :]
             h_tap = h_tap_tensor.float().cpu().numpy()
+            h_tap_out = h_tap.tolist()
             if USE_JVP:
                 concept_tokens = jlens_mod.project_jlens_jvp(
                     selected_model, h_tap, selected_tap_layer_idx, selected_tokenizer
@@ -387,7 +407,10 @@ def _extract_disposition(
                 concept_tokens = jlens_mod.project_jlens(selected_jlens_matrix, h_tap, selected_tokenizer)
             if selected_seed_vectors:
                 z_query = jlens_mod.compute_jlens_raw(selected_jlens_matrix, h_tap)
-                seed_scores = jlens_mod.score_seed_vectors(z_query, selected_seed_vectors)
+                seed_scores = {
+                    k: float(v)
+                    for k, v in jlens_mod.score_seed_vectors(z_query, selected_seed_vectors).items()
+                }
                 disposition_str = resolve_disposition_seed(seed_scores, mean_entropy)
             else:
                 disposition_str = resolve_disposition(concept_tokens, mean_entropy)
@@ -400,7 +423,7 @@ def _extract_disposition(
         elif mean_entropy <= 0.22:
             disposition_str = "confident"
 
-    return concept_tokens, disposition_str, mean_entropy
+    return concept_tokens, disposition_str, mean_entropy, seed_scores, h_tap_out
 
 
 def _format_prompt(tokenizer, input_text: str) -> str:
@@ -433,7 +456,11 @@ async def infer(req: InferRequest):
     selected_entropy_stats = runtime["entropy_stats"]
     selected_seed_vectors = runtime.get("seed_vectors")
     device = get_device()
-    temp = req.temperature if req.temperature and req.temperature > 0 else 0.7
+    # temperature=0 must mean greedy. The previous form `req.temperature and
+    # req.temperature > 0` treated 0 as falsy and silently substituted 0.7 with
+    # sampling on, so deterministic runs were impossible and entropy (arm0 and
+    # the arm2 gate) varied run-to-run on identical input.
+    temp = 0.7 if req.temperature is None else float(req.temperature)
 
     # -----------------------------------------------------------------
     # Pass 1 — short generation to measure entropy and get a preview
@@ -448,7 +475,7 @@ async def infer(req: InferRequest):
     generated_ids = outputs.sequences[0][input_length:]
     pass1_answer = selected_tokenizer.decode(generated_ids, skip_special_tokens=True).strip()
 
-    concept_tokens, disposition_str, mean_entropy = _extract_disposition(
+    concept_tokens, disposition_str, mean_entropy, seed_scores, h_tap_vec = _extract_disposition(
         outputs, selected_jlens_matrix, selected_seed_vectors,
         selected_tap_layer_idx, selected_entropy_stats,
         selected_model, selected_tokenizer,
@@ -494,7 +521,7 @@ async def infer(req: InferRequest):
             pass1_answer = selected_tokenizer.decode(generated_ids_p2, skip_special_tokens=True).strip()
 
             # Re-run disposition on Pass-2 output (model should be more confident now)
-            concept_tokens, disposition_str, mean_entropy = _extract_disposition(
+            concept_tokens, disposition_str, mean_entropy, seed_scores, h_tap_vec = _extract_disposition(
                 outputs_p2, selected_jlens_matrix, selected_seed_vectors,
                 selected_tap_layer_idx, selected_entropy_stats,
                 selected_model, selected_tokenizer,
@@ -506,6 +533,9 @@ async def infer(req: InferRequest):
         disposition=disposition_str,
         tokens=[TokenWeight(t=t["t"], w=t["w"]) for t in concept_tokens],
         entropy=mean_entropy,
+        seed_scores=seed_scores,
+        h_tap=h_tap_vec if req.return_h_tap else None,
+        tap_layer_idx=selected_tap_layer_idx if req.return_h_tap else None,
         search_triggered=search_triggered,
         citations=citations,
     )

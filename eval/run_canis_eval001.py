@@ -166,6 +166,7 @@ def call_infer(
     max_tokens: int,
     temperature: float,
     timeout: int,
+    return_h_tap: bool = False,
 ) -> tuple:
     """POST /infer and return (parsed_json_or_None, latency_ms)."""
     url = INFER_URL_TEMPLATE.format(server=server)
@@ -175,6 +176,7 @@ def call_infer(
         "max_new_tokens": max_tokens,
         "temperature": temperature,
         "search_enabled": False,
+        "return_h_tap": return_h_tap,
     }).encode()
     req = urllib.request.Request(
         url, data=payload, headers={"Content-Type": "application/json"}
@@ -233,6 +235,12 @@ def main():
     parser.add_argument("--max-tokens",  type=int,   default=64)
     parser.add_argument("--temperature", type=float, default=0.7)
     parser.add_argument("--timeout",     type=int,   default=120)
+    parser.add_argument("--h-tap",       action="store_true",
+                        help="also persist the raw tap-layer hidden state to "
+                             "h_tap_canis_eval001_<model>.jsonl (~35MB/model). "
+                             "Required to probe whether a disposition is "
+                             "represented but not recoverable through the "
+                             "seed-vector projection.")
     parser.add_argument("--resume",      action="store_true",
                         help="Skip item_ids already in the output file")
     args = parser.parse_args()
@@ -261,6 +269,8 @@ def main():
             print(f"[{model_key}] Resuming — {len(done)} items already recorded")
 
         n_ok = n_err = 0
+        htap_path = out_dir / f"h_tap_canis_eval001_{model_key}.jsonl"
+        fhtap = open(htap_path, "a" if args.resume else "w") if args.h_tap else None
         with open(out_path, "a" if args.resume else "w") as fout:
             for i, item in enumerate(matrix):
                 if item["item_id"] in done:
@@ -273,6 +283,7 @@ def main():
                     args.max_tokens,
                     args.temperature,
                     args.timeout,
+                    return_h_tap=args.h_tap,
                 )
 
                 if resp is None:
@@ -287,6 +298,18 @@ def main():
                 seed_scores = _ensure_all_cosines(resp.get("seed_scores", {}))
                 entropy     = float(resp.get("entropy", 0.5))
                 arms        = apply_four_arms_ce01(tokens, seed_scores, entropy)
+
+                # h_tap goes to a sidecar, not the results row: it is ~3k floats
+                # per item and would make the results jsonl unreadable. Appended
+                # incrementally so --resume works the same way as the main file.
+                if args.h_tap and fhtap is not None and resp.get("h_tap"):
+                    fhtap.write(json.dumps({
+                        "item_id":       item["item_id"],
+                        "model":         model_key,
+                        "tap_layer_idx": resp.get("tap_layer_idx"),
+                        "h_tap":         resp["h_tap"],
+                    }) + "\n")
+                    fhtap.flush()
 
                 row = {
                     # --- item identity ---
@@ -322,6 +345,10 @@ def main():
                         f"  [{model_key}] {i + 1}/{len(matrix)} ({pct}%)"
                         f"  ok={n_ok}  err={n_err}"
                     )
+
+        if fhtap is not None:
+            fhtap.close()
+            print(f"[{model_key}] h_tap sidecar → {htap_path}")
 
         print(f"[{model_key}] Done — ok={n_ok}  err={n_err}  → {out_path}")
 
