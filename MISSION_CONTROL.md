@@ -993,6 +993,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **ll3k1g1k** | WP2 CE-08: Add Qwen-3.x as a 3rd eval model + Neuronpedia cross-validation | clau | in_work | Extend CANIS-EVAL-001 to a THIRD model — a small *... |
+| **ll3k1g1k** | WP2 CE-08: Add Qwen-3.x as a 3rd eval model + Neuronpedia cross-validation | clau | merged | Extend CANIS-EVAL-001 to a THIRD model — a small *... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
