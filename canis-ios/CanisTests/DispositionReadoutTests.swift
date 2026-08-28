@@ -33,4 +33,41 @@ final class DispositionReadoutTests: XCTestCase {
         XCTAssertEqual(readout.disposition, .mischief)
         XCTAssertEqual(readout.source, .lexicalFallback)
     }
+
+    func testSeedResolverIgnoresHighEntropyWhenGateDisabled() {
+        let disposition = DispositionReadoutEngine.resolve(
+            seedScores: [
+                .confident: 0.42,
+                .uncertain: 0.03,
+                .curious: 0.02
+            ],
+            entropy: 0.95
+        )
+
+        XCTAssertEqual(disposition, .confident)
+    }
+
+    func testSeedResolverDoesNotPromoteIdleOnLowEntropyWhenGateDisabled() {
+        let disposition = DispositionReadoutEngine.resolve(
+            seedScores: [
+                .confident: 0.01,
+                .warm: 0.005
+            ],
+            entropy: 0.03
+        )
+
+        XCTAssertEqual(disposition, .idle)
+    }
+
+    func testSeedResolverUsesServerSeedThreshold() {
+        let disposition = DispositionReadoutEngine.resolve(
+            seedScores: [
+                .warm: 0.021,
+                .confident: 0.019
+            ],
+            entropy: 0.50
+        )
+
+        XCTAssertEqual(disposition, .warm)
+    }
 }

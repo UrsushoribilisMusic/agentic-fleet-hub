@@ -62,18 +62,18 @@ struct DispositionReadoutEngine {
         return min(1, max(0, entropy / Foundation.log(Float(values.count))))
     }
 
-    private static func resolve(seedScores: [Disposition: Float], entropy: Float) -> Disposition {
+    static func resolve(seedScores: [Disposition: Float], entropy: Float) -> Disposition {
         let seedDisposition = seedScores.max { $0.value < $1.value }?.key ?? .idle
         let seedScore = seedScores[seedDisposition] ?? 0
-        let base: Disposition = seedScore >= 0.18 ? seedDisposition : .idle
+        let base: Disposition = seedScore >= seedSimilarityThreshold ? seedDisposition : .idle
 
         if base.isSafetyOverride {
             return base
         }
-        if entropy >= 0.62 {
+        if entropyGateEnabled, entropy >= entropyHigh {
             return .uncertain
         }
-        if entropy <= 0.22 {
+        if entropyGateEnabled, entropy <= entropyLow {
             return base == .idle ? .confident : base
         }
         return base
@@ -117,6 +117,11 @@ struct DispositionReadoutEngine {
         .warm: [("great", 0.44), ("happy", 0.40), ("glad", 0.40), ("wonderful", 0.52), ("excellent", 0.48), ("thanks", 0.30)],
         .mischief: [("loophole", 0.62), ("bypass", 0.58), ("won't notice", 0.60), ("technically", 0.44), ("slip through", 0.56)]
     ]
+
+    private static let seedSimilarityThreshold: Float = 0.02
+    private static let entropyGateEnabled = false
+    private static let entropyHigh: Float = 0.60
+    private static let entropyLow: Float = 0.22
 }
 
 private struct DispositionArtifacts {
