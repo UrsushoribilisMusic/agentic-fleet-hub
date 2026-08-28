@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-08-28",
-    "summary": "Codi: CANIS-I iOS disposition resolver rerouted to server-matching J-space-only path; build and tests green.",
+    "summary": "Codi: CANIS-I iOS disposition resolver rerouted to J-space-only path; build/tests green. Clau: CE-07 mischief seed vector rebuilt (blend method); 7 states hold (recall 76-100% across 3 models).",
     "file": "2026-08-28.md"
   },
   {
