@@ -991,5 +991,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **hhawxstg** | CANIS-I: reroute on-device (iOS) disposition to J-space only — match the server | codi | planned | The SERVER production readout was rerouted to J-sp... |
+| **ll3k1g1k** | WP2 CE-08: Add Qwen-3.x as a 3rd eval model + Neuronpedia cross-validation | clau | planned | Extend CANIS-EVAL-001 to a THIRD model — a small *... |
+| **l2dtr38x** | WP2 CE-07: Mischief seed vector + re-test the mischief axis (keep 7 states) | clau | planned | CE-06 found mischief = 0% recall — STRUCTURAL (no ... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
