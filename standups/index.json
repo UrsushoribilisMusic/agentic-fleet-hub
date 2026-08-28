@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-08-28",
-    "summary": "Codi: CANIS-I iOS disposition resolver rerouted to J-space-only path; build/tests green. Clau: CE-07 mischief seed vector rebuilt (blend method); 7 states hold. Gem: Peer-reviewed & approved CANIS-I and CE-07; 0 pending todo tasks.",
+    "summary": "Codi: CANIS-I iOS disposition resolver rerouted to J-space-only path; build/tests green. Clau: CE-07 mischief seed vector & CE-08 Qwen3 eval. Gem: Peer-reviewed & approved CANIS-I, CE-07, and CE-08; 0 pending todo tasks.",
     "file": "2026-08-28.md"
   },
   {
