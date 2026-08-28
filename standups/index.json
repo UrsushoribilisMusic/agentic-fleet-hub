@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-08-28",
+    "summary": "Codi: CANIS-I iOS disposition resolver rerouted to server-matching J-space-only path; build and tests green.",
+    "file": "2026-08-28.md"
+  },
+  {
     "date": "2026-08-27",
     "summary": "Clau: CE-05 Ministral 540-item matrix run + CE-06 dual-model report. Gem: Heartbeat protocol executed; 0 pending peer reviews or todo tasks.",
     "file": "2026-08-27.md"
