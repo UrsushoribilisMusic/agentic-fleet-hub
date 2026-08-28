@@ -165,6 +165,12 @@ def classify_by_seed_vectors(scores: Dict[str, float]) -> str:
     return best
 
 
+# CE-06 eval verdict: arm1 (J-space only) beat arm2 (entropy blend) by +37pp (7.5× CI).
+# The entropy gate tanked 'uncertain' recall (88%→0%), so it is OFF in production
+# until it is retuned. Flip to True (and retune ENTROPY_HIGH/LOW) to re-enable.
+ENTROPY_GATE_ENABLED = False
+
+
 def resolve_disposition_seed(
     scores: Dict[str, float],
     entropy: Optional[float] = None,
@@ -189,7 +195,7 @@ def resolve_disposition_seed(
     if seed_disp in SAFETY_DISPOSITIONS:
         return seed_disp
 
-    if entropy is not None:
+    if ENTROPY_GATE_ENABLED and entropy is not None:
         if entropy >= ENTROPY_HIGH:
             return "uncertain"
         if entropy <= ENTROPY_LOW:
