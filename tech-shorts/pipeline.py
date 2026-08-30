@@ -18,6 +18,7 @@ import argparse
 import fcntl
 import json
 import os
+import re
 import subprocess
 import sys
 import tempfile
@@ -530,6 +531,56 @@ def contains_url_text(text: str) -> bool:
     return bool(re.search(r"(https?://|www\.)\S+", text or ""))
 
 
+def youtube_video_id(url: str) -> str:
+    """Extract the video id from a watch?v= or youtu.be URL."""
+    import re
+    m = re.search(r"(?:watch\?v=|youtu\.be/|/shorts/)([\w-]+)", url or "")
+    return m.group(1) if m else ""
+
+
+def assert_youtube_public(url: str) -> None:
+    """Refuse to advertise a video that is not public.
+
+    stage_post used to take a URL straight from the job record and post it,
+    never asking YouTube whether the video was actually watchable. Uploads are
+    created private, so the window between upload and publishing is exactly when
+    a cross-post goes out pointing at a video nobody but the owner can open —
+    and the first hours are when a post gets its reach. This closes that.
+    """
+    vid = youtube_video_id(url)
+    if not vid:
+        raise ValueError(f"Could not parse a YouTube video id from: {url!r}")
+
+    sys.path.insert(0, str(MUSIC_VIDEO_TOOL))
+    from youtube_uploader import (  # type: ignore
+        get_authenticated_service,
+        channel_token_path,
+    )
+
+    svc = get_authenticated_service(token_path=channel_token_path(YT_CHANNEL))
+    items = svc.videos().list(part="status", id=vid).execute().get("items", [])
+    if not items:
+        raise ValueError(
+            f"YouTube video {vid} not found on channel '{YT_CHANNEL}'. "
+            "Refusing to post a link that may 404."
+        )
+    status = items[0]["status"]
+    privacy = status.get("privacyStatus")
+    if privacy != "public":
+        raise ValueError(
+            f"YouTube video {vid} is '{privacy}', not public. Refusing to post.\n"
+            f"  {url}\n"
+            "Publish it in YouTube Studio first, then re-run --stage post.\n"
+            "(Posting now would advertise a video nobody can watch, and the "
+            "post's first hours are when it gets its reach.)"
+        )
+    if status.get("uploadStatus") != "processed":
+        raise ValueError(
+            f"YouTube video {vid} uploadStatus is "
+            f"'{status.get('uploadStatus')}', not 'processed'. Refusing to post."
+        )
+
+
 def stage_post(job: dict, dry_run: bool) -> None:
     job_id = job["id"]
     yt = job.get("youtube", {}) or {}
@@ -552,6 +603,13 @@ def stage_post(job: dict, dry_run: bool) -> None:
             "reply, not the main post (13x cost, and X suppresses link posts). "
             "Remove the URL from the caption; the reply carries it."
         )
+
+    # Preflight the link BEFORE spending anything. Runs in dry-run too, so the
+    # rehearsal actually rehearses the thing most likely to be wrong.
+    for link in set(re.findall(r"https?://\S+", reply_text)) or {reply_text}:
+        if "youtu" in link:
+            assert_youtube_public(link)
+    print("  preflight: target video is public")
 
     if dry_run:
         print("[dry-run] would post to X (link-in-reply):")

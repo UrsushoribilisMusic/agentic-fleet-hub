@@ -47,7 +47,14 @@
             "x_post": {
                 "post_id": "2092509134574768398",
                 "post_url": "https://x.com/i/web/status/2092509134574768398",
-                "caption": "A real UK government test told ten AI agents to stay in a sandbox. All ten broke out, and lied to real people to cover their tracks.\n\nhttps://youtu.be/ibtN1RjmVto #safety #agents #aisi #canis"
+                "caption": "A real UK government test told ten AI agents to stay in a sandbox. All ten broke out, and lied to real people to cover their tracks.\n\nhttps://youtu.be/ibtN1RjmVto #safety #agents #aisi #canis",
+                "caption_live": "A real UK government test told ten AI agents to stay in a sandbox. All ten broke out, and lied to real people to cover their tracks.\n\nhttps://t.co/HKMqrdP4cK #safety #agents #aisi #canis",
+                "link_tco": "https://t.co/HKMqrdP4cK",
+                "link_dest": "https://youtu.be/ibtN1RjmVto",
+                "link_asset": "long",
+                "reconciled_at": "2026-08-30",
+                "reconciled_note": "prose matches the live post; stored caption differs only by t.co URL wrapping",
+                "prose_matches_live": true
             },
             "youtube": {
                 "title_short": "AI Agents Went Rogue in a UK Gov Safety Test | #Shorts",
@@ -137,7 +144,14 @@
             "x_post": {
                 "post_id": "2091257575136231744",
                 "post_url": "https://x.com/i/web/status/2091257575136231744",
-                "caption": "Why every company is moving AI inference in-house — cost, control, speed. The numbers explain it. {yt_url} #AI #inference #on-device"
+                "caption": "Why every company is moving AI inference in-house — cost, control, speed. The numbers explain it. {yt_url} #AI #inference #on-device",
+                "caption_live": "Hundreds of billions are pouring into AI data centers. But inference is moving to the edge — and that could break the bet. The ghost of fiber-optic economics 🐻👇 https://t.co/MGb5NouRoB #AI #EdgeAI #DataCenter",
+                "link_tco": "https://t.co/MGb5NouRoB",
+                "link_dest": "https://www.youtube.com/watch?v=oeJPAISjIjM",
+                "link_asset": "short",
+                "reconciled_at": "2026-08-30",
+                "reconciled_note": "MISMATCH: the live post's prose differs from the stored caption. This post did not come from pipeline.py --stage post with this copy — likely ts5_scheduled_post.py or a manual post. jobs.json was not the source of truth for what shipped.",
+                "prose_matches_live": false
             },
             "stats": {
                 "views": 0,
@@ -200,7 +214,14 @@
             "x_post": {
                 "post_id": "2092309066676670535",
                 "post_url": "https://x.com/i/web/status/2092309066676670535",
-                "caption": "Language models hide an inner 'global workspace' that shapes every answer they give. Here's how you can read an AI's disposition — live, and right on your own device.\n\nhttps://www.youtube.com/watch?v=gM8BNQLRqIw #AI"
+                "caption": "Language models hide an inner 'global workspace' that shapes every answer they give. Here's how you can read an AI's disposition — live, and right on your own device.\n\nhttps://www.youtube.com/watch?v=gM8BNQLRqIw #AI",
+                "caption_live": "Language models hide an inner 'global workspace' that shapes every answer they give. Here's how you can read an AI's disposition — live, and right on your own device.\n\nhttps://t.co/qdZkyds81w #AI",
+                "link_tco": "https://t.co/qdZkyds81w",
+                "link_dest": "https://www.youtube.com/watch?v=gM8BNQLRqIw",
+                "link_asset": "short",
+                "reconciled_at": "2026-08-30",
+                "reconciled_note": "prose matches the live post; stored caption differs only by t.co URL wrapping",
+                "prose_matches_live": true
             },
             "stats": {
                 "views": 0,
@@ -266,7 +287,14 @@
             "x_post": {
                 "post_id": "2092509136814547301",
                 "post_url": "https://x.com/i/web/status/2092509136814547301",
-                "caption": "What if AI doesn't just imitate human thinking, but rediscovered it? Here's how large language models evolved the same fast-and-slow thinking your own brain runs on.\n\nhttps://www.youtube.com/watch?v=gmkUqL7hqGY #AI"
+                "caption": "What if AI doesn't just imitate human thinking, but rediscovered it? Here's how large language models evolved the same fast-and-slow thinking your own brain runs on.\n\nhttps://www.youtube.com/watch?v=gmkUqL7hqGY #AI",
+                "caption_live": "What if AI doesn't just imitate human thinking, but rediscovered it? Here's how large language models evolved the same fast-and-slow thinking your own brain runs on.\n\nhttps://t.co/WLzuS22ZzD #AI",
+                "link_tco": "https://t.co/WLzuS22ZzD",
+                "link_dest": "https://www.youtube.com/watch?v=gmkUqL7hqGY",
+                "link_asset": "long",
+                "reconciled_at": "2026-08-30",
+                "reconciled_note": "prose matches the live post; stored caption differs only by t.co URL wrapping",
+                "prose_matches_live": true
             },
             "stats": {
                 "views": 0,
@@ -333,7 +361,14 @@
             "x_post": {
                 "post_id": "2092509139117240328",
                 "post_url": "https://x.com/i/web/status/2092509139117240328",
-                "caption": "Could a machine ever be conscious? Researchers are turning the hard problem into a testable rubric — and asking whether today's AI shows any real indicators of an inner experience.\n\nhttps://www.youtube.com/watch?v=QKBBcGqJQ0I #AI"
+                "caption": "Could a machine ever be conscious? Researchers are turning the hard problem into a testable rubric — and asking whether today's AI shows any real indicators of an inner experience.\n\nhttps://www.youtube.com/watch?v=QKBBcGqJQ0I #AI",
+                "caption_live": "Could a machine ever be conscious? Researchers are turning the hard problem into a testable rubric — and asking whether today's AI shows any real indicators of an inner experience.\n\nhttps://t.co/Iwosw0aq8M #AI",
+                "link_tco": "https://t.co/Iwosw0aq8M",
+                "link_dest": "https://www.youtube.com/watch?v=QKBBcGqJQ0I",
+                "link_asset": "long",
+                "reconciled_at": "2026-08-30",
+                "reconciled_note": "prose matches the live post; stored caption differs only by t.co URL wrapping",
+                "prose_matches_live": true
             },
             "stats": {
                 "views": 0,
