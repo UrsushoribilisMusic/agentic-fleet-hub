@@ -1,0 +1,7 @@
+{
+  "id": "R08",
+  "title": "Check build status and include it in any review output",
+  "body": "Before saying work is complete, verify the build tag (e.g., build-green-YYYY-MM-DD-N) is on HEAD and the commit hash matches. Include the build tag and hash in peer review output. A passing build is a required output, not optional verification.",
+  "source_ref": "rules.md:R08; high-quality tasks — every approved task includes build tag and commit hash",
+  "type": "rule"
+}

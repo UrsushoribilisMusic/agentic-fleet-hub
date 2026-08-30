@@ -1,0 +1,7 @@
+{
+  "id": "F004",
+  "title": "Task event type distribution across 143,936 total events",
+  "body": "The task_events collection recorded 143,936 events by 2026-06-22: queue_snapshot=100,807 (70%), status_transition=42,694 (30%), reassignment=403 (0.3%), circuit_breaker=32 (<0.1%). Queue snapshots dominate because the dispatcher polls every few minutes.",
+  "source_ref": "facts.json:event_type_frequency; facts.db:task_events",
+  "type": "fact"
+}

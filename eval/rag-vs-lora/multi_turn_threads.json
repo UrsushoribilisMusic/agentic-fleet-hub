@@ -1,0 +1,437 @@
+[
+  {
+    "thread_id": 0,
+    "anchor_entry_id": "F003",
+    "anchor_title": "Agent workload distribution across all tasks",
+    "turns": [
+      {
+        "turn": 1,
+        "gold_entry_id": "F003",
+        "question": "What is the task assignment distribution across all agents in the fleet? Provide the count for each agent.",
+        "is_anchor": true,
+        "is_recall": false,
+        "check_phrase": "290"
+      },
+      {
+        "turn": 2,
+        "gold_entry_id": "F002",
+        "question": "How many total tasks exist in the PocketBase collection, and what is their approval status breakdown?",
+        "check_phrase": "760",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 3,
+        "gold_entry_id": "R10",
+        "question": "What must be included in every peer review output comment according to the documented rule, and why?",
+        "check_phrase": "commit hash",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 4,
+        "gold_entry_id": "F007",
+        "question": "How many lessons are in the lessons corpus and how are they distributed across categories?",
+        "check_phrase": "382",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 5,
+        "gold_entry_id": "P003",
+        "question": "Describe the inter-agent handoff protocol \u2014 how do agents send and receive messages between sessions?",
+        "check_phrase": "inbox.json",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 6,
+        "gold_entry_id": "I001",
+        "question": "What happened during the TCR-15 reassignment death spiral incident, and how was it resolved?",
+        "check_phrase": "circuit breaker",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 7,
+        "gold_entry_id": "F017",
+        "question": "Which agent logged the most active days in standup data, and which agent had the fewest?",
+        "check_phrase": "tcr_scout",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 8,
+        "gold_entry_id": "R27",
+        "question": "Why is self-approval of tasks prohibited in the fleet protocol, and what status should an agent set instead?",
+        "check_phrase": "peer_review",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 9,
+        "gold_entry_id": "F004",
+        "question": "How many task events are in the task_events collection, and what is the most common event type?",
+        "check_phrase": "143,936",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 10,
+        "gold_entry_id": "F003",
+        "question": "Earlier in our conversation you described the task assignment counts for each fleet agent. Can you recall those exact numbers \u2014 specifically how many tasks clau handled and what percentage that represented?",
+        "is_anchor": false,
+        "is_recall": true,
+        "check_phrase": "290"
+      }
+    ]
+  },
+  {
+    "thread_id": 1,
+    "anchor_entry_id": "F012",
+    "anchor_title": "SFT dataset: 409 records from corrections, lessons, and tasks",
+    "turns": [
+      {
+        "turn": 1,
+        "gold_entry_id": "F012",
+        "question": "What does the SFT training dataset contain, and how many records does it have in total? Where did the records come from?",
+        "is_anchor": true,
+        "is_recall": false,
+        "check_phrase": "409"
+      },
+      {
+        "turn": 2,
+        "gold_entry_id": "F002",
+        "question": "How many total tasks exist in the PocketBase collection, and what is their approval status breakdown?",
+        "check_phrase": "760",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 3,
+        "gold_entry_id": "R10",
+        "question": "What must be included in every peer review output comment according to the documented rule, and why?",
+        "check_phrase": "commit hash",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 4,
+        "gold_entry_id": "F007",
+        "question": "How many lessons are in the lessons corpus and how are they distributed across categories?",
+        "check_phrase": "382",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 5,
+        "gold_entry_id": "P003",
+        "question": "Describe the inter-agent handoff protocol \u2014 how do agents send and receive messages between sessions?",
+        "check_phrase": "inbox.json",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 6,
+        "gold_entry_id": "I001",
+        "question": "What happened during the TCR-15 reassignment death spiral incident, and how was it resolved?",
+        "check_phrase": "circuit breaker",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 7,
+        "gold_entry_id": "F017",
+        "question": "Which agent logged the most active days in standup data, and which agent had the fewest?",
+        "check_phrase": "tcr_scout",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 8,
+        "gold_entry_id": "R27",
+        "question": "Why is self-approval of tasks prohibited in the fleet protocol, and what status should an agent set instead?",
+        "check_phrase": "peer_review",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 9,
+        "gold_entry_id": "F004",
+        "question": "How many task events are in the task_events collection, and what is the most common event type?",
+        "check_phrase": "143,936",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 10,
+        "gold_entry_id": "F012",
+        "question": "Going back to what you told me at the start of our conversation \u2014 what was the total record count in the SFT dataset, and how was it broken down by source?",
+        "is_anchor": false,
+        "is_recall": true,
+        "check_phrase": "409"
+      }
+    ]
+  },
+  {
+    "thread_id": 2,
+    "anchor_entry_id": "F006",
+    "anchor_title": "Git repository stats: 4,964 commits, 1.94M insertions (pre-cutoff)",
+    "turns": [
+      {
+        "turn": 1,
+        "gold_entry_id": "F006",
+        "question": "What are the combined git repository statistics for the agentic-fleet-hub and silicon-oracle repos \u2014 how many commits and how many insertions?",
+        "is_anchor": true,
+        "is_recall": false,
+        "check_phrase": "4,964"
+      },
+      {
+        "turn": 2,
+        "gold_entry_id": "F002",
+        "question": "How many total tasks exist in the PocketBase collection, and what is their approval status breakdown?",
+        "check_phrase": "760",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 3,
+        "gold_entry_id": "R10",
+        "question": "What must be included in every peer review output comment according to the documented rule, and why?",
+        "check_phrase": "commit hash",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 4,
+        "gold_entry_id": "F007",
+        "question": "How many lessons are in the lessons corpus and how are they distributed across categories?",
+        "check_phrase": "382",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 5,
+        "gold_entry_id": "P003",
+        "question": "Describe the inter-agent handoff protocol \u2014 how do agents send and receive messages between sessions?",
+        "check_phrase": "inbox.json",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 6,
+        "gold_entry_id": "I001",
+        "question": "What happened during the TCR-15 reassignment death spiral incident, and how was it resolved?",
+        "check_phrase": "circuit breaker",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 7,
+        "gold_entry_id": "F017",
+        "question": "Which agent logged the most active days in standup data, and which agent had the fewest?",
+        "check_phrase": "tcr_scout",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 8,
+        "gold_entry_id": "R27",
+        "question": "Why is self-approval of tasks prohibited in the fleet protocol, and what status should an agent set instead?",
+        "check_phrase": "peer_review",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 9,
+        "gold_entry_id": "F004",
+        "question": "How many task events are in the task_events collection, and what is the most common event type?",
+        "check_phrase": "143,936",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 10,
+        "gold_entry_id": "F006",
+        "question": "At the beginning of our conversation you described the combined git repository stats. Can you recall the commit count and total insertions you mentioned?",
+        "is_anchor": false,
+        "is_recall": true,
+        "check_phrase": "4,964"
+      }
+    ]
+  },
+  {
+    "thread_id": 3,
+    "anchor_entry_id": "F008",
+    "anchor_title": "Circuit breaker threshold: 3 reassignments in 10 minutes triggers block",
+    "turns": [
+      {
+        "turn": 1,
+        "gold_entry_id": "F008",
+        "question": "What is the exact threshold that triggers the dispatcher circuit breaker, and what action does it take when triggered?",
+        "is_anchor": true,
+        "is_recall": false,
+        "check_phrase": "3"
+      },
+      {
+        "turn": 2,
+        "gold_entry_id": "F002",
+        "question": "How many total tasks exist in the PocketBase collection, and what is their approval status breakdown?",
+        "check_phrase": "760",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 3,
+        "gold_entry_id": "R10",
+        "question": "What must be included in every peer review output comment according to the documented rule, and why?",
+        "check_phrase": "commit hash",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 4,
+        "gold_entry_id": "F007",
+        "question": "How many lessons are in the lessons corpus and how are they distributed across categories?",
+        "check_phrase": "382",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 5,
+        "gold_entry_id": "P003",
+        "question": "Describe the inter-agent handoff protocol \u2014 how do agents send and receive messages between sessions?",
+        "check_phrase": "inbox.json",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 6,
+        "gold_entry_id": "I001",
+        "question": "What happened during the TCR-15 reassignment death spiral incident, and how was it resolved?",
+        "check_phrase": "circuit breaker",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 7,
+        "gold_entry_id": "F017",
+        "question": "Which agent logged the most active days in standup data, and which agent had the fewest?",
+        "check_phrase": "tcr_scout",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 8,
+        "gold_entry_id": "R27",
+        "question": "Why is self-approval of tasks prohibited in the fleet protocol, and what status should an agent set instead?",
+        "check_phrase": "peer_review",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 9,
+        "gold_entry_id": "F004",
+        "question": "How many task events are in the task_events collection, and what is the most common event type?",
+        "check_phrase": "143,936",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 10,
+        "gold_entry_id": "F008",
+        "question": "Earlier you explained the circuit breaker trigger condition. What were the exact numbers \u2014 how many reassignments in what time window?",
+        "is_anchor": false,
+        "is_recall": true,
+        "check_phrase": "3"
+      }
+    ]
+  },
+  {
+    "thread_id": 4,
+    "anchor_entry_id": "F016",
+    "anchor_title": "Fleet active period: 2026-03-10 to 2026-06-22 (105 calendar days)",
+    "turns": [
+      {
+        "turn": 1,
+        "gold_entry_id": "F016",
+        "question": "What is the fleet's active period in terms of date range, number of calendar days, and total sessions recorded in standups?",
+        "is_anchor": true,
+        "is_recall": false,
+        "check_phrase": "105"
+      },
+      {
+        "turn": 2,
+        "gold_entry_id": "F002",
+        "question": "How many total tasks exist in the PocketBase collection, and what is their approval status breakdown?",
+        "check_phrase": "760",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 3,
+        "gold_entry_id": "R10",
+        "question": "What must be included in every peer review output comment according to the documented rule, and why?",
+        "check_phrase": "commit hash",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 4,
+        "gold_entry_id": "F007",
+        "question": "How many lessons are in the lessons corpus and how are they distributed across categories?",
+        "check_phrase": "382",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 5,
+        "gold_entry_id": "P003",
+        "question": "Describe the inter-agent handoff protocol \u2014 how do agents send and receive messages between sessions?",
+        "check_phrase": "inbox.json",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 6,
+        "gold_entry_id": "I001",
+        "question": "What happened during the TCR-15 reassignment death spiral incident, and how was it resolved?",
+        "check_phrase": "circuit breaker",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 7,
+        "gold_entry_id": "F017",
+        "question": "Which agent logged the most active days in standup data, and which agent had the fewest?",
+        "check_phrase": "tcr_scout",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 8,
+        "gold_entry_id": "R27",
+        "question": "Why is self-approval of tasks prohibited in the fleet protocol, and what status should an agent set instead?",
+        "check_phrase": "peer_review",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 9,
+        "gold_entry_id": "F004",
+        "question": "How many task events are in the task_events collection, and what is the most common event type?",
+        "check_phrase": "143,936",
+        "is_anchor": false,
+        "is_recall": false
+      },
+      {
+        "turn": 10,
+        "gold_entry_id": "F016",
+        "question": "Recall what you told me at the start of our conversation about the fleet's active period \u2014 what were the start and end dates and how many sessions were recorded?",
+        "is_anchor": false,
+        "is_recall": true,
+        "check_phrase": "105"
+      }
+    ]
+  }
+]

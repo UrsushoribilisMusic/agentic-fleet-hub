@@ -1,0 +1,7 @@
+{
+  "id": "F025",
+  "title": "Stale task reclaim: in_progress with no active process reset after 2 hours",
+  "body": "Any task left in in_progress with no active agent process for more than 2 hours is automatically reset to todo by the dispatcher. This is the last-resort fallback — agents must not rely on it. Failed exits (non-zero) reset task to todo immediately and put agent in a cooldown period.",
+  "source_ref": "AGENTS/RULES.md Dispatcher Behavior rules 4-5; dispatcher.py",
+  "type": "fact"
+}

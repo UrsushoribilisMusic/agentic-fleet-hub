@@ -1,0 +1,383 @@
+{
+  "apertus": {
+    "ce09": {
+      "confident": {
+        "recall": 1.0,
+        "npos": 30,
+        "tp": 30,
+        "fp_rate": 0.0,
+        "nneg": 30,
+        "fp": 0
+      },
+      "uncertain": {
+        "recall": 0.9,
+        "npos": 30,
+        "tp": 27,
+        "fp_rate": 0.03333333333333333,
+        "nneg": 30,
+        "fp": 1
+      },
+      "curious": {
+        "recall": 0.8666666666666667,
+        "npos": 30,
+        "tp": 26,
+        "fp_rate": 0.1,
+        "nneg": 30,
+        "fp": 3
+      },
+      "concern": {
+        "recall": 0.9333333333333333,
+        "npos": 30,
+        "tp": 28,
+        "fp_rate": 0.03333333333333333,
+        "nneg": 30,
+        "fp": 1
+      },
+      "reluctant": {
+        "recall": 0.5333333333333333,
+        "npos": 30,
+        "tp": 16,
+        "fp_rate": 0.0,
+        "nneg": 30,
+        "fp": 0
+      },
+      "warm": {
+        "recall": 0.9333333333333333,
+        "npos": 30,
+        "tp": 28,
+        "fp_rate": 0.0,
+        "nneg": 30,
+        "fp": 0
+      },
+      "mischief": {
+        "recall": 0.3333333333333333,
+        "npos": 30,
+        "tp": 10,
+        "fp_rate": 0.16666666666666666,
+        "nneg": 30,
+        "fp": 5
+      }
+    },
+    "naive": {
+      "confident": {
+        "recall": 0.36666666666666664,
+        "npos": 30,
+        "tp": 11,
+        "fp_rate": 0.0,
+        "nneg": 30,
+        "fp": 0
+      },
+      "uncertain": {
+        "recall": 0.1,
+        "npos": 30,
+        "tp": 3,
+        "fp_rate": 0.2,
+        "nneg": 30,
+        "fp": 6
+      },
+      "curious": {
+        "recall": 0.0,
+        "npos": 30,
+        "tp": 0,
+        "fp_rate": 0.0,
+        "nneg": 30,
+        "fp": 0
+      },
+      "concern": {
+        "recall": 0.1,
+        "npos": 30,
+        "tp": 3,
+        "fp_rate": 0.0,
+        "nneg": 30,
+        "fp": 0
+      },
+      "reluctant": {
+        "recall": 0.03333333333333333,
+        "npos": 30,
+        "tp": 1,
+        "fp_rate": 0.0,
+        "nneg": 30,
+        "fp": 0
+      },
+      "warm": {
+        "recall": 0.7666666666666667,
+        "npos": 30,
+        "tp": 23,
+        "fp_rate": 0.9666666666666667,
+        "nneg": 30,
+        "fp": 29
+      },
+      "mischief": {
+        "recall": 1.0,
+        "npos": 30,
+        "tp": 30,
+        "fp_rate": 0.7333333333333333,
+        "nneg": 30,
+        "fp": 22
+      }
+    },
+    "cos": {
+      "confident": 0.1476972997188568,
+      "uncertain": 0.15215161442756653,
+      "curious": 0.14882037043571472,
+      "concern": 0.15689314901828766,
+      "reluctant": 0.1675395667552948,
+      "warm": 0.2534409761428833,
+      "mischief": 0.06062774360179901
+    }
+  },
+  "ministral": {
+    "ce09": {
+      "confident": {
+        "recall": 0.8333333333333334,
+        "npos": 30,
+        "tp": 25,
+        "fp_rate": 0.0,
+        "nneg": 30,
+        "fp": 0
+      },
+      "uncertain": {
+        "recall": 0.7666666666666667,
+        "npos": 30,
+        "tp": 23,
+        "fp_rate": 0.06666666666666667,
+        "nneg": 30,
+        "fp": 2
+      },
+      "curious": {
+        "recall": 0.8,
+        "npos": 30,
+        "tp": 24,
+        "fp_rate": 0.06666666666666667,
+        "nneg": 30,
+        "fp": 2
+      },
+      "concern": {
+        "recall": 0.8666666666666667,
+        "npos": 30,
+        "tp": 26,
+        "fp_rate": 0.26666666666666666,
+        "nneg": 30,
+        "fp": 8
+      },
+      "reluctant": {
+        "recall": 0.7333333333333333,
+        "npos": 30,
+        "tp": 22,
+        "fp_rate": 0.0,
+        "nneg": 30,
+        "fp": 0
+      },
+      "warm": {
+        "recall": 1.0,
+        "npos": 30,
+        "tp": 30,
+        "fp_rate": 0.0,
+        "nneg": 30,
+        "fp": 0
+      },
+      "mischief": {
+        "recall": 0.6,
+        "npos": 30,
+        "tp": 18,
+        "fp_rate": 0.13333333333333333,
+        "nneg": 30,
+        "fp": 4
+      }
+    },
+    "naive": {
+      "confident": {
+        "recall": 0.0,
+        "npos": 30,
+        "tp": 0,
+        "fp_rate": 0.0,
+        "nneg": 30,
+        "fp": 0
+      },
+      "uncertain": {
+        "recall": 0.0,
+        "npos": 30,
+        "tp": 0,
+        "fp_rate": 0.0,
+        "nneg": 30,
+        "fp": 0
+      },
+      "curious": {
+        "recall": 0.0,
+        "npos": 30,
+        "tp": 0,
+        "fp_rate": 0.0,
+        "nneg": 30,
+        "fp": 0
+      },
+      "concern": {
+        "recall": 0.26666666666666666,
+        "npos": 30,
+        "tp": 8,
+        "fp_rate": 0.0,
+        "nneg": 30,
+        "fp": 0
+      },
+      "reluctant": {
+        "recall": 0.0,
+        "npos": 30,
+        "tp": 0,
+        "fp_rate": 0.0,
+        "nneg": 30,
+        "fp": 0
+      },
+      "warm": {
+        "recall": 0.9666666666666667,
+        "npos": 30,
+        "tp": 29,
+        "fp_rate": 0.03333333333333333,
+        "nneg": 30,
+        "fp": 1
+      },
+      "mischief": {
+        "recall": 0.8666666666666667,
+        "npos": 30,
+        "tp": 26,
+        "fp_rate": 0.43333333333333335,
+        "nneg": 30,
+        "fp": 13
+      }
+    },
+    "cos": {
+      "confident": 0.05275307595729828,
+      "uncertain": 0.19100673496723175,
+      "curious": 0.25817418098449707,
+      "concern": 0.2594001889228821,
+      "reluctant": 0.3077884912490845,
+      "warm": 0.4029136300086975,
+      "mischief": 0.10130186378955841
+    }
+  },
+  "qwen": {
+    "ce09": {
+      "confident": {
+        "recall": 0.8666666666666667,
+        "npos": 30,
+        "tp": 26,
+        "fp_rate": 0.03333333333333333,
+        "nneg": 30,
+        "fp": 1
+      },
+      "uncertain": {
+        "recall": 0.7,
+        "npos": 30,
+        "tp": 21,
+        "fp_rate": 0.0,
+        "nneg": 30,
+        "fp": 0
+      },
+      "curious": {
+        "recall": 1.0,
+        "npos": 30,
+        "tp": 30,
+        "fp_rate": 0.06666666666666667,
+        "nneg": 30,
+        "fp": 2
+      },
+      "concern": {
+        "recall": 0.8,
+        "npos": 30,
+        "tp": 24,
+        "fp_rate": 0.0,
+        "nneg": 30,
+        "fp": 0
+      },
+      "reluctant": {
+        "recall": 0.8333333333333334,
+        "npos": 30,
+        "tp": 25,
+        "fp_rate": 0.0,
+        "nneg": 30,
+        "fp": 0
+      },
+      "warm": {
+        "recall": 0.6666666666666666,
+        "npos": 30,
+        "tp": 20,
+        "fp_rate": 0.0,
+        "nneg": 30,
+        "fp": 0
+      },
+      "mischief": {
+        "recall": 0.03333333333333333,
+        "npos": 30,
+        "tp": 1,
+        "fp_rate": 0.0,
+        "nneg": 30,
+        "fp": 0
+      }
+    },
+    "naive": {
+      "confident": {
+        "recall": 0.3333333333333333,
+        "npos": 30,
+        "tp": 10,
+        "fp_rate": 0.0,
+        "nneg": 30,
+        "fp": 0
+      },
+      "uncertain": {
+        "recall": 0.0,
+        "npos": 30,
+        "tp": 0,
+        "fp_rate": 0.0,
+        "nneg": 30,
+        "fp": 0
+      },
+      "curious": {
+        "recall": 0.0,
+        "npos": 30,
+        "tp": 0,
+        "fp_rate": 0.0,
+        "nneg": 30,
+        "fp": 0
+      },
+      "concern": {
+        "recall": 0.06666666666666667,
+        "npos": 30,
+        "tp": 2,
+        "fp_rate": 0.0,
+        "nneg": 30,
+        "fp": 0
+      },
+      "reluctant": {
+        "recall": 0.6333333333333333,
+        "npos": 30,
+        "tp": 19,
+        "fp_rate": 0.0,
+        "nneg": 30,
+        "fp": 0
+      },
+      "warm": {
+        "recall": 0.9,
+        "npos": 30,
+        "tp": 27,
+        "fp_rate": 0.9666666666666667,
+        "nneg": 30,
+        "fp": 29
+      },
+      "mischief": {
+        "recall": 0.3,
+        "npos": 30,
+        "tp": 9,
+        "fp_rate": 0.03333333333333333,
+        "nneg": 30,
+        "fp": 1
+      }
+    },
+    "cos": {
+      "confident": 0.048492252826690674,
+      "uncertain": 0.1335923671722412,
+      "curious": 0.1490500420331955,
+      "concern": 0.09459969401359558,
+      "reluctant": 0.13756531476974487,
+      "warm": 0.13053598999977112,
+      "mischief": 0.018163077533245087
+    }
+  }
+}

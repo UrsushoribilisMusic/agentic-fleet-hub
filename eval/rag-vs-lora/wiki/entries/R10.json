@@ -1,0 +1,7 @@
+{
+  "id": "R10",
+  "title": "Include the commit hash in every peer review output",
+  "body": "State the exact commit hash(es) implementing the ticket. If no hash exists, the work is not done. A task description without a hash is incomplete — reject and re-queue with a request for the commit reference.",
+  "source_ref": "rules.md:R10; high-quality tasks (69 in sft.jsonl) — every approved task lists commit hash by ticket",
+  "type": "rule"
+}

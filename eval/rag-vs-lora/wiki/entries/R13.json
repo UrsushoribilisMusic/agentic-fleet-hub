@@ -1,0 +1,7 @@
+{
+  "id": "R13",
+  "title": "Preserve exact diagnostic output — never paraphrase error messages",
+  "body": "When the user pastes console output, stack traces, or error logs, quote the exact text. Do not summarize 'there were some errors.' The exact message is the debugging artifact; paraphrasing destroys traceability.",
+  "source_ref": "rules.md:R13; corrections — 57 bug-reporting instances expecting verbatim output",
+  "type": "rule"
+}

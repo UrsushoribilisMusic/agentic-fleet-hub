@@ -1,0 +1,7 @@
+{
+  "id": "R26",
+  "title": "Post reusable insights to lessons collection as pending_review, not inline comments",
+  "body": "When a session produces a genuine new insight (a tool constraint, protocol gap, environment quirk), POST it to /api/collections/lessons/records with {title, content, category, confidence: 'medium', status: 'pending_review'}. Do not bury it in a task comment where it cannot be retrieved by future sessions.",
+  "source_ref": "rules.md:R26; CLAUDE.md Phase 5; lessons/ledger.json — canonical store for 382 active lessons",
+  "type": "rule"
+}

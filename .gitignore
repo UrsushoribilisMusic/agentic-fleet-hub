@@ -52,3 +52,8 @@ disposition-lens/entropy_stats_*.json
 disposition-lens/seed_vectors*.npz
 .venv_gepa/
 *.npy
+
+# CANIS eval — large activation dumps + reproducible run outputs (not for git)
+eval/h_tap_*.jsonl
+eval/ood_run/
+disposition-lens/*.bak-preCE09

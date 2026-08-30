@@ -1,0 +1,7 @@
+{
+  "id": "I002",
+  "title": "Misty duplicate task spam: broken Phase 3 filter created 30+ clones of task #68",
+  "body": "Misty's heartbeat Phase 3 filter used an unencoded & operator in the PocketBase query string, causing 'assigned_agent=misty&status=todo' to break the filter param early and return all tasks regardless of status. On each heartbeat, Misty re-created tasks #68, #71, #72 because it could not find them (seeing the full unfiltered list as 'empty' for its agent). This produced 30+ duplicate records per slot, identified on 2026-06-09 and 2026-03-20 standup cleanup (38 stale tasks found). Fix: URL-encode && as %26%26 (see R18).",
+  "source_ref": "standups/2026-03-20.md; fleet/misty/PROGRESS.md 2026-06-09; R18 source annotation",
+  "type": "incident"
+}

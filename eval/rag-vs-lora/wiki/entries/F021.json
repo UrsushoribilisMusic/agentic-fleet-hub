@@ -1,0 +1,7 @@
+{
+  "id": "F021",
+  "title": "Standup format: must include agent name in heading and update index.json",
+  "body": "Every standup entry heading must identify the agent: '# Clau — 2026-04-06' or '# Codi — 2026-04-06 (14:32 UTC)'. Entries without agent name in heading are invalid. After writing any standup .md file, standups/index.json must be updated with {date, summary, file} entry sorted newest-first. Never git stash index.json — conflict markers corrupt the JSON and break the Fleet Hub standup display.",
+  "source_ref": "AGENTS/RULES.md Kanban rule #1; standups/index.json format",
+  "type": "fact"
+}

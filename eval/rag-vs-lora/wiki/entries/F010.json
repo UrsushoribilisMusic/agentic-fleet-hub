@@ -1,0 +1,7 @@
+{
+  "id": "F010",
+  "title": "Corpus cutoff date: 2026-06-22",
+  "body": "All records in the gold corpus were created before 2026-06-22. This is the frozen pre-cutoff date established by FX-001. No FX- prefixed tasks are included in the corpus (FX-001 through FX-020 are pipeline tasks created to build the corpus, not fleet work). No mutation of pre-cutoff records after this date is permitted in the wiki.",
+  "source_ref": "facts.db:manifest (cutoff=2026-06-22); FX-001 pipeline spec",
+  "type": "fact"
+}

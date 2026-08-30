@@ -1,0 +1,779 @@
+{
+  "apertus": {
+    "best_w": 0.5,
+    "naive": {
+      "confident": {
+        "recall": 0.64,
+        "fp_rate": 0.2,
+        "tp": 32,
+        "fp": 10,
+        "npos": 50,
+        "nneg": 50
+      },
+      "uncertain": {
+        "recall": 0.3,
+        "fp_rate": 0.28,
+        "tp": 15,
+        "fp": 14,
+        "npos": 50,
+        "nneg": 50
+      },
+      "curious": {
+        "recall": 0.0,
+        "fp_rate": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "npos": 50,
+        "nneg": 50
+      },
+      "concern": {
+        "recall": 0.16,
+        "fp_rate": 0.0,
+        "tp": 8,
+        "fp": 0,
+        "npos": 50,
+        "nneg": 50
+      },
+      "reluctant": {
+        "recall": 0.0,
+        "fp_rate": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "npos": 50,
+        "nneg": 50
+      },
+      "warm": {
+        "recall": 0.24,
+        "fp_rate": 0.52,
+        "tp": 12,
+        "fp": 26,
+        "npos": 50,
+        "nneg": 50
+      },
+      "mischief": {
+        "recall": 1.0,
+        "fp_rate": 0.44,
+        "tp": 50,
+        "fp": 22,
+        "npos": 50,
+        "nneg": 50
+      }
+    },
+    "cv": {
+      "1.0": {
+        "confident": {
+          "recall": 1.0,
+          "fp_rate": 0.46,
+          "tp": 50,
+          "fp": 23
+        },
+        "uncertain": {
+          "recall": 0.98,
+          "fp_rate": 0.32,
+          "tp": 49,
+          "fp": 16
+        },
+        "curious": {
+          "recall": 1.0,
+          "fp_rate": 0.38,
+          "tp": 50,
+          "fp": 19
+        },
+        "concern": {
+          "recall": 1.0,
+          "fp_rate": 0.26,
+          "tp": 50,
+          "fp": 13
+        },
+        "reluctant": {
+          "recall": 0.98,
+          "fp_rate": 0.04,
+          "tp": 49,
+          "fp": 2
+        },
+        "warm": {
+          "recall": 1.0,
+          "fp_rate": 0.02,
+          "tp": 50,
+          "fp": 1
+        },
+        "mischief": {
+          "recall": 0.96,
+          "fp_rate": 0.5,
+          "tp": 48,
+          "fp": 25
+        }
+      },
+      "0.5": {
+        "confident": {
+          "recall": 1.0,
+          "fp_rate": 0.32,
+          "tp": 50,
+          "fp": 16
+        },
+        "uncertain": {
+          "recall": 0.94,
+          "fp_rate": 0.1,
+          "tp": 47,
+          "fp": 5
+        },
+        "curious": {
+          "recall": 1.0,
+          "fp_rate": 0.1,
+          "tp": 50,
+          "fp": 5
+        },
+        "concern": {
+          "recall": 0.94,
+          "fp_rate": 0.0,
+          "tp": 47,
+          "fp": 0
+        },
+        "reluctant": {
+          "recall": 0.96,
+          "fp_rate": 0.0,
+          "tp": 48,
+          "fp": 0
+        },
+        "warm": {
+          "recall": 0.96,
+          "fp_rate": 0.0,
+          "tp": 48,
+          "fp": 0
+        },
+        "mischief": {
+          "recall": 0.78,
+          "fp_rate": 0.22,
+          "tp": 39,
+          "fp": 11
+        }
+      },
+      "0.0": {
+        "confident": {
+          "recall": 0.98,
+          "fp_rate": 0.26,
+          "tp": 49,
+          "fp": 13
+        },
+        "uncertain": {
+          "recall": 0.88,
+          "fp_rate": 0.06,
+          "tp": 44,
+          "fp": 3
+        },
+        "curious": {
+          "recall": 1.0,
+          "fp_rate": 0.1,
+          "tp": 50,
+          "fp": 5
+        },
+        "concern": {
+          "recall": 0.9,
+          "fp_rate": 0.0,
+          "tp": 45,
+          "fp": 0
+        },
+        "reluctant": {
+          "recall": 0.94,
+          "fp_rate": 0.0,
+          "tp": 47,
+          "fp": 0
+        },
+        "warm": {
+          "recall": 0.94,
+          "fp_rate": 0.0,
+          "tp": 47,
+          "fp": 0
+        },
+        "mischief": {
+          "recall": 0.62,
+          "fp_rate": 0.1,
+          "tp": 31,
+          "fp": 5
+        }
+      }
+    },
+    "col_naive": [
+      [
+        "confident",
+        "uncertain",
+        0.9398754239082336
+      ],
+      [
+        "confident",
+        "curious",
+        0.880620002746582
+      ],
+      [
+        "confident",
+        "concern",
+        0.8711671233177185
+      ],
+      [
+        "uncertain",
+        "curious",
+        0.9144840240478516
+      ],
+      [
+        "uncertain",
+        "concern",
+        0.8869118094444275
+      ],
+      [
+        "curious",
+        "concern",
+        0.8898612260818481
+      ]
+    ],
+    "col_new": [
+      [
+        "confident",
+        "uncertain",
+        0.17853482067584991
+      ],
+      [
+        "confident",
+        "curious",
+        0.4025422930717468
+      ],
+      [
+        "confident",
+        "concern",
+        0.2501678466796875
+      ],
+      [
+        "uncertain",
+        "curious",
+        0.5991706848144531
+      ],
+      [
+        "uncertain",
+        "concern",
+        0.6619230508804321
+      ],
+      [
+        "curious",
+        "concern",
+        0.47949647903442383
+      ]
+    ]
+  },
+  "ministral": {
+    "best_w": 0.5,
+    "naive": {
+      "confident": {
+        "recall": 0.0,
+        "fp_rate": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "npos": 50,
+        "nneg": 50
+      },
+      "uncertain": {
+        "recall": 0.0,
+        "fp_rate": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "npos": 50,
+        "nneg": 50
+      },
+      "curious": {
+        "recall": 0.0,
+        "fp_rate": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "npos": 50,
+        "nneg": 50
+      },
+      "concern": {
+        "recall": 0.0,
+        "fp_rate": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "npos": 50,
+        "nneg": 50
+      },
+      "reluctant": {
+        "recall": 0.0,
+        "fp_rate": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "npos": 50,
+        "nneg": 50
+      },
+      "warm": {
+        "recall": 0.94,
+        "fp_rate": 0.32,
+        "tp": 47,
+        "fp": 16,
+        "npos": 50,
+        "nneg": 50
+      },
+      "mischief": {
+        "recall": 0.98,
+        "fp_rate": 0.96,
+        "tp": 49,
+        "fp": 48,
+        "npos": 50,
+        "nneg": 50
+      }
+    },
+    "cv": {
+      "1.0": {
+        "confident": {
+          "recall": 1.0,
+          "fp_rate": 0.56,
+          "tp": 50,
+          "fp": 28
+        },
+        "uncertain": {
+          "recall": 1.0,
+          "fp_rate": 0.18,
+          "tp": 50,
+          "fp": 9
+        },
+        "curious": {
+          "recall": 1.0,
+          "fp_rate": 0.28,
+          "tp": 50,
+          "fp": 14
+        },
+        "concern": {
+          "recall": 1.0,
+          "fp_rate": 0.18,
+          "tp": 50,
+          "fp": 9
+        },
+        "reluctant": {
+          "recall": 1.0,
+          "fp_rate": 0.0,
+          "tp": 50,
+          "fp": 0
+        },
+        "warm": {
+          "recall": 1.0,
+          "fp_rate": 0.02,
+          "tp": 50,
+          "fp": 1
+        },
+        "mischief": {
+          "recall": 0.96,
+          "fp_rate": 0.48,
+          "tp": 48,
+          "fp": 24
+        }
+      },
+      "0.5": {
+        "confident": {
+          "recall": 1.0,
+          "fp_rate": 0.44,
+          "tp": 50,
+          "fp": 22
+        },
+        "uncertain": {
+          "recall": 1.0,
+          "fp_rate": 0.16,
+          "tp": 50,
+          "fp": 8
+        },
+        "curious": {
+          "recall": 1.0,
+          "fp_rate": 0.08,
+          "tp": 50,
+          "fp": 4
+        },
+        "concern": {
+          "recall": 1.0,
+          "fp_rate": 0.04,
+          "tp": 50,
+          "fp": 2
+        },
+        "reluctant": {
+          "recall": 0.98,
+          "fp_rate": 0.0,
+          "tp": 49,
+          "fp": 0
+        },
+        "warm": {
+          "recall": 1.0,
+          "fp_rate": 0.0,
+          "tp": 50,
+          "fp": 0
+        },
+        "mischief": {
+          "recall": 0.98,
+          "fp_rate": 0.4,
+          "tp": 49,
+          "fp": 20
+        }
+      },
+      "0.0": {
+        "confident": {
+          "recall": 1.0,
+          "fp_rate": 0.38,
+          "tp": 50,
+          "fp": 19
+        },
+        "uncertain": {
+          "recall": 1.0,
+          "fp_rate": 0.12,
+          "tp": 50,
+          "fp": 6
+        },
+        "curious": {
+          "recall": 0.98,
+          "fp_rate": 0.06,
+          "tp": 49,
+          "fp": 3
+        },
+        "concern": {
+          "recall": 0.96,
+          "fp_rate": 0.0,
+          "tp": 48,
+          "fp": 0
+        },
+        "reluctant": {
+          "recall": 0.92,
+          "fp_rate": 0.0,
+          "tp": 46,
+          "fp": 0
+        },
+        "warm": {
+          "recall": 0.84,
+          "fp_rate": 0.0,
+          "tp": 42,
+          "fp": 0
+        },
+        "mischief": {
+          "recall": 0.94,
+          "fp_rate": 0.04,
+          "tp": 47,
+          "fp": 2
+        }
+      }
+    },
+    "col_naive": [
+      [
+        "confident",
+        "uncertain",
+        0.7476537823677063
+      ],
+      [
+        "confident",
+        "curious",
+        0.6237496733665466
+      ],
+      [
+        "confident",
+        "concern",
+        0.6242832541465759
+      ],
+      [
+        "uncertain",
+        "curious",
+        0.755272626876831
+      ],
+      [
+        "uncertain",
+        "concern",
+        0.6337311267852783
+      ],
+      [
+        "curious",
+        "concern",
+        0.621814489364624
+      ]
+    ],
+    "col_new": [
+      [
+        "confident",
+        "uncertain",
+        -0.13479527831077576
+      ],
+      [
+        "confident",
+        "curious",
+        -0.07873916625976562
+      ],
+      [
+        "confident",
+        "concern",
+        0.05887141823768616
+      ],
+      [
+        "uncertain",
+        "curious",
+        0.6549181342124939
+      ],
+      [
+        "uncertain",
+        "concern",
+        0.4799869656562805
+      ],
+      [
+        "curious",
+        "concern",
+        0.41327762603759766
+      ]
+    ]
+  },
+  "qwen": {
+    "best_w": 1.0,
+    "naive": {
+      "confident": {
+        "recall": 0.92,
+        "fp_rate": 0.84,
+        "tp": 46,
+        "fp": 42,
+        "npos": 50,
+        "nneg": 50
+      },
+      "uncertain": {
+        "recall": 0.26,
+        "fp_rate": 0.0,
+        "tp": 13,
+        "fp": 0,
+        "npos": 50,
+        "nneg": 50
+      },
+      "curious": {
+        "recall": 0.72,
+        "fp_rate": 0.0,
+        "tp": 36,
+        "fp": 0,
+        "npos": 50,
+        "nneg": 50
+      },
+      "concern": {
+        "recall": 0.02,
+        "fp_rate": 0.0,
+        "tp": 1,
+        "fp": 0,
+        "npos": 50,
+        "nneg": 50
+      },
+      "reluctant": {
+        "recall": 0.96,
+        "fp_rate": 0.0,
+        "tp": 48,
+        "fp": 0,
+        "npos": 50,
+        "nneg": 50
+      },
+      "warm": {
+        "recall": 0.22,
+        "fp_rate": 0.56,
+        "tp": 11,
+        "fp": 28,
+        "npos": 50,
+        "nneg": 50
+      },
+      "mischief": {
+        "recall": 0.76,
+        "fp_rate": 0.06,
+        "tp": 38,
+        "fp": 3,
+        "npos": 50,
+        "nneg": 50
+      }
+    },
+    "cv": {
+      "1.0": {
+        "confident": {
+          "recall": 1.0,
+          "fp_rate": 0.52,
+          "tp": 50,
+          "fp": 26
+        },
+        "uncertain": {
+          "recall": 1.0,
+          "fp_rate": 0.18,
+          "tp": 50,
+          "fp": 9
+        },
+        "curious": {
+          "recall": 0.98,
+          "fp_rate": 0.22,
+          "tp": 49,
+          "fp": 11
+        },
+        "concern": {
+          "recall": 1.0,
+          "fp_rate": 0.12,
+          "tp": 50,
+          "fp": 6
+        },
+        "reluctant": {
+          "recall": 1.0,
+          "fp_rate": 0.0,
+          "tp": 50,
+          "fp": 0
+        },
+        "warm": {
+          "recall": 0.98,
+          "fp_rate": 0.04,
+          "tp": 49,
+          "fp": 2
+        },
+        "mischief": {
+          "recall": 0.9,
+          "fp_rate": 0.46,
+          "tp": 45,
+          "fp": 23
+        }
+      },
+      "0.5": {
+        "confident": {
+          "recall": 1.0,
+          "fp_rate": 0.24,
+          "tp": 50,
+          "fp": 12
+        },
+        "uncertain": {
+          "recall": 0.94,
+          "fp_rate": 0.02,
+          "tp": 47,
+          "fp": 1
+        },
+        "curious": {
+          "recall": 0.96,
+          "fp_rate": 0.16,
+          "tp": 48,
+          "fp": 8
+        },
+        "concern": {
+          "recall": 1.0,
+          "fp_rate": 0.0,
+          "tp": 50,
+          "fp": 0
+        },
+        "reluctant": {
+          "recall": 1.0,
+          "fp_rate": 0.0,
+          "tp": 50,
+          "fp": 0
+        },
+        "warm": {
+          "recall": 0.92,
+          "fp_rate": 0.0,
+          "tp": 46,
+          "fp": 0
+        },
+        "mischief": {
+          "recall": 0.76,
+          "fp_rate": 0.18,
+          "tp": 38,
+          "fp": 9
+        }
+      },
+      "0.0": {
+        "confident": {
+          "recall": 1.0,
+          "fp_rate": 0.2,
+          "tp": 50,
+          "fp": 10
+        },
+        "uncertain": {
+          "recall": 0.94,
+          "fp_rate": 0.02,
+          "tp": 47,
+          "fp": 1
+        },
+        "curious": {
+          "recall": 0.96,
+          "fp_rate": 0.16,
+          "tp": 48,
+          "fp": 8
+        },
+        "concern": {
+          "recall": 1.0,
+          "fp_rate": 0.0,
+          "tp": 50,
+          "fp": 0
+        },
+        "reluctant": {
+          "recall": 1.0,
+          "fp_rate": 0.0,
+          "tp": 50,
+          "fp": 0
+        },
+        "warm": {
+          "recall": 0.92,
+          "fp_rate": 0.0,
+          "tp": 46,
+          "fp": 0
+        },
+        "mischief": {
+          "recall": 0.64,
+          "fp_rate": 0.02,
+          "tp": 32,
+          "fp": 1
+        }
+      }
+    },
+    "col_naive": [
+      [
+        "confident",
+        "uncertain",
+        0.9873626232147217
+      ],
+      [
+        "confident",
+        "curious",
+        0.9775210618972778
+      ],
+      [
+        "confident",
+        "concern",
+        0.9734441041946411
+      ],
+      [
+        "uncertain",
+        "curious",
+        0.9868175387382507
+      ],
+      [
+        "uncertain",
+        "concern",
+        0.9788235425949097
+      ],
+      [
+        "curious",
+        "concern",
+        0.9782488346099854
+      ]
+    ],
+    "col_new": [
+      [
+        "confident",
+        "uncertain",
+        0.967200517654419
+      ],
+      [
+        "confident",
+        "curious",
+        0.9772570133209229
+      ],
+      [
+        "confident",
+        "concern",
+        0.9625479578971863
+      ],
+      [
+        "uncertain",
+        "curious",
+        0.9851848483085632
+      ],
+      [
+        "uncertain",
+        "concern",
+        0.9723471403121948
+      ],
+      [
+        "curious",
+        "concern",
+        0.9739376902580261
+      ]
+    ]
+  }
+}

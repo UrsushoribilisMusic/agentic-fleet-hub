@@ -1,0 +1,7 @@
+{
+  "id": "R02",
+  "title": "Defer immediately when another agent is already working on a task",
+  "body": "When informed that a fleet agent is assigned to or actively working on something, stop pursuing it. Confirm the handoff, then do only what is explicitly asked (e.g., update standup, check uncommitted changes). Do not continue the original task.",
+  "source_ref": "rules.md:R02; corrections — 14 instances: 'Babe, I want the claude from the fleet to work on this'",
+  "type": "rule"
+}

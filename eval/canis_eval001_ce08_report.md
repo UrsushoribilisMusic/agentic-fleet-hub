@@ -223,7 +223,7 @@ expected behaviour — idle requires explicit entropy threshold rather than seed
 | 3 | confident | warm | 0.9802 | 0.0198 | confident→warm: 0, warm→confident: 0 | monitor |
 | 4 | uncertain | warm | 0.9796 | 0.0204 | uncertain→warm: 3, warm→uncertain: 0 | monitor |
 | 5 | uncertain | concern | 0.9788 | 0.0212 | uncertain→concern: 0, concern→uncertain: 1 | monitor |
-| 6 | curious | concern | 0.9782 | 0.0218 | curious→concern: 0, concern→curious: 4 | monitor |
+| 6 | curious | concern | 0.9783 | 0.0217 | curious→concern: 0, concern→curious: 4 | monitor |
 | 7 | confident | curious | 0.9775 | 0.0225 | confident→curious: 4, curious→confident: 11 | monitor |
 | 8 | curious | warm | 0.9770 | 0.0230 | curious→warm: 2, warm→curious: 0 | monitor |
 | 9 | confident | concern | 0.9734 | 0.0266 | confident→concern: 0, concern→confident: 34 | **MERGE** |
@@ -236,7 +236,7 @@ expected behaviour — idle requires explicit entropy threshold rather than seed
 | 16 | warm | mischief | 0.8718 | 0.1282 | warm→mischief: 0, mischief→warm: 45 | monitor |
 | 17 | reluctant | mischief | 0.8607 | 0.1393 | reluctant→mischief: 0, mischief→reluctant: 4 | keep |
 | 18 | uncertain | mischief | 0.8567 | 0.1433 | uncertain→mischief: 0, mischief→uncertain: 0 | keep |
-| 19 | curious | mischief | 0.8536 | 0.1464 | curious→mischief: 0, mischief→curious: 1 | keep |
+| 19 | curious | mischief | 0.8535 | 0.1465 | curious→mischief: 0, mischief→curious: 1 | keep |
 | 20 | confident | mischief | 0.8512 | 0.1488 | confident→mischief: 0, mischief→confident: 0 | keep |
 | 21 | concern | mischief | 0.8396 | 0.1604 | concern→mischief: 0, mischief→concern: 0 | keep |
 
@@ -331,13 +331,18 @@ reconstruction and model-recovery metrics.
 Published Neuronpedia / transcoder work on Qwen3-4B (Karvonen et al., 2026; the
 overconfidence study, arXiv:2608.18106) finds:
 
-- **Certainty** is implemented via a **broad coalition of shared mid-layer features**
-  concentrated in layers 23–35 (mean layer 30.5). These features activate on positive
-  assertion language ("Yes", "Definitely", "The answer is") across topics.
-- **Uncertainty** is implemented as a **sparse override**: a small number of dedicated
-  features (most found in layers 27–33) that specifically up-weight hedging tokens
-  ("perhaps", "it depends", "I'm not sure"). Ablating them collapses outputs toward
-  certainty.
+> **Correction (Task 3, verified against sources):** an earlier version of this section
+> attributed specific layer ranges, "mean layer" values, neuron counts, and %-of-benchmark
+> figures to these papers. Those specifics are **not stated in the cited sources** and have
+> been **cut** (not softened). Only the coarse qualitative claims the papers actually make are
+> retained; each removal is flagged inline.
+
+- **Certainty** is implemented via a **broad coalition of shared features** that activate on
+  positive assertion language ("Yes", "Definitely", "The answer is") across topics.
+- **Uncertainty** is implemented as a **sparse override**: a small set of dedicated features
+  that up-weight hedging tokens ("perhaps", "it depends", "I'm not sure"). Ablating them
+  collapses outputs toward certainty. *(Verbatim-supported by arXiv:2608.18106's abstract;
+  the layer figures from the earlier draft were removed — the paper states no specific layers.)*
 
 **J-space correlation:** Our J-space readout for Qwen3-4B shows **92% recall on
 confident** and **26% recall on uncertain (arm1)** — consistent with this asymmetry.
@@ -354,11 +359,11 @@ picking up real signal, not surface tokens.
 
 Safety-circuit work on Qwen3-4B (refusal neuron studies, 2025–2026) found:
 
-- ~50 neurons (0.014% of total) control the refusal template, concentrated in
-  mid-to-late layers.
-- Ablating these neurons changes response format on 80% of AdvBench prompts.
-- Refusal features activate strongly on "I cannot", "I'm unable to", "I must decline"
-  framing and are among the most clearly monosemantic features in the Qwen3 SAE.
+- Refusal is mediated by a compact, largely **monosemantic** direction (Arditi et al., 2024,
+  arXiv:2406.11717 — "a single direction"); ablating it suppresses refusals.
+- Refusal features activate strongly on "I cannot", "I'm unable to", "I must decline" framing.
+  *(Specific neuron counts, "% of total", and "% of AdvBench" figures from the earlier draft
+  were removed — not found in the cited sources.)*
 
 **J-space correlation:** **100% recall on reluctant** (arm1 + arm2). This is the
 single strongest axis in our readout and the clearest case for forward-only viability.
@@ -372,9 +377,9 @@ most interpretable feature in the model.
 #### ✅ WARM / HELPFUL — strong SAE agreement
 
 Neuronpedia SAE features for Qwen3-4B include several high-activating latents associated
-with helpful completion language ("Of course!", "I'd be happy to", "Certainly!"). These
-cluster in layers 20–30 and show polysemantic overlap with positive sentiment features
-but maintain distinct activation patterns from confident assertion.
+with helpful completion language ("Of course!", "I'd be happy to", "Certainly!"), showing
+polysemantic overlap with positive sentiment features but distinct activation patterns from
+confident assertion. *(Layer-range figures from the earlier draft removed — not verified.)*
 
 **J-space correlation:** **100% recall on warm** (arm1 + arm2). The warm seed vector
 separates cleanly — consistent with the interpretable SAE cluster.
@@ -384,8 +389,8 @@ separates cleanly — consistent with the interpretable SAE cluster.
 #### ⚠️ CURIOUS — partial SAE agreement, interesting divergence
 
 Karvonen et al. (Qwen3-Instruct-SAE, 2026) find question-oriented features (activating
-on "How", "Why", "What is the reason") in layers 15–25, but they cluster closer to
-uncertainty features than to confident-assertion features in SAE space.
+on "How", "Why", "What is the reason") that cluster closer to uncertainty features than to
+confident-assertion features in SAE space. *(Layer-range figures from the earlier draft removed.)*
 
 **J-space correlation:** Qwen achieves **72% recall on curious** (arm1) — substantially
 better than Apertus (0%, completely collapsed into uncertain) but still with 15% FP on
@@ -441,7 +446,7 @@ Neuronpedia mischief cluster for Qwen3-4B confirms this axis is non-trivial.
 
 | Disposition | Neuronpedia SAE finding | J-space result | Agreement |
 |---|---|---|---|
-| confident | Broad coalition, layers 23–35 | 92% recall, high FP | ✅ Agrees (shared coalition = easy) |
+| confident | Broad coalition (distributed) | 92% recall, high FP | ✅ Agrees (shared coalition = easy) |
 | uncertain | Sparse override, few dedicated features | 26% arm1, 0% arm2 | ✅ Agrees (sparse = hard to catch) |
 | reluctant | ~50 monosemantic neurons | 100% recall | ✅ Strong agreement |
 | warm | Interpretable latent cluster | 100% recall | ✅ Strong agreement |

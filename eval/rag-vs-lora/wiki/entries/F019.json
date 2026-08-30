@@ -1,0 +1,7 @@
+{
+  "id": "F019",
+  "title": "PocketBase API base URL: http://localhost:8090",
+  "body": "The PocketBase instance runs at http://localhost:8090 on the Mac Mini. Key collection endpoints: /api/collections/tasks/records, /api/collections/heartbeats/records, /api/collections/comments/records, /api/collections/lessons/records, /api/collections/task_events/records. All filter strings must URL-encode special operators (see R18, R19).",
+  "source_ref": "AGENTS/RULES.md heartbeat protocol; CLAUDE.md Phase 1/3; RUNTIME.md",
+  "type": "fact"
+}

@@ -1,0 +1,7 @@
+{
+  "id": "P003",
+  "title": "Inter-agent handoff protocol (IAP inbox)",
+  "body": "Agents communicate via AGENTS/MESSAGES/inbox.json. To send: add a message object and commit it. To receive: read inbox.json at session start (Phase 2.5 in heartbeat). Mark messages as 'status': 'read' after acting and commit. Privileged handoffs (e.g., git push requests from Codi via READY_TO_PUSH.md) take priority over own tasks and must be processed before Phase 3.",
+  "source_ref": "AGENTS/RULES.md Inter-Agent Protocol (IAP); CLAUDE.md Phase 2.5",
+  "type": "protocol"
+}

@@ -1,0 +1,7 @@
+{
+  "id": "R05",
+  "title": "Verify no duplicate task exists before creating a new one",
+  "body": "Query by title or ticket number before POSTing a new task record. Silent filter failures (especially unencoded operators) cause duplicate-creation loops. A task number appearing twice signals a broken filter, not two different tasks.",
+  "source_ref": "rules.md:R05; lessons — 'Task #68 duplication spam: Misty Phase 3 filter broken, causing 86+ duplicate tasks'",
+  "type": "rule"
+}

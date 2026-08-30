@@ -1,0 +1,7 @@
+{
+  "id": "F001",
+  "title": "Fleet composition: four primary agents",
+  "body": "The fleet comprises four primary AI agents: clau (Claude Code), gem (Gemini CLI), codi (Codex/OpenAI), and misty (Mistral). A fifth agent, qwen (Qwen), handled 6 tasks. The dispatcher routes tasks by assigned_agent field in PocketBase.",
+  "source_ref": "facts.json:agent_workload; agentic-fleet-hub/AGENTS/RULES.md preamble",
+  "type": "fact"
+}

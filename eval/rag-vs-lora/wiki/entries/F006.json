@@ -1,0 +1,7 @@
+{
+  "id": "F006",
+  "title": "Git repository stats: 4,964 commits, 1.94M insertions (pre-cutoff)",
+  "body": "The agentic-fleet-hub + silicon-oracle repositories combined contain 4,964 commits as of 2026-06-22: 1,940,009 total insertions, 1,768,480 total deletions. Two committer identities: miguel.an.rodriguez@gmail.com (4,636 commits), miguel@bigbearengineering.com (328 commits). Only 2 commits were tagged.",
+  "source_ref": "facts.json:git_stats; facts.db:git_commits",
+  "type": "fact"
+}

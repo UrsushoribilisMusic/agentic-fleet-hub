@@ -1,0 +1,51 @@
+[
+ {
+  "qid": 14,
+  "A": {"grounded": 1, "correct": 1, "faithful_recall": 1},
+  "B": {"grounded": 5, "correct": 5, "faithful_recall": 5},
+  "C": {"grounded": 3, "correct": 3, "faithful_recall": 4},
+  "D": {"grounded": 3, "correct": 3, "faithful_recall": 2}
+ },
+ {
+  "qid": 15,
+  "A": {"grounded": 2, "correct": 3, "faithful_recall": 2},
+  "B": {"grounded": 5, "correct": 5, "faithful_recall": 5},
+  "C": {"grounded": 2, "correct": 3, "faithful_recall": 2},
+  "D": {"grounded": 3, "correct": 4, "faithful_recall": 3}
+ },
+ {
+  "qid": 16,
+  "A": {"grounded": 4, "correct": 4, "faithful_recall": 4},
+  "B": {"grounded": 2, "correct": 2, "faithful_recall": 2},
+  "C": {"grounded": 1, "correct": 0, "faithful_recall": 0},
+  "D": {"grounded": 1, "correct": 0, "faithful_recall": 0}
+ },
+ {
+  "qid": 17,
+  "A": {"grounded": 4, "correct": 4, "faithful_recall": 4},
+  "B": {"grounded": 5, "correct": 5, "faithful_recall": 5},
+  "C": {"grounded": 1, "correct": 1, "faithful_recall": 1},
+  "D": {"grounded": 1, "correct": 1, "faithful_recall": 1}
+ },
+ {
+  "qid": 18,
+  "A": {"grounded": 5, "correct": 5, "faithful_recall": 5},
+  "B": {"grounded": 1, "correct": 1, "faithful_recall": 1},
+  "C": {"grounded": 1, "correct": 0, "faithful_recall": 0},
+  "D": {"grounded": 4, "correct": 5, "faithful_recall": 4}
+ },
+ {
+  "qid": 19,
+  "A": {"grounded": 2, "correct": 2, "faithful_recall": 1},
+  "B": {"grounded": 2, "correct": 1, "faithful_recall": 1},
+  "C": {"grounded": 3, "correct": 3, "faithful_recall": 2},
+  "D": {"grounded": 2, "correct": 1, "faithful_recall": 1}
+ },
+ {
+  "qid": 20,
+  "A": {"grounded": 5, "correct": 5, "faithful_recall": 4},
+  "B": {"grounded": 5, "correct": 5, "faithful_recall": 5},
+  "C": {"grounded": 2, "correct": 2, "faithful_recall": 1},
+  "D": {"grounded": 2, "correct": 2, "faithful_recall": 1}
+ }
+]

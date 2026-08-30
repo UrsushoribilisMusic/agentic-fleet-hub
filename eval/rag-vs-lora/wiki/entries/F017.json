@@ -1,0 +1,7 @@
+{
+  "id": "F017",
+  "title": "Agent active days per standup data",
+  "body": "Active days by agent (days with at least one session recorded in standups): tcr_scout=63, gem=60, misty=57, clau=47, codi=36. tcr_scout is a specialized TCR campaign monitor, not a general task agent. Gem and misty show the highest general-purpose activity.",
+  "source_ref": "FX-015 MISSION_CONTROL.md entry; out/standups/report.json",
+  "type": "fact"
+}

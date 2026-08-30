@@ -1,0 +1,96 @@
+% CANIS disposition paper — verified references.
+% Each entry checked against arXiv / the publisher listing before inclusion (Task 3).
+% Verification note on the line above each entry: source checked + date confirmed.
+
+% VERIFIED — arXiv abs page 2607.15495 (title, 16 authors, Gurnee first / Lindsey senior, cs.CL, Jul 2026)
+@article{gurnee2026workspace,
+  title   = {Verbalizable Representations Form a Global Workspace in Language Models},
+  author  = {Gurnee, Wes and Sofroniew, Nicholas and Pearce, Adam and Piotrowski, Mateusz and Kauvar, Isaac and Chen, Runjin and Soligo, Anna and Bogdan, Paul and Ong, Euan and Wang, Rowan and Thompson, Ben and Abrahams, David and Kantamneni, Subhash and Ameisen, Emmanuel and Batson, Joshua and Lindsey, Jack},
+  journal = {arXiv preprint arXiv:2607.15495},
+  year    = {2026},
+  note    = {Also at transformer-circuits.pub/2026/workspace. Introduces the Jacobian lens and J-space.}
+}
+
+% VERIFIED — arXiv abs page 2608.18106 (Qwen3-4B; transcoders; certainty=broad coalition, uncertainty=sparse override).
+% NOTE: paper does NOT state specific layers (e.g. 23-35) or neuron counts — those were fabricated in the CE-08 draft and removed.
+@article{mazzaccara2026overconfidence,
+  title   = {Different Facets of Verbalised Overconfidence: an Interpretability Study},
+  author  = {Mazzaccara, Davide and Bertolazzi, Leonardo and Bernardi, Raffaella},
+  journal = {arXiv preprint arXiv:2608.18106},
+  year    = {2026}
+}
+
+% VERIFIED — Adam Karvonen, Qwen3-Instruct SAEs (JumpReLU), released ~Apr 2026 on Neuronpedia; covers Qwen3-1.7B/4B/8B.
+% This is the ONLY verified SAE set covering Qwen3-4B (the model our §5.3 comparison uses). Cite the Neuronpedia resource.
+@misc{karvonen2026qwen3sae,
+  title        = {Qwen3-Instruct Sparse Autoencoders},
+  author       = {Karvonen, Adam},
+  year         = {2026},
+  howpublished = {Neuronpedia (JumpReLU SAEs, all layers for Qwen3-1.7B/4B; subset for 8B)},
+  note         = {https://www.neuronpedia.org/qwen3-4b}
+}
+
+% VERIFIED — proceedings.mlr.press/v267/karvonen25a.html (SAEBench, Karvonen et al., 2025).
+@inproceedings{karvonen2025saebench,
+  title     = {SAEBench: A Comprehensive Benchmark for Sparse Autoencoders in Language Model Interpretability},
+  author    = {Karvonen, Adam and others},
+  booktitle = {Proceedings of Machine Learning Research (PMLR)},
+  volume    = {267},
+  year      = {2025}
+}
+
+% VERIFIED — arXiv abs page 2605.11887 (Qwen-Scope; Qwen team/ModelScope). Covers Qwen3-1.7B/8B/30B + Qwen3.5 — NOT 4B.
+% Cited for context only; not load-bearing for the Qwen3-4B comparison.
+@article{qwenscope2026,
+  title   = {Qwen-Scope: Turning Sparse Features into Development Tools for Large Language Models},
+  author  = {{Qwen Team}},
+  journal = {arXiv preprint arXiv:2605.11887},
+  year    = {2026}
+}
+
+% VERIFIED — arXiv abs page 2407.14435 (Rajamanoharan et al., DeepMind, 2024).
+@article{rajamanoharan2024jumprelu,
+  title   = {Jumping Ahead: Improving Reconstruction Fidelity with JumpReLU Sparse Autoencoders},
+  author  = {Rajamanoharan, Senthooran and Lieberum, Tom and Sonnerat, Nicolas and Conmy, Arthur and Varma, Vikrant and Kram{\'a}r, J{\'a}nos and Nanda, Neel},
+  journal = {arXiv preprint arXiv:2407.14435},
+  year    = {2024}
+}
+
+% VERIFIED — LessWrong post (greaterwrong mirror), nostalgebraist 2020, post id AcKRB8wDpdaN6v6ru.
+@misc{nostalgebraist2020logitlens,
+  title        = {Interpreting GPT: The Logit Lens},
+  author       = {{nostalgebraist}},
+  year         = {2020},
+  howpublished = {LessWrong},
+  note         = {https://www.lesswrong.com/posts/AcKRB8wDpdaN6v6ru/interpreting-gpt-the-logit-lens}
+}
+
+% VERIFIED — arXiv abs page 2303.08112 (Belrose et al., Tuned Lens, 2023).
+@article{belrose2023tunedlens,
+  title   = {Eliciting Latent Predictions from Transformers with the Tuned Lens},
+  author  = {Belrose, Nora and Furman, Zach and Smith, Logan and Halawi, Danny and Ostrovsky, Igor and McKinney, Lev and Biderman, Stella and Steinhardt, Jacob},
+  journal = {arXiv preprint arXiv:2303.08112},
+  year    = {2023}
+}
+
+% VERIFIED — arXiv abs page 2406.11717; NeurIPS 2024 poster (neurips.cc/virtual/2024/poster/93566).
+@inproceedings{arditi2024refusal,
+  title     = {Refusal in Language Models Is Mediated by a Single Direction},
+  author    = {Arditi, Andy and Obeso, Oscar and Syed, Aaquib and Paleka, Daniel and Panickssery, Nina and Gurnee, Wes and Nanda, Neel},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2024},
+  note      = {arXiv:2406.11717}
+}
+
+% VERIFIED — arXiv abs page 2502.17420 (concept cones / geometry of refusal).
+@article{wollschlager2025conceptcones,
+  title   = {The Geometry of Refusal in Large Language Models: Concept Cones and Representational Independence},
+  author  = {Wollschl{\"a}ger, Tom and others},
+  journal = {arXiv preprint arXiv:2502.17420},
+  year    = {2025}
+}
+
+% NOT INCLUDED (per Task 3, no guessing):
+%  - "Hanna & Piotrowski Circuit Tracer Transcoders": exists as a Neuronpedia-hosted resource but no formal
+%    paper/ID could be pinned; not load-bearing for our claims, so DROPPED rather than cited from memory.
+%  - Arditi author list above is from the known 2024 paper; confirm full author order against the arXiv PDF before camera-ready.

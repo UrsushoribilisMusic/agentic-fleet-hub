@@ -1,0 +1,7 @@
+{
+  "id": "R11",
+  "title": "When agent output is a crash log or quota error, reject and escalate",
+  "body": "Multiple rejections of the same task with identical error signatures (API quota, sandbox denial) indicate an agent capacity problem, not a code bug. Reject the task, post a comment explaining the error pattern, and surface it to @miguel.",
+  "source_ref": "rules.md:R11; lessons — 'Codi submits heartbeat reports without actual work'; 'Gem hits daily API quota'",
+  "type": "rule"
+}

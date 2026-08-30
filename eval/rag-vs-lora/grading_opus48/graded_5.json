@@ -1,0 +1,9 @@
+[
+ {"qid": 36, "A": {"grounded": 5, "correct": 5, "faithful_recall": 5}, "B": {"grounded": 1, "correct": 1, "faithful_recall": 0}, "C": {"grounded": 1, "correct": 1, "faithful_recall": 1}, "D": {"grounded": 3, "correct": 4, "faithful_recall": 4}},
+ {"qid": 37, "A": {"grounded": 1, "correct": 0, "faithful_recall": 0}, "B": {"grounded": 5, "correct": 5, "faithful_recall": 5}, "C": {"grounded": 1, "correct": 0, "faithful_recall": 0}, "D": {"grounded": 1, "correct": 1, "faithful_recall": 1}},
+ {"qid": 38, "A": {"grounded": 3, "correct": 3, "faithful_recall": 2}, "B": {"grounded": 3, "correct": 3, "faithful_recall": 2}, "C": {"grounded": 2, "correct": 3, "faithful_recall": 2}, "D": {"grounded": 2, "correct": 3, "faithful_recall": 2}},
+ {"qid": 39, "A": {"grounded": 5, "correct": 5, "faithful_recall": 5}, "B": {"grounded": 5, "correct": 5, "faithful_recall": 5}, "C": {"grounded": 2, "correct": 2, "faithful_recall": 1}, "D": {"grounded": 1, "correct": 1, "faithful_recall": 0}},
+ {"qid": 40, "A": {"grounded": 2, "correct": 1, "faithful_recall": 1}, "B": {"grounded": 2, "correct": 2, "faithful_recall": 2}, "C": {"grounded": 2, "correct": 1, "faithful_recall": 1}, "D": {"grounded": 1, "correct": 1, "faithful_recall": 0}},
+ {"qid": 41, "A": {"grounded": 2, "correct": 2, "faithful_recall": 1}, "B": {"grounded": 1, "correct": 1, "faithful_recall": 0}, "C": {"grounded": 5, "correct": 5, "faithful_recall": 5}, "D": {"grounded": 4, "correct": 5, "faithful_recall": 4}},
+ {"qid": 42, "A": {"grounded": 5, "correct": 5, "faithful_recall": 5}, "B": {"grounded": 4, "correct": 4, "faithful_recall": 4}, "C": {"grounded": 1, "correct": 1, "faithful_recall": 1}, "D": {"grounded": 1, "correct": 1, "faithful_recall": 1}}
+]

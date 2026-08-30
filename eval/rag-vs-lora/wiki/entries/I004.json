@@ -1,0 +1,7 @@
+{
+  "id": "I004",
+  "title": "Gem quota crash pattern: daily Gemini API limit produces crash logs as task output",
+  "body": "Gem (Gemini CLI agent) periodically exhausts its daily Gemini API quota mid-task. When this occurs, the output comment contains a Gemini CLI crash log instead of implementation output. Peer reviewers must check the codebase — not just the comment — before approving. Multiple rejections with identical quota error signatures indicate an agent capacity problem requiring escalation to @miguel (see R11).",
+  "source_ref": "lessons — 'Gem posts Gemini CLI crash logs as task output'; 'Gem hits daily Gemini API quota limits'; R09, R11",
+  "type": "incident"
+}

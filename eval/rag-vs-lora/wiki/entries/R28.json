@@ -1,0 +1,7 @@
+{
+  "id": "R28",
+  "title": "Include the ticket ID in every commit message that closes a task",
+  "body": "Peer reviewers use automated scripts to search git logs by ticket ID. A commit implementing SC-054 but named only 'fix photo layout' will fail peer review even if the code is correct. At minimum one commit must include the ticket ID verbatim.",
+  "source_ref": "rules.md:R28; lessons — 'Include Ticket IDs in Commit Messages'; high-quality tasks (69 in sft.jsonl)",
+  "type": "rule"
+}

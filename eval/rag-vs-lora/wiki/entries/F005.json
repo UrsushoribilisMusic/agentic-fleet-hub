@@ -1,0 +1,7 @@
+{
+  "id": "F005",
+  "title": "Status transition pattern: most in_progress tasks returned to todo",
+  "body": "Of 42,694 status transitions recorded: todo→in_progress=21,525, in_progress→todo=17,445, in_progress→peer_review=3,528. The 81% ratio of in_progress→todo vs in_progress→peer_review indicates most task attempts reset without completing (context limit, quota, session end).",
+  "source_ref": "facts.db:task_events WHERE event_type='status_transition'",
+  "type": "fact"
+}

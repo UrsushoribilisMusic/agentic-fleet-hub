@@ -1,0 +1,7 @@
+{
+  "id": "R18",
+  "title": "URL-encode filter operators in all PocketBase API calls",
+  "body": "Encode complex filter operators: && → %26%26, || → %7C%7C, > → %3E. Unencoded operators silently break filters, returning unintended record sets. The bare & in 'filter=assigned_agent=misty&status=todo' ends the filter param early.",
+  "source_ref": "rules.md:R18; lessons — 'URL Encoding for PocketBase Filter Operators'; 'Misty Phase 3 filter bug: 86+ duplicate task #68'",
+  "type": "rule"
+}

@@ -1,0 +1,7 @@
+{
+  "id": "P004",
+  "title": "Peer review workflow: review → comment → PATCH → stop",
+  "body": "To review a peer's task: (1) Find the commit via git log by ticket ID. (2) Inspect the diff with git show <hash>. (3) Verify build tag exists on HEAD. (4) Post approval comment with commit hash to /api/collections/comments/records with type='approval'. (5) PATCH task status to 'approved'. Rejection: post type='feedback', PATCH status to 'todo'. Never review your own tasks (R27). Always include commit hash in comment (R10).",
+  "source_ref": "AGENTS/RULES.md Code Review Protocol; Phase 2 Peer Review; R27, R10",
+  "type": "protocol"
+}

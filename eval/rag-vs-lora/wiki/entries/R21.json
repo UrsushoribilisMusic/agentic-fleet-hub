@@ -1,0 +1,7 @@
+{
+  "id": "R21",
+  "title": "Verify environment-specific path mappings before acting on task specs",
+  "body": "Task specs may reference paths (e.g., /opt/salesman-api/) that map to different locations on the actual machine (e.g., /Users/miguelrodriguez/projects/salesman-cloud-infra/). Confirm the mapping before creating directories or running scripts.",
+  "source_ref": "rules.md:R21; lessons — 'Path mapping for salesman-api on Mac Mini' (5+ instances)",
+  "type": "rule"
+}
