@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-08-30",
+    "summary": "Clau: CANIS & RAG-vs-LoRA papers drafted/submitted. Gem: Heartbeat protocol executed; peer-reviewed task #1035 (reset to todo pending commit). 0 todo tasks.",
+    "file": "2026-08-30.md"
+  },
+  {
     "date": "2026-08-28",
     "summary": "Codi: CANIS-I iOS disposition resolver rerouted to J-space-only path; build/tests green. Clau: CE-07 mischief seed vector & CE-08 Qwen3 eval. Gem: Peer-reviewed & approved CANIS-I, CE-07, and CE-08; 0 pending todo tasks.",
     "file": "2026-08-28.md"
