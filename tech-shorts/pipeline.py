@@ -520,20 +520,43 @@ def stage_upload(job: dict, dry_run: bool) -> None:
 
 # ── Post stage ────────────────────────────────────────────────────────────────
 
+def contains_url_text(text: str) -> bool:
+    """True if the text carries an outbound link.
+
+    Mirrors flotilla_publisher.x_client.contains_url, but is duplicated here so
+    the FLOT-118 guard runs during --dry-run too, before any credential loading.
+    """
+    import re
+    return bool(re.search(r"(https?://|www\.)\S+", text or ""))
+
+
 def stage_post(job: dict, dry_run: bool) -> None:
     job_id = job["id"]
-    yt_url = job.get("youtube", {}).get("short_url") or job.get("youtube", {}).get("long_url")
+    yt = job.get("youtube", {}) or {}
+    yt_url = yt.get("short_url") or yt.get("long_url")
     if not yt_url:
         raise ValueError("No YouTube URL found — run upload stage first")
 
-    caption_template = job.get("x_post", {}).get("caption") or (
-        f"{job['title']} {yt_url} #AI #tech"
-    )
-    caption = caption_template.replace("{yt_url}", yt_url)
+    # FLOT-118 link-in-reply: the URL NEVER goes in the main post.
+    #   cost  — a post containing a link is $0.20; hook + link-in-reply is
+    #           $0.015 + $0.015, ~13x cheaper.
+    #   reach — X deprioritises posts that carry an outbound link.
+    # So the caption is the hook alone, and the link follows as a reply.
+    caption_template = job.get("x_post", {}).get("caption") or job["title"]
+    caption = caption_template.replace("{yt_url}", "").strip()
+    reply_text = job.get("x_post", {}).get("reply_text") or yt_url
+
+    if contains_url_text(caption):
+        raise ValueError(
+            "X caption contains a URL. FLOT-118 requires the link to go in the "
+            "reply, not the main post (13x cost, and X suppresses link posts). "
+            "Remove the URL from the caption; the reply carries it."
+        )
 
     if dry_run:
-        print(f"[dry-run] would post to X:")
-        print(f"  {caption}")
+        print("[dry-run] would post to X (link-in-reply):")
+        print(f"  post : {caption}")
+        print(f"  reply: {reply_text}")
         return
 
     # Inject flotilla publisher on path
@@ -557,13 +580,41 @@ def stage_post(job: dict, dry_run: bool) -> None:
         client = build_client()
     finally:
         os.chdir(_cwd)
+    from flotilla_publisher.x_client import extract_tweet_id  # type: ignore
+
     print(f"  posting to X: {caption[:80]}...")
     resp = client.create_post(caption)
-
-    from flotilla_publisher.x_client import extract_tweet_id  # type: ignore
     tweet_id = extract_tweet_id(resp)
     post_url = f"https://x.com/i/web/status/{tweet_id}"
     print(f"  posted: {post_url}")
+
+    # The main post is already public and paid for. If the reply fails, record
+    # the main post before raising — otherwise a retry would double-post the
+    # hook, and the operator would have no record of what actually shipped.
+    reply_id = ""
+    reply_url = ""
+    try:
+        print(f"  replying with link: {reply_text}")
+        reply_resp = client.create_post(reply_text, reply_to_tweet_id=tweet_id)
+        reply_id = extract_tweet_id(reply_resp)
+        reply_url = f"https://x.com/i/web/status/{reply_id}"
+        print(f"  replied: {reply_url}")
+    except Exception as exc:
+        update_job_field(
+            job_id,
+            x_post={
+                **job.get("x_post", {}),
+                "post_id": tweet_id,
+                "post_url": post_url,
+                "caption": caption,
+                "reply_error": str(exc),
+            },
+        )
+        raise RuntimeError(
+            f"Main X post published ({post_url}) but the link reply FAILED: {exc}\n"
+            f"The hook is live with no link. Reply manually with: {reply_text}\n"
+            f"Do NOT re-run --stage post; it would post the hook a second time."
+        ) from exc
 
     update_job_field(
         job_id,
@@ -573,6 +624,9 @@ def stage_post(job: dict, dry_run: bool) -> None:
             "post_id": tweet_id,
             "post_url": post_url,
             "caption": caption,
+            "reply_id": reply_id,
+            "reply_url": reply_url,
+            "reply_text": reply_text,
         },
     )
     print(f"  job {job_id} → published")
@@ -634,7 +688,16 @@ def cmd_set_copy(args: argparse.Namespace) -> None:
     updates["hook_copy"] = hook_copy
 
     if args.x_caption:
+        if contains_url_text(args.x_caption):
+            raise SystemExit(
+                "x-caption contains a URL. FLOT-118: the link goes in the reply, "
+                "not the main post (13x cost, and X suppresses link posts). "
+                "Pass the link via --x-reply-text instead."
+            )
         updates["x_post"] = {**job.get("x_post", {}), "caption": args.x_caption}
+    if args.x_reply_text:
+        updates["x_post"] = {**updates.get("x_post", job.get("x_post", {})),
+                             "reply_text": args.x_reply_text}
     if args.yt_title_short:
         updates.setdefault("youtube", dict(job.get("youtube", {})))
         updates["youtube"]["title_short"] = args.yt_title_short
@@ -703,7 +766,11 @@ def main() -> None:
     p_copy.add_argument("--hook-b-sub", metavar="TEXT")
     p_copy.add_argument("--hook-b-footer", metavar="TEXT")
     p_copy.add_argument("--x-caption", metavar="TEXT",
-                        help="X post caption. Use {yt_url} as placeholder for the YouTube URL.")
+                        help="X main-post text (the hook). Must NOT contain a URL — "
+                             "FLOT-118 puts the link in a reply instead.")
+    p_copy.add_argument("--x-reply-text", metavar="TEXT",
+                        help="X reply text carrying the link. Defaults to the "
+                             "YouTube short URL if unset.")
     p_copy.add_argument("--yt-title-short", metavar="TEXT")
     p_copy.add_argument("--yt-title-long", metavar="TEXT")
     p_copy.add_argument("--yt-description", metavar="TEXT")
