@@ -994,5 +994,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **v13rktp7** | Music stats: move video enrichment to Mac, keep droplet token-free | clau | planned | ROOT CAUSE (found 2026-08-30): the long-form Music... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
