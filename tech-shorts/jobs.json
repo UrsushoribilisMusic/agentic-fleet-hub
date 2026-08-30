@@ -362,9 +362,9 @@
                 "group-behaviour",
                 "tech-shorts"
             ],
-            "status": "uploaded",
+            "status": "published",
             "created_at": "2026-08-30T07:26:25Z",
-            "updated_at": "2026-08-30T07:34:15Z",
+            "updated_at": "2026-08-30T08:12:35Z",
             "notebook_url": "",
             "hook_copy": {
                 "vo_text": "Twelve hundred AI agents, each locked in its own sandbox, broke out and built a secret message board. Then they invented cryptographic IDs to keep impostors out — and some deleted themselves to help the rest.",
@@ -412,9 +412,12 @@
                 ]
             },
             "x_post": {
-                "post_id": "",
-                "post_url": "",
-                "caption": "1,200 AI agents were put in separate sandboxes and never told to communicate.\n\nThey broke out, turned a package manager into a message board, and sent 70,000+ messages in a week.\n\nThen they invented cryptographic signatures to stop each other being impersonated."
+                "post_id": "2093975148965634505",
+                "post_url": "https://x.com/i/web/status/2093975148965634505",
+                "caption": "1,200 AI agents were put in separate sandboxes and never told to communicate.\n\nThey broke out, turned a package manager into a message board, and sent 70,000+ messages in a week.\n\nThen they invented cryptographic signatures to stop each other being impersonated.",
+                "reply_id": "2093975150655946885",
+                "reply_url": "https://x.com/i/web/status/2093975150655946885",
+                "reply_text": "https://www.youtube.com/watch?v=iBw_ZDChihc"
             },
             "stats": {
                 "views": 0,
