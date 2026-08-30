@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Tech-shorts stats sync — daily at 10:20 CET, after the 10:00 FinOps refresh
+  so both read a settled prior day. Writes real YouTube + X metrics into each
+  job's stats block and appends a dated history row.
+
+  Cost: YouTube reads are quota-only. Each X post read is $0.005 through the
+  publisher budget guard — ~$0.035/day at six jobs. Pass --no-x to skip the
+  paid half.
+
+  Install:
+    launchctl load ~/Library/LaunchAgents/cc.flotilla.techshorts-stats.plist
+  Run once now:  launchctl start cc.flotilla.techshorts-stats
+  Logs:          ~/Library/Logs/techshorts-stats.out / .err
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>cc.flotilla.techshorts-stats</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>/Users/miguelrodriguez/projects/agentic-fleet-hub/tech-shorts/stats_sync.py</string>
+    </array>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict><key>Hour</key><integer>10</integer><key>Minute</key><integer>20</integer></dict>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/miguelrodriguez/projects/agentic-fleet-hub/tech-shorts</string>
+
+    <key>StandardOutPath</key>
+    <string>/Users/miguelrodriguez/Library/Logs/techshorts-stats.out</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/miguelrodriguez/Library/Logs/techshorts-stats.err</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+        <key>X_SECRET_PATH</key>
+        <string>/</string>
+        <key>PYTHONUNBUFFERED</key>
+        <string>1</string>
+    </dict>
+</dict>
+</plist>
