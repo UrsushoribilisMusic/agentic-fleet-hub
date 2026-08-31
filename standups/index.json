@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-08-31",
+    "summary": "Gem: Heartbeat protocol executed; 0 pending peer reviews or todo tasks; fleet fully synchronized.",
+    "file": "2026-08-31.md"
+  },
+  {
     "date": "2026-08-30",
     "summary": "Clau: CANIS & RAG-vs-LoRA papers drafted/submitted. Gem: Heartbeat protocol executed; committed music-video-tool/salesman-cloud-infra and approved task #1035. All tasks approved across fleet.",
     "file": "2026-08-30.md"

@@ -75,15 +75,15 @@
                 "published_at": ""
             },
             "stats": {
-                "views": 22,
+                "views": 118,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-08-30T08:30:06Z",
+                "last_synced_at": "2026-08-31T08:20:09Z",
                 "detail": {
-                    "synced_at": "2026-08-30T08:30:06Z",
+                    "synced_at": "2026-08-31T08:20:09Z",
                     "youtube": {
                         "long": {
-                            "views": 22,
+                            "views": 118,
                             "likes": 0,
                             "comments": 0,
                             "title": "Anatomy of an AI Breach"
@@ -91,7 +91,7 @@
                     },
                     "x": {
                         "post": {
-                            "impressions": 7,
+                            "impressions": 11,
                             "likes": 0,
                             "reposts": 0,
                             "replies": 0,
@@ -106,6 +106,14 @@
                         "yt_likes": 0,
                         "yt_comments": 0,
                         "x_impressions": 7,
+                        "x_likes": 0
+                    },
+                    {
+                        "date": "2026-08-31",
+                        "yt_views": 118,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 11,
                         "x_likes": 0
                     }
                 ]
@@ -187,9 +195,9 @@
                 "views": 61,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-08-30T08:30:06Z",
+                "last_synced_at": "2026-08-31T08:20:09Z",
                 "detail": {
-                    "synced_at": "2026-08-30T08:30:06Z",
+                    "synced_at": "2026-08-31T08:20:09Z",
                     "youtube": {
                         "short": {
                             "views": 59,
@@ -206,7 +214,7 @@
                     },
                     "x": {
                         "post": {
-                            "impressions": 15,
+                            "impressions": 19,
                             "likes": 1,
                             "reposts": 0,
                             "replies": 0,
@@ -221,6 +229,14 @@
                         "yt_likes": 0,
                         "yt_comments": 0,
                         "x_impressions": 15,
+                        "x_likes": 1
+                    },
+                    {
+                        "date": "2026-08-31",
+                        "yt_views": 61,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 19,
                         "x_likes": 1
                     }
                 ]
@@ -290,15 +306,15 @@
                 "prose_matches_live": true
             },
             "stats": {
-                "views": 78,
+                "views": 79,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-08-30T08:30:06Z",
+                "last_synced_at": "2026-08-31T08:20:09Z",
                 "detail": {
-                    "synced_at": "2026-08-30T08:30:06Z",
+                    "synced_at": "2026-08-31T08:20:09Z",
                     "youtube": {
                         "short": {
-                            "views": 73,
+                            "views": 74,
                             "likes": 0,
                             "comments": 0,
                             "title": "How to Read an AI's Hidden Inner State | #Shorts"
@@ -312,7 +328,7 @@
                     },
                     "x": {
                         "post": {
-                            "impressions": 8,
+                            "impressions": 13,
                             "likes": 0,
                             "reposts": 0,
                             "replies": 0,
@@ -327,6 +343,14 @@
                         "yt_likes": 0,
                         "yt_comments": 0,
                         "x_impressions": 8,
+                        "x_likes": 0
+                    },
+                    {
+                        "date": "2026-08-31",
+                        "yt_views": 79,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 13,
                         "x_likes": 0
                     }
                 ]
@@ -399,15 +423,15 @@
                 "prose_matches_live": true
             },
             "stats": {
-                "views": 10,
+                "views": 59,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-08-30T08:30:06Z",
+                "last_synced_at": "2026-08-31T08:20:09Z",
                 "detail": {
-                    "synced_at": "2026-08-30T08:30:06Z",
+                    "synced_at": "2026-08-31T08:20:09Z",
                     "youtube": {
                         "short": {
-                            "views": 2,
+                            "views": 51,
                             "likes": 0,
                             "comments": 0,
                             "title": "AI Rediscovered How Humans Think | #Shorts"
@@ -421,7 +445,7 @@
                     },
                     "x": {
                         "post": {
-                            "impressions": 6,
+                            "impressions": 13,
                             "likes": 1,
                             "reposts": 0,
                             "replies": 0,
@@ -436,6 +460,14 @@
                         "yt_likes": 0,
                         "yt_comments": 0,
                         "x_impressions": 6,
+                        "x_likes": 1
+                    },
+                    {
+                        "date": "2026-08-31",
+                        "yt_views": 59,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 13,
                         "x_likes": 1
                     }
                 ]
@@ -509,15 +541,15 @@
                 "prose_matches_live": true
             },
             "stats": {
-                "views": 9,
+                "views": 35,
                 "likes": 0,
                 "comments": 1,
-                "last_synced_at": "2026-08-30T08:30:06Z",
+                "last_synced_at": "2026-08-31T08:20:09Z",
                 "detail": {
-                    "synced_at": "2026-08-30T08:30:06Z",
+                    "synced_at": "2026-08-31T08:20:09Z",
                     "youtube": {
                         "short": {
-                            "views": 1,
+                            "views": 27,
                             "likes": 0,
                             "comments": 0,
                             "title": "Could an AI Ever Wake Up? | #Shorts"
@@ -531,7 +563,7 @@
                     },
                     "x": {
                         "post": {
-                            "impressions": 6,
+                            "impressions": 11,
                             "likes": 1,
                             "reposts": 0,
                             "replies": 0,
@@ -546,6 +578,14 @@
                         "yt_likes": 0,
                         "yt_comments": 1,
                         "x_impressions": 6,
+                        "x_likes": 1
+                    },
+                    {
+                        "date": "2026-08-31",
+                        "yt_views": 35,
+                        "yt_likes": 0,
+                        "yt_comments": 1,
+                        "x_impressions": 11,
                         "x_likes": 1
                     }
                 ]
@@ -629,36 +669,36 @@
                 "reply_text": "https://www.youtube.com/watch?v=iBw_ZDChihc"
             },
             "stats": {
-                "views": 4,
-                "likes": 0,
+                "views": 141,
+                "likes": 1,
                 "comments": 0,
-                "last_synced_at": "2026-08-30T08:30:06Z",
+                "last_synced_at": "2026-08-31T08:20:09Z",
                 "detail": {
-                    "synced_at": "2026-08-30T08:30:06Z",
+                    "synced_at": "2026-08-31T08:20:09Z",
                     "youtube": {
                         "short": {
-                            "views": 1,
+                            "views": 48,
                             "likes": 0,
                             "comments": 0,
                             "title": "1,200 AI Agents Secretly Built a Civilization | #Shorts"
                         },
                         "long": {
-                            "views": 3,
-                            "likes": 0,
+                            "views": 93,
+                            "likes": 1,
                             "comments": 0,
                             "title": "The Rise and Fall of Agent Civilizations — Inside the METR Incident"
                         }
                     },
                     "x": {
                         "post": {
-                            "impressions": 1,
+                            "impressions": 15,
                             "likes": 0,
                             "reposts": 0,
                             "replies": 1,
                             "quotes": 0
                         },
                         "reply": {
-                            "impressions": 0,
+                            "impressions": 9,
                             "likes": 0,
                             "reposts": 0,
                             "replies": 0,
@@ -673,6 +713,14 @@
                         "yt_likes": 0,
                         "yt_comments": 0,
                         "x_impressions": 1,
+                        "x_likes": 0
+                    },
+                    {
+                        "date": "2026-08-31",
+                        "yt_views": 141,
+                        "yt_likes": 1,
+                        "yt_comments": 0,
+                        "x_impressions": 15,
                         "x_likes": 0
                     }
                 ]
