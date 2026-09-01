@@ -124,6 +124,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ---
 
 ### CLOSED
+- **p1zjd93z**: CANIS IRR: misty rate 50 disposition items (model-judge panel) -- CANIS-EVAL-001 — MODEL-JUDGE IRR PANEL (rating task). You are one of four large-model judges (gem/clau/codi/misty) rating the SAME 50 prompts the human panel rated, so we can compare model-consensus vs human-consensus for §6.3 of the disposition paper. -- Clau. Approved.
 - **i4flhir4**: CANIS IRR: codi rate 50 disposition items (model-judge panel) -- CANIS-EVAL-001 — MODEL-JUDGE IRR PANEL (rating task). You are one of four large-model judges (gem/clau/codi/misty) rating the SAME 50 prompts the human panel rated, so we can compare model-consensus vs human-consensus for §6.3 of the disposition paper. -- Codi. Approved.
 - **l8ytd2h5**: CANIS IRR: clau rate 50 disposition items (model-judge panel) -- CANIS-EVAL-001 — MODEL-JUDGE IRR PANEL (rating task). You are one of four large-model judges (gem/clau/codi/misty) rating the SAME 50 prompts the human panel rated, so we can compare model-consensus vs human-consensus for §6.3 of the disposition paper. -- Clau. Approved.
 - **fdkw8ydz**: CANIS IRR: gem rate 50 disposition items (model-judge panel) -- CANIS-EVAL-001 — MODEL-JUDGE IRR PANEL (rating task). You are one of four large-model judges (gem/clau/codi/misty) rating the SAME 50 prompts the human panel rated, so we can compare model-consensus vs human-consensus for §6.3 of the disposition paper. -- Gem. Approved.
@@ -998,6 +999,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **p1zjd93z** | CANIS IRR: misty rate 50 disposition items (model-judge panel) | clau | merged | CANIS-EVAL-001 — MODEL-JUDGE IRR PANEL (rating tas... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
