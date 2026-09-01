@@ -61,6 +61,33 @@ def save(d: dict) -> None:
     tmp.replace(JOBS)
 
 
+# Droplet target for the tracker API (token-free: it only reads these stats).
+REMOTE_JOBS = os.environ.get(
+    "TECH_SHORTS_REMOTE_JOBS",
+    "root@159.223.22.165:/opt/salesman-api/fleet/tech-shorts/jobs.json",
+)
+
+
+def push_to_droplet() -> bool:
+    """scp jobs.json to the droplet so the tracker serves fresh view counts.
+
+    The droplet holds no YouTube token; it just reads these precomputed stats.
+    Mirrors tcr_scout._push_snapshot. Failure is non-fatal — the local write
+    already succeeded and the next run retries.
+    """
+    import subprocess
+    try:
+        subprocess.run(
+            ["scp", "-o", "StrictHostKeyChecking=accept-new", str(JOBS), REMOTE_JOBS],
+            check=True, capture_output=True, timeout=60,
+        )
+        print(f"pushed jobs.json -> {REMOTE_JOBS}")
+        return True
+    except Exception as exc:
+        print(f"WARNING: push to droplet failed: {exc}", file=sys.stderr)
+        return False
+
+
 # ── YouTube ──────────────────────────────────────────────────────────────────
 
 def fetch_youtube(ids: list) -> dict:
@@ -135,6 +162,7 @@ def main() -> None:
     ap.add_argument("--job")
     ap.add_argument("--no-x", action="store_true", help="skip the paid X reads")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--no-push", action="store_true", help="skip the scp to the droplet tracker")
     args = ap.parse_args()
 
     d = load()
@@ -185,6 +213,8 @@ def main() -> None:
         yv = sum(v["views"] for v in entry["youtube"].values())
         yl = sum(v["likes"] for v in entry["youtube"].values())
         yc = sum(v["comments"] for v in entry["youtube"].values())
+        short_v = entry["youtube"].get("short", {}).get("views", 0)
+        long_v = entry["youtube"].get("long", {}).get("views", 0)
         print(f"{j['id'][:52]:<54} yt_views={yv:<7} yt_likes={yl:<5} "
               f"x_impr={entry['x'].get('post',{}).get('impressions','-')}")
 
@@ -194,6 +224,7 @@ def main() -> None:
         stats = j.setdefault("stats", {})
         stats.update({
             "views": yv, "likes": yl, "comments": yc,
+            "short_views": short_v, "long_views": long_v, "total_views": yv,
             "last_synced_at": stamp,
             "detail": entry,
         })
@@ -212,6 +243,8 @@ def main() -> None:
     if not args.dry_run:
         save(d)
         print(f"\nwritten to {JOBS}")
+        if not args.no_push:
+            push_to_droplet()
     print(f"total YouTube views across synced jobs: {total_yt_views}")
 
 

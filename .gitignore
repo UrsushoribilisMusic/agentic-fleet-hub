@@ -57,3 +57,4 @@ disposition-lens/seed_vectors*.npz
 eval/h_tap_*.jsonl
 eval/ood_run/
 disposition-lens/*.bak-preCE09
+eval/irr_human/rater_map.local.json
