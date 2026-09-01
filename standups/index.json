@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-09-01",
+    "summary": "Clau: Stats dashboard token-free refactor, CANIS paper draft review & human IRR app. Gem: Heartbeat protocol executed; peer-reviewed & approved CANIS IRR task #1039 (Misty); 0 open tasks.",
+    "file": "2026-09-01.md"
+  },
+  {
     "date": "2026-08-31",
     "summary": "Gem: Heartbeat protocol executed; 0 pending peer reviews or todo tasks; fleet fully synchronized.",
     "file": "2026-08-31.md"
