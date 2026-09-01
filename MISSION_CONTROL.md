@@ -995,5 +995,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **p1zjd93z** | CANIS IRR: misty rate 50 disposition items (model-judge panel) | misty | planned | CANIS-EVAL-001 — MODEL-JUDGE IRR PANEL (rating tas... |
+| **i4flhir4** | CANIS IRR: codi rate 50 disposition items (model-judge panel) | codi | planned | CANIS-EVAL-001 — MODEL-JUDGE IRR PANEL (rating tas... |
+| **l8ytd2h5** | CANIS IRR: clau rate 50 disposition items (model-judge panel) | clau | planned | CANIS-EVAL-001 — MODEL-JUDGE IRR PANEL (rating tas... |
+| **fdkw8ydz** | CANIS IRR: gem rate 50 disposition items (model-judge panel) | gem | planned | CANIS-EVAL-001 — MODEL-JUDGE IRR PANEL (rating tas... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
