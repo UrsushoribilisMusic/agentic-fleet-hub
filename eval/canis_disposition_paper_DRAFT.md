@@ -17,8 +17,9 @@ the *model*, or that the axis is a real construct. We therefore subject seven ca
 **three orthogonal validity tests**: (i) out-of-distribution generalization with frozen seeds on
 a deliberately different-style test set; (ii) a **prompt-only control** (a text classifier with
 no model access); and (iii) **inter-rater reliability against the labels** — where three blind
-**human** raters agree only moderately (Fleiss κ = **0.42**) while a four-model **cross-family judge
-panel** (Gemini / Claude / Codex / Mistral) agrees at **0.89** on the identical items, the tell
+**human** raters agree only moderately (Fleiss κ = **0.42**, 95% CI [0.30–0.53]) while a four-model
+**cross-family judge panel** (Gemini / Claude / Codex / Mistral) agrees at **0.89** [0.81–0.96] on
+the identical items — a gap of **0.47** (bootstrap 95% CI [0.35–0.59], non-overlapping) — the tell
 that the labels encode a *shared model prior* rather than a human-valid construct. The three tests partition the axes into three kinds: **real** (**confident**
 is unanimous across humans and models; reluctant and concern hold with caveats), **subjective**
 (uncertain/curious — the model represents them stably but human raters cannot agree on the label),
@@ -170,7 +171,8 @@ assigned to it, across the three raters) exposes the structure:
 **Model-judge panel (the symmetric control).** We ran the *same* 50 items, blind, through a
 **four-model cross-family panel** — Gemini, Claude, Codex, Mistral — each judging independently
 (per-model κ vs labels 0.84–0.98; distinct rating patterns, none a key copy). Their **inter-rater
-Fleiss κ = 0.89**, against the human panel's **0.42**. Same items, same scale: models converge on
+Fleiss κ = 0.89** (bootstrap 95% CI [0.81–0.96]), against the human panel's **0.42** [0.30–0.53] —
+a gap of **0.47** (95% CI [0.35–0.59], excludes 0; the two intervals do not overlap). Same items, same scale: models converge on
 the disposition labels where individual humans do not — the labels are a **model-native**
 regularity. One honest nuance: the *majority vote* of each panel recovers the labels similarly
 (model-consensus vs key 0.86, human-consensus 0.84), so the labels are not *wrong* — what collapses
@@ -250,6 +252,12 @@ The three tests partition the seven axes:
   reach only 27–55%.)
 - **OOD independence.** The OOD authors were LLM agents with a documented differ-in-style mandate,
   not a wholly independent human corpus. A human-authored OOD set would be stronger.
+- **Author-as-rater disclosure.** One of the three human raters is an author of this paper (R2,
+  Cohen's κ = 0.56); he completed his ratings **first and blind to the study's design**, before the
+  discriminant results or the model-panel comparison existed. Excluding his ratings, the two
+  remaining raters' Fleiss κ = **0.47** (bootstrap 95% CI [0.29–0.63]) — slightly *above* the
+  three-rater 0.42 and still far below the four-model panel (0.89), so the human–model gap does not
+  depend on the author's inclusion.
 - **Human rating: three raters, n=7/class.** Fleiss' κ = 0.42 across three blind raters (per-rater
   Cohen's κ 0.86/0.56/0.42). n≈7/class is small, so single-class fractions are indicative, not
   tight — but the pattern is consistent (confident unanimous; mischief/curious/uncertain
@@ -299,10 +307,27 @@ that do not appear in them.
 
 ---
 
-*Artifacts: `ce09_results.json` (CV), `ood_results.json` (OOD), `ood_cosine_B.json` (direction
-stability, diagonal), `cross_axis_B.json` (full 7×7 frozen×refit + in-distribution off-diagonal),
-`promptonly_results.json`, `irr/kappa_table.md` (LLM IRR), `irr_human/human_kappa.md` (single-rater),
-`irr_human/multirater_kappa_results.md` + `compute_multirater_kappa.py` (three-rater human Fleiss κ=0.42),
-`irr_human/two_panel_results.md` + `compute_two_panel.py` + `model_ratings/` (four-model panel Fleiss κ=0.89),
-`canis_eval001_ood_matrix.jsonl` (OOD set), `references.bib` (verified; arXiv:2607.15495 and
-arXiv:2608.18106 confirmed against their abstract pages 1 Sep 2026).*
+## Data Availability
+
+All artifacts below are released as **ancillary files** with this submission (~11 MB total; the
+calibration vectors are ~11.6 MB of it and dominate the payload).
+
+**Calibration vectors** — the frozen per-class discriminant directions unit(μ_pos − μ_neg) for
+each model: `seed_vectors_apertus_ce09.npz`, `seed_vectors_ministral_ce09.npz`,
+`seed_vectors_qwen_ce09.npz`.
+
+**Prompt sets** — the in-distribution core matrix `canis_eval001_matrix.jsonl` (540 items) with its
+concept-matched negatives `canis_eval001_matched_negatives.jsonl` (350), the out-of-distribution set
+`canis_eval001_ood_matrix.jsonl` (420), and the 50-item human/model rating sheet
+`irr_human/human_sheet.csv`.
+
+**Per-item scores** — CV `ce09_results.json`, OOD `ood_results.json`, prompt-only
+`promptonly_results.json`, direction stability `ood_cosine_B.json` + `cross_axis_B.json`, and every
+rater's per-item labels: the three humans `irr_human/canis_ratings.jsonl` (released only under coded
+IDs **R1/R2/R3** — rater identities are withheld) and the four-model judge panel
+`irr_human/model_ratings/*.json`.
+
+**Reproduction scripts** — `compute_cross_axis_B.py`, `compute_multirater_kappa.py`,
+`compute_two_panel.py`, `compute_bootstrap_ci.py`. LLM/human IRR tables: `irr/kappa_table.md`,
+`irr_human/{human_kappa.md, multirater_kappa_results.md, two_panel_results.md}`. References verified
+in `references.bib` (arXiv:2607.15495 and arXiv:2608.18106 confirmed against their abstract pages).

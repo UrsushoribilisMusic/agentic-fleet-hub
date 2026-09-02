@@ -1,0 +1,84 @@
+\begin{thebibliography}{10}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Arditi et~al.(2024)Arditi, Obeso, Syed, Paleka, Panickssery, Gurnee,
+  and Nanda]{arditi2024refusal}
+Andy Arditi, Oscar Obeso, Aaquib Syed, Daniel Paleka, Nina Panickssery, Wes
+  Gurnee, and Neel Nanda.
+\newblock Refusal in language models is mediated by a single direction.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}, 2024.
+\newblock arXiv:2406.11717.
+
+\bibitem[Belrose et~al.(2023)Belrose, Furman, Smith, Halawi, Ostrovsky,
+  McKinney, Biderman, and Steinhardt]{belrose2023tunedlens}
+Nora Belrose, Zach Furman, Logan Smith, Danny Halawi, Igor Ostrovsky, Lev
+  McKinney, Stella Biderman, and Jacob Steinhardt.
+\newblock Eliciting latent predictions from transformers with the tuned lens.
+\newblock \emph{arXiv preprint arXiv:2303.08112}, 2023.
+
+\bibitem[Fleiss(1971)]{fleiss1971}
+Joseph~L. Fleiss.
+\newblock Measuring nominal scale agreement among many raters.
+\newblock \emph{Psychological Bulletin}, 76\penalty0 (5):\penalty0 378--382,
+  1971.
+\newblock \doi{10.1037/h0031619}.
+
+\bibitem[Gurnee et~al.(2026)Gurnee, Sofroniew, Pearce, Piotrowski, and
+  Kauvar]{gurnee2026workspace}
+Wes Gurnee, Nicholas Sofroniew, Adam Pearce, Alex Piotrowski, and Isaac Kauvar.
+\newblock Verbalizable representations form a global workspace in language
+  models.
+\newblock \emph{arXiv preprint arXiv:2607.15495}, 2026.
+
+\bibitem[Landis and Koch(1977)]{landis1977}
+J.~Richard Landis and Gary~G. Koch.
+\newblock The measurement of observer agreement for categorical data.
+\newblock \emph{Biometrics}, 33\penalty0 (1):\penalty0 159--174, 1977.
+
+\bibitem[Mazzaccara et~al.(2026)Mazzaccara, Bertolazzi, and
+  Bernardi]{mazzaccara2026overconfidence}
+Davide Mazzaccara, Leonardo Bertolazzi, and Raffaella Bernardi.
+\newblock Different facets of verbalised overconfidence: an interpretability
+  study.
+\newblock \emph{arXiv preprint arXiv:2608.18106}, 2026.
+
+\bibitem[{nostalgebraist}(2020)]{nostalgebraist2020logitlens}
+{nostalgebraist}.
+\newblock Interpreting {GPT}: The logit lens.
+\newblock LessWrong, August 2020.
+\newblock
+  \url{https://www.lesswrong.com/posts/AcKRB8wDpdaN6v6ru/interpreting-gpt-the-logit-lens}.
+
+\bibitem[{Project Apertus} et~al.(2025){Project Apertus}, Hern\'andez-Cano,
+  H\"agele, Huang, Romanou, Solergibert, Bosselut, Jaggi, Schlag,
+  et~al.]{apertus2025}
+{Project Apertus}, Alejandro Hern\'andez-Cano, Alexander H\"agele, Allen~Hao
+  Huang, Angelika Romanou, Antoni-Joan Solergibert, Antoine Bosselut, Martin
+  Jaggi, Imanol Schlag, et~al.
+\newblock Apertus: Democratizing open and compliant {LLM}s for global language
+  environments.
+\newblock \emph{arXiv preprint arXiv:2509.14233}, 2025.
+\newblock \doi{10.48550/arXiv.2509.14233}.
+
+\bibitem[Rajamanoharan et~al.(2024)Rajamanoharan, Lieberum, Sonnerat, Conmy,
+  Varma, Kram{\'a}r, and Nanda]{rajamanoharan2024jumprelu}
+Senthooran Rajamanoharan, Tom Lieberum, Nicolas Sonnerat, Arthur Conmy, Vikrant
+  Varma, J{\'a}nos Kram{\'a}r, and Neel Nanda.
+\newblock Jumping ahead: Improving reconstruction fidelity with {JumpReLU}
+  sparse autoencoders.
+\newblock \emph{arXiv preprint arXiv:2407.14435}, 2024.
+\newblock \doi{10.48550/arXiv.2407.14435}.
+
+\bibitem[Wilson(1927)]{wilson1927}
+Edwin~B. Wilson.
+\newblock Probable inference, the law of succession, and statistical inference.
+\newblock \emph{Journal of the American Statistical Association}, 22\penalty0
+  (158):\penalty0 209--212, 1927.
+\newblock \doi{10.1080/01621459.1927.10502953}.
+
+\end{thebibliography}
