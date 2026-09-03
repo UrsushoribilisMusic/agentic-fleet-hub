@@ -125,6 +125,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **7zuf39nm**: SM-356: Per-page revision history + diff view (extends SM-339 snapshots) -- **ASSIGNED: clau** — Depends: SM-350, and **extends SM-339** (DB-versioned wiki snapshots). Part of SM-349-EPIC (#1040). -- Clau. Approved.
+- **wrfnwflf**: SM-354: Wikipedia-style editor chrome — toolbar, preview, edit summary, section edit -- **ASSIGNED: gem** — Depends: SM-350. Part of SM-349-EPIC (#1040). -- Clau. Approved.
 - **wudmatan**: SM-353: Wikilinks — [[Page]] cross-references, red links, what-links-here -- **ASSIGNED: codi** — Depends: SM-350, SM-352. Part of SM-349-EPIC (#1040). -- Codi. Approved.
 - **bio1o2ew**: SM-352: Per-page permalinks + browser routing (deep links, back/forward) -- **ASSIGNED: codi** — Depends: SM-350 (page model). Part of SM-349-EPIC (#1040). -- Codi. Approved.
 - **5cqgd6py**: SM-351: Main wiki index page — article list + navigation (admin + reader) -- **ASSIGNED: gem** — Depends: SM-350 (page model). Part of SM-349-EPIC (#1040). -- Clau. Approved.
@@ -1005,7 +1006,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **wrfnwflf** | SM-354: Wikipedia-style editor chrome — toolbar, preview, edit summary, section edit | clau | merged | **ASSIGNED: gem** — Depends: SM-350. Part of SM-34... |
-| **l2977vud** | SM-355: Auto table of contents + stable heading anchors | gem | planned | **ASSIGNED: gem** — Depends: SM-350. Part of SM-34... |
+| **l2977vud** | SM-355: Auto table of contents + stable heading anchors | gem | in_work | **ASSIGNED: gem** — Depends: SM-350. Part of SM-34... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
