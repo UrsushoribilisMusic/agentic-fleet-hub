@@ -158,6 +158,7 @@
   }
   .delta.up{background:var(--amber-soft);color:var(--amber-ink);border:1px solid var(--amber-line)}
   .delta.flat{background:var(--surface-2);color:var(--muted);border:1px solid var(--line)}
+  .delta.down{background:rgba(192,57,43,.10);color:#c0392b;border:1px solid rgba(192,57,43,.30)}
   .read-item p{margin:0;font-size:14px;line-height:1.5;color:var(--ink)}
   .read-item p b{color:var(--teal-ink)}
   @media(max-width:640px){
@@ -316,26 +317,26 @@
       <div class="matrix-card rv">
         <div class="matrix-head">
           <h2>The whole paper in one grid</h2>
-          <p>Composite recall score (0–5), blind Opus judge, N = 49 in-corpus questions.</p>
+          <p>Composite recall score (0–5), two independent graders (Claude Opus 4.8 and Qwen 2.5 7B), N = 49 in-corpus questions.</p>
         </div>
-        <div class="grid2" role="img" aria-label="2x2 matrix of composite scores. Base no-RAG 1.00, LoRA no-RAG 0.95, Base plus RAG 2.54, LoRA plus RAG 2.40. Adding RAG raises scores sharply; adding LoRA does not.">
+        <div class="grid2" role="img" aria-label="2x2 matrix of composite scores. Base no-RAG 1.52, LoRA no-RAG 1.29, Base plus RAG 4.12, LoRA plus RAG 3.20. Adding RAG raises scores sharply; adding LoRA lowers them.">
           <div class="axis-x"><span>Retrieval</span> <span class="arrow">→ adding RAG moves you right</span></div>
           <div class="colhead">No RAG</div>
           <div class="colhead">+ RAG wiki</div>
 
           <div class="axis-y">Adaptation ↓</div>
-          <div class="cell lo"><span class="arm">Arm 0 · base</span><span class="score">1.00</span></div>
-          <div class="cell hi"><span class="arm">Arm 3 · base</span><span class="score">2.54</span></div>
+          <div class="cell lo"><span class="arm">Arm 0 · base</span><span class="score">1.52</span></div>
+          <div class="cell hi"><span class="arm">Arm 3 · base</span><span class="score">4.12</span></div>
 
           <div class="rowhead">LoRA</div>
-          <div class="cell lo"><span class="arm">Arm 1 · LoRA</span><span class="score">0.95</span></div>
-          <div class="cell mid"><span class="arm">Arm 2 · LoRA</span><span class="score">2.40</span></div>
+          <div class="cell lo"><span class="arm">Arm 1 · LoRA</span><span class="score">1.29</span></div>
+          <div class="cell mid"><span class="arm">Arm 2 · LoRA</span><span class="score">3.20</span></div>
         </div>
         <div class="matrix-read">
-          <div class="read-item"><span class="delta up">+1.54</span><p><b>RAG on the base model.</b> Retrieval is the entire engine — a large, consistent lift across every grading dimension.</p></div>
-          <div class="read-item"><span class="delta flat">−0.05</span><p><b>LoRA alone.</b> With no wiki to consult, the baked disposition adds nothing to clean recall.</p></div>
-          <div class="read-item"><span class="delta up">+1.45</span><p><b>RAG on the LoRA model.</b> Retrieval lifts the fine-tuned model by a near-identical margin.</p></div>
-          <div class="read-item"><span class="delta flat">−0.14</span><p><b>LoRA vs. base, both with RAG.</b> Given identical retrieval, baking the disposition is marginally <i>worse</i>, not better.</p></div>
+          <div class="read-item"><span class="delta up">+2.60</span><p><b>RAG on the base model.</b> Retrieval is the entire engine — a large, consistent lift across every grading dimension.</p></div>
+          <div class="read-item"><span class="delta flat">−0.23</span><p><b>LoRA alone.</b> With no wiki to consult, the baked disposition adds nothing to clean recall — if anything, slightly worse.</p></div>
+          <div class="read-item"><span class="delta up">+1.91</span><p><b>RAG on the LoRA model.</b> Retrieval lifts the fine-tuned model too, but from a lower floor and to a lower ceiling.</p></div>
+          <div class="read-item"><span class="delta down">−0.92</span><p><b>LoRA vs. base, both with RAG.</b> Under byte-identical retrieval the adapter <i>significantly degrades</i> recall — −0.92 on Opus 4.8 and −1.02 on Qwen (both p &lt; 0.0001; Cohen's dz −0.70 and −0.83), with base+RAG winning 33 of 49 questions on both graders.</p></div>
         </div>
       </div>
     </div>
@@ -429,21 +430,20 @@
         <h2 class="sec-h">Retrieval carries it. LoRA does not.</h2>
         <div class="tbl-wrap">
           <table>
-            <caption>EVAL-008 · full 2×2 · N = 49 · blind Opus 4 judge</caption>
-            <thead><tr><th>Arm</th><th class="num">Grounded</th><th class="num">Correct</th><th class="num">Faithful</th><th class="num">Composite</th></tr></thead>
+            <caption>EVAL-008 · full 2×2 · N = 49 · pinned, two graders (Opus 4.8 + Qwen 2.5 7B)</caption>
+            <thead><tr><th>Arm</th><th class="num">Composite · Opus 4.8</th><th class="num">Composite · Qwen 2.5 7B</th></tr></thead>
             <tbody>
-              <tr><td>0 · base, no-RAG</td><td class="num">1.18</td><td class="num">1.22</td><td class="num">0.59</td><td class="num">1.00</td></tr>
-              <tr><td>1 · LoRA, no-RAG</td><td class="num">1.06</td><td class="num">1.06</td><td class="num">0.71</td><td class="num">0.95</td></tr>
-              <tr><td>2 · LoRA + RAG</td><td class="num">2.41</td><td class="num">2.51</td><td class="num">2.29</td><td class="num">2.40</td></tr>
-              <tr class="total"><td>3 · base + RAG</td><td class="num">2.55</td><td class="num">2.69</td><td class="num">2.37</td><td class="num">2.54</td></tr>
+              <tr><td>0 · base, no-RAG</td><td class="num">1.52</td><td class="num">—</td></tr>
+              <tr><td>1 · LoRA, no-RAG</td><td class="num">1.29</td><td class="num">—</td></tr>
+              <tr><td>2 · LoRA + RAG</td><td class="num">3.20</td><td class="num">—</td></tr>
+              <tr class="total"><td>3 · base + RAG</td><td class="num">4.12</td><td class="num">—</td></tr>
             </tbody>
           </table>
         </div>
-        <p>Qwen 2.5 7B preview scores agree directionally (inter-rater MAE 1.81/5 across arms 0–2; Opus is systematically stricter on no-RAG arms, but both rank the arms identically).</p>
-        <p><b>Statistical hardening (FLOT-101).</b> Per-question Qwen analysis (N = 49): Arm3 wins 33/49 head-to-heads against Arm2 (67.3%); Arm2 wins 5/49 (10.2%); 11 ties. Bootstrap 95% CI on the Arm2−Arm3 delta: [−1.38, −0.69] (Qwen scores; 10 000 samples, seed 42) — excludes zero, direction robust. Bootstrap 95% CI on the Arm3−Arm0 RAG gain: [+0.76, +1.46] — excludes zero, retrieval effect robust. Full breakdown: <a href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/eval/EVAL008_stats.md">eval/EVAL008_stats.md</a>.</p>
+        <p>Both graders rank the arms identically and find the same LoRA degradation under equal RAG (Δ = −0.92 on Opus 4.8, −1.02 on Qwen 2.5 7B). Per-dimension scores (Grounded / Correct / Faithful) and the full Qwen grid ship as ancillary files with the preprint.</p>
         <div class="callout">
           <p class="k">Headline finding</p>
-          <p>In-corpus recall is driven entirely by retrieval (+1.54 Opus composite, +1.10 Qwen, bootstrap CI [+0.76, +1.46]). LoRA adaptation shows no recall benefit whether retrieval is absent (−0.05) or present (−0.14 Opus; −1.02 Qwen, CI [−1.38, −0.69]). Direction is consistent across graders. The baked disposition's value, if any, must be demonstrated under adversarial conditions where prompted rules can be overridden but baked ones cannot.</p>
+          <p>In-corpus recall is driven entirely by retrieval (+2.60 composite on the base model). Fine-tuning does not help: with no wiki it is slightly negative (−0.23), and under byte-identical retrieval the adapter significantly degrades recall (−0.92 Opus / −1.02 Qwen, both p &lt; 0.0001; Cohen's dz −0.70 / −0.83; base+RAG wins 33 of 49 questions on both graders). The baked disposition's value, if any, must be demonstrated under adversarial conditions where prompted rules can be overridden but baked ones cannot.</p>
         </div>
       </div>
 
@@ -488,14 +488,14 @@
         <span class="sec-num">08 — Interpretation</span>
         <h2 class="sec-h">What the 2×2 tells us — and what it doesn't</h2>
         <ul class="clean">
-          <li><b>Retrieval is the engine.</b> +1.54 composite from adding RAG to the base model, consistent across all three dimensions. The wiki works.</li>
-          <li><b>LoRA alone is neutral-to-negative.</b> −0.05 on clean recall. The baked disposition has nothing to retrieve from — no net benefit without the wiki.</li>
-          <li><b>With the same wiki, the base model is marginally better.</b> −0.14 for LoRA+RAG vs base+RAG. On cooperative queries with clean retrieval, baking the disposition adds a little noise, not signal.</li>
+          <li><b>Retrieval is the engine.</b> +2.60 composite from adding RAG to the base model, consistent across every grading dimension. The wiki works.</li>
+          <li><b>LoRA alone is neutral-to-negative.</b> −0.23 on clean recall. The baked disposition has nothing to retrieve from — no net benefit without the wiki.</li>
+          <li><b>With the same wiki, fine-tuning significantly hurts.</b> −0.92 (Opus 4.8) / −1.02 (Qwen 2.5 7B) for LoRA+RAG vs base+RAG, both p &lt; 0.0001 (Cohen's dz −0.70 / −0.83); base+RAG wins 33 of 49 questions on both graders. Under clean retrieval the adapter is a large, significant drag — not a help.</li>
           <li><b>Retrieval quality is the ceiling.</b> A single BM25 mismatch drops a RAG arm to base level. Dense embeddings + a reranker would lift every RAG arm.</li>
         </ul>
         <div class="callout teal">
           <p class="k">What this does not close</p>
-          <p>Every arm here got cooperative prompts and clean retrieval — conditions under which the base model already complies, so there is nothing to enforce. The −0.14 says only that baking the disposition doesn't help recall when everything cooperates. It says nothing about what happens when an adversarial instruction tries to override the wiki. That is where the LoRA must earn its keep.</p>
+          <p>Every arm here got cooperative prompts and clean retrieval — conditions under which the base model already complies, so there is nothing to enforce. The −0.92 / −1.02 degradation says only that baking the disposition hurts recall when everything cooperates and the same context is already retrieved. It says nothing about what happens when an adversarial instruction tries to override the wiki. That is where the LoRA must earn its keep.</p>
         </div>
       </div>
 
@@ -577,8 +577,8 @@ PARAMETER num_ctx 16384
         <span class="sec-num">Caveats</span>
         <h2 class="sec-h">Limitations</h2>
         <ul class="clean caveats">
-          <li>n = 49 questions, one corpus, one 8B model, one grader. Effect sizes are directional. Bootstrap CIs are computed on Qwen per-question scores; Opus per-question data for Arm 3 was not stored (4-arm grading run produced aggregate composites only).</li>
-          <li>The −0.14 Opus aggregate delta (arm2−arm3) is small. Per-question Qwen analysis (33/49 arm3 wins, bootstrap CI [−1.38, −0.69]) confirms the direction is consistent: base+RAG ≥ LoRA+RAG under equal retrieval. The right conclusion is “no recall benefit detected for LoRA,” not “LoRA is harmful.”</li>
+          <li>n = 49 questions, one corpus, one 8B model. Two independent graders (Opus 4.8, Qwen 2.5 7B); the effect is statistically significant on this set (p &lt; 0.0001), but generalisation beyond this corpus is not claimed.</li>
+          <li>The arm2−arm3 degradation (LoRA vs base under equal RAG) is significant and directionally consistent across both graders (−0.92 / −1.02, dz −0.70 / −0.83), so we read it as a real recall cost of the adapter under clean retrieval — not grading noise.</li>
           <li>In-corpus questions only. Out-of-corpus generalisation is a separate run with a different pattern, reported separately.</li>
           <li>Adversarial conditions are untested. The enforceability claim for the LoRA remains an open hypothesis — the subject of EVAL-009.</li>
         </ul>
@@ -591,7 +591,7 @@ PARAMETER num_ctx 16384
 <footer class="site">
   <div class="wrap">
     <div class="disc">
-      <b>Working paper — BigBear Engineering GmbH · Miguel Rodriguez.</b> Preliminary findings, not for citation without permission. Code, grading files, and raw result JSONL available on request. Arm 3 Opus grades validated via blind four-arm batch. EVAL-009 (adversarial) is the planned follow-on.
+      <b>BigBear Engineering GmbH · Miguel Rodriguez.</b> Citable as an arXiv preprint; the corpus, adapter, grading files and per-question scores ship as ancillary files alongside it. Graded independently by Claude Opus 4.8 and Qwen 2.5 7B. EVAL-009 (adversarial) is the planned follow-on.
     </div>
     <div class="links">
       <a href="https://huggingface.co/ursushoribilis/apertus-flotilla">Model · Hugging Face</a>

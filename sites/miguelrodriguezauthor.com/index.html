@@ -491,7 +491,7 @@ footer {
 
     <!-- BigBear with sub-projects, newest first -->
     <li>
-      <span class="years">2016 — present</span>
+      <span class="years">2016 — 2026</span>
       <div>
         <div class="role"><a href="https://bigbearengineering.com">BigBear Engineering GmbH</a></div>
         <div class="org">Founder &amp; Engineering Consultant · Mettmenstetten, Zürich</div>
@@ -517,7 +517,7 @@ footer {
             <span class="sub-years">2024 — present</span>
             <div>
               <div class="sub-name">Robot Ross</div>
-              <div class="sub-descr">Cyber-physical AI art system: Huenit robot arm driven by Claude reasoning and locally hosted Apertus 7B, with a serial bridge to a G-code controller. Produces an EU AI Act Automated Technical File as a living wiki generated automatically from source code and operational log files.</div>
+              <div class="sub-descr">Cyber-physical AI art system: Huenit robot arm driven by Claude reasoning and locally hosted Apertus 8B, with a serial bridge to a G-code controller. Produces an EU AI Act Automated Technical File as a living wiki generated automatically from source code and operational log files.</div>
               <div class="sub-links">
                 <a href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub">GitHub</a>
                 <a href="https://agentegra.com/robotross.html#atf">Project</a>
@@ -556,7 +556,7 @@ footer {
             <span class="sub-years">2026 — present</span>
             <div>
               <div class="sub-name">Apertus-Flotilla</div>
-              <div class="sub-descr">A QLoRA fine-tune of Apertus 8B trained on operational data from the Flotilla multi-agent fleet — 399 SFT examples, 51 DPO preference pairs, 50 held-out eval records. A 2×2 blind evaluation (base/LoRA × no-RAG/RAG, graded by Opus) shows BM25 retrieval on the fine-tuned weights reaching composite 2.62 versus 1.08 for the base model on in-corpus recall. Corpus and pre-trained GGUF adapter publicly released.</div>
+              <div class="sub-descr">A QLoRA fine-tune of Apertus 8B trained on operational data from the Flotilla multi-agent fleet — 399 SFT examples, 51 DPO preference pairs, 50 held-out eval records. A four-arm blind evaluation (base/LoRA × no-RAG/RAG, graded independently by Qwen 2.5 7B and Claude Opus) found that retrieval accounts for the entire performance gain: under byte-identical retrieved context the adapter significantly degrades answer quality relative to its own base model (Δ = −1.02 and −0.92 on the two graders, both p &lt; 0.0001). Corpus, adapter and per-question scores publicly released.</div>
               <div class="sub-links">
                 <a href="https://github.com/UrsushoribilisMusic/flotilla-corpus">Corpus (GitHub)</a>
                 <a href="https://huggingface.co/ursushoribilis/apertus-flotilla">Adapter (HuggingFace)</a>
@@ -646,7 +646,7 @@ footer {
           </li>
 
           <li>
-            <span class="sub-years">2018 — present</span>
+            <span class="sub-years">2018 — 2026</span>
             <div>
               <div class="sub-name">Komax — Digital Marketplace</div>
               <div class="sub-descr">Program-managing the digital platform for Komax, the global market leader in wire-processing machinery. Leading a team of fifteen integrating cloud services, predictive maintenance, and AI-powered analytics.</div>
@@ -724,8 +724,16 @@ footer {
     <li class="featured">
       <span class="pub-year">2026</span>
       <div>
-        <div class="pub-title">Flotilla: A Multi-Agent Coordination Architecture for Autonomous AI Fleets</div>
-        <div class="pub-venue">Submitted, FMAI Workshop @ ICML 2026 · OpenReview</div>
+        <div class="pub-title">Graceful Degradation in Subscription-Constrained Multi-Agent Orchestration Systems</div>
+        <div class="pub-venue">arXiv preprint (cs.SE) · <a href="https://flotilla.cc/graceful-degradation.pdf">PDF</a> · 75 days of production telemetry released</div>
+      </div>
+    </li>
+
+    <li class="featured">
+      <span class="pub-year">2026</span>
+      <div>
+        <div class="pub-title">Reading Disposition from Smartphone-Class Open Models: A Forward-Only J-Space Probe on Apertus-4B, Ministral-3B and Qwen3-4B</div>
+        <div class="pub-venue">arXiv preprint (stat.ML) · <a href="https://canis.flotilla.cc/reading-disposition.pdf">PDF</a> · corpus, calibration vectors &amp; per-item scores released</div>
       </div>
     </li>
 
