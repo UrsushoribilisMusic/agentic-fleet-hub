@@ -1006,6 +1006,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **l2977vud** | SM-355: Auto table of contents + stable heading anchors | gem | in_work | **ASSIGNED: gem** — Depends: SM-350. Part of SM-34... |
+| **l2977vud** | SM-355: Auto table of contents + stable heading anchors | gem | planned | **ASSIGNED: gem** — Depends: SM-350. Part of SM-34... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
