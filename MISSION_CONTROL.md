@@ -1003,7 +1003,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **ya5nynuj** | SM-350: Wiki page-centric data model + migration from section documents | clau | in_work | **ASSIGNED: clau** — Depends: none. **Blocks SM-35... |
 | **5cqgd6py** | SM-351: Main wiki index page — article list + navigation (admin + reader) | clau | planned | **ASSIGNED: gem** — Depends: SM-350 (page model). ... |
-| **wudmatan** | SM-353: Wikilinks — [[Page]] cross-references, red links, what-links-here | codi | in_work | **ASSIGNED: codi** — Depends: SM-350, SM-352. Part... |
+| **wudmatan** | SM-353: Wikilinks — [[Page]] cross-references, red links, what-links-here | codi | merged | **ASSIGNED: codi** — Depends: SM-350, SM-352. Part... |
 | **wrfnwflf** | SM-354: Wikipedia-style editor chrome — toolbar, preview, edit summary, section edit | gem | planned | **ASSIGNED: gem** — Depends: SM-350. Part of SM-34... |
 | **l2977vud** | SM-355: Auto table of contents + stable heading anchors | gem | planned | **ASSIGNED: gem** — Depends: SM-350. Part of SM-34... |
 | **7zuf39nm** | SM-356: Per-page revision history + diff view (extends SM-339 snapshots) | clau | planned | **ASSIGNED: clau** — Depends: SM-350, and **extend... |
