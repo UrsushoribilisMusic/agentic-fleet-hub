@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-09-03",
-    "summary": "Clau: FinOps dashboard overhaul \u2014 real revenue from channel_revenue_daily (was fake CHF 10), campaign staleness guard (Celtic), Classical Remix layout + P6/P7 phase fix, Tech Shorts rebuilt on Mac-computed mechanism (published dates + per-video revenue), push cadence 60s->hourly, DistroKid income recorded (USD 45.27 Apr-Jul). Codi: SM-352 wiki page permalinks + History API routing; SM-353 wikilinks, red links, and What Links Here.",
+    "summary": "Clau: FinOps dashboard overhaul — real revenue from channel_revenue_daily (was fake CHF 10), campaign staleness guard (Celtic), Classical Remix layout + P6/P7 phase fix, Tech Shorts rebuilt on Mac-computed mechanism (published dates + per-video revenue), push cadence 60s->hourly, DistroKid income recorded (USD 45.27 Apr-Jul). Codi: SM-352 wiki page permalinks + History API routing; SM-353 wikilinks, red links, and What Links Here. Gem: SM-355 auto table of contents + stable heading anchors implemented and verified (43/43 green), moved to peer_review.",
     "file": "2026-09-03.md"
   },
   {
