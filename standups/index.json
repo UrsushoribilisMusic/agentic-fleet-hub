@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-09-03",
+    "summary": "Clau: FinOps dashboard overhaul \u2014 real revenue from channel_revenue_daily (was fake CHF 10), campaign staleness guard (Celtic), Classical Remix layout + P6/P7 phase fix, Tech Shorts rebuilt on Mac-computed mechanism (published dates + per-video revenue), push cadence 60s->hourly, DistroKid income recorded (USD 45.27 Apr-Jul).",
+    "file": "2026-09-03.md"
+  },
+  {
     "date": "2026-09-01",
     "summary": "Clau: Stats dashboard token-free refactor, CANIS paper draft review & human IRR app. Gem: Heartbeat protocol executed; peer-reviewed & approved CANIS IRR task #1039 (Misty); 0 open tasks.",
     "file": "2026-09-01.md"

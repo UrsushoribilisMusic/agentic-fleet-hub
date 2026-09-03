@@ -106,8 +106,23 @@ def fetch_youtube(ids: list) -> dict:
             "likes": int(s.get("likeCount", 0)),
             "comments": int(s.get("commentCount", 0)),
             "title": it["snippet"]["title"],
+            "published_at": (it["snippet"].get("publishedAt") or "")[:10],
         }
     return out
+
+
+# Per-video revenue overlay written by video_revenue_overlay.py (music-video-tool).
+# The droplet holds no analytics token; we join the tech-short video ids to the
+# already-computed per-video revenue here so the fleet dashboard reads it for free.
+REVENUE_OVERLAY = os.path.expanduser("~/fleet/video_revenue_overlay.json")
+
+
+def load_revenue_overlay() -> dict:
+    try:
+        return json.load(open(REVENUE_OVERLAY)).get("revenue", {})
+    except Exception as exc:
+        print(f"WARNING: revenue overlay unavailable: {exc}", file=sys.stderr)
+        return {}
 
 
 # ── X ────────────────────────────────────────────────────────────────────────
@@ -187,10 +202,11 @@ def main() -> None:
         if any((j.get("x_post") or {}).get("post_url") for j in jobs):
             xclient = build_x_client()
 
+    revenue_overlay = load_revenue_overlay()
     stamp = now_iso()
     total_yt_views = 0
     for j in jobs:
-        yt = j.get("youtube") or {}
+        yt = j.setdefault("youtube", {})
         xp = j.get("x_post") or {}
         entry = {"synced_at": stamp, "youtube": {}, "x": {}}
 
@@ -215,8 +231,25 @@ def main() -> None:
         yc = sum(v["comments"] for v in entry["youtube"].values())
         short_v = entry["youtube"].get("short", {}).get("views", 0)
         long_v = entry["youtube"].get("long", {}).get("views", 0)
+
+        # Publish date: earliest known across the video(s), persisted onto the job
+        # so the token-free droplet can show and sort by it.
+        pubs = [entry["youtube"][r].get("published_at") for r in ("short", "long")
+                if entry["youtube"].get(r, {}).get("published_at")]
+        published_at = min(pubs) if pubs else yt.get("published_at", "")
+        if published_at:
+            yt["published_at"] = published_at
+
+        # Per-video revenue joined from the analytics overlay (sum short + long).
+        rev_life = rev_30d = 0.0
+        for role in ("short", "long"):
+            r = revenue_overlay.get(video_id(yt.get(f"{role}_url")))
+            if r:
+                rev_life += float(r.get("revenue_lifetime") or 0)
+                rev_30d += float(r.get("revenue_30d") or 0)
+
         print(f"{j['id'][:52]:<54} yt_views={yv:<7} yt_likes={yl:<5} "
-              f"x_impr={entry['x'].get('post',{}).get('impressions','-')}")
+              f"pub={published_at or '-'} rev=${rev_life:.3f}")
 
         if args.dry_run:
             continue
@@ -225,6 +258,9 @@ def main() -> None:
         stats.update({
             "views": yv, "likes": yl, "comments": yc,
             "short_views": short_v, "long_views": long_v, "total_views": yv,
+            "published_at": published_at,
+            "revenue_lifetime": round(rev_life, 4),
+            "revenue_30d": round(rev_30d, 4),
             "last_synced_at": stamp,
             "detail": entry,
         })
