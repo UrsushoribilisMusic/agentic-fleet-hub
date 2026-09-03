@@ -281,7 +281,8 @@ def create_job(
         "slug": slug,
         "title": title,
         "source_urls": urls,
-        "source_file": source_file_meta or {},
+        "source_file": source_file_meta or {},          # legacy: mirrors source_files[0]
+        "source_files": [source_file_meta] if source_file_meta else [],
         "idea_notes": (idea_notes or "").strip(),
         "tags": tag_list,
         "status": status,
@@ -424,6 +425,10 @@ def update_job(job_id_or_slug: str, jobs_file: Optional[Path] = None, **updates)
     if "source_file" in updates:
         if isinstance(updates["source_file"], dict):
             job["source_file"] = updates["source_file"]
+
+    if "source_files" in updates:
+        if isinstance(updates["source_files"], list):
+            job["source_files"] = updates["source_files"]
 
     # Nested dictionary updates
     for nested_key in ("hook_copy", "outro_copy", "assets", "youtube", "x_post", "stats"):
@@ -1082,8 +1087,8 @@ WEB_HTML = """<!DOCTYPE html>
                     </div>
 
                     <div class="form-group">
-                        <label for="source-file">Source File <span style="color:var(--mute);font-weight:400;">(optional)</span></label>
-                        <input type="file" id="source-file" accept=".pdf,.md,.markdown,.txt">
+                        <label for="source-file">Source Files <span style="color:var(--mute);font-weight:400;">(optional, multiple)</span></label>
+                        <input type="file" id="source-file" accept=".pdf,.md,.markdown,.txt" multiple>
                         <div class="hint">PDF, Markdown, or TXT — max 50 MB. Uploaded to NotebookLM as a source.</div>
                         <div id="file-preview" style="display:none;margin-top:0.4rem;"></div>
                     </div>
@@ -1223,8 +1228,9 @@ WEB_HTML = """<!DOCTYPE html>
                 const urls = job.source_urls || [];
                 const tags = job.tags || [];
                 const dateStr = job.created_at ? job.created_at.split('T')[0] : '';
-                const sf = job.source_file || {};
-                const hasFile = !!(sf.original_name);
+                let sourceFiles = job.source_files || [];
+                if (!sourceFiles.length && (job.source_file || {}).original_name) sourceFiles = [job.source_file];
+                const hasFile = sourceFiles.length > 0;
 
                 return `
                     <div class="job-card ${statusClass}">
@@ -1249,12 +1255,13 @@ WEB_HTML = """<!DOCTYPE html>
                         ` : ''}
 
                         ${hasFile ? `
-                            <div style="margin-bottom:0.8rem;">
-                                <a href="/api/jobs/${encodeURIComponent(job.id)}/source-file"
+                            <div style="margin-bottom:0.8rem;display:flex;flex-wrap:wrap;gap:6px;">
+                                ${sourceFiles.map(sf => `
+                                <a href="/api/jobs/${encodeURIComponent(job.id)}/source-file?name=${encodeURIComponent(sf.original_name)}"
                                    class="file-badge" style="text-decoration:none;" download="${escapeHtml(sf.original_name)}">
                                    📎 ${escapeHtml(sf.original_name)}
                                    ${sf.size_bytes ? ` (${sf.size_bytes < 1048576 ? Math.round(sf.size_bytes/1024) + ' KB' : (sf.size_bytes/1048576).toFixed(1) + ' MB'})` : ''}
-                                </a>
+                                </a>`).join('')}
                             </div>
                         ` : ''}
 
@@ -1290,32 +1297,33 @@ WEB_HTML = """<!DOCTYPE html>
                 .replace(/"/g, '&quot;');
         }
 
-        // File picker preview
+        // File picker preview — supports multiple files
         document.getElementById('source-file').addEventListener('change', (e) => {
-            const file = e.target.files[0];
+            const files = Array.from(e.target.files || []);
             const preview = document.getElementById('file-preview');
-            if (!file) {
+            if (!files.length) {
                 preview.style.display = 'none';
                 return;
             }
             const allowedExts = ['.pdf', '.md', '.markdown', '.txt'];
-            const ext = file.name.slice(file.name.lastIndexOf('.')).toLowerCase();
-            if (!allowedExts.includes(ext)) {
-                preview.innerHTML = `<span style="color:var(--coral);font-size:0.8rem;">✗ ${escapeHtml(file.name)} — unsupported type</span>`;
+            const badExt = files.find(f => !allowedExts.includes(f.name.slice(f.name.lastIndexOf('.')).toLowerCase()));
+            if (badExt) {
+                preview.innerHTML = `<span style="color:var(--coral);font-size:0.8rem;">✗ ${escapeHtml(badExt.name)} — unsupported type</span>`;
                 preview.style.display = 'block';
                 e.target.value = '';
                 return;
             }
-            if (file.size > 50 * 1024 * 1024) {
-                preview.innerHTML = `<span style="color:var(--coral);font-size:0.8rem;">✗ File too large (${(file.size/1024/1024).toFixed(1)} MB). Max 50 MB.</span>`;
+            const tooBig = files.find(f => f.size > 50 * 1024 * 1024);
+            if (tooBig) {
+                preview.innerHTML = `<span style="color:var(--coral);font-size:0.8rem;">✗ ${escapeHtml(tooBig.name)} too large (${(tooBig.size/1024/1024).toFixed(1)} MB). Max 50 MB each.</span>`;
                 preview.style.display = 'block';
                 e.target.value = '';
                 return;
             }
-            const sizeFmt = file.size < 1024 * 1024
-                ? `${(file.size/1024).toFixed(0)} KB`
-                : `${(file.size/1024/1024).toFixed(1)} MB`;
-            preview.innerHTML = `<span class="file-badge">📎 ${escapeHtml(file.name)} (${sizeFmt})</span>`;
+            preview.innerHTML = files.map(f => {
+                const sizeFmt = f.size < 1024 * 1024 ? `${(f.size/1024).toFixed(0)} KB` : `${(f.size/1024/1024).toFixed(1)} MB`;
+                return `<span class="file-badge" style="margin:2px 4px 2px 0;display:inline-block;">📎 ${escapeHtml(f.name)} (${sizeFmt})</span>`;
+            }).join('');
             preview.style.display = 'block';
         });
 
@@ -1327,7 +1335,7 @@ WEB_HTML = """<!DOCTYPE html>
             const notes = document.getElementById('notes').value.trim();
             const tags = document.getElementById('tags').value.trim();
             const fileInput = document.getElementById('source-file');
-            const file = fileInput.files[0] || null;
+            const files = Array.from(fileInput.files || []);
 
             if (!title) return;
 
@@ -1356,20 +1364,23 @@ WEB_HTML = """<!DOCTYPE html>
 
                 const created = await res.json();
 
-                // Step 2: Upload source file if one was selected
-                if (file) {
-                    submitBtn.textContent = 'Uploading file…';
-                    const fd = new FormData();
-                    fd.append('file', file);
-                    const uploadRes = await fetch(
-                        `/api/jobs/${encodeURIComponent(created.id)}/source-file`,
-                        { method: 'POST', body: fd }
-                    );
-                    if (!uploadRes.ok) {
-                        const uploadErr = await uploadRes.json();
-                        alert('Job created but file upload failed: ' + (uploadErr.error || 'Unknown error'));
+                // Step 2: Upload each selected source file (sequentially, so they accumulate)
+                if (files.length) {
+                    let uploaded = 0, failed = [];
+                    for (let i = 0; i < files.length; i++) {
+                        submitBtn.textContent = `Uploading file ${i + 1}/${files.length}…`;
+                        const fd = new FormData();
+                        fd.append('file', files[i]);
+                        const uploadRes = await fetch(
+                            `/api/jobs/${encodeURIComponent(created.id)}/source-file`,
+                            { method: 'POST', body: fd }
+                        );
+                        if (uploadRes.ok) { uploaded++; } else { failed.push(files[i].name); }
+                    }
+                    if (failed.length) {
+                        alert(`Job created. ${uploaded}/${files.length} files attached; failed: ${failed.join(', ')}`);
                     } else {
-                        showToast(`Enqueued: ${created.title} (+ file attached)`);
+                        showToast(`Enqueued: ${created.title} (+ ${uploaded} file${uploaded === 1 ? '' : 's'})`);
                     }
                 } else {
                     showToast(`Enqueued: ${created.title}`);
@@ -1539,7 +1550,12 @@ class IntakeHTTPHandler(BaseHTTPRequestHandler):
             if not job:
                 self._send_json({"error": "Job not found"}, status=HTTPStatus.NOT_FOUND)
                 return
-            sf = job.get("source_file") or {}
+            files_list = list(job.get("source_files") or [])
+            if not files_list and (job.get("source_file") or {}).get("path"):
+                files_list = [job["source_file"]]
+            # ?name=<original_name> picks one of several; default to the first.
+            want = (urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query).get("name") or [None])[0]
+            sf = next((f for f in files_list if f.get("original_name") == want), None) if want else (files_list[0] if files_list else {})
             if not sf.get("path"):
                 self._send_json({"error": "No source file attached"}, status=HTTPStatus.NOT_FOUND)
                 return
@@ -1608,8 +1624,16 @@ class IntakeHTTPHandler(BaseHTTPRequestHandler):
                 return
             try:
                 meta = store_source_file(job["id"], file_bytes, original_name)
-                update_job(job["id"], jobs_file=self.jobs_file, source_file=meta)
-                self._send_json({"ok": True, "source_file": meta, "job_id": job["id"]})
+                # Append to the source_files list (dedupe by name); keep source_file
+                # mirroring the first attachment for legacy readers. Re-fetch under
+                # the same request to accumulate across sequential uploads.
+                fresh = get_job(job["id"], jobs_file=self.jobs_file) or job
+                files_list = list(fresh.get("source_files") or [])
+                if not files_list and (fresh.get("source_file") or {}).get("path"):
+                    files_list = [fresh["source_file"]]
+                files_list = [f for f in files_list if f.get("original_name") != original_name] + [meta]
+                update_job(job["id"], jobs_file=self.jobs_file, source_files=files_list, source_file=files_list[0])
+                self._send_json({"ok": True, "source_files": files_list, "source_file": files_list[0], "job_id": job["id"]})
             except Exception as e:
                 self._send_json({"error": str(e)}, status=HTTPStatus.INTERNAL_SERVER_ERROR)
             return

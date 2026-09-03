@@ -280,24 +280,35 @@ class NotebookLMDriver:
 
 # ── Dry-run mode ──────────────────────────────────────────────────────────────
 
+def job_source_files(job: dict) -> list[dict]:
+    """Return the job's attached source files as a list, with back-compat for the
+    legacy singular `source_file` field."""
+    files = list(job.get("source_files") or [])
+    if not files and (job.get("source_file") or {}).get("path"):
+        files = [job["source_file"]]
+    return files
+
+
 def dry_run_report(job: dict, workdir: Path) -> None:
     """Print what the driver would do without opening a browser."""
-    sf = job.get("source_file") or {}
-    source_file_path = Path(sf["path"]) if sf.get("path") else None
+    files = job_source_files(job)
     print("\n[dry-run] NotebookLM driver plan:")
     print(f"  job_id:      {job['id']}")
     print(f"  title:       {job['title']}")
     print(f"  source_urls: {', '.join(job.get('source_urls', [])) or '(none)'}")
-    if source_file_path:
-        exists = "✓" if source_file_path.exists() else "✗ NOT FOUND"
-        print(f"  source_file: {sf.get('original_name')} ({exists})")
-        print(f"               {source_file_path}")
+    if files:
+        for sf in files:
+            p = Path(sf["path"]) if sf.get("path") else None
+            exists = "✓" if (p and p.exists()) else "✗ NOT FOUND"
+            print(f"  source_file: {sf.get('original_name')} ({exists})")
+            if p:
+                print(f"               {p}")
     else:
         print(f"  source_file: (none)")
     print(f"  notebook:    {job.get('notebook_url') or '(will create new)'}")
     print(f"  workdir:     {workdir}")
     n_urls = len(job.get("source_urls", []))
-    n_files = 1 if source_file_path else 0
+    n_files = len(files)
     short_out = workdir / f"{job['id']}_short.mp4"
     long_out  = workdir / f"{job['id']}_long.mp4"
     print(f"\n  Step 1 — open/create notebook at {NOTEBOOKLM_URL}")
@@ -325,10 +336,7 @@ def cmd_run(args: argparse.Namespace) -> None:
         dry_run_report(job, workdir)
         return
 
-    sf = job.get("source_file") or {}
-    source_files: list[str] = []
-    if sf.get("path"):
-        source_files = [sf["path"]]
+    source_files: list[str] = [sf["path"] for sf in job_source_files(job) if sf.get("path")]
 
     print(f"\n── TS-2: NotebookLM driver for {job['id']} ──")
     driver = NotebookLMDriver(
