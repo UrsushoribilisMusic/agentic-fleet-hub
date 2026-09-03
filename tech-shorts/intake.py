@@ -110,6 +110,10 @@ def clean_urls(urls_input: Any) -> List[str]:
         cleaned = p.strip()
         if not cleaned:
             continue
+        # Drop obvious non-URL placeholders (e.g. someone typed "none" / "n/a"
+        # because the field used to be required). A real URL has a dot or a scheme.
+        if "." not in cleaned and not cleaned.lower().startswith("http"):
+            continue
         # Ensure scheme if missing
         if not re.match(r"^https?://", cleaned, re.IGNORECASE):
             if cleaned.startswith("notebook.google.com") or cleaned.startswith("www."):
@@ -1071,9 +1075,9 @@ WEB_HTML = """<!DOCTYPE html>
                     </div>
 
                     <div class="form-group">
-                        <label for="urls">Source URLs *</label>
-                        <textarea id="urls" required placeholder="https://arxiv.org/abs/...&#10;https://notebook.google.com/...&#10;https://x.com/..."></textarea>
-                        <div class="hint">Paste one or multiple URLs (articles, podcasts, reports, NotebookLM links).</div>
+                        <label for="urls">Source URLs <span style="color:var(--mute);font-weight:400;">(optional)</span></label>
+                        <textarea id="urls" placeholder="https://arxiv.org/abs/...&#10;https://notebook.google.com/...&#10;https://x.com/..."></textarea>
+                        <div class="hint">Paste one or multiple URLs, or leave blank if you're only attaching files.</div>
                     </div>
 
                     <div class="form-group">
@@ -1297,34 +1301,33 @@ WEB_HTML = """<!DOCTYPE html>
                 .replace(/"/g, '&quot;');
         }
 
-        // File picker preview — supports multiple files
-        document.getElementById('source-file').addEventListener('change', (e) => {
-            const files = Array.from(e.target.files || []);
+        // Selected source files ACCUMULATE across picker sessions — so you can add
+        // files from different folders (open picker, add; open again, add more).
+        let pickedFiles = [];
+        const ALLOWED_EXTS = ['.pdf', '.md', '.markdown', '.txt'];
+
+        function renderPickedFiles() {
             const preview = document.getElementById('file-preview');
-            if (!files.length) {
-                preview.style.display = 'none';
-                return;
-            }
-            const allowedExts = ['.pdf', '.md', '.markdown', '.txt'];
-            const badExt = files.find(f => !allowedExts.includes(f.name.slice(f.name.lastIndexOf('.')).toLowerCase()));
-            if (badExt) {
-                preview.innerHTML = `<span style="color:var(--coral);font-size:0.8rem;">✗ ${escapeHtml(badExt.name)} — unsupported type</span>`;
-                preview.style.display = 'block';
-                e.target.value = '';
-                return;
-            }
-            const tooBig = files.find(f => f.size > 50 * 1024 * 1024);
-            if (tooBig) {
-                preview.innerHTML = `<span style="color:var(--coral);font-size:0.8rem;">✗ ${escapeHtml(tooBig.name)} too large (${(tooBig.size/1024/1024).toFixed(1)} MB). Max 50 MB each.</span>`;
-                preview.style.display = 'block';
-                e.target.value = '';
-                return;
-            }
-            preview.innerHTML = files.map(f => {
+            if (!pickedFiles.length) { preview.style.display = 'none'; preview.innerHTML = ''; return; }
+            preview.innerHTML = pickedFiles.map((f, i) => {
                 const sizeFmt = f.size < 1024 * 1024 ? `${(f.size/1024).toFixed(0)} KB` : `${(f.size/1024/1024).toFixed(1)} MB`;
-                return `<span class="file-badge" style="margin:2px 4px 2px 0;display:inline-block;">📎 ${escapeHtml(f.name)} (${sizeFmt})</span>`;
+                return `<span class="file-badge" style="margin:2px 4px 2px 0;display:inline-flex;align-items:center;gap:6px;">📎 ${escapeHtml(f.name)} (${sizeFmt})<span onclick="removePickedFile(${i})" style="cursor:pointer;font-weight:700;" title="Remove">×</span></span>`;
             }).join('');
             preview.style.display = 'block';
+        }
+        window.removePickedFile = (i) => { pickedFiles.splice(i, 1); renderPickedFiles(); };
+
+        document.getElementById('source-file').addEventListener('change', (e) => {
+            const incoming = Array.from(e.target.files || []);
+            e.target.value = '';   // clear so the next pick (even the same file) re-fires and adds
+            for (const f of incoming) {
+                const ext = f.name.slice(f.name.lastIndexOf('.')).toLowerCase();
+                if (!ALLOWED_EXTS.includes(ext)) { alert(`${f.name} — unsupported type (allowed: PDF, MD, MARKDOWN, TXT)`); continue; }
+                if (f.size > 50 * 1024 * 1024) { alert(`${f.name} is too large (${(f.size/1024/1024).toFixed(1)} MB). Max 50 MB each.`); continue; }
+                if (pickedFiles.some(p => p.name === f.name && p.size === f.size)) continue;  // dedupe
+                pickedFiles.push(f);
+            }
+            renderPickedFiles();
         });
 
         // Intake Form Submit
@@ -1334,8 +1337,7 @@ WEB_HTML = """<!DOCTYPE html>
             const urls = document.getElementById('urls').value.trim();
             const notes = document.getElementById('notes').value.trim();
             const tags = document.getElementById('tags').value.trim();
-            const fileInput = document.getElementById('source-file');
-            const files = Array.from(fileInput.files || []);
+            const files = pickedFiles.slice();
 
             if (!title) return;
 
@@ -1387,7 +1389,8 @@ WEB_HTML = """<!DOCTYPE html>
                 }
 
                 document.getElementById('intake-form').reset();
-                document.getElementById('file-preview').style.display = 'none';
+                pickedFiles = [];
+                renderPickedFiles();
                 fetchJobs();
             } catch (err) {
                 alert('Failed to connect: ' + err.message);
