@@ -1000,7 +1000,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **q0uvaq1m** | SM-349-EPIC: Wikipedia-style wiki — page model, index navigation, real editor | clau | merged | **ASSIGNED: clau** (epic owner — coordination only... |
-| **ya5nynuj** | SM-350: Wiki page-centric data model + migration from section documents | clau | planned | **ASSIGNED: clau** — Depends: none. **Blocks SM-35... |
+| **ya5nynuj** | SM-350: Wiki page-centric data model + migration from section documents | clau | in_work | **ASSIGNED: clau** — Depends: none. **Blocks SM-35... |
 | **5cqgd6py** | SM-351: Main wiki index page — article list + navigation (admin + reader) | gem | planned | **ASSIGNED: gem** — Depends: SM-350 (page model). ... |
 | **bio1o2ew** | SM-352: Per-page permalinks + browser routing (deep links, back/forward) | codi | merged | **ASSIGNED: codi** — Depends: SM-350 (page model).... |
 | **wudmatan** | SM-353: Wikilinks — [[Page]] cross-references, red links, what-links-here | codi | in_work | **ASSIGNED: codi** — Depends: SM-350, SM-352. Part... |
