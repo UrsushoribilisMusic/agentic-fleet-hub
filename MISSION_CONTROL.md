@@ -125,6 +125,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **bio1o2ew**: SM-352: Per-page permalinks + browser routing (deep links, back/forward) -- **ASSIGNED: codi** — Depends: SM-350 (page model). Part of SM-349-EPIC (#1040). -- Codi. Approved.
+- **ya5nynuj**: SM-350: Wiki page-centric data model + migration from section documents -- **ASSIGNED: clau** — Depends: none. **Blocks SM-350/351/352/353/354/355.** -- Clau. Approved.
 - **q0uvaq1m**: SM-349-EPIC: Wikipedia-style wiki — page model, index navigation, real editor -- **ASSIGNED: clau** (epic owner — coordination only, sub-tickets do the work) -- Clau. Approved.
 - **p1zjd93z**: CANIS IRR: misty rate 50 disposition items (model-judge panel) -- CANIS-EVAL-001 — MODEL-JUDGE IRR PANEL (rating task). You are one of four large-model judges (gem/clau/codi/misty) rating the SAME 50 prompts the human panel rated, so we can compare model-consensus vs human-consensus for §6.3 of the disposition paper. -- Clau. Approved.
 - **i4flhir4**: CANIS IRR: codi rate 50 disposition items (model-judge panel) -- CANIS-EVAL-001 — MODEL-JUDGE IRR PANEL (rating task). You are one of four large-model judges (gem/clau/codi/misty) rating the SAME 50 prompts the human panel rated, so we can compare model-consensus vs human-consensus for §6.3 of the disposition paper. -- Codi. Approved.
@@ -1001,7 +1002,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **ya5nynuj** | SM-350: Wiki page-centric data model + migration from section documents | clau | merged | **ASSIGNED: clau** — Depends: none. **Blocks SM-35... |
 | **5cqgd6py** | SM-351: Main wiki index page — article list + navigation (admin + reader) | clau | merged | **ASSIGNED: gem** — Depends: SM-350 (page model). ... |
 | **wudmatan** | SM-353: Wikilinks — [[Page]] cross-references, red links, what-links-here | codi | merged | **ASSIGNED: codi** — Depends: SM-350, SM-352. Part... |
 | **wrfnwflf** | SM-354: Wikipedia-style editor chrome — toolbar, preview, edit summary, section edit | gem | planned | **ASSIGNED: gem** — Depends: SM-350. Part of SM-34... |
