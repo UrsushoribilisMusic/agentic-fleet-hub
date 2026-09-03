@@ -999,5 +999,13 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **q0uvaq1m** | SM-349-EPIC: Wikipedia-style wiki — page model, index navigation, real editor | clau | planned | **ASSIGNED: clau** (epic owner — coordination only... |
+| **ya5nynuj** | SM-350: Wiki page-centric data model + migration from section documents | clau | planned | **ASSIGNED: clau** — Depends: none. **Blocks SM-35... |
+| **5cqgd6py** | SM-351: Main wiki index page — article list + navigation (admin + reader) | gem | planned | **ASSIGNED: gem** — Depends: SM-350 (page model). ... |
+| **bio1o2ew** | SM-352: Per-page permalinks + browser routing (deep links, back/forward) | codi | planned | **ASSIGNED: codi** — Depends: SM-350 (page model).... |
+| **wudmatan** | SM-353: Wikilinks — [[Page]] cross-references, red links, what-links-here | codi | planned | **ASSIGNED: codi** — Depends: SM-350, SM-352. Part... |
+| **wrfnwflf** | SM-354: Wikipedia-style editor chrome — toolbar, preview, edit summary, section edit | gem | planned | **ASSIGNED: gem** — Depends: SM-350. Part of SM-34... |
+| **l2977vud** | SM-355: Auto table of contents + stable heading anchors | gem | planned | **ASSIGNED: gem** — Depends: SM-350. Part of SM-34... |
+| **7zuf39nm** | SM-356: Per-page revision history + diff view (extends SM-339 snapshots) | clau | planned | **ASSIGNED: clau** — Depends: SM-350, and **extend... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
