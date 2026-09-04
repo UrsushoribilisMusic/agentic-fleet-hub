@@ -103,8 +103,11 @@ def render_card(
 ) -> None:
     """Render a single text card via Pillow.
 
-    lines: list of (text, rgb_color, font_size, y_frac)
-    y_frac = None → stack below previous line (+0.02 gap).
+    lines: list of (text, rgb_color, font_size, gap_frac)
+      gap_frac = space to add BEFORE this line, as a fraction of height
+                 (ignored for the first line; None → default 0.02).
+    Lines are measured (ascent+descent) and stacked as one vertically-centred
+    block, so they can never overlap regardless of font size or aspect ratio.
     """
     from PIL import Image, ImageDraw, ImageFont
 
@@ -115,17 +118,26 @@ def render_card(
     dr.rectangle([0, 0, width, bar_h], fill=TEAL)
     dr.rectangle([0, height - bar_h, width, height], fill=RED)
 
-    prev_y = 0.0
-    prev_size = 0
-
-    for text, color, size, y_frac in lines:
-        if y_frac is None:
-            y_frac = prev_y + prev_size / height + 0.02
+    max_w = width * 0.92
+    prepared = []
+    total = 0.0
+    for i, (text, color, size, gap_frac) in enumerate(lines):
         font = ImageFont.truetype(FONT_PATH, size)
-        tw = dr.textlength(text, font=font)
-        dr.text(((width - tw) / 2, height * y_frac), text, font=font, fill=color)
-        prev_y = y_frac
-        prev_size = size
+        # Shrink to fit the card width so long lines never spill off the edges.
+        while size > 10 and dr.textlength(text, font=font) > max_w:
+            size -= 2
+            font = ImageFont.truetype(FONT_PATH, size)
+        ascent, descent = font.getmetrics()
+        line_h = ascent + descent
+        gap = 0.0 if i == 0 else (gap_frac if gap_frac is not None else 0.02) * height
+        prepared.append((text, color, font, line_h, gap))
+        total += line_h + gap
+
+    y = (height - total) / 2
+    for text, color, font, line_h, gap in prepared:
+        y += gap
+        dr.text((width / 2, y), text, font=font, fill=color, anchor="ma")
+        y += line_h
 
     img.save(str(out_path))
 
@@ -138,14 +150,14 @@ def build_hook_cards(job: dict, workdir: Path, w: int, h: int) -> tuple[Path, Pa
     sm = w // 30
 
     card_a_lines = [
-        (hc["card_a_main"], WHITE, big, 0.28),
-        (hc["card_a_sub"], RED, big, None),
-        (hc["card_a_footer"], MUTE, sm, 0.60),
+        (hc["card_a_main"], WHITE, big, None),
+        (hc["card_a_sub"], RED, big, 0.01),
+        (hc["card_a_footer"], MUTE, sm, 0.07),
     ]
     card_b_lines = [
-        (hc["card_b_main"], WHITE, med, 0.34),
-        (hc["card_b_sub"], WHITE, med, None),
-        (hc["card_b_footer"], TEAL, sm, 0.60),
+        (hc["card_b_main"], WHITE, med, None),
+        (hc["card_b_sub"], WHITE, med, 0.015),
+        (hc["card_b_footer"], TEAL, sm, 0.07),
     ]
 
     a = workdir / "hookA.png"
@@ -163,11 +175,11 @@ def build_outro_card(job: dict, workdir: Path, w: int, h: int) -> Path:
     sm = w // 30
 
     outro_lines = [
-        (oc["title"], TEAL, big, 0.26),
-        (oc["subtitle"], WHITE, med, None),
-        (oc["tagline"], MUTE, sm, 0.52),
-        (oc["url"], TEAL, med, 0.62),
-        (oc["cta"], WHITE, sm, 0.74),
+        (oc["title"], TEAL, big, None),
+        (oc["subtitle"], WHITE, med, 0.03),
+        (oc["tagline"], MUTE, sm, 0.05),
+        (oc["url"], TEAL, med, 0.05),
+        (oc["cta"], WHITE, sm, 0.05),
     ]
 
     path = workdir / "outro.png"
