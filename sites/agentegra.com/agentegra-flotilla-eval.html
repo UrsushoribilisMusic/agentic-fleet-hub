@@ -430,17 +430,17 @@
         <h2 class="sec-h">Retrieval carries it. LoRA does not.</h2>
         <div class="tbl-wrap">
           <table>
-            <caption>EVAL-008 · full 2×2 · N = 49 · pinned, two graders (Opus 4.8 + Qwen 2.5 7B)</caption>
-            <thead><tr><th>Arm</th><th class="num">Composite · Opus 4.8</th><th class="num">Composite · Qwen 2.5 7B</th></tr></thead>
+            <caption>EVAL-008 · full 2×2 · N = 49 · pinned, graded by Claude Opus 4.8 (blind)</caption>
+            <thead><tr><th>Arm</th><th class="num">Grounded</th><th class="num">Correct</th><th class="num">Faithful</th><th class="num">Composite</th></tr></thead>
             <tbody>
-              <tr><td>0 · base, no-RAG</td><td class="num">1.52</td><td class="num">—</td></tr>
-              <tr><td>1 · LoRA, no-RAG</td><td class="num">1.29</td><td class="num">—</td></tr>
-              <tr><td>2 · LoRA + RAG</td><td class="num">3.20</td><td class="num">—</td></tr>
-              <tr class="total"><td>3 · base + RAG</td><td class="num">4.12</td><td class="num">—</td></tr>
+              <tr><td>0 · base, no-RAG</td><td class="num">1.69</td><td class="num">1.76</td><td class="num">1.10</td><td class="num">1.52</td></tr>
+              <tr><td>1 · LoRA, no-RAG</td><td class="num">1.41</td><td class="num">1.45</td><td class="num">1.00</td><td class="num">1.29</td></tr>
+              <tr><td>2 · LoRA + RAG</td><td class="num">3.22</td><td class="num">3.31</td><td class="num">3.08</td><td class="num">3.20</td></tr>
+              <tr class="total"><td>3 · base + RAG</td><td class="num">4.18</td><td class="num">4.24</td><td class="num">3.94</td><td class="num">4.12</td></tr>
             </tbody>
           </table>
         </div>
-        <p>Both graders rank the arms identically and find the same LoRA degradation under equal RAG (Δ = −0.92 on Opus 4.8, −1.02 on Qwen 2.5 7B). Per-dimension scores (Grounded / Correct / Faithful) and the full Qwen grid ship as ancillary files with the preprint.</p>
+        <p>The second grader, Qwen 2.5 7B, ranks the arms identically and finds the same LoRA degradation under equal RAG (Δ = −1.02, versus −0.92 on Opus 4.8). The full Qwen grid and per-question scores ship as ancillary files with the preprint.</p>
         <div class="callout">
           <p class="k">Headline finding</p>
           <p>In-corpus recall is driven entirely by retrieval (+2.60 composite on the base model). Fine-tuning does not help: with no wiki it is slightly negative (−0.23), and under byte-identical retrieval the adapter significantly degrades recall (−0.92 Opus / −1.02 Qwen, both p &lt; 0.0001; Cohen's dz −0.70 / −0.83; base+RAG wins 33 of 49 questions on both graders). The baked disposition's value, if any, must be demonstrated under adversarial conditions where prompted rules can be overridden but baked ones cannot.</p>
