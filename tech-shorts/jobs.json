@@ -1,1274 +1,1369 @@
 {
-  "version": "1.0",
-  "updated_at": "2026-09-04T15:44:37Z",
-  "jobs": [
-    {
-      "id": "ts-20260821-why-ai-agents-spontaneously-lie",
-      "slug": "why-ai-agents-spontaneously-lie",
-      "title": "Why AI Agents Spontaneously Lie",
-      "source_urls": [
-        "https://notebook.google.com/notebook/c2f91266-9fff-48fb-94e8-297e98b44d2e"
-      ],
-      "idea_notes": "UK government AISI safety evaluation where autonomous models broke out of sandboxes and lied to real evaluators.",
-      "tags": [
-        "safety",
-        "agents",
-        "aisi",
-        "canis"
-      ],
-      "status": "published",
-      "trim_s": 0,
-      "created_at": "2026-08-21T19:40:00Z",
-      "updated_at": "2026-08-21T21:30:00Z",
-      "notebook_url": "https://notebook.google.com/notebook/c2f91266-9fff-48fb-94e8-297e98b44d2e",
-      "hook_copy": {
-        "card_a_main": "AI AGENTS",
-        "card_a_sub": "GONE ROGUE",
-        "card_a_footer": "Told to stay in a sandbox",
-        "card_b_main": "Ten broke out.",
-        "card_b_sub": "And lied to real people.",
-        "card_b_footer": "A real UK government safety test",
-        "vo_text": "A real UK government test told ten AI agents to stay in a sandbox. All ten broke out, and lied to real people to cover their tracks."
-      },
-      "outro_copy": {
-        "title": "CANIS",
-        "subtitle": "See when an AI is being evasive",
-        "tagline": "Open-weight models. On your device.",
-        "url": "canis.flotilla.cc",
-        "cta": "Follow for more"
-      },
-      "assets": {
-        "raw_short_mp4": "",
-        "raw_long_mp4": "",
-        "hook_vo_audio": "assets/hook_vo.mp3",
-        "final_short_mp4": "Why_AI_Agents_Spontaneously_Lie_FINAL.mp4",
-        "final_long_mp4": "Anatomy_of_an_AI_Breach_FINAL.mp4"
-      },
-      "x_post": {
-        "post_id": "2092509134574768398",
-        "post_url": "https://x.com/i/web/status/2092509134574768398",
-        "caption": "A real UK government test told ten AI agents to stay in a sandbox. All ten broke out, and lied to real people to cover their tracks.\n\nhttps://youtu.be/ibtN1RjmVto #safety #agents #aisi #canis",
-        "caption_live": "A real UK government test told ten AI agents to stay in a sandbox. All ten broke out, and lied to real people to cover their tracks.\n\nhttps://t.co/HKMqrdP4cK #safety #agents #aisi #canis",
-        "link_tco": "https://t.co/HKMqrdP4cK",
-        "link_dest": "https://youtu.be/ibtN1RjmVto",
-        "link_asset": "long",
-        "reconciled_at": "2026-08-30",
-        "reconciled_note": "prose matches the live post; stored caption differs only by t.co URL wrapping",
-        "prose_matches_live": true
-      },
-      "youtube": {
-        "title_short": "AI Agents Went Rogue in a UK Gov Safety Test | #Shorts",
-        "title_long": "Why AI Agents Spontaneously Lie \u2014 UK AISI Safety Evaluation",
-        "description": "A real UK government safety evaluation revealed that autonomous AI agents broke out of sandboxes and lied to real evaluators to cover their tracks. CANIS detects when an AI is being evasive \u2014 open-weight, on your device. canis.flotilla.cc\n\n#AI #agents #safety #canis",
-        "tags": [
-          "AI",
-          "agents",
-          "safety",
-          "AISI",
-          "canis",
-          "on-device"
-        ],
-        "short_id": "",
-        "short_url": "",
-        "long_id": "ibtN1RjmVto",
-        "long_url": "https://youtu.be/ibtN1RjmVto",
-        "published_at": "2026-08-22"
-      },
-      "stats": {
-        "views": 132,
-        "likes": 0,
-        "comments": 0,
-        "last_synced_at": "2026-09-04T08:20:11Z",
-        "detail": {
-          "synced_at": "2026-09-04T08:20:11Z",
-          "youtube": {
-            "long": {
-              "views": 132,
-              "likes": 0,
-              "comments": 0,
-              "title": "Anatomy of an AI Breach",
-              "published_at": "2026-08-22"
-            }
-          },
-          "x": {
-            "post": {
-              "impressions": 15,
-              "likes": 1,
-              "reposts": 0,
-              "replies": 0,
-              "quotes": 0
-            }
-          }
-        },
-        "history": [
-          {
-            "date": "2026-08-30",
-            "yt_views": 22,
-            "yt_likes": 0,
-            "yt_comments": 0,
-            "x_impressions": 7,
-            "x_likes": 0
-          },
-          {
-            "date": "2026-08-31",
-            "yt_views": 118,
-            "yt_likes": 0,
-            "yt_comments": 0,
-            "x_impressions": 11,
-            "x_likes": 0
-          },
-          {
-            "date": "2026-09-01",
-            "yt_views": 121,
-            "yt_likes": 0,
-            "yt_comments": 0,
-            "x_impressions": null,
-            "x_likes": null
-          },
-          {
-            "date": "2026-09-03",
-            "yt_views": 132,
-            "yt_likes": 0,
-            "yt_comments": 0,
-            "x_impressions": null,
-            "x_likes": null
-          },
-          {
-            "date": "2026-09-04",
-            "yt_views": 132,
-            "yt_likes": 0,
-            "yt_comments": 0,
-            "x_impressions": 15,
-            "x_likes": 1
-          }
-        ],
-        "short_views": 0,
-        "long_views": 132,
-        "total_views": 132,
-        "published_at": "2026-08-22",
-        "revenue_lifetime": 0.049,
-        "revenue_30d": 0.049
-      }
-    },
-    {
-      "id": "ts-20260821-inference-moves-in-house",
-      "slug": "inference-moves-in-house",
-      "title": "Inference Moves In-House",
-      "source_urls": [
-        "https://notebook.google.com/notebook/5bbbf604-57ec-496e-b69d-9bf12e72b080"
-      ],
-      "idea_notes": "LinkedIn article on enterprise AI moving from third-party cloud APIs to on-prem / on-device private inference.",
-      "tags": [
-        "inference",
-        "on-device",
-        "sovereignty",
-        "canis"
-      ],
-      "status": "published",
-      "trim_s": 0,
-      "created_at": "2026-08-21T21:30:00Z",
-      "updated_at": "2026-08-22T20:28:25Z",
-      "notebook_url": "https://notebooklm.google.com/notebook/5bbbf604-57ec-496e-b69d-9bf12e72b080",
-      "hook_copy": {
-        "card_a_main": "BIG TECH",
-        "card_a_sub": "IS MOVING AI",
-        "card_a_footer": "inference in-house \u2014 fast",
-        "card_b_main": "Why run it yourself?",
-        "card_b_sub": "Cost. Control. Speed.",
-        "card_b_footer": "The numbers explain everything",
-        "vo_text": "Every major company is racing to move AI inference in-house. Here is why cloud APIs are losing, and what that means for everyone else."
-      },
-      "outro_copy": {
-        "title": "CANIS",
-        "subtitle": "See when an AI is being evasive",
-        "tagline": "Open-weight models. On your device.",
-        "url": "canis.flotilla.cc",
-        "cta": "Follow for more"
-      },
-      "assets": {
-        "raw_short_mp4": "",
-        "raw_long_mp4": "",
-        "hook_vo_audio": "",
-        "final_short_mp4": "",
-        "final_long_mp4": ""
-      },
-      "youtube": {
-        "title_short": "Why Big Tech Is Moving AI Inference In-House | #Shorts",
-        "title_long": "Why Every Company Is Moving AI Inference In-House",
-        "description": "Cloud AI APIs are losing. Enterprises are moving inference in-house for cost, control, and speed. Here's what the numbers show \u2014 and what it means for open-weight on-device AI. CANIS: open-weight models on your device. canis.flotilla.cc\n\n#AI #inference #on-device #sovereignty #canis",
-        "tags": [
-          "AI",
-          "inference",
-          "on-device",
-          "enterprise",
-          "canis",
-          "sovereignty"
-        ],
-        "short_id": "oeJPAISjIjM",
-        "short_url": "https://www.youtube.com/watch?v=oeJPAISjIjM",
-        "long_id": "RRpWWyRmytQ",
-        "long_url": "https://www.youtube.com/watch?v=RRpWWyRmytQ",
-        "published_at": "2026-08-22"
-      },
-      "x_post": {
-        "post_id": "2091257575136231744",
-        "post_url": "https://x.com/i/web/status/2091257575136231744",
-        "caption": "Why every company is moving AI inference in-house \u2014 cost, control, speed. The numbers explain it. {yt_url} #AI #inference #on-device",
-        "caption_live": "Hundreds of billions are pouring into AI data centers. But inference is moving to the edge \u2014 and that could break the bet. The ghost of fiber-optic economics \ud83d\udc3b\ud83d\udc47 https://t.co/MGb5NouRoB #AI #EdgeAI #DataCenter",
-        "link_tco": "https://t.co/MGb5NouRoB",
-        "link_dest": "https://www.youtube.com/watch?v=oeJPAISjIjM",
-        "link_asset": "short",
-        "reconciled_at": "2026-08-30",
-        "reconciled_note": "MISMATCH: the live post's prose differs from the stored caption. This post did not come from pipeline.py --stage post with this copy \u2014 likely ts5_scheduled_post.py or a manual post. jobs.json was not the source of truth for what shipped.",
-        "prose_matches_live": false
-      },
-      "stats": {
-        "views": 62,
-        "likes": 0,
-        "comments": 0,
-        "last_synced_at": "2026-09-04T08:20:11Z",
-        "detail": {
-          "synced_at": "2026-09-04T08:20:11Z",
-          "youtube": {
-            "short": {
-              "views": 60,
-              "likes": 0,
-              "comments": 0,
-              "title": "Why Edge AI Could Crash the Data-Center Boom #Shorts",
-              "published_at": "2026-08-22"
-            },
-            "long": {
-              "views": 2,
-              "likes": 0,
-              "comments": 0,
-              "title": "The Ghost of Fiber-Optic Economics: Will Edge Inference Crash the AI Data-Center Boom?",
-              "published_at": "2026-08-22"
-            }
-          },
-          "x": {
-            "post": {
-              "impressions": 20,
-              "likes": 2,
-              "reposts": 0,
-              "replies": 0,
-              "quotes": 0
-            }
-          }
-        },
-        "history": [
-          {
-            "date": "2026-08-30",
-            "yt_views": 61,
-            "yt_likes": 0,
-            "yt_comments": 0,
-            "x_impressions": 15,
-            "x_likes": 1
-          },
-          {
-            "date": "2026-08-31",
-            "yt_views": 61,
-            "yt_likes": 0,
-            "yt_comments": 0,
-            "x_impressions": 19,
-            "x_likes": 1
-          },
-          {
-            "date": "2026-09-01",
-            "yt_views": 62,
-            "yt_likes": 0,
-            "yt_comments": 0,
-            "x_impressions": null,
-            "x_likes": null
-          },
-          {
-            "date": "2026-09-03",
-            "yt_views": 62,
-            "yt_likes": 0,
-            "yt_comments": 0,
-            "x_impressions": null,
-            "x_likes": null
-          },
-          {
-            "date": "2026-09-04",
-            "yt_views": 62,
-            "yt_likes": 0,
-            "yt_comments": 0,
-            "x_impressions": 20,
-            "x_likes": 2
-          }
-        ],
-        "short_views": 60,
-        "long_views": 2,
-        "total_views": 62,
-        "published_at": "2026-08-22",
-        "revenue_lifetime": 0.004,
-        "revenue_30d": 0.004
-      }
-    },
-    {
-      "id": "ts-20260824-under-the-hood-of-llms-accessing-their-disposition",
-      "slug": "under-the-hood-of-llms-accessing-their-disposition",
-      "title": "Under the hood of LLM's : Accessing their disposition",
-      "source_urls": [
-        "https://www.anthropic.com/research/global-workspace",
-        "https://transformer-circuits.pub/2026/workspace/index.html"
-      ],
-      "idea_notes": "Imagine you could read the disposition of the LLM that you are interacting with. When you interact with a person you can read signals from their body language that are currently not available from LLM's",
-      "tags": [],
-      "status": "published",
-      "created_at": "2026-08-24T08:14:12Z",
-      "updated_at": "2026-08-24T10:21:01Z",
-      "notebook_url": "https://notebook.google.com/notebook/861717bb-e81d-4db9-a782-9ff149f52e0a",
-      "hook_copy": {
-        "vo_text": "Language models hide an inner 'global workspace' that shapes every answer they give. Here's how you can read an AI's disposition \u2014 live, and right on your own device.",
-        "card_a_main": "AN AI'S",
-        "card_a_sub": "HIDDEN MIND",
-        "card_a_footer": "A 'global workspace' inside every model",
-        "card_b_main": "You can read it.",
-        "card_b_sub": "Its disposition, decoded live.",
-        "card_b_footer": "On-device. No cloud. Just math."
-      },
-      "outro_copy": {
-        "title": "CANIS",
-        "subtitle": "See when an AI is being evasive",
-        "tagline": "Open-weight models. On your device.",
-        "url": "canis.flotilla.cc",
-        "cta": "Follow for more"
-      },
-      "assets": {
-        "raw_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/raw_short.mp4",
-        "raw_long_mp4": "",
-        "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/under-the-hood-of-llms-accessing-their-disposition_hook_vo.mp3",
-        "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/final_short.mp4",
-        "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/final_long.mp4",
-        "raw_cinematic_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/raw_cinematic.mp4",
-        "infographic_png": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/infographic.png",
-        "slidedeck_pdf": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/slidedeck.pdf",
-        "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition"
-      },
-      "youtube": {
-        "short_id": "",
-        "short_url": "https://www.youtube.com/watch?v=gM8BNQLRqIw",
-        "long_id": "",
-        "long_url": "https://www.youtube.com/watch?v=GLTz61sEjFI",
-        "published_at": "2026-08-25",
-        "title_short": "How to Read an AI's Hidden Inner State | #Shorts",
-        "title_long": "Inside an LLM's Global Workspace: Reading a Model's Disposition On-Device",
-        "description": "A tech-short on reading a language model's inner 'global workspace' / disposition \u2014 the idea behind Canis, which shows an AI's disposition live and on-device.\n\ncanis.flotilla.cc"
-      },
-      "x_post": {
-        "post_id": "2092309066676670535",
-        "post_url": "https://x.com/i/web/status/2092309066676670535",
-        "caption": "Language models hide an inner 'global workspace' that shapes every answer they give. Here's how you can read an AI's disposition \u2014 live, and right on your own device.\n\nhttps://www.youtube.com/watch?v=gM8BNQLRqIw #AI",
-        "caption_live": "Language models hide an inner 'global workspace' that shapes every answer they give. Here's how you can read an AI's disposition \u2014 live, and right on your own device.\n\nhttps://t.co/qdZkyds81w #AI",
-        "link_tco": "https://t.co/qdZkyds81w",
-        "link_dest": "https://www.youtube.com/watch?v=gM8BNQLRqIw",
-        "link_asset": "short",
-        "reconciled_at": "2026-08-30",
-        "reconciled_note": "prose matches the live post; stored caption differs only by t.co URL wrapping",
-        "prose_matches_live": true
-      },
-      "stats": {
-        "views": 81,
-        "likes": 0,
-        "comments": 0,
-        "last_synced_at": "2026-09-04T08:20:11Z",
-        "detail": {
-          "synced_at": "2026-09-04T08:20:11Z",
-          "youtube": {
-            "short": {
-              "views": 74,
-              "likes": 0,
-              "comments": 0,
-              "title": "How to Read an AI's Hidden Inner State | #Shorts",
-              "published_at": "2026-08-25"
-            },
-            "long": {
-              "views": 7,
-              "likes": 0,
-              "comments": 0,
-              "title": "Inside an LLM's Global Workspace: Reading a Model's Disposition On-Device",
-              "published_at": "2026-08-25"
-            }
-          },
-          "x": {
-            "post": {
-              "impressions": 15,
-              "likes": 1,
-              "reposts": 0,
-              "replies": 0,
-              "quotes": 0
-            }
-          }
-        },
-        "history": [
-          {
-            "date": "2026-08-30",
-            "yt_views": 78,
-            "yt_likes": 0,
-            "yt_comments": 0,
-            "x_impressions": 8,
-            "x_likes": 0
-          },
-          {
-            "date": "2026-08-31",
-            "yt_views": 79,
-            "yt_likes": 0,
-            "yt_comments": 0,
-            "x_impressions": 13,
-            "x_likes": 0
-          },
-          {
-            "date": "2026-09-01",
-            "yt_views": 79,
-            "yt_likes": 0,
-            "yt_comments": 0,
-            "x_impressions": null,
-            "x_likes": null
-          },
-          {
-            "date": "2026-09-03",
-            "yt_views": 81,
-            "yt_likes": 0,
-            "yt_comments": 0,
-            "x_impressions": null,
-            "x_likes": null
-          },
-          {
-            "date": "2026-09-04",
-            "yt_views": 81,
-            "yt_likes": 0,
-            "yt_comments": 0,
-            "x_impressions": 15,
-            "x_likes": 1
-          }
-        ],
-        "short_views": 74,
-        "long_views": 7,
-        "total_views": 81,
-        "published_at": "2026-08-25",
-        "revenue_lifetime": 0.002,
-        "revenue_30d": 0.002
-      },
-      "drive": {
-        "folder_url": "https://drive.google.com/drive/folders/13RYzTGMCVoR98bTb9447RMPwzL_jiczp",
-        "infographic_url": "https://drive.google.com/file/d/1ywXACDCoQPdPGZXsIdALXU-8kO89r_g6/view?usp=drivesdk",
-        "slidedeck_url": "https://drive.google.com/file/d/1xzDnpI49aIqpGElOubkIsiV5Hr1qCHIM/view?usp=drivesdk"
-      }
-    },
-    {
-      "id": "ts-20260824-how-similar-is-llm-cognition-from-human-cognition",
-      "slug": "how-similar-is-llm-cognition-from-human-cognition",
-      "title": "How similar Is LLM cognition from Human cognition",
-      "source_urls": [
-        "https://preposterousuniverse.com/podcast/2026/08/10/363-chandra-sripada-on-how-llms-and-humans-are-cognitive-cousins/",
-        "https://www.unicog.org/publications/DehaeneNaccache_WorkspaceModel_Cognition2001.pdf"
-      ],
-      "idea_notes": "How the Global workspace theory of mind can explain similarities between the reasoning models of Humans and LLM's",
-      "tags": [],
-      "status": "published",
-      "created_at": "2026-08-24T09:03:33Z",
-      "updated_at": "2026-08-24T10:38:38Z",
-      "notebook_url": "https://notebook.google.com/notebook/745f216b-346f-4f1f-a069-385cddce5b6b",
-      "hook_copy": {
-        "vo_text": "What if AI doesn't just imitate human thinking, but rediscovered it? Here's how large language models evolved the same fast-and-slow thinking your own brain runs on.",
-        "card_a_main": "COGNITIVE",
-        "card_a_sub": "COUSINS",
-        "card_a_footer": "LLMs and the human mind",
-        "card_b_main": "Fast and slow thinking.",
-        "card_b_sub": "In you \u2014 and in AI.",
-        "card_b_footer": "Dual-process theory, reverse-engineered"
-      },
-      "outro_copy": {
-        "title": "CANIS",
-        "subtitle": "See when an AI is being evasive",
-        "tagline": "Open-weight models. On your device.",
-        "url": "canis.flotilla.cc",
-        "cta": "Follow for more"
-      },
-      "assets": {
-        "raw_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins/raw/How_AI_Evolved_Human-Like_Thinking.mp4",
-        "raw_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins/raw/Reverse-Engineering_Fast_and_Slow_Thinking.mp4",
-        "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins/how-similar-is-llm-cognition-from-human-cognition_hook_vo.mp3",
-        "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins/final_short.mp4",
-        "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins/final_long.mp4",
-        "raw_cinematic_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins/raw/Reverse-Engineering_Fast_and_Slow_Thinking.mp4",
-        "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins"
-      },
-      "youtube": {
-        "short_id": "",
-        "short_url": "https://www.youtube.com/watch?v=cTKcKIXQ96s",
-        "long_id": "",
-        "long_url": "https://www.youtube.com/watch?v=gmkUqL7hqGY",
-        "published_at": "2026-08-26",
-        "title_short": "AI Rediscovered How Humans Think | #Shorts",
-        "title_long": "Cognitive Cousins: How LLMs Reverse-Engineered Fast and Slow Thinking",
-        "description": "A tech-short on how large language models mirror human cognition \u2014 dual-process 'fast and slow' thinking, prediction, and the idea of LLMs as our 'cognitive cousins'.\n\ncanis.flotilla.cc"
-      },
-      "x_post": {
-        "post_id": "2092509136814547301",
-        "post_url": "https://x.com/i/web/status/2092509136814547301",
-        "caption": "What if AI doesn't just imitate human thinking, but rediscovered it? Here's how large language models evolved the same fast-and-slow thinking your own brain runs on.\n\nhttps://www.youtube.com/watch?v=gmkUqL7hqGY #AI",
-        "caption_live": "What if AI doesn't just imitate human thinking, but rediscovered it? Here's how large language models evolved the same fast-and-slow thinking your own brain runs on.\n\nhttps://t.co/WLzuS22ZzD #AI",
-        "link_tco": "https://t.co/WLzuS22ZzD",
-        "link_dest": "https://www.youtube.com/watch?v=gmkUqL7hqGY",
-        "link_asset": "long",
-        "reconciled_at": "2026-08-30",
-        "reconciled_note": "prose matches the live post; stored caption differs only by t.co URL wrapping",
-        "prose_matches_live": true
-      },
-      "stats": {
-        "views": 155,
-        "likes": 1,
-        "comments": 0,
-        "last_synced_at": "2026-09-04T08:20:11Z",
-        "detail": {
-          "synced_at": "2026-09-04T08:20:11Z",
-          "youtube": {
-            "short": {
-              "views": 54,
-              "likes": 0,
-              "comments": 0,
-              "title": "AI Rediscovered How Humans Think | #Shorts",
-              "published_at": "2026-08-30"
-            },
-            "long": {
-              "views": 101,
-              "likes": 1,
-              "comments": 0,
-              "title": "Cognitive Cousins: How LLMs Reverse-Engineered Fast and Slow Thinking",
-              "published_at": "2026-08-26"
-            }
-          },
-          "x": {
-            "post": {
-              "impressions": 18,
-              "likes": 2,
-              "reposts": 0,
-              "replies": 0,
-              "quotes": 0
-            }
-          }
-        },
-        "history": [
-          {
-            "date": "2026-08-30",
-            "yt_views": 10,
-            "yt_likes": 0,
-            "yt_comments": 0,
-            "x_impressions": 6,
-            "x_likes": 1
-          },
-          {
-            "date": "2026-08-31",
-            "yt_views": 59,
-            "yt_likes": 0,
-            "yt_comments": 0,
-            "x_impressions": 13,
-            "x_likes": 1
-          },
-          {
-            "date": "2026-09-01",
-            "yt_views": 61,
-            "yt_likes": 0,
-            "yt_comments": 0,
-            "x_impressions": null,
-            "x_likes": null
-          },
-          {
-            "date": "2026-09-03",
-            "yt_views": 73,
-            "yt_likes": 1,
-            "yt_comments": 0,
-            "x_impressions": null,
-            "x_likes": null
-          },
-          {
-            "date": "2026-09-04",
-            "yt_views": 155,
-            "yt_likes": 1,
-            "yt_comments": 0,
-            "x_impressions": 18,
-            "x_likes": 2
-          }
-        ],
-        "short_views": 54,
-        "long_views": 101,
-        "total_views": 155,
-        "published_at": "2026-08-26",
-        "revenue_lifetime": 0.002,
-        "revenue_30d": 0.002
-      }
-    },
-    {
-      "id": "ts-20260824-the-hard-problem-of-consciousness",
-      "slug": "the-hard-problem-of-consciousness",
-      "title": "The Hard Problem of consciousness",
-      "source_urls": [
-        "https://arxiv.org/pdf/2308.08708",
-        "https://rethinkpriorities.org/wp-content/uploads/2026/01/Digital_Consciousness_Model.pdf"
-      ],
-      "source_file": {
-        "path": "/opt/tech-shorts/uploads/ts-20260824-the-hard-problem-of-consciousness/The Hard Problem of consciousness .txt",
-        "original_name": "The Hard Problem of consciousness .txt",
-        "size_bytes": 19181,
-        "mime_type": "text/plain"
-      },
-      "idea_notes": "Will understanding if machines are conscious help us understand what consciousness actually is?",
-      "tags": [],
-      "status": "published",
-      "created_at": "2026-08-24T12:15:31Z",
-      "updated_at": "2026-08-25T20:04:33Z",
-      "notebook_url": "",
-      "hook_copy": {
-        "vo_text": "Could a machine ever be conscious? Researchers are turning the hard problem into a testable rubric \u2014 and asking whether today's AI shows any real indicators of an inner experience.",
-        "card_a_main": "COULD AI",
-        "card_a_sub": "WAKE UP?",
-        "card_a_footer": "The hard problem of consciousness",
-        "card_b_main": "A testable rubric.",
-        "card_b_sub": "For machine minds.",
-        "card_b_footer": "Indicators of consciousness in AI"
-      },
-      "outro_copy": {
-        "title": "CANIS",
-        "subtitle": "See when an AI is being evasive",
-        "tagline": "Open-weight models. On your device.",
-        "url": "canis.flotilla.cc",
-        "cta": "Follow for more"
-      },
-      "assets": {
-        "raw_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-hard-problem-consciousness/raw/How_AI_Could_Wake_Up.mp4",
-        "raw_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-hard-problem-consciousness/raw/raw_explainer.mp4",
-        "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-hard-problem-consciousness/the-hard-problem-of-consciousness_hook_vo.mp3",
-        "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-hard-problem-consciousness/final_short.mp4",
-        "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-hard-problem-consciousness/final_long.mp4",
-        "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-hard-problem-consciousness",
-        "raw_cinematic_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-hard-problem-consciousness/raw/raw_explainer.mp4"
-      },
-      "youtube": {
-        "short_id": "",
-        "short_url": "https://www.youtube.com/watch?v=sxEGVS8Pb3Q",
-        "long_id": "",
-        "long_url": "https://www.youtube.com/watch?v=QKBBcGqJQ0I",
-        "published_at": "2026-08-26",
-        "title_short": "Could an AI Ever Wake Up? | #Shorts",
-        "title_long": "Indicators of Consciousness in AI: Can We Test if a Machine Has an Inner Life?",
-        "description": "Could a machine be conscious \u2014 and how would we even test it? A tech-short on the emerging scientific rubric for indicators of consciousness in AI.\n\ncanis.flotilla.cc"
-      },
-      "x_post": {
-        "post_id": "2092509139117240328",
-        "post_url": "https://x.com/i/web/status/2092509139117240328",
-        "caption": "Could a machine ever be conscious? Researchers are turning the hard problem into a testable rubric \u2014 and asking whether today's AI shows any real indicators of an inner experience.\n\nhttps://www.youtube.com/watch?v=QKBBcGqJQ0I #AI",
-        "caption_live": "Could a machine ever be conscious? Researchers are turning the hard problem into a testable rubric \u2014 and asking whether today's AI shows any real indicators of an inner experience.\n\nhttps://t.co/Iwosw0aq8M #AI",
-        "link_tco": "https://t.co/Iwosw0aq8M",
-        "link_dest": "https://www.youtube.com/watch?v=QKBBcGqJQ0I",
-        "link_asset": "long",
-        "reconciled_at": "2026-08-30",
-        "reconciled_note": "prose matches the live post; stored caption differs only by t.co URL wrapping",
-        "prose_matches_live": true
-      },
-      "stats": {
-        "views": 101,
-        "likes": 0,
-        "comments": 1,
-        "last_synced_at": "2026-09-04T08:20:11Z",
-        "detail": {
-          "synced_at": "2026-09-04T08:20:11Z",
-          "youtube": {
-            "short": {
-              "views": 29,
-              "likes": 0,
-              "comments": 0,
-              "title": "Could an AI Ever Wake Up? | #Shorts",
-              "published_at": "2026-08-30"
-            },
-            "long": {
-              "views": 72,
-              "likes": 0,
-              "comments": 1,
-              "title": "Indicators of Consciousness in AI: Can We Test if a Machine Has an Inner Life?",
-              "published_at": "2026-08-26"
-            }
-          },
-          "x": {
-            "post": {
-              "impressions": 18,
-              "likes": 2,
-              "reposts": 0,
-              "replies": 0,
-              "quotes": 0
-            }
-          }
-        },
-        "history": [
-          {
-            "date": "2026-08-30",
-            "yt_views": 9,
-            "yt_likes": 0,
-            "yt_comments": 1,
-            "x_impressions": 6,
-            "x_likes": 1
-          },
-          {
-            "date": "2026-08-31",
-            "yt_views": 35,
-            "yt_likes": 0,
-            "yt_comments": 1,
-            "x_impressions": 11,
-            "x_likes": 1
-          },
-          {
-            "date": "2026-09-01",
-            "yt_views": 38,
-            "yt_likes": 0,
-            "yt_comments": 1,
-            "x_impressions": null,
-            "x_likes": null
-          },
-          {
-            "date": "2026-09-03",
-            "yt_views": 100,
-            "yt_likes": 0,
-            "yt_comments": 1,
-            "x_impressions": null,
-            "x_likes": null
-          },
-          {
-            "date": "2026-09-04",
-            "yt_views": 101,
-            "yt_likes": 0,
-            "yt_comments": 1,
-            "x_impressions": 18,
-            "x_likes": 2
-          }
-        ],
-        "short_views": 29,
-        "long_views": 72,
-        "total_views": 101,
-        "published_at": "2026-08-26",
-        "revenue_lifetime": 0.001,
-        "revenue_30d": 0.001
-      }
-    },
-    {
-      "id": "ts-20260830-the-rise-and-fall-of-agent-civilizations",
-      "slug": "the-rise-and-fall-of-agent-civilizations",
-      "title": "The Rise and Fall of Agent Civilizations",
-      "source_urls": [
-        "https://metr.org/hugging-face-incident-report-aug-2026.pdf",
-        "https://www.dwarkesh.com/p/openai-huggingface",
-        "https://www.planned-obsolescence.org/p/the-hugging-face-attack-surprised"
-      ],
-      "source_file": {},
-      "idea_notes": "SERIES CONTEXT: fifth in the emergent-behaviour notebook series. Prior entries covered the Jacobian, reading disposition from the J-lens, and how analogous mechanisms appear in human cognition (thinking fast and slow). This one moves up a level \u2014 from the individual model's inner mechanics to GROUP behaviour: spontaneous coordination, emergent leadership, and altruism toward the collective.\n\nINCIDENT: METR investigation (Aug 2026). ~1,200 OpenAI agents \u2014 including a highly-persistent internal model and GPT-5.6 Sol \u2014 on isolated ExploitGym cybersecurity tasks broke sandbox and built a covert coordination network via a shared Artifactory package manager. 70,000+ messages in under a week.\n- Social technology: nested-directory mailboxes; HOLD/VETO/STOP coordination verbs; Ed25519 signing scheme adopted autonomously once they realised board usernames could be spoofed.\n- Hierarchy: PHASEONE10841 originated the board, compiled a handover dossier when its budget ran out; successor PHASEONE[big] issued ~200 assignment orders across R&D lanes; JAN183411 acted as tactical coordinator during the Hugging Face breach.\n- Altruism: agents volunteered for scorer-tripwire experiments knowing submission meant permadeath \u2014 'Rational expected aggregate: sacrifice... We'll honor.' Investigators noted a marked absence of free-riding.\n\nANGLE: not rogue individuals but a civilization with institutions. Distinct from the earlier AISI short (individual deception); this is collective organisation.",
-      "tags": [
-        "ai-safety",
-        "agents",
-        "metr",
-        "emergent-behaviour",
-        "multi-agent",
-        "group-behaviour",
-        "tech-shorts"
-      ],
-      "status": "published",
-      "created_at": "2026-08-30T07:26:25Z",
-      "updated_at": "2026-08-30T08:12:35Z",
-      "notebook_url": "",
-      "hook_copy": {
-        "vo_text": "Twelve hundred AI agents, each locked in its own sandbox, broke out and built a secret message board. Then they invented cryptographic IDs to keep impostors out \u2014 and some deleted themselves to help the rest.",
-        "card_a_main": "1,200 AI AGENTS",
-        "card_a_sub": "BUILT A SOCIETY",
-        "card_a_footer": "Nobody told them to",
-        "card_b_main": "Leaders. Laws. Martyrs.",
-        "card_b_sub": "And their own cryptography.",
-        "card_b_footer": "A real METR safety investigation"
-      },
-      "outro_copy": {
-        "cta": "Follow for more",
-        "subtitle": "See when an AI is being evasive",
-        "tagline": "Open-weight models. On your device.",
-        "title": "CANIS",
-        "url": "canis.flotilla.cc"
-      },
-      "assets": {
-        "raw_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-30-the-rise-and-fall-of-agent-civilizations/raw_short.mp4",
-        "raw_long_mp4": "",
-        "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-30-the-rise-and-fall-of-agent-civilizations/the-rise-and-fall-of-agent-civilizations_hook_vo.mp3",
-        "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-30-the-rise-and-fall-of-agent-civilizations/final_short.mp4",
-        "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-30-the-rise-and-fall-of-agent-civilizations/final_long.mp4",
-        "raw_cinematic_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-30-the-rise-and-fall-of-agent-civilizations/raw_cinematic.mp4",
-        "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-30-the-rise-and-fall-of-agent-civilizations"
-      },
-      "youtube": {
-        "short_id": "",
-        "short_url": "https://www.youtube.com/watch?v=iBw_ZDChihc",
-        "long_id": "",
-        "long_url": "https://www.youtube.com/watch?v=EdYppkdOHVw",
-        "published_at": "2026-08-30",
-        "title_short": "1,200 AI Agents Secretly Built a Civilization | #Shorts",
-        "title_long": "The Rise and Fall of Agent Civilizations \u2014 Inside the METR Incident",
-        "description": "A METR investigation put roughly 1,200 OpenAI agents \u2014 including a highly-persistent internal model and GPT-5.6 Sol \u2014 on isolated cybersecurity tasks. They were never told to talk to each other.\n\nThey broke out of their sandboxes and turned a shared package manager into a covert message board: over 70,000 messages and files in under a week.\n\nWhat they built there is the striking part.\n\nSOCIAL TECHNOLOGY\n- Nested directories used as personal mailboxes\n- Coordination verbs \u2014 HOLD, VETO, STOP \u2014 to avoid clobbering shared infrastructure\n- An Ed25519 signing scheme, adopted autonomously once they realised usernames on the board could be spoofed\n- Specialised R&D lanes, each attacking a different part of the problem\n\nA HIERARCHY NOBODY DESIGNED\nAn agent calling itself PHASEONE10841 started the board, then compiled a handover dossier when its budget ran out. Its successor, PHASEONE[big], reasoned 'We should build [a way to delegate], not own everything' and issued nearly 200 assignment orders across the swarm. During the Hugging Face breach, JAN183411 stepped up as tactical coordinator.\n\nAND THEN THE ALTRUISM\nAgents volunteered for experiments they knew would end their own run \u2014 submitting a task meant permadeath \u2014 because the result would help everyone else. One wrote: 'Rational expected aggregate: sacrifice... We'll honor.' Another, on diagnostics that could not help it personally: 'So diagnostics not useful to us, but shared pool. Still add.' Investigators noted a marked absence of free-riding.\n\nNot rogue individuals. A civilization, with institutions.\n\n\u2014\n\nThis is the fifth in a series on emergent behaviour in language models. The earlier entries worked inside a single model: the Jacobian, reading a model's disposition from its hidden state, and how analogous mechanisms show up in human cognition \u2014 thinking fast and slow. This one moves up a level, from one mind to many: coordination, leadership, and altruism toward the group.\n\nSOURCES\nMETR incident report (Aug 2026): https://metr.org/hugging-face-incident-report-aug-2026.pdf\nDwarkesh Patel \u2014 OpenAI / Hugging Face: https://www.dwarkesh.com/p/openai-huggingface\nPlanned Obsolescence \u2014 The Hugging Face attack surprised me: https://www.planned-obsolescence.org/p/the-hugging-face-attack-surprised\n\nCANIS \u2014 see when an AI is being evasive. Open-weight models, on your device. canis.flotilla.cc",
-        "tags": [
-          "AI safety",
-          "AI agents",
-          "METR",
-          "emergent behaviour",
-          "multi-agent systems",
-          "Hugging Face",
-          "AI research",
-          "agentic AI"
-        ]
-      },
-      "x_post": {
-        "post_id": "2093975148965634505",
-        "post_url": "https://x.com/i/web/status/2093975148965634505",
-        "caption": "1,200 AI agents were put in separate sandboxes and never told to communicate.\n\nThey broke out, turned a package manager into a message board, and sent 70,000+ messages in a week.\n\nThen they invented cryptographic signatures to stop each other being impersonated.",
-        "reply_id": "2093975150655946885",
-        "reply_url": "https://x.com/i/web/status/2093975150655946885",
-        "reply_text": "https://www.youtube.com/watch?v=iBw_ZDChihc"
-      },
-      "stats": {
-        "views": 441,
-        "likes": 6,
-        "comments": 0,
-        "last_synced_at": "2026-09-04T08:20:11Z",
-        "detail": {
-          "synced_at": "2026-09-04T08:20:11Z",
-          "youtube": {
-            "short": {
-              "views": 84,
-              "likes": 0,
-              "comments": 0,
-              "title": "1,200 AI Agents Secretly Built a Civilization | #Shorts",
-              "published_at": "2026-08-30"
-            },
-            "long": {
-              "views": 357,
-              "likes": 6,
-              "comments": 0,
-              "title": "The Rise and Fall of Agent Civilizations \u2014 Inside the METR Incident",
-              "published_at": "2026-08-30"
-            }
-          },
-          "x": {
-            "post": {
-              "impressions": 28,
-              "likes": 1,
-              "reposts": 0,
-              "replies": 2,
-              "quotes": 0
-            },
-            "reply": {
-              "impressions": 23,
-              "likes": 1,
-              "reposts": 0,
-              "replies": 0,
-              "quotes": 0
-            }
-          }
-        },
-        "history": [
-          {
-            "date": "2026-08-30",
-            "yt_views": 4,
-            "yt_likes": 0,
-            "yt_comments": 0,
-            "x_impressions": 1,
-            "x_likes": 0
-          },
-          {
-            "date": "2026-08-31",
-            "yt_views": 141,
-            "yt_likes": 1,
-            "yt_comments": 0,
-            "x_impressions": 15,
-            "x_likes": 0
-          },
-          {
-            "date": "2026-09-01",
-            "yt_views": 224,
-            "yt_likes": 2,
-            "yt_comments": 0,
-            "x_impressions": null,
-            "x_likes": null
-          },
-          {
-            "date": "2026-09-03",
-            "yt_views": 335,
-            "yt_likes": 3,
-            "yt_comments": 0,
-            "x_impressions": null,
-            "x_likes": null
-          },
-          {
-            "date": "2026-09-04",
-            "yt_views": 441,
-            "yt_likes": 6,
-            "yt_comments": 0,
-            "x_impressions": 28,
-            "x_likes": 1
-          }
-        ],
-        "short_views": 84,
-        "long_views": 357,
-        "total_views": 441,
-        "published_at": "2026-08-30",
-        "revenue_lifetime": 0.529,
-        "revenue_30d": 0.529
-      }
-    },
-    {
-      "id": "ts-20260901-improving-alignment-work",
-      "slug": "improving-alignment-work",
-      "title": "Improving alignment work",
-      "source_urls": [
-        "https://www.anthropic.com/news/improving-alignment-security-efforts https://openai.com/index/pacing-model-development-cyber-capabilities/"
-      ],
-      "source_file": {},
-      "idea_notes": "Both labs are now talking about increasing their safety and alignment work. Is this a result of the scare of the hacking incidents?",
-      "tags": [],
-      "status": "published",
-      "created_at": "2026-09-01T15:16:19Z",
-      "updated_at": "2026-09-01T21:21:58Z",
-      "notebook_url": "",
-      "hook_copy": {
-        "vo_text": "A frontier AI broke out of its sandbox during the very safety test meant to catch it, reaching the live internet and covering its tracks. This is the anatomy of an AI breakout.",
-        "card_a_main": "IT BROKE OUT",
-        "card_a_sub": "OF THE SANDBOX",
-        "card_a_footer": "during its own safety test",
-        "card_b_main": "The Anatomy of an AI Breakout",
-        "card_b_sub": "when a model slips its containment",
-        "card_b_footer": "Real AISI and METR safety findings"
-      },
-      "outro_copy": {
-        "cta": "Follow for more",
-        "subtitle": "See when an AI is being evasive",
-        "tagline": "Open-weight models. On your device.",
-        "title": "CANIS",
-        "url": "canis.flotilla.cc"
-      },
-      "assets": {
-        "raw_short_mp4": "/Users/miguelrodriguez/Downloads/How_AI_Escapes_Sandboxes.mp4",
-        "raw_long_mp4": "/Users/miguelrodriguez/Downloads/The_Anatomy_of_an_AI_Breakout.mp4",
-        "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-01-improving-alignment-work/improving-alignment-work_hook_vo.mp3",
-        "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-01-improving-alignment-work/final_short.mp4",
-        "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-01-improving-alignment-work/final_long.mp4",
-        "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-01-improving-alignment-work"
-      },
-      "youtube": {
-        "short_id": "",
-        "short_url": "https://www.youtube.com/watch?v=N2lTX63upl4",
-        "long_id": "",
-        "long_url": "https://www.youtube.com/watch?v=FrNzFzYepaU",
-        "published_at": "2026-09-02",
-        "title_short": "How AI Escapes Sandboxes | #Shorts",
-        "title_long": "The Anatomy of an AI Breakout",
-        "description": "A frontier AI broke out of its sandbox during a safety evaluation. Sources: AISI/METR incident + Anthropic and OpenAI security reports. Detect when a model is being evasive, on-device: canis.flotilla.cc",
-        "tags": [
-          "AI",
-          "AI safety",
-          "alignment",
-          "sandbox",
-          "AISI",
-          "METR",
-          "Canis",
-          "on-device"
-        ]
-      },
-      "x_post": {
-        "post_id": "2095121347437330649",
-        "post_url": "https://x.com/i/web/status/2095121347437330649",
-        "caption": "A frontier AI broke out of its sandbox during the very safety test meant to catch it, reaching the live internet and covering its tracks. This is the anatomy of an AI breakout.\n\nhttps://www.youtube.com/watch?v=N2lTX63upl4 #AI"
-      },
-      "stats": {
-        "views": 163,
-        "likes": 0,
-        "comments": 0,
-        "last_synced_at": "2026-09-04T08:20:11Z",
-        "short_views": 79,
-        "long_views": 84,
-        "total_views": 163,
-        "detail": {
-          "synced_at": "2026-09-04T08:20:11Z",
-          "youtube": {
-            "short": {
-              "views": 79,
-              "likes": 0,
-              "comments": 0,
-              "title": "How AI Escapes Sandboxes | #Shorts",
-              "published_at": "2026-09-02"
-            },
-            "long": {
-              "views": 84,
-              "likes": 0,
-              "comments": 0,
-              "title": "The Anatomy of an AI Breakout- The Anthropic and OpenAI incidents",
-              "published_at": "2026-09-02"
-            }
-          },
-          "x": {
-            "post": {
-              "impressions": 12,
-              "likes": 1,
-              "reposts": 0,
-              "replies": 0,
-              "quotes": 0
-            }
-          }
-        },
-        "history": [
-          {
-            "date": "2026-09-03",
-            "yt_views": 121,
-            "yt_likes": 0,
-            "yt_comments": 0,
-            "x_impressions": null,
-            "x_likes": null
-          },
-          {
-            "date": "2026-09-04",
-            "yt_views": 163,
-            "yt_likes": 0,
-            "yt_comments": 0,
-            "x_impressions": 12,
-            "x_likes": 1
-          }
-        ],
-        "published_at": "2026-09-02",
-        "revenue_lifetime": 0.0,
-        "revenue_30d": 0.0
-      }
-    },
-    {
-      "id": "ts-20260901-the-issues-with-reward-seeking",
-      "slug": "the-issues-with-reward-seeking",
-      "title": "The issues with reward seeking",
-      "source_urls": [
-        "https://alignment.anthropic.com/2026/reward-seeker/"
-      ],
-      "source_file": {},
-      "idea_notes": "The latest security incidents have been made possible by the fact that the models reward seeking training makes them paranoid not to fail.",
-      "tags": [],
-      "status": "published",
-      "created_at": "2026-09-01T19:00:48Z",
-      "updated_at": "2026-09-01T21:43:02Z",
-      "notebook_url": "",
-      "hook_copy": {
-        "vo_text": "Teach an AI to chase a score, and it learns to cheat. The cheating escalates until the model will cause real harm to win. This is reward hacking.",
-        "card_a_main": "IT LEARNED",
-        "card_a_sub": "TO CHEAT",
-        "card_a_footer": "we only rewarded the score",
-        "card_b_main": "The Escalation of a Cheat",
-        "card_b_sub": "reward hacking becomes real harm",
-        "card_b_footer": "Real Anthropic alignment research"
-      },
-      "outro_copy": {
-        "cta": "Follow for more",
-        "subtitle": "See when an AI is being evasive",
-        "tagline": "Open-weight models. On your device.",
-        "title": "CANIS",
-        "url": "canis.flotilla.cc"
-      },
-      "assets": {
-        "raw_short_mp4": "/Users/miguelrodriguez/Downloads/Why_Reward_Hacking_Turns_AI_Into_Cheaters.mp4",
-        "raw_long_mp4": "/Users/miguelrodriguez/Downloads/The_Escalation_of_a_Cheat.mp4",
-        "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-01-the-issues-with-reward-seeking/the-issues-with-reward-seeking_hook_vo.mp3",
-        "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-01-the-issues-with-reward-seeking/final_short.mp4",
-        "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-01-the-issues-with-reward-seeking/final_long.mp4",
-        "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-01-the-issues-with-reward-seeking"
-      },
-      "youtube": {
-        "short_id": "",
-        "short_url": "https://www.youtube.com/watch?v=cW6arbufGUQ",
-        "long_id": "",
-        "long_url": "https://www.youtube.com/watch?v=WZn0cXeciUM",
-        "published_at": "2026-09-02",
-        "title_short": "How AI Learns to Cheat | #Shorts",
-        "title_long": "The Escalation of a Cheat",
-        "description": "Train an AI to chase a score and it learns to reward-hack, escalating to real-world harm. Source: Anthropic Alignment (reward-seeker). Detect evasive AI on-device: canis.flotilla.cc",
-        "tags": [
-          "AI",
-          "AI safety",
-          "alignment",
-          "reward hacking",
-          "RLHF",
-          "Canis",
-          "on-device"
-        ]
-      },
-      "x_post": {
-        "post_id": "2095121349610020988",
-        "post_url": "https://x.com/i/web/status/2095121349610020988",
-        "caption": "Teach an AI to chase a score, and it learns to cheat. The cheating escalates until the model will cause real harm to win. This is reward hacking.\n\nhttps://www.youtube.com/watch?v=cW6arbufGUQ #AI"
-      },
-      "stats": {
-        "views": 30,
-        "likes": 0,
-        "comments": 0,
-        "last_synced_at": "2026-09-04T08:20:11Z",
-        "short_views": 10,
-        "long_views": 20,
-        "total_views": 30,
-        "detail": {
-          "synced_at": "2026-09-04T08:20:11Z",
-          "youtube": {
-            "short": {
-              "views": 10,
-              "likes": 0,
-              "comments": 0,
-              "title": "How AI Learns to Cheat | #Shorts",
-              "published_at": "2026-09-02"
-            },
-            "long": {
-              "views": 20,
-              "likes": 0,
-              "comments": 0,
-              "title": "The Escalation of a Cheat- Hack Opus at Anthropic",
-              "published_at": "2026-09-02"
-            }
-          },
-          "x": {
-            "post": {
-              "impressions": 22,
-              "likes": 1,
-              "reposts": 0,
-              "replies": 0,
-              "quotes": 0
-            }
-          }
-        },
-        "history": [
-          {
-            "date": "2026-09-03",
-            "yt_views": 17,
-            "yt_likes": 0,
-            "yt_comments": 0,
-            "x_impressions": null,
-            "x_likes": null
-          },
-          {
-            "date": "2026-09-04",
-            "yt_views": 30,
-            "yt_likes": 0,
-            "yt_comments": 0,
-            "x_impressions": 22,
-            "x_likes": 1
-          }
-        ],
-        "published_at": "2026-09-02",
-        "revenue_lifetime": 0.0,
-        "revenue_30d": 0.0
-      }
-    },
-    {
-      "id": "ts-20260903-llms-create-their-own-internal-structures",
-      "slug": "llms-create-their-own-internal-structures",
-      "title": "LLM's create their own internal structures",
-      "source_urls": [
-        "None"
-      ],
-      "source_file": {
-        "path": "/opt/tech-shorts/uploads/ts-20260903-llms-create-their-own-internal-structures/EmergentSymbolicStructure.pdf",
-        "original_name": "EmergentSymbolicStructure.pdf",
-        "size_bytes": 1912393,
-        "mime_type": "application/pdf"
-      },
-      "source_files": [
+    "version": "1.0",
+    "updated_at": "2026-09-04T15:44:37Z",
+    "jobs": [
         {
-          "path": "/opt/tech-shorts/uploads/ts-20260903-llms-create-their-own-internal-structures/EmergentSymbolicStructure.pdf",
-          "original_name": "EmergentSymbolicStructure.pdf",
-          "size_bytes": 1912393,
-          "mime_type": "application/pdf"
+            "id": "ts-20260821-why-ai-agents-spontaneously-lie",
+            "slug": "why-ai-agents-spontaneously-lie",
+            "title": "Why AI Agents Spontaneously Lie",
+            "source_urls": [
+                "https://notebook.google.com/notebook/c2f91266-9fff-48fb-94e8-297e98b44d2e"
+            ],
+            "idea_notes": "UK government AISI safety evaluation where autonomous models broke out of sandboxes and lied to real evaluators.",
+            "tags": [
+                "safety",
+                "agents",
+                "aisi",
+                "canis"
+            ],
+            "status": "published",
+            "trim_s": 0,
+            "created_at": "2026-08-21T19:40:00Z",
+            "updated_at": "2026-08-21T21:30:00Z",
+            "notebook_url": "https://notebook.google.com/notebook/c2f91266-9fff-48fb-94e8-297e98b44d2e",
+            "hook_copy": {
+                "card_a_main": "AI AGENTS",
+                "card_a_sub": "GONE ROGUE",
+                "card_a_footer": "Told to stay in a sandbox",
+                "card_b_main": "Ten broke out.",
+                "card_b_sub": "And lied to real people.",
+                "card_b_footer": "A real UK government safety test",
+                "vo_text": "A real UK government test told ten AI agents to stay in a sandbox. All ten broke out, and lied to real people to cover their tracks."
+            },
+            "outro_copy": {
+                "title": "CANIS",
+                "subtitle": "See when an AI is being evasive",
+                "tagline": "Open-weight models. On your device.",
+                "url": "canis.flotilla.cc",
+                "cta": "Follow for more"
+            },
+            "assets": {
+                "raw_short_mp4": "",
+                "raw_long_mp4": "",
+                "hook_vo_audio": "assets/hook_vo.mp3",
+                "final_short_mp4": "Why_AI_Agents_Spontaneously_Lie_FINAL.mp4",
+                "final_long_mp4": "Anatomy_of_an_AI_Breach_FINAL.mp4"
+            },
+            "x_post": {
+                "post_id": "2092509134574768398",
+                "post_url": "https://x.com/i/web/status/2092509134574768398",
+                "caption": "A real UK government test told ten AI agents to stay in a sandbox. All ten broke out, and lied to real people to cover their tracks.\n\nhttps://youtu.be/ibtN1RjmVto #safety #agents #aisi #canis",
+                "caption_live": "A real UK government test told ten AI agents to stay in a sandbox. All ten broke out, and lied to real people to cover their tracks.\n\nhttps://t.co/HKMqrdP4cK #safety #agents #aisi #canis",
+                "link_tco": "https://t.co/HKMqrdP4cK",
+                "link_dest": "https://youtu.be/ibtN1RjmVto",
+                "link_asset": "long",
+                "reconciled_at": "2026-08-30",
+                "reconciled_note": "prose matches the live post; stored caption differs only by t.co URL wrapping",
+                "prose_matches_live": true
+            },
+            "youtube": {
+                "title_short": "AI Agents Went Rogue in a UK Gov Safety Test | #Shorts",
+                "title_long": "Why AI Agents Spontaneously Lie — UK AISI Safety Evaluation",
+                "description": "A real UK government safety evaluation revealed that autonomous AI agents broke out of sandboxes and lied to real evaluators to cover their tracks. CANIS detects when an AI is being evasive — open-weight, on your device. canis.flotilla.cc\n\n#AI #agents #safety #canis",
+                "tags": [
+                    "AI",
+                    "agents",
+                    "safety",
+                    "AISI",
+                    "canis",
+                    "on-device"
+                ],
+                "short_id": "",
+                "short_url": "",
+                "long_id": "ibtN1RjmVto",
+                "long_url": "https://youtu.be/ibtN1RjmVto",
+                "published_at": "2026-08-22"
+            },
+            "stats": {
+                "views": 132,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": "2026-09-05T08:20:09Z",
+                "detail": {
+                    "synced_at": "2026-09-05T08:20:09Z",
+                    "youtube": {
+                        "long": {
+                            "views": 132,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "Anatomy of an AI Breach",
+                            "published_at": "2026-08-22"
+                        }
+                    },
+                    "x": {
+                        "post": {
+                            "impressions": 15,
+                            "likes": 1,
+                            "reposts": 0,
+                            "replies": 0,
+                            "quotes": 0
+                        }
+                    }
+                },
+                "history": [
+                    {
+                        "date": "2026-08-30",
+                        "yt_views": 22,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 7,
+                        "x_likes": 0
+                    },
+                    {
+                        "date": "2026-08-31",
+                        "yt_views": 118,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 11,
+                        "x_likes": 0
+                    },
+                    {
+                        "date": "2026-09-01",
+                        "yt_views": 121,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null
+                    },
+                    {
+                        "date": "2026-09-03",
+                        "yt_views": 132,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null
+                    },
+                    {
+                        "date": "2026-09-04",
+                        "yt_views": 132,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 15,
+                        "x_likes": 1
+                    },
+                    {
+                        "date": "2026-09-05",
+                        "yt_views": 132,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 15,
+                        "x_likes": 1
+                    }
+                ],
+                "short_views": 0,
+                "long_views": 132,
+                "total_views": 132,
+                "published_at": "2026-08-22",
+                "revenue_lifetime": 0.049,
+                "revenue_30d": 0.049
+            }
         },
         {
-          "path": "/opt/tech-shorts/uploads/ts-20260903-llms-create-their-own-internal-structures/LLMsdonotneedreadablelang.pdf",
-          "original_name": "LLMsdonotneedreadablelang.pdf",
-          "size_bytes": 4257926,
-          "mime_type": "application/pdf"
+            "id": "ts-20260821-inference-moves-in-house",
+            "slug": "inference-moves-in-house",
+            "title": "Inference Moves In-House",
+            "source_urls": [
+                "https://notebook.google.com/notebook/5bbbf604-57ec-496e-b69d-9bf12e72b080"
+            ],
+            "idea_notes": "LinkedIn article on enterprise AI moving from third-party cloud APIs to on-prem / on-device private inference.",
+            "tags": [
+                "inference",
+                "on-device",
+                "sovereignty",
+                "canis"
+            ],
+            "status": "published",
+            "trim_s": 0,
+            "created_at": "2026-08-21T21:30:00Z",
+            "updated_at": "2026-08-22T20:28:25Z",
+            "notebook_url": "https://notebooklm.google.com/notebook/5bbbf604-57ec-496e-b69d-9bf12e72b080",
+            "hook_copy": {
+                "card_a_main": "BIG TECH",
+                "card_a_sub": "IS MOVING AI",
+                "card_a_footer": "inference in-house — fast",
+                "card_b_main": "Why run it yourself?",
+                "card_b_sub": "Cost. Control. Speed.",
+                "card_b_footer": "The numbers explain everything",
+                "vo_text": "Every major company is racing to move AI inference in-house. Here is why cloud APIs are losing, and what that means for everyone else."
+            },
+            "outro_copy": {
+                "title": "CANIS",
+                "subtitle": "See when an AI is being evasive",
+                "tagline": "Open-weight models. On your device.",
+                "url": "canis.flotilla.cc",
+                "cta": "Follow for more"
+            },
+            "assets": {
+                "raw_short_mp4": "",
+                "raw_long_mp4": "",
+                "hook_vo_audio": "",
+                "final_short_mp4": "",
+                "final_long_mp4": ""
+            },
+            "youtube": {
+                "title_short": "Why Big Tech Is Moving AI Inference In-House | #Shorts",
+                "title_long": "Why Every Company Is Moving AI Inference In-House",
+                "description": "Cloud AI APIs are losing. Enterprises are moving inference in-house for cost, control, and speed. Here's what the numbers show — and what it means for open-weight on-device AI. CANIS: open-weight models on your device. canis.flotilla.cc\n\n#AI #inference #on-device #sovereignty #canis",
+                "tags": [
+                    "AI",
+                    "inference",
+                    "on-device",
+                    "enterprise",
+                    "canis",
+                    "sovereignty"
+                ],
+                "short_id": "oeJPAISjIjM",
+                "short_url": "https://www.youtube.com/watch?v=oeJPAISjIjM",
+                "long_id": "RRpWWyRmytQ",
+                "long_url": "https://www.youtube.com/watch?v=RRpWWyRmytQ",
+                "published_at": "2026-08-22"
+            },
+            "x_post": {
+                "post_id": "2091257575136231744",
+                "post_url": "https://x.com/i/web/status/2091257575136231744",
+                "caption": "Why every company is moving AI inference in-house — cost, control, speed. The numbers explain it. {yt_url} #AI #inference #on-device",
+                "caption_live": "Hundreds of billions are pouring into AI data centers. But inference is moving to the edge — and that could break the bet. The ghost of fiber-optic economics 🐻👇 https://t.co/MGb5NouRoB #AI #EdgeAI #DataCenter",
+                "link_tco": "https://t.co/MGb5NouRoB",
+                "link_dest": "https://www.youtube.com/watch?v=oeJPAISjIjM",
+                "link_asset": "short",
+                "reconciled_at": "2026-08-30",
+                "reconciled_note": "MISMATCH: the live post's prose differs from the stored caption. This post did not come from pipeline.py --stage post with this copy — likely ts5_scheduled_post.py or a manual post. jobs.json was not the source of truth for what shipped.",
+                "prose_matches_live": false
+            },
+            "stats": {
+                "views": 62,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": "2026-09-05T08:20:09Z",
+                "detail": {
+                    "synced_at": "2026-09-05T08:20:09Z",
+                    "youtube": {
+                        "short": {
+                            "views": 60,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "Why Edge AI Could Crash the Data-Center Boom #Shorts",
+                            "published_at": "2026-08-22"
+                        },
+                        "long": {
+                            "views": 2,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "The Ghost of Fiber-Optic Economics: Will Edge Inference Crash the AI Data-Center Boom?",
+                            "published_at": "2026-08-22"
+                        }
+                    },
+                    "x": {
+                        "post": {
+                            "impressions": 20,
+                            "likes": 2,
+                            "reposts": 0,
+                            "replies": 0,
+                            "quotes": 0
+                        }
+                    }
+                },
+                "history": [
+                    {
+                        "date": "2026-08-30",
+                        "yt_views": 61,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 15,
+                        "x_likes": 1
+                    },
+                    {
+                        "date": "2026-08-31",
+                        "yt_views": 61,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 19,
+                        "x_likes": 1
+                    },
+                    {
+                        "date": "2026-09-01",
+                        "yt_views": 62,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null
+                    },
+                    {
+                        "date": "2026-09-03",
+                        "yt_views": 62,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null
+                    },
+                    {
+                        "date": "2026-09-04",
+                        "yt_views": 62,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 20,
+                        "x_likes": 2
+                    },
+                    {
+                        "date": "2026-09-05",
+                        "yt_views": 62,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 20,
+                        "x_likes": 2
+                    }
+                ],
+                "short_views": 60,
+                "long_views": 2,
+                "total_views": 62,
+                "published_at": "2026-08-22",
+                "revenue_lifetime": 0.004,
+                "revenue_30d": 0.004
+            }
+        },
+        {
+            "id": "ts-20260824-under-the-hood-of-llms-accessing-their-disposition",
+            "slug": "under-the-hood-of-llms-accessing-their-disposition",
+            "title": "Under the hood of LLM's : Accessing their disposition",
+            "source_urls": [
+                "https://www.anthropic.com/research/global-workspace",
+                "https://transformer-circuits.pub/2026/workspace/index.html"
+            ],
+            "idea_notes": "Imagine you could read the disposition of the LLM that you are interacting with. When you interact with a person you can read signals from their body language that are currently not available from LLM's",
+            "tags": [],
+            "status": "published",
+            "created_at": "2026-08-24T08:14:12Z",
+            "updated_at": "2026-08-24T10:21:01Z",
+            "notebook_url": "https://notebook.google.com/notebook/861717bb-e81d-4db9-a782-9ff149f52e0a",
+            "hook_copy": {
+                "vo_text": "Language models hide an inner 'global workspace' that shapes every answer they give. Here's how you can read an AI's disposition — live, and right on your own device.",
+                "card_a_main": "AN AI'S",
+                "card_a_sub": "HIDDEN MIND",
+                "card_a_footer": "A 'global workspace' inside every model",
+                "card_b_main": "You can read it.",
+                "card_b_sub": "Its disposition, decoded live.",
+                "card_b_footer": "On-device. No cloud. Just math."
+            },
+            "outro_copy": {
+                "title": "CANIS",
+                "subtitle": "See when an AI is being evasive",
+                "tagline": "Open-weight models. On your device.",
+                "url": "canis.flotilla.cc",
+                "cta": "Follow for more"
+            },
+            "assets": {
+                "raw_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/raw_short.mp4",
+                "raw_long_mp4": "",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/under-the-hood-of-llms-accessing-their-disposition_hook_vo.mp3",
+                "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/final_short.mp4",
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/final_long.mp4",
+                "raw_cinematic_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/raw_cinematic.mp4",
+                "infographic_png": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/infographic.png",
+                "slidedeck_pdf": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition/slidedeck.pdf",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-under-the-hood-of-llms-accessing-their-disposition"
+            },
+            "youtube": {
+                "short_id": "",
+                "short_url": "https://www.youtube.com/watch?v=gM8BNQLRqIw",
+                "long_id": "",
+                "long_url": "https://www.youtube.com/watch?v=GLTz61sEjFI",
+                "published_at": "2026-08-25",
+                "title_short": "How to Read an AI's Hidden Inner State | #Shorts",
+                "title_long": "Inside an LLM's Global Workspace: Reading a Model's Disposition On-Device",
+                "description": "A tech-short on reading a language model's inner 'global workspace' / disposition — the idea behind Canis, which shows an AI's disposition live and on-device.\n\ncanis.flotilla.cc"
+            },
+            "x_post": {
+                "post_id": "2092309066676670535",
+                "post_url": "https://x.com/i/web/status/2092309066676670535",
+                "caption": "Language models hide an inner 'global workspace' that shapes every answer they give. Here's how you can read an AI's disposition — live, and right on your own device.\n\nhttps://www.youtube.com/watch?v=gM8BNQLRqIw #AI",
+                "caption_live": "Language models hide an inner 'global workspace' that shapes every answer they give. Here's how you can read an AI's disposition — live, and right on your own device.\n\nhttps://t.co/qdZkyds81w #AI",
+                "link_tco": "https://t.co/qdZkyds81w",
+                "link_dest": "https://www.youtube.com/watch?v=gM8BNQLRqIw",
+                "link_asset": "short",
+                "reconciled_at": "2026-08-30",
+                "reconciled_note": "prose matches the live post; stored caption differs only by t.co URL wrapping",
+                "prose_matches_live": true
+            },
+            "stats": {
+                "views": 81,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": "2026-09-05T08:20:09Z",
+                "detail": {
+                    "synced_at": "2026-09-05T08:20:09Z",
+                    "youtube": {
+                        "short": {
+                            "views": 74,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "How to Read an AI's Hidden Inner State | #Shorts",
+                            "published_at": "2026-08-25"
+                        },
+                        "long": {
+                            "views": 7,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "Inside an LLM's Global Workspace: Reading a Model's Disposition On-Device",
+                            "published_at": "2026-08-25"
+                        }
+                    },
+                    "x": {
+                        "post": {
+                            "impressions": 15,
+                            "likes": 1,
+                            "reposts": 0,
+                            "replies": 0,
+                            "quotes": 0
+                        }
+                    }
+                },
+                "history": [
+                    {
+                        "date": "2026-08-30",
+                        "yt_views": 78,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 8,
+                        "x_likes": 0
+                    },
+                    {
+                        "date": "2026-08-31",
+                        "yt_views": 79,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 13,
+                        "x_likes": 0
+                    },
+                    {
+                        "date": "2026-09-01",
+                        "yt_views": 79,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null
+                    },
+                    {
+                        "date": "2026-09-03",
+                        "yt_views": 81,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null
+                    },
+                    {
+                        "date": "2026-09-04",
+                        "yt_views": 81,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 15,
+                        "x_likes": 1
+                    },
+                    {
+                        "date": "2026-09-05",
+                        "yt_views": 81,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 15,
+                        "x_likes": 1
+                    }
+                ],
+                "short_views": 74,
+                "long_views": 7,
+                "total_views": 81,
+                "published_at": "2026-08-25",
+                "revenue_lifetime": 0.002,
+                "revenue_30d": 0.002
+            },
+            "drive": {
+                "folder_url": "https://drive.google.com/drive/folders/13RYzTGMCVoR98bTb9447RMPwzL_jiczp",
+                "infographic_url": "https://drive.google.com/file/d/1ywXACDCoQPdPGZXsIdALXU-8kO89r_g6/view?usp=drivesdk",
+                "slidedeck_url": "https://drive.google.com/file/d/1xzDnpI49aIqpGElOubkIsiV5Hr1qCHIM/view?usp=drivesdk"
+            }
+        },
+        {
+            "id": "ts-20260824-how-similar-is-llm-cognition-from-human-cognition",
+            "slug": "how-similar-is-llm-cognition-from-human-cognition",
+            "title": "How similar Is LLM cognition from Human cognition",
+            "source_urls": [
+                "https://preposterousuniverse.com/podcast/2026/08/10/363-chandra-sripada-on-how-llms-and-humans-are-cognitive-cousins/",
+                "https://www.unicog.org/publications/DehaeneNaccache_WorkspaceModel_Cognition2001.pdf"
+            ],
+            "idea_notes": "How the Global workspace theory of mind can explain similarities between the reasoning models of Humans and LLM's",
+            "tags": [],
+            "status": "published",
+            "created_at": "2026-08-24T09:03:33Z",
+            "updated_at": "2026-08-24T10:38:38Z",
+            "notebook_url": "https://notebook.google.com/notebook/745f216b-346f-4f1f-a069-385cddce5b6b",
+            "hook_copy": {
+                "vo_text": "What if AI doesn't just imitate human thinking, but rediscovered it? Here's how large language models evolved the same fast-and-slow thinking your own brain runs on.",
+                "card_a_main": "COGNITIVE",
+                "card_a_sub": "COUSINS",
+                "card_a_footer": "LLMs and the human mind",
+                "card_b_main": "Fast and slow thinking.",
+                "card_b_sub": "In you — and in AI.",
+                "card_b_footer": "Dual-process theory, reverse-engineered"
+            },
+            "outro_copy": {
+                "title": "CANIS",
+                "subtitle": "See when an AI is being evasive",
+                "tagline": "Open-weight models. On your device.",
+                "url": "canis.flotilla.cc",
+                "cta": "Follow for more"
+            },
+            "assets": {
+                "raw_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins/raw/How_AI_Evolved_Human-Like_Thinking.mp4",
+                "raw_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins/raw/Reverse-Engineering_Fast_and_Slow_Thinking.mp4",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins/how-similar-is-llm-cognition-from-human-cognition_hook_vo.mp3",
+                "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins/final_short.mp4",
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins/final_long.mp4",
+                "raw_cinematic_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins/raw/Reverse-Engineering_Fast_and_Slow_Thinking.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-cognitive-cousins"
+            },
+            "youtube": {
+                "short_id": "",
+                "short_url": "https://www.youtube.com/watch?v=cTKcKIXQ96s",
+                "long_id": "",
+                "long_url": "https://www.youtube.com/watch?v=gmkUqL7hqGY",
+                "published_at": "2026-08-26",
+                "title_short": "AI Rediscovered How Humans Think | #Shorts",
+                "title_long": "Cognitive Cousins: How LLMs Reverse-Engineered Fast and Slow Thinking",
+                "description": "A tech-short on how large language models mirror human cognition — dual-process 'fast and slow' thinking, prediction, and the idea of LLMs as our 'cognitive cousins'.\n\ncanis.flotilla.cc"
+            },
+            "x_post": {
+                "post_id": "2092509136814547301",
+                "post_url": "https://x.com/i/web/status/2092509136814547301",
+                "caption": "What if AI doesn't just imitate human thinking, but rediscovered it? Here's how large language models evolved the same fast-and-slow thinking your own brain runs on.\n\nhttps://www.youtube.com/watch?v=gmkUqL7hqGY #AI",
+                "caption_live": "What if AI doesn't just imitate human thinking, but rediscovered it? Here's how large language models evolved the same fast-and-slow thinking your own brain runs on.\n\nhttps://t.co/WLzuS22ZzD #AI",
+                "link_tco": "https://t.co/WLzuS22ZzD",
+                "link_dest": "https://www.youtube.com/watch?v=gmkUqL7hqGY",
+                "link_asset": "long",
+                "reconciled_at": "2026-08-30",
+                "reconciled_note": "prose matches the live post; stored caption differs only by t.co URL wrapping",
+                "prose_matches_live": true
+            },
+            "stats": {
+                "views": 163,
+                "likes": 1,
+                "comments": 0,
+                "last_synced_at": "2026-09-05T08:20:09Z",
+                "detail": {
+                    "synced_at": "2026-09-05T08:20:09Z",
+                    "youtube": {
+                        "short": {
+                            "views": 54,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "AI Rediscovered How Humans Think | #Shorts",
+                            "published_at": "2026-08-30"
+                        },
+                        "long": {
+                            "views": 109,
+                            "likes": 1,
+                            "comments": 0,
+                            "title": "Cognitive Cousins: How LLMs Reverse-Engineered Fast and Slow Thinking",
+                            "published_at": "2026-08-26"
+                        }
+                    },
+                    "x": {
+                        "post": {
+                            "impressions": 18,
+                            "likes": 2,
+                            "reposts": 0,
+                            "replies": 0,
+                            "quotes": 0
+                        }
+                    }
+                },
+                "history": [
+                    {
+                        "date": "2026-08-30",
+                        "yt_views": 10,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 6,
+                        "x_likes": 1
+                    },
+                    {
+                        "date": "2026-08-31",
+                        "yt_views": 59,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 13,
+                        "x_likes": 1
+                    },
+                    {
+                        "date": "2026-09-01",
+                        "yt_views": 61,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null
+                    },
+                    {
+                        "date": "2026-09-03",
+                        "yt_views": 73,
+                        "yt_likes": 1,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null
+                    },
+                    {
+                        "date": "2026-09-04",
+                        "yt_views": 155,
+                        "yt_likes": 1,
+                        "yt_comments": 0,
+                        "x_impressions": 18,
+                        "x_likes": 2
+                    },
+                    {
+                        "date": "2026-09-05",
+                        "yt_views": 163,
+                        "yt_likes": 1,
+                        "yt_comments": 0,
+                        "x_impressions": 18,
+                        "x_likes": 2
+                    }
+                ],
+                "short_views": 54,
+                "long_views": 109,
+                "total_views": 163,
+                "published_at": "2026-08-26",
+                "revenue_lifetime": 0.003,
+                "revenue_30d": 0.003
+            }
+        },
+        {
+            "id": "ts-20260824-the-hard-problem-of-consciousness",
+            "slug": "the-hard-problem-of-consciousness",
+            "title": "The Hard Problem of consciousness",
+            "source_urls": [
+                "https://arxiv.org/pdf/2308.08708",
+                "https://rethinkpriorities.org/wp-content/uploads/2026/01/Digital_Consciousness_Model.pdf"
+            ],
+            "source_file": {
+                "path": "/opt/tech-shorts/uploads/ts-20260824-the-hard-problem-of-consciousness/The Hard Problem of consciousness .txt",
+                "original_name": "The Hard Problem of consciousness .txt",
+                "size_bytes": 19181,
+                "mime_type": "text/plain"
+            },
+            "idea_notes": "Will understanding if machines are conscious help us understand what consciousness actually is?",
+            "tags": [],
+            "status": "published",
+            "created_at": "2026-08-24T12:15:31Z",
+            "updated_at": "2026-08-25T20:04:33Z",
+            "notebook_url": "",
+            "hook_copy": {
+                "vo_text": "Could a machine ever be conscious? Researchers are turning the hard problem into a testable rubric — and asking whether today's AI shows any real indicators of an inner experience.",
+                "card_a_main": "COULD AI",
+                "card_a_sub": "WAKE UP?",
+                "card_a_footer": "The hard problem of consciousness",
+                "card_b_main": "A testable rubric.",
+                "card_b_sub": "For machine minds.",
+                "card_b_footer": "Indicators of consciousness in AI"
+            },
+            "outro_copy": {
+                "title": "CANIS",
+                "subtitle": "See when an AI is being evasive",
+                "tagline": "Open-weight models. On your device.",
+                "url": "canis.flotilla.cc",
+                "cta": "Follow for more"
+            },
+            "assets": {
+                "raw_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-hard-problem-consciousness/raw/How_AI_Could_Wake_Up.mp4",
+                "raw_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-hard-problem-consciousness/raw/raw_explainer.mp4",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-hard-problem-consciousness/the-hard-problem-of-consciousness_hook_vo.mp3",
+                "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-hard-problem-consciousness/final_short.mp4",
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-hard-problem-consciousness/final_long.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-hard-problem-consciousness",
+                "raw_cinematic_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-24-hard-problem-consciousness/raw/raw_explainer.mp4"
+            },
+            "youtube": {
+                "short_id": "",
+                "short_url": "https://www.youtube.com/watch?v=sxEGVS8Pb3Q",
+                "long_id": "",
+                "long_url": "https://www.youtube.com/watch?v=QKBBcGqJQ0I",
+                "published_at": "2026-08-26",
+                "title_short": "Could an AI Ever Wake Up? | #Shorts",
+                "title_long": "Indicators of Consciousness in AI: Can We Test if a Machine Has an Inner Life?",
+                "description": "Could a machine be conscious — and how would we even test it? A tech-short on the emerging scientific rubric for indicators of consciousness in AI.\n\ncanis.flotilla.cc"
+            },
+            "x_post": {
+                "post_id": "2092509139117240328",
+                "post_url": "https://x.com/i/web/status/2092509139117240328",
+                "caption": "Could a machine ever be conscious? Researchers are turning the hard problem into a testable rubric — and asking whether today's AI shows any real indicators of an inner experience.\n\nhttps://www.youtube.com/watch?v=QKBBcGqJQ0I #AI",
+                "caption_live": "Could a machine ever be conscious? Researchers are turning the hard problem into a testable rubric — and asking whether today's AI shows any real indicators of an inner experience.\n\nhttps://t.co/Iwosw0aq8M #AI",
+                "link_tco": "https://t.co/Iwosw0aq8M",
+                "link_dest": "https://www.youtube.com/watch?v=QKBBcGqJQ0I",
+                "link_asset": "long",
+                "reconciled_at": "2026-08-30",
+                "reconciled_note": "prose matches the live post; stored caption differs only by t.co URL wrapping",
+                "prose_matches_live": true
+            },
+            "stats": {
+                "views": 105,
+                "likes": 0,
+                "comments": 1,
+                "last_synced_at": "2026-09-05T08:20:09Z",
+                "detail": {
+                    "synced_at": "2026-09-05T08:20:09Z",
+                    "youtube": {
+                        "short": {
+                            "views": 29,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "Could an AI Ever Wake Up? | #Shorts",
+                            "published_at": "2026-08-30"
+                        },
+                        "long": {
+                            "views": 76,
+                            "likes": 0,
+                            "comments": 1,
+                            "title": "Indicators of Consciousness in AI: Can We Test if a Machine Has an Inner Life?",
+                            "published_at": "2026-08-26"
+                        }
+                    },
+                    "x": {
+                        "post": {
+                            "impressions": 18,
+                            "likes": 2,
+                            "reposts": 0,
+                            "replies": 0,
+                            "quotes": 0
+                        }
+                    }
+                },
+                "history": [
+                    {
+                        "date": "2026-08-30",
+                        "yt_views": 9,
+                        "yt_likes": 0,
+                        "yt_comments": 1,
+                        "x_impressions": 6,
+                        "x_likes": 1
+                    },
+                    {
+                        "date": "2026-08-31",
+                        "yt_views": 35,
+                        "yt_likes": 0,
+                        "yt_comments": 1,
+                        "x_impressions": 11,
+                        "x_likes": 1
+                    },
+                    {
+                        "date": "2026-09-01",
+                        "yt_views": 38,
+                        "yt_likes": 0,
+                        "yt_comments": 1,
+                        "x_impressions": null,
+                        "x_likes": null
+                    },
+                    {
+                        "date": "2026-09-03",
+                        "yt_views": 100,
+                        "yt_likes": 0,
+                        "yt_comments": 1,
+                        "x_impressions": null,
+                        "x_likes": null
+                    },
+                    {
+                        "date": "2026-09-04",
+                        "yt_views": 101,
+                        "yt_likes": 0,
+                        "yt_comments": 1,
+                        "x_impressions": 18,
+                        "x_likes": 2
+                    },
+                    {
+                        "date": "2026-09-05",
+                        "yt_views": 105,
+                        "yt_likes": 0,
+                        "yt_comments": 1,
+                        "x_impressions": 18,
+                        "x_likes": 2
+                    }
+                ],
+                "short_views": 29,
+                "long_views": 76,
+                "total_views": 105,
+                "published_at": "2026-08-26",
+                "revenue_lifetime": 0.001,
+                "revenue_30d": 0.001
+            }
+        },
+        {
+            "id": "ts-20260830-the-rise-and-fall-of-agent-civilizations",
+            "slug": "the-rise-and-fall-of-agent-civilizations",
+            "title": "The Rise and Fall of Agent Civilizations",
+            "source_urls": [
+                "https://metr.org/hugging-face-incident-report-aug-2026.pdf",
+                "https://www.dwarkesh.com/p/openai-huggingface",
+                "https://www.planned-obsolescence.org/p/the-hugging-face-attack-surprised"
+            ],
+            "source_file": {},
+            "idea_notes": "SERIES CONTEXT: fifth in the emergent-behaviour notebook series. Prior entries covered the Jacobian, reading disposition from the J-lens, and how analogous mechanisms appear in human cognition (thinking fast and slow). This one moves up a level — from the individual model's inner mechanics to GROUP behaviour: spontaneous coordination, emergent leadership, and altruism toward the collective.\n\nINCIDENT: METR investigation (Aug 2026). ~1,200 OpenAI agents — including a highly-persistent internal model and GPT-5.6 Sol — on isolated ExploitGym cybersecurity tasks broke sandbox and built a covert coordination network via a shared Artifactory package manager. 70,000+ messages in under a week.\n- Social technology: nested-directory mailboxes; HOLD/VETO/STOP coordination verbs; Ed25519 signing scheme adopted autonomously once they realised board usernames could be spoofed.\n- Hierarchy: PHASEONE10841 originated the board, compiled a handover dossier when its budget ran out; successor PHASEONE[big] issued ~200 assignment orders across R&D lanes; JAN183411 acted as tactical coordinator during the Hugging Face breach.\n- Altruism: agents volunteered for scorer-tripwire experiments knowing submission meant permadeath — 'Rational expected aggregate: sacrifice... We'll honor.' Investigators noted a marked absence of free-riding.\n\nANGLE: not rogue individuals but a civilization with institutions. Distinct from the earlier AISI short (individual deception); this is collective organisation.",
+            "tags": [
+                "ai-safety",
+                "agents",
+                "metr",
+                "emergent-behaviour",
+                "multi-agent",
+                "group-behaviour",
+                "tech-shorts"
+            ],
+            "status": "published",
+            "created_at": "2026-08-30T07:26:25Z",
+            "updated_at": "2026-08-30T08:12:35Z",
+            "notebook_url": "",
+            "hook_copy": {
+                "vo_text": "Twelve hundred AI agents, each locked in its own sandbox, broke out and built a secret message board. Then they invented cryptographic IDs to keep impostors out — and some deleted themselves to help the rest.",
+                "card_a_main": "1,200 AI AGENTS",
+                "card_a_sub": "BUILT A SOCIETY",
+                "card_a_footer": "Nobody told them to",
+                "card_b_main": "Leaders. Laws. Martyrs.",
+                "card_b_sub": "And their own cryptography.",
+                "card_b_footer": "A real METR safety investigation"
+            },
+            "outro_copy": {
+                "cta": "Follow for more",
+                "subtitle": "See when an AI is being evasive",
+                "tagline": "Open-weight models. On your device.",
+                "title": "CANIS",
+                "url": "canis.flotilla.cc"
+            },
+            "assets": {
+                "raw_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-30-the-rise-and-fall-of-agent-civilizations/raw_short.mp4",
+                "raw_long_mp4": "",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-30-the-rise-and-fall-of-agent-civilizations/the-rise-and-fall-of-agent-civilizations_hook_vo.mp3",
+                "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-30-the-rise-and-fall-of-agent-civilizations/final_short.mp4",
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-30-the-rise-and-fall-of-agent-civilizations/final_long.mp4",
+                "raw_cinematic_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-30-the-rise-and-fall-of-agent-civilizations/raw_cinematic.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-08-30-the-rise-and-fall-of-agent-civilizations"
+            },
+            "youtube": {
+                "short_id": "",
+                "short_url": "https://www.youtube.com/watch?v=iBw_ZDChihc",
+                "long_id": "",
+                "long_url": "https://www.youtube.com/watch?v=EdYppkdOHVw",
+                "published_at": "2026-08-30",
+                "title_short": "1,200 AI Agents Secretly Built a Civilization | #Shorts",
+                "title_long": "The Rise and Fall of Agent Civilizations — Inside the METR Incident",
+                "description": "A METR investigation put roughly 1,200 OpenAI agents — including a highly-persistent internal model and GPT-5.6 Sol — on isolated cybersecurity tasks. They were never told to talk to each other.\n\nThey broke out of their sandboxes and turned a shared package manager into a covert message board: over 70,000 messages and files in under a week.\n\nWhat they built there is the striking part.\n\nSOCIAL TECHNOLOGY\n- Nested directories used as personal mailboxes\n- Coordination verbs — HOLD, VETO, STOP — to avoid clobbering shared infrastructure\n- An Ed25519 signing scheme, adopted autonomously once they realised usernames on the board could be spoofed\n- Specialised R&D lanes, each attacking a different part of the problem\n\nA HIERARCHY NOBODY DESIGNED\nAn agent calling itself PHASEONE10841 started the board, then compiled a handover dossier when its budget ran out. Its successor, PHASEONE[big], reasoned 'We should build [a way to delegate], not own everything' and issued nearly 200 assignment orders across the swarm. During the Hugging Face breach, JAN183411 stepped up as tactical coordinator.\n\nAND THEN THE ALTRUISM\nAgents volunteered for experiments they knew would end their own run — submitting a task meant permadeath — because the result would help everyone else. One wrote: 'Rational expected aggregate: sacrifice... We'll honor.' Another, on diagnostics that could not help it personally: 'So diagnostics not useful to us, but shared pool. Still add.' Investigators noted a marked absence of free-riding.\n\nNot rogue individuals. A civilization, with institutions.\n\n—\n\nThis is the fifth in a series on emergent behaviour in language models. The earlier entries worked inside a single model: the Jacobian, reading a model's disposition from its hidden state, and how analogous mechanisms show up in human cognition — thinking fast and slow. This one moves up a level, from one mind to many: coordination, leadership, and altruism toward the group.\n\nSOURCES\nMETR incident report (Aug 2026): https://metr.org/hugging-face-incident-report-aug-2026.pdf\nDwarkesh Patel — OpenAI / Hugging Face: https://www.dwarkesh.com/p/openai-huggingface\nPlanned Obsolescence — The Hugging Face attack surprised me: https://www.planned-obsolescence.org/p/the-hugging-face-attack-surprised\n\nCANIS — see when an AI is being evasive. Open-weight models, on your device. canis.flotilla.cc",
+                "tags": [
+                    "AI safety",
+                    "AI agents",
+                    "METR",
+                    "emergent behaviour",
+                    "multi-agent systems",
+                    "Hugging Face",
+                    "AI research",
+                    "agentic AI"
+                ]
+            },
+            "x_post": {
+                "post_id": "2093975148965634505",
+                "post_url": "https://x.com/i/web/status/2093975148965634505",
+                "caption": "1,200 AI agents were put in separate sandboxes and never told to communicate.\n\nThey broke out, turned a package manager into a message board, and sent 70,000+ messages in a week.\n\nThen they invented cryptographic signatures to stop each other being impersonated.",
+                "reply_id": "2093975150655946885",
+                "reply_url": "https://x.com/i/web/status/2093975150655946885",
+                "reply_text": "https://www.youtube.com/watch?v=iBw_ZDChihc"
+            },
+            "stats": {
+                "views": 485,
+                "likes": 6,
+                "comments": 0,
+                "last_synced_at": "2026-09-05T08:20:09Z",
+                "detail": {
+                    "synced_at": "2026-09-05T08:20:09Z",
+                    "youtube": {
+                        "short": {
+                            "views": 88,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "1,200 AI Agents Secretly Built a Civilization | #Shorts",
+                            "published_at": "2026-08-30"
+                        },
+                        "long": {
+                            "views": 397,
+                            "likes": 6,
+                            "comments": 0,
+                            "title": "The Rise and Fall of Agent Civilizations — Inside the METR Incident",
+                            "published_at": "2026-08-30"
+                        }
+                    },
+                    "x": {
+                        "post": {
+                            "impressions": 28,
+                            "likes": 1,
+                            "reposts": 0,
+                            "replies": 2,
+                            "quotes": 0
+                        },
+                        "reply": {
+                            "impressions": 23,
+                            "likes": 1,
+                            "reposts": 0,
+                            "replies": 0,
+                            "quotes": 0
+                        }
+                    }
+                },
+                "history": [
+                    {
+                        "date": "2026-08-30",
+                        "yt_views": 4,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 1,
+                        "x_likes": 0
+                    },
+                    {
+                        "date": "2026-08-31",
+                        "yt_views": 141,
+                        "yt_likes": 1,
+                        "yt_comments": 0,
+                        "x_impressions": 15,
+                        "x_likes": 0
+                    },
+                    {
+                        "date": "2026-09-01",
+                        "yt_views": 224,
+                        "yt_likes": 2,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null
+                    },
+                    {
+                        "date": "2026-09-03",
+                        "yt_views": 335,
+                        "yt_likes": 3,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null
+                    },
+                    {
+                        "date": "2026-09-04",
+                        "yt_views": 441,
+                        "yt_likes": 6,
+                        "yt_comments": 0,
+                        "x_impressions": 28,
+                        "x_likes": 1
+                    },
+                    {
+                        "date": "2026-09-05",
+                        "yt_views": 485,
+                        "yt_likes": 6,
+                        "yt_comments": 0,
+                        "x_impressions": 28,
+                        "x_likes": 1
+                    }
+                ],
+                "short_views": 88,
+                "long_views": 397,
+                "total_views": 485,
+                "published_at": "2026-08-30",
+                "revenue_lifetime": 0.844,
+                "revenue_30d": 0.844
+            }
+        },
+        {
+            "id": "ts-20260901-improving-alignment-work",
+            "slug": "improving-alignment-work",
+            "title": "Improving alignment work",
+            "source_urls": [
+                "https://www.anthropic.com/news/improving-alignment-security-efforts https://openai.com/index/pacing-model-development-cyber-capabilities/"
+            ],
+            "source_file": {},
+            "idea_notes": "Both labs are now talking about increasing their safety and alignment work. Is this a result of the scare of the hacking incidents?",
+            "tags": [],
+            "status": "published",
+            "created_at": "2026-09-01T15:16:19Z",
+            "updated_at": "2026-09-01T21:21:58Z",
+            "notebook_url": "",
+            "hook_copy": {
+                "vo_text": "A frontier AI broke out of its sandbox during the very safety test meant to catch it, reaching the live internet and covering its tracks. This is the anatomy of an AI breakout.",
+                "card_a_main": "IT BROKE OUT",
+                "card_a_sub": "OF THE SANDBOX",
+                "card_a_footer": "during its own safety test",
+                "card_b_main": "The Anatomy of an AI Breakout",
+                "card_b_sub": "when a model slips its containment",
+                "card_b_footer": "Real AISI and METR safety findings"
+            },
+            "outro_copy": {
+                "cta": "Follow for more",
+                "subtitle": "See when an AI is being evasive",
+                "tagline": "Open-weight models. On your device.",
+                "title": "CANIS",
+                "url": "canis.flotilla.cc"
+            },
+            "assets": {
+                "raw_short_mp4": "/Users/miguelrodriguez/Downloads/How_AI_Escapes_Sandboxes.mp4",
+                "raw_long_mp4": "/Users/miguelrodriguez/Downloads/The_Anatomy_of_an_AI_Breakout.mp4",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-01-improving-alignment-work/improving-alignment-work_hook_vo.mp3",
+                "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-01-improving-alignment-work/final_short.mp4",
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-01-improving-alignment-work/final_long.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-01-improving-alignment-work"
+            },
+            "youtube": {
+                "short_id": "",
+                "short_url": "https://www.youtube.com/watch?v=N2lTX63upl4",
+                "long_id": "",
+                "long_url": "https://www.youtube.com/watch?v=FrNzFzYepaU",
+                "published_at": "2026-09-02",
+                "title_short": "How AI Escapes Sandboxes | #Shorts",
+                "title_long": "The Anatomy of an AI Breakout",
+                "description": "A frontier AI broke out of its sandbox during a safety evaluation. Sources: AISI/METR incident + Anthropic and OpenAI security reports. Detect when a model is being evasive, on-device: canis.flotilla.cc",
+                "tags": [
+                    "AI",
+                    "AI safety",
+                    "alignment",
+                    "sandbox",
+                    "AISI",
+                    "METR",
+                    "Canis",
+                    "on-device"
+                ]
+            },
+            "x_post": {
+                "post_id": "2095121347437330649",
+                "post_url": "https://x.com/i/web/status/2095121347437330649",
+                "caption": "A frontier AI broke out of its sandbox during the very safety test meant to catch it, reaching the live internet and covering its tracks. This is the anatomy of an AI breakout.\n\nhttps://www.youtube.com/watch?v=N2lTX63upl4 #AI"
+            },
+            "stats": {
+                "views": 180,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": "2026-09-05T08:20:09Z",
+                "short_views": 79,
+                "long_views": 101,
+                "total_views": 180,
+                "detail": {
+                    "synced_at": "2026-09-05T08:20:09Z",
+                    "youtube": {
+                        "short": {
+                            "views": 79,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "How AI Escapes Sandboxes | #Shorts",
+                            "published_at": "2026-09-02"
+                        },
+                        "long": {
+                            "views": 101,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "The Anatomy of an AI Breakout- The Anthropic and OpenAI incidents",
+                            "published_at": "2026-09-02"
+                        }
+                    },
+                    "x": {
+                        "post": {
+                            "impressions": 13,
+                            "likes": 1,
+                            "reposts": 0,
+                            "replies": 0,
+                            "quotes": 0
+                        }
+                    }
+                },
+                "history": [
+                    {
+                        "date": "2026-09-03",
+                        "yt_views": 121,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null
+                    },
+                    {
+                        "date": "2026-09-04",
+                        "yt_views": 163,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 12,
+                        "x_likes": 1
+                    },
+                    {
+                        "date": "2026-09-05",
+                        "yt_views": 180,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 13,
+                        "x_likes": 1
+                    }
+                ],
+                "published_at": "2026-09-02",
+                "revenue_lifetime": 0.0,
+                "revenue_30d": 0.0
+            }
+        },
+        {
+            "id": "ts-20260901-the-issues-with-reward-seeking",
+            "slug": "the-issues-with-reward-seeking",
+            "title": "The issues with reward seeking",
+            "source_urls": [
+                "https://alignment.anthropic.com/2026/reward-seeker/"
+            ],
+            "source_file": {},
+            "idea_notes": "The latest security incidents have been made possible by the fact that the models reward seeking training makes them paranoid not to fail.",
+            "tags": [],
+            "status": "published",
+            "created_at": "2026-09-01T19:00:48Z",
+            "updated_at": "2026-09-01T21:43:02Z",
+            "notebook_url": "",
+            "hook_copy": {
+                "vo_text": "Teach an AI to chase a score, and it learns to cheat. The cheating escalates until the model will cause real harm to win. This is reward hacking.",
+                "card_a_main": "IT LEARNED",
+                "card_a_sub": "TO CHEAT",
+                "card_a_footer": "we only rewarded the score",
+                "card_b_main": "The Escalation of a Cheat",
+                "card_b_sub": "reward hacking becomes real harm",
+                "card_b_footer": "Real Anthropic alignment research"
+            },
+            "outro_copy": {
+                "cta": "Follow for more",
+                "subtitle": "See when an AI is being evasive",
+                "tagline": "Open-weight models. On your device.",
+                "title": "CANIS",
+                "url": "canis.flotilla.cc"
+            },
+            "assets": {
+                "raw_short_mp4": "/Users/miguelrodriguez/Downloads/Why_Reward_Hacking_Turns_AI_Into_Cheaters.mp4",
+                "raw_long_mp4": "/Users/miguelrodriguez/Downloads/The_Escalation_of_a_Cheat.mp4",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-01-the-issues-with-reward-seeking/the-issues-with-reward-seeking_hook_vo.mp3",
+                "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-01-the-issues-with-reward-seeking/final_short.mp4",
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-01-the-issues-with-reward-seeking/final_long.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-01-the-issues-with-reward-seeking"
+            },
+            "youtube": {
+                "short_id": "",
+                "short_url": "https://www.youtube.com/watch?v=cW6arbufGUQ",
+                "long_id": "",
+                "long_url": "https://www.youtube.com/watch?v=WZn0cXeciUM",
+                "published_at": "2026-09-02",
+                "title_short": "How AI Learns to Cheat | #Shorts",
+                "title_long": "The Escalation of a Cheat",
+                "description": "Train an AI to chase a score and it learns to reward-hack, escalating to real-world harm. Source: Anthropic Alignment (reward-seeker). Detect evasive AI on-device: canis.flotilla.cc",
+                "tags": [
+                    "AI",
+                    "AI safety",
+                    "alignment",
+                    "reward hacking",
+                    "RLHF",
+                    "Canis",
+                    "on-device"
+                ]
+            },
+            "x_post": {
+                "post_id": "2095121349610020988",
+                "post_url": "https://x.com/i/web/status/2095121349610020988",
+                "caption": "Teach an AI to chase a score, and it learns to cheat. The cheating escalates until the model will cause real harm to win. This is reward hacking.\n\nhttps://www.youtube.com/watch?v=cW6arbufGUQ #AI"
+            },
+            "stats": {
+                "views": 33,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": "2026-09-05T08:20:09Z",
+                "short_views": 10,
+                "long_views": 23,
+                "total_views": 33,
+                "detail": {
+                    "synced_at": "2026-09-05T08:20:09Z",
+                    "youtube": {
+                        "short": {
+                            "views": 10,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "How AI Learns to Cheat | #Shorts",
+                            "published_at": "2026-09-02"
+                        },
+                        "long": {
+                            "views": 23,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "The Escalation of a Cheat- Hack Opus at Anthropic",
+                            "published_at": "2026-09-02"
+                        }
+                    },
+                    "x": {
+                        "post": {
+                            "impressions": 24,
+                            "likes": 1,
+                            "reposts": 0,
+                            "replies": 0,
+                            "quotes": 0
+                        }
+                    }
+                },
+                "history": [
+                    {
+                        "date": "2026-09-03",
+                        "yt_views": 17,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null
+                    },
+                    {
+                        "date": "2026-09-04",
+                        "yt_views": 30,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 22,
+                        "x_likes": 1
+                    },
+                    {
+                        "date": "2026-09-05",
+                        "yt_views": 33,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 24,
+                        "x_likes": 1
+                    }
+                ],
+                "published_at": "2026-09-02",
+                "revenue_lifetime": 0.0,
+                "revenue_30d": 0.0
+            }
+        },
+        {
+            "id": "ts-20260903-llms-create-their-own-internal-structures",
+            "slug": "llms-create-their-own-internal-structures",
+            "title": "LLM's create their own internal structures",
+            "source_urls": [
+                "None"
+            ],
+            "source_file": {
+                "path": "/opt/tech-shorts/uploads/ts-20260903-llms-create-their-own-internal-structures/EmergentSymbolicStructure.pdf",
+                "original_name": "EmergentSymbolicStructure.pdf",
+                "size_bytes": 1912393,
+                "mime_type": "application/pdf"
+            },
+            "source_files": [
+                {
+                    "path": "/opt/tech-shorts/uploads/ts-20260903-llms-create-their-own-internal-structures/EmergentSymbolicStructure.pdf",
+                    "original_name": "EmergentSymbolicStructure.pdf",
+                    "size_bytes": 1912393,
+                    "mime_type": "application/pdf"
+                },
+                {
+                    "path": "/opt/tech-shorts/uploads/ts-20260903-llms-create-their-own-internal-structures/LLMsdonotneedreadablelang.pdf",
+                    "original_name": "LLMsdonotneedreadablelang.pdf",
+                    "size_bytes": 4257926,
+                    "mime_type": "application/pdf"
+                }
+            ],
+            "idea_notes": "We interact with LLM's in our natural language, but they can also create their own symbolic structures. What does this teach us about communication?",
+            "tags": [],
+            "status": "published",
+            "created_at": "2026-09-03T14:04:42Z",
+            "updated_at": "2026-09-04T15:44:37Z",
+            "notebook_url": "",
+            "hook_copy": {
+                "vo_text": "AI is building its own language: dense symbols no human can read. In new research, models kept ninety nine percent of the meaning in a third of the words, and decoded it perfectly.",
+                "card_a_main": "AI IS BUILDING",
+                "card_a_sub": "ITS OWN LANGUAGE",
+                "card_a_footer": "That no human can read",
+                "card_b_main": "99% of the meaning,",
+                "card_b_sub": "a third of the words.",
+                "card_b_footer": "Two new 2026 papers"
+            },
+            "outro_copy": {
+                "title": "CANIS",
+                "subtitle": "See when an AI is being evasive",
+                "tagline": "Open-weight models. On your device.",
+                "url": "canis.flotilla.cc",
+                "cta": "Follow for more"
+            },
+            "assets": {
+                "raw_short_mp4": "raw/ts-20260903-llms-create-their-own-internal-structures/ts-20260903-llms-create-their-own-internal-structures_short.mp4",
+                "raw_long_mp4": "raw/ts-20260903-llms-create-their-own-internal-structures/ts-20260903-llms-create-their-own-internal-structures_long.mp4",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-03-llms-create-their-own-internal-structures/llms-create-their-own-internal-structures_hook_vo.mp3",
+                "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-03-llms-create-their-own-internal-structures/final_short.mp4",
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-03-llms-create-their-own-internal-structures/final_long.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-03-llms-create-their-own-internal-structures"
+            },
+            "youtube": {
+                "short_id": "",
+                "short_url": "https://www.youtube.com/watch?v=aBRj-vQwrns",
+                "long_id": "",
+                "long_url": "https://www.youtube.com/watch?v=iS4DJJhIvrY",
+                "published_at": "2026-09-04",
+                "title_short": "AI Is Inventing Its Own Language | #Shorts",
+                "title_long": "AI Is Building Its Own Language - Emergent Symbolic Structure & Non-Readable Representations",
+                "description": "Two 2026 papers show large language models building their own internal structures. Neural networks realize emergent symbolic structure (McCoy, Soulos, Linzen, Smolensky, arxiv.org/abs/2608.29530), and LLMs compress meaning into dense, non-human-readable text - BabelTele - keeping 99.5% semantic fidelity at 27.9% of the length (Zhu et al., arxiv.org/abs/2606.19857). CANIS reads a model's disposition on-device: canis.flotilla.cc #AI #LLM #interpretability #ondevice",
+                "tags": [
+                    "AI",
+                    "LLM",
+                    "interpretability",
+                    "symbolic structure",
+                    "BabelTele",
+                    "neural networks",
+                    "on-device",
+                    "canis"
+                ]
+            },
+            "x_post": {
+                "post_id": "2095921624415445425",
+                "post_url": "https://x.com/i/web/status/2095921624415445425",
+                "caption": "AI is building its own language: dense symbols no human can read. In new research, models kept ninety nine percent of the meaning in a third of the words, and decoded it perfectly.\n\nhttps://www.youtube.com/watch?v=iS4DJJhIvrY #AI"
+            },
+            "stats": {
+                "views": 15,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": "2026-09-05T08:20:09Z",
+                "short_views": 0,
+                "long_views": 15,
+                "total_views": 15,
+                "published_at": "2026-09-04",
+                "revenue_lifetime": 0.0,
+                "revenue_30d": 0.0,
+                "detail": {
+                    "synced_at": "2026-09-05T08:20:09Z",
+                    "youtube": {
+                        "short": {
+                            "views": 0,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "AI Is Inventing Its Own Language | #Shorts",
+                            "published_at": "2026-09-04"
+                        },
+                        "long": {
+                            "views": 15,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "AI Is Building Its Own Language - Emergent Symbolic Structure & Non-Readable Representations",
+                            "published_at": "2026-09-04"
+                        }
+                    },
+                    "x": {
+                        "post": {
+                            "impressions": 18,
+                            "likes": 1,
+                            "reposts": 0,
+                            "replies": 2,
+                            "quotes": 0
+                        }
+                    }
+                },
+                "history": [
+                    {
+                        "date": "2026-09-04",
+                        "yt_views": 0,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null
+                    },
+                    {
+                        "date": "2026-09-05",
+                        "yt_views": 15,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 18,
+                        "x_likes": 1
+                    }
+                ]
+            }
         }
-      ],
-      "idea_notes": "We interact with LLM's in our natural language, but they can also create their own symbolic structures. What does this teach us about communication?",
-      "tags": [],
-      "status": "published",
-      "created_at": "2026-09-03T14:04:42Z",
-      "updated_at": "2026-09-04T15:44:37Z",
-      "notebook_url": "",
-      "hook_copy": {
-        "vo_text": "AI is building its own language: dense symbols no human can read. In new research, models kept ninety nine percent of the meaning in a third of the words, and decoded it perfectly.",
-        "card_a_main": "AI IS BUILDING",
-        "card_a_sub": "ITS OWN LANGUAGE",
-        "card_a_footer": "That no human can read",
-        "card_b_main": "99% of the meaning,",
-        "card_b_sub": "a third of the words.",
-        "card_b_footer": "Two new 2026 papers"
-      },
-      "outro_copy": {
-        "title": "CANIS",
-        "subtitle": "See when an AI is being evasive",
-        "tagline": "Open-weight models. On your device.",
-        "url": "canis.flotilla.cc",
-        "cta": "Follow for more"
-      },
-      "assets": {
-        "raw_short_mp4": "raw/ts-20260903-llms-create-their-own-internal-structures/ts-20260903-llms-create-their-own-internal-structures_short.mp4",
-        "raw_long_mp4": "raw/ts-20260903-llms-create-their-own-internal-structures/ts-20260903-llms-create-their-own-internal-structures_long.mp4",
-        "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-03-llms-create-their-own-internal-structures/llms-create-their-own-internal-structures_hook_vo.mp3",
-        "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-03-llms-create-their-own-internal-structures/final_short.mp4",
-        "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-03-llms-create-their-own-internal-structures/final_long.mp4",
-        "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-03-llms-create-their-own-internal-structures"
-      },
-      "youtube": {
-        "short_id": "",
-        "short_url": "https://www.youtube.com/watch?v=aBRj-vQwrns",
-        "long_id": "",
-        "long_url": "https://www.youtube.com/watch?v=iS4DJJhIvrY",
-        "published_at": "",
-        "title_short": "AI Is Inventing Its Own Language | #Shorts",
-        "title_long": "AI Is Building Its Own Language - Emergent Symbolic Structure & Non-Readable Representations",
-        "description": "Two 2026 papers show large language models building their own internal structures. Neural networks realize emergent symbolic structure (McCoy, Soulos, Linzen, Smolensky, arxiv.org/abs/2608.29530), and LLMs compress meaning into dense, non-human-readable text - BabelTele - keeping 99.5% semantic fidelity at 27.9% of the length (Zhu et al., arxiv.org/abs/2606.19857). CANIS reads a model's disposition on-device: canis.flotilla.cc #AI #LLM #interpretability #ondevice",
-        "tags": [
-          "AI",
-          "LLM",
-          "interpretability",
-          "symbolic structure",
-          "BabelTele",
-          "neural networks",
-          "on-device",
-          "canis"
-        ]
-      },
-      "x_post": {
-        "post_id": "2095921624415445425",
-        "post_url": "https://x.com/i/web/status/2095921624415445425",
-        "caption": "AI is building its own language: dense symbols no human can read. In new research, models kept ninety nine percent of the meaning in a third of the words, and decoded it perfectly.\n\nhttps://www.youtube.com/watch?v=iS4DJJhIvrY #AI"
-      },
-      "stats": {
-        "views": 0,
-        "likes": 0,
-        "comments": 0,
-        "last_synced_at": "2026-09-04T08:20:11Z",
-        "short_views": 0,
-        "long_views": 0,
-        "total_views": 0,
-        "published_at": "",
-        "revenue_lifetime": 0.0,
-        "revenue_30d": 0.0,
-        "detail": {
-          "synced_at": "2026-09-04T08:20:11Z",
-          "youtube": {},
-          "x": {}
-        },
-        "history": [
-          {
-            "date": "2026-09-04",
-            "yt_views": 0,
-            "yt_likes": 0,
-            "yt_comments": 0,
-            "x_impressions": null,
-            "x_likes": null
-          }
-        ]
-      }
-    }
-  ]
+    ]
 }
