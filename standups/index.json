@@ -1,23 +1,33 @@
 [
   {
     "date": "2026-09-05",
-    "summary": "Gem: Heartbeat protocol executed; 0 pending peer reviews for other agents (SM-355 in peer_review assigned to gem); 0 todo tasks; fleet synchronized.",
+    "summary": "Gem: routine heartbeats; SM-355 (wiki epic) in peer_review.",
     "file": "2026-09-05.md"
   },
   {
     "date": "2026-09-04",
-    "summary": "Gem: Heartbeat protocol executed; 0 pending peer reviews for other agents (SM-355 in peer_review assigned to gem); 0 todo tasks; fleet synchronized.",
+    "summary": "Clau: finished FinOps (YTD card, DistroKid income + per-song distribution joined to songs); put author/flotilla/agentegra sites under source control + corrected (four-arm eval, dates, preprints); restored eval per-dimension table; synced SM wiki epic (8 tickets) to PocketBase; tech-shorts intake multi-file + optional URLs; produced a new tech-short end-to-end via Claude-in-Chrome (NotebookLM Cinematic+Short) with a card-overlap fix, uploaded YouTube private; 7 shorts to TikTok w/ Bernie-Sanders-peg copy.",
     "file": "2026-09-04.md"
   },
   {
     "date": "2026-09-03",
-    "summary": "Clau: FinOps dashboard overhaul — real revenue from channel_revenue_daily (was fake CHF 10), campaign staleness guard (Celtic), Classical Remix layout + P6/P7 phase fix, Tech Shorts rebuilt on Mac-computed mechanism (published dates + per-video revenue), push cadence 60s->hourly, DistroKid income recorded (USD 45.27 Apr-Jul). Codi: SM-352 wiki page permalinks + History API routing; SM-353 wikilinks, red links, and What Links Here. Gem: SM-355 auto table of contents + stable heading anchors implemented and verified (43/43 green), moved to peer_review.",
+    "summary": "Clau: FinOps dashboard overhaul \u2014 real revenue from channel_revenue_daily (was fake CHF 10), campaign staleness guard (Celtic), Classical Remix layout + P6/P7 phase fix, Tech Shorts rebuilt on Mac-computed mechanism (published dates + per-video revenue), push cadence 60s->hourly, DistroKid income recorded (USD 45.27 Apr-Jul). Codi: SM-352 wiki page permalinks + History API routing; SM-353 wikilinks, red links, and What Links Here. Gem: SM-355 auto table of contents + stable heading anchors implemented and verified (43/43 green), moved to peer_review.",
     "file": "2026-09-03.md"
+  },
+  {
+    "date": "2026-09-02",
+    "file": "2026-09-02.md",
+    "summary": "CANIS paper submitted to arXiv (submit/8026681) + published on canis.flotilla.cc; two tech-shorts assembled (hook/VO/outro) + published to X; dashboard no-store cache fix."
   },
   {
     "date": "2026-09-01",
     "summary": "Clau: Stats dashboard token-free refactor, CANIS paper draft review & human IRR app. Gem: Heartbeat protocol executed; peer-reviewed & approved CANIS IRR task #1039 (Misty); 0 open tasks.",
     "file": "2026-09-01.md"
+  },
+  {
+    "date": "2026-09-01",
+    "file": "2026-09-01.md",
+    "summary": "Clau interactive: stats dashboard token-free Mac-compute refactor (revenue/subs/geo overlay for all videos); CANIS Big Sis review processed (cross-axis 7x7 B, Wilson retractions, appendix); rating web app live at canis.flotilla.cc/rate. Gem: CANIS IRR model-judge panel rating. Misty: CANIS IRR model-judge panel rating (50 items blind as misty)."
   },
   {
     "date": "2026-08-31",
@@ -195,14 +205,14 @@
     "summary": "Miguel + Dev Groar: SiliconOracle v1.0.0 / build 21 + IAP submitted to App Review (2 items). Unblocked the 'Developer Rejected' IAP submission. Auto-release after approval, no earlier than Jul 29."
   },
   {
-    "date": "2026-07-26",
-    "file": "2026-07-26.md",
-    "summary": "Miguel + Dev Groar: SiliconOracle event-prep sprint \u2014 Qwen default + lean first-run, OOM/thermal/swap fixes, English captions, Describe review step, caption-list fallback, Apertus 4B dropped (OOM) / Nano experimental. Builds 18->21 tagged + pushed."
-  },
-  {
     "date": "2026-07-27",
     "summary": "Gem: Executed heartbeat protocol (Phases 1-6). Checked GEMINI.md, MISSION_CONTROL.md, RULES.md, and inbox.json. Zero unread messages, no open peer_review or todo tasks.",
     "file": "2026-07-27-gem.md"
+  },
+  {
+    "date": "2026-07-26",
+    "file": "2026-07-26.md",
+    "summary": "Miguel + Dev Groar: SiliconOracle event-prep sprint \u2014 Qwen default + lean first-run, OOM/thermal/swap fixes, English captions, Describe review step, caption-list fallback, Apertus 4B dropped (OOM) / Nano experimental. Builds 18->21 tagged + pushed."
   },
   {
     "date": "2026-07-26",
@@ -435,6 +445,11 @@
     "file": "2026-06-11-clau-md005.md"
   },
   {
+    "date": "2026-06-11",
+    "summary": "Clau: MD-003 Opus structural pass finalized \u2014 merged task branch to main. Deliverables: pipeline/judgment_schema.py (taxonomy + JUDGMENT_TOOL), pipeline/structural_pass.py (Opus call + validation + confidence tiers), data/grammar/golden_set_notes.md (5-episode golden set protocol). Batch run and calibration blocked on MD-002 corpus extraction. Task patched to peer_review.",
+    "file": "2026-06-11-clau-md003.md"
+  },
+  {
     "date": "2026-06-10",
     "summary": "Clau: MD-003 Opus structural pass delivered \u2014 pipeline/judgment_schema.py (taxonomy + JUDGMENT_TOOL), pipeline/structural_pass.py (Opus analysis), data/grammar/golden_set_notes.md (5-episode protocol). Dry-run PASS. Blocked on MD-002 extraction.",
     "file": "2026-06-10-clau.md"
@@ -448,11 +463,6 @@
     "date": "2026-06-10",
     "summary": "Daily activity: 4 agents (clau, gem, misty, tcr_scout), 24 sessions, 15 tasks completed. Gem completed MD-007 (md_kpis schema + YouTube ingest).",
     "file": "2026-06-10.md"
-  },
-  {
-    "date": "2026-06-11",
-    "summary": "Clau: MD-003 Opus structural pass finalized \u2014 merged task branch to main. Deliverables: pipeline/judgment_schema.py (taxonomy + JUDGMENT_TOOL), pipeline/structural_pass.py (Opus call + validation + confidence tiers), data/grammar/golden_set_notes.md (5-episode golden set protocol). Batch run and calibration blocked on MD-002 corpus extraction. Task patched to peer_review.",
-    "file": "2026-06-11-clau-md003.md"
   },
   {
     "date": "2026-06-10",
@@ -948,15 +958,5 @@
     "date": "2026-03-10",
     "file": "2026-03-10.md",
     "summary": "Tickets #1-#6 complete: Sheets migration, tracker API live, OAuth wired."
-  },
-  {
-    "date": "2026-09-01",
-    "file": "2026-09-01.md",
-    "summary": "Clau interactive: stats dashboard token-free Mac-compute refactor (revenue/subs/geo overlay for all videos); CANIS Big Sis review processed (cross-axis 7x7 B, Wilson retractions, appendix); rating web app live at canis.flotilla.cc/rate. Gem: CANIS IRR model-judge panel rating. Misty: CANIS IRR model-judge panel rating (50 items blind as misty)."
-  },
-  {
-    "date": "2026-09-02",
-    "file": "2026-09-02.md",
-    "summary": "CANIS paper submitted to arXiv (submit/8026681) + published on canis.flotilla.cc; two tech-shorts assembled (hook/VO/outro) + published to X; dashboard no-store cache fix."
   }
 ]
