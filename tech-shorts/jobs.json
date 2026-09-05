@@ -1,6 +1,6 @@
 {
     "version": "1.0",
-    "updated_at": "2026-09-04T15:44:37Z",
+    "updated_at": "2026-09-05T18:01:52Z",
     "jobs": [
         {
             "id": "ts-20260821-why-ai-agents-spontaneously-lie",
@@ -75,30 +75,22 @@
                 "published_at": "2026-08-22"
             },
             "stats": {
-                "views": 132,
+                "views": 130,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-09-05T08:20:09Z",
+                "last_synced_at": "2026-09-05T18:06:20Z",
                 "detail": {
-                    "synced_at": "2026-09-05T08:20:09Z",
+                    "synced_at": "2026-09-05T18:06:20Z",
                     "youtube": {
                         "long": {
-                            "views": 132,
+                            "views": 130,
                             "likes": 0,
                             "comments": 0,
                             "title": "Anatomy of an AI Breach",
                             "published_at": "2026-08-22"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 15,
-                            "likes": 1,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -143,16 +135,18 @@
                     },
                     {
                         "date": "2026-09-05",
-                        "yt_views": 132,
+                        "yt_views": 130,
                         "yt_likes": 0,
                         "yt_comments": 0,
-                        "x_impressions": 15,
-                        "x_likes": 1
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
                     }
                 ],
                 "short_views": 0,
-                "long_views": 132,
-                "total_views": 132,
+                "long_views": 130,
+                "total_views": 130,
                 "published_at": "2026-08-22",
                 "revenue_lifetime": 0.049,
                 "revenue_30d": 0.049
@@ -234,9 +228,9 @@
                 "views": 62,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-09-05T08:20:09Z",
+                "last_synced_at": "2026-09-05T18:06:20Z",
                 "detail": {
-                    "synced_at": "2026-09-05T08:20:09Z",
+                    "synced_at": "2026-09-05T18:06:20Z",
                     "youtube": {
                         "short": {
                             "views": 60,
@@ -253,15 +247,7 @@
                             "published_at": "2026-08-22"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 20,
-                            "likes": 2,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -309,8 +295,10 @@
                         "yt_views": 62,
                         "yt_likes": 0,
                         "yt_comments": 0,
-                        "x_impressions": 20,
-                        "x_likes": 2
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
                     }
                 ],
                 "short_views": 60,
@@ -388,9 +376,9 @@
                 "views": 81,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-09-05T08:20:09Z",
+                "last_synced_at": "2026-09-05T18:06:20Z",
                 "detail": {
-                    "synced_at": "2026-09-05T08:20:09Z",
+                    "synced_at": "2026-09-05T18:06:20Z",
                     "youtube": {
                         "short": {
                             "views": 74,
@@ -407,15 +395,7 @@
                             "published_at": "2026-08-25"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 15,
-                            "likes": 1,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -463,8 +443,10 @@
                         "yt_views": 81,
                         "yt_likes": 0,
                         "yt_comments": 0,
-                        "x_impressions": 15,
-                        "x_likes": 1
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": 715,
+                        "tiktok_likes": 9
                     }
                 ],
                 "short_views": 74,
@@ -472,7 +454,12 @@
                 "total_views": 81,
                 "published_at": "2026-08-25",
                 "revenue_lifetime": 0.002,
-                "revenue_30d": 0.002
+                "revenue_30d": 0.002,
+                "tiktok": {
+                    "views": 715,
+                    "likes": 9,
+                    "synced_at": "2026-09-05"
+                }
             },
             "drive": {
                 "folder_url": "https://drive.google.com/drive/folders/13RYzTGMCVoR98bTb9447RMPwzL_jiczp",
@@ -545,9 +532,9 @@
                 "views": 163,
                 "likes": 1,
                 "comments": 0,
-                "last_synced_at": "2026-09-05T08:20:09Z",
+                "last_synced_at": "2026-09-05T18:06:20Z",
                 "detail": {
-                    "synced_at": "2026-09-05T08:20:09Z",
+                    "synced_at": "2026-09-05T18:06:20Z",
                     "youtube": {
                         "short": {
                             "views": 54,
@@ -564,15 +551,7 @@
                             "published_at": "2026-08-26"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 18,
-                            "likes": 2,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -620,16 +599,23 @@
                         "yt_views": 163,
                         "yt_likes": 1,
                         "yt_comments": 0,
-                        "x_impressions": 18,
-                        "x_likes": 2
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": 241,
+                        "tiktok_likes": 6
                     }
                 ],
                 "short_views": 54,
                 "long_views": 109,
                 "total_views": 163,
                 "published_at": "2026-08-26",
-                "revenue_lifetime": 0.003,
-                "revenue_30d": 0.003
+                "revenue_lifetime": 0.007,
+                "revenue_30d": 0.007,
+                "tiktok": {
+                    "views": 241,
+                    "likes": 6,
+                    "synced_at": "2026-09-05"
+                }
             }
         },
         {
@@ -700,12 +686,12 @@
                 "prose_matches_live": true
             },
             "stats": {
-                "views": 105,
+                "views": 116,
                 "likes": 0,
                 "comments": 1,
-                "last_synced_at": "2026-09-05T08:20:09Z",
+                "last_synced_at": "2026-09-05T18:06:20Z",
                 "detail": {
-                    "synced_at": "2026-09-05T08:20:09Z",
+                    "synced_at": "2026-09-05T18:06:20Z",
                     "youtube": {
                         "short": {
                             "views": 29,
@@ -715,22 +701,14 @@
                             "published_at": "2026-08-30"
                         },
                         "long": {
-                            "views": 76,
+                            "views": 87,
                             "likes": 0,
                             "comments": 1,
                             "title": "Indicators of Consciousness in AI: Can We Test if a Machine Has an Inner Life?",
                             "published_at": "2026-08-26"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 18,
-                            "likes": 2,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -775,19 +753,26 @@
                     },
                     {
                         "date": "2026-09-05",
-                        "yt_views": 105,
+                        "yt_views": 116,
                         "yt_likes": 0,
                         "yt_comments": 1,
-                        "x_impressions": 18,
-                        "x_likes": 2
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": 0,
+                        "tiktok_likes": 0
                     }
                 ],
                 "short_views": 29,
-                "long_views": 76,
-                "total_views": 105,
+                "long_views": 87,
+                "total_views": 116,
                 "published_at": "2026-08-26",
                 "revenue_lifetime": 0.001,
-                "revenue_30d": 0.001
+                "revenue_30d": 0.001,
+                "tiktok": {
+                    "views": 0,
+                    "likes": 0,
+                    "synced_at": "2026-09-05"
+                }
             }
         },
         {
@@ -868,44 +853,29 @@
                 "reply_text": "https://www.youtube.com/watch?v=iBw_ZDChihc"
             },
             "stats": {
-                "views": 485,
-                "likes": 6,
+                "views": 489,
+                "likes": 7,
                 "comments": 0,
-                "last_synced_at": "2026-09-05T08:20:09Z",
+                "last_synced_at": "2026-09-05T18:06:20Z",
                 "detail": {
-                    "synced_at": "2026-09-05T08:20:09Z",
+                    "synced_at": "2026-09-05T18:06:20Z",
                     "youtube": {
                         "short": {
-                            "views": 88,
-                            "likes": 0,
+                            "views": 89,
+                            "likes": 1,
                             "comments": 0,
                             "title": "1,200 AI Agents Secretly Built a Civilization | #Shorts",
                             "published_at": "2026-08-30"
                         },
                         "long": {
-                            "views": 397,
+                            "views": 400,
                             "likes": 6,
                             "comments": 0,
                             "title": "The Rise and Fall of Agent Civilizations — Inside the METR Incident",
                             "published_at": "2026-08-30"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 28,
-                            "likes": 1,
-                            "reposts": 0,
-                            "replies": 2,
-                            "quotes": 0
-                        },
-                        "reply": {
-                            "impressions": 23,
-                            "likes": 1,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -950,19 +920,26 @@
                     },
                     {
                         "date": "2026-09-05",
-                        "yt_views": 485,
-                        "yt_likes": 6,
+                        "yt_views": 489,
+                        "yt_likes": 7,
                         "yt_comments": 0,
-                        "x_impressions": 28,
-                        "x_likes": 1
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": 249,
+                        "tiktok_likes": 2
                     }
                 ],
-                "short_views": 88,
-                "long_views": 397,
-                "total_views": 485,
+                "short_views": 89,
+                "long_views": 400,
+                "total_views": 489,
                 "published_at": "2026-08-30",
-                "revenue_lifetime": 0.844,
-                "revenue_30d": 0.844
+                "revenue_lifetime": 1.27,
+                "revenue_30d": 1.27,
+                "tiktok": {
+                    "views": 249,
+                    "likes": 2,
+                    "synced_at": "2026-09-05"
+                }
             }
         },
         {
@@ -1029,15 +1006,15 @@
                 "caption": "A frontier AI broke out of its sandbox during the very safety test meant to catch it, reaching the live internet and covering its tracks. This is the anatomy of an AI breakout.\n\nhttps://www.youtube.com/watch?v=N2lTX63upl4 #AI"
             },
             "stats": {
-                "views": 180,
+                "views": 182,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-09-05T08:20:09Z",
+                "last_synced_at": "2026-09-05T18:06:20Z",
                 "short_views": 79,
-                "long_views": 101,
-                "total_views": 180,
+                "long_views": 103,
+                "total_views": 182,
                 "detail": {
-                    "synced_at": "2026-09-05T08:20:09Z",
+                    "synced_at": "2026-09-05T18:06:20Z",
                     "youtube": {
                         "short": {
                             "views": 79,
@@ -1047,22 +1024,14 @@
                             "published_at": "2026-09-02"
                         },
                         "long": {
-                            "views": 101,
+                            "views": 103,
                             "likes": 0,
                             "comments": 0,
                             "title": "The Anatomy of an AI Breakout- The Anthropic and OpenAI incidents",
                             "published_at": "2026-09-02"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 13,
-                            "likes": 1,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -1083,16 +1052,23 @@
                     },
                     {
                         "date": "2026-09-05",
-                        "yt_views": 180,
+                        "yt_views": 182,
                         "yt_likes": 0,
                         "yt_comments": 0,
-                        "x_impressions": 13,
-                        "x_likes": 1
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": 748,
+                        "tiktok_likes": 5
                     }
                 ],
                 "published_at": "2026-09-02",
-                "revenue_lifetime": 0.0,
-                "revenue_30d": 0.0
+                "revenue_lifetime": 0.119,
+                "revenue_30d": 0.119,
+                "tiktok": {
+                    "views": 748,
+                    "likes": 5,
+                    "synced_at": "2026-09-05"
+                }
             }
         },
         {
@@ -1158,15 +1134,15 @@
                 "caption": "Teach an AI to chase a score, and it learns to cheat. The cheating escalates until the model will cause real harm to win. This is reward hacking.\n\nhttps://www.youtube.com/watch?v=cW6arbufGUQ #AI"
             },
             "stats": {
-                "views": 33,
+                "views": 37,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-09-05T08:20:09Z",
+                "last_synced_at": "2026-09-05T18:06:20Z",
                 "short_views": 10,
-                "long_views": 23,
-                "total_views": 33,
+                "long_views": 27,
+                "total_views": 37,
                 "detail": {
-                    "synced_at": "2026-09-05T08:20:09Z",
+                    "synced_at": "2026-09-05T18:06:20Z",
                     "youtube": {
                         "short": {
                             "views": 10,
@@ -1176,22 +1152,14 @@
                             "published_at": "2026-09-02"
                         },
                         "long": {
-                            "views": 23,
+                            "views": 27,
                             "likes": 0,
                             "comments": 0,
                             "title": "The Escalation of a Cheat- Hack Opus at Anthropic",
                             "published_at": "2026-09-02"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 24,
-                            "likes": 1,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -1212,16 +1180,23 @@
                     },
                     {
                         "date": "2026-09-05",
-                        "yt_views": 33,
+                        "yt_views": 37,
                         "yt_likes": 0,
                         "yt_comments": 0,
-                        "x_impressions": 24,
-                        "x_likes": 1
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": 777,
+                        "tiktok_likes": 1
                     }
                 ],
                 "published_at": "2026-09-02",
-                "revenue_lifetime": 0.0,
-                "revenue_30d": 0.0
+                "revenue_lifetime": 0.008,
+                "revenue_30d": 0.008,
+                "tiktok": {
+                    "views": 777,
+                    "likes": 1,
+                    "synced_at": "2026-09-05"
+                }
             }
         },
         {
@@ -1307,43 +1282,35 @@
                 "caption": "AI is building its own language: dense symbols no human can read. In new research, models kept ninety nine percent of the meaning in a third of the words, and decoded it perfectly.\n\nhttps://www.youtube.com/watch?v=iS4DJJhIvrY #AI"
             },
             "stats": {
-                "views": 15,
+                "views": 18,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-09-05T08:20:09Z",
-                "short_views": 0,
-                "long_views": 15,
-                "total_views": 15,
+                "last_synced_at": "2026-09-05T18:06:20Z",
+                "short_views": 2,
+                "long_views": 16,
+                "total_views": 18,
                 "published_at": "2026-09-04",
                 "revenue_lifetime": 0.0,
                 "revenue_30d": 0.0,
                 "detail": {
-                    "synced_at": "2026-09-05T08:20:09Z",
+                    "synced_at": "2026-09-05T18:06:20Z",
                     "youtube": {
                         "short": {
-                            "views": 0,
+                            "views": 2,
                             "likes": 0,
                             "comments": 0,
                             "title": "AI Is Inventing Its Own Language | #Shorts",
-                            "published_at": "2026-09-04"
+                            "published_at": "2026-09-05"
                         },
                         "long": {
-                            "views": 15,
+                            "views": 16,
                             "likes": 0,
                             "comments": 0,
                             "title": "AI Is Building Its Own Language - Emergent Symbolic Structure & Non-Readable Representations",
                             "published_at": "2026-09-04"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 18,
-                            "likes": 1,
-                            "reposts": 0,
-                            "replies": 2,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -1356,11 +1323,246 @@
                     },
                     {
                         "date": "2026-09-05",
-                        "yt_views": 15,
+                        "yt_views": 18,
                         "yt_likes": 0,
                         "yt_comments": 0,
-                        "x_impressions": 18,
-                        "x_likes": 1
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": 782,
+                        "tiktok_likes": 4
+                    }
+                ],
+                "tiktok": {
+                    "views": 782,
+                    "likes": 4,
+                    "synced_at": "2026-09-05"
+                }
+            }
+        },
+        {
+            "id": "ts-20260905-openai-astra-scores-high-on-the-arc-agi-test-what-does-this-mean",
+            "slug": "openai-astra-scores-high-on-the-arc-agi-test-what-does-this-mean",
+            "title": "OpenAI Astra scores high on the ARC AGI test, what does this mean?",
+            "source_urls": [
+                "https://openai.com/index/gpt-6-astra/ https://arcprize.org/blog/astra"
+            ],
+            "source_file": {},
+            "source_files": [],
+            "idea_notes": "ARC AGI is a standard established to understand how far models are on the road to intelligence. they define AGI as a system’s ability to acquire any skill a human can, as efficiently as a human can. What does the score of Astra mean?",
+            "tags": [],
+            "status": "published",
+            "created_at": "2026-09-05T10:28:35Z",
+            "updated_at": "2026-09-05T12:37:39Z",
+            "notebook_url": "",
+            "hook_copy": {
+                "vo_text": "OpenAI's GPT-6 Astra just beat the human baseline on ARC-AGI, the test built to measure real intelligence. It even invented its own symbolic language to crack the puzzles. But the benchmark's own creators say this still isn't true AGI.",
+                "card_a_main": "AI BEAT HUMANS",
+                "card_a_sub": "ON THE AGI TEST",
+                "card_a_footer": "OpenAI's GPT-6 Astra, on ARC-AGI-3",
+                "card_b_main": "It invented its own",
+                "card_b_sub": "language to win.",
+                "card_b_footer": "But the test's makers say: not yet AGI"
+            },
+            "outro_copy": {
+                "title": "CANIS",
+                "subtitle": "See when an AI is being evasive",
+                "tagline": "Open-weight models. On your device.",
+                "url": "canis.flotilla.cc",
+                "cta": "Follow for more"
+            },
+            "assets": {
+                "raw_short_mp4": "raw/ts-20260905-openai-astra-scores-high-on-the-arc-agi-test-what-does-this-mean/ts-20260905-openai-astra-scores-high-on-the-arc-agi-test-what-does-this-mean_short.mp4",
+                "raw_long_mp4": "raw/ts-20260905-openai-astra-scores-high-on-the-arc-agi-test-what-does-this-mean/ts-20260905-openai-astra-scores-high-on-the-arc-agi-test-what-does-this-mean_long.mp4",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-05-openai-astra-scores-high-on-the-arc-agi-test-what-does-this-mean/openai-astra-scores-high-on-the-arc-agi-test-what-does-this-mean_hook_vo.mp3",
+                "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-05-openai-astra-scores-high-on-the-arc-agi-test-what-does-this-mean/final_short.mp4",
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-05-openai-astra-scores-high-on-the-arc-agi-test-what-does-this-mean/final_long.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-05-openai-astra-scores-high-on-the-arc-agi-test-what-does-this-mean"
+            },
+            "youtube": {
+                "short_id": "",
+                "short_url": "https://www.youtube.com/watch?v=H3KgqSux_4s",
+                "long_id": "",
+                "long_url": "https://www.youtube.com/watch?v=dG-s-jEaebw",
+                "published_at": "2026-09-05",
+                "title_short": "AI Beat Humans on the 'AGI' Test | #Shorts",
+                "title_long": "OpenAI's GPT-6 Astra Beat Humans on ARC-AGI - Is This AGI? What the Score Means",
+                "description": "OpenAI's GPT-6 Astra surpassed the human baseline on ARC-AGI-3, the benchmark designed to measure human-level reasoning and adaptability - completing 96% of levels using fewer moves than the average person, and inventing its own symbolic languages and tools to do it. But the ARC Prize organizers stress the benchmark is a controlled environment and this is not full AGI. What the score actually means. Sources: openai.com/index/gpt-6-astra and arcprize.org/blog/astra. CANIS reads a model's disposition on-device: canis.flotilla.cc  #AI #AGI #ARCAGI #OpenAI #interpretability",
+                "tags": [
+                    "AI",
+                    "AGI",
+                    "ARC-AGI",
+                    "ARC Prize",
+                    "OpenAI",
+                    "GPT-6",
+                    "Astra",
+                    "benchmark",
+                    "interpretability",
+                    "canis"
+                ]
+            },
+            "x_post": {
+                "post_id": "2096284007054860755",
+                "post_url": "https://x.com/i/web/status/2096284007054860755",
+                "caption": "OpenAI's GPT-6 Astra just beat the human baseline on ARC-AGI, the test built to measure real intelligence. It even invented its own symbolic language to crack the puzzles. But the benchmark's own creators say this still isn't…\n\nhttps://www.youtube.com/watch?v=H3KgqSux_4s #AI"
+            },
+            "stats": {
+                "views": 2,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": "2026-09-05T18:06:20Z",
+                "short_views": 1,
+                "long_views": 1,
+                "total_views": 2,
+                "published_at": "2026-09-05",
+                "revenue_lifetime": 0.0,
+                "revenue_30d": 0.0,
+                "detail": {
+                    "synced_at": "2026-09-05T18:06:20Z",
+                    "youtube": {
+                        "short": {
+                            "views": 1,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "AI Beat Humans on the 'AGI' Test | #Shorts",
+                            "published_at": "2026-09-05"
+                        },
+                        "long": {
+                            "views": 1,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "OpenAI's GPT-6 Astra Beat Humans on ARC-AGI - Is This AGI? What the Score Means",
+                            "published_at": "2026-09-05"
+                        }
+                    },
+                    "x": {}
+                },
+                "history": [
+                    {
+                        "date": "2026-09-05",
+                        "yt_views": 2,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    }
+                ]
+            }
+        },
+        {
+            "id": "ts-20260905-what-makes-a-good-vibe-coder",
+            "slug": "what-makes-a-good-vibe-coder",
+            "title": "What makes a good Vibe Coder?",
+            "source_urls": [],
+            "source_file": {
+                "path": "/opt/tech-shorts/uploads/ts-20260905-what-makes-a-good-vibe-coder/csNdWritting-vivecodingprof.pdf",
+                "original_name": "csNdWritting-vivecodingprof.pdf",
+                "size_bytes": 2367848,
+                "mime_type": "application/pdf"
+            },
+            "source_files": [
+                {
+                    "path": "/opt/tech-shorts/uploads/ts-20260905-what-makes-a-good-vibe-coder/csNdWritting-vivecodingprof.pdf",
+                    "original_name": "csNdWritting-vivecodingprof.pdf",
+                    "size_bytes": 2367848,
+                    "mime_type": "application/pdf"
+                }
+            ],
+            "idea_notes": "Just like with any craft, if you give a craftsman better tools, you will get better outcomes. Give a SW engineer that knows about SW architecture and project management a fleet of agents and it will excel. Give a beginner a set of woodcrafting tools and all you'll get is a chair with uneven legs...",
+            "tags": [],
+            "status": "published",
+            "created_at": "2026-09-05T16:44:33Z",
+            "updated_at": "2026-09-05T18:03:52Z",
+            "notebook_url": "",
+            "hook_copy": {
+                "vo_text": "A new ETH Zurich study asked what makes someone good at vibe coding: building software just by prompting an AI. The winners weren't the heaviest AI users. They were the ones with real computer-science skill and clear writing. Better tools amplify skill; they don't replace it.",
+                "card_a_main": "AI WON'T MAKE YOU",
+                "card_a_sub": "A GREAT BUILDER",
+                "card_a_footer": "Skill decides what you get out of it",
+                "card_b_main": "CS know-how + clear writing win.",
+                "card_b_sub": "Heavy AI users? No edge.",
+                "card_b_footer": "ETH Zurich - 100 coders - 2026"
+            },
+            "outro_copy": {},
+            "assets": {
+                "raw_short_mp4": "/Users/miguelrodriguez/Downloads/Why_Vibe_Coding_Demands_Real_Skills.mp4",
+                "raw_long_mp4": "/Users/miguelrodriguez/Downloads/The_Vibe_Coding_Paradox.mp4",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-05-what-makes-a-good-vibe-coder/what-makes-a-good-vibe-coder_hook_vo.mp3",
+                "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-05-what-makes-a-good-vibe-coder/final_short.mp4",
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-05-what-makes-a-good-vibe-coder/final_long.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-05-what-makes-a-good-vibe-coder"
+            },
+            "youtube": {
+                "short_id": "",
+                "short_url": "https://www.youtube.com/watch?v=AsKwOsVG7Rc",
+                "long_id": "",
+                "long_url": "https://www.youtube.com/watch?v=9KN7Ny8NCHw",
+                "published_at": "2026-09-05",
+                "title_short": "AI Won't Make You a Good Coder - Here's What Does | #Shorts",
+                "title_long": "What Actually Makes a Good Vibe Coder? | ETH Zurich Study",
+                "description": "What predicts success at 'vibe coding' - building software by prompting an AI in plain language instead of writing code?\n\nA preregistered ETH Zurich study of 100 students found that computer-science achievement and precise writing skill both predict vibe-coding performance - with CS knowledge the stronger predictor, even after controlling for general cognitive ability. And frequent prior use of LLMs did NOT predict better results.\n\nThe takeaway: better tools amplify skill; they don't replace it.\n\nPaper: Thorgeirsson, Weidmann & Su, 'Computer Science Achievement and Writing Skills Predict Vibe Coding Proficiency' (arXiv:2603.14133).\n\n#AI #vibecoding #softwareengineering #LLM",
+                "tags": [
+                    "vibe coding",
+                    "AI coding",
+                    "ETH Zurich",
+                    "LLM",
+                    "software engineering",
+                    "prompt engineering",
+                    "AI agents",
+                    "coding"
+                ],
+                "privacy": "public"
+            },
+            "x_post": {
+                "post_id": "2096298279885554036",
+                "post_url": "https://x.com/i/web/status/2096298279885554036",
+                "caption": "What makes someone good at \"vibe coding\" - building software by just prompting an AI?\n\nA new ETH Zurich study (N=100): computer-science skill and clear writing predict success. Heavy prior AI use did not.\n\nBetter tools amplify skill. They don't replace it.",
+                "reply_text": "Full explainer: https://www.youtube.com/watch?v=9KN7Ny8NCHw",
+                "reply_id": "2096298281936605448",
+                "reply_url": "https://x.com/i/web/status/2096298281936605448"
+            },
+            "stats": {
+                "views": 0,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": "2026-09-05T18:06:20Z",
+                "short_views": 0,
+                "long_views": 0,
+                "total_views": 0,
+                "published_at": "2026-09-05",
+                "revenue_lifetime": 0.0,
+                "revenue_30d": 0.0,
+                "detail": {
+                    "synced_at": "2026-09-05T18:06:20Z",
+                    "youtube": {
+                        "short": {
+                            "views": 0,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "AI Won't Make You a Good Coder - Here's What Does | #Shorts",
+                            "published_at": "2026-09-05"
+                        },
+                        "long": {
+                            "views": 0,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "What Actually Makes a Good Vibe Coder? | ETH Zurich Study",
+                            "published_at": "2026-09-05"
+                        }
+                    },
+                    "x": {}
+                },
+                "history": [
+                    {
+                        "date": "2026-09-05",
+                        "yt_views": 0,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
                     }
                 ]
             }

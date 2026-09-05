@@ -178,6 +178,12 @@ def main() -> None:
     ap.add_argument("--no-x", action="store_true", help="skip the paid X reads")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--no-push", action="store_true", help="skip the scp to the droplet tracker")
+    ap.add_argument("--set-tiktok", action="store_true",
+                    help="manually set the TikTok stats on --job then save+push and exit (no API calls). "
+                         "TikTok has no public per-account stats API, so these numbers are entered by hand; "
+                         "the daily sync preserves them via merge.")
+    ap.add_argument("--views", type=int, help="TikTok views (with --set-tiktok)")
+    ap.add_argument("--likes", type=int, default=0, help="TikTok likes (with --set-tiktok)")
     args = ap.parse_args()
 
     d = load()
@@ -186,6 +192,25 @@ def main() -> None:
         jobs = [j for j in jobs if j["id"] == args.job or j.get("slug") == args.job]
         if not jobs:
             raise SystemExit(f"job not found: {args.job}")
+
+    # Manual TikTok setter: TikTok exposes no per-account stats API, so views/likes
+    # are entered by hand here. Goes through the same save+push path as the daily
+    # sync, and the sync's stats.update() preserves the block on every later run.
+    if args.set_tiktok:
+        if not args.job:
+            raise SystemExit("--set-tiktok requires --job")
+        if args.views is None:
+            raise SystemExit("--set-tiktok requires --views")
+        day = now_iso()[:10]
+        for j in jobs:
+            tk = j.setdefault("stats", {}).setdefault("tiktok", {})
+            tk.update({"views": args.views, "likes": args.likes, "synced_at": day})
+            print(f"set tiktok on {j['id']}: views={args.views} likes={args.likes}")
+        save(d)
+        print(f"written to {JOBS}")
+        if not args.no_push:
+            push_to_droplet()
+        return
 
     # One batched YouTube call for every video across all jobs.
     wanted = []
@@ -254,6 +279,8 @@ def main() -> None:
         if args.dry_run:
             continue
 
+        # update() (not reassignment) so the hand-entered stats["tiktok"] block —
+        # which has no API to refresh from — survives every daily sync.
         stats = j.setdefault("stats", {})
         stats.update({
             "views": yv, "likes": yl, "comments": yc,
@@ -269,11 +296,14 @@ def main() -> None:
         hist = stats.setdefault("history", [])
         today = stamp[:10]
         hist[:] = [h for h in hist if h.get("date") != today]
+        tk = stats.get("tiktok") or {}
         hist.append({
             "date": today,
             "yt_views": yv, "yt_likes": yl, "yt_comments": yc,
             "x_impressions": entry["x"].get("post", {}).get("impressions"),
             "x_likes": entry["x"].get("post", {}).get("likes"),
+            "tiktok_views": tk.get("views"),
+            "tiktok_likes": tk.get("likes"),
         })
 
     if not args.dry_run:
