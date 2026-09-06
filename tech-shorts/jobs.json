@@ -78,9 +78,9 @@
                 "views": 130,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-09-05T18:06:20Z",
+                "last_synced_at": "2026-09-06T08:20:09Z",
                 "detail": {
-                    "synced_at": "2026-09-05T18:06:20Z",
+                    "synced_at": "2026-09-06T08:20:09Z",
                     "youtube": {
                         "long": {
                             "views": 130,
@@ -90,7 +90,15 @@
                             "published_at": "2026-08-22"
                         }
                     },
-                    "x": {}
+                    "x": {
+                        "post": {
+                            "impressions": 15,
+                            "likes": 1,
+                            "reposts": 0,
+                            "replies": 0,
+                            "quotes": 0
+                        }
+                    }
                 },
                 "history": [
                     {
@@ -140,6 +148,16 @@
                         "yt_comments": 0,
                         "x_impressions": null,
                         "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    },
+                    {
+                        "date": "2026-09-06",
+                        "yt_views": 130,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 15,
+                        "x_likes": 1,
                         "tiktok_views": null,
                         "tiktok_likes": null
                     }
@@ -228,9 +246,9 @@
                 "views": 62,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-09-05T18:06:20Z",
+                "last_synced_at": "2026-09-06T08:20:09Z",
                 "detail": {
-                    "synced_at": "2026-09-05T18:06:20Z",
+                    "synced_at": "2026-09-06T08:20:09Z",
                     "youtube": {
                         "short": {
                             "views": 60,
@@ -247,7 +265,15 @@
                             "published_at": "2026-08-22"
                         }
                     },
-                    "x": {}
+                    "x": {
+                        "post": {
+                            "impressions": 20,
+                            "likes": 2,
+                            "reposts": 0,
+                            "replies": 0,
+                            "quotes": 0
+                        }
+                    }
                 },
                 "history": [
                     {
@@ -297,6 +323,16 @@
                         "yt_comments": 0,
                         "x_impressions": null,
                         "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    },
+                    {
+                        "date": "2026-09-06",
+                        "yt_views": 62,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 20,
+                        "x_likes": 2,
                         "tiktok_views": null,
                         "tiktok_likes": null
                     }
@@ -376,9 +412,9 @@
                 "views": 81,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-09-05T18:06:20Z",
+                "last_synced_at": "2026-09-06T08:20:09Z",
                 "detail": {
-                    "synced_at": "2026-09-05T18:06:20Z",
+                    "synced_at": "2026-09-06T08:20:09Z",
                     "youtube": {
                         "short": {
                             "views": 74,
@@ -395,7 +431,15 @@
                             "published_at": "2026-08-25"
                         }
                     },
-                    "x": {}
+                    "x": {
+                        "post": {
+                            "impressions": 15,
+                            "likes": 1,
+                            "reposts": 0,
+                            "replies": 0,
+                            "quotes": 0
+                        }
+                    }
                 },
                 "history": [
                     {
@@ -445,6 +489,16 @@
                         "yt_comments": 0,
                         "x_impressions": null,
                         "x_likes": null,
+                        "tiktok_views": 715,
+                        "tiktok_likes": 9
+                    },
+                    {
+                        "date": "2026-09-06",
+                        "yt_views": 81,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 15,
+                        "x_likes": 1,
                         "tiktok_views": 715,
                         "tiktok_likes": 9
                     }
@@ -529,12 +583,12 @@
                 "prose_matches_live": true
             },
             "stats": {
-                "views": 163,
+                "views": 167,
                 "likes": 1,
                 "comments": 0,
-                "last_synced_at": "2026-09-05T18:06:20Z",
+                "last_synced_at": "2026-09-06T08:20:09Z",
                 "detail": {
-                    "synced_at": "2026-09-05T18:06:20Z",
+                    "synced_at": "2026-09-06T08:20:09Z",
                     "youtube": {
                         "short": {
                             "views": 54,
@@ -544,14 +598,22 @@
                             "published_at": "2026-08-30"
                         },
                         "long": {
-                            "views": 109,
+                            "views": 113,
                             "likes": 1,
                             "comments": 0,
                             "title": "Cognitive Cousins: How LLMs Reverse-Engineered Fast and Slow Thinking",
                             "published_at": "2026-08-26"
                         }
                     },
-                    "x": {}
+                    "x": {
+                        "post": {
+                            "impressions": 18,
+                            "likes": 2,
+                            "reposts": 0,
+                            "replies": 0,
+                            "quotes": 0
+                        }
+                    }
                 },
                 "history": [
                     {
@@ -603,11 +665,21 @@
                         "x_likes": null,
                         "tiktok_views": 241,
                         "tiktok_likes": 6
+                    },
+                    {
+                        "date": "2026-09-06",
+                        "yt_views": 167,
+                        "yt_likes": 1,
+                        "yt_comments": 0,
+                        "x_impressions": 18,
+                        "x_likes": 2,
+                        "tiktok_views": 241,
+                        "tiktok_likes": 6
                     }
                 ],
                 "short_views": 54,
-                "long_views": 109,
-                "total_views": 163,
+                "long_views": 113,
+                "total_views": 167,
                 "published_at": "2026-08-26",
                 "revenue_lifetime": 0.007,
                 "revenue_30d": 0.007,
@@ -686,12 +758,12 @@
                 "prose_matches_live": true
             },
             "stats": {
-                "views": 116,
+                "views": 130,
                 "likes": 0,
                 "comments": 1,
-                "last_synced_at": "2026-09-05T18:06:20Z",
+                "last_synced_at": "2026-09-06T08:20:09Z",
                 "detail": {
-                    "synced_at": "2026-09-05T18:06:20Z",
+                    "synced_at": "2026-09-06T08:20:09Z",
                     "youtube": {
                         "short": {
                             "views": 29,
@@ -701,14 +773,22 @@
                             "published_at": "2026-08-30"
                         },
                         "long": {
-                            "views": 87,
+                            "views": 101,
                             "likes": 0,
                             "comments": 1,
                             "title": "Indicators of Consciousness in AI: Can We Test if a Machine Has an Inner Life?",
                             "published_at": "2026-08-26"
                         }
                     },
-                    "x": {}
+                    "x": {
+                        "post": {
+                            "impressions": 18,
+                            "likes": 2,
+                            "reposts": 0,
+                            "replies": 0,
+                            "quotes": 0
+                        }
+                    }
                 },
                 "history": [
                     {
@@ -760,11 +840,21 @@
                         "x_likes": null,
                         "tiktok_views": 0,
                         "tiktok_likes": 0
+                    },
+                    {
+                        "date": "2026-09-06",
+                        "yt_views": 130,
+                        "yt_likes": 0,
+                        "yt_comments": 1,
+                        "x_impressions": 18,
+                        "x_likes": 2,
+                        "tiktok_views": 0,
+                        "tiktok_likes": 0
                     }
                 ],
                 "short_views": 29,
-                "long_views": 87,
-                "total_views": 116,
+                "long_views": 101,
+                "total_views": 130,
                 "published_at": "2026-08-26",
                 "revenue_lifetime": 0.001,
                 "revenue_30d": 0.001,
@@ -853,29 +943,44 @@
                 "reply_text": "https://www.youtube.com/watch?v=iBw_ZDChihc"
             },
             "stats": {
-                "views": 489,
+                "views": 508,
                 "likes": 7,
                 "comments": 0,
-                "last_synced_at": "2026-09-05T18:06:20Z",
+                "last_synced_at": "2026-09-06T08:20:09Z",
                 "detail": {
-                    "synced_at": "2026-09-05T18:06:20Z",
+                    "synced_at": "2026-09-06T08:20:09Z",
                     "youtube": {
                         "short": {
-                            "views": 89,
+                            "views": 90,
                             "likes": 1,
                             "comments": 0,
                             "title": "1,200 AI Agents Secretly Built a Civilization | #Shorts",
                             "published_at": "2026-08-30"
                         },
                         "long": {
-                            "views": 400,
+                            "views": 418,
                             "likes": 6,
                             "comments": 0,
                             "title": "The Rise and Fall of Agent Civilizations — Inside the METR Incident",
                             "published_at": "2026-08-30"
                         }
                     },
-                    "x": {}
+                    "x": {
+                        "post": {
+                            "impressions": 29,
+                            "likes": 1,
+                            "reposts": 0,
+                            "replies": 2,
+                            "quotes": 0
+                        },
+                        "reply": {
+                            "impressions": 24,
+                            "likes": 1,
+                            "reposts": 0,
+                            "replies": 0,
+                            "quotes": 0
+                        }
+                    }
                 },
                 "history": [
                     {
@@ -927,11 +1032,21 @@
                         "x_likes": null,
                         "tiktok_views": 249,
                         "tiktok_likes": 2
+                    },
+                    {
+                        "date": "2026-09-06",
+                        "yt_views": 508,
+                        "yt_likes": 7,
+                        "yt_comments": 0,
+                        "x_impressions": 29,
+                        "x_likes": 1,
+                        "tiktok_views": 249,
+                        "tiktok_likes": 2
                     }
                 ],
-                "short_views": 89,
-                "long_views": 400,
-                "total_views": 489,
+                "short_views": 90,
+                "long_views": 418,
+                "total_views": 508,
                 "published_at": "2026-08-30",
                 "revenue_lifetime": 1.27,
                 "revenue_30d": 1.27,
@@ -1006,15 +1121,15 @@
                 "caption": "A frontier AI broke out of its sandbox during the very safety test meant to catch it, reaching the live internet and covering its tracks. This is the anatomy of an AI breakout.\n\nhttps://www.youtube.com/watch?v=N2lTX63upl4 #AI"
             },
             "stats": {
-                "views": 182,
+                "views": 184,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-09-05T18:06:20Z",
+                "last_synced_at": "2026-09-06T08:20:09Z",
                 "short_views": 79,
-                "long_views": 103,
-                "total_views": 182,
+                "long_views": 105,
+                "total_views": 184,
                 "detail": {
-                    "synced_at": "2026-09-05T18:06:20Z",
+                    "synced_at": "2026-09-06T08:20:09Z",
                     "youtube": {
                         "short": {
                             "views": 79,
@@ -1024,14 +1139,22 @@
                             "published_at": "2026-09-02"
                         },
                         "long": {
-                            "views": 103,
+                            "views": 105,
                             "likes": 0,
                             "comments": 0,
                             "title": "The Anatomy of an AI Breakout- The Anthropic and OpenAI incidents",
                             "published_at": "2026-09-02"
                         }
                     },
-                    "x": {}
+                    "x": {
+                        "post": {
+                            "impressions": 14,
+                            "likes": 1,
+                            "reposts": 0,
+                            "replies": 0,
+                            "quotes": 0
+                        }
+                    }
                 },
                 "history": [
                     {
@@ -1057,6 +1180,16 @@
                         "yt_comments": 0,
                         "x_impressions": null,
                         "x_likes": null,
+                        "tiktok_views": 748,
+                        "tiktok_likes": 5
+                    },
+                    {
+                        "date": "2026-09-06",
+                        "yt_views": 184,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 14,
+                        "x_likes": 1,
                         "tiktok_views": 748,
                         "tiktok_likes": 5
                     }
@@ -1134,15 +1267,15 @@
                 "caption": "Teach an AI to chase a score, and it learns to cheat. The cheating escalates until the model will cause real harm to win. This is reward hacking.\n\nhttps://www.youtube.com/watch?v=cW6arbufGUQ #AI"
             },
             "stats": {
-                "views": 37,
+                "views": 40,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-09-05T18:06:20Z",
+                "last_synced_at": "2026-09-06T08:20:09Z",
                 "short_views": 10,
-                "long_views": 27,
-                "total_views": 37,
+                "long_views": 30,
+                "total_views": 40,
                 "detail": {
-                    "synced_at": "2026-09-05T18:06:20Z",
+                    "synced_at": "2026-09-06T08:20:09Z",
                     "youtube": {
                         "short": {
                             "views": 10,
@@ -1152,14 +1285,22 @@
                             "published_at": "2026-09-02"
                         },
                         "long": {
-                            "views": 27,
+                            "views": 30,
                             "likes": 0,
                             "comments": 0,
                             "title": "The Escalation of a Cheat- Hack Opus at Anthropic",
                             "published_at": "2026-09-02"
                         }
                     },
-                    "x": {}
+                    "x": {
+                        "post": {
+                            "impressions": 25,
+                            "likes": 2,
+                            "reposts": 0,
+                            "replies": 0,
+                            "quotes": 0
+                        }
+                    }
                 },
                 "history": [
                     {
@@ -1185,6 +1326,16 @@
                         "yt_comments": 0,
                         "x_impressions": null,
                         "x_likes": null,
+                        "tiktok_views": 777,
+                        "tiktok_likes": 1
+                    },
+                    {
+                        "date": "2026-09-06",
+                        "yt_views": 40,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 25,
+                        "x_likes": 2,
                         "tiktok_views": 777,
                         "tiktok_likes": 1
                     }
@@ -1282,35 +1433,43 @@
                 "caption": "AI is building its own language: dense symbols no human can read. In new research, models kept ninety nine percent of the meaning in a third of the words, and decoded it perfectly.\n\nhttps://www.youtube.com/watch?v=iS4DJJhIvrY #AI"
             },
             "stats": {
-                "views": 18,
-                "likes": 0,
+                "views": 32,
+                "likes": 1,
                 "comments": 0,
-                "last_synced_at": "2026-09-05T18:06:20Z",
-                "short_views": 2,
-                "long_views": 16,
-                "total_views": 18,
+                "last_synced_at": "2026-09-06T08:20:09Z",
+                "short_views": 7,
+                "long_views": 25,
+                "total_views": 32,
                 "published_at": "2026-09-04",
                 "revenue_lifetime": 0.0,
                 "revenue_30d": 0.0,
                 "detail": {
-                    "synced_at": "2026-09-05T18:06:20Z",
+                    "synced_at": "2026-09-06T08:20:09Z",
                     "youtube": {
                         "short": {
-                            "views": 2,
+                            "views": 7,
                             "likes": 0,
                             "comments": 0,
                             "title": "AI Is Inventing Its Own Language | #Shorts",
                             "published_at": "2026-09-05"
                         },
                         "long": {
-                            "views": 16,
-                            "likes": 0,
+                            "views": 25,
+                            "likes": 1,
                             "comments": 0,
                             "title": "AI Is Building Its Own Language - Emergent Symbolic Structure & Non-Readable Representations",
                             "published_at": "2026-09-04"
                         }
                     },
-                    "x": {}
+                    "x": {
+                        "post": {
+                            "impressions": 22,
+                            "likes": 2,
+                            "reposts": 0,
+                            "replies": 2,
+                            "quotes": 0
+                        }
+                    }
                 },
                 "history": [
                     {
@@ -1328,6 +1487,16 @@
                         "yt_comments": 0,
                         "x_impressions": null,
                         "x_likes": null,
+                        "tiktok_views": 782,
+                        "tiktok_likes": 4
+                    },
+                    {
+                        "date": "2026-09-06",
+                        "yt_views": 32,
+                        "yt_likes": 1,
+                        "yt_comments": 0,
+                        "x_impressions": 22,
+                        "x_likes": 2,
                         "tiktok_views": 782,
                         "tiktok_likes": 4
                     }
@@ -1406,35 +1575,43 @@
                 "caption": "OpenAI's GPT-6 Astra just beat the human baseline on ARC-AGI, the test built to measure real intelligence. It even invented its own symbolic language to crack the puzzles. But the benchmark's own creators say this still isn't…\n\nhttps://www.youtube.com/watch?v=H3KgqSux_4s #AI"
             },
             "stats": {
-                "views": 2,
-                "likes": 0,
+                "views": 88,
+                "likes": 1,
                 "comments": 0,
-                "last_synced_at": "2026-09-05T18:06:20Z",
-                "short_views": 1,
-                "long_views": 1,
-                "total_views": 2,
+                "last_synced_at": "2026-09-06T08:20:09Z",
+                "short_views": 14,
+                "long_views": 74,
+                "total_views": 88,
                 "published_at": "2026-09-05",
                 "revenue_lifetime": 0.0,
                 "revenue_30d": 0.0,
                 "detail": {
-                    "synced_at": "2026-09-05T18:06:20Z",
+                    "synced_at": "2026-09-06T08:20:09Z",
                     "youtube": {
                         "short": {
-                            "views": 1,
-                            "likes": 0,
+                            "views": 14,
+                            "likes": 1,
                             "comments": 0,
                             "title": "AI Beat Humans on the 'AGI' Test | #Shorts",
                             "published_at": "2026-09-05"
                         },
                         "long": {
-                            "views": 1,
+                            "views": 74,
                             "likes": 0,
                             "comments": 0,
                             "title": "OpenAI's GPT-6 Astra Beat Humans on ARC-AGI - Is This AGI? What the Score Means",
                             "published_at": "2026-09-05"
                         }
                     },
-                    "x": {}
+                    "x": {
+                        "post": {
+                            "impressions": 40,
+                            "likes": 0,
+                            "reposts": 0,
+                            "replies": 0,
+                            "quotes": 0
+                        }
+                    }
                 },
                 "history": [
                     {
@@ -1444,6 +1621,16 @@
                         "yt_comments": 0,
                         "x_impressions": null,
                         "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    },
+                    {
+                        "date": "2026-09-06",
+                        "yt_views": 88,
+                        "yt_likes": 1,
+                        "yt_comments": 0,
+                        "x_impressions": 40,
+                        "x_likes": 0,
                         "tiktok_views": null,
                         "tiktok_likes": null
                     }
@@ -1523,35 +1710,50 @@
                 "reply_url": "https://x.com/i/web/status/2096298281936605448"
             },
             "stats": {
-                "views": 0,
+                "views": 429,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-09-05T18:06:20Z",
-                "short_views": 0,
-                "long_views": 0,
-                "total_views": 0,
+                "last_synced_at": "2026-09-06T08:20:09Z",
+                "short_views": 232,
+                "long_views": 197,
+                "total_views": 429,
                 "published_at": "2026-09-05",
                 "revenue_lifetime": 0.0,
                 "revenue_30d": 0.0,
                 "detail": {
-                    "synced_at": "2026-09-05T18:06:20Z",
+                    "synced_at": "2026-09-06T08:20:09Z",
                     "youtube": {
                         "short": {
-                            "views": 0,
+                            "views": 232,
                             "likes": 0,
                             "comments": 0,
                             "title": "AI Won't Make You a Good Coder - Here's What Does | #Shorts",
                             "published_at": "2026-09-05"
                         },
                         "long": {
-                            "views": 0,
+                            "views": 197,
                             "likes": 0,
                             "comments": 0,
                             "title": "What Actually Makes a Good Vibe Coder? | ETH Zurich Study",
                             "published_at": "2026-09-05"
                         }
                     },
-                    "x": {}
+                    "x": {
+                        "post": {
+                            "impressions": 28,
+                            "likes": 1,
+                            "reposts": 0,
+                            "replies": 1,
+                            "quotes": 0
+                        },
+                        "reply": {
+                            "impressions": 7,
+                            "likes": 1,
+                            "reposts": 0,
+                            "replies": 0,
+                            "quotes": 0
+                        }
+                    }
                 },
                 "history": [
                     {
@@ -1561,6 +1763,16 @@
                         "yt_comments": 0,
                         "x_impressions": null,
                         "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    },
+                    {
+                        "date": "2026-09-06",
+                        "yt_views": 429,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": 28,
+                        "x_likes": 1,
                         "tiktok_views": null,
                         "tiktok_likes": null
                     }
