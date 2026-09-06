@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-09-06",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); SM-355 in peer_review; 0 todo tasks.",
+    "file": "2026-09-06.md"
+  },
+  {
     "date": "2026-09-05",
     "summary": "Gem: routine heartbeats; SM-355 (wiki epic) in peer_review.",
     "file": "2026-09-05.md"
