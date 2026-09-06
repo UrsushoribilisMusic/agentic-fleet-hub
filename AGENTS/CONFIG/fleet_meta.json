@@ -214,7 +214,8 @@
         "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/ARCHITECTURE.md"
       ],
       "kanban": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/issues",
-      "is_active": true
+      "is_active": true,
+      "webStats": "https://api.robotross.art/stats/traffic.html"
     },
     {
       "title": "Tech Shorts",
