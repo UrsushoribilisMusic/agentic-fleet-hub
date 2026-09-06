@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caddy Traffic — Flotilla</title>
+<style>
+  .viz-root{
+    color-scheme:light;
+    --surface-1:#fcfcfb; --surface-2:#f4f3f0; --border:#e2e1dc;
+    --text-primary:#0b0b0b; --text-secondary:#52514e; --text-muted:#7b7a75;
+    --grid:#e8e7e3;
+    --series-1:#2a78d6; --series-2:#eb6834; --series-3:#1baf7a;
+    --series-4:#eda100; --series-5:#e87ba4; --series-6:#008300;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:where(:not([data-theme="light"])) .viz-root{
+      color-scheme:dark;
+      --surface-1:#1a1a19; --surface-2:#232322; --border:#383835;
+      --text-primary:#ffffff; --text-secondary:#c3c2b7; --text-muted:#8e8d85;
+      --grid:#2c2c2a;
+      --series-1:#3987e5; --series-2:#d95926; --series-3:#199e70;
+      --series-4:#c98500; --series-5:#d55181; --series-6:#008300;
+    }
+  }
+  :root[data-theme="dark"] .viz-root{
+    color-scheme:dark;
+    --surface-1:#1a1a19; --surface-2:#232322; --border:#383835;
+    --text-primary:#ffffff; --text-secondary:#c3c2b7; --text-muted:#8e8d85;
+    --grid:#2c2c2a;
+    --series-1:#3987e5; --series-2:#d95926; --series-3:#199e70;
+    --series-4:#c98500; --series-5:#d55181; --series-6:#008300;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--surface-1);color:var(--text-primary);
+       font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif}
+  .wrap{max-width:1120px;margin:0 auto;padding:28px 20px 64px}
+  header{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:4px}
+  h1{font-size:22px;margin:0;letter-spacing:-.01em}
+  .sub{color:var(--text-muted);font-size:13px}
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:20px 0 24px}
+  button,select{font:inherit;font-size:13px;padding:6px 12px;border-radius:7px;
+    border:1px solid var(--border);background:var(--surface-2);color:var(--text-primary);cursor:pointer}
+  button[aria-pressed="true"]{background:var(--series-1);border-color:var(--series-1);color:#fff}
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:28px}
+  .tile{background:var(--surface-2);border:1px solid var(--border);border-radius:11px;padding:14px 16px}
+  .tile .k{font-size:12px;color:var(--text-muted);margin-bottom:6px}
+  .tile .v{font-size:26px;font-weight:650;letter-spacing:-.02em;line-height:1.1}
+  .tile .n{font-size:12px;color:var(--text-secondary);margin-top:4px;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  section{margin-bottom:34px}
+  h2{font-size:15px;margin:0 0 3px;font-weight:600}
+  .hint{font-size:12.5px;color:var(--text-muted);margin:0 0 14px}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;margin:10px 0 0;font-size:12.5px;color:var(--text-secondary)}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .sw{width:11px;height:11px;border-radius:3px;flex:none}
+  svg{display:block;width:100%;overflow:visible}
+  .grid line{stroke:var(--grid);stroke-width:1}
+  .axis{fill:var(--text-muted);font-size:11px}
+  table{border-collapse:collapse;width:100%;font-size:13px;margin-top:12px}
+  th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--border)}
+  th{color:var(--text-secondary);font-weight:600;font-size:12px}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+  .bar-row{display:grid;grid-template-columns:190px 1fr 62px;gap:10px;align-items:center;margin-bottom:7px;font-size:13px}
+  .bar-row .lbl{color:var(--text-secondary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .bar-track{background:var(--surface-2);border-radius:4px;height:17px;position:relative}
+  .bar-fill{height:100%;border-radius:4px;background:var(--series-1)}
+  .bar-row .n{text-align:right;font-variant-numeric:tabular-nums;color:var(--text-primary)}
+  #tip{position:fixed;pointer-events:none;opacity:0;transition:opacity .1s;background:var(--surface-2);
+    border:1px solid var(--border);border-radius:8px;padding:9px 11px;font-size:12.5px;
+    box-shadow:0 6px 22px rgba(0,0,0,.16);z-index:9;max-width:280px}
+  #tip b{display:block;margin-bottom:5px;font-size:12px;color:var(--text-secondary);font-weight:600}
+  #tip .r{display:flex;justify-content:space-between;gap:14px}
+  .hidden{display:none}
+  footer{color:var(--text-muted);font-size:12px;border-top:1px solid var(--border);padding-top:14px}
+</style>
+</head>
+<body class="viz-root" data-palette="#2a78d6,#eb6834,#1baf7a,#eda100,#e87ba4,#008300">
+<div class="wrap">
+  <header>
+    <h1>Caddy traffic</h1>
+    <span class="sub" id="range"></span>
+  </header>
+
+  <div class="toolbar">
+    <button id="b14" aria-pressed="true">14 days</button>
+    <button id="b30" aria-pressed="false">30 days</button>
+    <button id="ball" aria-pressed="false">All</button>
+    <select id="hostSel"><option value="">All hosts</option></select>
+    <button id="tableBtn" aria-pressed="false">Table view</button>
+    <button id="themeBtn">Theme</button>
+  </div>
+
+  <div class="tiles" id="tiles"></div>
+
+  <section>
+    <h2>Daily page views by host</h2>
+    <p class="hint">Human GETs only — bots, assets and errors excluded. Hover for a day breakdown.</p>
+    <svg id="lines" height="290" role="img" aria-label="Daily page views by host"></svg>
+    <div class="legend" id="legend"></div>
+    <div id="linesTable" class="hidden"></div>
+  </section>
+
+  <section>
+    <h2>Most-read pages</h2>
+    <p class="hint">Across the selected range.</p>
+    <div id="paths"></div>
+  </section>
+
+  <section>
+    <h2>Referrers</h2>
+    <p class="hint">Where readers came from. Browsers often strip the referrer on PDF navigation, so “(direct)” is overstated.</p>
+    <div id="refs"></div>
+  </section>
+
+  <footer id="foot"></footer>
+</div>
+<div id="tip" role="tooltip"></div>
+
+<script>
+const SERIES = ['--series-1','--series-2','--series-3','--series-4','--series-5','--series-6'];
+const cssv = n => getComputedStyle(document.body).getPropertyValue(n).trim();
+const fmt = n => n >= 1000 ? (n/1000).toFixed(n>=10000?0:1)+'k' : String(n);
+let DATA=null, RANGE=14, HOST='', TABLE=false;
+
+function days(){
+  const all = Object.keys(DATA.days).sort();
+  return RANGE ? all.slice(-RANGE) : all;
+}
+// Colour follows the entity: hosts are ranked once, over the whole dataset, so
+// changing the range or filtering never repaints the survivors.
+function hostOrder(){
+  const tot={};
+  for(const d of Object.keys(DATA.days))
+    for(const [h,v] of Object.entries(DATA.days[d].hosts)) tot[h]=(tot[h]||0)+v.views;
+  return Object.entries(tot).sort((a,b)=>b[1]-a[1]).map(e=>e[0]);
+}
+const ORDER = () => hostOrder();
+function colorFor(h){
+  const i = ORDER().indexOf(h);
+  return i>=0 && i<SERIES.length ? cssv(SERIES[i]) : cssv('--text-muted');
+}
+// Past six hosts we fold to "Other" rather than inventing a 7th hue.
+function shownHosts(){
+  const o = ORDER();
+  return HOST ? [HOST] : o.slice(0, SERIES.length);
+}
+
+function seriesData(){
+  const ds = days(), hs = shownHosts(), o = ORDER();
+  const rows = hs.map(h => ({name:h, color:colorFor(h),
+    vals: ds.map(d => (DATA.days[d].hosts[h]||{}).views || 0)}));
+  if(!HOST && o.length > SERIES.length){
+    const rest = o.slice(SERIES.length);
+    const vals = ds.map(d => rest.reduce((s,h)=>s+((DATA.days[d].hosts[h]||{}).views||0),0));
+    if(vals.some(v=>v>0)) rows.push({name:'Other', color:cssv('--text-muted'), vals});
+  }
+  return rows;
+}
+
+function drawLines(){
+  const svg=document.getElementById('lines'), ds=days(), rows=seriesData();
+  const W=svg.clientWidth||900, H=290, m={t:12,r:54,b:26,l:44};
+  const iw=W-m.l-m.r, ih=H-m.t-m.b;
+  const max=Math.max(1,...rows.flatMap(r=>r.vals));
+  const x=i=>m.l+(ds.length<2?iw/2:i*iw/(ds.length-1));
+  const y=v=>m.t+ih-(v/max)*ih;
+  let s='';
+  for(let g=0;g<=4;g++){const gy=m.t+ih-g*ih/4;
+    s+=`<g class="grid"><line x1="${m.l}" y1="${gy}" x2="${m.l+iw}" y2="${gy}"/></g>`;
+    s+=`<text class="axis" x="${m.l-8}" y="${gy+4}" text-anchor="end">${fmt(Math.round(max*g/4))}</text>`;}
+  const step=Math.max(1,Math.ceil(ds.length/7));
+  ds.forEach((d,i)=>{ if(i%step===0||i===ds.length-1)
+    s+=`<text class="axis" x="${x(i)}" y="${H-8}" text-anchor="middle">${d.slice(5)}</text>`;});
+  for(const r of rows){
+    s+=`<path d="${r.vals.map((v,i)=>(i?'L':'M')+x(i)+' '+y(v)).join(' ')}" fill="none" stroke="${r.color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
+    // 2px surface ring keeps overlapping end-dots separable
+    const li=r.vals.length-1;
+    s+=`<circle cx="${x(li)}" cy="${y(r.vals[li])}" r="4" fill="${r.color}" stroke="${cssv('--surface-1')}" stroke-width="2"/>`;
+    if(rows.length<=4)
+      s+=`<text class="axis" x="${x(li)+8}" y="${y(r.vals[li])+4}" fill="${cssv('--text-secondary')}">${r.name}</text>`;
+  }
+  s+=`<rect x="${m.l}" y="${m.t}" width="${iw}" height="${ih}" fill="transparent" id="hit"/>`;
+  svg.innerHTML=s; svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+
+  const tip=document.getElementById('tip');
+  svg.onmousemove=e=>{
+    const b=svg.getBoundingClientRect();
+    const i=Math.max(0,Math.min(ds.length-1,Math.round((e.clientX-b.left-m.l)/(iw/Math.max(1,ds.length-1)))));
+    tip.innerHTML=`<b>${ds[i]}</b>`+rows.map(r=>
+      `<div class="r"><span style="display:inline-flex;align-items:center;gap:6px"><i class="sw" style="background:${r.color};display:inline-block"></i>${r.name}</span><span>${r.vals[i]}</span></div>`).join('');
+    tip.style.opacity=1;
+    tip.style.left=Math.min(e.clientX+14,innerWidth-292)+'px';
+    tip.style.top=(e.clientY+14)+'px';
+  };
+  svg.onmouseleave=()=>tip.style.opacity=0;
+
+  document.getElementById('legend').innerHTML=rows.map(r=>
+    `<span><i class="sw" style="background:${r.color}"></i>${r.name}</span>`).join('');
+
+  document.getElementById('linesTable').innerHTML='<table><thead><tr><th>Day</th>'+
+    rows.map(r=>`<th class="num">${r.name}</th>`).join('')+'</tr></thead><tbody>'+
+    ds.map((d,i)=>`<tr><td>${d}</td>`+rows.map(r=>`<td class="num">${r.vals[i]}</td>`).join('')+'</tr>').join('')+
+    '</tbody></table>';
+}
+
+function aggregate(key){
+  const out={};
+  for(const d of days()){
+    const day=DATA.days[d];
+    if(key==='refs'){ for(const [k,v] of Object.entries(day.referrers||{})) out[k]=(out[k]||0)+v; }
+    else for(const p of day.top_paths||[]){
+      if(HOST && p.host!==HOST) continue;
+      const k=p.host+p.path; out[k]=(out[k]||0)+p.views;
+    }
+  }
+  return Object.entries(out).sort((a,b)=>b[1]-a[1]).slice(0,12);
+}
+
+function bars(el,rows){
+  const max=Math.max(1,...rows.map(r=>r[1]));
+  document.getElementById(el).innerHTML=rows.map(([k,v])=>
+    `<div class="bar-row"><span class="lbl" title="${k}">${k}</span>`+
+    `<span class="bar-track"><span class="bar-fill" style="width:${Math.max(2,v/max*100)}%"></span></span>`+
+    `<span class="n">${v}</span></div>`).join('') || '<p class="hint">No data.</p>';
+}
+
+function tiles(){
+  const ds=days(); let views=0,uniq=0;
+  for(const d of ds) for(const [h,v] of Object.entries(DATA.days[d].hosts)){
+    if(HOST&&h!==HOST) continue; views+=v.views; uniq+=v.uniques;
+  }
+  const top=aggregate('paths')[0];
+  const last=ds[ds.length-1], prev=ds[ds.length-2];
+  const dv=d=>d?Object.entries(DATA.days[d].hosts).filter(([h])=>!HOST||h===HOST).reduce((s,[,v])=>s+v.views,0):0;
+  const delta=prev?dv(last)-dv(prev):0;
+  document.getElementById('tiles').innerHTML=[
+    ['Page views',fmt(views),`${ds.length} days`],
+    ['Unique visitors',fmt(uniq),'sum of daily uniques'],
+    ['Latest day',fmt(dv(last)),(delta>=0?'+':'')+delta+' vs prior day'],
+    ['Most read',top?fmt(top[1]):'—',top?top[0]:'—'],
+  ].map(([k,v,n])=>`<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="n" title="${n}">${n}</div></div>`).join('');
+}
+
+function render(){
+  const ds=days();
+  document.getElementById('range').textContent = ds.length?`${ds[0]} → ${ds[ds.length-1]}`:'no data';
+  tiles(); drawLines(); bars('paths',aggregate('paths')); bars('refs',aggregate('refs'));
+  document.getElementById('foot').textContent='Generated '+(DATA.generated_at||'—')+
+    ' · source: Caddy access logs · human GETs only (bots, assets, 4xx/5xx excluded)';
+}
+
+function setRange(r,id){
+  RANGE=r; for(const b of ['b14','b30','ball'])
+    document.getElementById(b).setAttribute('aria-pressed',String(b===id));
+  render();
+}
+b14.onclick=()=>setRange(14,'b14');
+b30.onclick=()=>setRange(30,'b30');
+ball.onclick=()=>setRange(0,'ball');
+tableBtn.onclick=()=>{TABLE=!TABLE;
+  tableBtn.setAttribute('aria-pressed',String(TABLE));
+  document.getElementById('linesTable').classList.toggle('hidden',!TABLE);
+  document.getElementById('lines').classList.toggle('hidden',TABLE);};
+themeBtn.onclick=()=>{
+  const cur=document.documentElement.getAttribute('data-theme');
+  document.documentElement.setAttribute('data-theme',cur==='dark'?'light':'dark');
+  render();};
+hostSel.onchange=e=>{HOST=e.target.value;render();};
+addEventListener('resize',()=>drawLines());
+
+fetch('/stats/caddy-traffic?t='+Date.now(),{credentials:'same-origin'}).then(r=>r.json()).then(j=>{
+  DATA=j;
+  const o=hostOrder();
+  hostSel.innerHTML='<option value="">All hosts</option>'+o.map(h=>`<option value="${h}">${h}</option>`).join('');
+  render();
+}).catch(e=>{
+  document.querySelector('.wrap').insertAdjacentHTML('beforeend',
+    `<p class="hint">Could not load traffic data (are you signed in to the fleet?) — ${e}</p>`);
+});
+</script>
+</body>
+</html>
