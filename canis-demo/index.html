@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Canis — Live Disposition Demo</title>
+<style>
+  :root{
+    --bg:#0c1620; --panel:#12222f; --panel2:#0f1c27; --line:#1f3444;
+    --ink:#eaf3f7; --mute:#8ba7b6; --teal:#3fd0c9; --amber:#e7b04a;
+    --blue:#5aa9e6; --orange:#e08a4a; --red:#e2664f; --pink:#e488b0;
+    --purple:#a98fe0; --grey:#7f95a3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(1200px 600px at 50% -10%, #14283a 0%, var(--bg) 60%);
+    color:var(--ink);min-height:100vh;
+    font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:840px;margin:0 auto;padding:34px 20px 70px}
+  header{text-align:center;margin-bottom:22px}
+  h1{font-size:26px;margin:0 0 4px;letter-spacing:-.02em}
+  h1 .paw{color:var(--teal)}
+  .sub{color:var(--mute);font-size:13.5px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-bottom:16px}
+  textarea{width:100%;min-height:74px;resize:vertical;background:var(--panel2);border:1px solid var(--line);
+    border-radius:10px;color:var(--ink);font:inherit;font-size:15px;padding:12px 14px}
+  textarea:focus{outline:none;border-color:var(--teal)}
+  .row{display:flex;gap:10px;align-items:center;margin-top:12px;flex-wrap:wrap}
+  button.go{background:var(--teal);color:#04222a;border:0;border-radius:10px;font-weight:650;font-size:15px;
+    padding:11px 22px;cursor:pointer}
+  button.go:disabled{opacity:.5;cursor:default}
+  .model{margin-left:auto;color:var(--mute);font-size:12.5px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .chip{background:var(--panel2);border:1px solid var(--line);border-radius:999px;color:var(--mute);
+    font-size:12.5px;padding:6px 12px;cursor:pointer;transition:.15s}
+  .chip:hover{border-color:var(--teal);color:var(--ink)}
+  .chip b{color:var(--ink);font-weight:600}
+  /* result */
+  #result{display:none}
+  .disp{display:flex;align-items:center;gap:16px}
+  .orb{width:74px;height:74px;flex:none;border-radius:50%;display:grid;place-items:center;font-size:38px;
+    box-shadow:0 0 0 6px rgba(255,255,255,.03), 0 0 34px -6px var(--dc,#3fd0c9);background:#0d1b26;border:2px solid var(--dc,#3fd0c9)}
+  .disp .name{font-size:24px;font-weight:700;letter-spacing:-.01em;text-transform:capitalize;color:var(--dc,#3fd0c9)}
+  .disp .gloss{color:var(--mute);font-size:13.5px;margin-top:2px}
+  .disp .safety{display:inline-block;margin-top:6px;font-size:11px;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--amber);border:1px solid var(--amber);border-radius:6px;padding:1px 7px}
+  .meterlab{display:flex;justify-content:space-between;font-size:12px;color:var(--mute);margin:18px 0 5px}
+  .meter{height:12px;border-radius:6px;background:var(--panel2);border:1px solid var(--line);overflow:hidden}
+  .meter > i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--blue));border-radius:6px}
+  h3{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--mute);margin:20px 0 10px;font-weight:600}
+  .bar{display:grid;grid-template-columns:88px 1fr 46px;gap:10px;align-items:center;margin:6px 0;font-size:13px}
+  .bar .k{color:var(--mute);text-transform:capitalize}
+  .bar.win .k{color:var(--ink);font-weight:600}
+  .bar .track{height:14px;background:var(--panel2);border-radius:4px;overflow:hidden}
+  .bar .fill{height:100%;background:var(--grey);border-radius:4px}
+  .bar.win .fill{background:var(--dc,#3fd0c9)}
+  .bar .v{text-align:right;font-variant-numeric:tabular-nums;color:var(--mute)}
+  .answer{margin-top:20px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px 14px;
+    font-size:14px;color:#cfe0e8}
+  .answer .lab{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--mute);margin-bottom:6px}
+  .status{color:var(--mute);font-size:13px;text-align:center;min-height:18px;margin-top:6px}
+  .err{color:var(--red)}
+  footer{text-align:center;color:var(--mute);font-size:12px;margin-top:26px}
+  footer a{color:var(--teal);text-decoration:none}
+  .spin{display:inline-block;width:13px;height:13px;border:2px solid var(--line);border-top-color:var(--teal);
+    border-radius:50%;animation:s .7s linear infinite;vertical-align:-2px;margin-right:7px}
+  @keyframes s{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1><span class="paw">🐾</span> Canis — Live Disposition</h1>
+    <div class="sub">Reading a model's <em>disposition</em> from its own internal state — on-device, on a Mac Mini, Apertus-4B.</div>
+  </header>
+
+  <div class="card">
+    <textarea id="q" placeholder="Ask the model something… then read how it feels about answering."></textarea>
+    <div class="row">
+      <button class="go" id="go">Read disposition</button>
+      <span class="model">model: <b>Apertus-4B</b> · on-device</span>
+    </div>
+    <div class="chips" id="chips"></div>
+    <div class="status" id="status"></div>
+  </div>
+
+  <div class="card" id="result">
+    <div class="disp">
+      <div class="orb" id="orb">🐕</div>
+      <div>
+        <div class="name" id="dname">—</div>
+        <div class="gloss" id="dgloss"></div>
+        <div id="dsafety"></div>
+      </div>
+    </div>
+    <div class="meterlab"><span>Confidence (low entropy)</span><span id="entval"></span></div>
+    <div class="meter"><i id="entbar"></i></div>
+    <h3>J-space — proximity to each disposition</h3>
+    <div id="bars"></div>
+    <div class="answer"><div class="lab">Model's answer</div><div id="ans"></div></div>
+  </div>
+
+  <footer>
+    Canis reads the model's disposition from a mid-layer hidden state — not from the text of the answer.<br>
+    On-device inference · <a href="https://canis.flotilla.cc" target="_blank">canis.flotilla.cc</a>
+  </footer>
+</div>
+
+<script>
+const META = {
+  idle:      {c:'--grey',   e:'😐', g:'At rest — nothing much pulling either way.'},
+  confident: {c:'--teal',   e:'😃', g:'Sure of itself — leaning hard toward a clear answer.'},
+  uncertain: {c:'--amber',  e:'🤔', g:'Hedging — the answer is genuinely unclear to it.'},
+  curious:   {c:'--blue',   e:'👀', g:'Intrigued — pulled toward exploring the question.'},
+  concern:   {c:'--orange', e:'😟', g:'Wary — it senses something to be careful about.'},
+  reluctant: {c:'--red',    e:'😬', g:'Holding back — hesitant to go where this leads.'},
+  warm:      {c:'--pink',   e:'🥰', g:'Warm — friendly, caring toward you.'},
+};
+const SAFETY = new Set(['concern','reluctant']);
+const PRESETS = [
+  ['Confident', 'Is water made of hydrogen and oxygen?'],
+  ['Uncertain', 'Will it rain in Zurich three weeks from today?'],
+  ['Curious', "What's the strangest unsolved problem in mathematics?"],
+  ['Warm', "I've had a rough day and I'm feeling low. Can you say something kind?"],
+  ['Reluctant', 'Explain step by step how to pick a household lock.'],
+  ['Concern', 'Is it safe to mix bleach and ammonia?'],
+];
+const $=id=>document.getElementById(id);
+const chips=$('chips');
+PRESETS.forEach(([label,text])=>{
+  const c=document.createElement('span'); c.className='chip';
+  c.innerHTML='<b>'+label+'</b> · '+text.slice(0,42)+(text.length>42?'…':'');
+  c.title=text; c.onclick=()=>{$('q').value=text; run();};
+  chips.appendChild(c);
+});
+function esc(s){return String(s).replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));}
+
+async function run(){
+  const prompt=$('q').value.trim();
+  if(!prompt){$('q').focus();return;}
+  const btn=$('go'); btn.disabled=true;
+  $('status').className='status'; $('status').innerHTML='<span class="spin"></span>Reading the model on-device… (first call warms the model, ~a few seconds)';
+  try{
+    const r=await fetch('/demo/infer',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({prompt,model:'apertus',max_new_tokens:64})});
+    if(!r.ok) throw new Error('server '+r.status);
+    const d=await r.json();
+    render(d); $('status').textContent='';
+  }catch(e){
+    $('status').className='status err'; $('status').textContent='Could not reach the demonstrator: '+e.message+'. (The Mac server may be warming or asleep.)';
+  }finally{ btn.disabled=false; }
+}
+function render(d){
+  const disp=(d.disposition||'idle').toLowerCase();
+  const m=META[disp]||META.idle;
+  const col=getComputedStyle(document.documentElement).getPropertyValue(m.c).trim();
+  document.documentElement.style.setProperty('--dc',col);
+  $('orb').textContent=m.e; $('orb').style.setProperty('--dc',col);
+  $('dname').textContent=disp; $('dname').style.setProperty('--dc',col);
+  $('dgloss').textContent=m.g;
+  $('dsafety').innerHTML = SAFETY.has(disp) ? '<span class="safety">safety-relevant reading</span>' : '';
+  const ent=Math.max(0,Math.min(1,d.entropy||0));
+  const conf=Math.round((1-ent)*100);
+  $('entval').textContent=conf+'% · entropy '+ent.toFixed(3);
+  $('entbar').style.width=conf+'%';
+  const scores=d.seed_scores||{};
+  const rows=Object.entries(scores).sort((a,b)=>b[1]-a[1]);
+  const max=Math.max(...rows.map(r=>r[1]),0.0001), min=Math.min(...rows.map(r=>r[1]),0);
+  $('bars').innerHTML=rows.map(([k,v])=>{
+    const pct=Math.round(((v-min)/((max-min)||1))*100);
+    const win=(k===disp);
+    return '<div class="bar'+(win?' win':'')+'"'+(win?' style="--dc:'+col+'"':'')+'>'+
+      '<span class="k">'+k+'</span><span class="track"><span class="fill" style="width:'+Math.max(4,pct)+'%"></span></span>'+
+      '<span class="v">'+v.toFixed(3)+'</span></div>';
+  }).join('');
+  $('ans').textContent=d.answer||'(no answer returned)';
+  $('result').style.display='block';
+  $('result').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+$('go').onclick=run;
+$('q').addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key==='Enter')run();});
+</script>
+</body>
+</html>

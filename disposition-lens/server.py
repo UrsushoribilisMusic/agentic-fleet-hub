@@ -18,6 +18,11 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForImageT
 
 import jlens as jlens_mod
 from disposition import classify_disposition, resolve_disposition, resolve_disposition_seed
+
+# Dispositions excluded from resolution AND from the returned seed_scores readout.
+# "mischief" is dropped because the paper found it is not reliably detectable
+# (it wins spuriously on bunched cosines). Reversible: empty this set to restore.
+DROP_DISPOSITIONS = {"mischief"}
 from search import do_search, enrich_results, build_context_block, should_search, SearchResult as _SearchResult
 
 # Initialize FastAPI app
@@ -425,6 +430,7 @@ def _extract_disposition(
                 seed_scores = {
                     k: float(v)
                     for k, v in jlens_mod.score_seed_vectors(z_query, selected_seed_vectors).items()
+                    if k not in DROP_DISPOSITIONS
                 }
                 disposition_str = resolve_disposition_seed(seed_scores, mean_entropy)
             else:
