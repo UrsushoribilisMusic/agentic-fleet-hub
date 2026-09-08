@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-09-08",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-09-08.md"
+  },
+  {
     "date": "2026-09-07",
     "summary": "Gem: routine heartbeat executed (all 6 phases); SM-355 approved; 0 pending reviews; 0 todo tasks; all systems idle.",
     "file": "2026-09-07.md"
