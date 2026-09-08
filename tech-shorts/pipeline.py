@@ -611,6 +611,52 @@ def assert_youtube_public(url: str) -> None:
         )
 
 
+def clean_source_url(url: str) -> str:
+    """Drop tracking params (utm_*, ref, fbclid, …) from a source URL so the
+    cited link is the clean canonical one (e.g. the arXiv abs page, not
+    ?ref=aisecret.us)."""
+    url = (url or "").strip()
+    if "?" not in url:
+        return url
+    base, _, query = url.partition("?")
+    kept = []
+    for part in query.split("&"):
+        key = part.split("=", 1)[0].lower()
+        if key in ("ref", "fbclid", "gclid", "mc_cid", "mc_eid") or key.startswith("utm_"):
+            continue
+        if part:
+            kept.append(part)
+    return base + ("?" + "&".join(kept) if kept else "")
+
+
+def build_source_reply(job: dict) -> str:
+    """Compose the source-attribution reply for the X thread.
+
+    Cites the origin material (job['source_urls']) and credits the authors
+    (job['source_authors'], typically @handles). Returns "" when there is
+    nothing to cite, so the extra reply is only posted for jobs that actually
+    carry a source — no cost or behaviour change for jobs without one.
+
+    An explicit job['x_post']['source_reply_text'] overrides the auto-composed
+    text (mirrors how reply_text can be overridden).
+    """
+    override = (job.get("x_post", {}) or {}).get("source_reply_text")
+    if override is not None:
+        return override.strip()
+
+    urls = [clean_source_url(u) for u in (job.get("source_urls") or []) if u]
+    authors = [a.strip() for a in (job.get("source_authors") or []) if a and a.strip()]
+    if not urls and not authors:
+        return ""
+
+    lines = []
+    if urls:
+        lines.append("Source: " + " ".join(urls))
+    if authors:
+        lines.append("By " + ", ".join(authors))
+    return "\n".join(lines)
+
+
 def stage_post(job: dict, dry_run: bool) -> None:
     job_id = job["id"]
     yt = job.get("youtube", {}) or {}
@@ -626,6 +672,9 @@ def stage_post(job: dict, dry_run: bool) -> None:
     caption_template = job.get("x_post", {}).get("caption") or job["title"]
     caption = caption_template.replace("{yt_url}", "").strip()
     reply_text = job.get("x_post", {}).get("reply_text") or yt_url
+    # Attribution reply (source material + author handles). Empty for jobs
+    # with no source, in which case no extra reply is posted.
+    source_reply = build_source_reply(job)
 
     if contains_url_text(caption):
         raise ValueError(
@@ -645,6 +694,8 @@ def stage_post(job: dict, dry_run: bool) -> None:
         print("[dry-run] would post to X (link-in-reply):")
         print(f"  post : {caption}")
         print(f"  reply: {reply_text}")
+        if source_reply:
+            print(f"  reply(source): {source_reply}")
         return
 
     # Inject flotilla publisher on path
@@ -704,19 +755,35 @@ def stage_post(job: dict, dry_run: bool) -> None:
             f"Do NOT re-run --stage post; it would post the hook a second time."
         ) from exc
 
-    update_job_field(
-        job_id,
-        status="published",
-        x_post={
-            **job.get("x_post", {}),
-            "post_id": tweet_id,
-            "post_url": post_url,
-            "caption": caption,
-            "reply_id": reply_id,
-            "reply_url": reply_url,
-            "reply_text": reply_text,
-        },
-    )
+    # Source-attribution reply, threaded under the link reply. Non-critical:
+    # the hook + link already shipped, so a failure here is logged, not raised
+    # (and it never re-posts the hook). Only runs when there is a source to cite.
+    source_reply_id = ""
+    source_reply_url = ""
+    if source_reply:
+        try:
+            print(f"  replying with source: {source_reply[:80].replace(chr(10), ' / ')}")
+            sr_resp = client.create_post(source_reply, reply_to_tweet_id=reply_id or tweet_id)
+            source_reply_id = extract_tweet_id(sr_resp)
+            source_reply_url = f"https://x.com/i/web/status/{source_reply_id}"
+            print(f"  source replied: {source_reply_url}")
+        except Exception as exc:
+            print(f"  WARNING: source-credit reply failed (non-fatal): {exc}")
+
+    published_xp = {
+        **job.get("x_post", {}),
+        "post_id": tweet_id,
+        "post_url": post_url,
+        "caption": caption,
+        "reply_id": reply_id,
+        "reply_url": reply_url,
+        "reply_text": reply_text,
+    }
+    if source_reply:
+        published_xp["source_reply_text"] = source_reply
+        published_xp["source_reply_id"] = source_reply_id
+        published_xp["source_reply_url"] = source_reply_url
+    update_job_field(job_id, status="published", x_post=published_xp)
     print(f"  job {job_id} → published")
 
 
@@ -798,6 +865,10 @@ def cmd_set_copy(args: argparse.Namespace) -> None:
     if args.yt_tags:
         updates.setdefault("youtube", dict(job.get("youtube", {})))
         updates["youtube"]["tags"] = [t.strip() for t in args.yt_tags.split(",")]
+    if args.source_url:
+        updates["source_urls"] = [u.strip() for u in args.source_url.split(",") if u.strip()]
+    if args.source_authors:
+        updates["source_authors"] = [a.strip() for a in args.source_authors.split(",") if a.strip()]
 
     update_job_field(args.job_id, **updates)
     print(f"Copy set for {args.job_id}")
@@ -859,6 +930,12 @@ def main() -> None:
     p_copy.add_argument("--x-reply-text", metavar="TEXT",
                         help="X reply text carrying the link. Defaults to the "
                              "YouTube short URL if unset.")
+    p_copy.add_argument("--source-url", metavar="url1,url2",
+                        help="Source material URL(s), comma-separated. Cited in a "
+                             "reply on the X thread (tracking params are stripped).")
+    p_copy.add_argument("--source-authors", metavar="@h1,@h2",
+                        help="Author credits/handles, comma-separated. Cited alongside "
+                             "the source in the X thread.")
     p_copy.add_argument("--yt-title-short", metavar="TEXT")
     p_copy.add_argument("--yt-title-long", metavar="TEXT")
     p_copy.add_argument("--yt-description", metavar="TEXT")
