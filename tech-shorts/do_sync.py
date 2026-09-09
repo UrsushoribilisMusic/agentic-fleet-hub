@@ -10,7 +10,7 @@ DO droplet.  The Mac Mini is a pure *pull worker*:
 
 Connection options (set DO_INTAKE_URL in env or pass base_url explicitly):
   - http://localhost:8766   → via SSH tunnel  (mac_worker.py --tunnel opens it)
-  - https://ideas.flotilla.cc  → direct HTTPS once DNS + token auth are live
+  - https://api.robotross.art/ideas/  → direct HTTPS (behind the fleet Google login)
 """
 
 from __future__ import annotations

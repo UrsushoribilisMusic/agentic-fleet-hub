@@ -1131,6 +1131,9 @@ WEB_HTML = """<!DOCTYPE html>
     <script>
         let allJobs = [];
         let currentFilter = 'all';
+        // Base path so the app works both standalone ("/") and behind the fleet
+        // gate at "/ideas/" on api.robotross.art. All API calls are prefixed.
+        const BASE = location.pathname.replace(/\/(index\.html?)?$/, '');
 
         function showToast(msg) {
             const t = document.getElementById('toast');
@@ -1141,7 +1144,7 @@ WEB_HTML = """<!DOCTYPE html>
 
         async function fetchJobs() {
             try {
-                const res = await fetch('/api/jobs');
+                const res = await fetch(BASE + '/api/jobs');
                 const data = await res.json();
                 allJobs = data.jobs || [];
                 renderStats();
@@ -1261,7 +1264,7 @@ WEB_HTML = """<!DOCTYPE html>
                         ${hasFile ? `
                             <div style="margin-bottom:0.8rem;display:flex;flex-wrap:wrap;gap:6px;">
                                 ${sourceFiles.map(sf => `
-                                <a href="/api/jobs/${encodeURIComponent(job.id)}/source-file?name=${encodeURIComponent(sf.original_name)}"
+                                <a href="${BASE}/api/jobs/${encodeURIComponent(job.id)}/source-file?name=${encodeURIComponent(sf.original_name)}"
                                    class="file-badge" style="text-decoration:none;" download="${escapeHtml(sf.original_name)}">
                                    📎 ${escapeHtml(sf.original_name)}
                                    ${sf.size_bytes ? ` (${sf.size_bytes < 1048576 ? Math.round(sf.size_bytes/1024) + ' KB' : (sf.size_bytes/1048576).toFixed(1) + ' MB'})` : ''}
@@ -1347,7 +1350,7 @@ WEB_HTML = """<!DOCTYPE html>
 
             try {
                 // Step 1: Create job record
-                const res = await fetch('/api/jobs', {
+                const res = await fetch(BASE + '/api/jobs', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -1374,7 +1377,7 @@ WEB_HTML = """<!DOCTYPE html>
                         const fd = new FormData();
                         fd.append('file', files[i]);
                         const uploadRes = await fetch(
-                            `/api/jobs/${encodeURIComponent(created.id)}/source-file`,
+                            `${BASE}/api/jobs/${encodeURIComponent(created.id)}/source-file`,
                             { method: 'POST', body: fd }
                         );
                         if (uploadRes.ok) { uploaded++; } else { failed.push(files[i].name); }
@@ -1413,7 +1416,7 @@ WEB_HTML = """<!DOCTYPE html>
         // Status Update
         async function updateStatus(jobId, newStatus) {
             try {
-                const res = await fetch(`/api/jobs/${encodeURIComponent(jobId)}`, {
+                const res = await fetch(`${BASE}/api/jobs/${encodeURIComponent(jobId)}`, {
                     method: 'PATCH',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ status: newStatus })
@@ -1430,7 +1433,7 @@ WEB_HTML = """<!DOCTYPE html>
         // Claim Next
         document.getElementById('btn-claim-next').addEventListener('click', async () => {
             try {
-                const res = await fetch('/api/jobs/claim', { method: 'POST' });
+                const res = await fetch(BASE + '/api/jobs/claim', { method: 'POST' });
                 const data = await res.json();
                 if (data.job) {
                     showToast(`Claimed: ${data.job.title}`);
@@ -1447,7 +1450,7 @@ WEB_HTML = """<!DOCTYPE html>
         async function deleteJob(jobId) {
             if (!confirm(`Delete job ${jobId}?`)) return;
             try {
-                const res = await fetch(`/api/jobs/${encodeURIComponent(jobId)}`, {
+                const res = await fetch(`${BASE}/api/jobs/${encodeURIComponent(jobId)}`, {
                     method: 'DELETE'
                 });
                 if (res.ok) {
