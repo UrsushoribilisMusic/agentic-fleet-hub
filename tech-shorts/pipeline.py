@@ -9,7 +9,13 @@ Usage:
     python3 pipeline.py status                          # show all jobs
     python3 pipeline.py set-sources <job_id> --short P --long P
     python3 pipeline.py set-copy <job_id> --vo TEXT --hook-a-main T ...
-    python3 pipeline.py run <job_id> [--stage build|upload|post] [--dry-run]
+    python3 pipeline.py run <job_id> [--stage build|localize|upload|post] [--dry-run]
+
+Localization: set a job's `localize` (or youtube.localize_langs) to e.g.
+["de","fr"] and a full `run` will, after build, produce native-voice dub audio
++ subtitles + translated title/description, then push the title/description and
+captions to YouTube on upload (audio tracks still attach manually in Studio —
+no public API). `--stage localize` forces it with the default languages.
 """
 
 from __future__ import annotations
@@ -49,6 +55,12 @@ YT_CATEGORY = "28"  # Science & Technology
 # Paths
 MUSIC_VIDEO_TOOL = HERE.parent.parent / "music-video-tool"
 FLOTILLA_PUBLISHER = Path("/Users/miguelrodriguez/flotilla/publisher")
+
+# Python interpreter that has whisper + anthropic + elevenlabs installed (used by
+# the localize stage, which runs ASR/translate/TTS out-of-process).
+LOCALIZE_VENV_PY = MUSIC_VIDEO_TOOL / ".venv312" / "bin" / "python3"
+# Languages the localizer produces when a job opts in but doesn't name specific ones.
+LOCALIZE_LANGS_DEFAULT = ["de", "fr"]
 
 
 # ── Job I/O ──────────────────────────────────────────────────────────────────
@@ -380,18 +392,24 @@ def stage_build(job: dict, dry_run: bool) -> None:
     assets = job["assets"]
     raw_short = assets.get("raw_short_mp4", "")
     raw_long = assets.get("raw_long_mp4", "") or assets.get("raw_cinematic_mp4", "")
-    if not raw_short or not raw_long:
-        raise ValueError("raw source paths not set — run set-sources or store-raw first")
+    # The long/Cinematic is required; the Short is optional so a job can ship the
+    # long alone (e.g. when NotebookLM quota hasn't yielded the Short yet). Add the
+    # Short later by setting raw_short_mp4 and re-running build/upload.
+    if not raw_long:
+        raise ValueError("raw_long/raw_cinematic path not set — run set-sources or store-raw first")
 
-    src_short = Path(raw_short)
     src_long = Path(raw_long)
-    if not src_short.exists():
-        raise FileNotFoundError(f"Short source not found: {src_short}")
     if not src_long.exists():
         raise FileNotFoundError(f"Long/Cinematic source not found: {src_long}")
 
+    src_short = Path(raw_short) if raw_short else None
+    if src_short and not src_short.exists():
+        raise FileNotFoundError(f"Short source not found: {src_short}")
+    build_short = src_short is not None
+
     if dry_run:
-        print(f"[dry-run] would build from {src_short} and {src_long}")
+        which = f"{src_short} and {src_long}" if build_short else f"{src_long} (long only, no Short)"
+        print(f"[dry-run] would build from {which}")
         return
 
     # Determine output directory: prefer asset store, fall back to HERE
@@ -433,15 +451,18 @@ def stage_build(job: dict, dry_run: bool) -> None:
     final_short = out_dir / "final_short.mp4"
     final_long = out_dir / "final_long.mp4"
 
-    with tempfile.TemporaryDirectory(prefix="ts_build_") as tmp:
-        workdir = Path(tmp)
-        ws = int(ffprobe(src_short, "width"))
-        hs = int(ffprobe(src_short, "height"))
-        hook_a, hook_b = build_hook_cards(job, workdir, ws, hs)
-        outro = build_outro_card(job, workdir, ws, hs)
-        print(f"  cards rendered {ws}x{hs}")
-        (workdir / "short").mkdir()
-        assemble_video(src_short, hook_a, hook_b, outro, vo_path, final_short, workdir / "short", trim_s)
+    if build_short:
+        with tempfile.TemporaryDirectory(prefix="ts_build_") as tmp:
+            workdir = Path(tmp)
+            ws = int(ffprobe(src_short, "width"))
+            hs = int(ffprobe(src_short, "height"))
+            hook_a, hook_b = build_hook_cards(job, workdir, ws, hs)
+            outro = build_outro_card(job, workdir, ws, hs)
+            print(f"  cards rendered {ws}x{hs}")
+            (workdir / "short").mkdir()
+            assemble_video(src_short, hook_a, hook_b, outro, vo_path, final_short, workdir / "short", trim_s)
+    else:
+        print("  no Short source — building long only")
 
     with tempfile.TemporaryDirectory(prefix="ts_build_long_") as tmp:
         workdir = Path(tmp)
@@ -460,24 +481,174 @@ def stage_build(job: dict, dry_run: bool) -> None:
             **assets,
             "store_dir": str(out_dir),
             "hook_vo_audio": str(vo_path) if vo_path else "",
-            "final_short_mp4": str(final_short),
+            "final_short_mp4": str(final_short) if build_short else assets.get("final_short_mp4", ""),
             "final_long_mp4": str(final_long),
         },
     )
-    print(f"  job {job_id} → assembled ({out_dir})")
+    print(f"  job {job_id} → assembled ({out_dir}){'' if build_short else ' [long only]'}")
+
+
+# ── Localize stage ──────────────────────────────────────────────────────────
+
+def job_localize_langs(job: dict) -> list[str]:
+    """Languages this job opts into for localization.
+
+    Opt-in is explicit so a full `run` never spends ElevenLabs credits by
+    surprise: set either top-level `localize` or `youtube.localize_langs` to a
+    list like ["de", "fr"]. Returns [] when the job hasn't opted in.
+    """
+    langs = job.get("localize") or job.get("youtube", {}).get("localize_langs") or []
+    return [str(l).strip() for l in langs if str(l).strip()]
+
+
+def stage_localize(job: dict, dry_run: bool, forced: bool = False) -> None:
+    """Produce per-language dub audio + subtitles + translated title/description.
+
+    Runs on the FINAL long video (so the dub track lines up with the intro hook,
+    content, and outro). Records everything under job.youtube.localizations, which
+    stage_upload then pushes to YouTube via the Data API.
+
+    Skipped (no cost) unless the job opts in via job['localize'] / youtube
+    ['localize_langs'] — except when run explicitly as `--stage localize`
+    (forced=True), which falls back to the default languages.
+    """
+    job_id = job["id"]
+    langs = job_localize_langs(job) or (LOCALIZE_LANGS_DEFAULT if forced else [])
+    if not langs:
+        print("  no localize languages set for this job — skipping "
+              "(set job['localize']=['de','fr'] to opt in, or run --stage localize)")
+        return
+
+    final_long = job["assets"].get("final_long_mp4", "")
+    if not final_long or not Path(final_long).exists():
+        raise FileNotFoundError(f"final_long_mp4 not found: {final_long!r} — run build stage first")
+
+    if not LOCALIZE_VENV_PY.exists():
+        raise FileNotFoundError(
+            f"localizer interpreter not found: {LOCALIZE_VENV_PY}\n"
+            "It needs whisper + anthropic + elevenlabs (music-video-tool/.venv312)."
+        )
+
+    out_dir = Path(job["assets"].get("store_dir") or HERE)
+
+    if dry_run:
+        print(f"[dry-run] would localize {final_long} into {langs} → {out_dir}")
+        return
+
+    print(f"  localizing into {langs} (this uses ElevenLabs credits)...")
+    proc = subprocess.run(
+        [str(LOCALIZE_VENV_PY), str(HERE / "localize.py"),
+         job_id, str(out_dir), final_long, ",".join(langs)],
+        capture_output=True, text=True,
+    )
+    sys.stdout.write(proc.stdout)
+    if proc.returncode != 0:
+        sys.stderr.write(proc.stderr)
+        raise RuntimeError(f"localize.py failed (exit {proc.returncode})")
+
+    result = None
+    for line in proc.stdout.splitlines():
+        if line.startswith("RESULT_JSON:"):
+            result = json.loads(line[len("RESULT_JSON:"):])
+    if result is None:
+        raise RuntimeError("localize.py produced no RESULT_JSON")
+
+    yt = dict(job.get("youtube", {}))
+    existing = dict(yt.get("localizations") or {})
+    existing.update(result.get("localizations", {}))
+    yt["localizations"] = existing
+    if result.get("captions_en_srt"):
+        yt["captions_en_srt"] = result["captions_en_srt"]
+    update_job_field(job_id, youtube=yt)
+    print(f"  job {job_id} → localized ({', '.join(existing.keys())})")
+    print("  NOTE: alternate AUDIO tracks have no public YouTube API — attach the "
+          ".m4a files in Studio → Languages manually. Title/desc + captions are "
+          "pushed automatically on upload.")
 
 
 # ── Upload stage ──────────────────────────────────────────────────────────────
+
+def push_localizations(svc, video_id: str, job: dict) -> None:
+    """Push localized title/description (all langs) + captions (per lang) to a
+    freshly uploaded video via the YouTube Data API.
+
+    - Title/description: videos.update with a read-modify-write of snippet +
+      localizations, preserving defaultLanguage=en. Works with the `youtube`
+      scope the token already has.
+    - Captions: captions.insert per language from the .srt. Needs the
+      `youtube.force-ssl` scope; if the token lacks it the call 403s, which we
+      report once (non-fatal) with the re-consent instruction rather than failing
+      the whole upload.
+    """
+    locs = (job.get("youtube", {}) or {}).get("localizations") or {}
+    if not locs:
+        return
+
+    # --- localized title/description ---
+    try:
+        items = svc.videos().list(part="snippet,localizations", id=video_id).execute().get("items", [])
+        if items:
+            sn = items[0]["snippet"]
+            loc_body = dict(items[0].get("localizations") or {})
+            for lang, meta in locs.items():
+                if meta.get("title") or meta.get("description"):
+                    loc_body[lang] = {
+                        "title": (meta.get("title") or sn["title"])[:100],
+                        "description": (meta.get("description") or sn["description"])[:4900],
+                    }
+            new_sn = {"title": sn["title"], "description": sn["description"],
+                      "categoryId": sn["categoryId"], "defaultLanguage": "en"}
+            if sn.get("tags"):
+                new_sn["tags"] = sn["tags"]
+            svc.videos().update(part="snippet,localizations",
+                                body={"id": video_id, "snippet": new_sn,
+                                      "localizations": loc_body}).execute()
+            print(f"    localized title/desc pushed: {', '.join(loc_body.keys())}")
+    except Exception as exc:
+        print(f"    WARNING: localized title/desc push failed (non-fatal): {exc}")
+
+    # --- captions per language ---
+    from googleapiclient.http import MediaFileUpload  # type: ignore
+    for lang, meta in locs.items():
+        srt = meta.get("srt")
+        if not srt or not Path(srt).exists():
+            continue
+        try:
+            svc.captions().insert(
+                part="snippet",
+                body={"snippet": {"videoId": video_id, "language": lang,
+                                  "name": "", "isDraft": False}},
+                media_body=MediaFileUpload(srt, mimetype="application/octet-stream"),
+            ).execute()
+            print(f"    caption uploaded: {lang}")
+        except Exception as exc:
+            msg = str(exc)
+            if "insufficient" in msg.lower() or "forbidden" in msg.lower() or "403" in msg:
+                print("    NOTE: caption upload needs the 'youtube.force-ssl' scope. "
+                      "One-time re-consent: delete music-video-tool/youtube_token.pickle "
+                      "and re-run the auth flow, then re-push captions. "
+                      f"({lang} .srt staged at {srt})")
+                break
+            print(f"    WARNING: caption upload failed for {lang} (non-fatal): {exc}")
+
 
 def stage_upload(job: dict, dry_run: bool) -> None:
     job_id = job["id"]
     final_short = job["assets"].get("final_short_mp4", "")
     final_long = job["assets"].get("final_long_mp4", "")
 
-    if not final_short or not Path(final_short).exists():
-        raise FileNotFoundError(f"final_short_mp4 not found: {final_short!r} — run build stage first")
     if not final_long or not Path(final_long).exists():
         raise FileNotFoundError(f"final_long_mp4 not found: {final_long!r} — run build stage first")
+    # Short is optional: upload just the long when there is no built Short (e.g. a
+    # long-only run). The Short can be uploaded later by building + re-running upload.
+    upload_short = bool(final_short and Path(final_short).exists())
+
+    # Idempotency: never re-upload a cut that already has a YouTube id/url on the job.
+    # This makes "ship long-only now, add the Short later" safe — re-running upload
+    # uploads only the missing cut instead of creating a duplicate long video.
+    prev_yt = job.get("youtube", {}) or {}
+    already_long = bool(prev_yt.get("long_id") and prev_yt.get("long_url"))
+    already_short = bool(prev_yt.get("short_id") and prev_yt.get("short_url"))
 
     title_short = job.get("youtube", {}).get("title_short") or f"{job['title']} | #Shorts"
     title_long = job.get("youtube", {}).get("title_long") or job["title"]
@@ -493,7 +664,10 @@ def stage_upload(job: dict, dry_run: bool) -> None:
 
     if dry_run:
         print(f"[dry-run] would upload ({privacy}):")
-        print(f"  short: {final_short}  title: {title_short}")
+        if upload_short:
+            print(f"  short: {final_short}  title: {title_short}")
+        else:
+            print(f"  short: (none — long only)")
         print(f"  long:  {final_long}   title: {title_long}")
         return
 
@@ -501,41 +675,73 @@ def stage_upload(job: dict, dry_run: bool) -> None:
     sys.path.insert(0, str(MUSIC_VIDEO_TOOL))
     from youtube_uploader import upload_video  # type: ignore
 
-    print(f"  uploading short...")
-    short_result = upload_video(
-        video_path=final_short,
-        title=title_short,
-        description=description,
-        privacy_status=privacy,
-        tags=tags,
-        category_id=YT_CATEGORY,
-        channel=YT_CHANNEL,
-    )
-    short_id = short_result.get("id", "")
-    short_url = short_result.get("url", f"https://youtu.be/{short_id}")
-    print(f"  short uploaded: {short_url}")
+    short_id = ""
+    short_url = ""
+    if already_short:
+        short_id, short_url = prev_yt.get("short_id", ""), prev_yt.get("short_url", "")
+        print(f"  short already uploaded, skipping: {short_url}")
+    elif upload_short:
+        print(f"  uploading short...")
+        short_result = upload_video(
+            video_path=final_short,
+            title=title_short,
+            description=description,
+            privacy_status=privacy,
+            tags=tags,
+            category_id=YT_CATEGORY,
+            channel=YT_CHANNEL,
+        )
+        short_id = short_result.get("id", "")
+        short_url = short_result.get("url", f"https://youtu.be/{short_id}")
+        if not short_id:
+            short_id = youtube_video_id(short_url)
+        print(f"  short uploaded: {short_url}")
+    else:
+        print("  no built Short — uploading long only")
 
-    print(f"  uploading long...")
-    long_result = upload_video(
-        video_path=final_long,
-        title=title_long,
-        description=description,
-        privacy_status=privacy,
-        tags=tags,
-        category_id=YT_CATEGORY,
-        channel=YT_CHANNEL,
-    )
-    long_id = long_result.get("id", "")
-    long_url = long_result.get("url", f"https://youtu.be/{long_id}")
-    print(f"  long uploaded: {long_url}")
+    long_freshly_uploaded = False
+    if already_long:
+        long_id, long_url = prev_yt.get("long_id", ""), prev_yt.get("long_url", "")
+        print(f"  long already uploaded, skipping: {long_url}")
+    else:
+        print(f"  uploading long...")
+        long_result = upload_video(
+            video_path=final_long,
+            title=title_long,
+            description=description,
+            privacy_status=privacy,
+            tags=tags,
+            category_id=YT_CATEGORY,
+            channel=YT_CHANNEL,
+        )
+        long_id = long_result.get("id", "")
+        long_url = long_result.get("url", f"https://youtu.be/{long_id}")
+        if not long_id:  # some uploader return shapes carry only the URL
+            long_id = youtube_video_id(long_url)
+        long_freshly_uploaded = True
+        print(f"  long uploaded: {long_url}")
+
+    # Push localized title/description + captions to the long video (the dub is
+    # timed to the long content). Only on a fresh long upload; no-op without localizations.
+    if long_freshly_uploaded and (job.get("youtube", {}) or {}).get("localizations") and long_id:
+        try:
+            from youtube_uploader import (  # type: ignore
+                get_authenticated_service, channel_token_path,
+            )
+            svc = get_authenticated_service(token_path=channel_token_path(YT_CHANNEL))
+            print("  pushing localizations to long video...")
+            push_localizations(svc, long_id, job)
+        except Exception as exc:
+            print(f"  WARNING: localization push skipped (non-fatal): {exc}")
 
     yt_update = {
         **job.get("youtube", {}),
-        "short_id": short_id,
-        "short_url": short_url,
         "long_id": long_id,
         "long_url": long_url,
     }
+    if upload_short:  # don't clobber an existing short_url on a long-only run
+        yt_update["short_id"] = short_id
+        yt_update["short_url"] = short_url
     update_job_field(job_id, status="uploaded", youtube=yt_update)
 
     # TS-12: record canonical YouTube URLs in the asset store record
@@ -880,7 +1086,10 @@ def cmd_run(args: argparse.Namespace) -> None:
     if job is None:
         sys.exit(f"Job not found: {args.job_id}")
 
-    stages = [args.stage] if args.stage else ["build", "upload", "post"]
+    # Full run inserts localize between build and upload. It is a no-op unless the
+    # job opts in (job['localize'] / youtube['localize_langs']), so it never spends
+    # credits by surprise; `--stage localize` forces it with the default languages.
+    stages = [args.stage] if args.stage else ["build", "localize", "upload", "post"]
 
     for stage in stages:
         print(f"\n── stage: {stage} ──────────────────")
@@ -888,6 +1097,9 @@ def cmd_run(args: argparse.Namespace) -> None:
             # Reload fresh copy before each stage
             job = find_job(load_jobs(), args.job_id)
             stage_build(job, args.dry_run)
+        elif stage == "localize":
+            job = find_job(load_jobs(), args.job_id)
+            stage_localize(job, args.dry_run, forced=bool(args.stage))
         elif stage == "upload":
             job = find_job(load_jobs(), args.job_id)
             stage_upload(job, args.dry_run)
@@ -944,7 +1156,7 @@ def main() -> None:
     # run
     p_run = sub.add_parser("run", help="Run pipeline stages for a job")
     p_run.add_argument("job_id")
-    p_run.add_argument("--stage", choices=["build", "upload", "post"],
+    p_run.add_argument("--stage", choices=["build", "localize", "upload", "post"],
                        help="Run only this stage (default: all)")
     p_run.add_argument("--dry-run", action="store_true", help="Print what would happen, don't execute")
 
