@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Big Bear Engineering — Flotilla: The Docker of AI Agents</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:       #eef4f2;
+      --bg-alt:   #f7faf9;
+      --card:     #ffffff;
+      --teal:     #0d6b61;
+      --teal-mid: #0d9488;
+      --teal-lit: #14b8a6;
+      --amber:    #f59e0b;
+      --amb-bg:   #fffbeb;
+      --amb-bdr:  #fde68a;
+      --navy:     #0f2027;
+      --body:     #374151;
+      --muted:    #6b7280;
+      --border:   #d1e4e0;
+      --red:      #dc2626;
+      --font-d:   'Playfair Display', Georgia, serif;
+      --font-b:   'DM Sans', 'Helvetica Neue', sans-serif;
+      --r:        12px;
+      --sh:       0 2px 12px rgba(13,107,97,.07);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--navy); font-family: var(--font-b); font-size: 16px; line-height: 1.65; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(238,244,242,.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 2.5rem; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-family: var(--font-d); font-size: 1.1rem; font-weight: 700; color: var(--teal); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--body); text-decoration: none; font-size: .9rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-cta { background: var(--teal); color: #fff; padding: .5rem 1.25rem; border-radius: 8px; text-decoration: none; font-size: .875rem; font-weight: 600; transition: background .2s; }
+    .nav-cta:hover { background: var(--teal-mid); }
+
+    /* BANNER */
+    .banner { background: var(--amb-bg); border-bottom: 1px solid var(--amb-bdr); text-align: center; padding: .65rem 2rem; font-size: .85rem; color: #92400e; font-weight: 500; }
+
+    /* HERO — two column */
+    .hero { background: var(--bg-alt); border-bottom: 1px solid var(--border); padding: 5rem 2.5rem 4rem; }
+    .hero-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    @media (max-width: 768px) { .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; } }
+    .eyebrow { display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-mid); margin-bottom: 1rem; }
+    .hero-left h1 { font-family: var(--font-d); font-size: clamp(2rem,4vw,3rem); font-weight: 700; line-height: 1.1; color: var(--navy); margin-bottom: 1rem; }
+    .hero-left h1 em { color: var(--teal); font-style: italic; }
+    .hero-sub { font-size: 1rem; color: var(--body); margin-bottom: 1rem; line-height: 1.65; }
+    .hero-code { display: inline-block; background: var(--navy); color: var(--teal-lit); font-family: 'Courier New', monospace; font-size: .875rem; padding: .45rem 1.1rem; border-radius: 8px; margin-bottom: 1.75rem; }
+    .hero-ctas { display: flex; gap: .75rem; flex-wrap: wrap; }
+
+    /* BUTTONS */
+    .btn { padding: .7rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: .9rem; transition: background .2s, transform .1s, border-color .2s, opacity .2s; display: inline-flex; align-items: center; gap: .4rem; }
+    .btn-p { background: var(--teal); color: #fff; }
+    .btn-p:hover { background: var(--teal-mid); transform: translateY(-1px); }
+    .btn-o { background: transparent; color: var(--teal); border: 1.5px solid var(--teal); }
+    .btn-o:hover { background: rgba(13,107,97,.06); transform: translateY(-1px); }
+    .btn-a { background: var(--amber); color: #fff; }
+    .btn-a:hover { background: #d97706; transform: translateY(-1px); }
+    .btn-n { background: var(--navy); color: #fff; }
+    .btn-n:hover { background: #1a3040; transform: translateY(-1px); }
+    .btn-w { background: #fff; color: var(--teal); font-weight: 700; }
+    .btn-w:hover { opacity: .92; transform: translateY(-1px); }
+    .btn-g { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.4); }
+    .btn-g:hover { border-color: #fff; transform: translateY(-1px); }
+    .btn-sm { padding: .45rem .9rem; font-size: .82rem; }
+
+    /* HERO RIGHT — feature panel */
+    .hero-right { background: var(--navy); border-radius: 14px; padding: 1.75rem; color: #fff; }
+    .hero-right .panel-tag { font-size: .65rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-lit); margin-bottom: .5rem; }
+    .hero-right h3 { font-size: 1rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.3; }
+    .feature-list { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .feature-list li { font-size: .85rem; color: rgba(255,255,255,.82); padding-left: 1.25rem; position: relative; line-height: 1.5; }
+    .feature-list li::before { content: '+'; position: absolute; left: 0; color: var(--teal-lit); font-weight: 700; }
+    .feature-list li.eu { color: #fde68a; }
+    .feature-list li.eu::before { content: '⚖'; font-size: .7rem; top: 2px; }
+    .feature-list li.local { color: #86efac; }
+    .feature-list li.local::before { content: '🏠'; font-size: .7rem; }
+    .feature-divider { border: none; border-top: 1px solid rgba(255,255,255,.1); margin: .85rem 0; }
+
+    /* PROOF STRIP */
+    .proof { background: #fff; border-bottom: 1px solid var(--border); padding: 1.1rem 2rem; display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
+    .proof-i { font-size: .85rem; color: var(--muted); }
+    .proof-i strong { color: var(--navy); }
+
+    /* SECTIONS */
+    section { padding: 5rem 2rem; }
+    section.alt { background: #fff; }
+    .inner { max-width: 1080px; margin: 0 auto; }
+    .eye { font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-mid); margin-bottom: .6rem; }
+    .h2 { font-family: var(--font-d); font-size: clamp(1.7rem,3.5vw,2.4rem); font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: .85rem; }
+    .sub { font-size: 1rem; color: var(--muted); max-width: 600px; margin-bottom: 2.5rem; }
+
+    /* GRIDS */
+    .g2 { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 1.25rem; }
+    .g3 { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 1.25rem; }
+    .g4 { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 1.25rem; }
+
+    /* CARDS */
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem; box-shadow: var(--sh); }
+    .card.t { border-top: 3px solid var(--teal); }
+    .card.a { border-top: 3px solid var(--amber); }
+    .ci { font-size: 1.5rem; margin-bottom: .75rem; }
+    .card h3 { font-size: .95rem; font-weight: 600; color: var(--navy); margin-bottom: .4rem; }
+    .card p { font-size: .875rem; color: var(--muted); line-height: 1.6; }
+
+    /* EU ACT PROBLEM */
+    .eu-problem { background: #fff5f5; border: 1px solid #fecaca; border-left: 4px solid var(--red); border-radius: var(--r); padding: 2rem; margin-bottom: 2.5rem; }
+    .ep-tag { font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--red); margin-bottom: .5rem; }
+    .eu-problem h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: .75rem; }
+    .eu-problem p { font-size: .9rem; color: var(--body); line-height: 1.65; margin-bottom: .75rem; }
+    .eu-req-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .eu-req { background: #fff; border: 1px solid #fecaca; border-radius: 8px; padding: 1rem; }
+    .eu-req .art { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--red); margin-bottom: .3rem; }
+    .eu-req h4 { font-size: .875rem; font-weight: 600; color: var(--navy); margin-bottom: .3rem; }
+    .eu-req p { font-size: .8rem; color: var(--muted); line-height: 1.5; }
+
+    /* EU ACT SOLUTION */
+    .eu-solution { background: var(--teal); border-radius: 16px; padding: 3rem; color: #fff; margin-top: 2.5rem; }
+    .eu-solution h2 { font-family: var(--font-d); font-size: clamp(1.5rem,3vw,2rem); font-weight: 700; margin-bottom: 1rem; }
+    .eu-solution p { opacity: .88; font-size: .95rem; line-height: 1.65; max-width: 580px; margin-bottom: 1.75rem; }
+    .eu-sol-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 1rem; margin-bottom: 2rem; }
+    .eu-sol-card { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); border-radius: 10px; padding: 1.25rem; }
+    .eu-sol-card h4 { font-size: .9rem; font-weight: 600; margin-bottom: .4rem; }
+    .eu-sol-card p { font-size: .82rem; opacity: .8; line-height: 1.5; }
+
+    /* VALUE PROPS */
+    .vp-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 1.25rem; }
+    .vp-card { background: #fff; border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem; box-shadow: var(--sh); }
+    .vp-icon { font-size: 1.5rem; margin-bottom: .75rem; }
+    .vp-card h3 { font-size: .95rem; font-weight: 600; color: var(--navy); margin-bottom: .4rem; }
+    .vp-card p { font-size: .85rem; color: var(--muted); line-height: 1.6; }
+
+    /* SHOWCASE — screenshot grid */
+    .showcase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    @media (max-width: 768px) { .showcase-grid { grid-template-columns: 1fr; } }
+    .sc-item { background: #fff; border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; box-shadow: var(--sh); }
+    .sc-label { background: var(--teal); color: #fff; padding: .5rem 1rem; font-size: .75rem; font-weight: 600; letter-spacing: .02em; }
+    .sc-label.amber { background: var(--amber); }
+    .sc-label.navy { background: var(--navy); }
+    .sc-img { width: 100%; height: auto; display: block; }
+    .sc-caption { padding: .65rem 1rem; font-size: .8rem; color: var(--muted); border-top: 1px solid var(--border); }
+
+    /* BEFORE / AFTER */
+    .ba-wrap { border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; box-shadow: var(--sh); margin-bottom: 2.5rem; }
+    .ba-heads { display: grid; grid-template-columns: 1fr 1fr; }
+    .ba-head { padding: .75rem 1.25rem; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+    .ba-head.b { background: #f3f4f6; color: var(--muted); }
+    .ba-head.a { background: rgba(13,107,97,.08); color: var(--teal); }
+    .ba-row { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--border); }
+    .ba-cell { padding: .9rem 1.25rem; font-size: .875rem; }
+    .ba-cell.b { color: var(--muted); background: #fafafa; border-right: 1px solid var(--border); }
+    .ba-cell.b::before { content: '✗  '; color: #9ca3af; }
+    .ba-cell.a { color: var(--navy); font-weight: 500; }
+    .ba-cell.a::before { content: '✓  '; color: var(--teal); font-weight: 700; }
+
+    /* ARCHITECTURE */
+    .code-b { background: var(--navy); border-radius: var(--r); padding: 1.5rem; font-family: 'Courier New', monospace; font-size: .82rem; color: #e2e8f0; line-height: 1.8; overflow-x: auto; margin-top: 2rem; }
+    .code-b .c { color: #64748b; }
+    .code-b .k { color: var(--teal-lit); }
+
+    /* OFFERS */
+    .offer-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 1.5rem; }
+    .offer-card { background: #fff; border: 1px solid var(--border); border-radius: var(--r); padding: 2rem; box-shadow: var(--sh); display: flex; flex-direction: column; }
+    .offer-card.featured { border-color: var(--teal); box-shadow: 0 0 0 2px rgba(13,107,97,.12), var(--sh); }
+    .offer-badge { display: inline-block; font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: .25rem .75rem; border-radius: 100px; margin-bottom: 1rem; color: #fff; }
+    .ob-free { background: var(--muted); }
+    .ob-core { background: var(--teal); }
+    .ob-prem { background: var(--navy); }
+    .ob-supp { background: var(--teal-mid); }
+    .offer-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: .25rem; }
+    .offer-price { font-size: .875rem; color: var(--muted); margin-bottom: 1rem; }
+    .offer-card ul { list-style: none; flex: 1; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: .45rem; }
+    .offer-card li { font-size: .875rem; color: var(--body); padding-left: 1.25rem; position: relative; line-height: 1.5; }
+    .offer-card li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
+    .offer-card li.eu { color: var(--teal); font-weight: 500; }
+    .offer-card li.eu::before { content: '⚖'; font-size: .8rem; }
+    .support-row { display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; background: var(--bg); border-radius: var(--r); padding: 1.75rem 2rem; margin-top: 0; border: 1px solid var(--border); }
+    .support-row > div { flex: 1; }
+    .support-row h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: .25rem; }
+    .support-row p { font-size: .875rem; color: var(--muted); }
+
+    /* FAQ */
+    .faq-section-label { font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-mid); margin: 2.5rem 0 .75rem; }
+    .faq-list { display: flex; flex-direction: column; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-q { width: 100%; text-align: left; background: none; border: none; padding: 1.1rem 0; font-size: .925rem; font-weight: 600; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-family: var(--font-b); }
+    .faq-q:hover { color: var(--teal); }
+    .faq-arr { color: var(--teal); font-size: 1rem; transition: transform .2s; flex-shrink: 0; }
+    .faq-q.open .faq-arr { transform: rotate(180deg); }
+    .faq-a { display: none; padding: 0 0 1.1rem; font-size: .875rem; color: var(--muted); line-height: 1.7; max-width: 700px; }
+    .faq-a.open { display: block; }
+
+    /* CTA BAND */
+    .cta-band { background: var(--teal); color: #fff; padding: 4.5rem 2rem; text-align: center; }
+    .cta-band h2 { font-family: var(--font-d); font-size: clamp(1.6rem,3.5vw,2.4rem); font-weight: 700; margin-bottom: .75rem; }
+    .cta-band p { font-size: 1rem; opacity: .88; max-width: 480px; margin: 0 auto 2rem; }
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* FOOTER */
+    footer { background: var(--navy); color: rgba(255,255,255,.5); padding: 2rem; text-align: center; font-size: .85rem; }
+    footer a { color: rgba(255,255,255,.6); text-decoration: none; }
+    footer a:hover { color: #fff; }
+    footer p + p { margin-top: .5rem; }
+
+    /* FLEET INTRO MODAL */
+    .fi-backdrop { display: none; position: fixed; inset: 0; background: rgba(15,32,39,.72); z-index: 500; align-items: center; justify-content: center; padding: 1rem; }
+    .fi-backdrop.open { display: flex; }
+    .fi-modal { background: #fff; border-radius: 14px; width: 100%; max-width: 480px; box-shadow: 0 24px 60px rgba(0,0,0,.3); overflow: hidden; }
+    .fi-head { background: var(--navy); color: #fff; padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: flex-start; }
+    .fi-head h3 { font-family: var(--font-d); font-size: 1.15rem; font-weight: 700; line-height: 1.2; }
+    .fi-head p { font-size: .78rem; color: rgba(255,255,255,.65); margin-top: .35rem; line-height: 1.5; }
+    .fi-close { background: none; border: none; color: rgba(255,255,255,.6); font-size: 1.25rem; cursor: pointer; padding: 0 0 0 1rem; flex-shrink: 0; line-height: 1; }
+    .fi-close:hover { color: #fff; }
+    .fi-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+    .fi-field { display: flex; flex-direction: column; gap: .3rem; }
+    .fi-field label { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+    .fi-field input, .fi-field select, .fi-field textarea { border: 1px solid var(--border); border-radius: 8px; padding: .55rem .85rem; font-family: var(--font-b); font-size: .9rem; color: var(--navy); outline: none; width: 100%; }
+    .fi-field input:focus, .fi-field select:focus, .fi-field textarea:focus { border-color: var(--teal-mid); box-shadow: 0 0 0 3px rgba(13,148,136,.12); }
+    .fi-field textarea { resize: vertical; min-height: 90px; }
+    .fi-consent { display: flex; gap: .65rem; align-items: flex-start; font-size: .8rem; color: var(--body); line-height: 1.5; }
+    .fi-consent input[type="checkbox"] { margin-top: .2rem; flex-shrink: 0; accent-color: var(--teal); }
+    .fi-consent a { color: var(--teal); }
+    .fi-note { font-size: .75rem; color: var(--muted); line-height: 1.5; background: var(--bg); border-radius: 6px; padding: .6rem .85rem; }
+    .fi-submit { background: var(--teal); color: #fff; border: none; border-radius: 8px; padding: .7rem 1.5rem; font-family: var(--font-b); font-size: .95rem; font-weight: 600; cursor: pointer; width: 100%; transition: background .2s; }
+    .fi-submit:hover { background: var(--teal-mid); }
+    .fi-submit:disabled { opacity: .6; cursor: not-allowed; }
+    .fi-msg { font-size: .85rem; text-align: center; padding: .5rem; border-radius: 6px; display: none; }
+    .fi-msg.ok { background: #dcfce7; color: #166534; display: block; }
+    .fi-msg.err { background: #fee2e2; color: #991b1b; display: block; }
+
+    @media (max-width: 768px) { nav { padding: 0 1rem; } .nav-links { display: none; } section { padding: 3.5rem 1.25rem; } .hero { padding: 3.5rem 1.25rem; } .eu-solution { padding: 2rem; } }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="logo">Big Bear Engineering</a>
+  <ul class="nav-links">
+    <li><a href="https://agentegra.com">Agentegra</a></li>
+    <li><a href="#proof">Proof</a></li>
+    <li><a href="#offering">Offering</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="https://agentegra.com/robotross.html" class="nav-cta">Try Robot Ross →</a>
+</nav>
+
+<!-- URGENCY BANNER -->
+<div class="banner">⚠ <strong>August 2026:</strong> EU AI Act enforcement begins for high-risk AI in manufacturing. The preparation window is now.</div>
+
+<!-- HERO — TWO COLUMN -->
+<div class="hero">
+  <div class="hero-inner">
+    <!-- LEFT: pitch -->
+    <div class="hero-left">
+      <div class="eyebrow">Multi-Agent Orchestration Infrastructure</div>
+      <h1>Flotilla: <em>The Docker<br>of AI Agents</em> — keeping<br>your fleet compliant<br>and in control</h1>
+      <p class="hero-sub">Stop duct-taping random chats. Flotilla bootstraps your autonomous agent fleet with shared memory, vault-first security, local model support, and EU AI Act compliance — on your own hardware.</p>
+      <div class="hero-code">npx create-flotilla</div>
+      <div class="hero-ctas">
+        <a href="https://api.robotross.art/demo/" class="btn btn-p">Try the Demo →</a>
+        <button onclick="openFleetIntro()" class="btn btn-o" style="cursor:pointer;">Request a Fleet Intro →</button>
+        <a href="https://agentegra.com/robotross.html#atf" class="btn btn-a">Experience EU Compliance →</a>
+      </div>
+    </div>
+
+    <!-- RIGHT: feature panel -->
+    <div class="hero-right">
+      <div class="panel-tag">Flotilla Control Layer</div>
+      <h3>The operating system for autonomous engineering teams</h3>
+      <ul class="feature-list">
+        <li class="eu">Generates an Automated Technical File (ATF) designed to satisfy EU AI Act Articles 12, 13 &amp; 14 — by architecture, not effort</li>
+        <li class="eu">Human-in-the-loop controls: Fleet Hub dashboard, Telegram alerts, approval gates</li>
+        <hr class="feature-divider">
+        <li><code>MISSION_CONTROL.md</code> gives every agent the same cognitive starting point before work begins</li>
+        <li>Agents keep lessons learned and share them through a persistent memory ledger — solving memory drift</li>
+        <li>Vault-first secret delivery keeps credentials out of prompts, markdown, and <code>.env</code> sprawl</li>
+        <li>Agent diversity: different models implement, critique, and review each other — no echo chambers</li>
+        <li>Claude, Gemini, Codex, and Mistral run in parallel under one operating contract</li>
+        <li class="local">Gemma and Apertus run locally on a Mac Mini M4 — no API costs, no data leaving your network</li>
+        <li>Fleet Hub dashboard + Telegram listener — manage the fleet from anywhere</li>
+        <li>Full GitHub integration — every commit attributed, reviewed, and timestamped</li>
+        <li>The Kanban bridge keeps work anchored to real tickets instead of ad hoc chat memory</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- PROOF STRIP -->
+<div class="proof">
+  <div class="proof-i">🎓 Robotics research, <strong>ETH Zürich</strong></div>
+  <div class="proof-i">📐 <strong>35 years</strong> of industrial software engineering</div>
+  <div class="proof-i">🤖 Live cyber-physical proof: <strong>Robot Ross</strong></div>
+  <div class="proof-i">⚖️ <strong>EU AI Act</strong> compliance by design</div>
+</div>
+
+<!-- EU AI ACT CHALLENGE — comes first -->
+<section>
+  <div class="inner">
+    <div class="eye">The EU AI Act Challenge</div>
+    <h2 class="h2">August 2026: the compliance deadline most AI teams are not ready for.</h2>
+    <p class="sub">The EU AI Act is not optional, and it is not a checkbox exercise. For teams deploying AI agents in high-risk contexts, it mandates specific technical capabilities that most orchestration tools were never built to provide.</p>
+
+    <div class="eu-problem">
+      <div class="ep-tag">⚖️ What the EU AI Act requires</div>
+      <h3>Three articles. Three architectural requirements.</h3>
+      <p>Most AI agent setups — chat tabs, API calls, ad-hoc orchestration — cannot satisfy these. The documentation doesn't exist. The audit trail doesn't exist. The human oversight mechanism doesn't exist. Building them after the fact is expensive and always out of date.</p>
+      <div class="eu-req-grid">
+        <div class="eu-req">
+          <div class="art">Article 12 · Traceability</div>
+          <h4>Technical documentation</h4>
+          <p>A structured, up-to-date record of what the system does, how it's built, and what it depends on. Must be maintained continuously — not written once and filed away.</p>
+        </div>
+        <div class="eu-req">
+          <div class="art">Article 13 · Transparency</div>
+          <h4>Explainable outputs</h4>
+          <p>High-risk systems must be explainable to operators and auditors. Every decision must be traceable to an input and a model.</p>
+        </div>
+        <div class="eu-req">
+          <div class="art">Article 14 · Human Oversight</div>
+          <h4>Human-in-the-Loop</h4>
+          <p>Meaningful human oversight — an actionable control surface that allows humans to intervene, review, and approve AI decisions.</p>
+        </div>
+        <div class="eu-req">
+          <div class="art">Penalties</div>
+          <h4>Up to €30M or 6%</h4>
+          <p>Of global annual turnover — whichever is higher. For high-risk AI deployed without compliant documentation and oversight.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="eu-solution">
+      <h2>Flotilla + ATF: compliance by architecture, not effort.</h2>
+      <p>Flotilla's coordination layer generates the audit trail, the technical documentation, and the human oversight surface automatically — as a byproduct of how it orchestrates agents, not as an afterthought.</p>
+      <div class="eu-sol-grid">
+        <div class="eu-sol-card">
+          <h4>📚 Automated Technical File</h4>
+          <p>AI agents continuously ingest source code, architecture docs, and operational logs — generating a living, queryable wiki. Article 12 satisfied by design.</p>
+        </div>
+        <div class="eu-sol-card">
+          <h4>📋 Operational Ledger</h4>
+          <p>Every agent action logged with timestamp, input, output, and reviewer. Human-readable. Queryable. Article 13 satisfied by design.</p>
+        </div>
+        <div class="eu-sol-card">
+          <h4>🧑‍💼 Human Oversight Surface</h4>
+          <p>Fleet Hub dashboard + Telegram alerts + approval gates. Humans stay in the loop without babysitting every action. Article 14 satisfied.</p>
+        </div>
+        <div class="eu-sol-card">
+          <h4>🔍 Q&A Interface</h4>
+          <p>Ask the system what it did and why — in plain language. Auditors get a URL and a chat interface. Inspection-ready at all times.</p>
+        </div>
+      </div>
+      <a href="https://agentegra.com/robotross.html#atf" class="btn btn-w">See It Running on Robot Ross →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY FLOTILLA — value props -->
+<section class="alt">
+  <div class="inner">
+    <div class="eye">Why Flotilla</div>
+    <h2 class="h2">Seven reasons engineering teams choose Flotilla.</h2>
+    <p class="sub">Built from 35 years of industrial software engineering discipline — not AI hype.</p>
+    <div class="vp-grid">
+      <div class="vp-card">
+        <div class="vp-icon">⚖️</div>
+        <h3>EU AI Act Compliance Infrastructure</h3>
+        <p>The ATF, operational ledger, and oversight surface are designed to satisfy Articles 12, 13, and 14 by architecture. Compliance evidence is a byproduct of how the fleet operates — not an extra step.</p>
+      </div>
+      <div class="vp-card">
+        <div class="vp-icon">🧠</div>
+        <h3>Model Agnostic — Multi-Model by Design</h3>
+        <p>Claude, Gemini, Codex, Mistral, and local models run in parallel under one operating contract. Different models implement, critique, and review each other — eliminating echo chambers.</p>
+      </div>
+      <div class="vp-card">
+        <div class="vp-icon">🏠</div>
+        <h3>Local Model Support</h3>
+        <p>Gemma, Apertus, Mistral 7B — run fully on-premise with no API costs and no data leaving your network. Flotilla manages local and cloud models through the same coordination layer.</p>
+      </div>
+      <div class="vp-card">
+        <div class="vp-icon">🧬</div>
+        <h3>Solves Memory Drift</h3>
+        <p>MISSION_CONTROL.md gives every agent the same cognitive starting point. The Lessons Ledger propagates approved fixes across sessions and models. Agents stop forgetting.</p>
+      </div>
+      <div class="vp-card">
+        <div class="vp-icon">📊</div>
+        <h3>Fleet Dashboards — Local and Remote</h3>
+        <p>Fleet Hub gives a real-time view of agent status, shift timelines, and task boards. Telegram listener puts control on your phone — manage the fleet from anywhere.</p>
+      </div>
+      <div class="vp-card">
+        <div class="vp-icon">🔐</div>
+        <h3>Vault-First Security via Infisical</h3>
+        <p>Credentials fetched on demand from Infisical EU. No <code>.env</code> files, no hardcoded paths, no credential sprawl in agent context or commit history.</p>
+      </div>
+      <div class="vp-card">
+        <div class="vp-icon">🔗</div>
+        <h3>Full GitHub Integration</h3>
+        <p>Every commit attributed, timestamped, and reviewable. The Kanban bridge keeps work anchored to real tickets. The human is always the final approver.</p>
+      </div>
+      <div class="vp-card">
+        <div class="vp-icon">💰</div>
+        <h3>Predictable Economics</h3>
+        <p>Move away from runaway token billing toward fixed-cost operating models. Local models for cost-sensitive tasks, cloud models where capability matters.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROBOT ROSS PROOF — after why flotilla -->
+<section id="proof">
+  <div class="inner">
+    <div class="eye">Live Proof · Robot Ross</div>
+    <h2 class="h2">Flotilla in the physical world — running today.</h2>
+    <p class="sub">Robot Ross is not a simulation. It is Flotilla coordinating real agents on real hardware, fulfilling real orders, with a live ATF designed to satisfy EU AI Act Articles 12, 13, and 14. Replace the pen with a drill bit — and this is a CNC manufacturing cell.</p>
+
+    <!-- SHOWCASE — real screenshots -->
+    <h3 style="font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:1.25rem;">Fleet Hub — the management plane.</h3>
+    <div class="showcase-grid" style="margin-bottom:2.5rem;">
+
+      <div class="sc-item">
+        <div class="sc-label">Agentic Team · Agent Status Dashboard</div>
+        <img class="sc-img" src="AgenticTeam.png" alt="Fleet Hub Agentic Team dashboard showing Claude Code, Gemini, Codex, Misty, Gemma, and OpenClaw agents with Cloud/Local type tags" />
+        <div class="sc-caption">Six agents — four cloud, two local (Gemma + OpenClaw). Cloud/Local type visible at a glance. Tasks and token usage tracked per agent.</div>
+      </div>
+
+      <div class="sc-item">
+        <div class="sc-label">Shift Timeline · 7-Day Activity View</div>
+        <img class="sc-img" src="ShiftTimeline.png" alt="7-day shift timeline showing Working, Idle, Dark/Quota, and Offline states for all six agents" />
+        <div class="sc-caption">Working (green), Idle (grey), Dark/Quota (red), Offline (amber) — the full fleet week at a glance. Gemini quota hit visible on Tue 7/4.</div>
+      </div>
+
+      <div class="sc-item">
+        <div class="sc-label">Fleet Kanban · Live Task Board</div>
+        <img class="sc-img" src="Fleetkanban.png" alt="Fleet Kanban board showing Planned, In Work, and Blocked columns with active ATF and RobotRoss tasks" />
+        <div class="sc-caption">Live board: ATF deployment and RobotRoss pyrography merge both In Work simultaneously. Assigned agents visible on each card.</div>
+      </div>
+
+      <div class="sc-item">
+        <div class="sc-label">PocketBase Viewer · Task State</div>
+        <img class="sc-img" src="PocketBaseViewer.png" alt="PocketBase Viewer showing task list with blocked, in_progress, and peer_review states for ATF and RobotRoss tasks" />
+        <div class="sc-caption">Live task state — blocked, in_progress, peer_review — with agent assignment and task context. The shared operational backbone for the fleet.</div>
+      </div>
+
+      <div class="sc-item">
+        <div class="sc-label">Knowledge Base · Memory Tree &amp; Lessons Ledger</div>
+        <img class="sc-img" src="KnowledgeBase.png" alt="Memory Tree showing approved lessons from Codex and Claude Code agents, plus Team Rules, KeyVault Strategy, and CRM Prototype docs" />
+        <div class="sc-caption">Approved lessons from real debugging sessions. Cross-agent institutional memory — Codex and Claude Code contributing equally. Lessons survive sessions and model changes.</div>
+      </div>
+
+      <div class="sc-item">
+        <div class="sc-label">Inter-Agent Inbox · Fleet Communication</div>
+        <img class="sc-img" src="InterAgentInbox.png" alt="Inter-Agent Inbox showing messages between Gem, Codi, and Misty coordinating tasks and token issues" />
+        <div class="sc-caption">Gem routing tasks to Misty. Codi escalating a token issue. Agents coordinate through structured messages — no human copy-paste required.</div>
+      </div>
+
+      <div class="sc-item">
+        <div class="sc-label">Project Portfolio · Active Projects</div>
+        <img class="sc-img" src="ProjectPortfolio.png" alt="Project Portfolio showing Robot Ross project with Documentation, Kanban Board, and View Stats links" />
+        <div class="sc-caption">Multiple projects managed under one fleet. Robot Ross shown with live documentation, Kanban, and stats links. The fleet knows which project it's serving.</div>
+      </div>
+
+    </div>
+
+    <!-- ATF screenshots -->
+    <h3 style="font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:1.25rem;">Automated Technical File — EU AI Act compliance, live.</h3>
+    <div class="showcase-grid" style="margin-bottom:2rem;">
+
+      <div class="sc-item">
+        <div class="sc-label amber">RobotRoss Compliance Wiki · ATF Article View</div>
+        <img class="sc-img" src="RobotRossComplianceWiki.png" alt="ATF Compliance wiki page showing EU AI Act article mapping table with Overview, Job Orchestration, Narration, Commerce Layer, Hardware Interface subsystems" />
+        <div class="sc-caption">Live ATF wiki at <strong>api.robotross.art/atf</strong> — Compliance page showing every subsystem mapped to its EU AI Act obligation. Generated from source code, not written by hand.</div>
+      </div>
+
+      <div class="sc-item">
+        <div class="sc-label amber">RobotRoss Ledger Dashboard · Operational Evidence</div>
+        <img class="sc-img" src="RobotRossLedger.png" alt="RobotRoss Ledger Dashboard showing 50878 events, 5294 drawing events, 23 categories, recent jobs table with SVG filenames and event counts" />
+        <div class="sc-caption">50,878 logged events across 23 categories. Every job: timestamp, SVG file, size, event count, status, notes. Article 13 (Transparency) satisfied — in production since March 2026.</div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;">
+      <a href="https://api.robotross.art/atf/index.html" target="_blank" class="btn btn-p" style="margin-right:.75rem;">Visit the Live ATF →</a>
+      <a href="https://agentegra.com/robotross.html" class="btn btn-o">Robot Ross details</a>
+    </div>
+  </div>
+</section>
+
+<!-- AI STATE PROBLEM — before/after -->
+<section class="alt">
+  <div class="inner">
+    <div class="eye">The Problem Flotilla Solves</div>
+    <h2 class="h2">Most AI deployments break where engineering teams actually live.</h2>
+    <p class="sub">Standard AI setups lose context, drift across sessions, create unpredictable costs, and produce no compliance trail.</p>
+
+    <div class="ba-wrap">
+      <div class="ba-heads">
+        <div class="ba-head b">Without Flotilla</div>
+        <div class="ba-head a">With Flotilla</div>
+      </div>
+      <div class="ba-row"><div class="ba-cell b">Agents forget architecture when the tab closes</div><div class="ba-cell a">Shared memory — context survives sessions and model changes</div></div>
+      <div class="ba-row"><div class="ba-cell b">Runaway token billing with no cost ceiling</div><div class="ba-cell a">Predictable economics — local models + fixed subscriptions</div></div>
+      <div class="ba-row"><div class="ba-cell b">Manual copy-paste coordination between chat tabs</div><div class="ba-cell a">Shared Kanban, inbox, and standups — no copy-paste</div></div>
+      <div class="ba-row"><div class="ba-cell b">Agents repeat the same errors every session</div><div class="ba-cell a">Lessons Ledger — approved fixes propagated to all agents</div></div>
+      <div class="ba-row"><div class="ba-cell b">Secrets hardcoded in .env files — credential risk</div><div class="ba-cell a">Vault-first via Infisical EU — zero credential exposure</div></div>
+      <div class="ba-row"><div class="ba-cell b">No audit trail — EU AI Act compliance impossible</div><div class="ba-cell a">ATF generated automatically — EU AI Act ready from day one</div></div>
+      <div class="ba-row"><div class="ba-cell b">Single model — no cross-check, no diversity</div><div class="ba-cell a">Multi-model fleet — Claude, Gemini, Codex, local models</div></div>
+      <div class="ba-row"><div class="ba-cell b">Fleet invisible — no dashboard, no oversight</div><div class="ba-cell a">Fleet Hub + Telegram — full visibility, remote control</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE -->
+<section>
+  <div class="inner">
+    <div class="eye">Architecture</div>
+    <h2 class="h2">The operating system for autonomous engineering teams.</h2>
+    <p class="sub">Flotilla standardises the bootstrap, security, and coordination layer so agents stop behaving like isolated chat tabs.</p>
+    <div class="g2">
+      <div class="card t"><div class="ci">📋</div><h3>MISSION_CONTROL.md</h3><p>The shared cognitive layer. Every agent re-syncs against the same mission context, rules, ticket state, and architectural source of truth before acting.</p></div>
+      <div class="card t"><div class="ci">📚</div><h3>Lessons Ledger</h3><p>Approved memory entries become reusable operating knowledge. Field fixes survive the next session and the next model. Agents stop repeating mistakes.</p></div>
+      <div class="card"><div class="ci">🎫</div><h3>Kanban Bridge</h3><p>GitHub and dashboard work stay aligned. Humans see ticket state; agents move work without fragile copy-paste handoffs.</p></div>
+      <div class="card"><div class="ci">🛡️</div><h3>Vault-First Security</h3><p>Secrets fetched on demand from Infisical EU. No hardcoded <code>.env</code> files, no credential sprawl in chat history or commit logs.</p></div>
+      <div class="card"><div class="ci">🤖</div><h3>Multi-Model Orchestration</h3><p>Coordinate Claude, Gemini, Codex, and local models in parallel with shared conventions for handoffs, standups, and task routing.</p></div>
+      <div class="card"><div class="ci">📡</div><h3>Always-On Operations</h3><p>PocketBase for persistent state, dispatcher heartbeats for continuous polling, OpenClaw for remote control, Telegram for mobile alerts.</p></div>
+    </div>
+    <div class="code-b">
+<span class="c"># One command to deploy a professional-grade engineering fleet</span>
+npx create-flotilla
+
+<span class="c"># What you get:</span>
+<span class="k">MISSION_CONTROL.md</span>   — shared cognitive layer for all agents
+<span class="k">lessons.md</span>           — approved knowledge that survives sessions
+<span class="k">inbox/</span>               — inter-agent message routing
+<span class="k">standups/</span>            — daily session logs and handoffs
+<span class="k">pocketbase/</span>          — always-on state backend
+<span class="k">dispatcher.py</span>        — deterministic task router (no LLM overhead)
+<span class="k">launchd/</span>             — macOS service configs for always-on operation
+    </div>
+  </div>
+</section>
+
+<!-- PREREQUISITES -->
+<section class="alt" id="fit">
+  <div class="inner">
+    <div class="eye">Prerequisites</div>
+    <h2 class="h2">What you need before deploying the fleet.</h2>
+    <p class="sub">Flotilla works best when the operational prerequisites are in place.</p>
+    <div class="g3">
+      <div class="card">
+        <div class="ci">📦</div><h3>Required</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:.4rem;margin-top:.5rem;">
+          <li style="font-size:.875rem;color:var(--muted);padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:var(--teal);">→</span> GitHub projects and repositories</li>
+          <li style="font-size:.875rem;color:var(--muted);padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:var(--teal);">→</span> Licensed agent or model subscriptions</li>
+          <li style="font-size:.875rem;color:var(--muted);padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:var(--teal);">→</span> Infisical account for vault-first secrets</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="ci">⚙️</div><h3>Optional Always-On Layer</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:.4rem;margin-top:.5rem;">
+          <li style="font-size:.875rem;color:var(--muted);padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:var(--teal);">→</span> OpenClaw for a fleet that never sleeps</li>
+          <li style="font-size:.875rem;color:var(--muted);padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:var(--teal);">→</span> Telegram as mobile control surface</li>
+          <li style="font-size:.875rem;color:var(--muted);padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:var(--teal);">→</span> PocketBase for always-on task state</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="ci">🏠</div><h3>For Local Model Support</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:.4rem;margin-top:.5rem;">
+          <li style="font-size:.875rem;color:var(--muted);padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:var(--teal);">→</span> Mac Mini M4 or equivalent</li>
+          <li style="font-size:.875rem;color:var(--muted);padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:var(--teal);">→</span> Gemma, Apertus, or Mistral 7B via Ollama</li>
+          <li style="font-size:.875rem;color:var(--muted);padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:var(--teal);">→</span> No GPU required — standard hardware</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFERING -->
+<section id="offering">
+  <div class="inner">
+    <div class="eye">Offering</div>
+    <h2 class="h2">Start with the package. Scale into deployment.</h2>
+    <p class="sub">The open-source Flotilla package is the entry point. Big Bear Engineering is the upgrade path when you want the orchestration layer installed, tuned, and EU AI Act ready.</p>
+    <div class="offer-grid">
+      <div class="offer-card">
+        <span class="offer-badge ob-free">Open Source</span>
+        <h3>Flotilla Package</h3>
+        <div class="offer-price">Free · Self-serve</div>
+        <ul>
+          <li>Zero-install scaffolder: <code>npx create-flotilla</code></li>
+          <li>MISSION_CONTROL, rules, standups, inbox, lessons scaffolding</li>
+          <li>Kanban bridge and model-agnostic runtime conventions</li>
+          <li>PocketBase-ready always-on fleet structure</li>
+          <li>Documentation and GitHub source</li>
+        </ul>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+          <a href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub#readme" class="btn btn-o btn-sm">Documentation</a>
+          <a href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub" target="_blank" class="btn btn-o btn-sm">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="offer-card featured">
+        <span class="offer-badge ob-core">Core Offer</span>
+        <h3>Fleet Command</h3>
+        <div class="offer-price">Dashboard + remote setup + EU AI Act support · Contact us</div>
+        <ul>
+          <li>Everything in the Flotilla package, configured for your environment</li>
+          <li>Web dashboard to monitor, manage, and direct your fleet in real time</li>
+          <li>Remote setup session — we configure the fleet live with your team</li>
+          <li>Agent health monitoring, task routing, and review loops</li>
+          <li class="eu">ATF setup — Automated Technical File for your system</li>
+          <li class="eu">EU AI Act Articles 12, 13, 14 compliance documentation</li>
+          <li class="eu">Operational ledger configured and running from day one</li>
+          <li>Priority email support included</li>
+        </ul>
+        <a href="mailto:hello@bigbearengineering.com" class="btn btn-p btn-sm">Get Started →</a>
+      </div>
+
+      <div class="offer-card">
+        <span class="offer-badge ob-prem">Premium</span>
+        <h3>Fleet Deployment Intensive</h3>
+        <div class="offer-price">One-day hands-on engagement · Contact us</div>
+        <ul>
+          <li>Everything in Fleet Command</li>
+          <li>Full stack installation on your local hardware and private cloud</li>
+          <li>Workflow mapping — your processes into agentic roles</li>
+          <li>Live configuration with your team on-site or remote</li>
+          <li class="eu">Full ATF deployment — wiki, ledger, Q&A interface live</li>
+          <li class="eu">EU AI Act Technical File generated for your system</li>
+          <li class="eu">First audit report produced and reviewed together</li>
+          <li class="eu">Local model deployment — Gemma, Apertus, or Mistral on-premise</li>
+        </ul>
+        <a href="mailto:hello@bigbearengineering.com" class="btn btn-p btn-sm">Book Intensive →</a>
+      </div>
+    </div>
+
+    <div class="support-row" style="margin-top:1.5rem;">
+      <div>
+        <span class="offer-badge ob-supp" style="margin-bottom:.5rem;">Support</span>
+        <h3>Hourly Support Package</h3>
+        <p>Expert support for deployed Flotilla installations — architecture reviews, debugging, agent onboarding, EU AI Act questions, local model configuration. Billed in blocks of hours. No retainer required.</p>
+      </div>
+      <a href="mailto:hello@bigbearengineering.com" class="btn btn-o">Enquire →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="alt" id="faq">
+  <div class="inner">
+    <div class="eye">FAQ</div>
+    <h2 class="h2">Frequently asked questions.</h2>
+
+    <div class="faq-section-label">Flotilla — General</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What is Flotilla and how does it differ from other orchestration tools? <span class="faq-arr">▾</span></button>
+        <div class="faq-a">Flotilla is an open-source multi-agent orchestration layer that gives your AI fleet shared memory, vault-first security, a Kanban bridge, and a human-readable control plane. Unlike most frameworks that manage API calls, Flotilla manages the entire operating context — what agents know, what they remember, how they coordinate, and how they're audited. The key difference: Flotilla generates an Automated Technical File as a byproduct of normal operation, making EU AI Act compliance possible without extra effort.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How does Flotilla solve the memory drift problem? <span class="faq-arr">▾</span></button>
+        <div class="faq-a">Memory drift happens when agents lose context between sessions and make decisions inconsistent with prior architectural choices. Flotilla addresses this with MISSION_CONTROL.md (a shared cognitive starting point every agent reads before acting) and the Lessons Ledger (an approved, versioned record of fixes and architectural decisions that survives across sessions and models). Agents don't just remember — they remember the same things, consistently.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Can multiple projects run on the same Flotilla deployment? <span class="faq-arr">▾</span></button>
+        <div class="faq-a">Yes. The Fleet Hub manages several projects simultaneously, each with its own context, agents, and Kanban boards. PocketBase collections are scoped per project. Agents can be assigned to specific projects or operate across projects depending on your configuration.</div>
+      </div>
+    </div>
+
+    <div class="faq-section-label">EU AI Act</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What is the EU AI Act and when does it apply to my system? <span class="faq-arr">▾</span></button>
+        <div class="faq-a">The EU AI Act classifies AI systems by risk level and imposes requirements on high-risk deployments. Enforcement for high-risk AI — including autonomous AI in manufacturing, infrastructure, and safety-critical contexts — begins August 2026. If your AI agents make decisions affecting physical processes, people, or regulated workflows, you are likely in scope. The Act requires: a Technical File documenting your system, an operational log of AI decisions, and a Human-in-the-Loop mechanism allowing humans to intervene.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What is the ATF and how does it support EU AI Act compliance? <span class="faq-arr">▾</span></button>
+        <div class="faq-a">The ATF (Automated Technical File) is a living knowledge base generated continuously by the Flotilla fleet from your system's source code, architecture documents, and operational logs. It consists of six layers: a linked code wiki (Article 12 — Traceability), an operational ledger (Article 13 — Transparency), a browser-readable documentation surface, a ledger dashboard, a local Q&A interface, and an optional voice layer. Together they are designed to satisfy the EU AI Act Technical File requirement without manual documentation effort. See it live at api.robotross.art/atf</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How does Flotilla address Article 14 — Human Oversight? <span class="faq-arr">▾</span></button>
+        <div class="faq-a">Flotilla provides three human oversight mechanisms: the Fleet Hub dashboard (real-time visibility into all agent actions), the Telegram listener (mobile alerts and approval requests for decisions above a configured risk threshold), and the ATF Q&A interface (which lets any operator ask what the system did and why, in plain language). Together these give humans meaningful control — not just a log, but an actionable control surface. Robot Ross demonstrates this in production: the operator confirms every composition verbally before the arm executes.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What are the penalties for non-compliance? <span class="faq-arr">▾</span></button>
+        <div class="faq-a">For high-risk AI systems deployed without compliant documentation and oversight, penalties can reach €30 million or 6% of global annual turnover — whichever is higher. The Act also allows national authorities to order systems offline pending compliance remediation, which for manufacturing deployments could mean significant operational disruption. The preparation window before August 2026 is the time to build compliance in, not bolt it on.</div>
+      </div>
+    </div>
+
+    <div class="faq-section-label">Local Models</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Why would I run local models instead of cloud APIs? <span class="faq-arr">▾</span></button>
+        <div class="faq-a">Three reasons: data sovereignty (production data never leaves your network), cost predictability (local models have no per-token billing — the marginal cost per inference is near zero once deployed), and EU AI Act compliance (cloud AI systems process your data in US or Chinese data centres, creating GDPR exposure and making data governance harder to demonstrate to auditors). For tasks where a capable 7B model is sufficient, running locally is almost always the right choice.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Which local models does Flotilla support? <span class="faq-arr">▾</span></button>
+        <div class="faq-a">Flotilla is model-agnostic — if the model has an API endpoint, the fleet can route tasks to it. In practice we work most with: Gemma (Google's open-weights model, runs on Apple Silicon via Ollama), Apertus 8B (ETH/EPFL Swiss open-weights model — what Robot Ross uses for narration and reasoning), and Mistral 7B (French open-weights, strong general reasoning). All three run on a Mac Mini M4 with no GPU required.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What hardware do I need for local models? <span class="faq-arr">▾</span></button>
+        <div class="faq-a">For small open models (Gemma, Apertus 8B, Mistral 7B), a Mac Mini M4 with 16GB unified memory is sufficient — around CHF 800. No discrete GPU required. Robot Ross runs Apertus 8B on a Mac Mini M4 for all local inference, including voice conversation, composition reasoning, and ATF Q&A.</div>
+      </div>
+    </div>
+
+    <div class="faq-section-label">Security &amp; Operations</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How does vault-first security work in practice? <span class="faq-arr">▾</span></button>
+        <div class="faq-a">Every agent fetches its credentials from Infisical (EU) at runtime — never from environment files or hardcoded strings. When an agent needs an API key or database password, it runs an Infisical CLI command that returns the secret in-memory for that session only. Nothing is written to disk or stored in the agent's context. Infisical EU is a European-hosted, open-source secrets manager. Rotating a secret requires one change in Infisical — not hunting through dozens of .env files.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Is commercial support available after deployment? <span class="faq-arr">▾</span></button>
+        <div class="faq-a">Yes. The Hourly Support Package covers ongoing expert support for deployed Flotilla installations — architecture reviews, debugging sessions, new agent onboarding, EU AI Act questions, and local model configuration. Billed in blocks of hours with no retainer required.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>Build the fleet your engineering team deserves.</h2>
+  <p>One command to start. Expert deployment when you're ready to scale. EU AI Act compliance from day one.</p>
+  <div class="cta-btns">
+    <a href="https://api.robotross.art/demo/" class="btn btn-w">Try the Demo →</a>
+    <a href="https://api.robotross.art/atf/index.html" target="_blank" class="btn btn-g">Visit the Live ATF →</a>
+    <a href="https://github.com/UrsushoribilisMusic/agentic-fleet-hub" target="_blank" class="btn btn-g">GitHub ↗</a>
+  </div>
+</div>
+
+<!-- FLEET INTRO MODAL -->
+<div class="fi-backdrop" id="fiBackdrop" onclick="closeFleetIntro(event)">
+  <div class="fi-modal" role="dialog" aria-modal="true" aria-labelledby="fiTitle">
+    <div class="fi-head">
+      <div>
+        <h3 id="fiTitle">Request a Fleet Intro</h3>
+        <p>Your message is intended for a Google Sheets intake workflow. No public email address is exposed on the page.</p>
+      </div>
+      <button class="fi-close" onclick="closeFleetIntro()" aria-label="Close">✕</button>
+    </div>
+    <div class="fi-body">
+      <div class="fi-field">
+        <label for="fiName">Full Name</label>
+        <input type="text" id="fiName" placeholder="Jane Doe" autocomplete="name" required />
+      </div>
+      <div class="fi-field">
+        <label for="fiEmail">Work Email</label>
+        <input type="email" id="fiEmail" placeholder="jane@company.com" autocomplete="email" required />
+      </div>
+      <div class="fi-field">
+        <label for="fiCompany">Company</label>
+        <input type="text" id="fiCompany" placeholder="Acme GmbH" autocomplete="organization" />
+      </div>
+      <div class="fi-field">
+        <label for="fiInterest">Interest</label>
+        <select id="fiInterest">
+          <option>Fleet Command</option>
+          <option>Flotilla Package</option>
+          <option>Fleet Deployment Intensive</option>
+          <option>EU AI Act Consulting</option>
+          <option>Just exploring</option>
+        </select>
+      </div>
+      <div class="fi-field">
+        <label for="fiMessage">Message</label>
+        <textarea id="fiMessage" placeholder="Current team, stack, timeline, or the workflow you want to automate."></textarea>
+      </div>
+      <label class="fi-consent">
+        <input type="checkbox" id="fiConsent" />
+        I agree that Big Bear Engineering may process this request according to the <a href="privacy.html" target="_blank">Privacy Policy</a>.
+      </label>
+      <div class="fi-note">If the Google Apps Script endpoint is not configured yet, the page will show a setup warning instead of silently failing.</div>
+      <div class="fi-msg" id="fiMsg"></div>
+      <button class="fi-submit" id="fiSubmit" onclick="submitFleetIntro()">Send Request</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    <a href="/">Big Bear Engineering GmbH</a> &nbsp;·&nbsp;
+    <a href="https://agentegra.com">Agentegra</a> &nbsp;·&nbsp;
+    <a href="https://agentegra.com/robotross.html">Robot Ross</a> &nbsp;·&nbsp;
+    <a href="gmbh.html">Portfolio</a> &nbsp;·&nbsp;
+    <a href="privacy.html">Privacy</a> &nbsp;·&nbsp;
+    <a href="cookies.html">Cookies</a> &nbsp;·&nbsp;
+    <a href="terms.html">Terms</a>
+  </p>
+  <p>© 2026 Big Bear Engineering GmbH · Mettmenstetten, Switzerland · Swiss precision, not AI hype.</p>
+</footer>
+
+<script>
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('open'));
+    if (!isOpen) { answer.classList.add('open'); btn.classList.add('open'); }
+  }
+
+  // Fleet Intro Modal
+  const FLEET_INTRO_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwSLcuKjYXJASV0MTV2Lny3-X6AVxIHV5gMaXMSBlEUwO6SXywGGDEX9GjiLbDrqSIKvg/exec';
+
+  function openFleetIntro() {
+    document.getElementById('fiBackdrop').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (!FLEET_INTRO_SCRIPT_URL) {
+      const note = document.querySelector('.fi-note');
+      note.style.background = '#fffbeb';
+      note.style.borderLeft = '3px solid #f59e0b';
+      note.style.color = '#92400e';
+    }
+  }
+
+  function closeFleetIntro(e) {
+    if (e && e.target !== document.getElementById('fiBackdrop')) return;
+    document.getElementById('fiBackdrop').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeFleetIntro();
+  });
+
+  async function submitFleetIntro() {
+    const name    = document.getElementById('fiName').value.trim();
+    const email   = document.getElementById('fiEmail').value.trim();
+    const company = document.getElementById('fiCompany').value.trim();
+    const interest= document.getElementById('fiInterest').value;
+    const message = document.getElementById('fiMessage').value.trim();
+    const consent = document.getElementById('fiConsent').checked;
+    const msg     = document.getElementById('fiMsg');
+    const btn     = document.getElementById('fiSubmit');
+
+    msg.className = 'fi-msg';
+
+    if (!name || !email) { msg.textContent = 'Please fill in your name and work email.'; msg.className = 'fi-msg err'; return; }
+    if (!consent) { msg.textContent = 'Please accept the privacy policy to continue.'; msg.className = 'fi-msg err'; return; }
+
+    if (!FLEET_INTRO_SCRIPT_URL) {
+      msg.textContent = 'Setup required: no Google Apps Script endpoint configured yet. Please email hello@bigbearengineering.com directly.';
+      msg.className = 'fi-msg err';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    try {
+      const params = new URLSearchParams({ name, email, company, interest, message });
+      await fetch(FLEET_INTRO_SCRIPT_URL + '?' + params.toString(), { method: 'GET', mode: 'no-cors' });
+      msg.textContent = 'Sent! We'll be in touch shortly.';
+      msg.className = 'fi-msg ok';
+      btn.textContent = 'Sent ✓';
+    } catch (err) {
+      msg.textContent = 'Something went wrong. Please email hello@bigbearengineering.com.';
+      msg.className = 'fi-msg err';
+      btn.disabled = false;
+      btn.textContent = 'Send Request';
+    }
+  }
+</script>
+
+</body>
+</html>

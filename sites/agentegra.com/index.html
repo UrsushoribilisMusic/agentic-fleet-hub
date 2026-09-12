@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Agentegra — Sovereign AI for regulated institutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#eef4f2;
+    --surface:#e6efec;
+    --white:#ffffff;
+    --ink:#16241f;
+    --muted:#5f716b;
+    --teal:#0d6b61;
+    --teal-ink:#0a4a43;
+    --teal-deep:#07362f;
+    --amber:#c7791f;
+    --amber-ink:#9a5a12;
+    --amber-soft:#f7ecd9;
+    --line:#d5e2dd;
+    --radius:14px;
+    --measure:60ch;
+    --shadow:0 1px 2px rgba(7,54,47,.04),0 8px 24px rgba(7,54,47,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"DM Sans",system-ui,sans-serif;
+    font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  a{color:var(--teal);text-decoration:none}
+  a:hover{text-decoration:underline}
+  h1,h2,h3,h4{font-family:"Playfair Display",Georgia,serif;color:var(--teal-ink);margin:0;line-height:1.15;font-weight:600}
+  em{font-style:italic}
+  .mono{font-family:"DM Mono",ui-monospace,monospace}
+
+  /* eyebrow / section labels */
+  .eyebrow{
+    font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--teal);margin:0 0 14px;font-weight:500;
+  }
+
+  /* nav */
+  header.site{position:sticky;top:0;z-index:20;background:rgba(238,244,242,.86);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-family:"Playfair Display",serif;font-size:22px;font-weight:700;color:var(--teal-ink)}
+  nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:14.5px}
+  nav a{color:var(--teal-ink);opacity:.82}
+  nav a:hover{opacity:1;text-decoration:none}
+  .nav-toggle{display:none}
+  @media(max-width:720px){nav ul{display:none}}
+
+  /* hero */
+  .hero{padding:84px 0 64px}
+  .hero h1{font-size:clamp(2rem,4.6vw,3.5rem);letter-spacing:-.01em;max-width:20ch}
+  .hero h1 em{color:var(--teal)}
+  .hero .lede{margin:26px 0 0;font-size:1.18rem;max-width:var(--measure);color:var(--ink)}
+  .hero .lede strong{color:var(--teal-ink);font-weight:600}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+  .btn{
+    display:inline-block;padding:13px 22px;border-radius:11px;font-weight:600;font-size:15px;
+    border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease}
+  .btn:hover{text-decoration:none;transform:translateY(-1px)}
+  .btn-primary{background:var(--teal);color:#fff;box-shadow:var(--shadow)}
+  .btn-primary:hover{background:var(--teal-deep)}
+  .btn-ghost{background:transparent;color:var(--teal-ink);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--teal)}
+
+  /* section rhythm */
+  section{padding:66px 0}
+  .section-alt{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .section-head{max-width:var(--measure)}
+  .section-head h2{font-size:clamp(1.6rem,3.2vw,2.3rem);letter-spacing:-.01em}
+  .section-head p.sub{color:var(--muted);margin:16px 0 0;font-size:1.05rem}
+
+  /* idea flow */
+  .flow{
+    font-family:"DM Mono",monospace;font-size:13.5px;color:var(--teal-deep);
+    background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px 24px;margin:30px 0;box-shadow:var(--shadow);overflow-x:auto;white-space:nowrap}
+  .flow .arm{color:var(--amber-ink)}
+  .flow .arrow{color:var(--muted);padding:0 10px}
+  .idea-body{display:grid;gap:18px;max-width:var(--measure);margin-top:8px}
+  .idea-body p{margin:0}
+  .idea-body strong{color:var(--teal-ink)}
+
+  /* machine — numbered process cards */
+  .machine-note{max-width:var(--measure);margin:0 0 34px;font-size:1.05rem}
+  .machine-note strong{color:var(--teal-ink)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:820px){.steps{grid-template-columns:1fr}}
+  .step{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px 24px;box-shadow:var(--shadow);position:relative}
+  .step .id{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.1em;color:var(--amber-ink);font-weight:500}
+  .step h3{font-size:1.22rem;margin:14px 0 10px}
+  .step p{margin:0 0 16px;color:var(--ink);font-size:15.5px}
+  .step .tag{font-family:"DM Mono",monospace;font-size:11.5px;letter-spacing:.06em;
+    color:var(--teal);text-transform:uppercase}
+
+  /* generic card grids */
+  .grid{display:grid;gap:18px}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:820px){.grid-3{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.grid-3,.grid-2{grid-template-columns:1fr}}
+  .card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px 22px;box-shadow:var(--shadow)}
+  .card h4{font-size:1.08rem;margin:0 0 9px}
+  .card p{margin:0;color:var(--muted);font-size:15px}
+  .card.lead{background:var(--amber-soft);border-color:#ecd7b6}
+  .card.lead h4{color:var(--amber-ink)}
+
+  /* proof cards with actions */
+  .proof .card{display:flex;flex-direction:column}
+  .proof .card .kicker{font-family:"DM Mono",monospace;font-size:11.5px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--teal);margin:0 0 10px}
+  .proof .card p{color:var(--ink);flex:1}
+  .proof .card .go{margin-top:16px;font-weight:600;font-size:14.5px;color:var(--teal)}
+  .proof .card .go::after{content:" →"}
+  .badge{display:inline-block;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.06em;
+    text-transform:uppercase;background:var(--surface);color:var(--teal-ink);
+    border:1px solid var(--line);border-radius:999px;padding:4px 11px;margin-bottom:14px}
+
+  /* dispatch strip (hackathon + talk) */
+  .dispatch{background:var(--teal-ink);color:#eafaf4;border-radius:var(--radius);
+    padding:30px 30px;display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  @media(max-width:640px){.dispatch{grid-template-columns:1fr;gap:20px}}
+  .dispatch .d-label{font-family:"DM Mono",monospace;font-size:11.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:#8fd0c2;margin:0 0 10px}
+  .dispatch h4{color:#fff;font-size:1.14rem;margin:0 0 7px}
+  .dispatch p{margin:0;color:#c5e6dd;font-size:15px}
+  .dispatch a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+
+  /* where it fits */
+  .fits{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+  .fits span{background:var(--white);border:1px solid var(--line);border-radius:999px;
+    padding:10px 18px;font-size:15px;color:var(--teal-ink);font-weight:500;box-shadow:var(--shadow)}
+
+  /* contact section */
+  .contact-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:48px;align-items:start;margin-top:36px}
+  @media(max-width:760px){.contact-grid{grid-template-columns:1fr;gap:28px}}
+  .contact-meta h3{font-size:1.18rem;margin:0 0 6px}
+  .contact-meta p{color:var(--muted);font-size:15px;margin:0 0 18px}
+  .contact-meta .detail{font-size:14.5px;color:var(--ink);line-height:1.8}
+  .contact-meta .detail strong{color:var(--teal-ink);font-weight:600}
+  .contact-meta .detail a{color:var(--teal)}
+  .contact-form{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;box-shadow:var(--shadow)}
+  .contact-form .field{margin-bottom:18px}
+  .contact-form label{display:block;font-size:13.5px;font-weight:600;color:var(--teal-ink);margin-bottom:6px;letter-spacing:.01em}
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea{
+    width:100%;padding:10px 13px;border:1px solid var(--line);border-radius:9px;
+    font-family:"DM Sans",sans-serif;font-size:15px;color:var(--ink);
+    background:var(--bg);transition:border-color .15s ease;
+    -webkit-appearance:none;appearance:none;
+  }
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus{outline:none;border-color:var(--teal)}
+  .contact-form textarea{min-height:110px;resize:vertical;line-height:1.55}
+  .contact-form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:480px){.contact-form .row{grid-template-columns:1fr}}
+  .contact-form button{
+    width:100%;padding:13px;border:none;border-radius:11px;
+    background:var(--teal);color:#fff;font-family:"DM Sans",sans-serif;
+    font-size:15px;font-weight:600;cursor:pointer;
+    transition:background .15s ease,transform .15s ease;
+  }
+  .contact-form button:hover{background:var(--teal-deep);transform:translateY(-1px)}
+  .contact-form button:disabled{opacity:.6;cursor:not-allowed;transform:none}
+  #ag-form-message{margin-top:14px;font-size:14.5px;text-align:center;font-weight:500}
+
+  /* footer */
+  footer.site{background:var(--teal-deep);color:#dff0ea;padding:56px 0 46px;margin-top:8px}
+  footer .cols{display:flex;justify-content:space-between;flex-wrap:wrap;gap:28px;align-items:flex-start}
+  footer .brand-f{font-family:"Playfair Display",serif;font-size:26px;color:#fff;font-weight:700}
+  footer .place{color:#9ccabd;font-size:14px;margin-top:4px}
+  footer .built{max-width:34ch;color:#bfe1d7;font-size:14.5px;margin:0}
+  footer .built strong{color:#fff}
+  footer .mail{margin-top:22px;font-size:16px}
+  footer .mail a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+  footer .legal{margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);
+    font-size:12.5px;color:#8fbdb0;font-family:"DM Mono",monospace;letter-spacing:.04em}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  :focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <span class="brand">Agentegra.</span>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#idea">The idea</a></li>
+        <li><a href="#machine">The machine</a></li>
+        <li><a href="#different">Why it's different</a></li>
+        <li><a href="#proof">Proof</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow reveal">Sovereign AI for regulated institutions</p>
+      <h1 class="reveal">We compile your institution's knowledge into a <em>cited, auditable wiki</em>, bake its judgment into a <em>sovereign model you own</em>, and run the whole machine inside your own walls.</h1>
+      <p class="lede reveal">Specialized AI for banking, healthcare, and engineering — where the answer has to be right, accountable, and yours. <strong>Facts stay retrievable. Judgment gets baked in. Nothing leaves the perimeter.</strong></p>
+      <div class="hero-cta reveal">
+        <a class="btn btn-primary" href="#contact">Talk to us</a>
+        <a class="btn btn-ghost" href="#proof">See what's running</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE IDEA -->
+  <section id="idea">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">The idea</p>
+        <h2>Your documents are the source code. The wiki is the binary.</h2>
+      </div>
+      <div class="flow reveal">
+        your docs &amp; logs <span class="arrow">→</span> compile <span class="arrow">→</span> cited wiki <span class="arm">/facts/</span> <span class="arrow">+</span> baked judgment <span class="arm">/weights/</span> <span class="arrow">→</span> the machine
+      </div>
+      <div class="idea-body reveal">
+        <p>Most systems force the model to <em>be</em> the database — re-reading the same documents on every query, improvising what it knows. We split the work the way it should be split: <strong>facts live in a compiled, cross-referenced corpus the model consults</strong>, with a source trail an auditor can follow. <strong>Judgment belongs in the weights.</strong> Facts change, so they stay retrievable and citable. Judgment is stable, so it's the part we bake in.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE MACHINE -->
+  <section id="machine" class="section-alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">The machine</p>
+        <h2>One system. Three things it does — each already running.</h2>
+      </div>
+      <p class="machine-note reveal"><strong>We sell the machine, not the model.</strong> Not a chatbot, and not a service you pipe your data into — a pipeline that turns one institution's knowledge into AI it owns and operates.</p>
+      <div class="steps">
+        <div class="step reveal">
+          <span class="id">01 — COMPILE</span>
+          <h3>Knowledge into a cited wiki</h3>
+          <p>We ingest your documents, code, and operational logs and compile them into a structured, cross-referenced knowledge base that regenerates as sources change — with provenance behind every claim.</p>
+          <span class="tag">facts stay retrievable</span>
+        </div>
+        <div class="step reveal">
+          <span class="id">02 — BAKE</span>
+          <h3>Judgment into a model you own</h3>
+          <p>We fine-tune your institution's reasoning into an open model — built on Apertus, the fully-open Swiss base, or Mistral's open weights — so it brings expert judgment without holding facts it shouldn't.</p>
+          <span class="tag">judgment, not facts</span>
+        </div>
+        <div class="step reveal">
+          <span class="id">03 — DEPLOY</span>
+          <h3>Inside your own perimeter</h3>
+          <p>The model and the wiki run on your infrastructure — on-premise or on-device. No data crosses the boundary, no dependency on an outside API staying available or affordable.</p>
+          <span class="tag">nothing leaves</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IT CHANGES -->
+  <section id="changes">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">What it changes</p>
+        <h2>Put knowledge in the right place, and the everyday math changes.</h2>
+      </div>
+      <div class="grid grid-3" style="margin-top:34px">
+        <div class="card reveal"><h4>Your context window stays free</h4><p>The model already carries your judgment and the wiki holds your facts, so you stop re-loading huge instruction files into every prompt. The room goes to the actual task.</p></div>
+        <div class="card reveal"><h4>Guidelines distribute themselves</h4><p>Company policy lives in the weights and the wiki. Every model and every agent applies the same rules — no chasing down who has the latest handbook.</p></div>
+        <div class="card reveal"><h4>Less to load, less to spend</h4><p>No megabyte instruction dumps on every call means fewer tokens, lower cost, and faster answers — and large instruction files stop quietly degrading as they grow.</p></div>
+        <div class="card reveal"><h4>Knowledge that compounds</h4><p>The wiki sharpens as it ingests new sources, and the model can be re-baked when it's worth it. The machine gets better the longer it runs — and it stays yours.</p></div>
+        <div class="card reveal"><h4>No cold start</h4><p>A fresh model instance is born knowing the institution. No re-learning the same context at the top of every session — the knowledge is already there.</p></div>
+        <div class="card reveal"><h4>Cost you can predict</h4><p>You run an owned system on fixed infrastructure, not a meter that climbs every time more of your staff use it. No per-token billing surprises.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY DIFFERENT -->
+  <section id="different" class="section-alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Why it's different</p>
+        <h2>Built for institutions that can't send their data anywhere.</h2>
+      </div>
+      <div class="grid grid-3" style="margin-top:34px">
+        <div class="card reveal"><h4>Sovereign by default</h4><p>The model and the knowledge run inside your walls. The right answer for anyone who legally or commercially cannot ship data to a third-party cloud.</p></div>
+        <div class="card reveal"><h4>Auditable, not a black box</h4><p>Because facts stay in a cited wiki rather than dissolved into the weights, every answer traces back to a source a regulator can inspect.</p></div>
+        <div class="card reveal"><h4>You own the machine</h4><p>We hand over a system, not a subscription. It compounds in value the longer it runs — and it stays yours.</p></div>
+        <div class="card reveal"><h4>No vendor to depend on</h4><p>It keeps working regardless of an outside provider's pricing, terms, or sudden access limits — including export-control directives that can strand a closed model overnight. It can run fully air-gapped.</p></div>
+        <div class="card reveal"><h4>Your IP stays in-house</h4><p>Your data, code, and know-how are compiled and baked on your own hardware. Nothing is sent to an outside model, and nothing trains someone else's.</p></div>
+        <div class="card reveal"><h4>Harder to hijack</h4><p>Judgment held in the weights is harder to override than instructions pasted into a prompt — a smaller surface for prompt injection. Harder, not immune; we're honest about that.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section id="proof" class="proof">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Proof, not slides</p>
+        <h2>Each part is built and running today.</h2>
+        <p class="sub">The thesis isn't a pitch deck — it's a set of systems in production, plus products and demos you can put in your hand.</p>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:34px">
+        <div class="card reveal">
+          <p class="kicker">Robot Ross · the wiki, in production</p>
+          <p>Our Automated Technical File compiles 50,000+ operational events into a cited, regenerable knowledge base — live, with full provenance. The reference implementation of the whole thesis, running on a physical machine.</p>
+          <span class="go" style="color:var(--muted);cursor:default"></span>
+        </div>
+        <div class="card reveal">
+          <p class="kicker">Flotilla · multi-agent engineering</p>
+          <p>Our open orchestration framework coordinates a fleet of models with cross-checked peer review — documented in a research paper on failure modes in subscription-constrained fleets.</p>
+          <a class="go" href="#contact">Read the work</a>
+        </div>
+        <div class="card reveal">
+          <p class="kicker">Sovereign Mind · the product</p>
+          <p>Upload your documents, get a readable wiki, download the knowledge base to your iPhone, and query it fully offline — open weights, citations on every answer, zero bytes leaving the device. The machine, productized.</p>
+          <a class="go" href="#contact">Request early access</a>
+        </div>
+        <div class="card lead reveal">
+          <span class="badge">Fun PoC</span>
+          <p class="kicker" style="color:var(--amber-ink)">Silicon Oracle · on-device, shipped</p>
+          <p>A full vision-and-language stack running entirely on local hardware — four oracle voices, no cloud, no account. Proof that a serious on-device model fits in your pocket, wrapped in something that doesn't take itself too seriously.</p>
+          <a class="go" href="#contact" style="color:var(--amber-ink)">Try it</a>
+        </div>
+      </div>
+
+      <!-- DISPATCH: hackathon + talk -->
+      <div style="margin-top:34px" class="reveal">
+        <div class="dispatch">
+          <div>
+            <p class="d-label">From the field</p>
+            <h4>Mistral Vibe Hackathon · Paris</h4>
+            <p>We brought Robot Ross and built a live log-triage pipeline on Mistral models — raw logs in, failure modes and fixes out, over an API. Stress-tested the on-device stack in front of people who break demos for fun.</p>
+          </div>
+          <div>
+            <p class="d-label">Next</p>
+            <h4>Sovereign, on-device AI — Zurich talk</h4>
+            <p>A walk-through of what it actually takes to run a full RAG stack offline on a phone, on open Swiss and European weights. <a href="#contact">Details &amp; date →</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHERE IT FITS -->
+  <section id="fits" class="section-alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Where it fits</p>
+        <h2>Domains where the answer has to be right — and accountable.</h2>
+      </div>
+      <div class="fits reveal" style="margin-top:26px">
+        <span>Banking &amp; finance</span>
+        <span>Healthcare &amp; dental</span>
+        <span>Industrial &amp; technical files</span>
+        <span>Regulated software engineering</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Get in touch</p>
+        <h2>Let's talk about your institution.</h2>
+        <p class="sub">Whether you're evaluating sovereign AI, building a pilot, or just curious — we're a small team and we read every message.</p>
+      </div>
+      <div style="margin-top:36px">
+        <div class="contact-form reveal" style="max-width:620px">
+          <form id="ag-contact-form" novalidate>
+            <div class="row">
+              <div class="field">
+                <label for="ag-name">Name <span style="color:var(--amber-ink)">*</span></label>
+                <input type="text" id="ag-name" name="name" required placeholder="Your name" />
+              </div>
+              <div class="field">
+                <label for="ag-company">Company</label>
+                <input type="text" id="ag-company" name="company" placeholder="Your organisation" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="ag-email">Email <span style="color:var(--amber-ink)">*</span></label>
+              <input type="email" id="ag-email" name="email" required placeholder="you@example.com" />
+            </div>
+            <div class="field">
+              <label for="ag-subject">Topic</label>
+              <select id="ag-subject" name="subject">
+                <option value="Enterprise Trial">Enterprise Trial</option>
+                <option value="Partnership">Partnership</option>
+                <option value="Investor Enquiry">Investor Enquiry</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="ag-message">Message</label>
+              <textarea id="ag-message" name="message" placeholder="What are you working on?"></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+            <div id="ag-form-message" hidden></div>
+          </form>
+        </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="brand-f">Agentegra</div>
+        <div class="place">Switzerland</div>
+      </div>
+      <p class="built"><strong>Built on open weights</strong> — Apertus, the fully-open Swiss model, and Mistral. Your model, your jurisdiction, your machine.</p>
+      <div>
+        <div class="eyebrow" style="color:#8fd0c2">Get in touch</div>
+        <div class="mail"><a href="mailto:hello@agentegra.com">hello@agentegra.com</a></div>
+      </div>
+    </div>
+    <div class="legal">Agentegra · Sovereign AI for regulated institutions · Switzerland</div>
+  </div>
+</footer>
+
+<script>
+  // scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // contact form
+  document.getElementById('ag-contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('button[type=submit]');
+    const msg = document.getElementById('ag-form-message');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    try {
+      const r = await fetch('https://api.robotross.art/fleet/api/contacts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name:    document.getElementById('ag-name').value,
+          company: document.getElementById('ag-company').value,
+          email:   document.getElementById('ag-email').value,
+          topic:   document.getElementById('ag-subject').value,
+          message: document.getElementById('ag-message').value,
+          source:  'agentegra.com',
+        }),
+      });
+      if (r.ok) {
+        msg.textContent = "Message sent — we'll be in touch shortly.";
+        msg.style.color = 'var(--teal)';
+        this.reset();
+      } else {
+        throw new Error();
+      }
+    } catch {
+      msg.textContent = 'Something went wrong — email us at hello@agentegra.com';
+      msg.style.color = 'var(--amber-ink)';
+    } finally {
+      msg.hidden = false;
+      setTimeout(() => { msg.hidden = true; }, 6000);
+      btn.disabled = false;
+      btn.textContent = 'Send Message';
+    }
+  });
+</script>
+</body>
+</html>
