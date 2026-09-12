@@ -152,17 +152,48 @@ def _save_local(data: Dict) -> None:
             fcntl.flock(lock, fcntl.LOCK_UN)
 
 
+def _is_empty(v) -> bool:
+    return v is None or v == "" or v == {} or v == []
+
+
+def _smart_merge(target: Dict, src: Dict, _top: bool = True) -> None:
+    """Deep-merge src (DO intake) into target (local rich copy) without data loss.
+
+    The intake carries a bare-template shape for pipeline-owned fields
+    (``youtube: {}``, ``hook_copy: {}``, ``slug: ""``, ``trim_s: ""`` …). A plain
+    ``dict.update`` let those empties clobber the local copy that set-copy/build
+    filled in — the "store drift" that wiped scaffolded jobs. Rules:
+      - never overwrite an existing local value with an EMPTY remote value;
+      - deep-merge nested dicts (so a partial remote dict only touches its keys);
+      - the Mac pipeline is authoritative for processing ``status`` — don't let the
+        intake regress it (new jobs still arrive via the append path with their
+        ``queued`` status).
+    """
+    for k, v in src.items():
+        if _top and k == "status" and not _is_empty(target.get("status")):
+            continue
+        cur = target.get(k)
+        if isinstance(v, dict) and isinstance(cur, dict):
+            _smart_merge(cur, v, _top=False)
+        elif _is_empty(v):
+            continue
+        else:
+            target[k] = v
+
+
 def merge_job_local(job: Dict) -> None:
     """
     Upsert a job from DO into the local jobs.json so pipeline.py can work with it.
 
     This is a one-way write (DO → local cache). pipeline.py continues to operate
     on local files; mac_worker.py is responsible for posting results back to DO.
+    Uses a non-destructive smart merge so the intake's bare-template fields never
+    wipe the pipeline-owned copy (youtube/hook_copy/slug/trim_s/assets/localize).
     """
     data = _load_local()
     existing = {j["id"]: idx for idx, j in enumerate(data["jobs"])}
     if job["id"] in existing:
-        data["jobs"][existing[job["id"]]].update(job)
+        _smart_merge(data["jobs"][existing[job["id"]]], job)
     else:
         data["jobs"].append(job)
     _save_local(data)
