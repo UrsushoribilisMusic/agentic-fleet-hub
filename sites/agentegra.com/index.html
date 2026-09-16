@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Agentegra — Sovereign AI for regulated institutions</title>
+<title>Agentegra · Sovereign AI for industrial knowledge</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -94,8 +94,17 @@
   /* machine — numbered process cards */
   .machine-note{max-width:var(--measure);margin:0 0 34px;font-size:1.05rem}
   .machine-note strong{color:var(--teal-ink)}
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  @media(max-width:820px){.steps{grid-template-columns:1fr}}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  @media(max-width:980px){.steps{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.steps{grid-template-columns:1fr}}
+
+  /* approach flow — wrapping chips */
+  .approach-flow{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin:30px 0;
+    font-family:"DM Mono",monospace;font-size:13.5px}
+  .approach-flow .af-step{background:var(--white);border:1px solid var(--line);border-radius:10px;
+    padding:11px 15px;color:var(--teal-deep);box-shadow:var(--shadow);line-height:1.35}
+  .approach-flow .af-step .af-tech{display:block;color:var(--amber-ink);font-size:12px;margin-top:3px}
+  .approach-flow .af-arrow{color:var(--muted);flex:0 0 auto}
   .step{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
     padding:26px 24px;box-shadow:var(--shadow);position:relative}
   .step .id{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.1em;color:var(--amber-ink);font-weight:500}
@@ -190,6 +199,29 @@
   footer .legal{margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);
     font-size:12.5px;color:#8fbdb0;font-family:"DM Mono",monospace;letter-spacing:.04em}
 
+  /* blueprint diagram */
+  .blueprint{display:grid;grid-template-columns:1.25fr .9fr;gap:38px;align-items:start;margin-top:34px}
+  @media(max-width:820px){.blueprint{grid-template-columns:1fr;gap:26px}}
+  .stack{display:flex;flex-direction:column;gap:10px}
+  .layer{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--teal);
+    border-radius:12px;padding:15px 18px;box-shadow:var(--shadow);
+    display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .layer .l-name{font-family:"Playfair Display",serif;font-weight:600;color:var(--teal-ink);font-size:1.06rem;line-height:1.2}
+  .layer .l-sub{color:var(--muted);font-size:13px;margin-top:2px}
+  .layer .l-tech{font-family:"DM Mono",monospace;font-size:12px;color:var(--amber-ink);text-align:right;white-space:nowrap}
+  .layer.l4{border-left-color:var(--amber)}
+  .layer.base{background:var(--surface);border-left-color:var(--muted)}
+  .pipeline{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow)}
+  .pipeline .p-label{font-family:"DM Mono",monospace;font-size:11.5px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--teal);margin:0 0 12px}
+  .flow-steps{list-style:none;margin:0;padding:0}
+  .flow-steps li{display:flex;align-items:center;gap:12px;font-size:15px;color:var(--ink);padding:8px 0}
+  .flow-steps li:not(:last-child){border-bottom:1px dashed var(--line)}
+  .flow-steps li b{font-family:"DM Mono",monospace;font-size:12px;font-weight:500;color:#fff;background:var(--teal);
+    width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .flow-steps li:last-child{font-weight:600;color:var(--teal-ink)}
+  .flow-steps li:last-child b{background:var(--amber)}
+
   /* reveal */
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
   .reveal.in{opacity:1;transform:none}
@@ -205,9 +237,11 @@
     <span class="brand">Agentegra.</span>
     <nav aria-label="Primary">
       <ul>
-        <li><a href="#idea">The idea</a></li>
-        <li><a href="#machine">The machine</a></li>
-        <li><a href="#different">Why it's different</a></li>
+        <li><a href="#problem">The problem</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#how">How we work</a></li>
+        <li><a href="#blueprint">Blueprint</a></li>
+        <li><a href="#build-on">What we build on</a></li>
         <li><a href="#proof">Proof</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -220,9 +254,10 @@
   <!-- HERO -->
   <section class="hero">
     <div class="wrap">
-      <p class="eyebrow reveal">Sovereign AI for regulated institutions</p>
-      <h1 class="reveal">We compile your institution's knowledge into a <em>cited, auditable wiki</em>, bake its judgment into a <em>sovereign model you own</em>, and run the whole machine inside your own walls.</h1>
-      <p class="lede reveal">Specialized AI for banking, healthcare, and engineering — where the answer has to be right, accountable, and yours. <strong>Facts stay retrievable. Judgment gets baked in. Nothing leaves the perimeter.</strong></p>
+      <p class="eyebrow reveal">Sovereign AI for industrial knowledge</p>
+      <h1 class="reveal">Your senior service engineers are retiring. Their knowledge is in <em>PDFs, tickets, emails and their heads.</em></h1>
+      <p class="lede reveal">Your technicians need answers in a machine hall with no signal. Your machine documentation cannot go into ChatGPT. And the people who know why a machine behaves the way it does are closer to retirement every year.</p>
+      <p class="lede reveal">We compile what your company knows into a <strong>cited, auditable knowledge base that runs inside your own walls</strong>, and we build it with you rather than selling you a subscription.</p>
       <div class="hero-cta reveal">
         <a class="btn btn-primary" href="#contact">Talk to us</a>
         <a class="btn btn-ghost" href="#proof">See what's running</a>
@@ -230,85 +265,156 @@
     </div>
   </section>
 
-  <!-- THE IDEA -->
-  <section id="idea">
+  <!-- THE PROBLEM -->
+  <section id="problem">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">The idea</p>
-        <h2>Your documents are the source code. The wiki is the binary.</h2>
+        <p class="eyebrow">The problem</p>
+        <h2>The knowledge exists. It just isn't reachable.</h2>
+        <p class="sub">Every machine builder we've worked with has the same four problems, and none of them are AI problems.</p>
       </div>
-      <div class="flow reveal">
-        your docs &amp; logs <span class="arrow">→</span> compile <span class="arrow">→</span> cited wiki <span class="arm">/facts/</span> <span class="arrow">+</span> baked judgment <span class="arm">/weights/</span> <span class="arrow">→</span> the machine
+      <div class="grid grid-2" style="margin-top:34px">
+        <div class="card reveal"><h4>It's scattered</h4><p>Manuals in one system, service bulletins in another, the real answers in tickets, emails, and one engineer's memory.</p></div>
+        <div class="card reveal"><h4>It's leaving</h4><p>The people who commissioned the machines in 2009 are retiring, and what they know was never written down in a form anyone else can use.</p></div>
+        <div class="card reveal"><h4>It's needed offline</h4><p>A field engineer in a basement plant does not have reliable connectivity, and the answer is needed now.</p></div>
+        <div class="card reveal"><h4>It doesn't need to go to a US-hosted model</h4><p>Proprietary machine documentation, customer process data and tolerances are not going into a US-hosted model, whatever the terms of service say.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE APPROACH -->
+  <section id="approach" class="section-alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">The approach</p>
+        <h2>Open-weight AI, on your side of the firewall.</h2>
+      </div>
+      <div class="approach-flow reveal">
+        <span class="af-step">your docs &amp; logs</span>
+        <span class="af-arrow">→</span>
+        <span class="af-step">compile</span>
+        <span class="af-arrow">→</span>
+        <span class="af-step">cited wiki + open-weight model<span class="af-tech">Apertus · Mistral</span></span>
+        <span class="af-arrow">→</span>
+        <span class="af-step">runs on your hardware, offline</span>
       </div>
       <div class="idea-body reveal">
-        <p>Most systems force the model to <em>be</em> the database — re-reading the same documents on every query, improvising what it knows. We split the work the way it should be split: <strong>facts live in a compiled, cross-referenced corpus the model consults</strong>, with a source trail an auditor can follow. <strong>Judgment belongs in the weights.</strong> Facts change, so they stay retrievable and citable. Judgment is stable, so it's the part we bake in.</p>
+        <p>We compile your documents, logs and tickets into a cited, auditable knowledge base, and pair it with <strong>open-weight AI that runs on your own hardware</strong>: Apertus, the fully-open Swiss model, and Mistral. No US cloud, and no data leaving the perimeter. The wiki holds the facts with a source trail an auditor can follow; the model reads and reasons over them, on-premise or fully offline in the field.</p>
       </div>
     </div>
   </section>
 
-  <!-- THE MACHINE -->
-  <section id="machine" class="section-alt">
+  <!-- HOW WE WORK -->
+  <section id="how">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">The machine</p>
-        <h2>One system. Three things it does — each already running.</h2>
+        <p class="eyebrow">How we work</p>
+        <h2>Four steps. You own what comes out.</h2>
       </div>
-      <p class="machine-note reveal"><strong>We sell the machine, not the model.</strong> Not a chatbot, and not a service you pipe your data into — a pipeline that turns one institution's knowledge into AI it owns and operates.</p>
-      <div class="steps">
+      <div class="steps" style="margin-top:34px">
         <div class="step reveal">
-          <span class="id">01 — COMPILE</span>
-          <h3>Knowledge into a cited wiki</h3>
-          <p>We ingest your documents, code, and operational logs and compile them into a structured, cross-referenced knowledge base that regenerates as sources change — with provenance behind every claim.</p>
-          <span class="tag">facts stay retrievable</span>
+          <span class="id">01 — AUDIT</span>
+          <h3>Find out what's answerable today</h3>
+          <p>We start with a scoped engagement to find out where your machine knowledge actually lives, what condition it's in, and what a cited assistant could answer today. You get a written assessment and a working demo running on your own documents, not on a sample dataset.</p>
+          <p style="color:var(--muted);font-size:14.5px">Scope and duration are set per customer. It is deliberately small enough to approve without a committee.</p>
+          <span class="tag">scoped per customer</span>
         </div>
         <div class="step reveal">
-          <span class="id">02 — BAKE</span>
-          <h3>Judgment into a model you own</h3>
-          <p>We fine-tune your institution's reasoning into an open model — built on Apertus, the fully-open Swiss base, or Mistral's open weights — so it brings expert judgment without holding facts it shouldn't.</p>
-          <span class="tag">judgment, not facts</span>
+          <span class="id">02 — BUILD</span>
+          <h3>AI compiles your knowledge into a cited wiki</h3>
+          <p>We use AI to compile your documents, logs and tickets into a structured, cross-referenced wiki that regenerates as the sources change, with provenance behind every claim. The heavy generation runs in the cloud for speed, or fully on your premises when the corpus is too sensitive to leave the building.</p>
+          <p style="color:var(--muted);font-size:14.5px">We start from a core we've already built and harden it against your case. You are not paying us to invent a RAG pipeline from scratch, and you are not getting someone else's roadmap either.</p>
+          <span class="tag">cloud or on-prem generation</span>
         </div>
         <div class="step reveal">
-          <span class="id">03 — DEPLOY</span>
-          <h3>Inside your own perimeter</h3>
-          <p>The model and the wiki run on your infrastructure — on-premise or on-device. No data crosses the boundary, no dependency on an outside API staying available or affordable.</p>
-          <span class="tag">nothing leaves</span>
+          <span class="id">03 — HAND OVER</span>
+          <h3>Local inference on hardware you own</h3>
+          <p>You get a system, not a seat licence. Day-to-day queries run with local inference on the hardware you already have, so nothing leaves the building and there is no per-token cloud bill that grows every time your team uses it. It keeps working if we disappear, and gets better as it ingests more of your sources.</p>
+          <span class="tag">local inference, no token cost</span>
+        </div>
+        <div class="step reveal">
+          <span class="id">04 — IMPROVE</span>
+          <h3>It gets sharper the more you use it</h3>
+          <p>Every answer can be rated. A thumbs-down, or a correction from the person who actually knows, becomes a new cited entry in the corpus. The wiki fills its own gaps, so the system improves over time instead of going stale, and the knowledge compounds as your team works.</p>
+          <span class="tag">feedback becomes corpus</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WHAT IT CHANGES -->
-  <section id="changes">
+  <!-- THE BLUEPRINT -->
+  <section id="blueprint" class="section-alt">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">What it changes</p>
-        <h2>Put knowledge in the right place, and the everyday math changes.</h2>
+        <p class="eyebrow">The blueprint</p>
+        <h2>Four layers of automated operational memory.</h2>
+        <p class="sub">Each layer builds on the one below it, turning what your systems already produce into a self-documenting system you can question and, if you like, talk to.</p>
+      </div>
+      <div class="blueprint reveal">
+        <div class="stack">
+          <div class="layer l4">
+            <div><div class="l-name">Voice interface</div><div class="l-sub">talk to it, hands-free on the floor</div></div>
+            <div class="l-tech">Voxtral</div>
+          </div>
+          <div class="layer l3">
+            <div><div class="l-name">Cited Q&amp;A</div><div class="l-sub">a source behind every answer</div></div>
+            <div class="l-tech">Mistral + document library</div>
+          </div>
+          <div class="layer l2">
+            <div><div class="l-name">Compiled wiki</div><div class="l-sub">cross-referenced, regenerable</div></div>
+            <div class="l-tech">Markdown pages</div>
+          </div>
+          <div class="layer l1 base">
+            <div><div class="l-name">Operational ledger</div><div class="l-sub">the ground truth</div></div>
+            <div class="l-tech">source code + logs</div>
+          </div>
+        </div>
+        <div class="pipeline">
+          <p class="p-label">How a question becomes a cited answer</p>
+          <ol class="flow-steps">
+            <li><b>1</b> Logs</li>
+            <li><b>2</b> Parser</li>
+            <li><b>3</b> Ledger</li>
+            <li><b>4</b> Generator</li>
+            <li><b>5</b> Wiki</li>
+            <li><b>6</b> Mistral</li>
+            <li><b>7</b> Cited answer</li>
+          </ol>
+        </div>
+      </div>
+      <p class="machine-note reveal" style="margin-top:26px"><strong>Stack these layers and you have a self-documenting, queryable operational memory, built from what your systems already produce.</strong></p>
+    </div>
+  </section>
+
+  <!-- WHAT WE BUILD ON -->
+  <section id="build-on">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">What we build on</p>
+        <h2>The core already exists. The work is fitting it to you.</h2>
       </div>
       <div class="grid grid-3" style="margin-top:34px">
-        <div class="card reveal"><h4>Your context window stays free</h4><p>The model already carries your judgment and the wiki holds your facts, so you stop re-loading huge instruction files into every prompt. The room goes to the actual task.</p></div>
-        <div class="card reveal"><h4>Guidelines distribute themselves</h4><p>Company policy lives in the weights and the wiki. Every model and every agent applies the same rules — no chasing down who has the latest handbook.</p></div>
-        <div class="card reveal"><h4>Less to load, less to spend</h4><p>No megabyte instruction dumps on every call means fewer tokens, lower cost, and faster answers — and large instruction files stop quietly degrading as they grow.</p></div>
-        <div class="card reveal"><h4>Knowledge that compounds</h4><p>The wiki sharpens as it ingests new sources, and the model can be re-baked when it's worth it. The machine gets better the longer it runs — and it stays yours.</p></div>
-        <div class="card reveal"><h4>No cold start</h4><p>A fresh model instance is born knowing the institution. No re-learning the same context at the top of every session — the knowledge is already there.</p></div>
-        <div class="card reveal"><h4>Cost you can predict</h4><p>You run an owned system on fixed infrastructure, not a meter that climbs every time more of your staff use it. No per-token billing surprises.</p></div>
+        <div class="card reveal"><h4>Sovereign Mind</h4><p>Upload documents, get a readable cited wiki, and query it fully offline on a phone. Open-weight models (Apertus or Mistral), a citation on every answer, zero bytes leaving the device. This is the starting point for most engagements, tailored to the customer's corpus, vocabulary and workflow rather than shipped as-is.</p></div>
+        <div class="card reveal"><h4>The Automated Technical File</h4><p>A pipeline that turns source code and operational logs into a cited, regenerable technical file, mapped to EU AI Act Articles 12, 13 and 14. Running in production on a physical machine with over 50,000 logged events.</p></div>
+        <div class="card reveal"><h4>Flotilla</h4><p>Our open multi-agent orchestration framework, with cross-model peer review and circuit breakers. It's how a very small team delivers at this pace, and it's documented in a research paper on failure modes rather than in a brochure.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- WHY DIFFERENT -->
-  <section id="different" class="section-alt">
+  <!-- WHY US -->
+  <section id="why-us" class="section-alt">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">Why it's different</p>
-        <h2>Built for institutions that can't send their data anywhere.</h2>
+        <p class="eyebrow">Why us</p>
+        <h2>Thirty years of Swiss and German industrial software, and we publish what we find.</h2>
       </div>
-      <div class="grid grid-3" style="margin-top:34px">
-        <div class="card reveal"><h4>Sovereign by default</h4><p>The model and the knowledge run inside your walls. The right answer for anyone who legally or commercially cannot ship data to a third-party cloud.</p></div>
-        <div class="card reveal"><h4>Auditable, not a black box</h4><p>Because facts stay in a cited wiki rather than dissolved into the weights, every answer traces back to a source a regulator can inspect.</p></div>
-        <div class="card reveal"><h4>You own the machine</h4><p>We hand over a system, not a subscription. It compounds in value the longer it runs — and it stays yours.</p></div>
-        <div class="card reveal"><h4>No vendor to depend on</h4><p>It keeps working regardless of an outside provider's pricing, terms, or sudden access limits — including export-control directives that can strand a closed model overnight. It can run fully air-gapped.</p></div>
-        <div class="card reveal"><h4>Your IP stays in-house</h4><p>Your data, code, and know-how are compiled and baked on your own hardware. Nothing is sent to an outside model, and nothing trains someone else's.</p></div>
-        <div class="card reveal"><h4>Harder to hijack</h4><p>Judgment held in the weights is harder to override than instructions pasted into a prompt — a smaller surface for prompt injection. Harder, not immune; we're honest about that.</p></div>
+      <div class="idea-body reveal" style="margin-top:26px;max-width:var(--measure)">
+        <p>The founder architected machine control for semiconductor packaging at ESEC, integrated MES with Kistler's injection moulding sensors, ran R&amp;D for thirty engineers at digitalSTROM, program-managed the digital platform at Komax, coordinated Komax machine data on Audi's production floor, and chaired the international working group that wrote the OPC UA Wire Harness Companion Specification through ARENA2036 in Stuttgart.</p>
+        <p>That is the difference between an AI vendor learning your industry and someone who has been in it since 1996.</p>
+      </div>
+      <div class="card lead reveal" style="margin-top:26px;max-width:var(--measure)">
+        <h4>We also publish our negatives</h4>
+        <p>We tested our own fine-tuning approach against a proper control, found that retrieval did all the work and that the fine-tune actively hurt, and published the result with the full dataset. We would rather tell you what doesn't work before you pay for it.</p>
       </div>
     </div>
   </section>
@@ -317,65 +423,28 @@
   <section id="proof" class="proof">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">Proof, not slides</p>
-        <h2>Each part is built and running today.</h2>
-        <p class="sub">The thesis isn't a pitch deck — it's a set of systems in production, plus products and demos you can put in your hand.</p>
+        <p class="eyebrow">Proof</p>
+        <h2>Built and running, not slides.</h2>
       </div>
 
       <div class="grid grid-2" style="margin-top:34px">
         <div class="card reveal">
-          <p class="kicker">Robot Ross · the wiki, in production</p>
-          <p>Our Automated Technical File compiles 50,000+ operational events into a cited, regenerable knowledge base — live, with full provenance. The reference implementation of the whole thesis, running on a physical machine.</p>
-          <span class="go" style="color:var(--muted);cursor:default"></span>
+          <p class="kicker">Robot Ross · reference implementation</p>
+          <p>The Automated Technical File in production on a physical robot. 50,000+ logged events compiled into a cited, regenerable knowledge base with full provenance. The reference implementation.</p>
         </div>
         <div class="card reveal">
-          <p class="kicker">Flotilla · multi-agent engineering</p>
-          <p>Our open orchestration framework coordinates a fleet of models with cross-checked peer review — documented in a research paper on failure modes in subscription-constrained fleets.</p>
-          <a class="go" href="#contact">Read the work</a>
+          <p class="kicker">Three published papers · all with released data</p>
+          <p>Failure modes in multi-agent fleets under subscription constraints. A four-arm ablation showing retrieval, not fine-tuning, carries the performance in a deployed RAG stack. A forward-only probe reading model disposition on smartphone-class open models, including the axis that looked real and wasn't.</p>
         </div>
         <div class="card reveal">
-          <p class="kicker">Sovereign Mind · the product</p>
-          <p>Upload your documents, get a readable wiki, download the knowledge base to your iPhone, and query it fully offline — open weights, citations on every answer, zero bytes leaving the device. The machine, productized.</p>
-          <a class="go" href="#contact">Request early access</a>
+          <p class="kicker">Mistral Vibe Hackathon · Paris</p>
+          <p>Live log-triage pipeline built on Mistral models. Raw logs in, failure modes and fixes out.</p>
         </div>
         <div class="card lead reveal">
           <span class="badge">Fun PoC</span>
           <p class="kicker" style="color:var(--amber-ink)">Silicon Oracle · on-device, shipped</p>
-          <p>A full vision-and-language stack running entirely on local hardware — four oracle voices, no cloud, no account. Proof that a serious on-device model fits in your pocket, wrapped in something that doesn't take itself too seriously.</p>
-          <a class="go" href="#contact" style="color:var(--amber-ink)">Try it</a>
+          <p>A full vision-and-language stack running entirely on an iPhone. Proof the on-device claim is real, wrapped in something that doesn't take itself too seriously.</p>
         </div>
-      </div>
-
-      <!-- DISPATCH: hackathon + talk -->
-      <div style="margin-top:34px" class="reveal">
-        <div class="dispatch">
-          <div>
-            <p class="d-label">From the field</p>
-            <h4>Mistral Vibe Hackathon · Paris</h4>
-            <p>We brought Robot Ross and built a live log-triage pipeline on Mistral models — raw logs in, failure modes and fixes out, over an API. Stress-tested the on-device stack in front of people who break demos for fun.</p>
-          </div>
-          <div>
-            <p class="d-label">Next</p>
-            <h4>Sovereign, on-device AI — Zurich talk</h4>
-            <p>A walk-through of what it actually takes to run a full RAG stack offline on a phone, on open Swiss and European weights. <a href="#contact">Details &amp; date →</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHERE IT FITS -->
-  <section id="fits" class="section-alt">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Where it fits</p>
-        <h2>Domains where the answer has to be right — and accountable.</h2>
-      </div>
-      <div class="fits reveal" style="margin-top:26px">
-        <span>Banking &amp; finance</span>
-        <span>Healthcare &amp; dental</span>
-        <span>Industrial &amp; technical files</span>
-        <span>Regulated software engineering</span>
       </div>
     </div>
   </section>
@@ -384,9 +453,9 @@
   <section id="contact">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">Get in touch</p>
-        <h2>Let's talk about your institution.</h2>
-        <p class="sub">Whether you're evaluating sovereign AI, building a pilot, or just curious — we're a small team and we read every message.</p>
+        <p class="eyebrow">Contact</p>
+        <h2>Let's find out what your documents can already answer.</h2>
+        <p class="sub">If you build machines and your service knowledge is scattered across systems and people, a short scoped audit will tell you more than a proposal will. We're a small team and we read every message.</p>
       </div>
       <div style="margin-top:36px">
         <div class="contact-form reveal" style="max-width:620px">
@@ -408,9 +477,9 @@
             <div class="field">
               <label for="ag-subject">Topic</label>
               <select id="ag-subject" name="subject">
-                <option value="Enterprise Trial">Enterprise Trial</option>
+                <option value="Knowledge audit">Knowledge audit</option>
                 <option value="Partnership">Partnership</option>
-                <option value="Investor Enquiry">Investor Enquiry</option>
+                <option value="Investor enquiry">Investor enquiry</option>
                 <option value="Other">Other</option>
               </select>
             </div>
@@ -422,6 +491,7 @@
             <div id="ag-form-message" hidden></div>
           </form>
         </div>
+      </div>
     </div>
   </section>
 
@@ -434,13 +504,13 @@
         <div class="brand-f">Agentegra</div>
         <div class="place">Switzerland</div>
       </div>
-      <p class="built"><strong>Built on open weights</strong> — Apertus, the fully-open Swiss model, and Mistral. Your model, your jurisdiction, your machine.</p>
+      <p class="built"><strong>Built on open weights:</strong> Apertus, the fully-open Swiss model, and Mistral. Your model, your jurisdiction, your machine.</p>
       <div>
         <div class="eyebrow" style="color:#8fd0c2">Get in touch</div>
         <div class="mail"><a href="mailto:hello@agentegra.com">hello@agentegra.com</a></div>
       </div>
     </div>
-    <div class="legal">Agentegra · Sovereign AI for regulated institutions · Switzerland</div>
+    <div class="legal">Agentegra · Sovereign AI for industrial knowledge · Switzerland</div>
   </div>
 </footer>
 
