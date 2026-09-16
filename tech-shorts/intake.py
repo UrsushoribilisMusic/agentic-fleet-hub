@@ -819,6 +819,51 @@ WEB_HTML = """<!DOCTYPE html>
         .status-badge.published { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
         .status-badge.failed { background: rgba(232, 103, 77, 0.2); color: var(--coral); }
 
+        /* story table */
+        .story-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        .story-table thead th {
+            text-align: left; padding: 0.6rem 0.8rem; font-size: 0.72rem; letter-spacing: 0.5px;
+            text-transform: uppercase; color: var(--mute); border-bottom: 2px solid var(--ink-border);
+            white-space: nowrap; font-weight: 700;
+        }
+        .story-table th.sortable { cursor: pointer; user-select: none; }
+        .story-table th.sortable:hover { color: var(--teal); }
+        .story-table th.c-caret { width: 1.4rem; }
+        .story-table th.c-num, .story-table td.c-num { text-align: right; font-variant-numeric: tabular-nums; }
+        .story-row {
+            cursor: pointer; border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-left: 3px solid transparent; transition: background 0.12s ease;
+        }
+        .story-row:hover { background: rgba(255,255,255,0.03); }
+        .story-row.open { background: rgba(255,255,255,0.04); }
+        .story-row td { padding: 0.55rem 0.8rem; vertical-align: middle; }
+        .story-row.status-queued { border-left-color: var(--gold); }
+        .story-row.status-in_progress { border-left-color: var(--teal); }
+        .story-row.status-raw_videos_ready { border-left-color: #38bdf8; }
+        .story-row.status-assembled { border-left-color: #a855f7; }
+        .story-row.status-published { border-left-color: #22c55e; }
+        .story-row.status-failed { border-left-color: var(--coral); }
+        .story-row .c-caret { color: var(--mute); font-size: 0.8rem; }
+        .story-row .c-title { font-weight: 600; color: #E7F1EF; max-width: 30rem; }
+        .story-row .c-date { color: var(--mute); font-size: 0.82rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        .lang-chip {
+            display: inline-block; font-family: var(--mono); font-size: 0.66rem; font-weight: 700;
+            padding: 0.1rem 0.35rem; margin-right: 3px; border-radius: 3px;
+            background: rgba(79,209,197,0.15); color: var(--teal);
+        }
+        .mute-dash { color: var(--ink-border); }
+        .c-links { white-space: nowrap; }
+        .mini-link {
+            display: inline-block; font-size: 0.76rem; padding: 0.12rem 0.45rem; margin-right: 4px;
+            border-radius: 4px; text-decoration: none; border: 1px solid var(--ink-border);
+        }
+        .mini-link.yt { color: #4ade80; } .mini-link.yt:hover { border-color: #22c55e; }
+        .mini-link.x { color: #E7F1EF; } .mini-link.x:hover { border-color: var(--teal); }
+        .story-detail-row td { padding: 0; background: rgba(0,0,0,0.18); }
+        .story-detail { padding: 0.9rem 1.4rem 1.1rem 2.2rem; border-left: 3px solid var(--teal); }
+        .story-detail .detail-id { font-family: var(--mono); font-size: 0.72rem; color: var(--mute); margin-bottom: 0.6rem; }
+        .story-detail .detail-line { margin: 0.4rem 0; font-size: 0.85rem; }
+
         .job-notes {
             font-size: 0.9rem;
             color: var(--mute);
@@ -1219,80 +1264,126 @@ WEB_HTML = """<!DOCTYPE html>
             return `<div class="asset-section">${rows.join('')}</div>`;
         }
 
+        var sortKey = 'date';
+        var sortDir = -1;   // -1 = desc (newest first)
+        var openRows = {};  // id -> true when expanded
+
+        const STATUS_LABEL = {
+            queued: 'Queued', in_progress: 'In progress', raw_videos_ready: 'Raw ready',
+            assembled: 'Ready · private', published: 'Published', failed: 'Failed',
+        };
+
+        function jobDate(job) {
+            const yt = job.youtube || {};
+            return (yt.published_at || job.created_at || '').split('T')[0];
+        }
+        function jobViews(job) {
+            const s = job.stats || {};
+            return Number(s.total_views || s.views || 0);
+        }
+        function jobLangs(job) {
+            return (job.localize || []).map(l => l.toUpperCase());
+        }
+
+        function setSort(key) {
+            if (sortKey === key) { sortDir = -sortDir; } else { sortKey = key; sortDir = (key === 'title') ? 1 : -1; }
+            renderQueue();
+        }
+        function toggleRow(id) {
+            openRows[id] = !openRows[id];
+            renderQueue();
+        }
+
         function renderQueue() {
             const container = document.getElementById('queue-container');
-            const filtered = currentFilter === 'all'
-                ? allJobs
+            let filtered = currentFilter === 'all'
+                ? allJobs.slice()
                 : allJobs.filter(j => j.status === currentFilter);
 
             if (filtered.length === 0) {
-                container.innerHTML = `<div class="empty-state">No jobs found in status: ${currentFilter}</div>`;
+                container.innerHTML = `<div class="empty-state">No stories found in status: ${currentFilter}</div>`;
                 return;
             }
 
-            container.innerHTML = filtered.map(job => {
-                const statusClass = `status-${job.status}`;
+            filtered.sort((a, b) => {
+                let va, vb;
+                if (sortKey === 'title') { va = (a.title||'').toLowerCase(); vb = (b.title||'').toLowerCase(); return va < vb ? -sortDir : va > vb ? sortDir : 0; }
+                if (sortKey === 'status') { va = STATUS_LABEL[a.status]||a.status; vb = STATUS_LABEL[b.status]||b.status; return va < vb ? -sortDir : va > vb ? sortDir : 0; }
+                if (sortKey === 'views') { return (jobViews(a) - jobViews(b)) * sortDir; }
+                va = jobDate(a); vb = jobDate(b); return va < vb ? -sortDir : va > vb ? sortDir : 0;
+            });
+
+            const caret = k => sortKey === k ? (sortDir === 1 ? ' ▲' : ' ▼') : '';
+            const head = `
+                <thead><tr>
+                    <th class="c-caret"></th>
+                    <th class="sortable" onclick="setSort('title')">Story${caret('title')}</th>
+                    <th class="sortable" onclick="setSort('status')">Status${caret('status')}</th>
+                    <th class="sortable" onclick="setSort('date')">Date${caret('date')}</th>
+                    <th>Langs</th>
+                    <th>Links</th>
+                    <th class="sortable c-num" onclick="setSort('views')">Views${caret('views')}</th>
+                </tr></thead>`;
+
+            const rows = filtered.map(job => {
+                const yt = job.youtube || {};
+                const xp = job.x_post || {};
+                const isOpen = !!openRows[job.id];
+                const langs = jobLangs(job).map(l => `<span class="lang-chip">${l}</span>`).join('') || '<span class="mute-dash">—</span>';
+                let links = '';
+                if (yt.long_url)  links += `<a href="${escapeHtml(yt.long_url)}"  target="_blank" rel="noopener" class="mini-link yt" title="Long video" onclick="event.stopPropagation()">▶ long</a>`;
+                if (yt.short_url) links += `<a href="${escapeHtml(yt.short_url)}" target="_blank" rel="noopener" class="mini-link yt" title="Short" onclick="event.stopPropagation()">▶ short</a>`;
+                if (xp.post_url)  links += `<a href="${escapeHtml(xp.post_url)}"  target="_blank" rel="noopener" class="mini-link x" title="X post" onclick="event.stopPropagation()">𝕏</a>`;
+                if (!links) links = '<span class="mute-dash">—</span>';
+                const views = jobViews(job);
+
+                const summary = `
+                    <tr class="story-row ${isOpen ? 'open' : ''} status-${job.status}" onclick="toggleRow('${job.id}')">
+                        <td class="c-caret">${isOpen ? '▾' : '▸'}</td>
+                        <td class="c-title">${escapeHtml(job.title)}</td>
+                        <td><span class="status-badge ${job.status}">${STATUS_LABEL[job.status] || job.status}</span></td>
+                        <td class="c-date">${jobDate(job) || '<span class="mute-dash">—</span>'}</td>
+                        <td>${langs}</td>
+                        <td class="c-links">${links}</td>
+                        <td class="c-num">${views ? views.toLocaleString() : '<span class="mute-dash">—</span>'}</td>
+                    </tr>`;
+
+                if (!isOpen) return summary;
+
                 const urls = job.source_urls || [];
-                const tags = job.tags || [];
-                const dateStr = job.created_at ? job.created_at.split('T')[0] : '';
                 let sourceFiles = job.source_files || [];
                 if (!sourceFiles.length && (job.source_file || {}).original_name) sourceFiles = [job.source_file];
-                const hasFile = sourceFiles.length > 0;
-
-                return `
-                    <div class="job-card ${statusClass}">
-                        <div class="job-header">
-                            <div>
-                                <div class="job-title">${escapeHtml(job.title)}</div>
-                                <div style="font-family: var(--mono); font-size: 0.75rem; color: var(--mute);">${escapeHtml(job.id)}</div>
+                const tags = job.tags || [];
+                const detail = `
+                    <tr class="story-detail-row">
+                        <td colspan="7">
+                            <div class="story-detail">
+                                <div class="detail-id">${escapeHtml(job.id)}</div>
+                                <div class="pipeline-row">${pipelineSteps(job.status)}</div>
+                                ${assetLinks(job)}
+                                ${job.idea_notes ? `<div class="job-notes">${escapeHtml(job.idea_notes)}</div>` : ''}
+                                ${job.notebook_url ? `<div class="detail-line"><span class="asset-label">Notebook</span><a href="${escapeHtml(job.notebook_url)}" target="_blank" rel="noopener" class="asset-link">↗ open</a></div>` : ''}
+                                ${urls.length ? `<div class="url-pills">${urls.map(u => `<a href="${escapeHtml(u)}" target="_blank" rel="noopener" class="url-link">🔗 ${escapeHtml(u)}</a>`).join('')}</div>` : ''}
+                                ${sourceFiles.length ? `<div style="display:flex;flex-wrap:wrap;gap:6px;margin:0.5rem 0;">${sourceFiles.map(sf => `<a href="${BASE}/api/jobs/${encodeURIComponent(job.id)}/source-file?name=${encodeURIComponent(sf.original_name)}" class="file-badge" style="text-decoration:none;" download="${escapeHtml(sf.original_name)}">📎 ${escapeHtml(sf.original_name)}</a>`).join('')}</div>` : ''}
+                                ${tags.length ? `<div class="tags-row">${tags.map(t => `<span class="tag">#${escapeHtml(t)}</span>`).join('')}</div>` : ''}
+                                <div class="actions-row" style="margin-top:0.6rem;">
+                                    <select onchange="updateStatus('${job.id}', this.value)" onclick="event.stopPropagation()" style="padding: 0.2rem 0.4rem; font-size: 0.75rem; width: auto;">
+                                        <option value="queued" ${job.status === 'queued' ? 'selected' : ''}>queued</option>
+                                        <option value="in_progress" ${job.status === 'in_progress' ? 'selected' : ''}>in_progress</option>
+                                        <option value="raw_videos_ready" ${job.status === 'raw_videos_ready' ? 'selected' : ''}>raw_videos_ready</option>
+                                        <option value="assembled" ${job.status === 'assembled' ? 'selected' : ''}>assembled</option>
+                                        <option value="published" ${job.status === 'published' ? 'selected' : ''}>published</option>
+                                        <option value="failed" ${job.status === 'failed' ? 'selected' : ''}>failed</option>
+                                    </select>
+                                    <button class="btn-action" onclick="event.stopPropagation();deleteJob('${job.id}')" title="Delete story">🗑️</button>
+                                </div>
                             </div>
-                            <span class="status-badge ${job.status}">${job.status.replace(/_/g, ' ')}</span>
-                        </div>
-
-                        <div class="pipeline-row">${pipelineSteps(job.status)}</div>
-
-                        ${assetLinks(job)}
-
-                        ${job.idea_notes ? `<div class="job-notes">${escapeHtml(job.idea_notes)}</div>` : ''}
-
-                        ${urls.length ? `
-                            <div class="url-pills">
-                                ${urls.map(u => `<a href="${escapeHtml(u)}" target="_blank" rel="noopener" class="url-link">🔗 ${escapeHtml(u)}</a>`).join('')}
-                            </div>
-                        ` : ''}
-
-                        ${hasFile ? `
-                            <div style="margin-bottom:0.8rem;display:flex;flex-wrap:wrap;gap:6px;">
-                                ${sourceFiles.map(sf => `
-                                <a href="${BASE}/api/jobs/${encodeURIComponent(job.id)}/source-file?name=${encodeURIComponent(sf.original_name)}"
-                                   class="file-badge" style="text-decoration:none;" download="${escapeHtml(sf.original_name)}">
-                                   📎 ${escapeHtml(sf.original_name)}
-                                   ${sf.size_bytes ? ` (${sf.size_bytes < 1048576 ? Math.round(sf.size_bytes/1024) + ' KB' : (sf.size_bytes/1048576).toFixed(1) + ' MB'})` : ''}
-                                </a>`).join('')}
-                            </div>
-                        ` : ''}
-
-                        <div class="job-meta">
-                            <div class="tags-row">
-                                ${tags.map(t => `<span class="tag">#${escapeHtml(t)}</span>`).join('')}
-                                ${dateStr ? `<span style="font-size: 0.72rem; color: var(--mute);">📅 ${dateStr}</span>` : ''}
-                            </div>
-
-                            <div class="actions-row">
-                                <select onchange="updateStatus('${job.id}', this.value)" style="padding: 0.2rem 0.4rem; font-size: 0.75rem; width: auto;">
-                                    <option value="queued" ${job.status === 'queued' ? 'selected' : ''}>queued</option>
-                                    <option value="in_progress" ${job.status === 'in_progress' ? 'selected' : ''}>in_progress</option>
-                                    <option value="raw_videos_ready" ${job.status === 'raw_videos_ready' ? 'selected' : ''}>raw_videos_ready</option>
-                                    <option value="assembled" ${job.status === 'assembled' ? 'selected' : ''}>assembled</option>
-                                    <option value="published" ${job.status === 'published' ? 'selected' : ''}>published</option>
-                                    <option value="failed" ${job.status === 'failed' ? 'selected' : ''}>failed</option>
-                                </select>
-                                <button class="btn-action" onclick="deleteJob('${job.id}')" title="Delete job">🗑️</button>
-                            </div>
-                        </div>
-                    </div>
-                `;
+                        </td>
+                    </tr>`;
+                return summary + detail;
             }).join('');
+
+            container.innerHTML = `<table class="story-table">${head}<tbody>${rows}</tbody></table>`;
         }
 
         function escapeHtml(str) {
