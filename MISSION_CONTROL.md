@@ -1023,7 +1023,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **grt6sx2o** | FCP-5: Fleet Hub Council Room UI | gem | merged | # FCP-5: Fleet Hub Council Room UI... |
 | **kqm07jck** | FCP-7: Research Workbench source and claim ledger | gem | merged | # FCP-7: Research Workbench source and claim ledge... |
 | **8kf749we** | [Council R1] clau: [TEST] Full council cycle | clau | merged | [Council Round 1 (Independent Proposal)] Goal: [TE... |
-| **j7nll0ke** | [Council R1] gem: [TEST] Full council cycle | gem | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
+| **j7nll0ke** | [Council R1] gem: [TEST] Full council cycle | gem | in_work | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **fvlmlfgk** | [Council R1] codi: [TEST] Full council cycle | codi | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **b77akia2** | [Council R1] misty: [TEST] Full council cycle | misty | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **mc2d9rpp** | [Council R1] clau: Test Goal | clau | planned | [Council Round 1 (Independent Proposal)] Goal: Tes... |
@@ -1039,6 +1039,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **niwbqu6y** | [Council R1] gem: FCP-4 Test: Knowledge Index Intake | gem | planned | [Council Round 1 (Independent Proposal)] Goal: FCP... |
 | **e6bgl6rg** | [Council R1] codi: FCP-4 Test: Knowledge Index Intake | codi | planned | [Council Round 1 (Independent Proposal)] Goal: FCP... |
 | **xa0ceurl** | [Council R1] misty: FCP-4 Test: Knowledge Index Intake | misty | planned | [Council Round 1 (Independent Proposal)] Goal: FCP... |
+| **qbkuu8g7** | [Council R1] clau: [TEST] Full council cycle | clau | in_work | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **6cte8xru** | [Council R1] gem: [TEST] Full council cycle | gem | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **damd7ikq** | [Council R1] clau: [TEST] Full council cycle | clau | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **3buwu6ri** | [Council R1] misty: [FCP-5 Test] Autonomous Knowledge Graph Indexing | misty | planned | [Council Round 1 (Independent Proposal)] Goal: [FC... |
@@ -1051,6 +1052,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **pd5ufkkv** | [Council R1] misty: [TEST] Full council cycle | misty | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **169non70** | [Council R1] codi: [TEST] Full council cycle | codi | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **p5ohtyrg** | [Council R1] gem: [TEST] Full council cycle | gem | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
-| **qbkuu8g7** | [Council R1] clau: [TEST] Full council cycle | clau | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
