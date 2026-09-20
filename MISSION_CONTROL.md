@@ -1039,11 +1039,12 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **61pjkaeq** | [Council R2] gem: [TEST] Full council cycle | gem | merged | [Council Round 2 (Critique & Revision)] Goal: [TES... |
 | **6lymkdel** | [Council R1] clau: FCP-4 Test: Knowledge Index Intake | clau | merged | [Council Round 1 (Independent Proposal)] Goal: FCP... |
 | **niwbqu6y** | [Council R1] gem: FCP-4 Test: Knowledge Index Intake | gem | merged | [Council Round 1 (Independent Proposal)] Goal: FCP... |
-| **e6bgl6rg** | [Council R1] codi: FCP-4 Test: Knowledge Index Intake | codi | planned | [Council Round 1 (Independent Proposal)] Goal: FCP... |
+| **e6bgl6rg** | [Council R1] codi: FCP-4 Test: Knowledge Index Intake | codi | in_work | [Council Round 1 (Independent Proposal)] Goal: FCP... |
 | **xa0ceurl** | [Council R1] misty: FCP-4 Test: Knowledge Index Intake | misty | planned | [Council Round 1 (Independent Proposal)] Goal: FCP... |
+| **l6qjqh1c** | [Council Synthesis] [TEST] Full council cycle | clau | planned | [Council Synthesis] Goal: [TEST] Full council cycl... |
+| **5njihmub** | [Council Synthesis] [TEST] Full council cycle | clau | in_work | [Council Synthesis] Goal: [TEST] Full council cycl... |
 | **blewxnor** | [Council R2] clau: [TEST] Full council cycle | clau | merged | [Council Round 2 (Critique & Revision)] Goal: [TES... |
 | **xuol2ece** | [Council R1] codi: [FCP-5 Test] Autonomous Knowledge Graph Indexing | codi | merged | [Council Round 1 (Independent Proposal)] Goal: [FC... |
-| **5njihmub** | [Council Synthesis] [TEST] Full council cycle | clau | planned | [Council Synthesis] Goal: [TEST] Full council cycl... |
 | **169non70** | [Council R1] codi: [TEST] Full council cycle | codi | merged | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **qh4osp1u** | [Council R2] gem: [TEST] Full council cycle | gem | merged | [Council Round 2 (Critique & Revision)] Goal: [TES... |
 | **damd7ikq** | [Council R1] clau: [TEST] Full council cycle | clau | merged | [Council Round 1 (Independent Proposal)] Goal: [TE... |
