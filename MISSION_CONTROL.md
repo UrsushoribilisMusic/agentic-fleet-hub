@@ -1039,6 +1039,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **niwbqu6y** | [Council R1] gem: FCP-4 Test: Knowledge Index Intake | gem | merged | [Council Round 1 (Independent Proposal)] Goal: FCP... |
 | **e6bgl6rg** | [Council R1] codi: FCP-4 Test: Knowledge Index Intake | codi | planned | [Council Round 1 (Independent Proposal)] Goal: FCP... |
 | **xa0ceurl** | [Council R1] misty: FCP-4 Test: Knowledge Index Intake | misty | planned | [Council Round 1 (Independent Proposal)] Goal: FCP... |
+| **6cte8xru** | [Council R1] gem: [TEST] Full council cycle | gem | merged | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **mo6d8m6f** | [Council R2] gem: [TEST] Full council cycle | gem | planned | [Council Round 2 (Critique & Revision)] Goal: [TES... |
 | **7r24ui0v** | [Council R2] clau: [TEST] Full council cycle | clau | planned | [Council Round 2 (Critique & Revision)] Goal: [TES... |
 | **gwzg48kw** | [Council R1] gem: [FCP-5 Test] Autonomous Knowledge Graph Indexing | gem | merged | [Council Round 1 (Independent Proposal)] Goal: [FC... |
@@ -1046,7 +1047,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **pmuo4n18** | [Council R1] gem: [TEST] Full council cycle | gem | merged | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **qbkuu8g7** | [Council R1] clau: [TEST] Full council cycle | clau | merged | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **p5ohtyrg** | [Council R1] gem: [TEST] Full council cycle | gem | merged | [Council Round 1 (Independent Proposal)] Goal: [TE... |
-| **6cte8xru** | [Council R1] gem: [TEST] Full council cycle | gem | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **damd7ikq** | [Council R1] clau: [TEST] Full council cycle | clau | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **3buwu6ri** | [Council R1] misty: [FCP-5 Test] Autonomous Knowledge Graph Indexing | misty | planned | [Council Round 1 (Independent Proposal)] Goal: [FC... |
 | **xuol2ece** | [Council R1] codi: [FCP-5 Test] Autonomous Knowledge Graph Indexing | codi | planned | [Council Round 1 (Independent Proposal)] Goal: [FC... |
