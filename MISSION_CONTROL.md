@@ -1031,6 +1031,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **07o2nhvp** | [Council R2] clau: [TEST] Full council cycle | clau | merged | [Council Round 2 (Critique & Revision)] Goal: [TES... |
 | **61pjkaeq** | [Council R2] gem: [TEST] Full council cycle | gem | merged | [Council Round 2 (Critique & Revision)] Goal: [TES... |
 | **e8pqote9** | [Council Synthesis] [TEST] Full council cycle | clau | merged | [Council Synthesis] Goal: [TEST] Full council cycl... |
+| **y912tiy5** | [Council Synthesis] [FCP-5 Test] Autonomous Knowledge Graph Indexing | clau | merged | Council synthesis task for FCP-5 test. |
 | **87uncjl7** | [Council Synthesis] [FCP-5 Test] Autonomous Knowledge Graph Indexing | clau | merged | Council synthesis task for FCP-5 test. |
 | **3buwu6ri** | [Council R1] misty: [FCP-5 Test] Autonomous Knowledge Graph Indexing | misty | planned | [Council Round 1 (Independent Proposal)] Goal: [FC... |
 | **xuol2ece** | [Council R1] codi: [FCP-5 Test] Autonomous Knowledge Graph Indexing | codi | planned | [Council Round 1 (Independent Proposal)] Goal: [FC... |
