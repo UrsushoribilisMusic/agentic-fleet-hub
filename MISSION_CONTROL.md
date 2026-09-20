@@ -1016,5 +1016,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **7tk04c5x** | FCP-6: Generate GitHub issues from approved decision briefs | clau | planned | # FCP-6: Generate GitHub issues from approved deci... |
 | **kqm07jck** | FCP-7: Research Workbench source and claim ledger | gem | planned | # FCP-7: Research Workbench source and claim ledge... |
 | **vg3i0gs0** | FCP-8: Run first council pilot on Sovereign Mind prospect intelligence | codi | in_work | # FCP-8: Run the first real council pilot on Sover... |
+| **b77akia2** | [Council R1] misty: [TEST] Full council cycle | misty | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
+| **fvlmlfgk** | [Council R1] codi: [TEST] Full council cycle | codi | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
+| **j7nll0ke** | [Council R1] gem: [TEST] Full council cycle | gem | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
+| **8kf749we** | [Council R1] clau: [TEST] Full council cycle | clau | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
