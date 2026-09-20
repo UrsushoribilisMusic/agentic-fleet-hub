@@ -1011,14 +1011,14 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **3xiv826o** | FCP-0: EPIC — Flotilla Council Protocol | clau | merged | # FCP-0: EPIC — Flotilla Council Protocol... |
 | **cu841mma** | FCP-4: Fleet Hub Goal Intake UI | gem | in_work | # FCP-4: Fleet Hub Goal Intake UI... |
-| **grt6sx2o** | FCP-5: Fleet Hub Council Room UI | gem | in_work | # FCP-5: Fleet Hub Council Room UI... |
+| **grt6sx2o** | FCP-5: Fleet Hub Council Room UI | gem | merged | # FCP-5: Fleet Hub Council Room UI... |
 | **5qhih3b6** | FCP-3: Council coordinator and two-round orchestration | clau | merged | # FCP-3: Council coordinator and two-round orchest... |
 | **7tk04c5x** | FCP-6: Generate GitHub issues from approved decision briefs | clau | in_work | # FCP-6: Generate GitHub issues from approved deci... |
 | **kqm07jck** | FCP-7: Research Workbench source and claim ledger | gem | planned | # FCP-7: Research Workbench source and claim ledge... |
 | **vg3i0gs0** | FCP-8: Run first council pilot on Sovereign Mind prospect intelligence | codi | merged | # FCP-8: Run the first real council pilot on Sover... |
 | **8kf749we** | [Council R1] clau: [TEST] Full council cycle | clau | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **j7nll0ke** | [Council R1] gem: [TEST] Full council cycle | gem | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
-| **fvlmlfgk** | [Council R1] codi: [TEST] Full council cycle | codi | in_work | [Council Round 1 (Independent Proposal)] Goal: [TE... |
+| **fvlmlfgk** | [Council R1] codi: [TEST] Full council cycle | codi | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **b77akia2** | [Council R1] misty: [TEST] Full council cycle | misty | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **mc2d9rpp** | [Council R1] clau: Test Goal | clau | planned | [Council Round 1 (Independent Proposal)] Goal: Tes... |
 | **x38nzkqc** | [Council R1] gem: Test Goal | gem | planned | [Council Round 1 (Independent Proposal)] Goal: Tes... |
