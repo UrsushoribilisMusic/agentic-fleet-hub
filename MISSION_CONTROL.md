@@ -124,6 +124,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ---
 
 ### CLOSED
+- **vg3i0gs0**: FCP-8: Run first council pilot on Sovereign Mind prospect intelligence -- # FCP-8: Run the first real council pilot on Sovereign Mind prospect intelligence -- Codi. Approved.
+- **7tk04c5x**: FCP-6: Generate GitHub issues from approved decision briefs -- # FCP-6: Generate GitHub issues from approved decision briefs -- Clau. Approved.
+- **5qhih3b6**: FCP-3: Council coordinator and two-round orchestration -- # FCP-3: Council coordinator and two-round orchestration -- Clau. Approved.
 - **x7zem99u**: FCP-2: PocketBase data model for goals and decision briefs -- # FCP-2: PocketBase data model for goals, deliberations, and decision briefs -- Codi. Approved.
 - **y607umj1**: FCP-1: Protocol-only pilot templates -- # FCP-1: Protocol-only pilot templates -- Gem. Approved.
 - **7zuf39nm**: SM-356: Per-page revision history + diff view (extends SM-339 snapshots) -- **ASSIGNED: clau** — Depends: SM-350, and **extends SM-339** (DB-versioned wiki snapshots). Part of SM-349-EPIC (#1040). -- Clau. Approved.
@@ -1012,11 +1015,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **3xiv826o** | FCP-0: EPIC — Flotilla Council Protocol | clau | merged | # FCP-0: EPIC — Flotilla Council Protocol... |
 | **cu841mma** | FCP-4: Fleet Hub Goal Intake UI | gem | merged | # FCP-4: Fleet Hub Goal Intake UI... |
 | **grt6sx2o** | FCP-5: Fleet Hub Council Room UI | gem | merged | # FCP-5: Fleet Hub Council Room UI... |
-| **5qhih3b6** | FCP-3: Council coordinator and two-round orchestration | clau | merged | # FCP-3: Council coordinator and two-round orchest... |
-| **7tk04c5x** | FCP-6: Generate GitHub issues from approved decision briefs | clau | merged | # FCP-6: Generate GitHub issues from approved deci... |
-| **kqm07jck** | FCP-7: Research Workbench source and claim ledger | gem | in_work | # FCP-7: Research Workbench source and claim ledge... |
-| **vg3i0gs0** | FCP-8: Run first council pilot on Sovereign Mind prospect intelligence | codi | merged | # FCP-8: Run the first real council pilot on Sover... |
-| **8kf749we** | [Council R1] clau: [TEST] Full council cycle | clau | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
+| **kqm07jck** | FCP-7: Research Workbench source and claim ledger | gem | merged | # FCP-7: Research Workbench source and claim ledge... |
+| **8kf749we** | [Council R1] clau: [TEST] Full council cycle | clau | in_work | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **j7nll0ke** | [Council R1] gem: [TEST] Full council cycle | gem | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **fvlmlfgk** | [Council R1] codi: [TEST] Full council cycle | codi | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **b77akia2** | [Council R1] misty: [TEST] Full council cycle | misty | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
