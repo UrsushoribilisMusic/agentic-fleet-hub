@@ -15,6 +15,12 @@ import tempfile
 import hashlib
 from datetime import datetime, timedelta
 
+try:
+    from council_coordinator import run_council_cycle as _run_council_cycle
+    _COUNCIL_ENABLED = True
+except ImportError:
+    _COUNCIL_ENABLED = False
+
 PB_URL = "http://127.0.0.1:8090/api"
 
 # Guard: warn if running from the repo checkout instead of the canonical runtime path.
@@ -1056,6 +1062,13 @@ def main():
                     log(f"Skipping task '{task['title']}' — agent {agent} is offline")
             
             check_waiting_human()
+
+            # Run council coordinator every cycle to advance council_open goals
+            if _COUNCIL_ENABLED:
+                try:
+                    _run_council_cycle()
+                except Exception as _cc_exc:
+                    log(f"WARN council_coordinator cycle failed: {_cc_exc}")
         else:
             if should_log_idle:
                 try:
@@ -1067,6 +1080,13 @@ def main():
                 except Exception as e:
                     log(f"WARN idle heartbeat bulk log failed: {e}")
             check_waiting_human()
+
+            # Also run council coordinator on idle cycles to catch timeouts
+            if _COUNCIL_ENABLED:
+                try:
+                    _run_council_cycle()
+                except Exception as _cc_exc:
+                    log(f"WARN council_coordinator cycle failed: {_cc_exc}")
         
         cycle_count += 1
         time.sleep(60)

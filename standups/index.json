@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-09-20",
-    "summary": "Council Protocol kickoff: FCP tickets #1048-#1056 imported; Codi completed FCP-2 schema/docs and ran FCP-8 Sovereign Mind council pilot; Gem routine heartbeat.",
+    "summary": "FCP-3 coordinator live: council_coordinator.py deployed; R1→R2→synthesis state machine; 3 new PB migrations; all 7 test checks pass. FCP-1/FCP-2 approved, FCP-4 reset to todo.",
     "file": "2026-09-20.md"
   },
   {
