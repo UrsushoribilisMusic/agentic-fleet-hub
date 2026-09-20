@@ -1052,7 +1052,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **p1el5xi9** | [Council R2] gem: [FCP-5 Test] Autonomous Knowledge Graph Indexing | gem | planned | [Council Round 2 (Critique & Revision)] Goal: [FCP... |
 | **hwkph0wf** | [Council R2] codi: [FCP-5 Test] Autonomous Knowledge Graph Indexing | codi | merged | [Council Round 2 (Critique & Revision)] Goal: [FCP... |
 | **8gzwqitl** | [Council R2] misty: [FCP-5 Test] Autonomous Knowledge Graph Indexing | misty | planned | [Council Round 2 (Critique & Revision)] Goal: [FCP... |
-| **tka5uqtf** | [Council R2] clau: FCP-4 Test: Knowledge Index Intake | clau | planned | [Council Round 2 (Critique & Revision)] Goal: FCP-... |
+| **tka5uqtf** | [Council R2] clau: FCP-4 Test: Knowledge Index Intake | clau | in_work | [Council Round 2 (Critique & Revision)] Goal: FCP-... |
 | **vtlymnh3** | [Council R2] gem: FCP-4 Test: Knowledge Index Intake | gem | planned | [Council Round 2 (Critique & Revision)] Goal: FCP-... |
 | **z9wzzxah** | [Council R2] codi: FCP-4 Test: Knowledge Index Intake | codi | merged | [Council Round 2 (Critique & Revision)] Goal: FCP-... |
 | **my2eu21h** | [Council R2] misty: FCP-4 Test: Knowledge Index Intake | misty | planned | [Council Round 2 (Critique & Revision)] Goal: FCP-... |
