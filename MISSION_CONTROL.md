@@ -1010,35 +1010,36 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **3xiv826o** | FCP-0: EPIC — Flotilla Council Protocol | clau | merged | # FCP-0: EPIC — Flotilla Council Protocol... |
-| **cu841mma** | FCP-4: Fleet Hub Goal Intake UI | gem | planned | # FCP-4: Fleet Hub Goal Intake UI... |
+| **cu841mma** | FCP-4: Fleet Hub Goal Intake UI | gem | in_work | # FCP-4: Fleet Hub Goal Intake UI... |
 | **grt6sx2o** | FCP-5: Fleet Hub Council Room UI | gem | in_work | # FCP-5: Fleet Hub Council Room UI... |
-| **5qhih3b6** | FCP-3: Council coordinator and two-round orchestration | clau | in_work | # FCP-3: Council coordinator and two-round orchest... |
-| **7tk04c5x** | FCP-6: Generate GitHub issues from approved decision briefs | clau | planned | # FCP-6: Generate GitHub issues from approved deci... |
+| **5qhih3b6** | FCP-3: Council coordinator and two-round orchestration | clau | merged | # FCP-3: Council coordinator and two-round orchest... |
+| **7tk04c5x** | FCP-6: Generate GitHub issues from approved decision briefs | clau | in_work | # FCP-6: Generate GitHub issues from approved deci... |
 | **kqm07jck** | FCP-7: Research Workbench source and claim ledger | gem | planned | # FCP-7: Research Workbench source and claim ledge... |
 | **vg3i0gs0** | FCP-8: Run first council pilot on Sovereign Mind prospect intelligence | codi | merged | # FCP-8: Run the first real council pilot on Sover... |
 | **8kf749we** | [Council R1] clau: [TEST] Full council cycle | clau | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **j7nll0ke** | [Council R1] gem: [TEST] Full council cycle | gem | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
-| **fvlmlfgk** | [Council R1] codi: [TEST] Full council cycle | codi | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
+| **fvlmlfgk** | [Council R1] codi: [TEST] Full council cycle | codi | in_work | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **b77akia2** | [Council R1] misty: [TEST] Full council cycle | misty | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
+| **mc2d9rpp** | [Council R1] clau: Test Goal | clau | planned | [Council Round 1 (Independent Proposal)] Goal: Tes... |
+| **x38nzkqc** | [Council R1] gem: Test Goal | gem | planned | [Council Round 1 (Independent Proposal)] Goal: Tes... |
+| **qz2fyp2j** | [Council R1] codi: Test Goal | codi | planned | [Council Round 1 (Independent Proposal)] Goal: Tes... |
+| **3vq7tj89** | [Council R1] misty: Test Goal | misty | planned | [Council Round 1 (Independent Proposal)] Goal: Tes... |
+| **veevmjfv** | [Council R1] clau: [FCP-5 Test] Autonomous Knowledge Graph Indexing | clau | planned | [Council Round 1 (Independent Proposal)] Goal: [FC... |
+| **q8fadl7c** | [Council R1] gem: [FCP-5 Test] Autonomous Knowledge Graph Indexing | gem | planned | [Council Round 1 (Independent Proposal)] Goal: [FC... |
+| **78ihjhfn** | [Council R1] codi: [FCP-5 Test] Autonomous Knowledge Graph Indexing | codi | planned | [Council Round 1 (Independent Proposal)] Goal: [FC... |
+| **zxfoyagj** | [Council R1] misty: [FCP-5 Test] Autonomous Knowledge Graph Indexing | misty | planned | [Council Round 1 (Independent Proposal)] Goal: [FC... |
+| **07o2nhvp** | [Council R2] clau: [TEST] Full council cycle | clau | merged | [Council Round 2 (Critique & Revision)] Goal: [TES... |
+| **61pjkaeq** | [Council R2] gem: [TEST] Full council cycle | gem | merged | [Council Round 2 (Critique & Revision)] Goal: [TES... |
+| **e8pqote9** | [Council Synthesis] [TEST] Full council cycle | clau | merged | [Council Synthesis] Goal: [TEST] Full council cycl... |
+| **87uncjl7** | [Council Synthesis] [FCP-5 Test] Autonomous Knowledge Graph Indexing | clau | merged | Council synthesis task for FCP-5 test. |
 | **3buwu6ri** | [Council R1] misty: [FCP-5 Test] Autonomous Knowledge Graph Indexing | misty | planned | [Council Round 1 (Independent Proposal)] Goal: [FC... |
 | **xuol2ece** | [Council R1] codi: [FCP-5 Test] Autonomous Knowledge Graph Indexing | codi | planned | [Council Round 1 (Independent Proposal)] Goal: [FC... |
 | **gwzg48kw** | [Council R1] gem: [FCP-5 Test] Autonomous Knowledge Graph Indexing | gem | planned | [Council Round 1 (Independent Proposal)] Goal: [FC... |
 | **1m73hhdj** | [Council R1] clau: [FCP-5 Test] Autonomous Knowledge Graph Indexing | clau | planned | [Council Round 1 (Independent Proposal)] Goal: [FC... |
-| **e8pqote9** | [Council Synthesis] [TEST] Full council cycle | clau | merged | [Council Synthesis] Goal: [TEST] Full council cycl... |
-| **61pjkaeq** | [Council R2] gem: [TEST] Full council cycle | gem | merged | [Council Round 2 (Critique & Revision)] Goal: [TES... |
-| **07o2nhvp** | [Council R2] clau: [TEST] Full council cycle | clau | merged | [Council Round 2 (Critique & Revision)] Goal: [TES... |
 | **m9rpxbv8** | [Council R1] gem: [TEST] Full council cycle | gem | merged | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **eh9xllkb** | [Council R1] clau: [TEST] Full council cycle | clau | merged | [Council Round 1 (Independent Proposal)] Goal: [TE... |
-| **zxfoyagj** | [Council R1] misty: [FCP-5 Test] Autonomous Knowledge Graph Indexing | misty | planned | [Council Round 1 (Independent Proposal)] Goal: [FC... |
-| **78ihjhfn** | [Council R1] codi: [FCP-5 Test] Autonomous Knowledge Graph Indexing | codi | planned | [Council Round 1 (Independent Proposal)] Goal: [FC... |
-| **q8fadl7c** | [Council R1] gem: [FCP-5 Test] Autonomous Knowledge Graph Indexing | gem | planned | [Council Round 1 (Independent Proposal)] Goal: [FC... |
-| **veevmjfv** | [Council R1] clau: [FCP-5 Test] Autonomous Knowledge Graph Indexing | clau | planned | [Council Round 1 (Independent Proposal)] Goal: [FC... |
 | **pmuo4n18** | [Council R1] gem: [TEST] Full council cycle | gem | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **ch5uipub** | [Council R1] clau: [TEST] Full council cycle | clau | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
-| **3vq7tj89** | [Council R1] misty: Test Goal | misty | planned | [Council Round 1 (Independent Proposal)] Goal: Tes... |
-| **qz2fyp2j** | [Council R1] codi: Test Goal | codi | planned | [Council Round 1 (Independent Proposal)] Goal: Tes... |
-| **x38nzkqc** | [Council R1] gem: Test Goal | gem | planned | [Council Round 1 (Independent Proposal)] Goal: Tes... |
-| **mc2d9rpp** | [Council R1] clau: Test Goal | clau | planned | [Council Round 1 (Independent Proposal)] Goal: Tes... |
 | **pd5ufkkv** | [Council R1] misty: [TEST] Full council cycle | misty | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **169non70** | [Council R1] codi: [TEST] Full council cycle | codi | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **p5ohtyrg** | [Council R1] gem: [TEST] Full council cycle | gem | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
