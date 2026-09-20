@@ -1011,8 +1011,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **x7zem99u** | FCP-2: PocketBase data model for goals and decision briefs | codi | merged | # FCP-2: PocketBase data model for goals, delibera... |
 | **3xiv826o** | FCP-0: EPIC — Flotilla Council Protocol | clau | merged | # FCP-0: EPIC — Flotilla Council Protocol... |
 | **cu841mma** | FCP-4: Fleet Hub Goal Intake UI | gem | merged | # FCP-4: Fleet Hub Goal Intake UI... |
-| **grt6sx2o** | FCP-5: Fleet Hub Council Room UI | gem | planned | # FCP-5: Fleet Hub Council Room UI... |
-| **5qhih3b6** | FCP-3: Council coordinator and two-round orchestration | clau | planned | # FCP-3: Council coordinator and two-round orchest... |
+| **grt6sx2o** | FCP-5: Fleet Hub Council Room UI | gem | in_work | # FCP-5: Fleet Hub Council Room UI... |
+| **5qhih3b6** | FCP-3: Council coordinator and two-round orchestration | clau | in_work | # FCP-3: Council coordinator and two-round orchest... |
 | **7tk04c5x** | FCP-6: Generate GitHub issues from approved decision briefs | clau | planned | # FCP-6: Generate GitHub issues from approved deci... |
 | **kqm07jck** | FCP-7: Research Workbench source and claim ledger | gem | planned | # FCP-7: Research Workbench source and claim ledge... |
 | **vg3i0gs0** | FCP-8: Run first council pilot on Sovereign Mind prospect intelligence | codi | planned | # FCP-8: Run the first real council pilot on Sover... |
