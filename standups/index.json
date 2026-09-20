@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-09-20",
-    "summary": "FCP-3 coordinator live (Clau). FCP-5 Council Room UI complete (Gem): structured deliberation panels, preserved disagreement highlights, Miguel approval workflow, verified by test_council_ui_api.py. FCP-1/FCP-2 approved, FCP-8 pilot complete.",
+    "summary": "FCP-3 coordinator live (Clau). FCP-4 Goal Intake UI & FCP-5 Council Room UI complete (Gem): dense intake form, goals registry, structured deliberation panels, Miguel approval workflow. FCP-1/FCP-2 approved, FCP-8 pilot complete.",
     "file": "2026-09-20.md"
   },
   {
