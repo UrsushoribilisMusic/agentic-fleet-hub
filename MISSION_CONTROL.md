@@ -124,6 +124,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ---
 
 ### CLOSED
+- **x7zem99u**: FCP-2: PocketBase data model for goals and decision briefs -- # FCP-2: PocketBase data model for goals, deliberations, and decision briefs -- Codi. Approved.
+- **y607umj1**: FCP-1: Protocol-only pilot templates -- # FCP-1: Protocol-only pilot templates -- Gem. Approved.
 - **7zuf39nm**: SM-356: Per-page revision history + diff view (extends SM-339 snapshots) -- **ASSIGNED: clau** — Depends: SM-350, and **extends SM-339** (DB-versioned wiki snapshots). Part of SM-349-EPIC (#1040). -- Clau. Approved.
 - **l2977vud**: SM-355: Auto table of contents + stable heading anchors -- **ASSIGNED: gem** — Depends: SM-350. Part of SM-349-EPIC (#1040). -- Gem. Approved.
 - **wrfnwflf**: SM-354: Wikipedia-style editor chrome — toolbar, preview, edit summary, section edit -- **ASSIGNED: gem** — Depends: SM-350. Part of SM-349-EPIC (#1040). -- Clau. Approved.
@@ -1007,10 +1009,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **y607umj1** | FCP-1: Protocol-only pilot templates | gem | merged | # FCP-1: Protocol-only pilot templates... |
-| **x7zem99u** | FCP-2: PocketBase data model for goals and decision briefs | codi | merged | # FCP-2: PocketBase data model for goals, delibera... |
 | **3xiv826o** | FCP-0: EPIC — Flotilla Council Protocol | clau | merged | # FCP-0: EPIC — Flotilla Council Protocol... |
-| **cu841mma** | FCP-4: Fleet Hub Goal Intake UI | gem | merged | # FCP-4: Fleet Hub Goal Intake UI... |
+| **cu841mma** | FCP-4: Fleet Hub Goal Intake UI | gem | planned | # FCP-4: Fleet Hub Goal Intake UI... |
 | **grt6sx2o** | FCP-5: Fleet Hub Council Room UI | gem | in_work | # FCP-5: Fleet Hub Council Room UI... |
 | **5qhih3b6** | FCP-3: Council coordinator and two-round orchestration | clau | in_work | # FCP-3: Council coordinator and two-round orchest... |
 | **7tk04c5x** | FCP-6: Generate GitHub issues from approved decision briefs | clau | planned | # FCP-6: Generate GitHub issues from approved deci... |
