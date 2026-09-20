@@ -1044,13 +1044,13 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **xa0ceurl** | [Council R1] misty: FCP-4 Test: Knowledge Index Intake | misty | planned | [Council Round 1 (Independent Proposal)] Goal: FCP... |
 | **c3bvu5oj** | [Council R2] codi: [TEST] Full council cycle | codi | merged | [Council Round 2 (Critique & Revision)] Goal: [TES... |
 | **eya4ez6j** | [Council R2] misty: [TEST] Full council cycle | misty | planned | [Council Round 2 (Critique & Revision)] Goal: [TES... |
-| **p2210hfa** | [Council R2] clau: Test Goal | clau | in_work | [Council Round 2 (Critique & Revision)] Goal: Test... |
+| **p2210hfa** | [Council R2] clau: Test Goal | clau | merged | [Council Round 2 (Critique & Revision)] Goal: Test... |
 | **y0x1dcd9** | [Council R2] gem: Test Goal | gem | merged | [Council Round 2 (Critique & Revision)] Goal: Test... |
 | **sqokvszm** | [Council R2] codi: Test Goal | codi | merged | [Council Round 2 (Critique & Revision)] Goal: Test... |
 | **easjrphv** | [Council R2] misty: Test Goal | misty | planned | [Council Round 2 (Critique & Revision)] Goal: Test... |
 | **8y4m9qbh** | [Council R2] clau: [FCP-5 Test] Autonomous Knowledge Graph Indexing | clau | planned | [Council Round 2 (Critique & Revision)] Goal: [FCP... |
-| **p1el5xi9** | [Council R2] gem: [FCP-5 Test] Autonomous Knowledge Graph Indexing | gem | in_work | [Council Round 2 (Critique & Revision)] Goal: [FCP... |
-| **hwkph0wf** | [Council R2] codi: [FCP-5 Test] Autonomous Knowledge Graph Indexing | codi | in_work | [Council Round 2 (Critique & Revision)] Goal: [FCP... |
+| **p1el5xi9** | [Council R2] gem: [FCP-5 Test] Autonomous Knowledge Graph Indexing | gem | merged | [Council Round 2 (Critique & Revision)] Goal: [FCP... |
+| **hwkph0wf** | [Council R2] codi: [FCP-5 Test] Autonomous Knowledge Graph Indexing | codi | merged | [Council Round 2 (Critique & Revision)] Goal: [FCP... |
 | **8gzwqitl** | [Council R2] misty: [FCP-5 Test] Autonomous Knowledge Graph Indexing | misty | planned | [Council Round 2 (Critique & Revision)] Goal: [FCP... |
 | **x5j7u3ht** | [Council R2] codi: [FCP-5 Test] Autonomous Knowledge Graph Indexing | codi | merged | [Council Round 2 (Critique & Revision)] Goal: [FCP... |
 | **my2eu21h** | [Council R2] misty: FCP-4 Test: Knowledge Index Intake | misty | planned | [Council Round 2 (Critique & Revision)] Goal: FCP-... |
