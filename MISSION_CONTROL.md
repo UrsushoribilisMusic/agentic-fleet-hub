@@ -1028,13 +1028,13 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **b77akia2** | [Council R1] misty: [TEST] Full council cycle | misty | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **mc2d9rpp** | [Council R1] clau: Test Goal | clau | merged | [Council Round 1 (Independent Proposal)] Goal: Tes... |
 | **x38nzkqc** | [Council R1] gem: Test Goal | gem | merged | [Council Round 1 (Independent Proposal)] Goal: Tes... |
-| **qz2fyp2j** | [Council R1] codi: Test Goal | codi | planned | [Council Round 1 (Independent Proposal)] Goal: Tes... |
+| **qz2fyp2j** | [Council R1] codi: Test Goal | codi | in_work | [Council Round 1 (Independent Proposal)] Goal: Tes... |
 | **3vq7tj89** | [Council R1] misty: Test Goal | misty | planned | [Council Round 1 (Independent Proposal)] Goal: Tes... |
 | **veevmjfv** | [Council R1] clau: [FCP-5 Test] Autonomous Knowledge Graph Indexing | clau | merged | [Council Round 1 (Independent Proposal)] Goal: [FC... |
 | **q8fadl7c** | [Council R1] gem: [FCP-5 Test] Autonomous Knowledge Graph Indexing | gem | merged | [Council Round 1 (Independent Proposal)] Goal: [FC... |
 | **78ihjhfn** | [Council R1] codi: [FCP-5 Test] Autonomous Knowledge Graph Indexing | codi | planned | [Council Round 1 (Independent Proposal)] Goal: [FC... |
 | **zxfoyagj** | [Council R1] misty: [FCP-5 Test] Autonomous Knowledge Graph Indexing | misty | planned | [Council Round 1 (Independent Proposal)] Goal: [FC... |
-| **7r24ui0v** | [Council R2] clau: [TEST] Full council cycle | clau | in_work | [Council Round 2 (Critique & Revision)] Goal: [TES... |
+| **7r24ui0v** | [Council R2] clau: [TEST] Full council cycle | clau | merged | [Council Round 2 (Critique & Revision)] Goal: [TES... |
 | **mo6d8m6f** | [Council R2] gem: [TEST] Full council cycle | gem | merged | [Council Round 2 (Critique & Revision)] Goal: [TES... |
 | **61pjkaeq** | [Council R2] gem: [TEST] Full council cycle | gem | merged | [Council Round 2 (Critique & Revision)] Goal: [TES... |
 | **6lymkdel** | [Council R1] clau: FCP-4 Test: Knowledge Index Intake | clau | merged | [Council Round 1 (Independent Proposal)] Goal: FCP... |
