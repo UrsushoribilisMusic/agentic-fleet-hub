@@ -1014,7 +1014,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **grt6sx2o** | FCP-5: Fleet Hub Council Room UI | gem | merged | # FCP-5: Fleet Hub Council Room UI... |
 | **5qhih3b6** | FCP-3: Council coordinator and two-round orchestration | clau | merged | # FCP-3: Council coordinator and two-round orchest... |
 | **7tk04c5x** | FCP-6: Generate GitHub issues from approved decision briefs | clau | in_work | # FCP-6: Generate GitHub issues from approved deci... |
-| **kqm07jck** | FCP-7: Research Workbench source and claim ledger | gem | planned | # FCP-7: Research Workbench source and claim ledge... |
+| **kqm07jck** | FCP-7: Research Workbench source and claim ledger | gem | in_work | # FCP-7: Research Workbench source and claim ledge... |
 | **vg3i0gs0** | FCP-8: Run first council pilot on Sovereign Mind prospect intelligence | codi | merged | # FCP-8: Run the first real council pilot on Sover... |
 | **8kf749we** | [Council R1] clau: [TEST] Full council cycle | clau | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **j7nll0ke** | [Council R1] gem: [TEST] Full council cycle | gem | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
