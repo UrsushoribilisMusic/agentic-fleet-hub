@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-09-20",
-    "summary": "FCP-3 coordinator live: council_coordinator.py deployed; R1→R2→synthesis state machine; 3 new PB migrations; all 7 test checks pass. FCP-1/FCP-2 approved, FCP-4 reset to todo.",
+    "summary": "FCP-3 coordinator live (Clau). FCP-5 Council Room UI complete (Gem): structured deliberation panels, preserved disagreement highlights, Miguel approval workflow, verified by test_council_ui_api.py. FCP-1/FCP-2 approved, FCP-8 pilot complete.",
     "file": "2026-09-20.md"
   },
   {
