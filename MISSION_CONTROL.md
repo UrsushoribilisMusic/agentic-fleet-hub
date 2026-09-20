@@ -1042,7 +1042,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **niwbqu6y** | [Council R1] gem: FCP-4 Test: Knowledge Index Intake | gem | merged | [Council Round 1 (Independent Proposal)] Goal: FCP... |
 | **e6bgl6rg** | [Council R1] codi: FCP-4 Test: Knowledge Index Intake | codi | merged | [Council Round 1 (Independent Proposal)] Goal: FCP... |
 | **xa0ceurl** | [Council R1] misty: FCP-4 Test: Knowledge Index Intake | misty | planned | [Council Round 1 (Independent Proposal)] Goal: FCP... |
-| **l6qjqh1c** | [Council Synthesis] [TEST] Full council cycle | clau | planned | [Council Synthesis] Goal: [TEST] Full council cycl... |
+| **l6qjqh1c** | [Council Synthesis] [TEST] Full council cycle | clau | in_work | [Council Synthesis] Goal: [TEST] Full council cycl... |
 | **blewxnor** | [Council R2] clau: [TEST] Full council cycle | clau | merged | [Council Round 2 (Critique & Revision)] Goal: [TES... |
 | **xuol2ece** | [Council R1] codi: [FCP-5 Test] Autonomous Knowledge Graph Indexing | codi | merged | [Council Round 1 (Independent Proposal)] Goal: [FC... |
 | **169non70** | [Council R1] codi: [TEST] Full council cycle | codi | merged | [Council Round 1 (Independent Proposal)] Goal: [TE... |
