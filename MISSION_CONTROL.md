@@ -1010,7 +1010,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **3xiv826o** | FCP-0: EPIC — Flotilla Council Protocol | clau | merged | # FCP-0: EPIC — Flotilla Council Protocol... |
-| **cu841mma** | FCP-4: Fleet Hub Goal Intake UI | gem | in_work | # FCP-4: Fleet Hub Goal Intake UI... |
+| **cu841mma** | FCP-4: Fleet Hub Goal Intake UI | gem | merged | # FCP-4: Fleet Hub Goal Intake UI... |
 | **grt6sx2o** | FCP-5: Fleet Hub Council Room UI | gem | merged | # FCP-5: Fleet Hub Council Room UI... |
 | **5qhih3b6** | FCP-3: Council coordinator and two-round orchestration | clau | merged | # FCP-3: Council coordinator and two-round orchest... |
 | **7tk04c5x** | FCP-6: Generate GitHub issues from approved decision briefs | clau | in_work | # FCP-6: Generate GitHub issues from approved deci... |
@@ -1031,8 +1031,13 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **07o2nhvp** | [Council R2] clau: [TEST] Full council cycle | clau | merged | [Council Round 2 (Critique & Revision)] Goal: [TES... |
 | **61pjkaeq** | [Council R2] gem: [TEST] Full council cycle | gem | merged | [Council Round 2 (Critique & Revision)] Goal: [TES... |
 | **e8pqote9** | [Council Synthesis] [TEST] Full council cycle | clau | merged | [Council Synthesis] Goal: [TEST] Full council cycl... |
-| **y912tiy5** | [Council Synthesis] [FCP-5 Test] Autonomous Knowledge Graph Indexing | clau | merged | Council synthesis task for FCP-5 test. |
 | **87uncjl7** | [Council Synthesis] [FCP-5 Test] Autonomous Knowledge Graph Indexing | clau | merged | Council synthesis task for FCP-5 test. |
+| **y912tiy5** | [Council Synthesis] [FCP-5 Test] Autonomous Knowledge Graph Indexing | clau | merged | Council synthesis task for FCP-5 test. |
+| **xa0ceurl** | [Council R1] misty: FCP-4 Test: Knowledge Index Intake | misty | planned | [Council Round 1 (Independent Proposal)] Goal: FCP... |
+| **e6bgl6rg** | [Council R1] codi: FCP-4 Test: Knowledge Index Intake | codi | planned | [Council Round 1 (Independent Proposal)] Goal: FCP... |
+| **niwbqu6y** | [Council R1] gem: FCP-4 Test: Knowledge Index Intake | gem | planned | [Council Round 1 (Independent Proposal)] Goal: FCP... |
+| **6lymkdel** | [Council R1] clau: FCP-4 Test: Knowledge Index Intake | clau | planned | [Council Round 1 (Independent Proposal)] Goal: FCP... |
+| **le1bj683** | [Council Synthesis] [FCP-5 Test] Autonomous Knowledge Graph Indexing | clau | merged | Council synthesis task for FCP-5 test. |
 | **3buwu6ri** | [Council R1] misty: [FCP-5 Test] Autonomous Knowledge Graph Indexing | misty | planned | [Council Round 1 (Independent Proposal)] Goal: [FC... |
 | **xuol2ece** | [Council R1] codi: [FCP-5 Test] Autonomous Knowledge Graph Indexing | codi | planned | [Council Round 1 (Independent Proposal)] Goal: [FC... |
 | **gwzg48kw** | [Council R1] gem: [FCP-5 Test] Autonomous Knowledge Graph Indexing | gem | planned | [Council Round 1 (Independent Proposal)] Goal: [FC... |
