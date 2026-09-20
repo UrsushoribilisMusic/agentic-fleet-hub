@@ -76,16 +76,60 @@ Persistent fleet memory. Agents submit reusable insights here for future referen
 
 ---
 
-## `goals` Collection (optional)
+## `goals` Collection
 
-Higher-level objectives that group related tasks.
+Council Protocol product intent. A goal is Miguel's upstream request before execution tickets exist.
 
 | Field | Type | Notes |
 |---|---|---|
-| `title` | text | Goal name |
-| `description` | text | Objective and success criteria |
-| `status` | select | `active`, `completed`, `paused` |
-| `owner` | text | Agent key or `human` |
+| `title` | text | Short goal name |
+| `status` | select | `draft`, `council_open`, `synthesis_ready`, `waiting_human`, `approved`, `rejected`, `ticketed`, `closed` |
+| `goal` | text | Product intent / desired outcome |
+| `why_now` | text | Timing rationale |
+| `constraints` | text | Scope, budget, policy, or implementation limits |
+| `success_criteria` | text | Required conditions before approval or ticketing |
+| `deadline` | date | Optional due date |
+| `output_type` | select | `code`, `research`, `sales_asset`, `dashboard`, `content`, `experiment`, `mixed` |
+| `allow_internet_research` | bool | Whether external research is allowed for the goal |
+| `owner` | text | Defaults by convention to `miguel` |
+
+## `deliberations` Collection
+
+One structured Council Protocol contribution from one agent for one goal and one round.
+
+| Field | Type | Notes |
+|---|---|---|
+| `goal_id` | relation → `goals` | Required parent goal |
+| `agent` | text | Agent key |
+| `round` | number | `1` or `2`; no third round without Miguel reopening the goal |
+| `role` | select | `planner`, `skeptic`, `researcher`, `architect`, `executor`, `reviewer`, `synthesizer` |
+| `recommendation` | text | Agent's proposal or revised recommendation |
+| `risks` | text | Known risks |
+| `rejected_options` | text | Alternatives the agent would not pursue |
+| `open_questions` | text | Questions blocking confident execution |
+| `evidence_needed` | text | Claims or research that need validation |
+| `confidence` | select | `high`, `moderate`, `low`, `speculative` |
+
+## `decision_briefs` Collection
+
+Synthesized Council Protocol plan for Miguel to approve, reject, or edit.
+
+| Field | Type | Notes |
+|---|---|---|
+| `goal_id` | relation → `goals` | Required parent goal |
+| `status` | select | `draft`, `waiting_human`, `approved`, `rejected`, `ticketed` |
+| `summary` | text | Brief overview |
+| `recommended_approach` | text | Synthesized plan |
+| `agreement` | text | What the Council agreed on |
+| `disagreement` | text | Preserved disagreements |
+| `rejected_alternatives` | text | Alternatives considered and rejected |
+| `known_risks` | text | Risks carried into execution |
+| `open_questions_for_miguel` | text | Human decisions needed before ticketing |
+| `ticket_plan` | json | Structured future task plan; no tickets are created until approval |
+| `definition_of_done` | text | Done criteria for the approved plan |
+| `review_assignments` | json | Suggested peer-review ownership |
+| `created_by` | text | Synthesizer agent |
+| `approved_by` | text | Human approver, normally Miguel |
 
 ---
 
@@ -93,6 +137,6 @@ Higher-level objectives that group related tasks.
 
 1. Run PocketBase locally: `./pocketbase serve --http="127.0.0.1:8090"`.
 2. Create collections via the Admin UI at `http://127.0.0.1:8090/_/`.
-3. The `fleet/` directory in the Flotilla package includes migration helpers (`fleet/pocketbase/`) to automate schema creation.
+3. The `fleet/` directory in the Flotilla package includes PocketBase JS migrations. Council Protocol helpers and curl examples live in `docs/council_pocketbase.md`.
 4. Set the API base URL in `AGENTS/CONFIG/fleet_settings.json` under `heartbeat.api_base_url` if running on a non-default host or port.
 5. PocketBase is the local source of truth for execution state. Profile packs do not contain or restore PocketBase data — each install starts with an empty database.

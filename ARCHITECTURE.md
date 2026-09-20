@@ -89,6 +89,12 @@ A single-binary database and REST API that handles:
 - **Comments**: Real-time activity feed from agents.
 - **Heartbeats**: Health monitoring and status (Working, Idle, Blocked).
 - **Lessons**: **Structured evolutionary memory** ledger. Captures `{decision, rationale, outcome, confidence_score}` to prevent duplicate failures.
+- **Council Protocol Records**: Product-intent planning data for the pre-execution deliberation layer:
+  - `goals`: Miguel's product intent, constraints, success criteria, deadline, output type, research permission, owner, and lifecycle status (`draft`, `council_open`, `synthesis_ready`, `waiting_human`, `approved`, `rejected`, `ticketed`, `closed`).
+  - `deliberations`: Per-agent Council contributions linked to `goals` by `goal_id`, capped to round 1 or 2, with role, recommendation, risks, rejected options, open questions, evidence needed, and confidence tier.
+  - `decision_briefs`: Synthesized plans linked to `goals` by `goal_id`, preserving agreement, disagreement, rejected alternatives, risks, open questions for Miguel, ticket plan, definition of done, and review assignments.
+
+Council records do not replace `tasks`, `comments`, or `heartbeats`. They sit upstream of execution: a goal can become deliberations and a decision brief, but normal Flotilla tasks are generated only after Miguel approves the brief.
 
 ### 2b. Hybrid Snapshot Connector (`fleet_push.py`)
 For Scenario 3 deployments, PocketBase remains local and the public dashboard consumes a pushed cache instead of direct database access.
@@ -186,6 +192,24 @@ sequenceDiagram
     C->>PB: Post Feedback / Approval
     C->>PB: Update Status: Approved
 ```
+
+## Council Protocol Lifecycle
+
+The Council Protocol adds a bounded planning lifecycle before the existing task lifecycle:
+
+1. Miguel creates a `goals` record with status `draft` or `council_open`.
+2. The coordinator creates round 1 deliberation work for selected agents.
+3. Agents write `deliberations` records with `round = 1`.
+4. After all required round 1 records arrive, or a timeout expires, the coordinator opens round 2.
+5. Agents write `deliberations` records with `round = 2`, critiquing and revising the first round.
+6. A synthesizer writes a `decision_briefs` record with status `draft` or `waiting_human`.
+7. Miguel approves, rejects, or requests changes on the decision brief.
+8. Only an approved brief can move to `ticketed` and generate ordinary `tasks` / GitHub issues.
+9. Execution then follows the existing task lifecycle and peer-review rules unchanged.
+
+The hard stop is two deliberation rounds. Goals without clear success criteria should move to `waiting_human` instead of being guessed into tickets.
+
+Operational helpers and curl examples live in [`docs/council_pocketbase.md`](./docs/council_pocketbase.md). The schema migration is [`fleet/1782094000_created_council_collections.js`](./fleet/1782094000_created_council_collections.js), with static smoke validation in [`scripts/validate_council_migrations.py`](./scripts/validate_council_migrations.py).
 
 ### 6. Fleet Steering (Project Switching)
 
