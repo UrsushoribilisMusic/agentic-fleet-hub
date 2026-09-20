@@ -175,6 +175,11 @@ This may be implemented later. It is not required for the first council prototyp
 - External claims require source URLs when `allow_internet_research` is true.
 - No automatic ticket creation before Miguel approves the decision brief.
 - Goals that lack success criteria should be sent back to `waiting_human`, not guessed into tickets.
+- Council R1, R2, and synthesis tasks are PocketBase-only internal work and must set `is_github_sync` to `false`.
+- Synthetic or test-looking goals require an explicit `council_state.allow_live_test_tasks = true` flag before they can create live tasks.
+- The coordinator filters out agents marked unavailable or offline before spawning new council work.
+- The default roster is intentionally small (`clau,codi`) unless a goal explicitly requests more agents.
+- The coordinator enforces `COUNCIL_MAX_TASKS_PER_GOAL` to cap accidental task bursts.
 
 ## Phase Plan
 

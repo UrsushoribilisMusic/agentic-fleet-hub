@@ -97,7 +97,8 @@ def main() -> None:
         "output_type": "code",
         "allow_internet_research": False,
         "owner": "test",
-        "roster": ["clau", "gem"],  # small roster for speed
+        "roster": ["clau", "codi"],  # small roster for speed
+        "council_state": {"allow_live_test_tasks": not DRY_RUN_TASKS},
     })
     check(g_full is not None, "full-lifecycle test goal created")
     gid_full = g_full["id"]

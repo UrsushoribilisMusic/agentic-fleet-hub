@@ -13,6 +13,11 @@ Advances goals through the two-round council lifecycle:
 Safeguards enforced:
 - Maximum two deliberation rounds; no third round.
 - No execution tickets are ever created here.
+- Council deliberation tasks are PocketBase-only; GitHub tickets are created
+  only from approved decision briefs.
+- Synthetic/test goals require an explicit allow flag before live task creation.
+- Unavailable agents are filtered before any new council tasks are created.
+- Per-goal task creation is capped to prevent accidental token burn.
 - Goals lacking success_criteria go to waiting_human immediately.
 
 Reuses PB_URL, post_comment, and log_task_event patterns from dispatcher.py.
@@ -41,6 +46,10 @@ import requests
 # ---------------------------------------------------------------------------
 
 PB_URL = os.environ.get("PB_URL", "http://127.0.0.1:8090/api")
+REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+FLEET_DIR = os.path.dirname(__file__)
+OFFLINE_AGENTS_FILE = os.path.join(FLEET_DIR, "logs", "offline_agents.json")
+AGENT_FAILURES_FILE = os.path.join(FLEET_DIR, "logs", "agent_failures.json")
 
 # How long to wait for all agents in a round before declaring a timeout and
 # moving on.  Timed-out incomplete tasks are left in their current status so
@@ -49,8 +58,18 @@ R1_TIMEOUT_HOURS = float(os.environ.get("COUNCIL_R1_TIMEOUT_HOURS", "4"))
 R2_TIMEOUT_HOURS = float(os.environ.get("COUNCIL_R2_TIMEOUT_HOURS", "4"))
 SYNTHESIS_TIMEOUT_HOURS = float(os.environ.get("COUNCIL_SYNTHESIS_TIMEOUT_HOURS", "6"))
 
-# Default roster when a goal has no explicit roster field.
-DEFAULT_ROSTER = ["clau", "gem", "codi", "misty"]
+# Default roster when a goal has no explicit roster field. Keep this small and
+# token-safe; goals can still request a broader explicit roster.
+DEFAULT_ROSTER = [
+    a.strip()
+    for a in os.environ.get("COUNCIL_DEFAULT_ROSTER", "clau,codi").split(",")
+    if a.strip()
+]
+
+# Hard cap for coordinator-created internal tasks per goal. With the default
+# two-agent roster, a normal goal creates 2 R1 + 2 R2 + 1 synthesis tasks.
+MAX_TASKS_PER_GOAL = int(os.environ.get("COUNCIL_MAX_TASKS_PER_GOAL", "8"))
+ALLOW_SYNTHETIC_GOALS = os.environ.get("COUNCIL_ALLOW_SYNTHETIC_GOALS") == "1"
 
 # Role assignment order — coordinator cycles through roles for each agent.
 ROLE_CYCLE = ["architect", "planner", "executor", "skeptic", "researcher", "reviewer"]
@@ -149,6 +168,8 @@ def _utcnow_str() -> str:
 
 def _parse_utc(value: str) -> datetime:
     """Parse PocketBase timestamp strings into UTC-aware datetime."""
+    if not value:
+        raise ValueError("empty timestamp")
     value = value.replace("Z", "+00:00").replace(" ", "T")
     try:
         return datetime.fromisoformat(value)
@@ -163,6 +184,37 @@ def _hours_since(ts: str) -> float:
         return (_utcnow() - dt).total_seconds() / 3600
     except Exception:
         return 0.0
+
+
+def _load_json_file(path: str) -> dict:
+    try:
+        if os.path.exists(path):
+            with open(path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                return data if isinstance(data, dict) else {}
+    except Exception as exc:
+        log.warning("Could not load %s: %s", path, exc)
+    return {}
+
+
+def _agent_unavailable_reason(agent: str) -> str:
+    failures = _load_json_file(AGENT_FAILURES_FILE)
+    failure = failures.get(agent, {})
+    blocked_until_raw = failure.get("blocked_until")
+    if blocked_until_raw:
+        try:
+            if _parse_utc(blocked_until_raw) > _utcnow():
+                return failure.get("reason") or f"cooldown until {blocked_until_raw}"
+        except Exception:
+            pass
+
+    offline = _load_json_file(OFFLINE_AGENTS_FILE)
+    if agent in offline:
+        details = offline.get(agent) or {}
+        last_seen = details.get("last_seen")
+        return f"offline: {last_seen}" if last_seen else "offline"
+
+    return ""
 
 
 # ---------------------------------------------------------------------------
@@ -191,6 +243,59 @@ def _get_roster(goal: dict) -> list[str]:
         except ValueError:
             pass
     return list(DEFAULT_ROSTER)
+
+
+def _dedupe_roster(roster: list[str]) -> list[str]:
+    seen = set()
+    deduped = []
+    for agent in roster:
+        agent = str(agent).strip()
+        if agent and agent not in seen:
+            seen.add(agent)
+            deduped.append(agent)
+    return deduped
+
+
+def _filter_available_roster(roster: list[str]) -> tuple[list[str], dict[str, str]]:
+    available = []
+    skipped = {}
+    for agent in _dedupe_roster(roster):
+        reason = _agent_unavailable_reason(agent)
+        if reason:
+            skipped[agent] = reason
+        else:
+            available.append(agent)
+    return available, skipped
+
+
+def _roster_from_tasks(tasks: list[dict]) -> list[str]:
+    return _dedupe_roster([t.get("assigned_agent", "") for t in tasks])
+
+
+def _is_synthetic_goal(goal: dict) -> bool:
+    title = goal.get("title", "")
+    markers = ("[TEST]", "Test Goal", "FCP-4 Test", "FCP-5 Test")
+    return any(marker in title for marker in markers)
+
+
+def _allows_live_synthetic_goal(state: dict) -> bool:
+    return ALLOW_SYNTHETIC_GOALS or state.get("allow_live_test_tasks") is True
+
+
+def _send_goal_waiting_human(goal_id: str, reason: str, meta: dict | None = None, dry_run: bool = False) -> None:
+    log.warning("Goal %s → waiting_human: %s", goal_id, reason)
+    if dry_run:
+        return
+    payload = {"reason": reason}
+    if meta:
+        payload.update(meta)
+    _log_task_event(
+        "council_waiting_human",
+        goal_id,
+        to_status="waiting_human",
+        meta=payload,
+    )
+    _update_goal_status(goal_id, "waiting_human")
 
 
 def _get_council_state(goal: dict) -> dict:
@@ -287,6 +392,7 @@ def _create_deliberation_task(
         "assigned_agent": agent,
         "status": "todo",
         "goal_id": goal_id,
+        "is_github_sync": False,
         "scratchpad": scratchpad,
     }
 
@@ -308,7 +414,7 @@ def _create_deliberation_task(
     return created
 
 
-def _create_synthesis_task(goal: dict, dry_run: bool) -> dict | None:
+def _create_synthesis_task(goal: dict, dry_run: bool, roster: list[str] | None = None) -> dict | None:
     """Create the synthesis task after both deliberation rounds complete."""
     goal_id = goal["id"]
     title = f"{TITLE_PREFIX_SYN} {goal['title']}"
@@ -324,7 +430,7 @@ def _create_synthesis_task(goal: dict, dry_run: bool) -> dict | None:
     instructions = _build_synthesis_instructions(goal, delib_summary)
 
     # Assign to SYNTHESIS_AGENT if available, otherwise first agent in roster
-    roster = _get_roster(goal)
+    roster = roster or _get_roster(goal)
     synthesizer = SYNTHESIS_AGENT if SYNTHESIS_AGENT in roster else roster[0]
 
     scratchpad = {"council": True, "round": 0, "role": "synthesizer", "synthesis": True}
@@ -335,6 +441,7 @@ def _create_synthesis_task(goal: dict, dry_run: bool) -> dict | None:
         "assigned_agent": synthesizer,
         "status": "todo",
         "goal_id": goal_id,
+        "is_github_sync": False,
         "scratchpad": scratchpad,
     }
 
@@ -425,6 +532,10 @@ curl -s "$PB_URL/api/collections/deliberations/records" \\
 
 After creating the deliberation record, post a comment (type: output) summarising your recommendation in 2–3 sentences.
 
+### 3. Move this task to peer_review
+
+After the deliberation record and comment exist, mark this task as `peer_review`.
+
 ---
 
 ## Rules (non-negotiable)
@@ -489,6 +600,10 @@ curl -s "$PB_URL/api/collections/decision_briefs/records" \\
 
 After creating the decision brief, post a comment with the brief summary and a link to the full record.
 
+### 3. Move this task to peer_review
+
+After the decision brief and comment exist, mark this task as `peer_review`.
+
 ---
 
 ## Rules (non-negotiable)
@@ -527,33 +642,55 @@ def _process_goal(goal: dict, dry_run: bool) -> None:
     goal_id = goal["id"]
     title = goal.get("title", goal_id)
     log.info("Processing goal %s: %s", goal_id, title)
-
-    # Safeguard: goals without success criteria go to waiting_human
-    if not (goal.get("success_criteria") or "").strip():
-        log.warning("Goal %s has no success_criteria → waiting_human", goal_id)
-        if not dry_run:
-            _log_task_event(
-                "council_waiting_human",
-                goal_id,
-                to_status="waiting_human",
-                meta={"reason": "missing success_criteria"},
-            )
-            _update_goal_status(goal_id, "waiting_human")
-        return
-
-    roster = _get_roster(goal)
-    if not roster:
-        log.warning("Goal %s has empty roster → waiting_human", goal_id)
-        if not dry_run:
-            _update_goal_status(goal_id, "waiting_human")
-        return
-
     state = _get_council_state(goal)
     all_tasks = _get_council_tasks_for_goal(goal_id)
 
+    # Safeguard: goals without success criteria go to waiting_human
+    if not (goal.get("success_criteria") or "").strip():
+        _send_goal_waiting_human(goal_id, "missing success_criteria", dry_run=dry_run)
+        return
+
+    if _is_synthetic_goal(goal) and not _allows_live_synthetic_goal(state):
+        _send_goal_waiting_human(
+            goal_id,
+            "synthetic_goal_requires_allow_live_test_tasks",
+            meta={"title": title},
+            dry_run=dry_run,
+        )
+        return
+
+    if len(all_tasks) >= MAX_TASKS_PER_GOAL:
+        _send_goal_waiting_human(
+            goal_id,
+            "council_task_cap_reached",
+            meta={"task_count": len(all_tasks), "max_tasks_per_goal": MAX_TASKS_PER_GOAL},
+            dry_run=dry_run,
+        )
+        return
+
+    requested_roster = _get_roster(goal)
     r1_tasks = _tasks_for_round(all_tasks, TITLE_PREFIX_R1)
     r2_tasks = _tasks_for_round(all_tasks, TITLE_PREFIX_R2)
     syn_tasks = _tasks_for_round(all_tasks, TITLE_PREFIX_SYN)
+
+    if state.get("effective_roster"):
+        roster = _dedupe_roster(state["effective_roster"])
+    elif r1_tasks:
+        roster = _roster_from_tasks(r1_tasks)
+    else:
+        roster, skipped_agents = _filter_available_roster(requested_roster)
+        if skipped_agents:
+            state["skipped_agents"] = skipped_agents
+            log.info("Goal %s: skipped unavailable agents: %s", goal_id, skipped_agents)
+
+    if not roster:
+        _send_goal_waiting_human(
+            goal_id,
+            "empty_or_unavailable_roster",
+            meta={"requested_roster": requested_roster, "skipped_agents": state.get("skipped_agents", {})},
+            dry_run=dry_run,
+        )
+        return
 
     # --- Round 1 ---
     if not r1_tasks:
@@ -567,11 +704,17 @@ def _process_goal(goal: dict, dry_run: bool) -> None:
 
         if not dry_run and created:
             state["r1_created_at"] = _utcnow_str()
+            state["effective_roster"] = roster
             _save_council_state(goal_id, state)
             _log_task_event(
                 "council_round1_started",
                 goal_id,
-                meta={"agents": roster, "task_ids": [t["id"] for t in created]},
+                meta={
+                    "agents": roster,
+                    "requested_roster": requested_roster,
+                    "skipped_agents": state.get("skipped_agents", {}),
+                    "task_ids": [t["id"] for t in created],
+                },
             )
         return  # Wait for the next coordinator run once tasks complete
 
@@ -644,7 +787,7 @@ def _process_goal(goal: dict, dry_run: bool) -> None:
                 state["timed_out_rounds"].append(2)
 
         log.info("Goal %s: creating Synthesis task", goal_id)
-        syn_task = _create_synthesis_task(goal, dry_run)
+        syn_task = _create_synthesis_task(goal, dry_run, roster=roster)
 
         if not dry_run and syn_task:
             state["synthesis_created_at"] = _utcnow_str()
