@@ -1039,6 +1039,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **niwbqu6y** | [Council R1] gem: FCP-4 Test: Knowledge Index Intake | gem | planned | [Council Round 1 (Independent Proposal)] Goal: FCP... |
 | **e6bgl6rg** | [Council R1] codi: FCP-4 Test: Knowledge Index Intake | codi | planned | [Council Round 1 (Independent Proposal)] Goal: FCP... |
 | **xa0ceurl** | [Council R1] misty: FCP-4 Test: Knowledge Index Intake | misty | planned | [Council Round 1 (Independent Proposal)] Goal: FCP... |
+| **pmuo4n18** | [Council R1] gem: [TEST] Full council cycle | gem | merged | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **qbkuu8g7** | [Council R1] clau: [TEST] Full council cycle | clau | merged | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **p5ohtyrg** | [Council R1] gem: [TEST] Full council cycle | gem | merged | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **6cte8xru** | [Council R1] gem: [TEST] Full council cycle | gem | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
@@ -1048,7 +1049,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **gwzg48kw** | [Council R1] gem: [FCP-5 Test] Autonomous Knowledge Graph Indexing | gem | planned | [Council Round 1 (Independent Proposal)] Goal: [FC... |
 | **1m73hhdj** | [Council R1] clau: [FCP-5 Test] Autonomous Knowledge Graph Indexing | clau | planned | [Council Round 1 (Independent Proposal)] Goal: [FC... |
 | **m9rpxbv8** | [Council R1] gem: [TEST] Full council cycle | gem | merged | [Council Round 1 (Independent Proposal)] Goal: [TE... |
-| **pmuo4n18** | [Council R1] gem: [TEST] Full council cycle | gem | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **ch5uipub** | [Council R1] clau: [TEST] Full council cycle | clau | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **pd5ufkkv** | [Council R1] misty: [TEST] Full council cycle | misty | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
 | **169non70** | [Council R1] codi: [TEST] Full council cycle | codi | planned | [Council Round 1 (Independent Proposal)] Goal: [TE... |
