@@ -435,6 +435,31 @@ def build_snapshot():
             "standups": fetch_standups(),
             "songs": fetch_collection_safe("songs", {"sort": "-combined_views", "perPage": 200}, context="songs"),
             "channel_revenue_daily": fetch_collection_safe("channel_revenue_daily", {"sort": "date", "perPage": 200}, context="channel_revenue_daily"),
+            "goals": fetch_collection_safe(
+                "goals",
+                {"sort": "-updated", "perPage": 200},
+                context="council goals",
+            ),
+            "deliberations": fetch_collection_safe(
+                "deliberations",
+                {"sort": "round,created", "perPage": 500},
+                context="council deliberations",
+            ),
+            "decision_briefs": fetch_collection_safe(
+                "decision_briefs",
+                {"sort": "-updated", "perPage": 200},
+                context="council decision briefs",
+            ),
+            "research_sources": fetch_collection_safe(
+                "research_sources",
+                {"sort": "-created", "perPage": 200},
+                context="council research sources",
+            ),
+            "research_claims": fetch_collection_safe(
+                "research_claims",
+                {"sort": "confidence,created", "perPage": 500},
+                context="council research claims",
+            ),
             "kanban": fetch_kanban(),
             "watch_hours_ledger": fetch_collection_safe(
                 "watch_hours_ledger",

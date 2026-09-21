@@ -10,11 +10,14 @@ Run modes:
 Idempotency: Before creating an issue, checks for a flotilla-managed issue with the same
 title. If one exists, writes its number back into the ticket_plan without creating a duplicate.
 
-Miguel approval gate: Only processes briefs where approved_by is non-empty.
+Miguel approval gate: Only processes briefs where status='approved' and approved_by
+is non-empty. Generated work is parked in backlog, not released to agents.
 
 Ambiguity gate: If ticket_plan is null/empty/unparseable, or any ticket has no title,
 moves the brief to waiting_human rather than guessing.
 
+Issues and PocketBase tasks are created as backlog, not todo. Releasing work to the
+fleet is a separate human action that moves selected PB tasks to todo.
 Issue links are written back into each ticket_plan item as gh_issue_id + gh_issue_url.
 The brief status is set to 'ticketed' once all issues are created successfully.
 """
@@ -33,6 +36,7 @@ GH_BIN = "/opt/homebrew/bin/gh"
 
 FLOTILLA_LABEL = "flotilla-managed"
 TODO_LABEL = "flotilla:todo"
+BACKLOG_LABEL = "flotilla:backlog"
 KNOWN_AGENTS = {"clau", "gem", "codi", "misty", "gemma", "openclaw", "scout", "echo", "closer"}
 
 FLEET_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -68,6 +72,15 @@ def pb_patch(path, data):
         return None
 
 
+def pb_post(path, data):
+    try:
+        r = requests.post(f"{PB_URL}/{path}", json=data, timeout=10)
+        return r.json() if r.status_code in (200, 201) else None
+    except Exception as e:
+        log(f"PB POST error {path}: {e}")
+        return None
+
+
 # ── GitHub helpers ────────────────────────────────────────────────────────────
 
 def gh(*args, repo=None):
@@ -86,6 +99,7 @@ def ensure_labels():
     labels_needed = {
         FLOTILLA_LABEL: "e4e669",
         TODO_LABEL: "0075ca",
+        BACKLOG_LABEL: "e4e669",
     }
     out, _ = gh("label", "list", "--json", "name", "--limit", "200")
     try:
@@ -130,6 +144,43 @@ def create_github_issue(title, body, labels):
     except Exception:
         log(f"  Could not parse issue number from: {out}")
         return None
+
+
+def find_existing_task_by_issue(issue_number):
+    if not issue_number:
+        return None
+    result = pb_get(
+        "collections/tasks/records",
+        params={"filter": f"gh_issue_id = {int(issue_number)}", "perPage": 1},
+    )
+    items = result.get("items", []) if result else []
+    return items[0] if items else None
+
+
+def create_backlog_task(ticket, brief, issue_number, issue_url, body):
+    existing = find_existing_task_by_issue(issue_number)
+    if existing:
+        log(f"  PB task exists for #{issue_number}: {existing.get('id')}")
+        return existing
+    agent = (ticket.get("assigned_agent") or "").strip()
+    payload = {
+        "title": (ticket.get("title") or "").strip(),
+        "description": body + "\n\n## Gate\n\nParked in backlog by Council ticket generation. Do not work until Miguel explicitly releases this ticket.",
+        "assigned_agent": agent if agent in KNOWN_AGENTS else "",
+        "status": "backlog",
+        "gh_issue_id": int(issue_number),
+        "github_issue_url": issue_url,
+        "github_repo": GITHUB_REPO,
+        "goal_id": brief.get("goal_id") or "",
+        "scratchpad": "Council-generated candidate ticket. Backlog gate active; not dispatchable until Miguel releases it.",
+        "is_github_sync": True,
+    }
+    created = pb_post("collections/tasks/records", payload)
+    if created:
+        log(f"  CREATED PB backlog task {created.get('id')} for #{issue_number}")
+    else:
+        log(f"  WARNING: failed to create PB backlog task for #{issue_number}")
+    return created
 
 
 # ── Body builder ──────────────────────────────────────────────────────────────
@@ -232,10 +283,13 @@ def process_brief(brief, dry_run=False):
             updated_plan[i] = dict(ticket)
             updated_plan[i]["gh_issue_id"] = existing_number
             updated_plan[i]["gh_issue_url"] = f"https://github.com/{GITHUB_REPO}/issues/{existing_number}"
+            body = build_issue_body(ticket, brief, i, total)
+            if not dry_run:
+                create_backlog_task(ticket, brief, existing_number, updated_plan[i]["gh_issue_url"], body)
             continue
 
         # Build labels
-        labels = [FLOTILLA_LABEL, TODO_LABEL]
+        labels = [FLOTILLA_LABEL, BACKLOG_LABEL]
         if agent and agent in KNOWN_AGENTS:
             labels.append(f"agent:{agent}")
 
@@ -259,6 +313,7 @@ def process_brief(brief, dry_run=False):
         updated_plan[i] = dict(ticket)
         updated_plan[i]["gh_issue_id"] = number
         updated_plan[i]["gh_issue_url"] = url
+        create_backlog_task(ticket, brief, number, url, body)
 
     # Write back updated ticket_plan with issue numbers
     if not dry_run:
