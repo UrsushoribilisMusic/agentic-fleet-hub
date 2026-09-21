@@ -215,7 +215,8 @@
       ],
       "kanban": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/issues",
       "is_active": true,
-      "webStats": "https://api.robotross.art/stats/traffic.html"
+      "webStats": "https://api.robotross.art/stats/traffic.html",
+      "archLink": "https://api.robotross.art/fleet/arch/"
     },
     {
       "title": "Tech Shorts",
@@ -227,6 +228,7 @@
       ],
       "kanban": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/issues",
       "statsLink": "https://api.robotross.art/stats/?project=tech-shorts",
+      "insightsLink": "https://api.robotross.art/fleet/insights/",
       "ideationLink": "http://localhost:8766",
       "is_active": true,
       "web": "https://ideas.flotilla.cc"

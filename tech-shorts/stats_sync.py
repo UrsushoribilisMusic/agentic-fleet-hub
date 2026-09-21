@@ -91,23 +91,25 @@ def push_to_droplet() -> bool:
 # ── YouTube ──────────────────────────────────────────────────────────────────
 
 def fetch_youtube(ids: list) -> dict:
-    """videos().list(part=statistics) for up to 50 ids. Quota only, no dollars."""
+    """videos().list(part=statistics) in chunks of 50 (the API's id cap). Quota only, no dollars."""
     if not ids:
         return {}
     sys.path.insert(0, str(MUSIC_VIDEO_TOOL))
     from youtube_uploader import get_authenticated_service, channel_token_path  # type: ignore
     svc = get_authenticated_service(token_path=channel_token_path(YT_CHANNEL))
-    res = svc.videos().list(part="statistics,snippet", id=",".join(ids)).execute()
     out = {}
-    for it in res.get("items", []):
-        s = it.get("statistics", {})
-        out[it["id"]] = {
-            "views": int(s.get("viewCount", 0)),
-            "likes": int(s.get("likeCount", 0)),
-            "comments": int(s.get("commentCount", 0)),
-            "title": it["snippet"]["title"],
-            "published_at": (it["snippet"].get("publishedAt") or "")[:10],
-        }
+    for i in range(0, len(ids), 50):
+        chunk = ids[i:i + 50]
+        res = svc.videos().list(part="statistics,snippet", id=",".join(chunk)).execute()
+        for it in res.get("items", []):
+            s = it.get("statistics", {})
+            out[it["id"]] = {
+                "views": int(s.get("viewCount", 0)),
+                "likes": int(s.get("likeCount", 0)),
+                "comments": int(s.get("commentCount", 0)),
+                "title": it["snippet"]["title"],
+                "published_at": (it["snippet"].get("publishedAt") or "")[:10],
+            }
     return out
 
 

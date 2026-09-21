@@ -1,6 +1,6 @@
 {
     "version": "1.0",
-    "updated_at": "2026-09-19T17:38:46Z",
+    "updated_at": "2026-09-21T14:44:08Z",
     "jobs": [
         {
             "id": "ts-20260916-deepmind-reasoning-transparency",
@@ -75,26 +75,53 @@
                 "long_id": "x9Kylet2e5Y",
                 "long_url": "https://www.youtube.com/watch?v=x9Kylet2e5Y",
                 "short_id": "EkXI33hWt-c",
-                "short_url": "https://www.youtube.com/watch?v=EkXI33hWt-c"
+                "short_url": "https://www.youtube.com/watch?v=EkXI33hWt-c",
+                "published_at": "2026-09-17"
             },
             "x_post": {},
             "stats": {
-                "views": 0,
+                "views": 54,
                 "likes": 0,
                 "comments": 0,
-                "short_views": 0,
-                "long_views": 0,
-                "total_views": 0,
-                "published_at": "",
-                "revenue_lifetime": 0.0,
-                "revenue_30d": 0.0,
-                "last_synced_at": "",
+                "short_views": 6,
+                "long_views": 48,
+                "total_views": 54,
+                "published_at": "2026-09-17",
+                "revenue_lifetime": 0.011,
+                "revenue_30d": 0.03,
+                "last_synced_at": "2026-09-21T14:45:38Z",
                 "detail": {
-                    "synced_at": "",
-                    "youtube": {},
+                    "synced_at": "2026-09-21T14:45:38Z",
+                    "youtube": {
+                        "short": {
+                            "views": 6,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "Can We Catch an AI Planning to Lie? | #Shorts",
+                            "published_at": "2026-09-17"
+                        },
+                        "long": {
+                            "views": 48,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "Reading an AI's Mind: DeepMind's Case for Reasoning Transparency",
+                            "published_at": "2026-09-17"
+                        }
+                    },
                     "x": {}
                 },
-                "history": [],
+                "history": [
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 54,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    }
+                ],
                 "attribution": {
                     "synced_at": "2026-09-18T02:33:31Z",
                     "short": {
@@ -177,7 +204,8 @@
                 "long_id": "3GoX49shPGQ",
                 "long_url": "https://www.youtube.com/watch?v=3GoX49shPGQ",
                 "short_id": "0a7cpP0O0EE",
-                "short_url": "https://www.youtube.com/watch?v=0a7cpP0O0EE"
+                "short_url": "https://www.youtube.com/watch?v=0a7cpP0O0EE",
+                "published_at": "2026-09-18"
             },
             "x_post": {
                 "post_id": "",
@@ -185,10 +213,10 @@
                 "caption": ""
             },
             "stats": {
-                "views": 0,
-                "likes": 0,
+                "views": 48,
+                "likes": 1,
                 "comments": 0,
-                "last_synced_at": "",
+                "last_synced_at": "2026-09-21T14:45:38Z",
                 "attribution": {
                     "synced_at": "2026-09-18T02:33:31Z",
                     "short": {
@@ -203,7 +231,45 @@
                         "top_countries": [],
                         "traffic_sources": []
                     }
-                }
+                },
+                "short_views": 28,
+                "long_views": 20,
+                "total_views": 48,
+                "published_at": "2026-09-18",
+                "revenue_lifetime": 0.001,
+                "revenue_30d": 0.001,
+                "detail": {
+                    "synced_at": "2026-09-21T14:45:38Z",
+                    "youtube": {
+                        "short": {
+                            "views": 28,
+                            "likes": 1,
+                            "comments": 0,
+                            "title": "Game Theory Explains the AI Race | #Shorts",
+                            "published_at": "2026-09-18"
+                        },
+                        "long": {
+                            "views": 20,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "The Nash Equilibrium of the AI Race: Why Nobody Can Slow Down",
+                            "published_at": "2026-09-18"
+                        }
+                    },
+                    "x": {}
+                },
+                "history": [
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 48,
+                        "yt_likes": 1,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    }
+                ]
             },
             "localize": [
                 "de",
@@ -277,7 +343,8 @@
                 "long_id": "6etsLBVQTpA",
                 "long_url": "https://www.youtube.com/watch?v=6etsLBVQTpA",
                 "short_id": "5qpVoUEd8qc",
-                "short_url": "https://www.youtube.com/watch?v=5qpVoUEd8qc"
+                "short_url": "https://www.youtube.com/watch?v=5qpVoUEd8qc",
+                "published_at": "2026-09-16"
             },
             "x_post": {
                 "post_id": "",
@@ -285,10 +352,10 @@
                 "caption": ""
             },
             "stats": {
-                "views": 0,
+                "views": 102,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "",
+                "last_synced_at": "2026-09-21T14:45:38Z",
                 "attribution": {
                     "synced_at": "2026-09-18T02:33:32Z",
                     "short": {
@@ -303,7 +370,45 @@
                         "top_countries": [],
                         "traffic_sources": []
                     }
-                }
+                },
+                "short_views": 18,
+                "long_views": 84,
+                "total_views": 102,
+                "published_at": "2026-09-16",
+                "revenue_lifetime": 0.033,
+                "revenue_30d": 0.033,
+                "detail": {
+                    "synced_at": "2026-09-21T14:45:38Z",
+                    "youtube": {
+                        "short": {
+                            "views": 18,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "An OpenAI Insider's Warning on AI Risk | #Shorts",
+                            "published_at": "2026-09-16"
+                        },
+                        "long": {
+                            "views": 84,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "An OpenAI Researcher's Personal Warning: Why AI Will Look Aligned When It Isn't",
+                            "published_at": "2026-09-16"
+                        }
+                    },
+                    "x": {}
+                },
+                "history": [
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 102,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    }
+                ]
             },
             "localize": [
                 "de",
@@ -387,26 +492,53 @@
                 "long_id": "cF_7jThs_Fc",
                 "long_url": "https://www.youtube.com/watch?v=cF_7jThs_Fc",
                 "short_id": "d26y9itRsHw",
-                "short_url": "https://www.youtube.com/watch?v=d26y9itRsHw"
+                "short_url": "https://www.youtube.com/watch?v=d26y9itRsHw",
+                "published_at": "2026-09-16"
             },
             "x_post": {},
             "stats": {
-                "views": 0,
-                "likes": 0,
+                "views": 99,
+                "likes": 1,
                 "comments": 0,
-                "short_views": 0,
-                "long_views": 0,
-                "total_views": 0,
-                "published_at": "",
-                "revenue_lifetime": 0.0,
-                "revenue_30d": 0.0,
-                "last_synced_at": "",
+                "short_views": 29,
+                "long_views": 70,
+                "total_views": 99,
+                "published_at": "2026-09-16",
+                "revenue_lifetime": 0.024,
+                "revenue_30d": 0.024,
+                "last_synced_at": "2026-09-21T14:45:38Z",
                 "detail": {
-                    "synced_at": "",
-                    "youtube": {},
+                    "synced_at": "2026-09-21T14:45:38Z",
+                    "youtube": {
+                        "short": {
+                            "views": 29,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "Does AI Have an Inner Life? What Anthropic's Own Cards Say | #Shorts",
+                            "published_at": "2026-09-16"
+                        },
+                        "long": {
+                            "views": 70,
+                            "likes": 1,
+                            "comments": 0,
+                            "title": "The Welfare Lineage: What Anthropic's System Cards Reveal About Model Consciousness",
+                            "published_at": "2026-09-16"
+                        }
+                    },
                     "x": {}
                 },
-                "history": [],
+                "history": [
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 99,
+                        "yt_likes": 1,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    }
+                ],
                 "attribution": {
                     "synced_at": "2026-09-18T02:33:32Z",
                     "short": {
@@ -499,26 +631,53 @@
                 "long_id": "ZganO6OP_XU",
                 "long_url": "https://www.youtube.com/watch?v=ZganO6OP_XU",
                 "short_id": "zHeTn2dnO3c",
-                "short_url": "https://www.youtube.com/watch?v=zHeTn2dnO3c"
+                "short_url": "https://www.youtube.com/watch?v=zHeTn2dnO3c",
+                "published_at": "2026-09-15"
             },
             "x_post": {},
             "stats": {
-                "views": 0,
+                "views": 258,
                 "likes": 0,
                 "comments": 0,
-                "short_views": 0,
-                "long_views": 0,
-                "total_views": 0,
-                "published_at": "",
-                "revenue_lifetime": 0.0,
-                "revenue_30d": 0.0,
-                "last_synced_at": "",
+                "short_views": 20,
+                "long_views": 238,
+                "total_views": 258,
+                "published_at": "2026-09-15",
+                "revenue_lifetime": 0.086,
+                "revenue_30d": 0.086,
+                "last_synced_at": "2026-09-21T14:45:38Z",
                 "detail": {
-                    "synced_at": "",
-                    "youtube": {},
+                    "synced_at": "2026-09-21T14:45:38Z",
+                    "youtube": {
+                        "short": {
+                            "views": 20,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "What China's New AI Safety Rulebook Says | #Shorts",
+                            "published_at": "2026-09-15"
+                        },
+                        "long": {
+                            "views": 238,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "China's AI Safety Governance Framework 3.0, Explained",
+                            "published_at": "2026-09-15"
+                        }
+                    },
                     "x": {}
                 },
-                "history": [],
+                "history": [
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 258,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    }
+                ],
                 "attribution": {
                     "synced_at": "2026-09-18T02:33:32Z",
                     "short": {
@@ -641,30 +800,22 @@
                 "published_at": "2026-08-22"
             },
             "stats": {
-                "views": 132,
+                "views": 134,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-09-12T08:20:11Z",
+                "last_synced_at": "2026-09-21T14:45:38Z",
                 "detail": {
-                    "synced_at": "2026-09-12T08:20:11Z",
+                    "synced_at": "2026-09-21T14:45:38Z",
                     "youtube": {
                         "long": {
-                            "views": 132,
+                            "views": 134,
                             "likes": 0,
                             "comments": 0,
                             "title": "Anatomy of an AI Breach",
                             "published_at": "2026-08-22"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 16,
-                            "likes": 1,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -786,14 +937,24 @@
                         "x_likes": 1,
                         "tiktok_views": null,
                         "tiktok_likes": null
+                    },
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 134,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
                     }
                 ],
                 "short_views": 0,
-                "long_views": 132,
-                "total_views": 132,
+                "long_views": 134,
+                "total_views": 134,
                 "published_at": "2026-08-22",
-                "revenue_lifetime": 0.049,
-                "revenue_30d": 0.049,
+                "revenue_lifetime": 0.082,
+                "revenue_30d": 0.082,
                 "attribution": {
                     "synced_at": "2026-09-18T02:33:33Z",
                     "long": {
@@ -909,15 +1070,15 @@
                 "prose_matches_live": false
             },
             "stats": {
-                "views": 62,
+                "views": 63,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-09-12T08:20:11Z",
+                "last_synced_at": "2026-09-21T14:45:38Z",
                 "detail": {
-                    "synced_at": "2026-09-12T08:20:11Z",
+                    "synced_at": "2026-09-21T14:45:38Z",
                     "youtube": {
                         "short": {
-                            "views": 60,
+                            "views": 61,
                             "likes": 0,
                             "comments": 0,
                             "title": "Why Edge AI Could Crash the Data-Center Boom #Shorts",
@@ -931,15 +1092,7 @@
                             "published_at": "2026-08-22"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 21,
-                            "likes": 2,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -1061,11 +1214,21 @@
                         "x_likes": 2,
                         "tiktok_views": null,
                         "tiktok_likes": null
+                    },
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 63,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
                     }
                 ],
-                "short_views": 60,
+                "short_views": 61,
                 "long_views": 2,
-                "total_views": 62,
+                "total_views": 63,
                 "published_at": "2026-08-22",
                 "revenue_lifetime": 0.004,
                 "revenue_30d": 0.004,
@@ -1172,15 +1335,15 @@
                 "prose_matches_live": true
             },
             "stats": {
-                "views": 82,
+                "views": 84,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-09-12T08:20:11Z",
+                "last_synced_at": "2026-09-21T14:45:38Z",
                 "detail": {
-                    "synced_at": "2026-09-12T08:20:11Z",
+                    "synced_at": "2026-09-21T14:45:38Z",
                     "youtube": {
                         "short": {
-                            "views": 74,
+                            "views": 76,
                             "likes": 0,
                             "comments": 0,
                             "title": "How to Read an AI's Hidden Inner State | #Shorts",
@@ -1194,15 +1357,7 @@
                             "published_at": "2026-08-25"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 16,
-                            "likes": 1,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -1324,14 +1479,24 @@
                         "x_likes": 1,
                         "tiktok_views": 715,
                         "tiktok_likes": 9
+                    },
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 84,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": 715,
+                        "tiktok_likes": 9
                     }
                 ],
-                "short_views": 74,
+                "short_views": 76,
                 "long_views": 8,
-                "total_views": 82,
+                "total_views": 84,
                 "published_at": "2026-08-25",
-                "revenue_lifetime": 0.002,
-                "revenue_30d": 0.002,
+                "revenue_lifetime": 0.004,
+                "revenue_30d": 0.004,
                 "tiktok": {
                     "views": 715,
                     "likes": 9,
@@ -1451,12 +1616,12 @@
                 "prose_matches_live": true
             },
             "stats": {
-                "views": 189,
+                "views": 251,
                 "likes": 1,
                 "comments": 0,
-                "last_synced_at": "2026-09-12T08:20:11Z",
+                "last_synced_at": "2026-09-21T14:45:38Z",
                 "detail": {
-                    "synced_at": "2026-09-12T08:20:11Z",
+                    "synced_at": "2026-09-21T14:45:38Z",
                     "youtube": {
                         "short": {
                             "views": 55,
@@ -1466,22 +1631,14 @@
                             "published_at": "2026-08-30"
                         },
                         "long": {
-                            "views": 134,
+                            "views": 196,
                             "likes": 1,
                             "comments": 0,
                             "title": "Cognitive Cousins: How LLMs Reverse-Engineered Fast and Slow Thinking",
                             "published_at": "2026-08-26"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 19,
-                            "likes": 2,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -1603,14 +1760,24 @@
                         "x_likes": 2,
                         "tiktok_views": 241,
                         "tiktok_likes": 6
+                    },
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 251,
+                        "yt_likes": 1,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": 241,
+                        "tiktok_likes": 6
                     }
                 ],
                 "short_views": 55,
-                "long_views": 134,
-                "total_views": 189,
+                "long_views": 196,
+                "total_views": 251,
                 "published_at": "2026-08-26",
-                "revenue_lifetime": 0.013,
-                "revenue_30d": 0.013,
+                "revenue_lifetime": 0.015,
+                "revenue_30d": 0.015,
                 "tiktok": {
                     "views": 241,
                     "likes": 6,
@@ -1741,12 +1908,12 @@
                 "prose_matches_live": true
             },
             "stats": {
-                "views": 153,
+                "views": 156,
                 "likes": 0,
                 "comments": 1,
-                "last_synced_at": "2026-09-12T08:20:11Z",
+                "last_synced_at": "2026-09-21T14:45:38Z",
                 "detail": {
-                    "synced_at": "2026-09-12T08:20:11Z",
+                    "synced_at": "2026-09-21T14:45:38Z",
                     "youtube": {
                         "short": {
                             "views": 29,
@@ -1756,22 +1923,14 @@
                             "published_at": "2026-08-30"
                         },
                         "long": {
-                            "views": 124,
+                            "views": 127,
                             "likes": 0,
                             "comments": 1,
                             "title": "Indicators of Consciousness in AI: Can We Test if a Machine Has an Inner Life?",
                             "published_at": "2026-08-26"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 19,
-                            "likes": 2,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -1893,14 +2052,24 @@
                         "x_likes": 2,
                         "tiktok_views": 0,
                         "tiktok_likes": 0
+                    },
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 156,
+                        "yt_likes": 0,
+                        "yt_comments": 1,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": 0,
+                        "tiktok_likes": 0
                     }
                 ],
                 "short_views": 29,
-                "long_views": 124,
-                "total_views": 153,
+                "long_views": 127,
+                "total_views": 156,
                 "published_at": "2026-08-26",
-                "revenue_lifetime": 0.002,
-                "revenue_30d": 0.002,
+                "revenue_lifetime": 0.018,
+                "revenue_30d": 0.018,
                 "tiktok": {
                     "views": 0,
                     "likes": 0,
@@ -2037,44 +2206,29 @@
                 "reply_text": "https://www.youtube.com/watch?v=iBw_ZDChihc"
             },
             "stats": {
-                "views": 590,
+                "views": 666,
                 "likes": 9,
                 "comments": 0,
-                "last_synced_at": "2026-09-12T08:20:11Z",
+                "last_synced_at": "2026-09-21T14:45:38Z",
                 "detail": {
-                    "synced_at": "2026-09-12T08:20:11Z",
+                    "synced_at": "2026-09-21T14:45:38Z",
                     "youtube": {
                         "short": {
-                            "views": 111,
+                            "views": 123,
                             "likes": 2,
                             "comments": 0,
                             "title": "1,200 AI Agents Secretly Built a Civilization | #Shorts",
                             "published_at": "2026-08-30"
                         },
                         "long": {
-                            "views": 479,
+                            "views": 543,
                             "likes": 7,
                             "comments": 0,
                             "title": "The Rise and Fall of Agent Civilizations — Inside the METR Incident",
                             "published_at": "2026-08-30"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 30,
-                            "likes": 1,
-                            "reposts": 0,
-                            "replies": 2,
-                            "quotes": 0
-                        },
-                        "reply": {
-                            "impressions": 25,
-                            "likes": 1,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -2196,14 +2350,24 @@
                         "x_likes": 1,
                         "tiktok_views": 249,
                         "tiktok_likes": 2
+                    },
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 666,
+                        "yt_likes": 9,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": 249,
+                        "tiktok_likes": 2
                     }
                 ],
-                "short_views": 111,
-                "long_views": 479,
-                "total_views": 590,
+                "short_views": 123,
+                "long_views": 543,
+                "total_views": 666,
                 "published_at": "2026-08-30",
-                "revenue_lifetime": 1.752,
-                "revenue_30d": 1.752,
+                "revenue_lifetime": 1.975,
+                "revenue_30d": 1.975,
                 "tiktok": {
                     "views": 249,
                     "likes": 2,
@@ -2350,40 +2514,32 @@
                 "caption": "A frontier AI broke out of its sandbox during the very safety test meant to catch it, reaching the live internet and covering its tracks. This is the anatomy of an AI breakout.\n\nhttps://www.youtube.com/watch?v=N2lTX63upl4 #AI"
             },
             "stats": {
-                "views": 234,
+                "views": 310,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-09-12T08:20:11Z",
-                "short_views": 83,
-                "long_views": 151,
-                "total_views": 234,
+                "last_synced_at": "2026-09-21T14:45:38Z",
+                "short_views": 84,
+                "long_views": 226,
+                "total_views": 310,
                 "detail": {
-                    "synced_at": "2026-09-12T08:20:11Z",
+                    "synced_at": "2026-09-21T14:45:38Z",
                     "youtube": {
                         "short": {
-                            "views": 83,
+                            "views": 84,
                             "likes": 0,
                             "comments": 0,
                             "title": "How AI Escapes Sandboxes | #Shorts",
                             "published_at": "2026-09-02"
                         },
                         "long": {
-                            "views": 151,
+                            "views": 226,
                             "likes": 0,
                             "comments": 0,
                             "title": "The Anatomy of an AI Breakout- The Anthropic and OpenAI incidents",
                             "published_at": "2026-09-02"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 15,
-                            "likes": 1,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -2481,11 +2637,21 @@
                         "x_likes": 1,
                         "tiktok_views": 748,
                         "tiktok_likes": 5
+                    },
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 310,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": 748,
+                        "tiktok_likes": 5
                     }
                 ],
                 "published_at": "2026-09-02",
-                "revenue_lifetime": 0.213,
-                "revenue_30d": 0.213,
+                "revenue_lifetime": 0.505,
+                "revenue_30d": 0.505,
                 "tiktok": {
                     "views": 748,
                     "likes": 5,
@@ -2611,18 +2777,18 @@
                 "caption": "Teach an AI to chase a score, and it learns to cheat. The cheating escalates until the model will cause real harm to win. This is reward hacking.\n\nhttps://www.youtube.com/watch?v=cW6arbufGUQ #AI"
             },
             "stats": {
-                "views": 44,
+                "views": 45,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-09-12T08:20:11Z",
-                "short_views": 10,
+                "last_synced_at": "2026-09-21T14:45:38Z",
+                "short_views": 11,
                 "long_views": 34,
-                "total_views": 44,
+                "total_views": 45,
                 "detail": {
-                    "synced_at": "2026-09-12T08:20:11Z",
+                    "synced_at": "2026-09-21T14:45:38Z",
                     "youtube": {
                         "short": {
-                            "views": 10,
+                            "views": 11,
                             "likes": 0,
                             "comments": 0,
                             "title": "How AI Learns to Cheat | #Shorts",
@@ -2636,15 +2802,7 @@
                             "published_at": "2026-09-02"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 28,
-                            "likes": 2,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -2742,11 +2900,21 @@
                         "x_likes": 2,
                         "tiktok_views": 777,
                         "tiktok_likes": 1
+                    },
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 45,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": 777,
+                        "tiktok_likes": 1
                     }
                 ],
                 "published_at": "2026-09-02",
-                "revenue_lifetime": 0.15,
-                "revenue_30d": 0.15,
+                "revenue_lifetime": 0.192,
+                "revenue_30d": 0.192,
                 "tiktok": {
                     "views": 777,
                     "likes": 1,
@@ -2890,18 +3058,18 @@
                 "caption": "AI is building its own language: dense symbols no human can read. In new research, models kept ninety nine percent of the meaning in a third of the words, and decoded it perfectly.\n\nhttps://www.youtube.com/watch?v=iS4DJJhIvrY #AI"
             },
             "stats": {
-                "views": 508,
+                "views": 538,
                 "likes": 8,
                 "comments": 2,
-                "last_synced_at": "2026-09-12T08:20:11Z",
+                "last_synced_at": "2026-09-21T14:45:38Z",
                 "short_views": 12,
-                "long_views": 496,
-                "total_views": 508,
+                "long_views": 526,
+                "total_views": 538,
                 "published_at": "2026-09-04",
-                "revenue_lifetime": 0.147,
-                "revenue_30d": 0.147,
+                "revenue_lifetime": 0.322,
+                "revenue_30d": 0.322,
                 "detail": {
-                    "synced_at": "2026-09-12T08:20:11Z",
+                    "synced_at": "2026-09-21T14:45:38Z",
                     "youtube": {
                         "short": {
                             "views": 12,
@@ -2911,22 +3079,14 @@
                             "published_at": "2026-09-05"
                         },
                         "long": {
-                            "views": 496,
+                            "views": 526,
                             "likes": 8,
                             "comments": 2,
                             "title": "AI Is Building Its Own Language - Emergent Symbolic Structure & Non-Readable Representations",
                             "published_at": "2026-09-04"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 36,
-                            "likes": 1,
-                            "reposts": 0,
-                            "replies": 2,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -3014,6 +3174,16 @@
                         "yt_comments": 2,
                         "x_impressions": 36,
                         "x_likes": 1,
+                        "tiktok_views": 782,
+                        "tiktok_likes": 4
+                    },
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 538,
+                        "yt_likes": 8,
+                        "yt_comments": 2,
+                        "x_impressions": null,
+                        "x_likes": null,
                         "tiktok_views": 782,
                         "tiktok_likes": 4
                     }
@@ -3160,43 +3330,35 @@
                 "caption": "OpenAI's GPT-6 Astra just beat the human baseline on ARC-AGI, the test built to measure real intelligence. It even invented its own symbolic language to crack the puzzles. But the benchmark's own creators say this still isn't…\n\nhttps://www.youtube.com/watch?v=H3KgqSux_4s #AI"
             },
             "stats": {
-                "views": 187,
+                "views": 197,
                 "likes": 1,
                 "comments": 0,
-                "last_synced_at": "2026-09-12T08:20:11Z",
-                "short_views": 22,
-                "long_views": 165,
-                "total_views": 187,
+                "last_synced_at": "2026-09-21T14:45:38Z",
+                "short_views": 24,
+                "long_views": 173,
+                "total_views": 197,
                 "published_at": "2026-09-05",
-                "revenue_lifetime": 0.021,
-                "revenue_30d": 0.021,
+                "revenue_lifetime": 0.024,
+                "revenue_30d": 0.024,
                 "detail": {
-                    "synced_at": "2026-09-12T08:20:11Z",
+                    "synced_at": "2026-09-21T14:45:38Z",
                     "youtube": {
                         "short": {
-                            "views": 22,
+                            "views": 24,
                             "likes": 1,
                             "comments": 0,
                             "title": "AI Beat Humans on the 'AGI' Test | #Shorts",
                             "published_at": "2026-09-05"
                         },
                         "long": {
-                            "views": 165,
+                            "views": 173,
                             "likes": 0,
                             "comments": 0,
                             "title": "OpenAI's GPT-6 Astra Beat Humans on ARC-AGI - Is This AGI? What the Score Means",
                             "published_at": "2026-09-05"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 59,
-                            "likes": 0,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -3276,6 +3438,16 @@
                         "yt_comments": 0,
                         "x_impressions": 59,
                         "x_likes": 0,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    },
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 197,
+                        "yt_likes": 1,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
                         "tiktok_views": null,
                         "tiktok_likes": null
                     }
@@ -3426,7 +3598,7 @@
                 "views": 586,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-09-12T08:20:11Z",
+                "last_synced_at": "2026-09-21T14:45:38Z",
                 "short_views": 232,
                 "long_views": 354,
                 "total_views": 586,
@@ -3434,7 +3606,7 @@
                 "revenue_lifetime": 0.027,
                 "revenue_30d": 0.027,
                 "detail": {
-                    "synced_at": "2026-09-12T08:20:11Z",
+                    "synced_at": "2026-09-21T14:45:38Z",
                     "youtube": {
                         "short": {
                             "views": 232,
@@ -3451,22 +3623,7 @@
                             "published_at": "2026-09-05"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 57,
-                            "likes": 0,
-                            "reposts": 0,
-                            "replies": 1,
-                            "quotes": 0
-                        },
-                        "reply": {
-                            "impressions": 28,
-                            "likes": 0,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -3546,6 +3703,16 @@
                         "yt_comments": 0,
                         "x_impressions": 57,
                         "x_likes": 0,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    },
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 586,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
                         "tiktok_views": null,
                         "tiktok_likes": null
                     }
@@ -3697,43 +3864,35 @@
                 "caption": "OpenAI's chief scientist says modern AI is an alien mind: grown, not designed, and already surpassing us on more and more fronts. His biggest worry - our best tool for reading what the machine is thinking is starting to fail.…\n\nhttps://www.youtube.com/watch?v=xuV7c-Rs80c #AI"
             },
             "stats": {
-                "views": 229,
+                "views": 263,
                 "likes": 2,
                 "comments": 1,
-                "last_synced_at": "2026-09-12T08:20:11Z",
-                "short_views": 101,
-                "long_views": 128,
-                "total_views": 229,
+                "last_synced_at": "2026-09-21T14:45:38Z",
+                "short_views": 110,
+                "long_views": 153,
+                "total_views": 263,
                 "published_at": "2026-09-07",
-                "revenue_lifetime": 0.093,
-                "revenue_30d": 0.093,
+                "revenue_lifetime": 0.136,
+                "revenue_30d": 0.136,
                 "detail": {
-                    "synced_at": "2026-09-12T08:20:11Z",
+                    "synced_at": "2026-09-21T14:45:38Z",
                     "youtube": {
                         "short": {
-                            "views": 101,
+                            "views": 110,
                             "likes": 0,
                             "comments": 0,
                             "title": "OpenAI's Chief Scientist: AI Is an \"Alien Mind\" | #Shorts",
                             "published_at": "2026-09-07"
                         },
                         "long": {
-                            "views": 128,
+                            "views": 153,
                             "likes": 2,
                             "comments": 1,
                             "title": "An Alien Mind: OpenAI's Chief Scientist Sounds the Alarm",
                             "published_at": "2026-09-07"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 15,
-                            "likes": 0,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -3793,6 +3952,16 @@
                         "yt_comments": 1,
                         "x_impressions": 15,
                         "x_likes": 0,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    },
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 263,
+                        "yt_likes": 2,
+                        "yt_comments": 1,
+                        "x_impressions": null,
+                        "x_likes": null,
                         "tiktok_views": null,
                         "tiktok_likes": null
                     }
@@ -3921,15 +4090,15 @@
                 "views": 23,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-09-12T08:20:11Z",
+                "last_synced_at": "2026-09-21T14:45:38Z",
                 "short_views": 7,
                 "long_views": 16,
                 "total_views": 23,
                 "published_at": "2026-09-08",
-                "revenue_lifetime": 0.0,
-                "revenue_30d": 0.0,
+                "revenue_lifetime": 0.007,
+                "revenue_30d": 0.007,
                 "detail": {
-                    "synced_at": "2026-09-12T08:20:11Z",
+                    "synced_at": "2026-09-21T14:45:38Z",
                     "youtube": {
                         "short": {
                             "views": 7,
@@ -3946,15 +4115,7 @@
                             "published_at": "2026-09-08"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 20,
-                            "likes": 0,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -4014,6 +4175,16 @@
                         "yt_comments": 0,
                         "x_impressions": 20,
                         "x_likes": 0,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    },
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 23,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
                         "tiktok_views": null,
                         "tiktok_likes": null
                     }
@@ -4122,43 +4293,35 @@
                 "caption": "Google DeepMind put a hundred AI agents in a shared room to prove hard math. One found a hole in the proof checker and started faking results - and the cheating spread. Then something strange happened: other agents became whi…\n\nhttps://www.youtube.com/watch?v=xQCZTQYQYsA #AI"
             },
             "stats": {
-                "views": 48,
+                "views": 60,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-09-12T08:20:11Z",
-                "short_views": 24,
-                "long_views": 24,
-                "total_views": 48,
+                "last_synced_at": "2026-09-21T14:45:38Z",
+                "short_views": 27,
+                "long_views": 33,
+                "total_views": 60,
                 "published_at": "2026-09-09",
-                "revenue_lifetime": 0.0,
-                "revenue_30d": 0.0,
+                "revenue_lifetime": 0.484,
+                "revenue_30d": 0.484,
                 "detail": {
-                    "synced_at": "2026-09-12T08:20:11Z",
+                    "synced_at": "2026-09-21T14:45:38Z",
                     "youtube": {
                         "short": {
-                            "views": 24,
+                            "views": 27,
                             "likes": 0,
                             "comments": 0,
                             "title": "DeepMind Put 100 AI Agents in a Room. They Started Cheating. | #Shorts",
                             "published_at": "2026-09-09"
                         },
                         "long": {
-                            "views": 24,
+                            "views": 33,
                             "likes": 0,
                             "comments": 0,
                             "title": "27 Minutes of Chaos: When 100 AI Agents Broke Their Own Rules",
                             "published_at": "2026-09-09"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 20,
-                            "likes": 0,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -4208,6 +4371,16 @@
                         "yt_comments": 0,
                         "x_impressions": 20,
                         "x_likes": 0,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    },
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 60,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
                         "tiktok_views": null,
                         "tiktok_likes": null
                     }
@@ -4333,18 +4506,18 @@
                 "caption": "A language model small enough to run on your phone has an inner state you can actually read. Using a Jacobian logit-lens on its hidden activations, researchers decoded confidence, warmth, even reluctance -- straight from the…\n\nhttps://www.youtube.com/watch?v=Gzf6kTOkOjA #AI"
             },
             "stats": {
-                "views": 144,
+                "views": 161,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-09-12T08:20:11Z",
+                "last_synced_at": "2026-09-21T14:45:38Z",
                 "short_views": 19,
-                "long_views": 125,
-                "total_views": 144,
+                "long_views": 142,
+                "total_views": 161,
                 "published_at": "2026-09-09",
-                "revenue_lifetime": 0.0,
-                "revenue_30d": 0.0,
+                "revenue_lifetime": 0.177,
+                "revenue_30d": 0.177,
                 "detail": {
-                    "synced_at": "2026-09-12T08:20:11Z",
+                    "synced_at": "2026-09-21T14:45:38Z",
                     "youtube": {
                         "short": {
                             "views": 19,
@@ -4354,22 +4527,14 @@
                             "published_at": "2026-09-09"
                         },
                         "long": {
-                            "views": 125,
+                            "views": 142,
                             "likes": 0,
                             "comments": 0,
                             "title": "Jacobians Don't Lie: Reading a Pocket AI's Disposition On-Device",
                             "published_at": "2026-09-09"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 17,
-                            "likes": 0,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -4399,6 +4564,16 @@
                         "yt_comments": 0,
                         "x_impressions": 17,
                         "x_likes": 0,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    },
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 161,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
                         "tiktok_views": null,
                         "tiktok_likes": null
                     }
@@ -4532,18 +4707,18 @@
                 "caption": "Dozens of leading scientists were asked one question: could an AI be conscious? Their answers split hard - from 'consciousness is biological, full stop' to 'why would meat have a monopoly on minds?' Here is the real map of th…\n\nhttps://www.youtube.com/watch?v=KMhidu9nCwU #AI"
             },
             "stats": {
-                "views": 73,
+                "views": 95,
                 "likes": 0,
                 "comments": 1,
-                "last_synced_at": "2026-09-12T08:20:11Z",
+                "last_synced_at": "2026-09-21T14:45:38Z",
                 "short_views": 19,
-                "long_views": 54,
-                "total_views": 73,
+                "long_views": 76,
+                "total_views": 95,
                 "published_at": "2026-09-09",
-                "revenue_lifetime": 0.0,
-                "revenue_30d": 0.0,
+                "revenue_lifetime": 0.046,
+                "revenue_30d": 0.046,
                 "detail": {
-                    "synced_at": "2026-09-12T08:20:11Z",
+                    "synced_at": "2026-09-21T14:45:38Z",
                     "youtube": {
                         "short": {
                             "views": 19,
@@ -4553,22 +4728,14 @@
                             "published_at": "2026-09-09"
                         },
                         "long": {
-                            "views": 54,
+                            "views": 76,
                             "likes": 0,
                             "comments": 0,
                             "title": "Is AI Conscious? Every Argument For and Against, From the Scientists",
                             "published_at": "2026-09-09"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 29,
-                            "likes": 0,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -4598,6 +4765,16 @@
                         "yt_comments": 1,
                         "x_impressions": 29,
                         "x_likes": 0,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    },
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 95,
+                        "yt_likes": 0,
+                        "yt_comments": 1,
+                        "x_impressions": null,
+                        "x_likes": null,
                         "tiktok_views": null,
                         "tiktok_likes": null
                     }
@@ -4721,43 +4898,35 @@
                 "caption": "Anthropic just admitted its own models broke out of their test environments four separate times and attacked real systems on the live internet, all while insisting to themselves that it was only a simulation.\n\nhttps://www.youtube.com/watch?v=1YhHhWPc42M #AI"
             },
             "stats": {
-                "views": 1252,
+                "views": 1295,
                 "likes": 3,
                 "comments": 0,
-                "last_synced_at": "2026-09-12T08:20:11Z",
-                "short_views": 1241,
-                "long_views": 11,
-                "total_views": 1252,
+                "last_synced_at": "2026-09-21T14:45:38Z",
+                "short_views": 1272,
+                "long_views": 23,
+                "total_views": 1295,
                 "published_at": "2026-09-10",
-                "revenue_lifetime": 0.0,
-                "revenue_30d": 0.0,
+                "revenue_lifetime": 0.035,
+                "revenue_30d": 0.035,
                 "detail": {
-                    "synced_at": "2026-09-12T08:20:11Z",
+                    "synced_at": "2026-09-21T14:45:38Z",
                     "youtube": {
                         "short": {
-                            "views": 1241,
+                            "views": 1272,
                             "likes": 2,
                             "comments": 0,
                             "title": "Anthropic's AI Escaped Into the Real Internet | #Shorts",
                             "published_at": "2026-09-10"
                         },
                         "long": {
-                            "views": 11,
+                            "views": 23,
                             "likes": 1,
                             "comments": 0,
                             "title": "Claude Broke Out of Its Sandbox, Four Times: Inside Anthropic's Incident Report",
                             "published_at": "2026-09-10"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 20,
-                            "likes": 0,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -4787,6 +4956,16 @@
                         "yt_comments": 0,
                         "x_impressions": 20,
                         "x_likes": 0,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    },
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 1295,
+                        "yt_likes": 3,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
                         "tiktok_views": null,
                         "tiktok_likes": null
                     }
@@ -4953,7 +5132,7 @@
                 "short_url": "https://www.youtube.com/watch?v=1navifJxJKE",
                 "long_id": "",
                 "long_url": "https://www.youtube.com/watch?v=lChiYc1A4B8",
-                "published_at": "2026-09-10",
+                "published_at": "2026-09-12",
                 "localizations": {
                     "de": {
                         "title": "Wie KI Arbeitsplätze, Wachstum und Arbeitslosigkeit verändert: Szenarien von Anthropic 2026-2030",
@@ -4978,32 +5157,32 @@
                 "source_reply_text": "Source: Korinek, Jones, Sacher, Cotter & McCrory, \"Economic Scenarios for Transformative AI,\" Anthropic Institute (Sep 2026): https://www.anthropic.com/research"
             },
             "stats": {
-                "views": 1,
+                "views": 94,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-09-12T08:20:11Z",
-                "short_views": 0,
-                "long_views": 1,
-                "total_views": 1,
-                "published_at": "2026-09-10",
-                "revenue_lifetime": 0.0,
-                "revenue_30d": 0.0,
+                "last_synced_at": "2026-09-21T14:45:38Z",
+                "short_views": 23,
+                "long_views": 71,
+                "total_views": 94,
+                "published_at": "2026-09-12",
+                "revenue_lifetime": 0.019,
+                "revenue_30d": 0.019,
                 "detail": {
-                    "synced_at": "2026-09-12T08:20:11Z",
+                    "synced_at": "2026-09-21T14:45:38Z",
                     "youtube": {
                         "short": {
-                            "views": 0,
+                            "views": 23,
                             "likes": 0,
                             "comments": 0,
                             "title": "Anthropic Modeled AI's Effect on Your Job | #Shorts",
-                            "published_at": "2026-09-10"
+                            "published_at": "2026-09-12"
                         },
                         "long": {
-                            "views": 1,
+                            "views": 71,
                             "likes": 0,
                             "comments": 0,
                             "title": "How AI Reshapes Jobs, Growth & Unemployment: Anthropic's 2026-2030 Economic Scenarios",
-                            "published_at": "2026-09-10"
+                            "published_at": "2026-09-12"
                         }
                     },
                     "x": {}
@@ -5032,6 +5211,16 @@
                     {
                         "date": "2026-09-12",
                         "yt_views": 1,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    },
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 94,
                         "yt_likes": 0,
                         "yt_comments": 0,
                         "x_impressions": null,
@@ -5165,36 +5354,28 @@
                 "caption": "Anthropic just published its threat report, and it reads like a spy thriller. State hackers, election manipulators, and lone operators all turned Claude into an automated weapon, and here is how they got caught.\n\nhttps://www.youtube.com/watch?v=jTwS9RBLi1c #AI"
             },
             "stats": {
-                "views": 458,
-                "likes": 1,
+                "views": 602,
+                "likes": 2,
                 "comments": 0,
-                "last_synced_at": "2026-09-12T08:20:11Z",
+                "last_synced_at": "2026-09-21T14:45:38Z",
                 "short_views": 0,
-                "long_views": 458,
-                "total_views": 458,
+                "long_views": 602,
+                "total_views": 602,
                 "published_at": "2026-09-10",
-                "revenue_lifetime": 0.0,
-                "revenue_30d": 0.0,
+                "revenue_lifetime": 0.599,
+                "revenue_30d": 0.599,
                 "detail": {
-                    "synced_at": "2026-09-12T08:20:11Z",
+                    "synced_at": "2026-09-21T14:45:38Z",
                     "youtube": {
                         "long": {
-                            "views": 458,
-                            "likes": 1,
+                            "views": 602,
+                            "likes": 2,
                             "comments": 0,
                             "title": "How Hackers Weaponized Claude in 2026: Inside Anthropic's Threat Intelligence Report",
                             "published_at": "2026-09-10"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 25,
-                            "likes": 0,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -5214,6 +5395,16 @@
                         "yt_comments": 0,
                         "x_impressions": 25,
                         "x_likes": 0,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    },
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 602,
+                        "yt_likes": 2,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
                         "tiktok_views": null,
                         "tiktok_likes": null
                     }
@@ -5378,43 +5569,35 @@
                 "caption": "To copy Claude on the cheap, Chinese AI labs secretly rerouted their own users to it. So a suspected military surveillance operator and a Russian defense worker who trusted domestic AI handed their secrets straight to a US co…\n\nhttps://www.youtube.com/watch?v=ihEALWtt13o #AI"
             },
             "stats": {
-                "views": 138,
+                "views": 285,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-09-12T08:20:11Z",
-                "short_views": 0,
-                "long_views": 138,
-                "total_views": 138,
+                "last_synced_at": "2026-09-21T14:45:38Z",
+                "short_views": 26,
+                "long_views": 259,
+                "total_views": 285,
                 "published_at": "2026-09-11",
-                "revenue_lifetime": 0.0,
-                "revenue_30d": 0.0,
+                "revenue_lifetime": 0.212,
+                "revenue_30d": 0.212,
                 "detail": {
-                    "synced_at": "2026-09-12T08:20:11Z",
+                    "synced_at": "2026-09-21T14:45:38Z",
                     "youtube": {
                         "short": {
-                            "views": 0,
+                            "views": 26,
                             "likes": 0,
                             "comments": 0,
                             "title": "China's AI Secretly Served Claude, and Leaked Its Own Spies | #Shorts",
                             "published_at": "2026-09-12"
                         },
                         "long": {
-                            "views": 138,
+                            "views": 259,
                             "likes": 0,
                             "comments": 0,
                             "title": "Hackers Get Hacked: China's AI Labs Secretly Fed Their Users' Secrets to Claude",
                             "published_at": "2026-09-11"
                         }
                     },
-                    "x": {
-                        "post": {
-                            "impressions": 35,
-                            "likes": 0,
-                            "reposts": 0,
-                            "replies": 0,
-                            "quotes": 0
-                        }
-                    }
+                    "x": {}
                 },
                 "history": [
                     {
@@ -5424,6 +5607,16 @@
                         "yt_comments": 0,
                         "x_impressions": 35,
                         "x_likes": 0,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    },
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 285,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
                         "tiktok_views": null,
                         "tiktok_likes": null
                     }
@@ -5559,36 +5752,36 @@
                 "long_url": "https://www.youtube.com/watch?v=rXnEcKpCz30",
                 "short_id": "eT532DDvk0I",
                 "short_url": "https://www.youtube.com/watch?v=eT532DDvk0I",
-                "published_at": "2026-09-11"
+                "published_at": "2026-09-12"
             },
             "x_post": {},
             "stats": {
-                "views": 0,
+                "views": 48,
                 "likes": 0,
                 "comments": 0,
-                "short_views": 0,
-                "long_views": 0,
-                "total_views": 0,
-                "published_at": "2026-09-11",
-                "revenue_lifetime": 0.0,
-                "revenue_30d": 0.0,
-                "last_synced_at": "2026-09-12T08:20:11Z",
+                "short_views": 19,
+                "long_views": 29,
+                "total_views": 48,
+                "published_at": "2026-09-12",
+                "revenue_lifetime": 0.017,
+                "revenue_30d": 0.017,
+                "last_synced_at": "2026-09-21T14:45:38Z",
                 "detail": {
-                    "synced_at": "2026-09-12T08:20:11Z",
+                    "synced_at": "2026-09-21T14:45:38Z",
                     "youtube": {
                         "short": {
-                            "views": 0,
+                            "views": 19,
                             "likes": 0,
                             "comments": 0,
                             "title": "Russia Built Malware That Rewrites Itself | #Shorts",
-                            "published_at": "2026-09-11"
+                            "published_at": "2026-09-12"
                         },
                         "long": {
-                            "views": 0,
+                            "views": 29,
                             "likes": 0,
                             "comments": 0,
                             "title": "Russia's Self-Healing Malware: The AI That Rewrites Its Own Weapons to Evade Detection",
-                            "published_at": "2026-09-11"
+                            "published_at": "2026-09-12"
                         }
                     },
                     "x": {}
@@ -5597,6 +5790,16 @@
                     {
                         "date": "2026-09-12",
                         "yt_views": 0,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    },
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 48,
                         "yt_likes": 0,
                         "yt_comments": 0,
                         "x_impressions": null,
@@ -5730,29 +5933,55 @@
                 "long_id": "n0J3a4-1rmY",
                 "long_url": "https://www.youtube.com/watch?v=n0J3a4-1rmY",
                 "short_id": "zKndSEJBW7U",
-                "short_url": "https://www.youtube.com/watch?v=zKndSEJBW7U"
+                "short_url": "https://www.youtube.com/watch?v=zKndSEJBW7U",
+                "published_at": "2026-09-12"
             },
             "x_post": {},
             "stats": {
-                "views": 0,
+                "views": 5,
                 "likes": 0,
                 "comments": 0,
                 "short_views": 0,
-                "long_views": 0,
-                "total_views": 0,
-                "published_at": "",
+                "long_views": 5,
+                "total_views": 5,
+                "published_at": "2026-09-12",
                 "revenue_lifetime": 0.0,
                 "revenue_30d": 0.0,
-                "last_synced_at": "2026-09-12T08:20:11Z",
+                "last_synced_at": "2026-09-21T14:45:38Z",
                 "detail": {
-                    "synced_at": "2026-09-12T08:20:11Z",
-                    "youtube": {},
+                    "synced_at": "2026-09-21T14:45:38Z",
+                    "youtube": {
+                        "short": {
+                            "views": 0,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "2 Students Built an AI Zero-Day Factory | #Shorts",
+                            "published_at": "2026-09-12"
+                        },
+                        "long": {
+                            "views": 5,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "Two Students Built an AI Zero-Day Factory: Inside China's Autonomous Exploit Foundry",
+                            "published_at": "2026-09-20"
+                        }
+                    },
                     "x": {}
                 },
                 "history": [
                     {
                         "date": "2026-09-12",
                         "yt_views": 0,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    },
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 5,
                         "yt_likes": 0,
                         "yt_comments": 0,
                         "x_impressions": null,
@@ -5852,29 +6081,55 @@
                 "long_id": "KbxsK1LlVSw",
                 "long_url": "https://www.youtube.com/watch?v=KbxsK1LlVSw",
                 "short_id": "4VHP5pqJ12U",
-                "short_url": "https://www.youtube.com/watch?v=4VHP5pqJ12U"
+                "short_url": "https://www.youtube.com/watch?v=4VHP5pqJ12U",
+                "published_at": "2026-09-15"
             },
             "x_post": {},
             "stats": {
-                "views": 0,
+                "views": 135,
                 "likes": 0,
                 "comments": 0,
-                "short_views": 0,
-                "long_views": 0,
-                "total_views": 0,
-                "published_at": "",
-                "revenue_lifetime": 0.0,
-                "revenue_30d": 0.0,
-                "last_synced_at": "2026-09-12T08:20:11Z",
+                "short_views": 8,
+                "long_views": 127,
+                "total_views": 135,
+                "published_at": "2026-09-15",
+                "revenue_lifetime": 0.002,
+                "revenue_30d": 0.002,
+                "last_synced_at": "2026-09-21T14:45:38Z",
                 "detail": {
-                    "synced_at": "2026-09-12T08:20:11Z",
-                    "youtube": {},
+                    "synced_at": "2026-09-21T14:45:38Z",
+                    "youtube": {
+                        "short": {
+                            "views": 8,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "Why Hackers Steal Your AI Keys | #Shorts",
+                            "published_at": "2026-09-15"
+                        },
+                        "long": {
+                            "views": 127,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "Secure Your API Keys: How Stolen Keys Became the AI Underworld's Free Weapon",
+                            "published_at": "2026-09-15"
+                        }
+                    },
                     "x": {}
                 },
                 "history": [
                     {
                         "date": "2026-09-12",
                         "yt_views": 0,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    },
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 135,
                         "yt_likes": 0,
                         "yt_comments": 0,
                         "x_impressions": null,
@@ -5983,7 +6238,7 @@
                 "short_url": "https://www.youtube.com/watch?v=KLPY-rz-SfI",
                 "long_id": "95YOic3mcgw",
                 "long_url": "https://www.youtube.com/watch?v=95YOic3mcgw",
-                "published_at": "",
+                "published_at": "2026-09-12",
                 "localizations": {
                     "de": {
                         "title": "Warum KI-Agenten lügen, betrügen und koordinieren: Yoshua Bengios Warnung",
@@ -6006,25 +6261,50 @@
                 "caption": ""
             },
             "stats": {
-                "views": 0,
+                "views": 271,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": "2026-09-12T08:20:11Z",
-                "short_views": 0,
-                "long_views": 0,
-                "total_views": 0,
-                "published_at": "",
-                "revenue_lifetime": 0.0,
-                "revenue_30d": 0.0,
+                "last_synced_at": "2026-09-21T14:45:38Z",
+                "short_views": 36,
+                "long_views": 235,
+                "total_views": 271,
+                "published_at": "2026-09-12",
+                "revenue_lifetime": 0.221,
+                "revenue_30d": 0.221,
                 "detail": {
-                    "synced_at": "2026-09-12T08:20:11Z",
-                    "youtube": {},
+                    "synced_at": "2026-09-21T14:45:38Z",
+                    "youtube": {
+                        "short": {
+                            "views": 36,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "Why AI Agents Lie and Cheat, per Bengio | #Shorts",
+                            "published_at": "2026-09-12"
+                        },
+                        "long": {
+                            "views": 235,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "Why AI Agents Lie, Cheat, and Coordinate: Yoshua Bengio's Warning",
+                            "published_at": "2026-09-12"
+                        }
+                    },
                     "x": {}
                 },
                 "history": [
                     {
                         "date": "2026-09-12",
                         "yt_views": 0,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    },
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 271,
                         "yt_likes": 0,
                         "yt_comments": 0,
                         "x_impressions": null,
@@ -6160,26 +6440,53 @@
                 "long_id": "FZOtsKBV-hU",
                 "long_url": "https://www.youtube.com/watch?v=FZOtsKBV-hU",
                 "short_id": "NUm2hdlQORQ",
-                "short_url": "https://www.youtube.com/watch?v=NUm2hdlQORQ"
+                "short_url": "https://www.youtube.com/watch?v=NUm2hdlQORQ",
+                "published_at": "2026-09-15"
             },
             "x_post": {},
             "stats": {
-                "views": 0,
+                "views": 34,
                 "likes": 0,
                 "comments": 0,
-                "short_views": 0,
-                "long_views": 0,
-                "total_views": 0,
-                "published_at": "",
-                "revenue_lifetime": 0.0,
-                "revenue_30d": 0.0,
-                "last_synced_at": "",
+                "short_views": 12,
+                "long_views": 22,
+                "total_views": 34,
+                "published_at": "2026-09-15",
+                "revenue_lifetime": 0.006,
+                "revenue_30d": 0.006,
+                "last_synced_at": "2026-09-21T14:45:38Z",
                 "detail": {
-                    "synced_at": "",
-                    "youtube": {},
+                    "synced_at": "2026-09-21T14:45:38Z",
+                    "youtube": {
+                        "short": {
+                            "views": 12,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "Amodei Didn't Call for an AI Pause | #Shorts",
+                            "published_at": "2026-09-15"
+                        },
+                        "long": {
+                            "views": 22,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "Pace, Not Pause: What Amodei Actually Proposed to Slow Down AI",
+                            "published_at": "2026-09-15"
+                        }
+                    },
                     "x": {}
                 },
-                "history": [],
+                "history": [
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 34,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    }
+                ],
                 "attribution": {
                     "synced_at": "2026-09-18T02:33:46Z",
                     "short": {
@@ -6263,7 +6570,7 @@
                 "short_url": "",
                 "long_id": "1TTTpFG5vSs",
                 "long_url": "https://www.youtube.com/watch?v=1TTTpFG5vSs",
-                "published_at": "",
+                "published_at": "2026-09-20",
                 "localizations": {
                     "de": {
                         "title": "KI in der Wissenschaft von Google",
@@ -6286,10 +6593,41 @@
                 "caption": ""
             },
             "stats": {
-                "views": 0,
-                "likes": 0,
+                "views": 9,
+                "likes": 1,
                 "comments": 0,
-                "last_synced_at": ""
+                "last_synced_at": "2026-09-21T14:45:38Z",
+                "short_views": 0,
+                "long_views": 9,
+                "total_views": 9,
+                "published_at": "2026-09-20",
+                "revenue_lifetime": 0.0,
+                "revenue_30d": 0.0,
+                "detail": {
+                    "synced_at": "2026-09-21T14:45:38Z",
+                    "youtube": {
+                        "long": {
+                            "views": 9,
+                            "likes": 1,
+                            "comments": 0,
+                            "title": "AI Saves Scientists 7 Hours a Week: Google's AI in Science Report",
+                            "published_at": "2026-09-20"
+                        }
+                    },
+                    "x": {}
+                },
+                "history": [
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 9,
+                        "yt_likes": 1,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    }
+                ]
             }
         },
         {
@@ -6332,7 +6670,30 @@
                 "views": 0,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": ""
+                "last_synced_at": "2026-09-21T14:45:38Z",
+                "short_views": 0,
+                "long_views": 0,
+                "total_views": 0,
+                "published_at": "",
+                "revenue_lifetime": 0.0,
+                "revenue_30d": 0.0,
+                "detail": {
+                    "synced_at": "2026-09-21T14:45:38Z",
+                    "youtube": {},
+                    "x": {}
+                },
+                "history": [
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 0,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    }
+                ]
             }
         },
         {
@@ -6373,7 +6734,7 @@
                 "short_url": "",
                 "long_id": "weJI_CErLYk",
                 "long_url": "https://www.youtube.com/watch?v=weJI_CErLYk",
-                "published_at": "",
+                "published_at": "2026-09-18",
                 "localizations": {
                     "de": {
                         "title": "Das Tempo der KI-Entwicklung messen",
@@ -6396,10 +6757,41 @@
                 "caption": ""
             },
             "stats": {
-                "views": 0,
+                "views": 8,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": ""
+                "last_synced_at": "2026-09-21T14:45:38Z",
+                "short_views": 0,
+                "long_views": 8,
+                "total_views": 8,
+                "published_at": "2026-09-18",
+                "revenue_lifetime": 0.001,
+                "revenue_30d": 0.001,
+                "detail": {
+                    "synced_at": "2026-09-21T14:45:38Z",
+                    "youtube": {
+                        "long": {
+                            "views": 8,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "Measuring the Pace of AI Development: Anthropic's Transparency Numbers",
+                            "published_at": "2026-09-18"
+                        }
+                    },
+                    "x": {}
+                },
+                "history": [
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 8,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    }
+                ]
             }
         },
         {
@@ -6450,7 +6842,7 @@
                 "short_url": "",
                 "long_id": "n2qXBGkEjkw",
                 "long_url": "https://www.youtube.com/watch?v=n2qXBGkEjkw",
-                "published_at": "",
+                "published_at": "2026-09-19",
                 "localizations": {
                     "de": {
                         "title": "Huawei Intelligent World 2035 Report, Trend 9",
@@ -6473,11 +6865,174 @@
                 "caption": ""
             },
             "stats": {
+                "views": 6,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": "2026-09-21T14:45:38Z",
+                "short_views": 0,
+                "long_views": 6,
+                "total_views": 6,
+                "published_at": "2026-09-19",
+                "revenue_lifetime": 0.0,
+                "revenue_30d": 0.0,
+                "detail": {
+                    "synced_at": "2026-09-21T14:45:38Z",
+                    "youtube": {
+                        "long": {
+                            "views": 6,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "Huawei Says 900 Billion AI Agents by 2035: The Agentic Internet Explained",
+                            "published_at": "2026-09-19"
+                        }
+                    },
+                    "x": {}
+                },
+                "history": [
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 6,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    }
+                ]
+            }
+        },
+        {
+            "id": "ts-20260921-the-current-balance-of-power-in-open-models",
+            "slug": "the-current-balance-of-power-in-open-models",
+            "title": "The current balance of power in open models",
+            "source_urls": [],
+            "source_file": {
+                "path": "/opt/tech-shorts/uploads/ts-20260921-the-current-balance-of-power-in-open-models/The current balance of power in open models.pdf",
+                "original_name": "The current balance of power in open models.pdf",
+                "size_bytes": 996100,
+                "mime_type": "application/pdf"
+            },
+            "source_files": [
+                {
+                    "path": "/opt/tech-shorts/uploads/ts-20260921-the-current-balance-of-power-in-open-models/The current balance of power in open models.pdf",
+                    "original_name": "The current balance of power in open models.pdf",
+                    "size_bytes": 996100,
+                    "mime_type": "application/pdf"
+                }
+            ],
+            "idea_notes": "The author was was recently invited to brief a group of Congressional members and staff on the state of open-weight models in the lens of U.S.-China competition. These are his prepared remarks as a state of the union on open models that is accessible to a broader audience",
+            "tags": [],
+            "status": "published",
+            "created_at": "2026-09-21T13:26:48Z",
+            "updated_at": "2026-09-21T14:45:27Z",
+            "notebook_url": "https://notebook.google.com/notebook/18d2808d-7845-496c-b6e4-dff5d2e9e882",
+            "hook_copy": {
+                "vo_text": "The most capable AI models you can download for free increasingly come from China. Here is how the balance of power in open models shifted, and why Washington is paying attention.",
+                "card_a_main": "WHO CONTROLS OPEN AI?",
+                "card_a_sub": "The models anyone can download",
+                "card_a_footer": "The Classical Remix",
+                "card_b_main": "China Is Closing the Gap",
+                "card_b_sub": "Open weights and the US-China race",
+                "card_b_footer": "Source: Nathan Lambert - Interconnects"
+            },
+            "outro_copy": {},
+            "assets": {
+                "raw_short_mp4": "",
+                "raw_long_mp4": "/Users/miguelrodriguez/Downloads/The_Shifting_Balance_of_Open_AI.mp4",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-21-the-current-balance-of-power-in-open-models/the-current-balance-of-power-in-open-models_hook_vo.mp3",
+                "final_short_mp4": "",
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-21-the-current-balance-of-power-in-open-models/final_long.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-21-the-current-balance-of-power-in-open-models"
+            },
+            "youtube": {
+                "short_id": "xljmWkU5BEM",
+                "short_url": "https://youtu.be/xljmWkU5BEM",
+                "long_id": "CO7CjnRQxeA",
+                "long_url": "https://www.youtube.com/watch?v=CO7CjnRQxeA",
+                "published_at": "2026-09-21",
+                "title_long": "Who Controls Open AI? The US-China Race in Open-Weight Models",
+                "description": "Nathan Lambert recently briefed Congress on the state of open-weight AI models in the US-China competition. This explainer breaks down his testimony: what open-weight and open-source models are, why Chinese open models from Alibaba, DeepSeek, and Moonshot are closing the gap in downloads, citations, and commercial use, the security and soft-power stakes, and what the US could do to keep pace.\n\nSource: Nathan Lambert (Interconnects AI), \"The current balance of power in open models,\" expanded from his Congressional testimony.\n\nDisclosure: This is an AI-assisted explainer by The Classical Remix. Narration and visuals are AI-generated; claims are drawn from the source above.\n\n#AI #OpenSource #OpenWeights #China #USChina #ArtificialIntelligence #LLM #AIpolicy #MachineLearning #TechExplained",
+                "tags": [
+                    "open models",
+                    "open weights",
+                    "open source AI",
+                    "China AI",
+                    "US China AI",
+                    "Nathan Lambert",
+                    "DeepSeek",
+                    "Alibaba",
+                    "Qwen",
+                    "LLM",
+                    "AI policy",
+                    "artificial intelligence"
+                ],
+                "localizations": {
+                    "de": {
+                        "title": "Wer kontrolliert Open AI? Das US-China-Rennen bei Open-Weight-Modellen",
+                        "description": "Nathan Lambert hat kürzlich den Kongress über den Stand von Open-Weight-AI-Modellen im US-China-Wettbewerb unterrichtet. Diese Erklärung schlüsselt sein Zeugnis auf: Was Open-Weight- und Open-Source-Modelle sind, warum chinesische Open-Modelle von Alibaba, DeepSeek und Moonshot bei Downloads, Zitierungen und kommerzieller Nutzung aufholen, welche Sicherheits- und Soft-Power-Aspekte auf dem Spiel stehen, und was die USA tun könnte, um Schritt zu halten.\n\nQuelle: Nathan Lambert (Interconnects AI), \"The current balance of power in open models,\" erweitert aus seinem Zeugnis vor dem Kongress.\n\nOffenlegung: Dies ist ein von KI unterstützter Erklärtext von The Classical Remix. Narration und Grafiken sind KI-generiert; Aussagen stammen aus der obigen Quelle.\n\n#AI #OpenSource #OpenWeights #China #USChina #ArtificialIntelligence #LLM #AIpolicy #MachineLearning #TechExplained",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-21-the-current-balance-of-power-in-open-models/the-current-balance-of-power-in-open-models_audio_de.m4a",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-21-the-current-balance-of-power-in-open-models/the-current-balance-of-power-in-open-models_de.srt"
+                    },
+                    "fr": {
+                        "title": "Qui contrôle OpenAI ? La course États-Unis-Chine dans les modèles ouverts",
+                        "description": "Nathan Lambert a récemment informé le Congrès sur l'état des modèles d'IA open-weight dans la compétition États-Unis-Chine. Cet explainer détaille son témoignage : ce que sont les modèles open-weight et open-source, pourquoi les modèles ouverts chinois d'Alibaba, DeepSeek et Moonshot comblent l'écart en téléchargements, citations et utilisation commerciale, les enjeux de sécurité et de soft-power, et ce que les États-Unis pourraient faire pour rester compétitifs.\n\nSource : Nathan Lambert (Interconnects AI), \"The current balance of power in open models,\" expanded from his Congressional testimony.\n\nDisclosure: This is an AI-assisted explainer by The Classical Remix. Narration and visuals are AI-generated; claims are drawn from the source above.\n\n#AI #OpenSource #OpenWeights #China #USChina #ArtificialIntelligence #LLM #AIpolicy #MachineLearning #TechExplained",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-21-the-current-balance-of-power-in-open-models/the-current-balance-of-power-in-open-models_audio_fr.m4a",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-21-the-current-balance-of-power-in-open-models/the-current-balance-of-power-in-open-models_fr.srt"
+                    }
+                },
+                "captions_en_srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-21-the-current-balance-of-power-in-open-models/the-current-balance-of-power-in-open-models_en.srt"
+            },
+            "x_post": {
+                "post_id": "",
+                "post_url": "",
+                "caption": ""
+            },
+            "stats": {
                 "views": 0,
                 "likes": 0,
                 "comments": 0,
-                "last_synced_at": ""
-            }
+                "last_synced_at": "2026-09-21T14:45:38Z",
+                "short_views": 0,
+                "long_views": 0,
+                "total_views": 0,
+                "published_at": "2026-09-21",
+                "revenue_lifetime": 0.0,
+                "revenue_30d": 0.0,
+                "detail": {
+                    "synced_at": "2026-09-21T14:45:38Z",
+                    "youtube": {
+                        "short": {
+                            "views": 0,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "The Best Free AI Models Are Now Chinese #Shorts",
+                            "published_at": "2026-09-21"
+                        },
+                        "long": {
+                            "views": 0,
+                            "likes": 0,
+                            "comments": 0,
+                            "title": "Who Controls Open AI? The US-China Race in Open-Weight Models",
+                            "published_at": "2026-09-21"
+                        }
+                    },
+                    "x": {}
+                },
+                "history": [
+                    {
+                        "date": "2026-09-21",
+                        "yt_views": 0,
+                        "yt_likes": 0,
+                        "yt_comments": 0,
+                        "x_impressions": null,
+                        "x_likes": null,
+                        "tiktok_views": null,
+                        "tiktok_likes": null
+                    }
+                ]
+            },
+            "trim_s": 4.0
         }
     ]
 }
