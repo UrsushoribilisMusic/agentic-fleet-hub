@@ -751,6 +751,18 @@ def stage_upload(job: dict, dry_run: bool) -> None:
     except Exception:
         pass  # non-fatal — URLs already in jobs.json via update_job_field above
 
+    # Keep the DO intake console (ideas.flotilla.cc) in sync. It reads a separate
+    # jobs.json on the droplet and only changes when the Mac posts status back —
+    # mac_worker does this, but a manual `pipeline.py run` used to skip it, leaving
+    # the console stale. Best-effort: a failed post-back (tunnel down, job unknown)
+    # never blocks the upload. The console vocabulary has no "uploaded"; a job with
+    # a YouTube URL is "published" there.
+    try:
+        import do_sync
+        do_sync.post_status(job_id, "published", youtube=yt_update)
+    except Exception as exc:
+        print(f"  NOTE: DO intake post-back skipped (non-fatal): {exc}")
+
     print(f"  job {job_id} → uploaded")
     print(f"  IMPORTANT: open YouTube Studio and enable 'Altered content' on both videos before publishing.")
 
