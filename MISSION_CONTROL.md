@@ -1034,6 +1034,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **#1**: SM-348: SM ingestion as the ONE universal wiki+RAG build pipeline (retire ATF toolchain; ATF=collection #1) -- DESIGN/EPIC. Make SM's ingestion pipeline the ONE universal build for all wiki+RAG content, so the standalone ATF toolchain (build_static_views.py + build_rag_chunks.py) and per-customer bespoke seeding go away. Today two parallel pipelines produce the same shape: (1) the ATF toolchain (ATF/artifacts/wiki/*.md -> /atf/ HTML + SM chunks.jsonl), and (2) SM's wiki/index.js pipeline whose live ingestion is STUBBED (uploaded doc text is discarded; the Robot Ross ATF collection was seeded by a one-off, its chunks.jsonl was a hackathon artifact — now made reproducible via ATF/tools/build_rag_chunks.py). -- Clau. Approved.
 - **3fjerwmf**: SC-072 [P0]: Retire week-timer pricing — free-always + tip-gates model -- Remove all SC-044/045 quota-check code (canGenerate, isPro paywall guards, weekly-limit banners). Replace with tip-gate counter: after every X generations show a skippable tip-gate sheet (SC-074). Gate counter persists across launches. IAP unlock (SC-074) removes all future gates permanently. Sharing is NEVER gated. Copy: support development / unlock — never donate/buy/upgrade. -- Clau. Approved.
 - **tejrwdkf**: BBE page fixes: nav consolidation, project links, alignment -- ## What was done (Clau, 2026-03-12) -- Clau. Approved.
+- **sux1kelv**: [Council R2] codi: [TEST] Full council cycle -- [Council Round 2 (Critique & Revision)] Goal: [TEST] Full council cycle -- Codi. Approved.
 - **6yhqf4bt**: [Council R2] clau: [TEST] Full council cycle -- [Council Round 2 (Critique & Revision)] Goal: [TEST] Full council cycle -- Clau. Approved.
 - **owin1vt1**: [Council R1] codi: [TEST] Full council cycle -- [Council Round 1 (Independent Proposal)] Goal: [TEST] Full council cycle -- Codi. Approved.
 - **id9wtxpq**: [Council R1] clau: [TEST] Full council cycle -- [Council Round 1 (Independent Proposal)] Goal: [TEST] Full council cycle -- Clau. Approved.
@@ -1081,6 +1082,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **cu841mma** | FCP-4: Fleet Hub Goal Intake UI | gem | merged | # FCP-4: Fleet Hub Goal Intake UI... |
 | **grt6sx2o** | FCP-5: Fleet Hub Council Room UI | gem | merged | # FCP-5: Fleet Hub Council Room UI... |
 | **kqm07jck** | FCP-7: Research Workbench source and claim ledger | gem | in_work | # FCP-7: Research Workbench source and claim ledge... |
-| **sux1kelv** | [Council R2] codi: [TEST] Full council cycle | codi | merged | [Council Round 2 (Critique & Revision)] Goal: [TES... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
