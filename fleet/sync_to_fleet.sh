@@ -23,6 +23,7 @@ SCRIPTS=(
     active_context.py
     telegram_bridge.py
     council_coordinator.py
+    research_ledger.py
 )
 
 echo "[sync_to_fleet] Mirroring from $REPO_FLEET -> $RUNTIME_DIR"

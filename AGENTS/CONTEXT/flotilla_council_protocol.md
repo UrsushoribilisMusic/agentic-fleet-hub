@@ -152,7 +152,7 @@ For goals with internet or source research:
 - needs human review: yes/no
 - notes
 
-This may be implemented later. It is not required for the first council prototype.
+Implemented in Phase 6 (FCP-7) via `research_sources` and `research_claims` collections, `fleet/research_ledger.py`, and Fleet Hub Council Room UI. See `docs/research_workbench.md`.
 
 ## Execution Flow
 
