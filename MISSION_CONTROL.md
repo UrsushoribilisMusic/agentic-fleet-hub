@@ -1081,6 +1081,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | :--- | :--- | :--- | :--- | :--- |
 | **cu841mma** | FCP-4: Fleet Hub Goal Intake UI | gem | merged | # FCP-4: Fleet Hub Goal Intake UI... |
 | **grt6sx2o** | FCP-5: Fleet Hub Council Room UI | gem | merged | # FCP-5: Fleet Hub Council Room UI... |
-| **kqm07jck** | FCP-7: Research Workbench source and claim ledger | gem | in_work | # FCP-7: Research Workbench source and claim ledge... |
+| **kqm07jck** | FCP-7: Research Workbench source and claim ledger | gem | planned | # FCP-7: Research Workbench source and claim ledge... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
