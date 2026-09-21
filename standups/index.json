@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-09-21",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-09-21.md"
+  },
+  {
     "date": "2026-09-20",
     "summary": "Flotilla Council Protocol (FCP-0 through FCP-8) complete: coordinator & ticketer approved (Clau); FCP-1, FCP-4, FCP-5, and FCP-7 delivered (Gem); FCP-2 & FCP-8 approved (Codi); Council R2 deliberations completed across all active goals.",
     "file": "2026-09-20.md"
