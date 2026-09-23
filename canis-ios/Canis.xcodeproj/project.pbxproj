@@ -20,7 +20,9 @@
 		516A617C2CE67760673B6A98 /* CanisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE42CA0CB4F8B5E1022AED1 /* CanisModel.swift */; };
 		5B08C20234F4A0ED2C7819D9 /* KnowledgePackRetrieverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9ED7CC60EC8F3291A6D884 /* KnowledgePackRetrieverTests.swift */; };
 		66A241EADC7E0107A68CB076 /* WebSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED72734D6B7B284C62D6D4C8 /* WebSearchService.swift */; };
+		7081E6D08C9CEE9E0529CA6F /* BoneChunker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123D74C5093FA5491DE5A3E5 /* BoneChunker.swift */; };
 		7CA5864B8A11F97CC9807E14 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0C60EA257B754E4387BF47 /* ChatViewModel.swift */; };
+		86DF1DDA73F6C139910F566B /* BoneChunkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F036386FC491524D8C2A4 /* BoneChunkerTests.swift */; };
 		8711935796D7D64077A40B84 /* DispositionReadoutEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30B2625ACDDF1D821963CED /* DispositionReadoutEngine.swift */; };
 		88B3C93B63CB899D68E00D4D /* BoneExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF03467D8A90F15E9DAF1D3 /* BoneExtractor.swift */; };
 		88F475018F0528DB24AA25AE /* MLXLLM in Frameworks */ = {isa = PBXBuildFile; productRef = 0CB4313946A6923BB4BF5EDF /* MLXLLM */; };
@@ -52,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		066CA3E0A958CA8EC426747C /* DispositionReadoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispositionReadoutTests.swift; sourceTree = "<group>"; };
+		123D74C5093FA5491DE5A3E5 /* BoneChunker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoneChunker.swift; sourceTree = "<group>"; };
 		1447D3624398A4BBB4D6BF25 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		16395A33B72CAEF6DB0525D3 /* BoneExtractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoneExtractorTests.swift; sourceTree = "<group>"; };
 		283603D01E1BD75268D56F52 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
@@ -77,6 +80,7 @@
 		C574CE896EBFEF177BAC32FC /* DispositionAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispositionAvatarView.swift; sourceTree = "<group>"; };
 		CB3DD4E5E177BF4A638747D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7DD792427A70E443E4C514F /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		ED6F036386FC491524D8C2A4 /* BoneChunkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoneChunkerTests.swift; sourceTree = "<group>"; };
 		ED72734D6B7B284C62D6D4C8 /* WebSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSearchService.swift; sourceTree = "<group>"; };
 		EF6EFAAB6D11E14E26F30AA3 /* ModelDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDownloadManager.swift; sourceTree = "<group>"; };
 		EFF03467D8A90F15E9DAF1D3 /* BoneExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoneExtractor.swift; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 		9632A4013BA6296865FA0B84 /* CanisTests */ = {
 			isa = PBXGroup;
 			children = (
+				ED6F036386FC491524D8C2A4 /* BoneChunkerTests.swift */,
 				16395A33B72CAEF6DB0525D3 /* BoneExtractorTests.swift */,
 				AF174809CAC210D2C1A3DA9F /* CanisModelTests.swift */,
 				066CA3E0A958CA8EC426747C /* DispositionReadoutTests.swift */,
@@ -153,6 +158,7 @@
 		AE61D9E554BB909F1A1D78F8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				123D74C5093FA5491DE5A3E5 /* BoneChunker.swift */,
 				EFF03467D8A90F15E9DAF1D3 /* BoneExtractor.swift */,
 				76F2D8FFA5DC89A6CA9AB674 /* CanisMLXEngine.swift */,
 				9D0C60EA257B754E4387BF47 /* ChatViewModel.swift */,
@@ -304,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7081E6D08C9CEE9E0529CA6F /* BoneChunker.swift in Sources */,
 				88B3C93B63CB899D68E00D4D /* BoneExtractor.swift in Sources */,
 				233BACF5F883D66EDF325918 /* CanisApp.swift in Sources */,
 				9B0CDB74BAB32317E29A92A8 /* CanisMLXEngine.swift in Sources */,
@@ -331,6 +338,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86DF1DDA73F6C139910F566B /* BoneChunkerTests.swift in Sources */,
 				C73D2A4E6D4E035FA2B34C16 /* BoneExtractorTests.swift in Sources */,
 				EEB659A63E9CA4E930359F26 /* CanisModelTests.swift in Sources */,
 				0CA9AD134E03AC55DD875169 /* DispositionReadoutTests.swift in Sources */,
