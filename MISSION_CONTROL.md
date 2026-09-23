@@ -1088,6 +1088,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **rcnaa896** | CANIS-BONE-05: Multi-bone store + management (extend KnowledgePackStore) | clau | merged | CONTEXT: Canis (agentic-fleet-hub/canis-ios) is a ... |
-| **3lm9w8l0** | CANIS-BONE-06: UI -- 'Give the dog a bone' (import -> progress -> chat) | clau | planned | CONTEXT: Canis (agentic-fleet-hub/canis-ios) is a ... |
+| **3lm9w8l0** | CANIS-BONE-06: UI -- 'Give the dog a bone' (import -> progress -> chat) | clau | in_work | CONTEXT: Canis (agentic-fleet-hub/canis-ios) is a ... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
