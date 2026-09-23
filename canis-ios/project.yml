@@ -58,6 +58,18 @@ targets:
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
         UIApplicationSupportsIndirectInputEvents: true
+        CFBundleDocumentTypes:
+          - CFBundleTypeName: "PDF Document"
+            CFBundleTypeRole: Viewer
+            LSHandlerRank: Alternate
+            LSItemContentTypes:
+              - com.adobe.pdf
+          - CFBundleTypeName: "Text Document"
+            CFBundleTypeRole: Viewer
+            LSHandlerRank: Alternate
+            LSItemContentTypes:
+              - public.plain-text
+              - net.daringfireball.markdown
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.bigbearengineering.canis

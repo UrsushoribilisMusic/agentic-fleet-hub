@@ -2,6 +2,7 @@ import SwiftUI
 
 struct RootView: View {
     @AppStorage("canis.activeModelID") private var activeModelID = CanisModel.apertus.rawValue
+    @EnvironmentObject private var ingestion: BoneIngestionManager
 
     var body: some View {
         TabView {
@@ -10,10 +11,19 @@ struct RootView: View {
                     Label("Chat", systemImage: "message")
                 }
 
+            BoneListView()
+                .tabItem {
+                    Label("Bones", systemImage: "books.vertical")
+                }
+
             ModelHubView(activeModelID: $activeModelID)
                 .tabItem {
                     Label("Models", systemImage: "square.and.arrow.down")
                 }
+        }
+        .sheet(isPresented: $ingestion.isShowingImport) {
+            GiveABoneView()
+                .environmentObject(ingestion)
         }
     }
 }
@@ -22,4 +32,5 @@ struct RootView: View {
     RootView()
         .environmentObject(ModelDownloadManager.shared)
         .environmentObject(KnowledgePackStore.shared)
+        .environmentObject(BoneIngestionManager.shared)
 }
