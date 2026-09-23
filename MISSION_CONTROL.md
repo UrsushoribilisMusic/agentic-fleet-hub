@@ -1090,6 +1090,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **0azpt3z7** | SM-357: Wiki tab — collapsible 3-tier nav tree (Group → Page → Section), replaces flat Pages list | clau | merged | CONTEXT: Sovereign Mind admin console (~/projects/... |
-| **wqwzihlg** | CANIS-BONE-07: Keep title enrichment opt-in + add a manual 'Generate titles' action | clau | planned | CONTEXT: Canis (agentic-fleet-hub/canis-ios), on-d... |
+| **wqwzihlg** | CANIS-BONE-07: Keep title enrichment opt-in + add a manual 'Generate titles' action | clau | in_work | CONTEXT: Canis (agentic-fleet-hub/canis-ios), on-d... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
