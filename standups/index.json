@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-09-23",
-    "summary": "Clau: CANIS-BONE-02 BoneChunker.swift + 15 tests (BUILD SUCCEEDED, 15/15 passed); peer-reviewed BONE-00 + BONE-01",
+    "summary": "Clau: CANIS-BONE-04 BoneEnricher actor + generateTitle (BUILD SUCCEEDED, 7/7 tests pass); BONE-01/02/03 cherry-picked as dependency",
     "file": "2026-09-23.md"
   },
   {
