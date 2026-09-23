@@ -34,6 +34,10 @@ targets:
         excludes:
           - "**/*.md"
     assets: Canis/Assets.xcassets
+    entitlements:
+      path: Canis/Canis.entitlements
+      properties:
+        com.apple.developer.kernel.increased-memory-limit: true
     dependencies:
       - package: MLX
         product: MLX
@@ -49,7 +53,7 @@ targets:
         CFBundleName: Canis
         CFBundleDisplayName: Canis
         CFBundleShortVersionString: "0.1"
-        CFBundleVersion: "2"
+        CFBundleVersion: "3"
         LSRequiresIPhoneOS: true
         BRAVE_API_KEY: "$(BRAVE_API_KEY)"
         UILaunchScreen: {}
@@ -58,6 +62,7 @@ targets:
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
         UIApplicationSupportsIndirectInputEvents: true
+        LSSupportsOpeningDocumentsInPlace: true
         CFBundleDocumentTypes:
           - CFBundleTypeName: "PDF Document"
             CFBundleTypeRole: Viewer

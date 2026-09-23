@@ -72,6 +72,7 @@
 		338C50DA373F335DB751A074 /* Canis.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Canis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3613EF0F74827898CA8C17E3 /* ModelRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRowView.swift; sourceTree = "<group>"; };
 		37B74AC972B6AE5551E15378 /* CanisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanisApp.swift; sourceTree = "<group>"; };
+		37BB9DDA6F983CE24B0643D1 /* Canis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Canis.entitlements; sourceTree = "<group>"; };
 		44AB8823E78BD852D11BBFDA /* BoneIngestionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoneIngestionManager.swift; sourceTree = "<group>"; };
 		5584A22962C25FB7654949B8 /* BoneListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoneListView.swift; sourceTree = "<group>"; };
 		55E4EE85FCE39DD74B7224AF /* CanisTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CanisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				CB3DD4E5E177BF4A638747D6 /* Assets.xcassets */,
+				37BB9DDA6F983CE24B0643D1 /* Canis.entitlements */,
 				37B74AC972B6AE5551E15378 /* CanisApp.swift */,
 				8FFFBE105926EF9FFDDAB3F8 /* Config.swift */,
 				809C72BC10630ED8723AED79 /* Info.plist */,
@@ -437,6 +439,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Canis/Canis.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = Canis/Info.plist;
@@ -584,6 +587,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Canis/Canis.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = Canis/Info.plist;

@@ -46,7 +46,11 @@ final class BoneIngestionManager: ObservableObject {
 
     // MARK: - Public API
 
-    func ingest(url: URL, model: CanisModel = .apertus) {
+    /// - Parameter enrichTitles: when true, runs the model over every chunk to
+    ///   generate titles right after import. Off by default: titling is a burst of
+    ///   sustained on-device inference (memory + heat) and the bone is fully usable
+    ///   without it. Enable it only as an explicit, user-initiated action.
+    func ingest(url: URL, model: CanisModel = .apertus, enrichTitles: Bool = false) {
         ingestionTask?.cancel()
         Task { await BoneEnricher.shared.cancel() }
         enrichmentProgress = nil
@@ -95,22 +99,26 @@ final class BoneIngestionManager: ObservableObject {
 
                 stage = .done(entry)
 
-                // Stage 5: Enrich titles (background actor, non-blocking)
-                let boneURL = KnowledgePackStore.bonesDirectoryURL
-                    .appendingPathComponent("\(entry.id).sqlite")
-                let chunkTotal = chunks.count
-                enrichmentProgress = (done: 0, total: chunkTotal)
+                // Stage 5: Enrich titles (background actor, non-blocking).
+                // Opt-in only: this runs the model over every chunk, a burst of
+                // sustained inference. Skipped by default so import stays light.
+                if enrichTitles {
+                    let boneURL = KnowledgePackStore.bonesDirectoryURL
+                        .appendingPathComponent("\(entry.id).sqlite")
+                    let chunkTotal = chunks.count
+                    enrichmentProgress = (done: 0, total: chunkTotal)
 
-                await BoneEnricher.shared.enrich(
-                    boneURL: boneURL,
-                    model: model,
-                    onProgress: { done, total in
-                        Task { @MainActor in
-                            BoneIngestionManager.shared.enrichmentProgress =
-                                done < total ? (done, total) : nil
+                    await BoneEnricher.shared.enrich(
+                        boneURL: boneURL,
+                        model: model,
+                        onProgress: { done, total in
+                            Task { @MainActor in
+                                BoneIngestionManager.shared.enrichmentProgress =
+                                    done < total ? (done, total) : nil
+                            }
                         }
-                    }
-                )
+                    )
+                }
 
             } catch {
                 guard !Task.isCancelled else { return }
