@@ -1086,7 +1086,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **nt02jjxn** | CANIS-BONE-03: Bone builder -- write SQLite in the retriever's schema | clau | merged | CONTEXT: Canis (agentic-fleet-hub/canis-ios) is a ... |
-| **b3xlzp87** | CANIS-BONE-04: Model enrichment pass -- per-chunk titles (background, optional) | clau | in_work | CONTEXT: Canis (agentic-fleet-hub/canis-ios) is a ... |
+| **b3xlzp87** | CANIS-BONE-04: Model enrichment pass -- per-chunk titles (background, optional) | clau | merged | CONTEXT: Canis (agentic-fleet-hub/canis-ios) is a ... |
 | **rcnaa896** | CANIS-BONE-05: Multi-bone store + management (extend KnowledgePackStore) | clau | planned | CONTEXT: Canis (agentic-fleet-hub/canis-ios) is a ... |
 | **3lm9w8l0** | CANIS-BONE-06: UI -- 'Give the dog a bone' (import -> progress -> chat) | clau | planned | CONTEXT: Canis (agentic-fleet-hub/canis-ios) is a ... |
 
