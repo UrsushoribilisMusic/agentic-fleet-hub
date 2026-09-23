@@ -1,31 +1,39 @@
-# CANIS-BONE-02 Worklog
+# WORKLOG — CANIS-BONE-03
 
-Task: Add BoneChunker.swift — deterministic chunker (spec-matched, lossless, reproducible)
+## Task
+Write `BoneBuilder.swift`: given `[BoneChunk]` + doc metadata, write a SQLite bone whose schema
+exactly matches what `KnowledgePackRetriever.loadSections()` queries.
+
+## Schema (from robot-ross-atf.sqlite reference)
+- `meta (key TEXT PRIMARY KEY, value TEXT)`
+- `chunks (id TEXT PK, doc_id, doc_title, text, source_page, chunk_index, chunk_type, tfidf_json)`
+- `wiki_sections (id, doc_id, doc_title, title, body, section_index INTEGER DEFAULT 0)`
+- Indexes: `idx_chunks_doc` on chunks(doc_id), `idx_wiki_doc` on wiki_sections(doc_id)
+
+## ID conventions (from reference data)
+- `chunks.id`:       `c-{docId}-s{N}` (N = chunk.index + 1, 1-based)
+- `wiki_sections.id`: `{docId}-s{N}`
 
 ## Plan
+1. `BoneBuilder.swift` in `Canis/Services/`
+   - `func build(chunks:docTitle:sourceName:) throws -> URL`
+   - sqlite3_open_v2 + WAL mode
+   - createSchema() → DDL matching reference
+   - insertMeta() → version/user_id/created_at/doc_count/chunk_count/wiki_count
+   - insertChunks() → one row per BoneChunk
+   - insertWikiSections() → one row per BoneChunk, title = "<DocTitle> - p.<N>"
+   - wal_checkpoint(FULL) before returning URL
+   - Uses sqlite3_prepare_v2 + sqlite3_bind_text for safe user-data binding
 
-1. Add `Canis/Services/BoneChunker.swift`
-   - `BoneChunk` struct: `{index: Int, text: String, sourcePage: Int}` (0 = no page)
-   - `BoneChunker.chunk(_ pages: [ExtractedPage]) -> [BoneChunk]`
-   - Token estimate: `ceil(utf8_byte_count / 4)` (documented in code)
-   - Pre-segment: split on `^#{1,6} ` headings and blank-line paragraphs per page
-   - Expand oversized segments > 512 tokens at sentence boundaries; hard-split as last resort
-   - Greedy pack: 400-token target, 60-token overlap (tail of previous window), 50-token min
-   - Heading carry-forward: heading goes first in new window, then overlap
-   - Merge trailing remnant < 50 tokens into previous chunk
-   - Pure value algorithm: same input → byte-identical output (no random, no date)
+2. `CanisTests/BoneBuilderTests.swift`
+   - Schema shape tests
+   - Chunk count matches input
+   - Retriever integration test (acceptance criterion)
+   - Section title format
+   - Reproducibility
 
-2. Add `CanisTests/BoneChunkerTests.swift`
-   - Determinism: run twice, compare byte-for-byte
-   - Token bounds: all chunks within [50, 512] estimated tokens (except single-segment doc < 50)
-   - Overlap: chunk[i+1] shares at least some content with end of chunk[i]
-   - Losslessness: every pre-segment appears in at least one chunk
-   - Source page carry: PDF pages produce non-zero sourcePage; txt/md produces 0
-   - Edge cases: empty input, single short page, single very long paragraph
-
-3. Build verify: `xcodegen generate && xcodebuild -scheme Canis -destination 'platform=iOS Simulator,name=iPhone 17' build`
-
-## Status
-- [ ] BoneChunker.swift
-- [ ] BoneChunkerTests.swift
-- [ ] BUILD SUCCEEDED
+## Key decisions
+- source_page stored as String(chunk.sourcePage) (page number, e.g. "1", "3")
+- docId derived: lowercased, whitespace→"-", filter to letter/number/dash
+- SQLITE_TRANSIENT (unsafeBitCast) used so SQLite copies strings before bind_text returns
+- outputURL written to temporaryDirectory; caller moves to Documents/knowledge-packs/
