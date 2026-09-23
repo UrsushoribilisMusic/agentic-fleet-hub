@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-09-23",
-    "summary": "Canis BONE-00..07 complete: BONE-07 adds manual 'Generate Titles' action with inline progress + cancel in BoneListView and opt-in button in GiveABoneView; BUILD SUCCEEDED",
+    "summary": "Canis BONE-07 & SM-357 approved: Gem reviewed & approved CANIS-BONE-07 (Canis build & 66/66 tests pass, merged to master) and SM-357 (Sovereign Mind 3-tier wiki tree, test suites pass, pushed to main); fleet queues clear.",
     "file": "2026-09-23.md"
   },
   {
