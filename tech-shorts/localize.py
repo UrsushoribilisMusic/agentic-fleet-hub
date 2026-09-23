@@ -28,8 +28,8 @@ ENV_FILE = Path("/Users/miguelrodriguez/projects/music-video-tool/.env")
 
 # Native voices (kept identical to the hand-run dubs so a channel's voice is
 # consistent across every video): Sophia (DE), Nathalie (FR).
-VOICES = {"de": "QT6va3HQK8j63EC2r9cw", "fr": "rS7c1woNY04WT3UAS83Y"}
-LANGNAME = {"de": "German", "fr": "French"}
+VOICES = {"de": "QT6va3HQK8j63EC2r9cw", "fr": "rS7c1woNY04WT3UAS83Y", "ja": "vuzURFNcGxdkmY9AleMn"}
+LANGNAME = {"de": "German", "fr": "French", "ja": "Japanese"}
 MODEL_TTS = "eleven_multilingual_v2"
 TRANS_MODEL = "claude-haiku-4-5-20251001"
 

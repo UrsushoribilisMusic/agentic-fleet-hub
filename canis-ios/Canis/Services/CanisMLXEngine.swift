@@ -318,4 +318,60 @@ actor CanisMLXEngine {
     private static let systemPromptWithKnowledge = """
     You are Canis, a concise on-device assistant running offline against a downloaded local wiki pack. Answer only from the provided OFFLINE KNOWLEDGE PACK CONTEXT. Cite the source wiki page with [1], [2], etc. If the context does not support the answer, say the downloaded pack does not contain a supporting wiki page.
     """
+
+    private static let systemPromptTitling = """
+    You are a concise title generator. When given a passage, output only a short title of 6 words or fewer. No punctuation, no explanation, just the title.
+    """
+
+    /// Generates a short (≤6 word) title for a text passage using the loaded model.
+    /// Used by `BoneEnricher` for the background enrichment pass.
+    ///
+    /// - Does NOT store a reference in `currentTask` — enrichment cancellation is
+    ///   managed by the caller's Swift `Task`, not by `interruptAndUnload()`.
+    /// - Applies the same thermal/battery guards as `generate()`.
+    func generateTitle(from body: String, model: CanisModel) async throws -> String {
+        let active = await MainActor.run { UIApplication.shared.applicationState == .active }
+        guard active else { throw CanisMLXError.backgroundExecution }
+
+        let thermal = ProcessInfo.processInfo.thermalState
+        if thermal == .critical { throw CanisMLXError.thermal(thermal) }
+        if thermal == .serious  { throw CanisMLXError.thermal(thermal) }
+
+        try await load(model: model)
+        guard let container else { throw CanisMLXError.noModelLoaded }
+
+        let active2 = await MainActor.run { UIApplication.shared.applicationState == .active }
+        guard active2 else { throw CanisMLXError.backgroundExecution }
+
+        let thermal2 = ProcessInfo.processInfo.thermalState
+        if thermal2 == .serious || thermal2 == .critical { throw CanisMLXError.thermal(thermal2) }
+
+        let snippet = String(body.prefix(400))
+        let prompt = "Passage: \(snippet)\nTitle:"
+
+        generating = true
+        MLX.Memory.clearCache()
+        let session = MLXLMCommon.ChatSession(
+            container,
+            instructions: Self.systemPromptTitling,
+            generateParameters: GenerateParameters(temperature: 0.3, topP: 0.9)
+        )
+        var result = ""
+        do {
+            for try await chunk in session.streamResponse(to: prompt) {
+                if Task.isCancelled { break }
+                result += chunk
+                if result.contains("\n") { break }
+                if result.split(separator: " ").count >= 6 { break }
+            }
+        } catch {
+            generating = false
+            throw error
+        }
+        generating = false
+
+        let title = (result.components(separatedBy: "\n").first ?? result)
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        return title.isEmpty ? body.prefix(60).description : title
+    }
 }

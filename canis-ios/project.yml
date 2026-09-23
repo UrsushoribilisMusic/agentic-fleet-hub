@@ -41,22 +41,27 @@ targets:
         product: MLXLLM
       - package: MLXLM
         product: MLXLMCommon
+      - sdk: PDFKit.framework
+      - sdk: Vision.framework
     info:
       path: Canis/Info.plist
       properties:
         CFBundleName: Canis
         CFBundleDisplayName: Canis
         CFBundleShortVersionString: "0.1"
-        CFBundleVersion: "1"
+        CFBundleVersion: "2"
         LSRequiresIPhoneOS: true
         BRAVE_API_KEY: "$(BRAVE_API_KEY)"
         UILaunchScreen: {}
+        UIRequiresFullScreen: true
+        ITSAppUsesNonExemptEncryption: false
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
         UIApplicationSupportsIndirectInputEvents: true
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.bigbearengineering.canis
+        TARGETED_DEVICE_FAMILY: "1"
         ENABLE_TESTABILITY: YES
 
   CanisTests:

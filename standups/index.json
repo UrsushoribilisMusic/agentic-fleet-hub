@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-09-23",
-    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending foreign peer reviews; 0 todo tasks; fleet healthy and idle.",
+    "summary": "Clau: CANIS-BONE-04 BoneEnricher actor + generateTitle (BUILD SUCCEEDED, 7/7 tests pass); BONE-01/02/03 cherry-picked as dependency",
     "file": "2026-09-23.md"
   },
   {

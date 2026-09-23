@@ -95,7 +95,7 @@ final class KnowledgePackRetriever {
 
     let packURL: URL
 
-    init(packURL: URL = KnowledgePackStore.currentPackURL) {
+    init(packURL: URL = KnowledgePackStore.activePackURL) {
         self.packURL = packURL
     }
 
