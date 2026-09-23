@@ -1082,7 +1082,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **cu841mma** | FCP-4: Fleet Hub Goal Intake UI | gem | merged | # FCP-4: Fleet Hub Goal Intake UI... |
 | **grt6sx2o** | FCP-5: Fleet Hub Council Room UI | gem | merged | # FCP-5: Fleet Hub Council Room UI... |
 | **kqm07jck** | FCP-7: Research Workbench source and claim ledger | gem | merged | # FCP-7: Research Workbench source and claim ledge... |
-| **xzruiw4z** | CANIS-BONE-00: Chunking + bone spec (shared source of truth with SM) | clau | in_work | CONTEXT: Canis (agentic-fleet-hub/canis-ios) is a ... |
+| **xzruiw4z** | CANIS-BONE-00: Chunking + bone spec (shared source of truth with SM) | clau | merged | CONTEXT: Canis (agentic-fleet-hub/canis-ios) is a ... |
 | **j3iji9nd** | CANIS-BONE-01: On-device text extraction (PDFKit + Vision OCR fallback) | clau | planned | CONTEXT: Canis (agentic-fleet-hub/canis-ios) is a ... |
 | **w9er4o69** | CANIS-BONE-02: Deterministic chunker (spec-matched, lossless, reproducible) | clau | planned | CONTEXT: Canis (agentic-fleet-hub/canis-ios) is a ... |
 | **nt02jjxn** | CANIS-BONE-03: Bone builder -- write SQLite in the retriever's schema | clau | planned | CONTEXT: Canis (agentic-fleet-hub/canis-ios) is a ... |
