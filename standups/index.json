@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-09-23",
-    "summary": "Canis BONE-00..06 complete: Clau implemented, Gem reviewed & approved all tasks, fixed SQLite WAL readonly journal mode in BoneBuilder (66/66 tests pass)",
+    "summary": "Canis BONE-00..07 complete: BONE-07 adds manual 'Generate Titles' action with inline progress + cancel in BoneListView and opt-in button in GiveABoneView; BUILD SUCCEEDED",
     "file": "2026-09-23.md"
   },
   {
