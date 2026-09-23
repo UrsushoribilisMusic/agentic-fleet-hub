@@ -168,6 +168,17 @@ struct GiveABoneView: View {
                         .font(.headline)
                 }
                 .frame(maxWidth: .infinity)
+                if ingestion.enrichingBoneID == nil && ingestion.enrichmentProgress == nil {
+                    Button {
+                        ingestion.enrichBone(entry, model: activeModel)
+                    } label: {
+                        Label("Generate Titles", systemImage: "sparkles.text.page")
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.bordered)
+                    .controlSize(.large)
+                    .tint(.indigo)
+                }
                 Button {
                     ingestion.reset()
                     dismiss()
