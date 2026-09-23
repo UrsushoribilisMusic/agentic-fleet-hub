@@ -274,6 +274,44 @@ def card_to_segment(png: Path, duration: float, fade_out_start: float, fps: int,
     return out
 
 
+def content_audio_end(src: Path):
+    """Seconds where narration actually ends: the start of the trailing silence
+    that runs to EOF. Lets us trim the NotebookLM/Gemini end-card without clipping
+    the last spoken word (a fixed trim can chop it if it exceeds the card length).
+    Returns a float, or None if no trailing silence is detected."""
+    import re
+    dres = subprocess.run(
+        ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+         "-of", "default=nk=1:nw=1", str(src)],
+        capture_output=True, text=True,
+    )
+    try:
+        d = float(dres.stdout.strip())
+    except Exception:
+        return None
+    err = subprocess.run(
+        ["ffmpeg", "-hide_banner", "-nostats", "-i", str(src),
+         "-af", "silencedetect=noise=-40dB:d=0.8", "-f", "null", "-"],
+        capture_output=True, text=True,
+    ).stderr
+    ends = {}
+    cur = None
+    for line in err.splitlines():
+        m = re.search(r"silence_start: ([0-9.]+)", line)
+        if m:
+            cur = float(m.group(1)); continue
+        m = re.search(r"silence_end: ([0-9.]+)", line)
+        if m and cur is not None:
+            ends[cur] = float(m.group(1)); cur = None
+    trailing = None
+    for s, e in ends.items():
+        if e >= d - 0.7 and (trailing is None or s > trailing):
+            trailing = s
+    if trailing is None and cur is not None and cur > d - 15:
+        trailing = cur  # silence ran to EOF, unclosed
+    return trailing
+
+
 def assemble_video(
     src: Path,
     hook_a_png: Path,
@@ -356,9 +394,18 @@ def assemble_video(
             check=True, capture_output=True, text=True,
         )
         src_dur = float(dur_res.stdout.strip())
-        keep = max(0.0, src_dur - trim_s)
+        # Audio-driven trim: cut where the narration actually ends (start of the
+        # trailing silence) so the end-card is removed WITHOUT clipping the last
+        # spoken word. A small pad keeps the word's tail. Falls back to the fixed
+        # trim_s if the trailing silence can't be detected or looks unsafe.
+        c_end = content_audio_end(src)
+        if c_end and c_end > src_dur * 0.5:
+            keep = min(src_dur, c_end + 0.15)
+            print(f"  audio-trim: narration ends ~{c_end:.1f}s -> keep {keep:.1f}s of {src_dur:.1f}s (fixed trim_s={trim_s} overridden)")
+        else:
+            keep = max(0.0, src_dur - trim_s)
+            print(f"  trimming {trim_s}s end-card (keep {keep:.1f}s of {src_dur:.1f}s)")
         trim_args = ["-t", f"{keep:.3f}"]
-        print(f"  trimming {trim_s}s end-card (keep {keep:.1f}s of {src_dur:.1f}s)")
     run_ffmpeg(
         "-i", str(src),
         *trim_args,

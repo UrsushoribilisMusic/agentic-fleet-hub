@@ -49,12 +49,40 @@ final class KnowledgePackStore: ObservableObject {
     private static let apiBaseURLKey = "canis.apiBaseURL"
     private static let metadataFile = "installed-pack.json"
 
+    // Bundled seed pack (Robot Ross ATF). Counts must match the shipped .sqlite.
+    private static let bundledPackName = "robot-ross-atf"
+    private static let bundledPackVersion = 1
+    private static let bundledDocCount = 14
+    private static let bundledWikiSectionCount = 83
+
     private init() {}
 
     func setup() {
         apiToken = UserDefaults.standard.string(forKey: Self.tokenKey) ?? ""
         apiBaseURLString = UserDefaults.standard.string(forKey: Self.apiBaseURLKey) ?? Config.CanisAPI.defaultBaseURL
+        seedBundledPackIfNeeded()
         state = readInstalledState()
+    }
+
+    /// On first launch (or after the user deletes the pack) ship a real knowledge
+    /// base so the app has grounded content out of the box, no token or download
+    /// needed. This is the Robot Ross ATF pack bundled into the app. A pack the
+    /// user later downloads via a token replaces it (this only seeds when nothing
+    /// is installed).
+    private func seedBundledPackIfNeeded() {
+        guard !FileManager.default.fileExists(atPath: Self.currentPackURL.path) else { return }
+        guard let bundled = Bundle.main.url(forResource: Self.bundledPackName, withExtension: "sqlite") else { return }
+        do {
+            try FileManager.default.createDirectory(at: Self.directoryURL, withIntermediateDirectories: true)
+            try FileManager.default.copyItem(at: bundled, to: Self.currentPackURL)
+            try writeMetadata(
+                version: Self.bundledPackVersion,
+                docCount: Self.bundledDocCount,
+                wikiSectionCount: Self.bundledWikiSectionCount
+            )
+        } catch {
+            // Non-fatal: the app still runs, just without a seeded pack.
+        }
     }
 
     func saveSettings(token: String, apiBaseURLString: String) {
