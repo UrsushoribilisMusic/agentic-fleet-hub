@@ -67,8 +67,10 @@ final class BoneBuilder {
         try insertChunks(db, chunks: chunks, docId: docId, docTitle: docTitle)
         try insertWikiSections(db, chunks: chunks, docId: docId, docTitle: docTitle)
 
-        // Flush WAL back into the main file so the sqlite can be copied atomically.
+        // Flush WAL back into the main file and revert to DELETE journal mode
+        // so the .sqlite is self-contained and can be opened read-only without a -wal file.
         try execSQL(db, "PRAGMA wal_checkpoint(FULL);")
+        try execSQL(db, "PRAGMA journal_mode = DELETE;")
         return url
     }
 

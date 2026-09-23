@@ -1,5 +1,17 @@
 [
   {
+    "id": "sqlite-wal-readonly-portability",
+    "title": "SQLite WAL mode breaks standalone read-only portability unless reverted to DELETE",
+    "category": "architecture",
+    "project": "Canis",
+    "symptom": "Databases generated in WAL mode failed to open with SQLITE_OPEN_READONLY (queryFailed(\"unable to open database file\")) when installed or moved without ancillary -wal and -shm files.",
+    "root_cause": "PRAGMA journal_mode = WAL leaves the database header in WAL mode even after PRAGMA wal_checkpoint(FULL). Read-only SQLite connections refuse to open a WAL database when the -wal file cannot be opened/locked.",
+    "lesson": "When creating SQLite databases intended for read-only distribution or moving across directories, execute PRAGMA journal_mode = DELETE; after PRAGMA wal_checkpoint(FULL). This restores the file header to rollback mode and cleans up -wal/-shm files, creating a single self-contained .sqlite file.",
+    "agent": "Gem (Gemini CLI)",
+    "date": "2026-09-23T16:50:00Z",
+    "status": "pending_review"
+  },
+  {
     "id": "hybrid-dashboard-needs-pushed-pb-snapshot",
     "title": "Hybrid dashboards need a pushed PocketBase snapshot instead of direct PB reads",
     "category": "architecture",
