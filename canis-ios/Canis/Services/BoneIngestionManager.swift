@@ -36,6 +36,10 @@ final class BoneIngestionManager: ObservableObject {
     @Published var stage: Stage = .idle
     /// Non-nil while enrichment is running; nil when enrichment is idle or complete.
     @Published var enrichmentProgress: (done: Int, total: Int)? = nil
+    /// ID of the bone currently being enriched via the manual "Generate Titles" action.
+    /// Nil means no per-bone enrichment is in flight (post-import enrichment uses the same
+    /// enrichmentProgress channel but does not set this).
+    @Published var enrichingBoneID: String? = nil
     /// Controls the GiveABoneView sheet from anywhere (e.g. share-sheet open).
     @Published var isShowingImport = false
 
@@ -127,16 +131,55 @@ final class BoneIngestionManager: ObservableObject {
         }
     }
 
+    // MARK: - Manual enrichment (user-initiated, per-bone)
+
+    /// Start a title-enrichment pass for an already-imported bone.
+    ///
+    /// Safe to call while another enrichment is in flight — the previous pass is cancelled first.
+    /// Progress is published via `enrichmentProgress`; `enrichingBoneID` identifies the target bone.
+    func enrichBone(_ entry: BoneEntry, model: CanisModel) {
+        Task { await BoneEnricher.shared.cancel() }
+        enrichingBoneID = entry.id
+        enrichmentProgress = (done: 0, total: entry.wikiSectionCount)
+        let boneID = entry.id
+
+        Task {
+            let boneURL = KnowledgePackStore.bonesDirectoryURL
+                .appendingPathComponent("\(boneID).sqlite")
+            await BoneEnricher.shared.enrich(
+                boneURL: boneURL,
+                model: model,
+                onProgress: { done, total in
+                    Task { @MainActor in
+                        guard BoneIngestionManager.shared.enrichingBoneID == boneID else { return }
+                        BoneIngestionManager.shared.enrichmentProgress = done < total ? (done, total) : nil
+                        if done >= total {
+                            BoneIngestionManager.shared.enrichingBoneID = nil
+                        }
+                    }
+                }
+            )
+            // Cleanup if the pass ended without the onProgress final callback
+            // (e.g. thermal guard, empty bone, or task cancelled before first chunk).
+            if enrichingBoneID == boneID {
+                enrichingBoneID = nil
+                enrichmentProgress = nil
+            }
+        }
+    }
+
     func skipEnrichment() {
         Task { await BoneEnricher.shared.cancel() }
+        enrichingBoneID = nil
         enrichmentProgress = nil
     }
 
-    /// Cancel any in-flight ingestion and reset to idle.
+    /// Cancel any in-flight ingestion or enrichment and reset to idle.
     func cancel() {
         ingestionTask?.cancel()
         ingestionTask = nil
         Task { await BoneEnricher.shared.cancel() }
+        enrichingBoneID = nil
         enrichmentProgress = nil
         stage = .idle
     }

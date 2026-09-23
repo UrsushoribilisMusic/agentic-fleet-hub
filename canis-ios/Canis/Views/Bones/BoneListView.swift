@@ -3,8 +3,13 @@ import SwiftUI
 struct BoneListView: View {
     @EnvironmentObject private var store: KnowledgePackStore
     @EnvironmentObject private var ingestion: BoneIngestionManager
+    @AppStorage("canis.activeModelID") private var activeModelID: String = CanisModel.apertus.rawValue
     @State private var renameEntry: BoneEntry?
     @State private var renameDraft = ""
+
+    private var activeModel: CanisModel {
+        CanisModel(rawValue: activeModelID) ?? .apertus
+    }
 
     var body: some View {
         NavigationStack {
@@ -14,9 +19,14 @@ struct BoneListView: View {
                 } else {
                     List {
                         ForEach(store.bones) { bone in
-                            BoneRowView(bone: bone) {
-                                try? store.setActiveBone(id: bone.id)
-                            }
+                            let isEnriching = ingestion.enrichingBoneID == bone.id
+                            let enrichProgress = isEnriching ? ingestion.enrichmentProgress : nil
+                            BoneRowView(
+                                bone: bone,
+                                onActivate: { try? store.setActiveBone(id: bone.id) },
+                                enrichmentProgress: enrichProgress,
+                                onCancelEnrichment: isEnriching ? { ingestion.skipEnrichment() } : nil
+                            )
                             .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                                 if !bone.isBuiltIn {
                                     Button(role: .destructive) {
@@ -32,6 +42,14 @@ struct BoneListView: View {
                                     Label("Rename", systemImage: "pencil")
                                 }
                                 .tint(.blue)
+                                if !isEnriching {
+                                    Button {
+                                        ingestion.enrichBone(bone, model: activeModel)
+                                    } label: {
+                                        Label("Generate Titles", systemImage: "sparkles.text.page")
+                                    }
+                                    .tint(.indigo)
+                                }
                             }
                         }
                     }
@@ -97,54 +115,76 @@ struct BoneListView: View {
 struct BoneRowView: View {
     let bone: BoneEntry
     let onActivate: () -> Void
+    var enrichmentProgress: (done: Int, total: Int)? = nil
+    var onCancelEnrichment: (() -> Void)? = nil
 
     private var sizeString: String {
         ByteCountFormatter.string(fromByteCount: bone.size, countStyle: .file)
     }
 
     var body: some View {
-        Button(action: onActivate) {
-            HStack(spacing: 12) {
-                Image(systemName: bone.isBuiltIn ? "brain" : "books.vertical.fill")
-                    .font(.title3)
-                    .foregroundStyle(bone.isActive ? Color.accentColor : Color(.secondaryLabel))
-                    .frame(width: 32)
+        VStack(spacing: 0) {
+            Button(action: onActivate) {
+                HStack(spacing: 12) {
+                    Image(systemName: bone.isBuiltIn ? "brain" : "books.vertical.fill")
+                        .font(.title3)
+                        .foregroundStyle(bone.isActive ? Color.accentColor : Color(.secondaryLabel))
+                        .frame(width: 32)
 
-                VStack(alignment: .leading, spacing: 2) {
-                    HStack(spacing: 6) {
-                        Text(bone.name)
-                            .font(.body)
-                            .foregroundStyle(.primary)
-                        if bone.isActive {
-                            Text("Active")
-                                .font(.caption2.weight(.semibold))
-                                .padding(.horizontal, 6)
-                                .padding(.vertical, 2)
-                                .background(Color.accentColor.opacity(0.15))
-                                .foregroundStyle(.tint)
-                                .clipShape(Capsule())
+                    VStack(alignment: .leading, spacing: 2) {
+                        HStack(spacing: 6) {
+                            Text(bone.name)
+                                .font(.body)
+                                .foregroundStyle(.primary)
+                            if bone.isActive {
+                                Text("Active")
+                                    .font(.caption2.weight(.semibold))
+                                    .padding(.horizontal, 6)
+                                    .padding(.vertical, 2)
+                                    .background(Color.accentColor.opacity(0.15))
+                                    .foregroundStyle(.tint)
+                                    .clipShape(Capsule())
+                            }
+                            if bone.isBuiltIn {
+                                Text("Built-in")
+                                    .font(.caption2)
+                                    .foregroundStyle(.secondary)
+                            }
                         }
-                        if bone.isBuiltIn {
-                            Text("Built-in")
-                                .font(.caption2)
-                                .foregroundStyle(.secondary)
-                        }
+                        Text("\(bone.wikiSectionCount) chunks · \(sizeString)")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
                     }
-                    Text("\(bone.wikiSectionCount) chunks · \(sizeString)")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
 
-                Spacer()
+                    Spacer()
 
-                if bone.isActive {
-                    Image(systemName: "checkmark")
-                        .foregroundStyle(.tint)
-                        .font(.body.weight(.semibold))
+                    if bone.isActive {
+                        Image(systemName: "checkmark")
+                            .foregroundStyle(.tint)
+                            .font(.body.weight(.semibold))
+                    }
                 }
             }
+            .buttonStyle(.plain)
+
+            if let progress = enrichmentProgress {
+                Divider()
+                HStack(spacing: 8) {
+                    ProgressView(value: Double(progress.done), total: Double(max(progress.total, 1)))
+                        .tint(.indigo)
+                    Text("\(progress.done)/\(progress.total)")
+                        .font(.caption.monospacedDigit())
+                        .foregroundStyle(.secondary)
+                        .fixedSize()
+                    Button("Cancel") { onCancelEnrichment?() }
+                        .font(.caption)
+                        .buttonStyle(.borderless)
+                        .foregroundStyle(.secondary)
+                }
+                .padding(.horizontal, 16)
+                .padding(.vertical, 8)
+            }
         }
-        .buttonStyle(.plain)
     }
 }
 
