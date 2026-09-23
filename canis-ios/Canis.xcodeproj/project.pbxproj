@@ -15,6 +15,7 @@
 		17BCFA28D4CE6262FA4627D7 /* MLXLMCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 617E68489CF74E1AA459E0DE /* MLXLMCommon */; };
 		21D7D4E5F6582B4315F4D7BB /* MLX in Frameworks */ = {isa = PBXBuildFile; productRef = 1383FF71984228B8099ABEA5 /* MLX */; };
 		233BACF5F883D66EDF325918 /* CanisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B74AC972B6AE5551E15378 /* CanisApp.swift */; };
+		286C1FAE846911CD78DB3784 /* BoneStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CB37D9658BB0F051F0CC08 /* BoneStoreTests.swift */; };
 		2980426B71E57B198D99E56B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB3DD4E5E177BF4A638747D6 /* Assets.xcassets */; };
 		3B17DCA25A8C73E2A15C33A0 /* BoneEnricherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CE40B8AEDFEE093A316A82 /* BoneEnricherTests.swift */; };
 		3B6FE29982EFC26F04F4DB52 /* PDFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B8FCE2E3C6180EC1DDEBAD9 /* PDFKit.framework */; };
@@ -63,6 +64,7 @@
 		16395A33B72CAEF6DB0525D3 /* BoneExtractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoneExtractorTests.swift; sourceTree = "<group>"; };
 		21FD51F1ECC8E969E784B00E /* BoneEnricher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoneEnricher.swift; sourceTree = "<group>"; };
 		283603D01E1BD75268D56F52 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		28CB37D9658BB0F051F0CC08 /* BoneStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoneStoreTests.swift; sourceTree = "<group>"; };
 		2B8FCE2E3C6180EC1DDEBAD9 /* PDFKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PDFKit.framework; path = System/Library/Frameworks/PDFKit.framework; sourceTree = SDKROOT; };
 		338C50DA373F335DB751A074 /* Canis.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Canis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3613EF0F74827898CA8C17E3 /* ModelRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRowView.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				ED6F036386FC491524D8C2A4 /* BoneChunkerTests.swift */,
 				77CE40B8AEDFEE093A316A82 /* BoneEnricherTests.swift */,
 				16395A33B72CAEF6DB0525D3 /* BoneExtractorTests.swift */,
+				28CB37D9658BB0F051F0CC08 /* BoneStoreTests.swift */,
 				AF174809CAC210D2C1A3DA9F /* CanisModelTests.swift */,
 				066CA3E0A958CA8EC426747C /* DispositionReadoutTests.swift */,
 				5D9ED7CC60EC8F3291A6D884 /* KnowledgePackRetrieverTests.swift */,
@@ -356,6 +359,7 @@
 				86DF1DDA73F6C139910F566B /* BoneChunkerTests.swift in Sources */,
 				3B17DCA25A8C73E2A15C33A0 /* BoneEnricherTests.swift in Sources */,
 				C73D2A4E6D4E035FA2B34C16 /* BoneExtractorTests.swift in Sources */,
+				286C1FAE846911CD78DB3784 /* BoneStoreTests.swift in Sources */,
 				EEB659A63E9CA4E930359F26 /* CanisModelTests.swift in Sources */,
 				0CA9AD134E03AC55DD875169 /* DispositionReadoutTests.swift in Sources */,
 				5B08C20234F4A0ED2C7819D9 /* KnowledgePackRetrieverTests.swift in Sources */,
