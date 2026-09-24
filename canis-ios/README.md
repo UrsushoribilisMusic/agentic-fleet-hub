@@ -1,26 +1,21 @@
-# Canis iOS
+# canis-ios has moved out of this monorepo
 
-Canis is a new SwiftUI + MLX Swift iPhone app for the on-device disposition-lens hackathon track. It is intentionally separate from Sovereign Mind: no auth, no RAG sync, and no cloud inference.
+The **Canis iOS app** now lives in its own repository:
 
-## Scope in CANIS-A
+- **GitHub:** https://github.com/UrsushoribilisMusic/canis-ios (private)
+- **Local path:** `~/projects/canis-ios`
 
-- Dual on-device model hub:
-  - Canis Apertus: `swiss-ai/Apertus-v1.1-4B-Instruct-MLX-INT4`
-  - Canis Mistralis: `mlx-community/Ministral-3-3B-Instruct-2512-4bit`
-- Background URLSession downloads with resume data, per-file progress, disk-space check, delete/reclaim storage, and a production cellular guard.
-- Active model switch stored in `AppStorage`.
-- Basic on-device chat through MLX Swift once the selected model is downloaded.
-- Stable extension points for CANIS-C disposition readout.
+## Why
 
-## Build
+Split out on **2026-09-24** so external collaborators (BitForge) can be given access to
+just the app, without exposing the rest of the fleet monorepo. This also makes it the
+single source of truth and prevents the two copies from diverging.
 
-```sh
-cd canis-ios
-./scripts/build-tag.sh
-```
+## For the fleet and for humans
 
-The verifier runs `xcodegen generate`, resolves packages, and builds `Canis` for an iPhone simulator.
+**Do all Canis work in `~/projects/canis-ios` from now on.** New CANIS-* tickets should
+reference that path, not `agentic-fleet-hub/canis-ios`. The remote uses HTTPS under the
+same account, so the usual gh credentials push there — no extra auth setup.
 
-## Notes
-
-Large model downloads are Wi-Fi-only in Release builds. Debug builds expose a cellular override for field testing.
+This directory is only a pointer. The pre-split code and its history are preserved in this
+monorepo's git history (before this commit) and, going forward, in the standalone repo.
