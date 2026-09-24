@@ -1,6 +1,6 @@
 {
  "version": "1.0",
- "updated_at": "2026-09-23T19:29:19.236325+00:00",
+ "updated_at": "2026-09-24T15:58:37Z",
  "jobs": [
   {
    "id": "ts-20260916-deepmind-reasoning-transparency",
@@ -7365,7 +7365,9 @@
    "id": "ts-20260923-tasks-vs-jobs",
    "slug": "tasks-vs-jobs",
    "title": "Tasks vs. Jobs: Why the 'Jobpocalypse' Misreads AI and Work",
-   "source_urls": [],
+   "source_urls": [
+    "https://www.linkedin.com/pulse/tasks-vs-jobs-miguel-rodriguez-ei7ze/"
+   ],
    "source_authors": [
     "Miguel Rodriguez"
    ],
@@ -7376,7 +7378,7 @@
     "economics-vol2",
     "queue-1"
    ],
-   "status": "in_progress",
+   "status": "uploaded",
    "created_at": "2026-09-23T19:29:19.236325+00:00",
    "notebook_url": "https://notebook.google.com/notebook/a14a4d51-d3fd-412c-a4a3-9d6c46736425",
    "localize": [
@@ -7393,15 +7395,43 @@
     "card_b_footer": "roles get re-composed, not deleted"
    },
    "outro_copy": {},
-   "assets": {},
+   "assets": {
+    "raw_short_mp4": "",
+    "raw_long_mp4": "/Users/miguelrodriguez/Downloads/The_Task_vs.mp4",
+    "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-23-tasks-vs-jobs",
+    "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-23-tasks-vs-jobs/tasks-vs-jobs_hook_vo.mp3",
+    "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-23-tasks-vs-jobs/final_short.mp4",
+    "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-23-tasks-vs-jobs/final_long_motion.mp4"
+   },
    "youtube": {
     "title": "Tasks vs. Jobs: The 'Jobpocalypse' Misunderstanding",
-    "description": "Why the fear of AI-driven job loss confuses tasks with jobs. AI excels at tasks; jobs are bundles of tasks bound by judgment and responsibility. Based on the essay by Miguel Rodriguez (Adventures in digitalization)."
+    "description": "Everyone is bracing for AI to take their job. But that fear quietly swaps two very different things: a task and a job.\n\nAI is spectacular at tasks. A job is a bundle of tasks held together by judgment, responsibility, and trust, and that bundle is far harder to replace than any single task inside it. So the real story of AI and work isn't mass deletion of jobs. It's re-composition: AI absorbs the repetitive tasks, roles reorganize around the human parts, and the people who thrive move up the stack, from doing tasks to directing them.\n\nThis explainer breaks down why the \"Jobpocalypse\" narrative misreads how AI and work actually interact, and what it means for how you position yourself.\n\nWhat we cover:\n- The fear vs the reality: AI replaces tasks, not you\n- Why a job is a bundle of tasks, not one thing\n- What stays human: judgment, accountability, and trust\n- How roles get re-composed instead of deleted\n\nBased on the essay \"Tasks vs. Jobs\" by Miguel Rodriguez (Adventures in digitalization).\nRead the full article: https://www.linkedin.com/pulse/tasks-vs-jobs-miguel-rodriguez-ei7ze/\n\n#AI #FutureOfWork #ArtificialIntelligence #Automation #AIandWork #Jobs #Productivity #TechExplained #DigitalTransformation #AIStrategy",
+    "localizations": {
+     "de": {
+      "title": "Aufgaben vs. Jobs: Warum die „Jobpocalypse\" KI und Arbeit missverstehen",
+      "description": "Warum die Angst vor KI-bedingtem Jobverlust Aufgaben und Jobs verwechselt. KI ist bei Aufgaben hervorragend; Jobs sind Aufgabenbündel, die durch Urteilsvermögen und Verantwortung gebunden sind. Basierend auf dem Essay von Miguel Rodriguez (Adventures in digitalization).",
+      "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-23-tasks-vs-jobs/tasks-vs-jobs_audio_de.m4a",
+      "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-23-tasks-vs-jobs/tasks-vs-jobs_de.srt"
+     },
+     "fr": {
+      "title": "Tâches vs. Emplois: Pourquoi l'« Apocalypse Professionnelle » mal interprète l'IA",
+      "description": "Pourquoi la peur de la perte d'emploi due à l'IA confond les tâches avec les emplois. L'IA excelle dans les tâches; les emplois sont des ensembles de tâches liés par le jugement et la responsabilité. Basé sur l'essai de Miguel Rodriguez (Adventures in digitalization).",
+      "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-23-tasks-vs-jobs/tasks-vs-jobs_audio_fr.m4a",
+      "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-23-tasks-vs-jobs/tasks-vs-jobs_fr.srt"
+     }
+    },
+    "captions_en_srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-23-tasks-vs-jobs/tasks-vs-jobs_en.srt",
+    "long_id": "dbu9afO-wNU",
+    "long_url": "https://www.youtube.com/watch?v=dbu9afO-wNU",
+    "title_short": "AI won't take your job. It takes your tasks. #Shorts",
+    "privacy": "private",
+    "short_id": "ZMaLfh3tTQI",
+    "short_url": "https://www.youtube.com/watch?v=ZMaLfh3tTQI"
    },
    "x_post": {},
    "stats": {},
    "trim_s": 0,
-   "updated_at": "2026-09-23T19:29:19.236325+00:00"
+   "updated_at": "2026-09-24T15:58:37Z"
   },
   {
    "id": "ts-20260923-lora-rag-intro",
@@ -7419,7 +7449,7 @@
     "how-we-build",
     "queue-2"
    ],
-   "status": "queued",
+   "status": "uploaded",
    "created_at": "2026-09-23T19:29:19.236325+00:00",
    "notebook_url": "",
    "localize": [
@@ -7436,19 +7466,43 @@
     "card_b_footer": "not rivals — most real systems use both"
    },
    "outro_copy": {},
-   "assets": {},
+   "assets": {
+    "raw_short_mp4": "",
+    "raw_long_mp4": "/Users/miguelrodriguez/Downloads/RAG_vs.mp4",
+    "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-23-lora-rag-intro",
+    "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-23-lora-rag-intro/lora-rag-intro_hook_vo.mp3",
+    "final_short_mp4": "",
+    "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-23-lora-rag-intro/final_long.mp4"
+   },
    "youtube": {
     "title": "LoRA vs RAG, Explained: Two Ways to Customize an AI",
-    "description": "The two fundamental ways to make a general AI model yours: RAG (retrieval — give it the knowledge, grounded and citable) and LoRA (a lightweight fine-tune — teach it a skill or style). How each works, and when to use which."
+    "description": "A model out of the box knows a little about everything and nothing about you. There are two very different ways to fix that, and confusing them is one of the most common mistakes in applied AI.\n\nRAG (Retrieval-Augmented Generation) gives the model the knowledge: at query time it searches your own documents, pulls the most relevant passages, and answers from them with citations. Great for facts that are fresh, private, and need to be verifiable.\n\nLoRA (Low-Rank Adaptation) teaches the model a skill: a lightweight fine-tune that freezes the big model and trains a tiny set of adapter weights, so it defaults to your style, format, or domain, cheaply.\n\nThe punchline: they aren't rivals. RAG changes what the model knows in the moment. LoRA changes who the model is. Most real systems use both.\n\nWhat we cover:\n- The problem: a brilliant generalist with amnesia about your world\n- RAG: the open-book exam, grounded and citable\n- LoRA: teaching a skill with a tiny adapter, not a full retrain\n- When to reach for which, and why they combine\n\n#AI #RAG #LoRA #MachineLearning #LLM #ArtificialIntelligence #AIengineering #FineTuning #GenerativeAI #TechExplained",
+    "localizations": {
+     "de": {
+      "title": "LoRA und RAG: Zwei Wege, um KI zu personalisieren",
+      "description": "Die zwei fundamentalen Wege, um ein allgemeines KI-Modell zu personalisieren: RAG (Retrieval - geben Sie ihm Wissen, begründet und zitierbar) und LoRA (leichtes Fine-Tuning - lehren Sie ihm eine Fähigkeit oder einen Stil). Wie jedes funktioniert und wann man welches einsetzt.",
+      "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-23-lora-rag-intro/lora-rag-intro_audio_de.m4a",
+      "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-23-lora-rag-intro/lora-rag-intro_de.srt"
+     },
+     "fr": {
+      "title": "LoRA et RAG : Deux façons de personnaliser votre IA",
+      "description": "Les deux approches fondamentales pour adapter un modèle IA généraliste : RAG (récupération - fournissez-lui les connaissances, ancrées et citables) et LoRA (un ajustement fin léger - enseignez-lui une compétence ou un style). Comment chacun fonctionne et quand utiliser lequel.",
+      "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-23-lora-rag-intro/lora-rag-intro_audio_fr.m4a",
+      "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-23-lora-rag-intro/lora-rag-intro_fr.srt"
+     }
+    },
+    "captions_en_srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-09-23-lora-rag-intro/lora-rag-intro_en.srt",
+    "long_id": "zln6iRity-M",
+    "long_url": "https://www.youtube.com/watch?v=zln6iRity-M"
    },
    "x_post": {},
    "stats": {},
    "trim_s": 0,
-   "updated_at": "2026-09-23T19:29:19.236325+00:00"
+   "updated_at": "2026-09-24T15:27:10Z"
   },
   {
    "id": "ts-20260923-great-flip-spec",
-   "slug": "great-flip-spec",
+   "slug": "engineerings-great-flip-from-80-implementation-to-80-specification",
    "title": "Engineering's Great Flip: From 80% Implementation to 80% Specification",
    "source_urls": [
     "https://www.linkedin.com/pulse/from-80-implementation-specification-engineering-age-fleets-miguel-wusie"
@@ -7463,8 +7517,8 @@
     "how-we-build",
     "queue-3"
    ],
-   "status": "queued",
-   "created_at": "2026-09-23T19:29:19.236325+00:00",
+   "status": "failed",
+   "created_at": "2026-09-24T10:18:13Z",
    "notebook_url": "",
    "localize": [
     "de",
@@ -7480,19 +7534,37 @@
     "card_b_footer": "from worker-bee to Product-Architect-Operator"
    },
    "outro_copy": {},
-   "assets": {},
-   "youtube": {
-    "title": "Engineering's Great Flip: From 80% Implementation to 80% Specification",
-    "description": "Software engineering is inverting: from 80% coding to 80% specification, because AI agents now write the code. The three-tier 'agentic fleet' and what the human role becomes. Based on the essay by Miguel Rodriguez (Adventures in digitalization)."
+   "assets": {
+    "raw_short_mp4": "",
+    "raw_long_mp4": "",
+    "hook_vo_audio": "",
+    "final_short_mp4": "",
+    "final_long_mp4": ""
    },
-   "x_post": {},
-   "stats": {},
+   "youtube": {
+    "short_id": "",
+    "short_url": "",
+    "long_id": "",
+    "long_url": "",
+    "published_at": ""
+   },
+   "x_post": {
+    "post_id": "",
+    "post_url": "",
+    "caption": ""
+   },
+   "stats": {
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "last_synced_at": ""
+   },
    "trim_s": 0,
-   "updated_at": "2026-09-23T19:29:19.236325+00:00"
+   "updated_at": "2026-09-24T10:18:24Z"
   },
   {
    "id": "ts-20260923-ai-wiki-robotross",
-   "slug": "ai-wiki-robotross",
+   "slug": "the-machine-that-documents-itself",
    "title": "The Machine That Documents Itself",
    "source_urls": [
     "https://www.linkedin.com/pulse/when-ai-creates-wiki-your-code-stands-answer-miguel-rodriguez-ovkmc"
@@ -7507,8 +7579,8 @@
     "how-we-build",
     "queue-4"
    ],
-   "status": "queued",
-   "created_at": "2026-09-23T19:29:19.236325+00:00",
+   "status": "failed",
+   "created_at": "2026-09-24T10:18:13Z",
    "notebook_url": "",
    "localize": [
     "de",
@@ -7524,15 +7596,139 @@
     "card_b_footer": "traceability, transparency, human oversight (EU AI Act 12/13/14)"
    },
    "outro_copy": {},
-   "assets": {},
-   "youtube": {
-    "title": "The Machine That Documents Itself: When an AI Writes a Wiki for Your Code",
-    "description": "A robot that maintains its own wiki and answers questions about its behavior with citations — the Automated Technical File. How self-documenting systems work and why they matter for trust and compliance. Based on the essay by Miguel Rodriguez."
+   "assets": {
+    "raw_short_mp4": "",
+    "raw_long_mp4": "",
+    "hook_vo_audio": "",
+    "final_short_mp4": "",
+    "final_long_mp4": ""
    },
-   "x_post": {},
-   "stats": {},
+   "youtube": {
+    "short_id": "",
+    "short_url": "",
+    "long_id": "",
+    "long_url": "",
+    "published_at": ""
+   },
+   "x_post": {
+    "post_id": "",
+    "post_url": "",
+    "caption": ""
+   },
+   "stats": {
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "last_synced_at": ""
+   },
    "trim_s": 0,
-   "updated_at": "2026-09-23T19:29:19.236325+00:00"
+   "updated_at": "2026-09-24T10:20:25Z"
+  },
+  {
+   "id": "ts-20260924-will-ai-kill-us-all-report-from-nature",
+   "slug": "will-ai-kill-us-all-report-from-nature",
+   "title": "Will AI kill us all: Report from Nature",
+   "source_urls": [],
+   "source_file": {
+    "path": "/opt/tech-shorts/uploads/ts-20260924-will-ai-kill-us-all-report-from-nature/Will AI really kill us all_ The science behind the hype _ Nature.pdf",
+    "original_name": "Will AI really kill us all_ The science behind the hype _ Nature.pdf",
+    "size_bytes": 1204004,
+    "mime_type": "application/pdf"
+   },
+   "source_files": [
+    {
+     "path": "/opt/tech-shorts/uploads/ts-20260924-will-ai-kill-us-all-report-from-nature/Will AI really kill us all_ The science behind the hype _ Nature.pdf",
+     "original_name": "Will AI really kill us all_ The science behind the hype _ Nature.pdf",
+     "size_bytes": 1204004,
+     "mime_type": "application/pdf"
+    }
+   ],
+   "idea_notes": "Concerns that artificial intelligence might kill us all are blowing up right now following warnings from researchers and leaders at some of the world’s foremost AI companies. Speculation is rife over how legislators will act. Nature breaks down what the fears are, who is expressing them and what might happen next.",
+   "tags": [],
+   "status": "failed",
+   "created_at": "2026-09-24T10:09:25Z",
+   "updated_at": "2026-09-24T10:10:23Z",
+   "notebook_url": "",
+   "hook_copy": {},
+   "outro_copy": {},
+   "assets": {
+    "raw_short_mp4": "",
+    "raw_long_mp4": "",
+    "hook_vo_audio": "",
+    "final_short_mp4": "",
+    "final_long_mp4": ""
+   },
+   "youtube": {
+    "short_id": "",
+    "short_url": "",
+    "long_id": "",
+    "long_url": "",
+    "published_at": ""
+   },
+   "x_post": {
+    "post_id": "",
+    "post_url": "",
+    "caption": ""
+   },
+   "stats": {
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "last_synced_at": ""
+   }
+  },
+  {
+   "id": "ts-20260924-deep-seek-infrastructure",
+   "slug": "deep-seek-infrastructure",
+   "title": "Deep seek Infrastructure",
+   "source_urls": [],
+   "source_file": {
+    "path": "/opt/tech-shorts/uploads/ts-20260924-deep-seek-infrastructure/Deep seek infra. .pdf",
+    "original_name": "Deep seek infra. .pdf",
+    "size_bytes": 786319,
+    "mime_type": "application/pdf"
+   },
+   "source_files": [
+    {
+     "path": "/opt/tech-shorts/uploads/ts-20260924-deep-seek-infrastructure/Deep seek infra. .pdf",
+     "original_name": "Deep seek infra. .pdf",
+     "size_bytes": 786319,
+     "mime_type": "application/pdf"
+    }
+   ],
+   "idea_notes": "",
+   "tags": [],
+   "status": "failed",
+   "created_at": "2026-09-24T14:54:13Z",
+   "updated_at": "2026-09-24T14:55:11Z",
+   "notebook_url": "",
+   "hook_copy": {},
+   "outro_copy": {},
+   "assets": {
+    "raw_short_mp4": "",
+    "raw_long_mp4": "",
+    "hook_vo_audio": "",
+    "final_short_mp4": "",
+    "final_long_mp4": ""
+   },
+   "youtube": {
+    "short_id": "",
+    "short_url": "",
+    "long_id": "",
+    "long_url": "",
+    "published_at": ""
+   },
+   "x_post": {
+    "post_id": "",
+    "post_url": "",
+    "caption": ""
+   },
+   "stats": {
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "last_synced_at": ""
+   }
   }
  ]
 }

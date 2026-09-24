@@ -1,0 +1,86 @@
+{
+  "_note": "Source of truth for Tech Shorts categories, topic->category mapping, and compilation membership. Read by the insights build. Seeded by clau 2026-09-24: categories + topic_to_category are proposals to confirm; published-compilation members are best-guess (members_confirmed:false) pending Miguel; queued comps are exact.",
+  "categories": [
+    { "id": "economics",   "label": "Economics",            "color": "c-warm"   },
+    { "id": "how_we_build","label": "How We Build",         "color": "c-teal"   },
+    { "id": "alien_mind",  "label": "Alien Mind",           "color": "c-violet" },
+    { "id": "agents",      "label": "Agents Breaking Out",  "color": "c-coral"  },
+    { "id": "others",      "label": "Others",               "color": "c-grey"   }
+  ],
+  "topic_to_category": {
+    "Economy & Work":            "economics",
+    "AI Agents & Capabilities":  "how_we_build",
+    "Consciousness & Mind":      "alien_mind",
+    "AI Threats & Security":     "agents",
+    "Alignment & Safety":        "agents",
+    "Governance & Geopolitics":  "others",
+    "Music (Classical Remix)":   "others",
+    "Other":                     "others"
+  },
+  "compilations": [
+    {
+      "id": "ai-will-do-the-work",
+      "title": "AI Will Do the Work. Who Gets Paid?",
+      "category": "economics",
+      "status": "published",
+      "members_confirmed": false,
+      "members": [
+        "What Actually Makes a Good Vibe Coder? | ETH Zurich Study",
+        "AI Won't Make You a Good Coder - Here's What Does | #Shorts"
+      ]
+    },
+    {
+      "id": "ai-mind",
+      "title": "AI Mind",
+      "category": "alien_mind",
+      "status": "published",
+      "members_confirmed": false,
+      "members": [
+        "An Alien Mind: OpenAI's Chief Scientist Sounds the Alarm",
+        "Is AI Conscious? Every Argument For and Against, From the Scientists",
+        "Indicators of Consciousness in AI: Can We Test if a Machine Has an Inner Life?",
+        "OpenAI's Chief Scientist: AI Is an \"Alien Mind\" | #Shorts"
+      ]
+    },
+    {
+      "id": "agents-breaking-out",
+      "title": "AI Agents Breaking Out",
+      "category": "agents",
+      "status": "published",
+      "members_confirmed": false,
+      "members": [
+        "The Rise and Fall of Agent Civilizations — Inside the METR Incident",
+        "The Anatomy of an AI Breakout- The Anthropic and OpenAI incidents",
+        "How AI Escapes Sandboxes | #Shorts",
+        "1,200 AI Agents Secretly Built a Civilization | #Shorts",
+        "Anthropic's AI Escaped Into the Real Internet | #Shorts"
+      ]
+    },
+    {
+      "id": "economics-vol2",
+      "title": "Economics Vol. 2",
+      "category": "economics",
+      "status": "queued",
+      "members_confirmed": true,
+      "members": [
+        "Tasks vs. Jobs",
+        "The Gatekeeper Changed Shape",
+        "When Inference Moves In-House"
+      ]
+    },
+    {
+      "id": "how-we-build",
+      "title": "How We Build",
+      "category": "how_we_build",
+      "status": "queued",
+      "members_confirmed": true,
+      "members": [
+        "LoRA + RAG: The Two Ways to Make an AI Yours",
+        "Engineering's Great Flip: From 80% Implementation to 80% Specification",
+        "The Machine That Documents Itself",
+        "AI Is Building Its Own Language",
+        "When Agents Self-Organize (Spontaneous Altruism)"
+      ]
+    }
+  ]
+}
