@@ -1,6 +1,6 @@
 {
  "version": "1.0",
- "updated_at": "2026-09-24T15:58:37Z",
+ "updated_at": "2026-09-25T14:55:05Z",
  "jobs": [
   {
    "id": "ts-20260916-deepmind-reasoning-transparency",
@@ -6647,7 +6647,7 @@
    "source_files": [],
    "idea_notes": "develop a plan for protecting the prosperity, sovereignty, and security of Europeans in a time of rapid AI progress.",
    "tags": [],
-   "status": "in_progress",
+   "status": "published",
    "created_at": "2026-09-17T08:46:17Z",
    "updated_at": "2026-09-18T12:39:01Z",
    "notebook_url": "https://notebook.google.com/notebook/bf35310b-5a5d-4c94-a7e7-aa456ca1ce38",
@@ -7321,7 +7321,7 @@
   {
    "id": "ts-20260923-preparing-for-the-intelligence-explosion",
    "slug": "preparing-for-the-intelligence-explosion",
-   "title": "Preparing for the Intelligence Explosion.",
+   "title": "Preparing for the Intelligence Explosion",
    "source_urls": [
     "https://www.forethought.org/research/preparing-for-the-intelligence-explosion"
    ],
@@ -7329,10 +7329,10 @@
    "source_files": [],
    "idea_notes": "",
    "tags": [],
-   "status": "failed",
+   "status": "assembled",
    "created_at": "2026-09-23T18:07:11Z",
    "updated_at": "2026-09-23T18:08:08Z",
-   "notebook_url": "",
+   "notebook_url": "https://notebook.google.com/notebook/061298e9-a723-4c9d-a2ab-02a2a0d6cf79",
    "hook_copy": {},
    "outro_copy": {},
    "assets": {
@@ -7345,9 +7345,11 @@
    "youtube": {
     "short_id": "",
     "short_url": "",
-    "long_id": "",
-    "long_url": "",
-    "published_at": ""
+    "long_id": "fGpuQhW13KI",
+    "long_url": "https://youtu.be/fGpuQhW13KI",
+    "published_at": "",
+    "privacy": "private",
+    "title_long": "The Alignment Fallacy and the Intelligence Explosion"
    },
    "x_post": {
     "post_id": "",
@@ -7701,6 +7703,49 @@
    "status": "failed",
    "created_at": "2026-09-24T14:54:13Z",
    "updated_at": "2026-09-24T14:55:11Z",
+   "notebook_url": "",
+   "hook_copy": {},
+   "outro_copy": {},
+   "assets": {
+    "raw_short_mp4": "",
+    "raw_long_mp4": "",
+    "hook_vo_audio": "",
+    "final_short_mp4": "",
+    "final_long_mp4": ""
+   },
+   "youtube": {
+    "short_id": "",
+    "short_url": "",
+    "long_id": "",
+    "long_url": "",
+    "published_at": ""
+   },
+   "x_post": {
+    "post_id": "",
+    "post_url": "",
+    "caption": ""
+   },
+   "stats": {
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "last_synced_at": ""
+   }
+  },
+  {
+   "id": "ts-20260925-automating-coherent-long-form-video-generation",
+   "slug": "automating-coherent-long-form-video-generation",
+   "title": "Automating coherent long-form video generation",
+   "source_urls": [
+    "https://research.google/blog/coherent-long-form-video-generation/"
+   ],
+   "source_file": {},
+   "source_files": [],
+   "idea_notes": "a unified multi-agent framework that autonomously generates temporally consistent, long-form video narratives, overcoming the identity drift and cascading failures of current linear AI pipelines.",
+   "tags": [],
+   "status": "failed",
+   "created_at": "2026-09-25T14:55:05Z",
+   "updated_at": "2026-09-25T14:55:05Z",
    "notebook_url": "",
    "hook_copy": {},
    "outro_copy": {},

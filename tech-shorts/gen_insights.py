@@ -219,6 +219,7 @@ def main():
     ap.add_argument("--no-push", action="store_true")
     ap.add_argument("--limit", type=int)
     ap.add_argument("--since", default=None, help="floor start date; default = each video's publish date")
+    ap.add_argument("--min-date", default="2026-01-01", help="skip videos published before this (drops pre-tech-shorts back-catalogue)")
     args = ap.parse_args()
 
     comp = load_json(COMPILATIONS, {"categories": [], "topic_to_category": {}, "compilations": []})
@@ -236,7 +237,11 @@ def main():
     print(f"channel videos: {len(vids)}")
 
     videos = []
+    skipped = 0
     for vid, title, pub, dur, is_short in vids:
+        if pub < args.min_date:
+            skipped += 1
+            continue
         since = args.since or pub
         a = analytics_for(ya, vid, since)
         topic = classify_topic(title, vid, overrides)
