@@ -195,13 +195,13 @@ def analytics_for(ya, vid, since):
     er = {}
     for dom, vv in q(dims="insightTrafficSourceDetail", detail_filter="insightTrafficSourceType==EXT_URL"):
         er[label_referrer(dom)] = er.get(label_referrer(dom), 0) + int(vv)
-    return {"v": views, "w": round(watch_min * 60), "a": avg_dur, "r": revenue,
+    return {"v": views, "w": round(watch_min), "a": avg_dur, "r": revenue,
             "ret": retention, "geo": geo, "tb": tb, "er": er}
 
 
 def verdict_for(agg):
     """Rule-based verdict from a topic's aggregate: (label, pill-class)."""
-    wh = agg["w"] / 3600.0            # watch hours
+    wh = agg["w"] / 60.0              # watch hours (w is minutes)
     ext_share = agg["e"] / max(agg["v"], 1)
     if wh >= 5 and ext_share >= 0.25:
         return ["Reach engine", "warm"]
