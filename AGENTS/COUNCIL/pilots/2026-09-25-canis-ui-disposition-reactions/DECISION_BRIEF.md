@@ -142,3 +142,21 @@ Infrastructure and the deterministic layer come first — they're high-certainty
 - **Idle realism vs demo-ability.** The Idle designer explicitly **disagrees with shortening production idle timers to chase 30 s judges** (it makes the shipped app twitchy). Resolved by **decoupling via `demoMode`** — production stays realistic, demo compresses. Ship both.
 - **GPU contention.** Corrected from the Round-1 feasibility framing: MLX saturates the **GPU**, and so does Rive — so the governor must **freeze on `isGenerating`**, not merely gate on thermal state (which triggers too late).
 - **Blending is not "free."** Weighted-pose blending requires the Rive state-machine build cost; the sprite fallback has *no* blend (opacity crossfade only). Budget accordingly.
+
+---
+
+## Appendix — Cross-Model Peer Review (Codex / GPT)
+
+_A second, independent model reviewed this brief. Its critique is preserved verbatim as a diverse perspective, not merged into the synthesis._
+
+The brief is strong on animation taxonomy, but it over-trusts the premise that “Jacobian-derived disposition” will be legible, stable, and semantically defensible in a hackathon setting. The dog may look polished while the underlying signal is basically an interpretive fog machine. If judges ask “why is it uncertain?” the answer cannot be “because a hidden 2D projection crossed a threshold.” The brief needs an explanation layer for provenance, even if lightweight.
+
+Biggest miss: it treats disposition as an engine contract before proving that arousal/valence are the right observable dimensions. Jacobian analysis may capture sensitivity, instability, retrieval dependence, or uncertainty, but mapping that to valence/confidence risks anthropomorphic overclaim. “Confident” in particular is dangerous: the model can be confidently wrong, and a proud dog delivering a bad answer creates exactly the wrong trust cue. I would rename or constrain valence away from truth-adjacent language: maybe “settled ↔ unresolved” and “calm ↔ active,” with UI labels that avoid epistemic authority.
+
+Second risk: Action/System precedence may suppress the most interesting part of the product. If disposition only appears during thinking and is frozen during generation, the signature feature could become nearly invisible. The brief says the Lens is the product’s signature, but then correctly optimizes for token latency by freezing it. That tension is unresolved. For a demo, you need a visible before/during/after comparison showing the disposition signal changing, not just a dog holding a cute pose.
+
+Third: the “bone” metaphor is charming but close to becoming too cute for serious document workflows. Eating documents, chewing, spitting cracked bones, and hungry onboarding may delight once and become childish or even anxiety-inducing when users feed sensitive PDFs. The brief should define tone boundaries: professional mode? muted mode? enterprise-safe copy? “Local RAG bones” is memorable, but the UI should not make users feel their documents are being destroyed.
+
+Fourth: Rive is correctly identified as risky, but the fallback plan is still art-heavy. Lottie/sprites do not just lose blending; they change the implementation schedule, QA surface, memory profile, and state-machine semantics. The brief needs a “no artist” P0 that still proves the product: one neutral rig, three static poses, bone ingest, answer delivery, and a visible telemetry strip/debug overlay for the judges.
+
+One concrete improvement I’d insist on: add a mandatory “Why this mood?” tap/press affordance for the demo. It should show a tiny local-only explanation like: “High retrieval conflict + unstable next-token sensitivity → unresolved/active.” This makes the avatar feel grounded in computation rather than decorative puppetry, and it protects against over-anthropomorphism.
