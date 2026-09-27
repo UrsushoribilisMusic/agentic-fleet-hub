@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-26T05:17:43Z",
+ "generated_at": "2026-09-27T05:17:55Z",
  "categories": [
   {
    "id": "economics",
@@ -104,10 +104,6 @@
   }
  ],
  "verdicts": {
-  "Alignment & Safety": [
-   "Promising",
-   "good"
-  ],
   "Other": [
    "Double down",
    "good"
@@ -115,6 +111,10 @@
   "AI Agents & Capabilities": [
    "Reach engine",
    "warm"
+  ],
+  "Alignment & Safety": [
+   "Promising",
+   "good"
   ],
   "Economy & Work": [
    "Double down",
@@ -139,8 +139,104 @@
  },
  "videos": [
   {
+   "t": "Aligning AI Isn't Enough #Shorts",
+   "p": "2026-09-26",
+   "tp": "Other",
+   "tc": "c-grey",
+   "v": 0,
+   "w": 0,
+   "a": 0,
+   "r": 0,
+   "L": 44,
+   "ret": 0,
+   "geo": "-",
+   "sh": true,
+   "tb": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "t": "The Machine That Documents Itself",
+   "p": "2026-09-26",
+   "tp": "Other",
+   "tc": "c-grey",
+   "v": 0,
+   "w": 0,
+   "a": 0,
+   "r": 0,
+   "L": 446,
+   "ret": 0,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "How We Build",
+   "comp_status": "queued"
+  },
+  {
+   "t": "Engineering's Great Flip: 80% Code to 80% Spec #Shorts",
+   "p": "2026-09-26",
+   "tp": "Other",
+   "tc": "c-grey",
+   "v": 0,
+   "w": 0,
+   "a": 0,
+   "r": 0,
+   "L": 25,
+   "ret": 0,
+   "geo": "-",
+   "sh": true,
+   "tb": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "t": "Artificial Symbiotic Intelligence: The Orchestration of Many Minds",
+   "p": "2026-09-26",
+   "tp": "AI Agents & Capabilities",
+   "tc": "c-teal",
+   "v": 0,
+   "w": 0,
+   "a": 0,
+   "r": 0,
+   "L": 419,
+   "ret": 0,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "er": {},
+   "cat": "how_we_build",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
    "t": "The Alignment Fallacy and the Intelligence Explosion",
-   "p": "2026-09-25",
+   "p": "2026-09-26",
    "tp": "Alignment & Safety",
    "tc": "c-green",
    "v": 0,
@@ -164,7 +260,7 @@
   },
   {
    "t": "Engineering's Great Flip: From 80% Implementation to 80% Specification",
-   "p": "2026-09-25",
+   "p": "2026-09-26",
    "tp": "Other",
    "tc": "c-grey",
    "v": 0,
@@ -259,62 +355,14 @@
    "comp_status": ""
   },
   {
-   "t": "The Machine That Documents Itself",
-   "p": "2026-09-25",
-   "tp": "Other",
-   "tc": "c-grey",
-   "v": 0,
-   "w": 0,
-   "a": 0,
-   "r": 0,
-   "L": 446,
-   "ret": 0,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "How We Build",
-   "comp_status": "queued"
-  },
-  {
-   "t": "Engineering's Great Flip: From 80% Implementation to 80% Specification",
-   "p": "2026-09-24",
-   "tp": "Other",
-   "tc": "c-grey",
-   "v": 0,
-   "w": 0,
-   "a": 0,
-   "r": 0,
-   "L": 339,
-   "ret": 0,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "How We Build",
-   "comp_status": "queued"
-  },
-  {
    "t": "AI won't take your job. It takes your tasks. #Shorts",
    "p": "2026-09-24",
    "tp": "Economy & Work",
    "tc": "c-warm",
-   "v": 0,
+   "v": 1,
    "w": 0,
    "a": 0,
-   "r": 0,
+   "r": 0.0,
    "L": 25,
    "ret": 0,
    "geo": "-",
@@ -322,7 +370,7 @@
    "tb": [
     0,
     0,
-    0,
+    1,
     0
    ],
    "er": {},
@@ -338,7 +386,7 @@
    "v": 0,
    "w": 0,
    "a": 0,
-   "r": 0,
+   "r": 0.0,
    "L": 267,
    "ret": 0,
    "geo": "-",
@@ -359,22 +407,22 @@
    "p": "2026-09-23",
    "tp": "Governance & Geopolitics",
    "tc": "c-grey",
-   "v": 10,
-   "w": 35,
-   "a": 235,
-   "r": 0.03,
+   "v": 91,
+   "w": 58,
+   "a": 89,
+   "r": 0.095,
    "L": 486,
-   "ret": 48,
+   "ret": 18,
    "geo": "-",
    "sh": false,
    "tb": [
+    77,
     2,
-    1,
     0,
-    7
+    12
    ],
    "er": {
-    "X / Twitter": 5
+    "X / Twitter": 10
    },
    "cat": "others",
    "comp": "",
@@ -409,7 +457,7 @@
    "p": "2026-09-22",
    "tp": "Economy & Work",
    "tc": "c-warm",
-   "v": 8,
+   "v": 13,
    "w": 0,
    "a": 11,
    "r": 0.0,
@@ -418,7 +466,7 @@
    "geo": "-",
    "sh": false,
    "tb": [
-    3,
+    8,
     3,
     0,
     2
@@ -433,19 +481,19 @@
    "p": "2026-09-22",
    "tp": "Consciousness & Mind",
    "tc": "c-violet",
-   "v": 48,
-   "w": 30,
-   "a": 58,
-   "r": 0.088,
+   "v": 100,
+   "w": 93,
+   "a": 92,
+   "r": 0.154,
    "L": 371,
-   "ret": 16,
+   "ret": 25,
    "geo": "US",
    "sh": false,
    "tb": [
-    40,
-    4,
+    87,
+    8,
     0,
-    4
+    5
    ],
    "er": {},
    "cat": "alien_mind",
@@ -466,7 +514,7 @@
    "geo": "CH",
    "sh": true,
    "tb": [
-    1,
+    2,
     8,
     30,
     0
@@ -505,22 +553,22 @@
    "p": "2026-09-21",
    "tp": "Governance & Geopolitics",
    "tc": "c-grey",
-   "v": 33,
-   "w": 17,
-   "a": 54,
-   "r": 0.055,
+   "v": 81,
+   "w": 49,
+   "a": 102,
+   "r": 0.079,
    "L": 379,
-   "ret": 14,
+   "ret": 27,
    "geo": "-",
    "sh": false,
    "tb": [
-    18,
+    65,
     4,
     0,
-    11
+    12
    ],
    "er": {
-    "Other sites": 2
+    "Other sites": 3
    },
    "cat": "others",
    "comp": "",
@@ -541,7 +589,7 @@
    "sh": true,
    "tb": [
     2,
-    12,
+    13,
     21,
     0
    ],
@@ -555,16 +603,16 @@
    "p": "2026-09-21",
    "tp": "AI Threats & Security",
    "tc": "c-coral",
-   "v": 49,
-   "w": 20,
-   "a": 73,
-   "r": 0.07,
+   "v": 131,
+   "w": 238,
+   "a": 370,
+   "r": 0.161,
    "L": 2256,
-   "ret": 3,
+   "ret": 16,
    "geo": "-",
    "sh": false,
    "tb": [
-    38,
+    120,
     10,
     0,
     1
@@ -579,7 +627,7 @@
    "p": "2026-09-21",
    "tp": "Governance & Geopolitics",
    "tc": "c-grey",
-   "v": 22,
+   "v": 21,
    "w": 1,
    "a": 11,
    "r": 0.001,
@@ -603,16 +651,16 @@
    "p": "2026-09-21",
    "tp": "Economy & Work",
    "tc": "c-warm",
-   "v": 469,
+   "v": 450,
    "w": 27,
    "a": 10,
-   "r": 0.017,
+   "r": 0.018,
    "L": 25,
    "ret": 43,
    "geo": "CH",
    "sh": true,
    "tb": [
-    12,
+    13,
     5,
     432,
     0
@@ -637,7 +685,7 @@
    "sh": true,
    "tb": [
     20,
-    0,
+    1,
     148,
     0
    ],
@@ -708,7 +756,7 @@
    "geo": "-",
    "sh": false,
    "tb": [
-    14,
+    15,
     3,
     0,
     1
@@ -723,16 +771,16 @@
    "p": "2026-09-20",
    "tp": "Economy & Work",
    "tc": "c-warm",
-   "v": 9,
-   "w": 8,
-   "a": 260,
-   "r": 0.02,
+   "v": 11,
+   "w": 18,
+   "a": 269,
+   "r": 0.07,
    "L": 262,
-   "ret": 100,
+   "ret": 103,
    "geo": "-",
    "sh": false,
    "tb": [
-    8,
+    10,
     1,
     0,
     0
@@ -747,7 +795,7 @@
    "p": "2026-09-20",
    "tp": "Governance & Geopolitics",
    "tc": "c-grey",
-   "v": 33,
+   "v": 34,
    "w": 8,
    "a": 43,
    "r": 0.022,
@@ -756,7 +804,7 @@
    "geo": "-",
    "sh": false,
    "tb": [
-    25,
+    26,
     3,
     0,
     5
@@ -774,22 +822,23 @@
    "p": "2026-09-19",
    "tp": "Economy & Work",
    "tc": "c-warm",
-   "v": 749,
-   "w": 1282,
-   "a": 443,
-   "r": 0.878,
+   "v": 773,
+   "w": 1271,
+   "a": 428,
+   "r": 0.879,
    "L": 2273,
-   "ret": 20,
+   "ret": 19,
    "geo": "US",
    "sh": false,
    "tb": [
-    727,
+    757,
     2,
     0,
-    12
+    14
    ],
    "er": {
-    "Messaging": 1
+    "Messaging": 1,
+    "X / Twitter": 1
    },
    "cat": "economics",
    "comp": "",
@@ -800,19 +849,19 @@
    "p": "2026-09-19",
    "tp": "AI Agents & Capabilities",
    "tc": "c-teal",
-   "v": 7,
-   "w": 6,
-   "a": 90,
+   "v": 9,
+   "w": 7,
+   "a": 73,
    "r": 0.0,
    "L": 337,
-   "ret": 27,
+   "ret": 22,
    "geo": "-",
    "sh": false,
    "tb": [
-    5,
+    6,
     1,
     0,
-    1
+    2
    ],
    "er": {},
    "cat": "how_we_build",
@@ -850,22 +899,22 @@
    "p": "2026-09-18",
    "tp": "AI Agents & Capabilities",
    "tc": "c-teal",
-   "v": 25,
-   "w": 13,
-   "a": 128,
-   "r": 0.003,
+   "v": 38,
+   "w": 19,
+   "a": 124,
+   "r": 0.006,
    "L": 355,
-   "ret": 36,
+   "ret": 35,
    "geo": "-",
    "sh": false,
    "tb": [
-    21,
+    33,
     1,
     0,
-    3
+    4
    ],
    "er": {
-    "Search / Web": 2
+    "Search / Web": 3
    },
    "cat": "how_we_build",
    "comp": "",
@@ -876,16 +925,16 @@
    "p": "2026-09-18",
    "tp": "Alignment & Safety",
    "tc": "c-green",
-   "v": 41,
+   "v": 47,
    "w": 29,
-   "a": 113,
+   "a": 109,
    "r": 0.049,
    "L": 300,
-   "ret": 38,
+   "ret": 36,
    "geo": "-",
    "sh": false,
    "tb": [
-    38,
+    44,
     2,
     0,
     1
@@ -1001,17 +1050,17 @@
    "p": "2026-09-16",
    "tp": "Alignment & Safety",
    "tc": "c-green",
-   "v": 21,
-   "w": 2,
-   "a": 19,
+   "v": 25,
+   "w": 4,
+   "a": 30,
    "r": 0.002,
    "L": 98,
-   "ret": 20,
+   "ret": 31,
    "geo": "-",
    "sh": false,
    "tb": [
     2,
-    9,
+    13,
     10,
     0
    ],
@@ -1025,22 +1074,22 @@
    "p": "2026-09-16",
    "tp": "Alignment & Safety",
    "tc": "c-green",
-   "v": 88,
-   "w": 24,
-   "a": 80,
-   "r": 0.06,
+   "v": 97,
+   "w": 31,
+   "a": 71,
+   "r": 0.062,
    "L": 196,
-   "ret": 41,
+   "ret": 36,
    "geo": "-",
    "sh": false,
    "tb": [
-    78,
-    7,
+    79,
+    8,
     0,
-    3
+    10
    ],
    "er": {
-    "Search / Web": 1
+    "Search / Web": 7
    },
    "cat": "agents",
    "comp": "",
@@ -1075,7 +1124,7 @@
    "p": "2026-09-16",
    "tp": "Consciousness & Mind",
    "tc": "c-violet",
-   "v": 76,
+   "v": 77,
    "w": 52,
    "a": 78,
    "r": 0.024,
@@ -1084,7 +1133,7 @@
    "geo": "-",
    "sh": false,
    "tb": [
-    57,
+    58,
     2,
     0,
     17
@@ -1223,10 +1272,10 @@
    "p": "2026-09-15",
    "tp": "Governance & Geopolitics",
    "tc": "c-grey",
-   "v": 291,
-   "w": 93,
-   "a": 21,
-   "r": 0.539,
+   "v": 300,
+   "w": 103,
+   "a": 22,
+   "r": 0.562,
    "L": 245,
    "ret": 9,
    "geo": "US",
@@ -1235,11 +1284,11 @@
     37,
     1,
     0,
-    253
+    262
    ],
    "er": {
-    "Search / Web": 16,
-    "X / Twitter": 7,
+    "Search / Web": 18,
+    "X / Twitter": 8,
     "Other sites": 5
    },
    "cat": "others",
@@ -1267,6 +1316,60 @@
    ],
    "er": {},
    "cat": "agents",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "t": "Anthropic Modeled AI's Effect on Your Job | #Shorts",
+   "p": "2026-09-12",
+   "tp": "Economy & Work",
+   "tc": "c-warm",
+   "v": 24,
+   "w": 3,
+   "a": 33,
+   "r": 0.001,
+   "L": 102,
+   "ret": 33,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    0,
+    5,
+    17,
+    2
+   ],
+   "er": {
+    "Search / Web": 1,
+    "Other sites": 1
+   },
+   "cat": "economics",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "t": "How AI Reshapes Jobs, Growth & Unemployment: Anthropic's 2026-2030 Economic Scenarios",
+   "p": "2026-09-12",
+   "tp": "Economy & Work",
+   "tc": "c-warm",
+   "v": 79,
+   "w": 28,
+   "a": 72,
+   "r": 0.018,
+   "L": 283,
+   "ret": 25,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    46,
+    31,
+    0,
+    2
+   ],
+   "er": {
+    "Search / Web": 1,
+    "LinkedIn": 1
+   },
+   "cat": "economics",
    "comp": "",
    "comp_status": ""
   },
@@ -1376,60 +1479,6 @@
    "comp_status": ""
   },
   {
-   "t": "Anthropic Modeled AI's Effect on Your Job | #Shorts",
-   "p": "2026-09-12",
-   "tp": "Economy & Work",
-   "tc": "c-warm",
-   "v": 24,
-   "w": 3,
-   "a": 33,
-   "r": 0.001,
-   "L": 102,
-   "ret": 33,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    0,
-    5,
-    17,
-    2
-   ],
-   "er": {
-    "Search / Web": 1,
-    "Other sites": 1
-   },
-   "cat": "economics",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "t": "How AI Reshapes Jobs, Growth & Unemployment: Anthropic's 2026-2030 Economic Scenarios",
-   "p": "2026-09-12",
-   "tp": "Economy & Work",
-   "tc": "c-warm",
-   "v": 79,
-   "w": 28,
-   "a": 72,
-   "r": 0.018,
-   "L": 283,
-   "ret": 25,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    46,
-    31,
-    0,
-    2
-   ],
-   "er": {
-    "Search / Web": 1,
-    "LinkedIn": 1
-   },
-   "cat": "economics",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
    "t": "China's AI Secretly Served Claude, and Leaked Its Own Spies | #Shorts",
    "p": "2026-09-12",
    "tp": "Governance & Geopolitics",
@@ -1485,7 +1534,7 @@
    "p": "2026-09-10",
    "tp": "AI Threats & Security",
    "tc": "c-coral",
-   "v": 628,
+   "v": 630,
    "w": 375,
    "a": 44,
    "r": 0.64,
@@ -1495,7 +1544,7 @@
    "sh": false,
    "tb": [
     21,
-    181,
+    183,
     0,
     426
    ],
@@ -1666,22 +1715,22 @@
    "p": "2026-09-09",
    "tp": "Alignment & Safety",
    "tc": "c-green",
-   "v": 27,
+   "v": 28,
    "w": 7,
-   "a": 52,
+   "a": 47,
    "r": 0.002,
    "L": 111,
-   "ret": 47,
+   "ret": 43,
    "geo": "-",
    "sh": false,
    "tb": [
     1,
     10,
     15,
-    1
+    2
    ],
    "er": {
-    "Search / Web": 1
+    "Search / Web": 2
    },
    "cat": "agents",
    "comp": "",
@@ -1767,7 +1816,7 @@
    "p": "2026-09-07",
    "tp": "Consciousness & Mind",
    "tc": "c-violet",
-   "v": 112,
+   "v": 111,
    "w": 29,
    "a": 44,
    "r": 0.007,
@@ -1917,8 +1966,8 @@
    "p": "2026-09-05",
    "tp": "AI Agents & Capabilities",
    "tc": "c-teal",
-   "v": 173,
-   "w": 87,
+   "v": 175,
+   "w": 88,
    "a": 35,
    "r": 0.023,
    "L": 539,
@@ -1927,7 +1976,7 @@
    "sh": false,
    "tb": [
     17,
-    27,
+    29,
     0,
     129
    ],
@@ -1944,16 +1993,16 @@
    "p": "2026-09-04",
    "tp": "AI Agents & Capabilities",
    "tc": "c-teal",
-   "v": 526,
+   "v": 527,
    "w": 295,
-   "a": 73,
+   "a": 72,
    "r": 0.322,
    "L": 324,
-   "ret": 23,
+   "ret": 22,
    "geo": "US",
    "sh": false,
    "tb": [
-    388,
+    389,
     9,
     0,
     129
@@ -2020,9 +2069,9 @@
    "p": "2026-09-02",
    "tp": "AI Threats & Security",
    "tc": "c-coral",
-   "v": 237,
+   "v": 241,
    "w": 256,
-   "a": 101,
+   "a": 100,
    "r": 0.552,
    "L": 306,
    "ret": 33,
@@ -2030,7 +2079,7 @@
    "sh": false,
    "tb": [
     84,
-    109,
+    113,
     0,
     44
    ],
@@ -2149,7 +2198,7 @@
    "p": "2026-08-30",
    "tp": "AI Agents & Capabilities",
    "tc": "c-teal",
-   "v": 558,
+   "v": 561,
    "w": 1126,
    "a": 231,
    "r": 2.02,
@@ -2158,8 +2207,8 @@
    "geo": "US",
    "sh": false,
    "tb": [
-    26,
-    406,
+    28,
+    407,
     0,
     126
    ],
@@ -2377,17 +2426,17 @@
    "p": "2026-08-22",
    "tp": "Alignment & Safety",
    "tc": "c-green",
-   "v": 77,
-   "w": 18,
-   "a": 49,
+   "v": 78,
+   "w": 19,
+   "a": 51,
    "r": 0.005,
    "L": 93,
-   "ret": 53,
+   "ret": 55,
    "geo": "DE",
    "sh": false,
    "tb": [
     12,
-    2,
+    3,
     63,
     0
    ],
@@ -2504,7 +2553,7 @@
    "p": "2026-07-23",
    "tp": "AI Agents & Capabilities",
    "tc": "c-teal",
-   "v": 62,
+   "v": 64,
    "w": 26,
    "a": 25,
    "r": 0.0,
@@ -2516,11 +2565,11 @@
     5,
     1,
     0,
-    56
+    58
    ],
    "er": {
     "LinkedIn": 5,
-    "X / Twitter": 3
+    "X / Twitter": 4
    },
    "cat": "how_we_build",
    "comp": "",
@@ -2601,23 +2650,23 @@
    "comp_status": ""
   },
   {
-   "t": "moonlight in smoke",
+   "t": "Moonlight in Smoke. Debussy goes to Montreux.",
    "p": "2026-06-20",
    "tp": "Other",
    "tc": "c-grey",
-   "v": 22,
-   "w": 0,
-   "a": 6,
-   "r": 0.0,
-   "L": 31,
-   "ret": 21,
+   "v": 35,
+   "w": 23,
+   "a": 40,
+   "r": 0.001,
+   "L": 175,
+   "ret": 23,
    "geo": "-",
-   "sh": true,
+   "sh": false,
    "tb": [
+    28,
     2,
-    3,
-    17,
-    0
+    0,
+    5
    ],
    "er": {},
    "cat": "others",
@@ -3071,8 +3120,8 @@
    "p": "2026-04-29",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 126818,
-   "w": 34401,
+   "v": 126824,
+   "w": 34402,
    "a": 48,
    "r": 0.023,
    "L": 135,
@@ -3080,8 +3129,8 @@
    "geo": "IN",
    "sh": false,
    "tb": [
-    126775,
-    4,
+    126776,
+    9,
     0,
     39
    ],
@@ -3415,8 +3464,8 @@
    "p": "2026-04-08",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 163064,
-   "w": 84375,
+   "v": 163066,
+   "w": 84376,
    "a": 60,
    "r": 0.018,
    "L": 149,
@@ -3424,14 +3473,14 @@
    "geo": "IN",
    "sh": false,
    "tb": [
-    149386,
+    149387,
     92,
     0,
-    13586
+    13587
    ],
    "er": {
     "Other sites": 59,
-    "Search / Web": 27,
+    "Search / Web": 28,
     "Messaging": 1
    },
    "cat": "others",
@@ -3469,7 +3518,7 @@
    "p": "2026-04-08",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 279,
+   "v": 280,
    "w": 185,
    "a": 40,
    "r": 0.009,
@@ -3479,7 +3528,7 @@
    "sh": false,
    "tb": [
     174,
-    84,
+    85,
     0,
     21
    ],
@@ -3598,19 +3647,19 @@
    "p": "2026-04-07",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 215533,
-   "w": 80123,
+   "v": 215535,
+   "w": 80126,
    "a": 41,
-   "r": 0.082,
+   "r": 0.085,
    "L": 139,
    "ret": 30,
    "geo": "IN",
    "sh": false,
    "tb": [
     173714,
-    219,
+    220,
     0,
-    41600
+    41601
    ],
    "er": {
     "Other sites": 134,
@@ -3733,7 +3782,7 @@
    "v": 846544,
    "w": 1063838,
    "a": 95,
-   "r": 0.077,
+   "r": 0.078,
    "L": 261,
    "ret": 37,
    "geo": "IN",
@@ -3857,65 +3906,11 @@
    "comp_status": ""
   },
   {
-   "t": "Mouret's Rondeau — Celtic Remix | Classical Goes Celtic",
-   "p": "2026-04-03",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 115,
-   "w": 114,
-   "a": 59,
-   "r": 0.0,
-   "L": 167,
-   "ret": 36,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    105,
-    2,
-    0,
-    8
-   ],
-   "er": {
-    "Messaging": 2,
-    "Search / Web": 1
-   },
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "t": "Tchaikovsky's Sugar Plum Fairy — Celtic Remix | Classical Goes Celtic",
-   "p": "2026-04-03",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 22684,
-   "w": 11424,
-   "a": 69,
-   "r": 0.0,
-   "L": 139,
-   "ret": 50,
-   "geo": "PT",
-   "sh": false,
-   "tb": [
-    20880,
-    15,
-    0,
-    1789
-   ],
-   "er": {
-    "Other sites": 31,
-    "Search / Web": 5
-   },
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
    "t": "Beethoven 9th Symphony second movement EDM remix",
    "p": "2026-04-08",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 279,
+   "v": 280,
    "w": 185,
    "a": 40,
    "r": 0.009,
@@ -3925,7 +3920,7 @@
    "sh": false,
    "tb": [
     174,
-    84,
+    85,
     0,
     21
    ],
@@ -3958,6 +3953,60 @@
    ],
    "er": {},
    "cat": "how_we_build",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "t": "Beethoven's Ode to Joy — Celtic Remix | Classical Goes Celtic",
+   "p": "2026-04-03",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 6940,
+   "w": 2155,
+   "a": 61,
+   "r": 0.027,
+   "L": 103,
+   "ret": 60,
+   "geo": "PT",
+   "sh": false,
+   "tb": [
+    6925,
+    10,
+    0,
+    5
+   ],
+   "er": {
+    "Search / Web": 1
+   },
+   "cat": "others",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "t": "Liszt's Hungarian Rhapsody No. 2 — Celtic Remix | Classical Goes Celtic",
+   "p": "2026-04-03",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 1129697,
+   "w": 1308885,
+   "a": 100,
+   "r": 0.0,
+   "L": 246,
+   "ret": 41,
+   "geo": "IN",
+   "sh": false,
+   "tb": [
+    989687,
+    159,
+    0,
+    139851
+   ],
+   "er": {
+    "Other sites": 463,
+    "Search / Web": 30,
+    "Messaging": 12
+   },
+   "cat": "others",
    "comp": "",
    "comp_status": ""
   },
@@ -4088,16 +4137,16 @@
    "p": "2026-04-02",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 31,
+   "v": 32,
    "w": 21,
-   "a": 42,
+   "a": 41,
    "r": 0.005,
    "L": 269,
    "ret": 16,
    "geo": "-",
    "sh": false,
    "tb": [
-    25,
+    26,
     5,
     0,
     1
@@ -4529,17 +4578,17 @@
    "p": "2026-03-09",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 44016,
-   "w": 14242,
+   "v": 44018,
+   "w": 14244,
    "a": 57,
-   "r": 0.009,
+   "r": 0.014,
    "L": 147,
    "ret": 39,
    "geo": "IN",
    "sh": false,
    "tb": [
-    43981,
-    35,
+    43982,
+    36,
     0,
     0
    ],
@@ -4577,7 +4626,7 @@
    "p": "2026-03-08",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 735,
+   "v": 734,
    "w": 115,
    "a": 19,
    "r": 0.002,
@@ -5080,59 +5129,11 @@
    "comp_status": ""
   },
   {
-   "t": "The Lost Coin, Chapter 7: A cyber triller in shorts format. https://scifibymiguel.substack.com/",
-   "p": "2026-02-27",
-   "tp": "Other",
-   "tc": "c-grey",
-   "v": 15,
-   "w": 1,
-   "a": 14,
-   "r": 0.0,
-   "L": 57,
-   "ret": 26,
-   "geo": "-",
-   "sh": true,
-   "tb": [
-    2,
-    0,
-    13,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "t": "Vivaldi Four Seasons- Winter  Celtic remix",
-   "p": "2026-02-27",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 93,
-   "w": 59,
-   "a": 39,
-   "r": 0.0,
-   "L": 119,
-   "ret": 33,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    83,
-    8,
-    0,
-    2
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
    "t": "Beethoven 9th Symphony second movement EDM remix",
    "p": "2026-04-08",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 279,
+   "v": 280,
    "w": 185,
    "a": 40,
    "r": 0.009,
@@ -5142,7 +5143,7 @@
    "sh": false,
    "tb": [
     174,
-    84,
+    85,
     0,
     21
    ],
@@ -5223,6 +5224,56 @@
    ],
    "er": {},
    "cat": "how_we_build",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "t": "Mozart Nr. 40 Trance Remix #classicalremix",
+   "p": "2026-02-23",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 887,
+   "w": 98,
+   "a": 16,
+   "r": 0.0,
+   "L": 31,
+   "ret": 52,
+   "geo": "CH",
+   "sh": true,
+   "tb": [
+    36,
+    30,
+    818,
+    3
+   ],
+   "er": {
+    "Other sites": 1
+   },
+   "cat": "others",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "t": "in the hall of the mountain king tropical house remix full",
+   "p": "2026-02-23",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 20,
+   "w": 10,
+   "a": 31,
+   "r": 0.0,
+   "L": 155,
+   "ret": 20,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    16,
+    2,
+    0,
+    2
+   ],
+   "er": {},
+   "cat": "others",
    "comp": "",
    "comp_status": ""
   },
@@ -6000,9 +6051,9 @@
    "p": "2026-02-10",
    "tp": "AI Agents & Capabilities",
    "tc": "c-teal",
-   "v": 272,
+   "v": 273,
    "w": 226,
-   "a": 50,
+   "a": 49,
    "r": 0.028,
    "L": 189,
    "ret": 26,
@@ -6012,10 +6063,10 @@
     232,
     8,
     0,
-    32
+    33
    ],
    "er": {
-    "Search / Web": 9,
+    "Search / Web": 10,
     "Messaging": 2
    },
    "cat": "how_we_build",
@@ -6156,7 +6207,7 @@
    "p": "2026-02-07",
    "tp": "Other",
    "tc": "c-grey",
-   "v": 9706,
+   "v": 9707,
    "w": 1726,
    "a": 22,
    "r": 0.0,
@@ -6166,7 +6217,7 @@
    "sh": true,
    "tb": [
     8370,
-    25,
+    26,
     1309,
     2
    ],
@@ -6204,7 +6255,7 @@
    "p": "2026-02-07",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 1124,
+   "v": 1126,
    "w": 165,
    "a": 13,
    "r": 0.018,
@@ -6214,7 +6265,7 @@
    "sh": true,
    "tb": [
     49,
-    275,
+    277,
     799,
     1
    ],
@@ -6228,7 +6279,7 @@
    "p": "2026-02-07",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 38,
+   "v": 39,
    "w": 20,
    "a": 33,
    "r": 0.008,
@@ -6238,7 +6289,7 @@
    "sh": false,
    "tb": [
     24,
-    13,
+    14,
     0,
     1
    ],
@@ -6320,59 +6371,11 @@
    "comp_status": ""
   },
   {
-   "t": "Kleine Nachtmusik // Progressive Trance",
-   "p": "2026-02-06",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 893,
-   "w": 89,
-   "a": 11,
-   "r": 0.0,
-   "L": 31,
-   "ret": 38,
-   "geo": "UA",
-   "sh": true,
-   "tb": [
-    18,
-    12,
-    863,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "t": "Dancing Queen (EDM Remix) — Club Rework",
-   "p": "2026-02-05",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 570,
-   "w": 118,
-   "a": 20,
-   "r": 0.002,
-   "L": 31,
-   "ret": 66,
-   "geo": "US",
-   "sh": true,
-   "tb": [
-    8,
-    49,
-    513,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
    "t": "Beethoven 9th Symphony second movement EDM remix",
    "p": "2026-04-08",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 279,
+   "v": 280,
    "w": 185,
    "a": 40,
    "r": 0.009,
@@ -6382,7 +6385,7 @@
    "sh": false,
    "tb": [
     174,
-    84,
+    85,
     0,
     21
    ],
@@ -6419,11 +6422,64 @@
    "comp_status": ""
   },
   {
+   "t": "Tchaikovsky swan lake EDM Remix",
+   "p": "2026-02-05",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 18716,
+   "w": 9288,
+   "a": 93,
+   "r": 0.052,
+   "L": 183,
+   "ret": 51,
+   "geo": "PT",
+   "sh": false,
+   "tb": [
+    18585,
+    112,
+    0,
+    19
+   ],
+   "er": {
+    "Other sites": 1,
+    "Messaging": 1
+   },
+   "cat": "others",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "t": "Tchaikovsky swan lake EDM Remix",
+   "p": "2026-02-05",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 1080,
+   "w": 143,
+   "a": 14,
+   "r": 0.013,
+   "L": 31,
+   "ret": 47,
+   "geo": "PL",
+   "sh": true,
+   "tb": [
+    18,
+    369,
+    690,
+    3
+   ],
+   "er": {
+    "Messaging": 1
+   },
+   "cat": "others",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
    "t": "Night on the Bare Mountain (Progressive House Remix) – Mussorgsky",
    "p": "2026-02-05",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 775,
+   "v": 776,
    "w": 726,
    "a": 56,
    "r": 0.013,
@@ -6433,7 +6489,7 @@
    "sh": false,
    "tb": [
     678,
-    54,
+    55,
     0,
     43
    ],
@@ -6498,7 +6554,7 @@
    "p": "2026-02-04",
    "tp": "Other",
    "tc": "c-grey",
-   "v": 2936,
+   "v": 2937,
    "w": 442,
    "a": 19,
    "r": 0.0,
@@ -6509,7 +6565,7 @@
    "tb": [
     1790,
     18,
-    1128,
+    1129,
     0
    ],
    "er": {},
@@ -6720,19 +6776,19 @@
    "p": "2026-01-30",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 433,
-   "w": 295,
+   "v": 435,
+   "w": 296,
    "a": 42,
-   "r": 0.085,
+   "r": 0.086,
    "L": 108,
    "ret": 40,
    "geo": "-",
    "sh": false,
    "tb": [
     78,
-    287,
+    288,
     0,
-    68
+    69
    ],
    "er": {
     "Messaging": 3
@@ -6948,7 +7004,7 @@
    "p": "2026-01-22",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 386,
+   "v": 387,
    "w": 26,
    "a": 11,
    "r": 0.0,
@@ -6958,7 +7014,7 @@
    "sh": true,
    "tb": [
     20,
-    8,
+    9,
     355,
     3
    ],
