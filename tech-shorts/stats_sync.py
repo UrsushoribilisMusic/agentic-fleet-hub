@@ -27,6 +27,7 @@ import argparse
 import json
 import os
 import re
+import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -100,7 +101,7 @@ def fetch_youtube(ids: list) -> dict:
     out = {}
     for i in range(0, len(ids), 50):
         chunk = ids[i:i + 50]
-        res = svc.videos().list(part="statistics,snippet", id=",".join(chunk)).execute()
+        res = svc.videos().list(part="statistics,snippet,status", id=",".join(chunk)).execute()
         for it in res.get("items", []):
             s = it.get("statistics", {})
             out[it["id"]] = {
@@ -109,8 +110,46 @@ def fetch_youtube(ids: list) -> dict:
                 "comments": int(s.get("commentCount", 0)),
                 "title": it["snippet"]["title"],
                 "published_at": (it["snippet"].get("publishedAt") or "")[:10],
+                "privacy": it.get("status", {}).get("privacyStatus"),
             }
     return out
+
+
+# ── Ideas-console status reconcile ───────────────────────────────────────────
+# The ideas console (tech-shorts-intake on the droplet) reads its own jobs.json.
+# Keep its list honest: a job whose video is public -> published (drops off the
+# "what's cooking" view into Insights); private/scheduled -> back to a ready state.
+CONSOLE_SSH = os.environ.get("TECH_SHORTS_CONSOLE_SSH", "robotsales")
+CONSOLE_JOBS = os.environ.get("TECH_SHORTS_CONSOLE_JOBS", "/opt/tech-shorts/jobs.json")
+
+
+def reconcile_console_statuses() -> None:
+    """scp the console's jobs.json, flip each job's status from the video's actual
+    YouTube privacy, push back, and restart the console. Non-fatal on any error."""
+    import tempfile
+    try:
+        tmp = Path(tempfile.mktemp(suffix="-console-jobs.json"))
+        subprocess.run(["scp", "-o", "StrictHostKeyChecking=accept-new",
+                        f"{CONSOLE_SSH}:{CONSOLE_JOBS}", str(tmp)], check=True)
+        d = json.loads(tmp.read_text())
+        ids = sorted({(j.get("youtube", {}) or {}).get("long_id")
+                      for j in d.get("jobs", []) if (j.get("youtube", {}) or {}).get("long_id")})
+        info = fetch_youtube(ids)
+        changed = 0
+        for j in d.get("jobs", []):
+            vid = (j.get("youtube", {}) or {}).get("long_id")
+            p = info.get(vid, {}).get("privacy") if vid else None
+            if p == "public" and j.get("status") != "published":
+                j["status"] = "published"; changed += 1
+            elif p in ("private", "unlisted") and j.get("status") == "published":
+                j["status"] = "assembled"; changed += 1  # ready / private
+        if changed:
+            tmp.write_text(json.dumps(d, ensure_ascii=False, indent=2))
+            subprocess.run(["scp", str(tmp), f"{CONSOLE_SSH}:{CONSOLE_JOBS}"], check=True)
+            subprocess.run(["ssh", CONSOLE_SSH, "systemctl restart tech-shorts-intake"], check=True)
+        print(f"console reconcile: {changed} status change(s)")
+    except Exception as exc:  # noqa: BLE001
+        print(f"WARNING: console reconcile failed: {exc}", file=sys.stderr)
 
 
 # Per-video revenue overlay written by video_revenue_overlay.py (music-video-tool).
@@ -180,6 +219,8 @@ def main() -> None:
     ap.add_argument("--no-x", action="store_true", help="skip the paid X reads")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--no-push", action="store_true", help="skip the scp to the droplet tracker")
+    ap.add_argument("--no-reconcile", action="store_true",
+                    help="skip reconciling the ideas-console job statuses from YouTube privacy")
     ap.add_argument("--set-tiktok", action="store_true",
                     help="manually set the TikTok stats on --job then save+push and exit (no API calls). "
                          "TikTok has no public per-account stats API, so these numbers are entered by hand; "
@@ -313,6 +354,8 @@ def main() -> None:
         print(f"\nwritten to {JOBS}")
         if not args.no_push:
             push_to_droplet()
+            if not args.no_reconcile:
+                reconcile_console_statuses()
     print(f"total YouTube views across synced jobs: {total_yt_views}")
 
 
