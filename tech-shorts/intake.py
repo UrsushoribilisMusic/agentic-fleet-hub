@@ -1152,7 +1152,7 @@ WEB_HTML = """<!DOCTYPE html>
             <div>
                 <div class="controls-bar">
                     <div class="filter-pills" id="filter-pills">
-                        <button class="pill active" data-filter="all">All Jobs</button>
+                        <button class="pill active" data-filter="all">Active</button>
                         <button class="pill" data-filter="queued">Queued</button>
                         <button class="pill" data-filter="in_progress">In Progress</button>
                         <button class="pill" data-filter="assembled">Assembled</button>
@@ -1296,8 +1296,10 @@ WEB_HTML = """<!DOCTYPE html>
 
         function renderQueue() {
             const container = document.getElementById('queue-container');
+            // Ideas page shows ingestion + in-flight only; finished jobs live in Insights.
+            const DONE_STATUSES = ['published', 'uploaded'];
             let filtered = currentFilter === 'all'
-                ? allJobs.slice()
+                ? allJobs.filter(j => !DONE_STATUSES.includes(j.status))
                 : allJobs.filter(j => j.status === currentFilter);
 
             if (filtered.length === 0) {
