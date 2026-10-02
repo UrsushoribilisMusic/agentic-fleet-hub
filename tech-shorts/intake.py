@@ -1296,8 +1296,9 @@ WEB_HTML = """<!DOCTYPE html>
 
         function renderQueue() {
             const container = document.getElementById('queue-container');
-            // Ideas page shows ingestion + in-flight only; finished jobs live in Insights.
-            const DONE_STATUSES = ['published', 'uploaded'];
+            // Ideas page = the whole pipeline backlog (everything not yet public).
+            // Only PUBLISHED (live on YouTube) drops off; private/ready + in-flight stay.
+            const DONE_STATUSES = ['published'];
             let filtered = currentFilter === 'all'
                 ? allJobs.filter(j => !DONE_STATUSES.includes(j.status))
                 : allJobs.filter(j => j.status === currentFilter);
