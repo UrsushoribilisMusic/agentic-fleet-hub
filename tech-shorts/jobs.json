@@ -8348,24 +8348,33 @@
                 "geopolitics",
                 "ai-race"
             ],
-            "status": "queued",
+            "status": "uploaded",
             "created_at": "2026-10-02T16:41:27Z",
-            "updated_at": "2026-10-02T16:41:27Z",
+            "updated_at": "2026-10-02T17:16:29Z",
             "notebook_url": "",
-            "hook_copy": {},
+            "hook_copy": {
+                "card_a_main": "THE GREAT AI SPLIT",
+                "card_a_sub": "Open basic tools, a locked-down frontier",
+                "card_a_footer": "Adventures in digitalization",
+                "card_b_main": "Is the window closing?",
+                "card_b_sub": "Why Beijing is gating its best AI",
+                "card_b_footer": "The Classical Remix",
+                "vo_text_pending": "China opened its AI to the world, and the world noticed. Now, as its most powerful models reveal their dangers, Beijing is quietly pulling the frontier behind closed doors. Is China's open AI window closing?"
+            },
             "outro_copy": {},
             "assets": {
                 "raw_short_mp4": "",
-                "raw_long_mp4": "",
-                "hook_vo_audio": "",
+                "raw_long_mp4": "/Users/miguelrodriguez/Downloads/The_Great_AI_Split.mp4",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-02-the-looming-closure-of-chinas-ai-frontier/the-looming-closure-of-chinas-ai-frontier_hook_vo.mp3",
                 "final_short_mp4": "",
-                "final_long_mp4": ""
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-02-the-looming-closure-of-chinas-ai-frontier/final_long.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-02-the-looming-closure-of-chinas-ai-frontier"
             },
             "youtube": {
                 "short_id": "",
                 "short_url": "",
-                "long_id": "",
-                "long_url": "",
+                "long_id": "5kQ60wFYvDU",
+                "long_url": "https://youtu.be/5kQ60wFYvDU",
                 "published_at": ""
             },
             "x_post": {
