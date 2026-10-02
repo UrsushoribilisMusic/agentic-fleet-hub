@@ -1,6 +1,6 @@
 {
     "version": "1.0",
-    "updated_at": "2026-10-02T16:41:27Z",
+    "updated_at": "2026-10-02T20:12:39Z",
     "jobs": [
         {
             "id": "ts-20260916-deepmind-reasoning-transparency",
@@ -8248,24 +8248,34 @@
             "source_files": [],
             "idea_notes": "Prof. Matthew Schwartz returns to describe a new approach to AI-accelerated science. In Vibe Physics, Schwartz discussed similarities in capability between Claude and a physics graduate student. Here, he describes what happened when he stopped fighting Claude and allowed Claude to find “Claude-shaped” problems: ones best suited to the capabilities of the current generation of LLM tools.",
             "tags": [],
-            "status": "failed",
+            "status": "uploaded",
             "created_at": "2026-10-02T01:46:28Z",
-            "updated_at": "2026-10-02T01:46:32Z",
+            "updated_at": "2026-10-02T20:44:48Z",
             "notebook_url": "",
-            "hook_copy": {},
+            "hook_copy": {
+                "card_a_main": "CAN AI DO REAL SCIENCE?",
+                "card_a_sub": "A physicist's answer: don't make it the scientist",
+                "card_a_footer": "Adventures in digitalization",
+                "card_b_main": "A power tool, not a colleague",
+                "card_b_sub": "Hand AI the exact calculations it does best",
+                "card_b_footer": "The Classical Remix",
+                "vo_text_pending": "Can AI actually do real science? A Harvard physicist found the trick is not to treat AI as a scientist, but as a power tool for the exact calculations it does best."
+            },
             "outro_copy": {},
             "assets": {
                 "raw_short_mp4": "",
-                "raw_long_mp4": "",
-                "hook_vo_audio": "",
+                "raw_long_mp4": "/Users/miguelrodriguez/Downloads/The_Impedance_Mismatch__Engineering_the_AI-Human_Partnership.mp4",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-02-toolkit-for-exact-calculations-in-quantitative-science/toolkit-for-exact-calculations-in-quantitative-science_hook_vo.mp3",
                 "final_short_mp4": "",
-                "final_long_mp4": ""
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-02-toolkit-for-exact-calculations-in-quantitative-science/final_long.mp4",
+                "raw_cinematic_mp4": "/Users/miguelrodriguez/Downloads/The_Impedance_Mismatch__Engineering_the_AI-Human_Partnership.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-02-toolkit-for-exact-calculations-in-quantitative-science"
             },
             "youtube": {
                 "short_id": "",
                 "short_url": "",
-                "long_id": "",
-                "long_url": "",
+                "long_id": "bBus4VKJJDI",
+                "long_url": "https://youtu.be/bBus4VKJJDI",
                 "published_at": ""
             },
             "x_post": {
@@ -8278,7 +8288,12 @@
                 "likes": 0,
                 "comments": 0,
                 "last_synced_at": ""
-            }
+            },
+            "localize": [
+                "de",
+                "fr",
+                "ja"
+            ]
         },
         {
             "id": "ts-20261002-can-the-ai-boom-can-continue-without-leading-to-a-massive-increase-in-inequality",
@@ -8375,6 +8390,51 @@
                 "short_url": "",
                 "long_id": "5kQ60wFYvDU",
                 "long_url": "https://youtu.be/5kQ60wFYvDU",
+                "published_at": ""
+            },
+            "x_post": {
+                "post_id": "",
+                "post_url": "",
+                "caption": ""
+            },
+            "stats": {
+                "views": 0,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": ""
+            }
+        },
+        {
+            "id": "ts-20261002-jevons-paradox-and-ai",
+            "slug": "jevons-paradox-and-ai",
+            "title": "Jevons Paradox and AI",
+            "source_urls": [],
+            "source_file": {},
+            "source_files": [],
+            "idea_notes": "Worked on with Big Sis (2026-10-02). Source: local PDF ~/Downloads/jevons-tech-short.pdf. LinkedIn article publishing next week; video to be generated TOMORROW (needs the PDF dropped into NotebookLM). Jevons paradox: efficiency gains increase total consumption - applied to AI/compute.",
+            "tags": [
+                "economics",
+                "ai-compute",
+                "jevons"
+            ],
+            "status": "queued",
+            "created_at": "2026-10-02T20:12:39Z",
+            "updated_at": "2026-10-02T20:12:39Z",
+            "notebook_url": "",
+            "hook_copy": {},
+            "outro_copy": {},
+            "assets": {
+                "raw_short_mp4": "",
+                "raw_long_mp4": "",
+                "hook_vo_audio": "",
+                "final_short_mp4": "",
+                "final_long_mp4": ""
+            },
+            "youtube": {
+                "short_id": "",
+                "short_url": "",
+                "long_id": "",
+                "long_url": "",
                 "published_at": ""
             },
             "x_post": {
