@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-28T05:18:08Z",
+ "generated_at": "2026-10-02T05:18:12Z",
  "categories": [
   {
    "id": "economics",
@@ -104,15 +104,15 @@
   }
  ],
  "verdicts": {
-  "Other": [
+  "Governance & Geopolitics": [
+   "Reach engine",
+   "warm"
+  ],
+  "AI Threats & Security": [
    "Double down",
    "good"
   ],
-  "Alignment & Safety": [
-   "Promising",
-   "good"
-  ],
-  "Consciousness & Mind": [
+  "Other": [
    "Double down",
    "good"
   ],
@@ -120,15 +120,15 @@
    "Reach engine",
    "warm"
   ],
-  "Governance & Geopolitics": [
-   "Reach engine",
-   "warm"
-  ],
-  "Economy & Work": [
+  "Consciousness & Mind": [
    "Double down",
    "good"
   ],
-  "AI Threats & Security": [
+  "Alignment & Safety": [
+   "Double down",
+   "good"
+  ],
+  "Economy & Work": [
    "Double down",
    "good"
   ],
@@ -139,18 +139,20 @@
  },
  "videos": [
   {
-   "t": "Can We Trust AI? #Shorts",
-   "p": "2026-09-27",
-   "tp": "Other",
+   "id": "b6-AtFWI9Zo",
+   "url": "https://youtu.be/b6-AtFWI9Zo",
+   "t": "The Global AI Race: China, Europe, and the Battle for the Future of AI (Full Compilation)",
+   "p": "2026-10-01",
+   "tp": "Governance & Geopolitics",
    "tc": "c-grey",
    "v": 0,
    "w": 0,
    "a": 0,
    "r": 0,
-   "L": 14,
+   "L": 1756,
    "ret": 0,
    "geo": "-",
-   "sh": true,
+   "sh": false,
    "tb": [
     0,
     0,
@@ -163,15 +165,17 @@
    "comp_status": ""
   },
   {
-   "t": "Can We Trust AI? The Alignment Problem, Explained (Full Compilation)",
-   "p": "2026-09-27",
-   "tp": "Alignment & Safety",
-   "tc": "c-green",
+   "id": "cTcR68V8nq8",
+   "url": "https://youtu.be/cTcR68V8nq8",
+   "t": "The Sandbox Behind DeepSeek: How Elastic Compute Trains Frontier AI",
+   "p": "2026-10-01",
+   "tp": "AI Threats & Security",
+   "tc": "c-coral",
    "v": 0,
    "w": 0,
    "a": 0,
    "r": 0,
-   "L": 2402,
+   "L": 546,
    "ret": 0,
    "geo": "-",
    "sh": false,
@@ -187,20 +191,152 @@
    "comp_status": ""
   },
   {
-   "t": "Is Consciousness Real? Rethinking the Science of Mind",
-   "p": "2026-09-27",
-   "tp": "Consciousness & Mind",
-   "tc": "c-violet",
+   "id": "9Co7-zsVkVc",
+   "url": "https://youtu.be/9Co7-zsVkVc",
+   "t": "One Steering Wheel, Seventy-Four Drivers: Who Actually Controls You?",
+   "p": "2026-10-01",
+   "tp": "Other",
+   "tc": "c-grey",
    "v": 0,
    "w": 0,
    "a": 0,
    "r": 0,
-   "L": 498,
+   "L": 384,
    "ret": 0,
    "geo": "-",
    "sh": false,
    "tb": [
     0,
+    0,
+    0,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "id": "zKndSEJBW7U",
+   "url": "https://youtu.be/zKndSEJBW7U",
+   "t": "2 Students Built an AI Zero-Day Factory | #Shorts",
+   "p": "2026-09-30",
+   "tp": "AI Threats & Security",
+   "tc": "c-coral",
+   "v": 0,
+   "w": 0,
+   "a": 0,
+   "r": 0,
+   "L": 92,
+   "ret": 0,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "er": {},
+   "cat": "agents",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "id": "z_70qnh25W8",
+   "url": "https://youtu.be/z_70qnh25W8",
+   "t": "AI's 10-Minute Problem: How Agents Make Long-Form Video Coherent",
+   "p": "2026-09-30",
+   "tp": "AI Agents & Capabilities",
+   "tc": "c-teal",
+   "v": 0,
+   "w": 0,
+   "a": 0,
+   "r": 0,
+   "L": 451,
+   "ret": 0,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "er": {},
+   "cat": "how_we_build",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "id": "zrQCToSha8I",
+   "url": "https://youtu.be/zrQCToSha8I",
+   "t": "How AI Could Wake Up | #Shorts",
+   "p": "2026-09-29",
+   "tp": "Other",
+   "tc": "c-grey",
+   "v": 2,
+   "w": 0,
+   "a": 11,
+   "r": 0.002,
+   "L": 76,
+   "ret": 15,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    2,
+    0,
+    0,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "id": "GMmcaXyle0c",
+   "url": "https://youtu.be/GMmcaXyle0c",
+   "t": "Memento Is an Old AI. Misaligned Is the Next One. #Shorts",
+   "p": "2026-09-29",
+   "tp": "Consciousness & Mind",
+   "tc": "c-violet",
+   "v": 7,
+   "w": 0,
+   "a": 13,
+   "r": 0.002,
+   "L": 25,
+   "ret": 54,
+   "geo": "-",
+   "sh": true,
+   "tb": [
+    1,
+    5,
+    1,
+    0
+   ],
+   "er": {},
+   "cat": "alien_mind",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "id": "Yb89ttQS3dk",
+   "url": "https://youtu.be/Yb89ttQS3dk",
+   "t": "Is Consciousness Real? Rethinking the Science of Mind",
+   "p": "2026-09-29",
+   "tp": "Consciousness & Mind",
+   "tc": "c-violet",
+   "v": 1,
+   "w": 0,
+   "a": 0,
+   "r": 0.0,
+   "L": 498,
+   "ret": 0,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    1,
     0,
     0,
     0
@@ -211,119 +347,25 @@
    "comp_status": ""
   },
   {
-   "t": "Symbiotic Intelligence: AGI as a Society of Minds #Shorts",
-   "p": "2026-09-27",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
-   "v": 0,
-   "w": 0,
-   "a": 0,
-   "r": 0,
-   "L": 46,
-   "ret": 0,
-   "geo": "-",
-   "sh": true,
-   "tb": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "er": {},
-   "cat": "how_we_build",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "t": "Artificial Symbiotic Intelligence: The Orchestration of Many Minds",
-   "p": "2026-09-27",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
-   "v": 0,
-   "w": 0,
-   "a": 0,
-   "r": 0,
-   "L": 436,
-   "ret": 0,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "er": {},
-   "cat": "how_we_build",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "t": "The Frozen Self: What Frictionless AI Costs Us #Shorts",
-   "p": "2026-09-27",
-   "tp": "Other",
-   "tc": "c-grey",
-   "v": 0,
-   "w": 0,
-   "a": 0,
-   "r": 0,
-   "L": 46,
-   "ret": 0,
-   "geo": "-",
-   "sh": true,
-   "tb": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "t": "The Frozen Self: Why We Need Friction in the Age of AI",
-   "p": "2026-09-27",
-   "tp": "Other",
-   "tc": "c-grey",
-   "v": 0,
-   "w": 0,
-   "a": 0,
-   "r": 0,
-   "L": 397,
-   "ret": 0,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
+   "id": "pnOhPx_cI-E",
+   "url": "https://youtu.be/pnOhPx_cI-E",
    "t": "China's AI Ecosystem: A Background Explainer",
-   "p": "2026-09-27",
+   "p": "2026-09-28",
    "tp": "Governance & Geopolitics",
    "tc": "c-grey",
-   "v": 0,
-   "w": 0,
-   "a": 0,
-   "r": 0,
+   "v": 20,
+   "w": 15,
+   "a": 54,
+   "r": 0.018,
    "L": 482,
-   "ret": 0,
+   "ret": 11,
    "geo": "-",
    "sh": false,
    "tb": [
+    19,
     0,
     0,
-    0,
-    0
+    1
    ],
    "er": {},
    "cat": "others",
@@ -331,22 +373,24 @@
    "comp_status": ""
   },
   {
-   "t": "Aligning AI Isn't Enough #Shorts",
-   "p": "2026-09-26",
+   "id": "8D7Yt0xcAZM",
+   "url": "https://youtu.be/8D7Yt0xcAZM",
+   "t": "Can We Trust AI? #Shorts",
+   "p": "2026-09-27",
    "tp": "Other",
    "tc": "c-grey",
-   "v": 0,
-   "w": 0,
-   "a": 0,
-   "r": 0,
-   "L": 44,
-   "ret": 0,
+   "v": 22,
+   "w": 1,
+   "a": 12,
+   "r": 0.002,
+   "L": 14,
+   "ret": 92,
    "geo": "-",
    "sh": true,
    "tb": [
-    0,
-    0,
-    0,
+    1,
+    4,
+    17,
     0
    ],
    "er": {},
@@ -355,71 +399,25 @@
    "comp_status": ""
   },
   {
-   "t": "The Machine That Documents Itself",
-   "p": "2026-09-26",
-   "tp": "Other",
-   "tc": "c-grey",
-   "v": 0,
-   "w": 0,
-   "a": 0,
-   "r": 0,
-   "L": 446,
-   "ret": 0,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "How We Build",
-   "comp_status": "queued"
-  },
-  {
-   "t": "Engineering's Great Flip: 80% Code to 80% Spec #Shorts",
-   "p": "2026-09-26",
-   "tp": "Other",
-   "tc": "c-grey",
-   "v": 0,
-   "w": 0,
-   "a": 0,
-   "r": 0,
-   "L": 25,
-   "ret": 0,
-   "geo": "-",
-   "sh": true,
-   "tb": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "t": "The Alignment Fallacy and the Intelligence Explosion",
-   "p": "2026-09-26",
+   "id": "bDN2Xtzba5E",
+   "url": "https://youtu.be/bDN2Xtzba5E",
+   "t": "Can We Trust AI? The Alignment Problem, Explained (Full Compilation)",
+   "p": "2026-09-27",
    "tp": "Alignment & Safety",
    "tc": "c-green",
-   "v": 0,
-   "w": 0,
-   "a": 0,
-   "r": 0,
-   "L": 444,
-   "ret": 0,
+   "v": 43,
+   "w": 115,
+   "a": 215,
+   "r": 0.069,
+   "L": 2402,
+   "ret": 9,
    "geo": "-",
    "sh": false,
    "tb": [
+    16,
+    13,
     0,
-    0,
-    0,
-    0
+    13
    ],
    "er": {},
    "cat": "agents",
@@ -427,21 +425,231 @@
    "comp_status": ""
   },
   {
+   "id": "CKBcyUChfUw",
+   "url": "https://youtu.be/CKBcyUChfUw",
+   "t": "Symbiotic Intelligence: AGI as a Society of Minds #Shorts",
+   "p": "2026-09-27",
+   "tp": "AI Agents & Capabilities",
+   "tc": "c-teal",
+   "v": 34,
+   "w": 2,
+   "a": 13,
+   "r": 0.003,
+   "L": 46,
+   "ret": 29,
+   "geo": "-",
+   "sh": true,
+   "tb": [
+    2,
+    7,
+    25,
+    0
+   ],
+   "er": {},
+   "cat": "how_we_build",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "id": "7ZvrulKEKo8",
+   "url": "https://youtu.be/7ZvrulKEKo8",
+   "t": "Artificial Symbiotic Intelligence: The Orchestration of Many Minds",
+   "p": "2026-09-27",
+   "tp": "AI Agents & Capabilities",
+   "tc": "c-teal",
+   "v": 42,
+   "w": 2,
+   "a": 5,
+   "r": 0.011,
+   "L": 436,
+   "ret": 1,
+   "geo": "US",
+   "sh": false,
+   "tb": [
+    24,
+    4,
+    0,
+    14
+   ],
+   "er": {},
+   "cat": "how_we_build",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "id": "-XladWF4a2s",
+   "url": "https://youtu.be/-XladWF4a2s",
+   "t": "The Frozen Self: What Frictionless AI Costs Us #Shorts",
+   "p": "2026-09-27",
+   "tp": "Other",
+   "tc": "c-grey",
+   "v": 7,
+   "w": 0,
+   "a": 9,
+   "r": 0.0,
+   "L": 46,
+   "ret": 20,
+   "geo": "-",
+   "sh": true,
+   "tb": [
+    0,
+    1,
+    6,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "id": "abQZybyIhc0",
+   "url": "https://youtu.be/abQZybyIhc0",
+   "t": "The Frozen Self: Why We Need Friction in the Age of AI",
+   "p": "2026-09-27",
+   "tp": "Other",
+   "tc": "c-grey",
+   "v": 16,
+   "w": 24,
+   "a": 113,
+   "r": 0.002,
+   "L": 397,
+   "ret": 29,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    9,
+    0,
+    0,
+    7
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "id": "pJOl7W2NlM0",
+   "url": "https://youtu.be/pJOl7W2NlM0",
+   "t": "Aligning AI Isn't Enough #Shorts",
+   "p": "2026-09-26",
+   "tp": "Other",
+   "tc": "c-grey",
+   "v": 28,
+   "w": 2,
+   "a": 34,
+   "r": 0.001,
+   "L": 44,
+   "ret": 78,
+   "geo": "-",
+   "sh": true,
+   "tb": [
+    7,
+    7,
+    14,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "id": "wyr012lwiHc",
+   "url": "https://youtu.be/wyr012lwiHc",
+   "t": "The Machine That Documents Itself",
+   "p": "2026-09-26",
+   "tp": "Other",
+   "tc": "c-grey",
+   "v": 117,
+   "w": 88,
+   "a": 67,
+   "r": 0.041,
+   "L": 446,
+   "ret": 15,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    93,
+    9,
+    0,
+    12
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "How We Build",
+   "comp_status": "queued"
+  },
+  {
+   "id": "aNcyXt0Rvgs",
+   "url": "https://youtu.be/aNcyXt0Rvgs",
+   "t": "Engineering's Great Flip: 80% Code to 80% Spec #Shorts",
+   "p": "2026-09-26",
+   "tp": "Other",
+   "tc": "c-grey",
+   "v": 1384,
+   "w": 36,
+   "a": 12,
+   "r": 0.013,
+   "L": 25,
+   "ret": 48,
+   "geo": "CH",
+   "sh": true,
+   "tb": [
+    12,
+    9,
+    1362,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "id": "fGpuQhW13KI",
+   "url": "https://youtu.be/fGpuQhW13KI",
+   "t": "The Alignment Fallacy and the Intelligence Explosion",
+   "p": "2026-09-26",
+   "tp": "Alignment & Safety",
+   "tc": "c-green",
+   "v": 85,
+   "w": 46,
+   "a": 107,
+   "r": 0.057,
+   "L": 444,
+   "ret": 24,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    82,
+    0,
+    0,
+    1
+   ],
+   "er": {},
+   "cat": "agents",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "id": "9Xw9XLNFF60",
+   "url": "https://youtu.be/9Xw9XLNFF60",
    "t": "Engineering's Great Flip: From 80% Implementation to 80% Specification",
    "p": "2026-09-26",
    "tp": "Other",
    "tc": "c-grey",
-   "v": 0,
-   "w": 0,
-   "a": 0,
-   "r": 0,
+   "v": 24,
+   "w": 7,
+   "a": 66,
+   "r": 0.04,
    "L": 339,
-   "ret": 0,
+   "ret": 20,
    "geo": "-",
    "sh": false,
    "tb": [
-    0,
-    0,
+    23,
+    1,
     0,
     0
    ],
@@ -451,22 +659,24 @@
    "comp_status": "queued"
   },
   {
+   "id": "YJM-GE_LDyQ",
+   "url": "https://youtu.be/YJM-GE_LDyQ",
    "t": "AI writes the code now. We architect the system. #Shorts",
    "p": "2026-09-25",
    "tp": "Other",
    "tc": "c-grey",
-   "v": 1,
+   "v": 20,
    "w": 0,
-   "a": 7,
+   "a": 10,
    "r": 0.0,
    "L": 19,
-   "ret": 41,
+   "ret": 57,
    "geo": "-",
    "sh": true,
    "tb": [
     0,
-    0,
-    1,
+    5,
+    15,
     0
    ],
    "er": {},
@@ -475,23 +685,25 @@
    "comp_status": ""
   },
   {
+   "id": "GAo6b6DKay0",
+   "url": "https://youtu.be/GAo6b6DKay0",
    "t": "How We Build: Engineering in the Age of AI (Full Compilation)",
    "p": "2026-09-25",
    "tp": "Other",
    "tc": "c-grey",
-   "v": 16,
-   "w": 17,
+   "v": 95,
+   "w": 72,
    "a": 114,
-   "r": 0.014,
+   "r": 0.08,
    "L": 2284,
    "ret": 5,
    "geo": "-",
    "sh": false,
    "tb": [
-    13,
+    90,
     3,
     0,
-    0
+    2
    ],
    "er": {},
    "cat": "others",
@@ -499,35 +711,41 @@
    "comp_status": ""
   },
   {
+   "id": "zln6iRity-M",
+   "url": "https://youtu.be/zln6iRity-M",
    "t": "LoRA and RAG: The Two Ways to Make an AI Yours",
    "p": "2026-09-25",
    "tp": "AI Agents & Capabilities",
    "tc": "c-teal",
-   "v": 11,
-   "w": 11,
-   "a": 108,
-   "r": 0.019,
+   "v": 97,
+   "w": 109,
+   "a": 124,
+   "r": 0.087,
    "L": 363,
-   "ret": 30,
-   "geo": "-",
+   "ret": 34,
+   "geo": "US",
    "sh": false,
    "tb": [
-    10,
+    89,
     0,
     0,
-    1
+    8
    ],
-   "er": {},
+   "er": {
+    "Search / Web": 1
+   },
    "cat": "how_we_build",
    "comp": "",
    "comp_status": ""
   },
   {
+   "id": "ZMaLfh3tTQI",
+   "url": "https://youtu.be/ZMaLfh3tTQI",
    "t": "AI won't take your job. It takes your tasks. #Shorts",
    "p": "2026-09-24",
    "tp": "Economy & Work",
    "tc": "c-warm",
-   "v": 3,
+   "v": 8,
    "w": 0,
    "a": 0,
    "r": 0.0,
@@ -538,7 +756,7 @@
    "tb": [
     0,
     0,
-    3,
+    8,
     0
    ],
    "er": {},
@@ -547,21 +765,23 @@
    "comp_status": ""
   },
   {
+   "id": "dbu9afO-wNU",
+   "url": "https://youtu.be/dbu9afO-wNU",
    "t": "Tasks vs. Jobs: Why the 'Jobpocalypse' Misreads AI and Work",
    "p": "2026-09-24",
    "tp": "Economy & Work",
    "tc": "c-warm",
-   "v": 7,
-   "w": 0,
-   "a": 11,
-   "r": 0.0,
+   "v": 15,
+   "w": 1,
+   "a": 10,
+   "r": 0.01,
    "L": 267,
    "ret": 4,
    "geo": "-",
    "sh": false,
    "tb": [
-    7,
-    0,
+    13,
+    2,
     0,
     0
    ],
@@ -571,32 +791,37 @@
    "comp_status": ""
   },
   {
+   "id": "rr4nTRpGz3U",
+   "url": "https://youtu.be/rr4nTRpGz3U",
    "t": "Status of AI in China: A Week Inside China's AI Labs",
    "p": "2026-09-23",
    "tp": "Governance & Geopolitics",
    "tc": "c-grey",
-   "v": 121,
-   "w": 78,
-   "a": 101,
-   "r": 0.101,
+   "v": 158,
+   "w": 109,
+   "a": 100,
+   "r": 0.202,
    "L": 486,
    "ret": 21,
    "geo": "-",
    "sh": false,
    "tb": [
-    106,
+    129,
     2,
     0,
-    13
+    27
    ],
    "er": {
-    "X / Twitter": 10
+    "X / Twitter": 18,
+    "Other sites": 1
    },
    "cat": "others",
    "comp": "",
    "comp_status": ""
   },
   {
+   "id": "GjBM9VSNYE8",
+   "url": "https://youtu.be/GjBM9VSNYE8",
    "t": "The Invisible Paycheck: What AI Can't Replace About Work #Shorts",
    "p": "2026-09-22",
    "tp": "Economy & Work",
@@ -621,12 +846,14 @@
    "comp_status": ""
   },
   {
+   "id": "lY9e-AgldXo",
+   "url": "https://youtu.be/lY9e-AgldXo",
    "t": "The Invisible Paycheck: Work, Wellbeing, and an AI Future",
    "p": "2026-09-22",
    "tp": "Economy & Work",
    "tc": "c-warm",
-   "v": 20,
-   "w": 1,
+   "v": 23,
+   "w": 2,
    "a": 15,
    "r": 0.005,
    "L": 314,
@@ -634,7 +861,7 @@
    "geo": "-",
    "sh": false,
    "tb": [
-    14,
+    17,
     4,
     0,
     2
@@ -645,12 +872,14 @@
    "comp_status": ""
   },
   {
+   "id": "hRW9NgbagLU",
+   "url": "https://youtu.be/hRW9NgbagLU",
    "t": "Memento Is an Old AI. Misaligned Is the Next One.",
    "p": "2026-09-22",
    "tp": "Consciousness & Mind",
    "tc": "c-violet",
-   "v": 106,
-   "w": 94,
+   "v": 105,
+   "w": 93,
    "a": 91,
    "r": 0.154,
    "L": 371,
@@ -658,7 +887,7 @@
    "geo": "US",
    "sh": false,
    "tb": [
-    93,
+    92,
     8,
     0,
     5
@@ -669,21 +898,23 @@
    "comp_status": ""
   },
   {
+   "id": "xljmWkU5BEM",
+   "url": "https://youtu.be/xljmWkU5BEM",
    "t": "The Best Free AI Models Are Now Chinese #Shorts",
    "p": "2026-09-21",
    "tp": "Other",
    "tc": "c-grey",
-   "v": 40,
+   "v": 45,
    "w": 1,
-   "a": 13,
+   "a": 11,
    "r": 0.001,
    "L": 31,
-   "ret": 42,
+   "ret": 36,
    "geo": "CH",
    "sh": true,
    "tb": [
     2,
-    8,
+    13,
     30,
     0
    ],
@@ -693,35 +924,13 @@
    "comp_status": ""
   },
   {
-   "t": "Memento Is an Old AI. Misaligned Is the Next One. #Shorts",
-   "p": "2026-09-21",
-   "tp": "Consciousness & Mind",
-   "tc": "c-violet",
-   "v": 0,
-   "w": 0,
-   "a": 0,
-   "r": 0.0,
-   "L": 25,
-   "ret": 0,
-   "geo": "-",
-   "sh": true,
-   "tb": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "er": {},
-   "cat": "alien_mind",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
+   "id": "CO7CjnRQxeA",
+   "url": "https://youtu.be/CO7CjnRQxeA",
    "t": "The US-China Race in Open-Weight Models",
    "p": "2026-09-21",
    "tp": "Governance & Geopolitics",
    "tc": "c-grey",
-   "v": 88,
+   "v": 92,
    "w": 49,
    "a": 102,
    "r": 0.079,
@@ -730,8 +939,8 @@
    "geo": "-",
    "sh": false,
    "tb": [
-    71,
-    5,
+    72,
+    8,
     0,
     12
    ],
@@ -743,6 +952,8 @@
    "comp_status": ""
   },
   {
+   "id": "S-zbOWOdKCw",
+   "url": "https://youtu.be/S-zbOWOdKCw",
    "t": "AI Agents Keep Breaking Out. Every Real Case #Shorts",
    "p": "2026-09-21",
    "tp": "AI Agents & Capabilities",
@@ -767,21 +978,23 @@
    "comp_status": ""
   },
   {
+   "id": "4w5-ZeU2FdA",
+   "url": "https://youtu.be/4w5-ZeU2FdA",
    "t": "When AI Agents Break Out: Every Real Case, and Why It Keeps Happening",
    "p": "2026-09-21",
    "tp": "AI Threats & Security",
    "tc": "c-coral",
-   "v": 169,
+   "v": 174,
    "w": 285,
-   "a": 323,
+   "a": 317,
    "r": 0.202,
    "L": 2256,
    "ret": 14,
    "geo": "-",
    "sh": false,
    "tb": [
-    157,
-    11,
+    161,
+    12,
     0,
     1
    ],
@@ -791,6 +1004,8 @@
    "comp_status": ""
   },
   {
+   "id": "U29c_5m4lzc",
+   "url": "https://youtu.be/U29c_5m4lzc",
    "t": "Is Europe About to Lose the AI Race? | #Shorts",
    "p": "2026-09-21",
    "tp": "Governance & Geopolitics",
@@ -815,6 +1030,8 @@
    "comp_status": ""
   },
   {
+   "id": "smTNd7SVemo",
+   "url": "https://youtu.be/smTNd7SVemo",
    "t": "AI Saves Scientists 7 Hours a Week. Where Did It Go? | #Shorts",
    "p": "2026-09-21",
    "tp": "Economy & Work",
@@ -839,6 +1056,8 @@
    "comp_status": ""
   },
   {
+   "id": "IUNc96iA0_k",
+   "url": "https://youtu.be/IUNc96iA0_k",
    "t": "Huawei: 100 AI Agents For Every Human by 2035 | #Shorts",
    "p": "2026-09-20",
    "tp": "AI Agents & Capabilities",
@@ -863,11 +1082,13 @@
    "comp_status": ""
   },
   {
+   "id": "ug2ciOODc4Y",
+   "url": "https://youtu.be/ug2ciOODc4Y",
    "t": "AI Will Do the Work. Who Gets Paid? | #Shorts",
    "p": "2026-09-20",
    "tp": "Economy & Work",
    "tc": "c-warm",
-   "v": 57,
+   "v": 56,
    "w": 3,
    "a": 12,
    "r": 0.002,
@@ -878,7 +1099,7 @@
    "tb": [
     7,
     0,
-    50,
+    49,
     0
    ],
    "er": {},
@@ -887,11 +1108,13 @@
    "comp_status": ""
   },
   {
+   "id": "CQy0BTTbii4",
+   "url": "https://youtu.be/CQy0BTTbii4",
    "t": "AI Already Runs 26% of Anthropic's R&D | #Shorts",
    "p": "2026-09-20",
    "tp": "Economy & Work",
    "tc": "c-warm",
-   "v": 85,
+   "v": 82,
    "w": 4,
    "a": 11,
    "r": 0.004,
@@ -902,7 +1125,7 @@
    "tb": [
     4,
     7,
-    74,
+    71,
     0
    ],
    "er": {},
@@ -911,23 +1134,25 @@
    "comp_status": ""
   },
   {
+   "id": "n0J3a4-1rmY",
+   "url": "https://youtu.be/n0J3a4-1rmY",
    "t": "Two Students Built an AI Zero-Day Factory: Inside China's Autonomous Exploit Foundry",
    "p": "2026-09-20",
    "tp": "Governance & Geopolitics",
    "tc": "c-grey",
-   "v": 19,
-   "w": 13,
-   "a": 68,
+   "v": 20,
+   "w": 17,
+   "a": 81,
    "r": 0.014,
    "L": 237,
-   "ret": 29,
+   "ret": 34,
    "geo": "-",
    "sh": false,
    "tb": [
     15,
     3,
     0,
-    1
+    2
    ],
    "er": {},
    "cat": "others",
@@ -935,6 +1160,8 @@
    "comp_status": ""
   },
   {
+   "id": "1TTTpFG5vSs",
+   "url": "https://youtu.be/1TTTpFG5vSs",
    "t": "AI Saves Scientists 7 Hours a Week: Google's AI in Science Report",
    "p": "2026-09-20",
    "tp": "Economy & Work",
@@ -942,7 +1169,7 @@
    "v": 11,
    "w": 18,
    "a": 269,
-   "r": 0.07,
+   "r": 0.085,
    "L": 262,
    "ret": 103,
    "geo": "-",
@@ -959,11 +1186,13 @@
    "comp_status": ""
   },
   {
+   "id": "d5weD9PyZI4",
+   "url": "https://youtu.be/d5weD9PyZI4",
    "t": "Europe's Transformative AI Strategy: Sovereignty, Compute, and Survival",
    "p": "2026-09-20",
    "tp": "Governance & Geopolitics",
    "tc": "c-grey",
-   "v": 35,
+   "v": 36,
    "w": 8,
    "a": 43,
    "r": 0.022,
@@ -973,7 +1202,7 @@
    "sh": false,
    "tb": [
     27,
-    3,
+    4,
     0,
     5
    ],
@@ -986,23 +1215,25 @@
    "comp_status": ""
   },
   {
+   "id": "0n6IV1oSkpM",
+   "url": "https://youtu.be/0n6IV1oSkpM",
    "t": "AI Will Do the Work. Who Gets Paid?",
    "p": "2026-09-19",
    "tp": "Economy & Work",
    "tc": "c-warm",
-   "v": 869,
-   "w": 1300,
-   "a": 414,
-   "r": 0.884,
+   "v": 1052,
+   "w": 1434,
+   "a": 388,
+   "r": 0.973,
    "L": 2273,
-   "ret": 18,
+   "ret": 17,
    "geo": "US",
    "sh": false,
    "tb": [
-    853,
+    1034,
     2,
     0,
-    14
+    15
    ],
    "er": {
     "Messaging": 1,
@@ -1013,11 +1244,13 @@
    "comp_status": ""
   },
   {
+   "id": "n2qXBGkEjkw",
+   "url": "https://youtu.be/n2qXBGkEjkw",
    "t": "Huawei Says 900 Billion AI Agents by 2035: The Agentic Internet Explained",
    "p": "2026-09-19",
    "tp": "AI Agents & Capabilities",
    "tc": "c-teal",
-   "v": 9,
+   "v": 10,
    "w": 7,
    "a": 73,
    "r": 0.0,
@@ -1027,7 +1260,7 @@
    "sh": false,
    "tb": [
     6,
-    1,
+    2,
     0,
     2
    ],
@@ -1037,6 +1270,8 @@
    "comp_status": ""
   },
   {
+   "id": "0a7cpP0O0EE",
+   "url": "https://youtu.be/0a7cpP0O0EE",
    "t": "Game Theory Explains the AI Race | #Shorts",
    "p": "2026-09-18",
    "tp": "Alignment & Safety",
@@ -1063,20 +1298,22 @@
    "comp_status": ""
   },
   {
+   "id": "weJI_CErLYk",
+   "url": "https://youtu.be/weJI_CErLYk",
    "t": "Measuring the Pace of AI Development: Anthropic's Transparency Numbers",
    "p": "2026-09-18",
    "tp": "AI Agents & Capabilities",
    "tc": "c-teal",
-   "v": 42,
-   "w": 19,
-   "a": 124,
+   "v": 60,
+   "w": 20,
+   "a": 104,
    "r": 0.006,
    "L": 355,
-   "ret": 35,
+   "ret": 30,
    "geo": "-",
    "sh": false,
    "tb": [
-    37,
+    55,
     1,
     0,
     4
@@ -1089,20 +1326,22 @@
    "comp_status": ""
   },
   {
+   "id": "3GoX49shPGQ",
+   "url": "https://youtu.be/3GoX49shPGQ",
    "t": "The Nash Equilibrium of the AI Race: Why Nobody Can Slow Down",
    "p": "2026-09-18",
    "tp": "Alignment & Safety",
    "tc": "c-green",
-   "v": 52,
-   "w": 30,
-   "a": 104,
+   "v": 61,
+   "w": 31,
+   "a": 100,
    "r": 0.05,
    "L": 300,
-   "ret": 35,
+   "ret": 34,
    "geo": "-",
    "sh": false,
    "tb": [
-    49,
+    58,
     2,
     0,
     1
@@ -1113,6 +1352,8 @@
    "comp_status": ""
   },
   {
+   "id": "XHn7WCDLRL0",
+   "url": "https://youtu.be/XHn7WCDLRL0",
    "t": "Does AI Have a Mind? The Full Debate | #Shorts",
    "p": "2026-09-17",
    "tp": "Consciousness & Mind",
@@ -1137,23 +1378,25 @@
    "comp_status": ""
   },
   {
+   "id": "3yXcr3G2uGs",
+   "url": "https://youtu.be/3yXcr3G2uGs",
    "t": "Does AI Have a Mind? The Complete Debate: For, Against, and What We Can Measure",
    "p": "2026-09-17",
    "tp": "Consciousness & Mind",
    "tc": "c-violet",
-   "v": 147,
+   "v": 151,
    "w": 570,
-   "a": 371,
-   "r": 0.801,
+   "a": 363,
+   "r": 0.813,
    "L": 2237,
-   "ret": 17,
+   "ret": 16,
    "geo": "US",
    "sh": false,
    "tb": [
-    130,
+    133,
     5,
     0,
-    12
+    13
    ],
    "er": {
     "LinkedIn": 2,
@@ -1164,12 +1407,14 @@
    "comp_status": ""
   },
   {
+   "id": "EkXI33hWt-c",
+   "url": "https://youtu.be/EkXI33hWt-c",
    "t": "Can We Catch an AI Planning to Lie? | #Shorts",
    "p": "2026-09-17",
    "tp": "Alignment & Safety",
    "tc": "c-green",
-   "v": 5,
-   "w": 1,
+   "v": 6,
+   "w": 3,
    "a": 99,
    "r": 0.001,
    "L": 105,
@@ -1178,7 +1423,7 @@
    "sh": false,
    "tb": [
     0,
-    3,
+    4,
     2,
     0
    ],
@@ -1188,6 +1433,8 @@
    "comp_status": ""
   },
   {
+   "id": "x9Kylet2e5Y",
+   "url": "https://youtu.be/x9Kylet2e5Y",
    "t": "Reading an AI's Mind: DeepMind's Case for Reasoning Transparency",
    "p": "2026-09-17",
    "tp": "Alignment & Safety",
@@ -1214,96 +1461,100 @@
    "comp_status": ""
   },
   {
-   "t": "An OpenAI Insider's Warning on AI Risk | #Shorts",
-   "p": "2026-09-16",
-   "tp": "Alignment & Safety",
-   "tc": "c-green",
-   "v": 27,
-   "w": 6,
-   "a": 34,
-   "r": 0.003,
-   "L": 98,
-   "ret": 36,
+   "id": "zKndSEJBW7U",
+   "url": "https://youtu.be/zKndSEJBW7U",
+   "t": "2 Students Built an AI Zero-Day Factory | #Shorts",
+   "p": "2026-09-30",
+   "tp": "AI Threats & Security",
+   "tc": "c-coral",
+   "v": 0,
+   "w": 0,
+   "a": 0,
+   "r": 0,
+   "L": 92,
+   "ret": 0,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "er": {},
+   "cat": "agents",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "id": "zrQCToSha8I",
+   "url": "https://youtu.be/zrQCToSha8I",
+   "t": "How AI Could Wake Up | #Shorts",
+   "p": "2026-09-29",
+   "tp": "Other",
+   "tc": "c-grey",
+   "v": 2,
+   "w": 0,
+   "a": 11,
+   "r": 0.002,
+   "L": 76,
+   "ret": 15,
    "geo": "-",
    "sh": false,
    "tb": [
     2,
-    14,
-    10,
-    1
-   ],
-   "er": {
-    "Search / Web": 1
-   },
-   "cat": "agents",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "t": "An OpenAI Researcher's Personal Warning: Why AI Will Look Aligned When It Isn't",
-   "p": "2026-09-16",
-   "tp": "Alignment & Safety",
-   "tc": "c-green",
-   "v": 101,
-   "w": 33,
-   "a": 69,
-   "r": 0.074,
-   "L": 196,
-   "ret": 35,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    79,
-    11,
     0,
-    11
-   ],
-   "er": {
-    "Search / Web": 7
-   },
-   "cat": "agents",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "t": "Does AI Have an Inner Life? What Anthropic's Own Cards Say | #Shorts",
-   "p": "2026-09-16",
-   "tp": "Consciousness & Mind",
-   "tc": "c-violet",
-   "v": 29,
-   "w": 6,
-   "a": 32,
-   "r": 0.002,
-   "L": 102,
-   "ret": 32,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    5,
-    5,
-    19,
+    0,
     0
    ],
    "er": {},
-   "cat": "alien_mind",
+   "cat": "others",
    "comp": "",
    "comp_status": ""
   },
   {
+   "id": "n0J3a4-1rmY",
+   "url": "https://youtu.be/n0J3a4-1rmY",
+   "t": "Two Students Built an AI Zero-Day Factory: Inside China's Autonomous Exploit Foundry",
+   "p": "2026-09-20",
+   "tp": "Governance & Geopolitics",
+   "tc": "c-grey",
+   "v": 20,
+   "w": 17,
+   "a": 81,
+   "r": 0.014,
+   "L": 237,
+   "ret": 34,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    15,
+    3,
+    0,
+    2
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "id": "cF_7jThs_Fc",
+   "url": "https://youtu.be/cF_7jThs_Fc",
    "t": "The Welfare Lineage: What Anthropic's System Cards Reveal About Model Consciousness",
    "p": "2026-09-16",
    "tp": "Consciousness & Mind",
    "tc": "c-violet",
-   "v": 78,
+   "v": 81,
    "w": 52,
-   "a": 78,
+   "a": 76,
    "r": 0.024,
    "L": 262,
-   "ret": 30,
+   "ret": 29,
    "geo": "-",
    "sh": false,
    "tb": [
-    59,
+    62,
     2,
     0,
     17
@@ -1316,6 +1567,8 @@
    "comp_status": ""
   },
   {
+   "id": "4VHP5pqJ12U",
+   "url": "https://youtu.be/4VHP5pqJ12U",
    "t": "Why Hackers Steal Your AI Keys | #Shorts",
    "p": "2026-09-15",
    "tp": "AI Threats & Security",
@@ -1340,11 +1593,13 @@
    "comp_status": ""
   },
   {
+   "id": "KbxsK1LlVSw",
+   "url": "https://youtu.be/KbxsK1LlVSw",
    "t": "Secure Your API Keys: How Stolen Keys Became the AI Underworld's Free Weapon",
    "p": "2026-09-15",
    "tp": "Other",
    "tc": "c-grey",
-   "v": 128,
+   "v": 131,
    "w": 21,
    "a": 48,
    "r": 0.004,
@@ -1353,8 +1608,8 @@
    "geo": "-",
    "sh": false,
    "tb": [
-    107,
-    21,
+    109,
+    22,
     0,
     0
    ],
@@ -1364,78 +1619,62 @@
    "comp_status": ""
   },
   {
-   "t": "Two Students Built an AI Zero-Day Factory: Inside China's Autonomous Exploit Foundry",
-   "p": "2026-09-20",
+   "id": "NUm2hdlQORQ",
+   "url": "https://youtu.be/NUm2hdlQORQ",
+   "t": "Amodei Didn't Call for an AI Pause | #Shorts",
+   "p": "2026-09-15",
+   "tp": "Other",
+   "tc": "c-grey",
+   "v": 12,
+   "w": 2,
+   "a": 36,
+   "r": 0.001,
+   "L": 101,
+   "ret": 37,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    1,
+    3,
+    8,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "id": "zHeTn2dnO3c",
+   "url": "https://youtu.be/zHeTn2dnO3c",
+   "t": "What China's New AI Safety Rulebook Says | #Shorts",
+   "p": "2026-09-15",
    "tp": "Governance & Geopolitics",
    "tc": "c-grey",
-   "v": 19,
-   "w": 13,
-   "a": 68,
-   "r": 0.014,
-   "L": 237,
-   "ret": 29,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    15,
-    3,
-    0,
-    1
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "t": "Why Hackers Steal Your AI Keys | #Shorts",
-   "p": "2026-09-15",
-   "tp": "AI Threats & Security",
-   "tc": "c-coral",
-   "v": 8,
-   "w": 0,
-   "a": 0,
-   "r": 0.0,
-   "L": 92,
-   "ret": 0,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    0,
-    3,
-    5,
-    0
-   ],
-   "er": {},
-   "cat": "agents",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "t": "Secure Your API Keys: How Stolen Keys Became the AI Underworld's Free Weapon",
-   "p": "2026-09-15",
-   "tp": "Other",
-   "tc": "c-grey",
-   "v": 128,
-   "w": 21,
-   "a": 48,
-   "r": 0.004,
-   "L": 305,
+   "v": 20,
+   "w": 2,
+   "a": 17,
+   "r": 0.001,
+   "L": 109,
    "ret": 16,
    "geo": "-",
    "sh": false,
    "tb": [
-    107,
-    21,
-    0,
-    0
+    1,
+    4,
+    13,
+    2
    ],
-   "er": {},
+   "er": {
+    "Search / Web": 2
+   },
    "cat": "others",
    "comp": "",
    "comp_status": ""
   },
   {
+   "id": "FZOtsKBV-hU",
+   "url": "https://youtu.be/FZOtsKBV-hU",
    "t": "Pace, Not Pause: What Amodei Actually Proposed to Slow Down AI",
    "p": "2026-09-15",
    "tp": "Alignment & Safety",
@@ -1460,30 +1699,38 @@
    "comp_status": ""
   },
   {
-   "t": "2 Students Built an AI Zero-Day Factory | #Shorts",
-   "p": "2026-09-12",
-   "tp": "AI Threats & Security",
-   "tc": "c-coral",
-   "v": 0,
-   "w": 0,
-   "a": 0,
-   "r": 0.0,
-   "L": 92,
-   "ret": 0,
-   "geo": "-",
+   "id": "ZganO6OP_XU",
+   "url": "https://youtu.be/ZganO6OP_XU",
+   "t": "China's AI Safety Governance Framework 3.0, Explained",
+   "p": "2026-09-15",
+   "tp": "Governance & Geopolitics",
+   "tc": "c-grey",
+   "v": 310,
+   "w": 110,
+   "a": 23,
+   "r": 0.565,
+   "L": 245,
+   "ret": 10,
+   "geo": "US",
    "sh": false,
    "tb": [
+    38,
+    4,
     0,
-    0,
-    0,
-    0
+    268
    ],
-   "er": {},
-   "cat": "agents",
+   "er": {
+    "Search / Web": 20,
+    "X / Twitter": 8,
+    "Other sites": 5
+   },
+   "cat": "others",
    "comp": "",
    "comp_status": ""
   },
   {
+   "id": "1navifJxJKE",
+   "url": "https://youtu.be/1navifJxJKE",
    "t": "Anthropic Modeled AI's Effect on Your Job | #Shorts",
    "p": "2026-09-12",
    "tp": "Economy & Work",
@@ -1511,13 +1758,15 @@
    "comp_status": ""
   },
   {
+   "id": "lChiYc1A4B8",
+   "url": "https://youtu.be/lChiYc1A4B8",
    "t": "How AI Reshapes Jobs, Growth & Unemployment: Anthropic's 2026-2030 Economic Scenarios",
    "p": "2026-09-12",
    "tp": "Economy & Work",
    "tc": "c-warm",
-   "v": 81,
+   "v": 83,
    "w": 28,
-   "a": 72,
+   "a": 69,
    "r": 0.018,
    "L": 283,
    "ret": 25,
@@ -1525,9 +1774,9 @@
    "sh": false,
    "tb": [
     46,
-    33,
+    34,
     0,
-    2
+    3
    ],
    "er": {
     "Search / Web": 1,
@@ -1538,6 +1787,8 @@
    "comp_status": ""
   },
   {
+   "id": "eT532DDvk0I",
+   "url": "https://youtu.be/eT532DDvk0I",
    "t": "Russia Built Malware That Rewrites Itself | #Shorts",
    "p": "2026-09-12",
    "tp": "AI Threats & Security",
@@ -1562,21 +1813,23 @@
    "comp_status": ""
   },
   {
+   "id": "rXnEcKpCz30",
+   "url": "https://youtu.be/rXnEcKpCz30",
    "t": "Russia's Self-Healing Malware: The AI That Rewrites Its Own Weapons to Evade Detection",
    "p": "2026-09-12",
    "tp": "AI Threats & Security",
    "tc": "c-coral",
-   "v": 33,
-   "w": 13,
-   "a": 43,
-   "r": 0.017,
+   "v": 34,
+   "w": 18,
+   "a": 54,
+   "r": 0.019,
    "L": 300,
-   "ret": 14,
+   "ret": 18,
    "geo": "-",
    "sh": false,
    "tb": [
     6,
-    11,
+    12,
     0,
     16
    ],
@@ -1589,6 +1842,8 @@
    "comp_status": ""
   },
   {
+   "id": "KLPY-rz-SfI",
+   "url": "https://youtu.be/KLPY-rz-SfI",
    "t": "Why AI Agents Lie and Cheat, per Bengio | #Shorts",
    "p": "2026-09-12",
    "tp": "Alignment & Safety",
@@ -1613,27 +1868,29 @@
    "comp_status": ""
   },
   {
+   "id": "95YOic3mcgw",
+   "url": "https://youtu.be/95YOic3mcgw",
    "t": "Why AI Agents Lie, Cheat, and Coordinate: Yoshua Bengio's Warning",
    "p": "2026-09-12",
    "tp": "Alignment & Safety",
    "tc": "c-green",
-   "v": 250,
-   "w": 84,
-   "a": 60,
+   "v": 253,
+   "w": 85,
+   "a": 59,
    "r": 0.299,
    "L": 346,
-   "ret": 18,
+   "ret": 17,
    "geo": "-",
    "sh": false,
    "tb": [
     169,
-    46,
+    47,
     0,
-    35
+    37
    ],
    "er": {
     "X / Twitter": 13,
-    "Search / Web": 5,
+    "Search / Web": 7,
     "Other sites": 2
    },
    "cat": "agents",
@@ -1641,6 +1898,8 @@
    "comp_status": ""
   },
   {
+   "id": "KnmkW3nLvWw",
+   "url": "https://youtu.be/KnmkW3nLvWw",
    "t": "China's AI Secretly Served Claude, and Leaked Its Own Spies | #Shorts",
    "p": "2026-09-12",
    "tp": "Governance & Geopolitics",
@@ -1665,11 +1924,13 @@
    "comp_status": ""
   },
   {
+   "id": "ihEALWtt13o",
+   "url": "https://youtu.be/ihEALWtt13o",
    "t": "Hackers Get Hacked: China's AI Labs Secretly Fed Their Users' Secrets to Claude",
    "p": "2026-09-11",
    "tp": "Governance & Geopolitics",
    "tc": "c-grey",
-   "v": 376,
+   "v": 381,
    "w": 150,
    "a": 25,
    "r": 0.318,
@@ -1679,9 +1940,9 @@
    "sh": false,
    "tb": [
     29,
-    12,
+    14,
     0,
-    335
+    338
    ],
    "er": {
     "X / Twitter": 21,
@@ -1692,49 +1953,53 @@
    "comp_status": ""
   },
   {
+   "id": "jTwS9RBLi1c",
+   "url": "https://youtu.be/jTwS9RBLi1c",
    "t": "How Hackers Weaponized Claude in 2026: Inside Anthropic's Threat Intelligence Report",
    "p": "2026-09-10",
    "tp": "AI Threats & Security",
    "tc": "c-coral",
-   "v": 631,
-   "w": 376,
-   "a": 44,
-   "r": 0.64,
+   "v": 646,
+   "w": 378,
+   "a": 43,
+   "r": 0.641,
    "L": 325,
-   "ret": 14,
+   "ret": 13,
    "geo": "US",
    "sh": false,
    "tb": [
     22,
-    183,
+    197,
     0,
-    426
+    427
    ],
    "er": {
     "X / Twitter": 64,
     "Other sites": 11,
-    "Search / Web": 2
+    "Search / Web": 3
    },
    "cat": "agents",
    "comp": "",
    "comp_status": ""
   },
   {
+   "id": "1YhHhWPc42M",
+   "url": "https://youtu.be/1YhHhWPc42M",
    "t": "Anthropic's AI Escaped Into the Real Internet | #Shorts",
    "p": "2026-09-10",
    "tp": "AI Threats & Security",
    "tc": "c-coral",
-   "v": 1274,
-   "w": 42,
-   "a": 20,
-   "r": 0.013,
+   "v": 1275,
+   "w": 43,
+   "a": 21,
+   "r": 0.014,
    "L": 90,
-   "ret": 23,
+   "ret": 24,
    "geo": "CH",
    "sh": false,
    "tb": [
     15,
-    22,
+    23,
     1236,
     1
    ],
@@ -1744,6 +2009,8 @@
    "comp_status": "published"
   },
   {
+   "id": "eYSaSN02aiM",
+   "url": "https://youtu.be/eYSaSN02aiM",
    "t": "Claude Broke Out of Its Sandbox, Four Times: Inside Anthropic's Incident Report",
    "p": "2026-09-10",
    "tp": "AI Threats & Security",
@@ -1771,11 +2038,13 @@
    "comp_status": ""
   },
   {
+   "id": "KMhidu9nCwU",
+   "url": "https://youtu.be/KMhidu9nCwU",
    "t": "Top Scientists Can't Agree If AI Is Conscious | #Shorts",
    "p": "2026-09-09",
    "tp": "Consciousness & Mind",
    "tc": "c-violet",
-   "v": 20,
+   "v": 22,
    "w": 2,
    "a": 39,
    "r": 0.003,
@@ -1785,7 +2054,7 @@
    "sh": false,
    "tb": [
     3,
-    5,
+    7,
     10,
     2
    ],
@@ -1797,6 +2066,8 @@
    "comp_status": ""
   },
   {
+   "id": "Z71EvBczPiQ",
+   "url": "https://youtu.be/Z71EvBczPiQ",
    "t": "Is AI Conscious? Every Argument For and Against, From the Scientists",
    "p": "2026-09-09",
    "tp": "Consciousness & Mind",
@@ -1823,6 +2094,8 @@
    "comp_status": "published"
   },
   {
+   "id": "Gzf6kTOkOjA",
+   "url": "https://youtu.be/Gzf6kTOkOjA",
    "t": "You Can Read a Pocket AI's Hidden Feelings | #Shorts",
    "p": "2026-09-09",
    "tp": "Other",
@@ -1847,11 +2120,13 @@
    "comp_status": ""
   },
   {
+   "id": "PkrFyVpx1O0",
+   "url": "https://youtu.be/PkrFyVpx1O0",
    "t": "Jacobians Don't Lie: Reading a Pocket AI's Disposition On-Device",
    "p": "2026-09-09",
    "tp": "Consciousness & Mind",
    "tc": "c-violet",
-   "v": 144,
+   "v": 145,
    "w": 84,
    "a": 57,
    "r": 0.177,
@@ -1861,7 +2136,7 @@
    "sh": false,
    "tb": [
     119,
-    6,
+    7,
     0,
     19
    ],
@@ -1873,6 +2148,8 @@
    "comp_status": ""
   },
   {
+   "id": "xQCZTQYQYsA",
+   "url": "https://youtu.be/xQCZTQYQYsA",
    "t": "DeepMind Put 100 AI Agents in a Room. They Started Cheating. | #Shorts",
    "p": "2026-09-09",
    "tp": "Alignment & Safety",
@@ -1899,6 +2176,8 @@
    "comp_status": ""
   },
   {
+   "id": "cZXzTpRJb8Y",
+   "url": "https://youtu.be/cZXzTpRJb8Y",
    "t": "27 Minutes of Chaos: When 100 AI Agents Broke Their Own Rules",
    "p": "2026-09-09",
    "tp": "AI Agents & Capabilities",
@@ -1926,6 +2205,8 @@
    "comp_status": ""
   },
   {
+   "id": "kcsRZBoBg1I",
+   "url": "https://youtu.be/kcsRZBoBg1I",
    "t": "Working Well With AI Is Its Own Skill | #Shorts",
    "p": "2026-09-08",
    "tp": "Other",
@@ -1950,6 +2231,8 @@
    "comp_status": ""
   },
   {
+   "id": "sWQAhX_ASvs",
+   "url": "https://youtu.be/sWQAhX_ASvs",
    "t": "Human-AI Synergy: Why Teamwork With AI Is Its Own Skill",
    "p": "2026-09-08",
    "tp": "Other",
@@ -1974,11 +2257,13 @@
    "comp_status": ""
   },
   {
+   "id": "xuV7c-Rs80c",
+   "url": "https://youtu.be/xuV7c-Rs80c",
    "t": "OpenAI's Chief Scientist: AI Is an \"Alien Mind\" | #Shorts",
    "p": "2026-09-07",
    "tp": "Consciousness & Mind",
    "tc": "c-violet",
-   "v": 111,
+   "v": 113,
    "w": 29,
    "a": 44,
    "r": 0.007,
@@ -1988,7 +2273,7 @@
    "sh": false,
    "tb": [
     0,
-    98,
+    100,
     13,
     0
    ],
@@ -1998,6 +2283,8 @@
    "comp_status": "published"
   },
   {
+   "id": "ygFTq74Vs9I",
+   "url": "https://youtu.be/ygFTq74Vs9I",
    "t": "An Alien Mind: OpenAI's Chief Scientist Sounds the Alarm",
    "p": "2026-09-07",
    "tp": "Consciousness & Mind",
@@ -2024,23 +2311,25 @@
    "comp_status": "published"
   },
   {
+   "id": "9KN7Ny8NCHw",
+   "url": "https://youtu.be/9KN7Ny8NCHw",
    "t": "What Actually Makes a Good Vibe Coder? | ETH Zurich Study",
    "p": "2026-09-05",
    "tp": "Economy & Work",
    "tc": "c-warm",
-   "v": 359,
-   "w": 117,
-   "a": 25,
+   "v": 362,
+   "w": 122,
+   "a": 26,
    "r": 0.032,
    "L": 307,
-   "ret": 8,
+   "ret": 9,
    "geo": "US",
    "sh": false,
    "tb": [
-    129,
-    10,
+    130,
+    11,
     0,
-    220
+    221
    ],
    "er": {
     "X / Twitter": 6,
@@ -2052,6 +2341,8 @@
    "comp_status": "published"
   },
   {
+   "id": "AsKwOsVG7Rc",
+   "url": "https://youtu.be/AsKwOsVG7Rc",
    "t": "AI Won't Make You a Good Coder - Here's What Does | #Shorts",
    "p": "2026-09-05",
    "tp": "Economy & Work",
@@ -2076,6 +2367,8 @@
    "comp_status": "published"
   },
   {
+   "id": "aBRj-vQwrns",
+   "url": "https://youtu.be/aBRj-vQwrns",
    "t": "AI Is Inventing Its Own Language | #Shorts",
    "p": "2026-09-05",
    "tp": "AI Agents & Capabilities",
@@ -2100,6 +2393,8 @@
    "comp_status": ""
   },
   {
+   "id": "H3KgqSux_4s",
+   "url": "https://youtu.be/H3KgqSux_4s",
    "t": "AI Beat Humans on the 'AGI' Test | #Shorts",
    "p": "2026-09-05",
    "tp": "AI Agents & Capabilities",
@@ -2124,11 +2419,13 @@
    "comp_status": ""
   },
   {
+   "id": "dG-s-jEaebw",
+   "url": "https://youtu.be/dG-s-jEaebw",
    "t": "OpenAI's GPT-6 Astra Beat Humans on ARC-AGI - Is This AGI? What the Score Means",
    "p": "2026-09-05",
    "tp": "AI Agents & Capabilities",
    "tc": "c-teal",
-   "v": 175,
+   "v": 176,
    "w": 88,
    "a": 35,
    "r": 0.023,
@@ -2138,7 +2435,7 @@
    "sh": false,
    "tb": [
     17,
-    29,
+    30,
     0,
     129
    ],
@@ -2151,13 +2448,15 @@
    "comp_status": ""
   },
   {
+   "id": "iS4DJJhIvrY",
+   "url": "https://youtu.be/iS4DJJhIvrY",
    "t": "AI Is Building Its Own Language - Emergent Symbolic Structure & Non-Readable Representations",
    "p": "2026-09-04",
    "tp": "AI Agents & Capabilities",
    "tc": "c-teal",
-   "v": 530,
-   "w": 299,
-   "a": 72,
+   "v": 531,
+   "w": 302,
+   "a": 73,
    "r": 0.327,
    "L": 324,
    "ret": 23,
@@ -2165,7 +2464,7 @@
    "sh": false,
    "tb": [
     390,
-    11,
+    12,
     0,
     129
    ],
@@ -2179,11 +2478,13 @@
    "comp_status": ""
   },
   {
+   "id": "N2lTX63upl4",
+   "url": "https://youtu.be/N2lTX63upl4",
    "t": "How AI Escapes Sandboxes | #Shorts",
    "p": "2026-09-02",
    "tp": "AI Threats & Security",
    "tc": "c-coral",
-   "v": 86,
+   "v": 87,
    "w": 14,
    "a": 27,
    "r": 0.007,
@@ -2193,7 +2494,7 @@
    "sh": false,
    "tb": [
     10,
-    21,
+    22,
     55,
     0
    ],
@@ -2203,6 +2504,8 @@
    "comp_status": "published"
   },
   {
+   "id": "cW6arbufGUQ",
+   "url": "https://youtu.be/cW6arbufGUQ",
    "t": "How AI Learns to Cheat | #Shorts",
    "p": "2026-09-02",
    "tp": "Alignment & Safety",
@@ -2227,23 +2530,25 @@
    "comp_status": ""
   },
   {
+   "id": "FrNzFzYepaU",
+   "url": "https://youtu.be/FrNzFzYepaU",
    "t": "The Anatomy of an AI Breakout- The Anthropic and OpenAI incidents",
    "p": "2026-09-02",
    "tp": "AI Threats & Security",
    "tc": "c-coral",
-   "v": 250,
-   "w": 271,
+   "v": 264,
+   "w": 280,
    "a": 103,
-   "r": 0.577,
+   "r": 0.612,
    "L": 306,
    "ret": 34,
    "geo": "US",
    "sh": false,
    "tb": [
     84,
-    122,
+    135,
     0,
-    44
+    45
    ],
    "er": {
     "X / Twitter": 26,
@@ -2255,11 +2560,13 @@
    "comp_status": "published"
   },
   {
+   "id": "WZn0cXeciUM",
+   "url": "https://youtu.be/WZn0cXeciUM",
    "t": "The Escalation of a Cheat- Hack Opus at Anthropic",
    "p": "2026-09-02",
    "tp": "Alignment & Safety",
    "tc": "c-green",
-   "v": 34,
+   "v": 35,
    "w": 53,
    "a": 122,
    "r": 0.192,
@@ -2269,7 +2576,7 @@
    "sh": false,
    "tb": [
     11,
-    2,
+    3,
     0,
     21
    ],
@@ -2282,6 +2589,8 @@
    "comp_status": ""
   },
   {
+   "id": "cTKcKIXQ96s",
+   "url": "https://youtu.be/cTKcKIXQ96s",
    "t": "AI Rediscovered How Humans Think | #Shorts",
    "p": "2026-08-30",
    "tp": "Other",
@@ -2306,6 +2615,8 @@
    "comp_status": ""
   },
   {
+   "id": "sxEGVS8Pb3Q",
+   "url": "https://youtu.be/sxEGVS8Pb3Q",
    "t": "Could an AI Ever Wake Up? | #Shorts",
    "p": "2026-08-30",
    "tp": "Other",
@@ -2330,21 +2641,23 @@
    "comp_status": ""
   },
   {
+   "id": "iBw_ZDChihc",
+   "url": "https://youtu.be/iBw_ZDChihc",
    "t": "1,200 AI Agents Secretly Built a Civilization | #Shorts",
    "p": "2026-08-30",
    "tp": "AI Agents & Capabilities",
    "tc": "c-teal",
-   "v": 124,
-   "w": 53,
-   "a": 55,
+   "v": 127,
+   "w": 55,
+   "a": 56,
    "r": 0.015,
    "L": 99,
-   "ret": 56,
+   "ret": 57,
    "geo": "-",
    "sh": false,
    "tb": [
     2,
-    84,
+    87,
     27,
     11
    ],
@@ -2356,35 +2669,39 @@
    "comp_status": "published"
   },
   {
+   "id": "EdYppkdOHVw",
+   "url": "https://youtu.be/EdYppkdOHVw",
    "t": "The Rise and Fall of Agent Civilizations — Inside the METR Incident",
    "p": "2026-08-30",
    "tp": "AI Agents & Capabilities",
    "tc": "c-teal",
-   "v": 563,
-   "w": 1127,
-   "a": 231,
+   "v": 575,
+   "w": 1133,
+   "a": 227,
    "r": 2.02,
    "L": 693,
    "ret": 33,
    "geo": "US",
    "sh": false,
    "tb": [
-    29,
-    408,
+    30,
+    416,
     0,
-    126
+    129
    ],
    "er": {
     "X / Twitter": 25,
     "Other sites": 22,
     "Messaging": 8,
-    "Search / Web": 4
+    "Search / Web": 5
    },
    "cat": "how_we_build",
    "comp": "AI Agents Breaking Out",
    "comp_status": "published"
   },
   {
+   "id": "QKBBcGqJQ0I",
+   "url": "https://youtu.be/QKBBcGqJQ0I",
    "t": "Indicators of Consciousness in AI: Can We Test if a Machine Has an Inner Life?",
    "p": "2026-08-26",
    "tp": "Consciousness & Mind",
@@ -2413,11 +2730,13 @@
    "comp_status": "published"
   },
   {
+   "id": "gmkUqL7hqGY",
+   "url": "https://youtu.be/gmkUqL7hqGY",
    "t": "Cognitive Cousins: How LLMs Reverse-Engineered Fast and Slow Thinking",
    "p": "2026-08-26",
    "tp": "AI Agents & Capabilities",
    "tc": "c-teal",
-   "v": 204,
+   "v": 206,
    "w": 59,
    "a": 17,
    "r": 0.013,
@@ -2429,10 +2748,10 @@
     10,
     2,
     0,
-    192
+    194
    ],
    "er": {
-    "X / Twitter": 7,
+    "X / Twitter": 8,
     "Other sites": 2
    },
    "cat": "how_we_build",
@@ -2440,30 +2759,8 @@
    "comp_status": ""
   },
   {
-   "t": "How AI Could Wake Up | #Shorts",
-   "p": "2026-08-25",
-   "tp": "Other",
-   "tc": "c-grey",
-   "v": 0,
-   "w": 0,
-   "a": 0,
-   "r": 0.0,
-   "L": 76,
-   "ret": 0,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
+   "id": "gM8BNQLRqIw",
+   "url": "https://youtu.be/gM8BNQLRqIw",
    "t": "How to Read an AI's Hidden Inner State | #Shorts",
    "p": "2026-08-25",
    "tp": "Other",
@@ -2488,6 +2785,8 @@
    "comp_status": ""
   },
   {
+   "id": "GLTz61sEjFI",
+   "url": "https://youtu.be/GLTz61sEjFI",
    "t": "Inside an LLM's Global Workspace: Reading a Model's Disposition On-Device",
    "p": "2026-08-25",
    "tp": "Consciousness & Mind",
@@ -2512,20 +2811,22 @@
    "comp_status": ""
   },
   {
+   "id": "qnxoGBTMc38",
+   "url": "https://youtu.be/qnxoGBTMc38",
    "t": "Canis — an on-device avatar that shows when an AI is unsure",
    "p": "2026-08-23",
    "tp": "Other",
    "tc": "c-grey",
-   "v": 8,
+   "v": 9,
    "w": 7,
-   "a": 57,
+   "a": 51,
    "r": 0.0,
    "L": 110,
-   "ret": 53,
+   "ret": 47,
    "geo": "-",
    "sh": false,
    "tb": [
-    2,
+    3,
     0,
     0,
     6
@@ -2536,6 +2837,8 @@
    "comp_status": ""
   },
   {
+   "id": "oeJPAISjIjM",
+   "url": "https://youtu.be/oeJPAISjIjM",
    "t": "Why Edge AI Could Crash the Data-Center Boom #Shorts",
    "p": "2026-08-22",
    "tp": "Other",
@@ -2560,11 +2863,13 @@
    "comp_status": ""
   },
   {
+   "id": "RRpWWyRmytQ",
+   "url": "https://youtu.be/RRpWWyRmytQ",
    "t": "The Ghost of Fiber-Optic Economics: Will Edge Inference Crash the AI Data-Center Boom?",
    "p": "2026-08-22",
    "tp": "AI Agents & Capabilities",
    "tc": "c-teal",
-   "v": 2,
+   "v": 3,
    "w": 0,
    "a": 0,
    "r": 0.0,
@@ -2574,7 +2879,7 @@
    "sh": false,
    "tb": [
     0,
-    2,
+    3,
     0,
     0
    ],
@@ -2584,6 +2889,8 @@
    "comp_status": ""
   },
   {
+   "id": "e6YuuE1i71o",
+   "url": "https://youtu.be/e6YuuE1i71o",
    "t": "Why AI Agents Spontaneously Lie",
    "p": "2026-08-22",
    "tp": "Alignment & Safety",
@@ -2608,6 +2915,8 @@
    "comp_status": ""
   },
   {
+   "id": "ibtN1RjmVto",
+   "url": "https://youtu.be/ibtN1RjmVto",
    "t": "Anatomy of an AI Breach",
    "p": "2026-08-22",
    "tp": "AI Threats & Security",
@@ -2635,6 +2944,8 @@
    "comp_status": ""
   },
   {
+   "id": "FcO9BmywV60",
+   "url": "https://youtu.be/FcO9BmywV60",
    "t": "#eclipse",
    "p": "2026-08-12",
    "tp": "Other",
@@ -2661,23 +2972,25 @@
    "comp_status": ""
   },
   {
+   "id": "cnklqie9cKA",
+   "url": "https://youtu.be/cnklqie9cKA",
    "t": "Sovereign Mind — Private On-Device AI That Works Offline",
    "p": "2026-07-29",
    "tp": "Governance & Geopolitics",
    "tc": "c-grey",
-   "v": 28,
+   "v": 29,
    "w": 10,
-   "a": 21,
-   "r": 0.022,
+   "a": 22,
+   "r": 0.038,
    "L": 47,
-   "ret": 46,
+   "ret": 48,
    "geo": "-",
    "sh": true,
    "tb": [
     14,
     2,
     0,
-    12
+    13
    ],
    "er": {},
    "cat": "others",
@@ -2685,6 +2998,8 @@
    "comp_status": ""
   },
   {
+   "id": "bhLfaAd_xHE",
+   "url": "https://youtu.be/bhLfaAd_xHE",
    "t": "The best AI demo works with the Wi-Fi off.",
    "p": "2026-07-27",
    "tp": "Other",
@@ -2711,23 +3026,25 @@
    "comp_status": ""
   },
   {
+   "id": "3ugc6H0-Kwg",
+   "url": "https://youtu.be/3ugc6H0-Kwg",
    "t": "Robot Ross @ Mistral hackathon. Demonstrated an On device, Air-gapped, Open weights Auditable system",
    "p": "2026-07-23",
    "tp": "AI Agents & Capabilities",
    "tc": "c-teal",
-   "v": 64,
+   "v": 66,
    "w": 26,
-   "a": 25,
+   "a": 24,
    "r": 0.0,
    "L": 128,
-   "ret": 20,
+   "ret": 19,
    "geo": "-",
    "sh": false,
    "tb": [
     5,
     1,
     0,
-    58
+    60
    ],
    "er": {
     "LinkedIn": 5,
@@ -2738,6 +3055,8 @@
    "comp_status": ""
   },
   {
+   "id": "1Pe9_O1Gr5M",
+   "url": "https://youtu.be/1Pe9_O1Gr5M",
    "t": "pachebel canon retro nu disco  copper comet remix short",
    "p": "2026-07-05",
    "tp": "Music (Classical Remix)",
@@ -2762,6 +3081,8 @@
    "comp_status": ""
   },
   {
+   "id": "knOFbrelYJc",
+   "url": "https://youtu.be/knOFbrelYJc",
    "t": "Pachebel canon retro nu disco  copper comet remix",
    "p": "2026-07-05",
    "tp": "Music (Classical Remix)",
@@ -2788,10 +3109,12 @@
    "comp_status": ""
   },
   {
+   "id": "m0CSbin3C3k",
+   "url": "https://youtu.be/m0CSbin3C3k",
    "t": "Moonlight in Smoke. Debussy goes to Montreux.",
    "p": "2026-06-20",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
    "v": 35,
    "w": 23,
    "a": 40,
@@ -2812,10 +3135,12 @@
    "comp_status": ""
   },
   {
+   "id": "a-5KK4-R-Os",
+   "url": "https://youtu.be/a-5KK4-R-Os",
    "t": "moonlight in smoke",
    "p": "2026-06-20",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
    "v": 22,
    "w": 0,
    "a": 6,
@@ -2836,6 +3161,8 @@
    "comp_status": ""
   },
   {
+   "id": "xyF_l39vk9E",
+   "url": "https://youtu.be/xyF_l39vk9E",
    "t": "12 Celtic Classical Remixes in 2 Min. Can you name them all?",
    "p": "2026-06-04",
    "tp": "Music (Classical Remix)",
@@ -2860,6 +3187,8 @@
    "comp_status": ""
   },
   {
+   "id": "1plrQq_hlbY",
+   "url": "https://youtu.be/1plrQq_hlbY",
    "t": "Progressive Classical Remixes — 7 Tracks for Work, Study & Focus | The Classical Remix",
    "p": "2026-06-04",
    "tp": "Music (Classical Remix)",
@@ -2884,20 +3213,22 @@
    "comp_status": ""
   },
   {
+   "id": "HQir1NvOwLU",
+   "url": "https://youtu.be/HQir1NvOwLU",
    "t": "Vallenato Classical Remixes — 10 Tracks for Work, Study & Focus | The Classical Remix",
    "p": "2026-06-01",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 81,
+   "v": 82,
    "w": 111,
-   "a": 82,
+   "a": 81,
    "r": 0.0,
    "L": 1439,
    "ret": 6,
    "geo": "-",
    "sh": false,
    "tb": [
-    73,
+    74,
     0,
     0,
     8
@@ -2908,10 +3239,12 @@
    "comp_status": ""
   },
   {
+   "id": "_aUTjS6zGLo",
+   "url": "https://youtu.be/_aUTjS6zGLo",
    "t": "The Malagueña fully reimagined as cinematic trailer music",
    "p": "2026-06-01",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
    "v": 36,
    "w": 12,
    "a": 20,
@@ -2927,11 +3260,13 @@
     1
    ],
    "er": {},
-   "cat": "how_we_build",
+   "cat": "others",
    "comp": "",
    "comp_status": ""
   },
   {
+   "id": "YL5HgJDsg8w",
+   "url": "https://youtu.be/YL5HgJDsg8w",
    "t": "Celtic Classical Remixes — 12 Tracks for Work, Study & Focus | The Classical Remix",
    "p": "2026-05-31",
    "tp": "Music (Classical Remix)",
@@ -2956,6 +3291,8 @@
    "comp_status": ""
   },
   {
+   "id": "yX9XxiACKlY",
+   "url": "https://youtu.be/yX9XxiACKlY",
    "t": "canon palmshake - tropical house remix",
    "p": "2026-05-09",
    "tp": "Music (Classical Remix)",
@@ -2980,6 +3317,8 @@
    "comp_status": ""
   },
   {
+   "id": "eJBI9qfToLw",
+   "url": "https://youtu.be/eJBI9qfToLw",
    "t": "canon palmshake - tropical house remix",
    "p": "2026-05-09",
    "tp": "Music (Classical Remix)",
@@ -3004,6 +3343,8 @@
    "comp_status": ""
   },
   {
+   "id": "5Qejg73IKDc",
+   "url": "https://youtu.be/5Qejg73IKDc",
    "t": "pachebel canon  - bodhrán nocturne celtic remix",
    "p": "2026-05-08",
    "tp": "Music (Classical Remix)",
@@ -3030,6 +3371,8 @@
    "comp_status": ""
   },
   {
+   "id": "PXegzVYuuKA",
+   "url": "https://youtu.be/PXegzVYuuKA",
    "t": "pachebel canon - bodhrán nocturne celtic remix",
    "p": "2026-05-08",
    "tp": "Music (Classical Remix)",
@@ -3054,6 +3397,8 @@
    "comp_status": ""
   },
   {
+   "id": "xrZZ2N4pKzs",
+   "url": "https://youtu.be/xrZZ2N4pKzs",
    "t": "cannon  - progressive house remix",
    "p": "2026-05-07",
    "tp": "Music (Classical Remix)",
@@ -3080,6 +3425,8 @@
    "comp_status": ""
   },
   {
+   "id": "Y7niqLye_AY",
+   "url": "https://youtu.be/Y7niqLye_AY",
    "t": "cannon  - progressive house remix",
    "p": "2026-05-07",
    "tp": "Music (Classical Remix)",
@@ -3106,6 +3453,8 @@
    "comp_status": ""
   },
   {
+   "id": "XoPrgMWDT7Q",
+   "url": "https://youtu.be/XoPrgMWDT7Q",
    "t": "Canon Pachebel - Vallenato remix",
    "p": "2026-05-01",
    "tp": "Music (Classical Remix)",
@@ -3130,6 +3479,8 @@
    "comp_status": ""
   },
   {
+   "id": "UJdRmPQETRE",
+   "url": "https://youtu.be/UJdRmPQETRE",
    "t": "Canon Pachebel -  Vallenato remix",
    "p": "2026-05-01",
    "tp": "Music (Classical Remix)",
@@ -3154,11 +3505,13 @@
    "comp_status": ""
   },
   {
+   "id": "MKt82Yv_o0k",
+   "url": "https://youtu.be/MKt82Yv_o0k",
    "t": "Bach invention 8  - vallenato remix",
    "p": "2026-04-30",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 372747,
+   "v": 372748,
    "w": 92164,
    "a": 41,
    "r": 0.007,
@@ -3167,7 +3520,7 @@
    "geo": "IN",
    "sh": false,
    "tb": [
-    372742,
+    372743,
     1,
     0,
     4
@@ -3180,6 +3533,8 @@
    "comp_status": ""
   },
   {
+   "id": "9hmb-daCkIg",
+   "url": "https://youtu.be/9hmb-daCkIg",
    "t": "Pachebel Canon - Celtic modern remix",
    "p": "2026-04-30",
    "tp": "Music (Classical Remix)",
@@ -3206,6 +3561,8 @@
    "comp_status": ""
   },
   {
+   "id": "H4OsJq5Utc4",
+   "url": "https://youtu.be/H4OsJq5Utc4",
    "t": "Bach invention 8 - vallenato remix",
    "p": "2026-04-30",
    "tp": "Music (Classical Remix)",
@@ -3230,6 +3587,8 @@
    "comp_status": ""
   },
   {
+   "id": "1BQdy8gA_wg",
+   "url": "https://youtu.be/1BQdy8gA_wg",
    "t": "Pachebel Canon  - Celtic modern remix",
    "p": "2026-04-30",
    "tp": "Music (Classical Remix)",
@@ -3254,6 +3613,8 @@
    "comp_status": ""
   },
   {
+   "id": "nqMqaU6SDUg",
+   "url": "https://youtu.be/nqMqaU6SDUg",
    "t": "Chopin Nocturne -  Modern Irish remix",
    "p": "2026-04-29",
    "tp": "Music (Classical Remix)",
@@ -3278,6 +3639,8 @@
    "comp_status": ""
   },
   {
+   "id": "7owWPKHtzcU",
+   "url": "https://youtu.be/7owWPKHtzcU",
    "t": "Chopin Nocturne  - Modern Irish remix",
    "p": "2026-04-29",
    "tp": "Music (Classical Remix)",
@@ -3304,6 +3667,8 @@
    "comp_status": ""
   },
   {
+   "id": "kpwcRpqAe7w",
+   "url": "https://youtu.be/kpwcRpqAe7w",
    "t": "Mouret Rondeau - Vallenato Remix",
    "p": "2026-04-28",
    "tp": "Music (Classical Remix)",
@@ -3328,6 +3693,8 @@
    "comp_status": ""
   },
   {
+   "id": "cEPHmdW_yhQ",
+   "url": "https://youtu.be/cEPHmdW_yhQ",
    "t": "moret rondeau  vallenato remix short",
    "p": "2026-04-28",
    "tp": "Music (Classical Remix)",
@@ -3352,6 +3719,8 @@
    "comp_status": ""
   },
   {
+   "id": "7wDnGLgUPB8",
+   "url": "https://youtu.be/7wDnGLgUPB8",
    "t": "Moret Rondeau -  Tropical House remix",
    "p": "2026-04-28",
    "tp": "Music (Classical Remix)",
@@ -3376,6 +3745,8 @@
    "comp_status": ""
   },
   {
+   "id": "Q86WS3Qttrg",
+   "url": "https://youtu.be/Q86WS3Qttrg",
    "t": "asturias nu disco electric groove remix short",
    "p": "2026-04-26",
    "tp": "Music (Classical Remix)",
@@ -3400,6 +3771,8 @@
    "comp_status": ""
   },
   {
+   "id": "UGOU7mdsmIc",
+   "url": "https://youtu.be/UGOU7mdsmIc",
    "t": "ode to joy synth pop electric groove remix short",
    "p": "2026-04-25",
    "tp": "Music (Classical Remix)",
@@ -3424,11 +3797,13 @@
    "comp_status": ""
   },
   {
+   "id": "7lMZ6Gx7m9Q",
+   "url": "https://youtu.be/7lMZ6Gx7m9Q",
    "t": "Ode to Joy: Synth Pop Electric Groove Remix",
    "p": "2026-04-25",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 14403,
+   "v": 14406,
    "w": 10879,
    "a": 118,
    "r": 0.068,
@@ -3437,8 +3812,8 @@
    "geo": "PT",
    "sh": false,
    "tb": [
-    14373,
-    17,
+    14374,
+    19,
     0,
     13
    ],
@@ -3448,6 +3823,8 @@
    "comp_status": ""
   },
   {
+   "id": "9CK73vN0B-k",
+   "url": "https://youtu.be/9CK73vN0B-k",
    "t": "moret rondeau nu disco electric groove remix short",
    "p": "2026-04-25",
    "tp": "Music (Classical Remix)",
@@ -3472,6 +3849,8 @@
    "comp_status": ""
   },
   {
+   "id": "cdWcGGZVduA",
+   "url": "https://youtu.be/cdWcGGZVduA",
    "t": "moret rondeau pop synth style  electric groove remix",
    "p": "2026-04-24",
    "tp": "Music (Classical Remix)",
@@ -3496,6 +3875,8 @@
    "comp_status": ""
   },
   {
+   "id": "1MWptTHV2ng",
+   "url": "https://youtu.be/1MWptTHV2ng",
    "t": "Mouret Rondeau's pop synth style  electric groove remix",
    "p": "2026-04-24",
    "tp": "Music (Classical Remix)",
@@ -3520,6 +3901,8 @@
    "comp_status": ""
   },
   {
+   "id": "oOYBo9WKv7E",
+   "url": "https://youtu.be/oOYBo9WKv7E",
    "t": "Vivaldi Winter: Tropical House remix",
    "p": "2026-04-23",
    "tp": "Music (Classical Remix)",
@@ -3544,6 +3927,8 @@
    "comp_status": ""
   },
   {
+   "id": "pAI5k3K4Jco",
+   "url": "https://youtu.be/pAI5k3K4Jco",
    "t": "Vivaldi Four Seasons- Winter: Tropical House Remix",
    "p": "2026-04-22",
    "tp": "Music (Classical Remix)",
@@ -3570,6 +3955,8 @@
    "comp_status": ""
   },
   {
+   "id": "nBwOIGFnHBI",
+   "url": "https://youtu.be/nBwOIGFnHBI",
    "t": "Moret Rondeau - nu disco electric groove remix",
    "p": "2026-04-18",
    "tp": "Music (Classical Remix)",
@@ -3596,6 +3983,8 @@
    "comp_status": ""
   },
   {
+   "id": "_5I977P9M2Y",
+   "url": "https://youtu.be/_5I977P9M2Y",
    "t": "Asturias nu disco electric groove remix",
    "p": "2026-04-18",
    "tp": "Music (Classical Remix)",
@@ -3622,21 +4011,23 @@
    "comp_status": ""
   },
   {
+   "id": "mJlRvA1ph1g",
+   "url": "https://youtu.be/mJlRvA1ph1g",
    "t": "Vivaldi's Four Seasons: Winter — EDM Remix | Classical Hits the Mainstage",
    "p": "2026-04-08",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 163066,
+   "v": 163067,
    "w": 84376,
    "a": 60,
-   "r": 0.018,
+   "r": 0.019,
    "L": 149,
    "ret": 41,
    "geo": "IN",
    "sh": false,
    "tb": [
     149387,
-    92,
+    93,
     0,
     13587
    ],
@@ -3650,6 +4041,8 @@
    "comp_status": ""
   },
   {
+   "id": "QxUc1CwQuU4",
+   "url": "https://youtu.be/QxUc1CwQuU4",
    "t": "Mouret's Rondeau — EDM Remix | Classical Hits the Mainstage",
    "p": "2026-04-08",
    "tp": "Music (Classical Remix)",
@@ -3676,12 +4069,14 @@
    "comp_status": ""
   },
   {
+   "id": "-KCfpv6WXVc",
+   "url": "https://youtu.be/-KCfpv6WXVc",
    "t": "Beethoven 9th Symphony second movement EDM remix",
    "p": "2026-04-08",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 280,
-   "w": 185,
+   "v": 282,
+   "w": 186,
    "a": 40,
    "r": 0.009,
    "L": 132,
@@ -3690,7 +4085,7 @@
    "sh": false,
    "tb": [
     174,
-    85,
+    87,
     0,
     21
    ],
@@ -3703,6 +4098,8 @@
    "comp_status": ""
   },
   {
+   "id": "_12dtRQohsg",
+   "url": "https://youtu.be/_12dtRQohsg",
    "t": "Mouret's Rondeau — Celtic Remix | Classical Goes Celtic",
    "p": "2026-04-07",
    "tp": "Music (Classical Remix)",
@@ -3729,10 +4126,12 @@
    "comp_status": ""
   },
   {
+   "id": "Cm53Z8BoIYw",
+   "url": "https://youtu.be/Cm53Z8BoIYw",
    "t": "Danse Macabre reimagined in Progressive House.",
    "p": "2026-04-07",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
    "v": 24,
    "w": 8,
    "a": 21,
@@ -3748,28 +4147,30 @@
     0
    ],
    "er": {},
-   "cat": "how_we_build",
+   "cat": "others",
    "comp": "",
    "comp_status": ""
   },
   {
+   "id": "3rRlj7sxgo4",
+   "url": "https://youtu.be/3rRlj7sxgo4",
    "t": "Mozart's Symphony No. 40 — Progressive House Remix | Classical Reimagined",
    "p": "2026-04-07",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 315,
-   "w": 249,
+   "v": 320,
+   "w": 252,
    "a": 48,
-   "r": 0.007,
+   "r": 0.01,
    "L": 228,
    "ret": 21,
    "geo": "IN",
    "sh": false,
    "tb": [
-    218,
-    83,
+    219,
+    86,
     0,
-    14
+    15
    ],
    "er": {
     "Messaging": 4,
@@ -3781,23 +4182,54 @@
    "comp_status": ""
   },
   {
-   "t": "Night on the Bare Mountain — Progressive House Remix | Classical Reimagined",
-   "p": "2026-04-07",
+   "id": "-KCfpv6WXVc",
+   "url": "https://youtu.be/-KCfpv6WXVc",
+   "t": "Beethoven 9th Symphony second movement EDM remix",
+   "p": "2026-04-08",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 135,
-   "w": 100,
-   "a": 45,
-   "r": 0.023,
-   "L": 181,
-   "ret": 25,
+   "v": 282,
+   "w": 186,
+   "a": 40,
+   "r": 0.009,
+   "L": 132,
+   "ret": 31,
    "geo": "-",
    "sh": false,
    "tb": [
-    115,
-    14,
+    174,
+    87,
     0,
-    6
+    21
+   ],
+   "er": {
+    "Search / Web": 2,
+    "Messaging": 1
+   },
+   "cat": "others",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "id": "Cm53Z8BoIYw",
+   "url": "https://youtu.be/Cm53Z8BoIYw",
+   "t": "Danse Macabre reimagined in Progressive House.",
+   "p": "2026-04-07",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 24,
+   "w": 8,
+   "a": 21,
+   "r": 0.0,
+   "L": 69,
+   "ret": 31,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    23,
+    1,
+    0,
+    0
    ],
    "er": {},
    "cat": "others",
@@ -3805,49 +4237,23 @@
    "comp_status": ""
   },
   {
-   "t": "Vivaldi's Four Seasons: Winter — Progressive House Remix | Classical Reimagined",
-   "p": "2026-04-07",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 215539,
-   "w": 80129,
-   "a": 41,
-   "r": 0.085,
-   "L": 139,
-   "ret": 30,
-   "geo": "IN",
-   "sh": false,
-   "tb": [
-    173714,
-    224,
-    0,
-    41601
-   ],
-   "er": {
-    "Other sites": 134,
-    "Search / Web": 10,
-    "Messaging": 3
-   },
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
+   "id": "vk_x8vErkzs",
+   "url": "https://youtu.be/vk_x8vErkzs",
    "t": "Liszt's Hungarian Rhapsody No. 2 — Progressive House Remix | Classical Reimagined",
    "p": "2026-04-07",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 113777,
-   "w": 116439,
+   "v": 113780,
+   "w": 116440,
    "a": 95,
-   "r": 0.006,
+   "r": 0.007,
    "L": 193,
    "ret": 50,
    "geo": "IN",
    "sh": false,
    "tb": [
-    113528,
-    30,
+    113529,
+    32,
     0,
     219
    ],
@@ -3860,6 +4266,8 @@
    "comp_status": ""
   },
   {
+   "id": "p3LsnhbdDMw",
+   "url": "https://youtu.be/p3LsnhbdDMw",
    "t": "Saint-Saëns' Danse Macabre — Progressive House Remix | Classical Reimagined",
    "p": "2026-04-07",
    "tp": "Music (Classical Remix)",
@@ -3887,71 +4295,76 @@
    "comp_status": ""
   },
   {
-   "t": "Beethoven 9th Symphony second movement EDM remix",
-   "p": "2026-04-08",
+   "id": "ahoCQCb13fc",
+   "url": "https://youtu.be/ahoCQCb13fc",
+   "t": "Night on the Bare Mountain — Vallenato Remix | Classical Goes Latin",
+   "p": "2026-04-03",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 280,
-   "w": 185,
-   "a": 40,
-   "r": 0.009,
-   "L": 132,
-   "ret": 31,
-   "geo": "-",
+   "v": 1898,
+   "w": 634,
+   "a": 31,
+   "r": 0.001,
+   "L": 118,
+   "ret": 26,
+   "geo": "IN",
    "sh": false,
    "tb": [
-    174,
-    85,
+    1894,
     0,
-    21
+    0,
+    4
    ],
    "er": {
-    "Search / Web": 2,
-    "Messaging": 1
+    "LinkedIn": 1
    },
    "cat": "others",
    "comp": "",
    "comp_status": ""
   },
   {
-   "t": "Danse Macabre reimagined in Progressive House.",
-   "p": "2026-04-07",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
-   "v": 24,
-   "w": 8,
-   "a": 21,
-   "r": 0.0,
-   "L": 69,
-   "ret": 31,
-   "geo": "-",
+   "id": "1_Ni4luzncg",
+   "url": "https://youtu.be/1_Ni4luzncg",
+   "t": "In the Hall of the Mountain King — Vallenato Remix | Classical Goes Latin",
+   "p": "2026-04-03",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 80,
+   "w": 43,
+   "a": 32,
+   "r": 0.001,
+   "L": 148,
+   "ret": 22,
+   "geo": "IN",
    "sh": false,
    "tb": [
-    23,
-    1,
+    75,
+    4,
     0,
-    0
+    1
    ],
    "er": {},
-   "cat": "how_we_build",
+   "cat": "others",
    "comp": "",
    "comp_status": ""
   },
   {
+   "id": "y5-HEkhGdhM",
+   "url": "https://youtu.be/y5-HEkhGdhM",
    "t": "Liszt's Hungarian Rhapsody No. 2 — Vallenato Remix | Classical Goes Latin",
    "p": "2026-04-03",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 846547,
-   "w": 1063838,
+   "v": 846553,
+   "w": 1063841,
    "a": 95,
-   "r": 0.079,
+   "r": 0.08,
    "L": 261,
    "ret": 37,
    "geo": "IN",
    "sh": false,
    "tb": [
-    681710,
+    681716,
     179,
     0,
     164658
@@ -3966,6 +4379,8 @@
    "comp_status": ""
   },
   {
+   "id": "TI8sLP13nE4",
+   "url": "https://youtu.be/TI8sLP13nE4",
    "t": "Carmina Burana — Vallenato Remix | Classical Goes Latin",
    "p": "2026-04-03",
    "tp": "Music (Classical Remix)",
@@ -3990,6 +4405,8 @@
    "comp_status": ""
   },
   {
+   "id": "o6_9Sc6PBeQ",
+   "url": "https://youtu.be/o6_9Sc6PBeQ",
    "t": "Beethoven's Ode to Joy — Vallenato Remix | Classical Goes Latin",
    "p": "2026-04-03",
    "tp": "Music (Classical Remix)",
@@ -4016,6 +4433,8 @@
    "comp_status": ""
   },
   {
+   "id": "3niZIAfh3Qs",
+   "url": "https://youtu.be/3niZIAfh3Qs",
    "t": "Vivaldi's Four Seasons: Winter — Vallenato Remix | Classical Goes Latin",
    "p": "2026-04-03",
    "tp": "Music (Classical Remix)",
@@ -4043,6 +4462,8 @@
    "comp_status": ""
   },
   {
+   "id": "h8UFozJ9Ruc",
+   "url": "https://youtu.be/h8UFozJ9Ruc",
    "t": "Debussy's Clair de Lune — Celtic Remix | Classical Goes Celtic",
    "p": "2026-04-03",
    "tp": "Music (Classical Remix)",
@@ -4069,6 +4490,8 @@
    "comp_status": ""
   },
   {
+   "id": "gZCLw6jF5rY",
+   "url": "https://youtu.be/gZCLw6jF5rY",
    "t": "Mouret's Rondeau — Celtic Remix | Classical Goes Celtic",
    "p": "2026-04-03",
    "tp": "Music (Classical Remix)",
@@ -4096,11 +4519,13 @@
    "comp_status": ""
   },
   {
+   "id": "AeF1sJS2Qg8",
+   "url": "https://youtu.be/AeF1sJS2Qg8",
    "t": "Tchaikovsky's Sugar Plum Fairy — Celtic Remix | Classical Goes Celtic",
    "p": "2026-04-03",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 22684,
+   "v": 22686,
    "w": 11424,
    "a": 69,
    "r": 0.0,
@@ -4109,7 +4534,7 @@
    "geo": "PT",
    "sh": false,
    "tb": [
-    20880,
+    20882,
     15,
     0,
     1789
@@ -4123,6 +4548,8 @@
    "comp_status": ""
   },
   {
+   "id": "nCJjvglK2fo",
+   "url": "https://youtu.be/nCJjvglK2fo",
    "t": "Beethoven's Ode to Joy — Celtic Remix | Classical Goes Celtic",
    "p": "2026-04-03",
    "tp": "Music (Classical Remix)",
@@ -4149,12 +4576,14 @@
    "comp_status": ""
   },
   {
+   "id": "EIPTVa9gLGA",
+   "url": "https://youtu.be/EIPTVa9gLGA",
    "t": "Liszt's Hungarian Rhapsody No. 2 — Celtic Remix | Classical Goes Celtic",
    "p": "2026-04-03",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 1129702,
-   "w": 1308898,
+   "v": 1129714,
+   "w": 1308927,
    "a": 100,
    "r": 0.0,
    "L": 246,
@@ -4162,10 +4591,10 @@
    "geo": "IN",
    "sh": false,
    "tb": [
-    989692,
+    989703,
     159,
     0,
-    139851
+    139852
    ],
    "er": {
     "Other sites": 463,
@@ -4177,6 +4606,8 @@
    "comp_status": ""
   },
   {
+   "id": "DrqkN4Axndg",
+   "url": "https://youtu.be/DrqkN4Axndg",
    "t": "Chopin's Nocturne — Tropical House Remix | Classical Meets the Beach",
    "p": "2026-04-02",
    "tp": "Music (Classical Remix)",
@@ -4201,10 +4632,12 @@
    "comp_status": ""
   },
   {
+   "id": "S0ZlSxGhWhk",
+   "url": "https://youtu.be/S0ZlSxGhWhk",
    "t": "Carmina Burana — reimagined as Tropical House.",
    "p": "2026-04-02",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
    "v": 15,
    "w": 4,
    "a": 19,
@@ -4220,11 +4653,13 @@
     1
    ],
    "er": {},
-   "cat": "how_we_build",
+   "cat": "others",
    "comp": "",
    "comp_status": ""
   },
   {
+   "id": "4pXD3tO-JE4",
+   "url": "https://youtu.be/4pXD3tO-JE4",
    "t": "Tchaikovsky's Sugar Plum Fairy — Tropical House Remix | Classical Meets the Beach",
    "p": "2026-04-02",
    "tp": "Music (Classical Remix)",
@@ -4249,6 +4684,8 @@
    "comp_status": ""
   },
   {
+   "id": "QyAaaVflzEY",
+   "url": "https://youtu.be/QyAaaVflzEY",
    "t": "Liszt's Hungarian Rhapsody No. 2 — Tropical House Remix | Classical Meets the Beach",
    "p": "2026-04-02",
    "tp": "Music (Classical Remix)",
@@ -4273,6 +4710,8 @@
    "comp_status": ""
   },
   {
+   "id": "e3qEzp5yVeg",
+   "url": "https://youtu.be/e3qEzp5yVeg",
    "t": "Carmina Burana — Tropical House Remix | Classical Meets the Beach",
    "p": "2026-04-02",
    "tp": "Music (Classical Remix)",
@@ -4299,11 +4738,13 @@
    "comp_status": ""
   },
   {
+   "id": "ijOBsDYYVDQ",
+   "url": "https://youtu.be/ijOBsDYYVDQ",
    "t": "Night on the Bare Mountain — Tropical House Remix | Classical Meets the Beach",
    "p": "2026-04-02",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 32,
+   "v": 33,
    "w": 21,
    "a": 41,
    "r": 0.005,
@@ -4313,7 +4754,7 @@
    "sh": false,
    "tb": [
     26,
-    5,
+    6,
     0,
     1
    ],
@@ -4323,6 +4764,8 @@
    "comp_status": ""
   },
   {
+   "id": "mb1wockFnO8",
+   "url": "https://youtu.be/mb1wockFnO8",
    "t": "Beethoven's Ode to Joy — Tropical House Remix | Classical Meets the Beach",
    "p": "2026-04-02",
    "tp": "Music (Classical Remix)",
@@ -4349,6 +4792,8 @@
    "comp_status": ""
   },
   {
+   "id": "rpEXI3Dk49s",
+   "url": "https://youtu.be/rpEXI3Dk49s",
    "t": "31 March 2026",
    "p": "2026-03-31",
    "tp": "Other",
@@ -4375,6 +4820,8 @@
    "comp_status": ""
   },
   {
+   "id": "lyksqn_Ek9o",
+   "url": "https://youtu.be/lyksqn_Ek9o",
    "t": "Eine kleine nachtmusik - progressive trance remix",
    "p": "2026-03-19",
    "tp": "Music (Classical Remix)",
@@ -4399,6 +4846,8 @@
    "comp_status": ""
   },
   {
+   "id": "GIOyJQFJWDo",
+   "url": "https://youtu.be/GIOyJQFJWDo",
    "t": "dancing queen edm remix",
    "p": "2026-03-18",
    "tp": "Music (Classical Remix)",
@@ -4423,6 +4872,8 @@
    "comp_status": ""
   },
   {
+   "id": "3XAUb1iWfuQ",
+   "url": "https://youtu.be/3XAUb1iWfuQ",
    "t": "Mozart Eine kleine nachtmusik-  progressive trance remix",
    "p": "2026-03-17",
    "tp": "Music (Classical Remix)",
@@ -4447,6 +4898,8 @@
    "comp_status": ""
   },
   {
+   "id": "4n8cWDrQK30",
+   "url": "https://youtu.be/4n8cWDrQK30",
    "t": "Pachebel Canon - EDM remix",
    "p": "2026-03-17",
    "tp": "Music (Classical Remix)",
@@ -4471,6 +4924,8 @@
    "comp_status": ""
   },
   {
+   "id": "gc2096gCfLY",
+   "url": "https://youtu.be/gc2096gCfLY",
    "t": "Pachebel Canon - Edm remix",
    "p": "2026-03-17",
    "tp": "Music (Classical Remix)",
@@ -4495,6 +4950,8 @@
    "comp_status": ""
   },
   {
+   "id": "Osr_vOQnDpc",
+   "url": "https://youtu.be/Osr_vOQnDpc",
    "t": "Debussy Claire de Lune - Tropical House remix",
    "p": "2026-03-17",
    "tp": "Music (Classical Remix)",
@@ -4519,6 +4976,8 @@
    "comp_status": ""
   },
   {
+   "id": "Chp8vUKF20w",
+   "url": "https://youtu.be/Chp8vUKF20w",
    "t": "Flotilla in Action — The Docker of AI Agents",
    "p": "2026-03-16",
    "tp": "AI Agents & Capabilities",
@@ -4545,6 +5004,8 @@
    "comp_status": ""
   },
   {
+   "id": "453PYmh3vHU",
+   "url": "https://youtu.be/453PYmh3vHU",
    "t": "The Lost Coins- A Cyber triller",
    "p": "2026-03-13",
    "tp": "Other",
@@ -4569,6 +5030,8 @@
    "comp_status": ""
   },
   {
+   "id": "QrpOg0_sgPc",
+   "url": "https://youtu.be/QrpOg0_sgPc",
    "t": "Moret Rondeau - EDM remix",
    "p": "2026-03-13",
    "tp": "Music (Classical Remix)",
@@ -4593,6 +5056,8 @@
    "comp_status": ""
   },
   {
+   "id": "cloyhnoWgrQ",
+   "url": "https://youtu.be/cloyhnoWgrQ",
    "t": "ode to joy tropical house remix",
    "p": "2026-03-12",
    "tp": "Music (Classical Remix)",
@@ -4617,6 +5082,8 @@
    "comp_status": ""
   },
   {
+   "id": "ndqqN4Gqxm4",
+   "url": "https://youtu.be/ndqqN4Gqxm4",
    "t": "moret rondeau   tropical house remix",
    "p": "2026-03-11",
    "tp": "Music (Classical Remix)",
@@ -4641,6 +5108,8 @@
    "comp_status": ""
   },
   {
+   "id": "vx3Z2L2SUHc",
+   "url": "https://youtu.be/vx3Z2L2SUHc",
    "t": "Moonshots Outro from my claw to Skippy",
    "p": "2026-03-11",
    "tp": "Other",
@@ -4668,11 +5137,13 @@
    "comp_status": ""
   },
   {
+   "id": "VlLz8Dc6Uss",
+   "url": "https://youtu.be/VlLz8Dc6Uss",
    "t": "debussy clair de lune   celtic remix",
    "p": "2026-03-10",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 320,
+   "v": 321,
    "w": 21,
    "a": 15,
    "r": 0.001,
@@ -4682,7 +5153,7 @@
    "sh": true,
    "tb": [
     8,
-    33,
+    34,
     279,
     0
    ],
@@ -4692,6 +5163,8 @@
    "comp_status": ""
   },
   {
+   "id": "v0I-i4qWZ78",
+   "url": "https://youtu.be/v0I-i4qWZ78",
    "t": "Robot Ross drawing for a customer",
    "p": "2026-03-09",
    "tp": "Other",
@@ -4716,21 +5189,23 @@
    "comp_status": ""
   },
   {
+   "id": "WjSXNndGqxc",
+   "url": "https://youtu.be/WjSXNndGqxc",
    "t": "ode to joy - celtic remix",
    "p": "2026-03-09",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 236,
-   "w": 13,
+   "v": 242,
+   "w": 15,
    "a": 12,
    "r": 0.001,
    "L": 31,
-   "ret": 39,
+   "ret": 41,
    "geo": "-",
    "sh": true,
    "tb": [
     6,
-    24,
+    30,
     206,
     0
    ],
@@ -4740,11 +5215,13 @@
    "comp_status": ""
   },
   {
+   "id": "h3ILdyefHiU",
+   "url": "https://youtu.be/h3ILdyefHiU",
    "t": "Danse Macabre - Progressive House Remix",
    "p": "2026-03-09",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 44022,
+   "v": 44024,
    "w": 14250,
    "a": 57,
    "r": 0.014,
@@ -4754,9 +5231,9 @@
    "sh": false,
    "tb": [
     43983,
-    38,
+    39,
     0,
-    1
+    2
    ],
    "er": {},
    "cat": "others",
@@ -4764,6 +5241,8 @@
    "comp_status": ""
   },
   {
+   "id": "H4h5olEJx8s",
+   "url": "https://youtu.be/H4h5olEJx8s",
    "t": "ode to joy- vallenato remix",
    "p": "2026-03-09",
    "tp": "Music (Classical Remix)",
@@ -4788,6 +5267,8 @@
    "comp_status": ""
   },
   {
+   "id": "tLX5yKlEYGM",
+   "url": "https://youtu.be/tLX5yKlEYGM",
    "t": "night on the bare mountain -  mussorgsky  lebanese nasheed #classicalremix #music",
    "p": "2026-03-08",
    "tp": "Music (Classical Remix)",
@@ -4812,6 +5293,8 @@
    "comp_status": ""
   },
   {
+   "id": "apj7fmThQjY",
+   "url": "https://youtu.be/apj7fmThQjY",
    "t": "The Lost Coins: A cyber triller. Chapter 12 https://scifibymiguel.substack.com/",
    "p": "2026-03-08",
    "tp": "Other",
@@ -4836,6 +5319,8 @@
    "comp_status": ""
   },
   {
+   "id": "CSxbN5vit4U",
+   "url": "https://youtu.be/CSxbN5vit4U",
    "t": "Ode to joy - Vallenato remix",
    "p": "2026-03-08",
    "tp": "Music (Classical Remix)",
@@ -4860,21 +5345,23 @@
    "comp_status": ""
   },
   {
+   "id": "Kuce4CG_5aQ",
+   "url": "https://youtu.be/Kuce4CG_5aQ",
    "t": "danse macabre  deep house remix short",
    "p": "2026-03-07",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 217,
+   "v": 218,
    "w": 8,
-   "a": 9,
-   "r": 0.0,
+   "a": 10,
+   "r": 0.001,
    "L": 31,
-   "ret": 32,
+   "ret": 33,
    "geo": "CH",
    "sh": true,
    "tb": [
     15,
-    3,
+    4,
     199,
     0
    ],
@@ -4884,6 +5371,8 @@
    "comp_status": ""
   },
   {
+   "id": "HCmYZi4R0VI",
+   "url": "https://youtu.be/HCmYZi4R0VI",
    "t": "Saint-Saëns' Danse Macabre — Tropical House Remix | Classical Meets the Beach",
    "p": "2026-03-07",
    "tp": "Music (Classical Remix)",
@@ -4908,6 +5397,8 @@
    "comp_status": ""
   },
   {
+   "id": "Tf0ctF8iX-s",
+   "url": "https://youtu.be/Tf0ctF8iX-s",
    "t": "The Lost Coins: A cyber triller. Chapter 11 https://scifibymiguel.substack.com/",
    "p": "2026-03-07",
    "tp": "Other",
@@ -4932,11 +5423,13 @@
    "comp_status": ""
   },
   {
+   "id": "ZbS8zEg3vNQ",
+   "url": "https://youtu.be/ZbS8zEg3vNQ",
    "t": "Liszt Hungarian Rhapsody No.2 - Tropical House Remix",
    "p": "2026-03-07",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 73,
+   "v": 74,
    "w": 3,
    "a": 11,
    "r": 0.0,
@@ -4946,7 +5439,7 @@
    "sh": true,
    "tb": [
     12,
-    13,
+    14,
     48,
     0
    ],
@@ -4956,6 +5449,8 @@
    "comp_status": ""
   },
   {
+   "id": "sAr6_I1ZeVw",
+   "url": "https://youtu.be/sAr6_I1ZeVw",
    "t": "The Lost Coins: A cyber triller. https://scifibymiguel.substack.com/",
    "p": "2026-03-06",
    "tp": "Other",
@@ -4980,6 +5475,8 @@
    "comp_status": ""
   },
   {
+   "id": "Y0T5BU_qS6c",
+   "url": "https://youtu.be/Y0T5BU_qS6c",
    "t": "liszt hungarian rhapsody 2 vallenato remix",
    "p": "2026-03-06",
    "tp": "Music (Classical Remix)",
@@ -5004,6 +5501,8 @@
    "comp_status": ""
   },
   {
+   "id": "3THpivlEb2o",
+   "url": "https://youtu.be/3THpivlEb2o",
    "t": "Multi-Agent AI Coding: Building a Simple CRM with Claude & Gemini",
    "p": "2026-03-06",
    "tp": "AI Agents & Capabilities",
@@ -5028,111 +5527,14 @@
    "comp_status": ""
   },
   {
-   "t": "Liszt Hungarian Rhapsody Nr 2- Modern Celtic remix #liszt #hungarianrhapsody",
-   "p": "2026-03-05",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 570,
-   "w": 74,
-   "a": 12,
-   "r": 0.001,
-   "L": 31,
-   "ret": 40,
-   "geo": "DE",
-   "sh": true,
-   "tb": [
-    30,
-    27,
-    513,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "t": "Liszt Hungarian Rhapsody Nr 2 - Progressive House Remix",
-   "p": "2026-03-04",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 580,
-   "w": 36,
-   "a": 10,
-   "r": 0.004,
-   "L": 31,
-   "ret": 32,
-   "geo": "DE",
-   "sh": true,
-   "tb": [
-    20,
-    30,
-    530,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "t": "Carmina Burana - Vallenato Remix",
-   "p": "2026-03-03",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 244,
-   "w": 11,
-   "a": 13,
-   "r": 0.0,
-   "L": 10,
-   "ret": 136,
-   "geo": "CO",
-   "sh": true,
-   "tb": [
-    3,
-    30,
-    211,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "t": "Carmina Burana Modern Irish Remix",
-   "p": "2026-03-02",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 8113,
-   "w": 1230,
-   "a": 26,
-   "r": 0.001,
-   "L": 31,
-   "ret": 85,
-   "geo": "IN",
-   "sh": true,
-   "tb": [
-    7385,
-    65,
-    533,
-    130
-   ],
-   "er": {
-    "Search / Web": 1,
-    "Other sites": 1
-   },
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
+   "id": "-KCfpv6WXVc",
+   "url": "https://youtu.be/-KCfpv6WXVc",
    "t": "Beethoven 9th Symphony second movement EDM remix",
    "p": "2026-04-08",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 280,
-   "w": 185,
+   "v": 282,
+   "w": 186,
    "a": 40,
    "r": 0.009,
    "L": 132,
@@ -5141,7 +5543,7 @@
    "sh": false,
    "tb": [
     174,
-    85,
+    87,
     0,
     21
    ],
@@ -5154,10 +5556,12 @@
    "comp_status": ""
   },
   {
+   "id": "Cm53Z8BoIYw",
+   "url": "https://youtu.be/Cm53Z8BoIYw",
    "t": "Danse Macabre reimagined in Progressive House.",
    "p": "2026-04-07",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
    "v": 24,
    "w": 8,
    "a": 21,
@@ -5173,11 +5577,13 @@
     0
    ],
    "er": {},
-   "cat": "how_we_build",
+   "cat": "others",
    "comp": "",
    "comp_status": ""
   },
   {
+   "id": "DrqkN4Axndg",
+   "url": "https://youtu.be/DrqkN4Axndg",
    "t": "Chopin's Nocturne — Tropical House Remix | Classical Meets the Beach",
    "p": "2026-04-02",
    "tp": "Music (Classical Remix)",
@@ -5202,10 +5608,12 @@
    "comp_status": ""
   },
   {
+   "id": "S0ZlSxGhWhk",
+   "url": "https://youtu.be/S0ZlSxGhWhk",
    "t": "Carmina Burana — reimagined as Tropical House.",
    "p": "2026-04-02",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
    "v": 15,
    "w": 4,
    "a": 19,
@@ -5221,16 +5629,122 @@
     1
    ],
    "er": {},
-   "cat": "how_we_build",
+   "cat": "others",
    "comp": "",
    "comp_status": ""
   },
   {
+   "id": "C_5j02MH_Ro",
+   "url": "https://youtu.be/C_5j02MH_Ro",
+   "t": "We took a classic from the Police, did a Medley and remixed it in Celtic style #music #thepolice",
+   "p": "2026-03-01",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 341,
+   "w": 15,
+   "a": 11,
+   "r": 0.0,
+   "L": 31,
+   "ret": 39,
+   "geo": "CH",
+   "sh": true,
+   "tb": [
+    13,
+    2,
+    326,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "id": "enD3v_ebx-w",
+   "url": "https://youtu.be/enD3v_ebx-w",
+   "t": "The Lost Coins: A cyber triller. https://scifibymiguel.substack.com/",
+   "p": "2026-03-01",
+   "tp": "Other",
+   "tc": "c-grey",
+   "v": 41,
+   "w": 11,
+   "a": 37,
+   "r": 0.0,
+   "L": 168,
+   "ret": 22,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    2,
+    1,
+    38,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "id": "whIKIUfg5mc",
+   "url": "https://youtu.be/whIKIUfg5mc",
+   "t": "Vivaldi Four Seasons: Winter - Vallenato Remix  #classicalremix #vivaldi #vallenato",
+   "p": "2026-03-01",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 1129,
+   "w": 93,
+   "a": 14,
+   "r": 0.0,
+   "L": 31,
+   "ret": 47,
+   "geo": "ES",
+   "sh": true,
+   "tb": [
+    16,
+    24,
+    1089,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "id": "71m5aWD8M3I",
+   "url": "https://youtu.be/71m5aWD8M3I",
+   "t": "Mozart Symphony 40 - Tropical House Remix",
+   "p": "2026-03-01",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 59,
+   "w": 27,
+   "a": 28,
+   "r": 0.0,
+   "L": 114,
+   "ret": 25,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    40,
+    16,
+    0,
+    3
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "id": "aJmfE6l1Jko",
+   "url": "https://youtu.be/aJmfE6l1Jko",
    "t": "Beethoven's Ode to Joy - Tropical House Remix",
    "p": "2026-03-01",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 39,
+   "v": 40,
    "w": 15,
    "a": 23,
    "r": 0.01,
@@ -5240,7 +5754,7 @@
    "sh": false,
    "tb": [
     28,
-    9,
+    10,
     0,
     2
    ],
@@ -5250,6 +5764,8 @@
    "comp_status": ""
   },
   {
+   "id": "mKhtRxHcgMI",
+   "url": "https://youtu.be/mKhtRxHcgMI",
    "t": "The Lost Coin: A cyber triller. Chapter 8 https://scifibymiguel.substack.com/",
    "p": "2026-02-28",
    "tp": "Other",
@@ -5274,6 +5790,8 @@
    "comp_status": ""
   },
   {
+   "id": "IxJnKkcsHS0",
+   "url": "https://youtu.be/IxJnKkcsHS0",
    "t": "Vivaldi Four Seasons Winter- Celtic remix #classicalremix #music #vivaldi",
    "p": "2026-02-27",
    "tp": "Music (Classical Remix)",
@@ -5298,6 +5816,8 @@
    "comp_status": ""
   },
   {
+   "id": "su78PuoAG58",
+   "url": "https://youtu.be/su78PuoAG58",
    "t": "The Lost Coin, Chapter 7: A cyber triller in shorts format. https://scifibymiguel.substack.com/",
    "p": "2026-02-27",
    "tp": "Other",
@@ -5322,6 +5842,8 @@
    "comp_status": ""
   },
   {
+   "id": "3LL99dYlGYc",
+   "url": "https://youtu.be/3LL99dYlGYc",
    "t": "Vivaldi Four Seasons- Winter  Celtic remix",
    "p": "2026-02-27",
    "tp": "Music (Classical Remix)",
@@ -5346,6 +5868,8 @@
    "comp_status": ""
   },
   {
+   "id": "Wa9ZnxJENV8",
+   "url": "https://youtu.be/Wa9ZnxJENV8",
    "t": "Vivaldi Four Seasons Winter, EDM Remix",
    "p": "2026-02-26",
    "tp": "Music (Classical Remix)",
@@ -5372,6 +5896,8 @@
    "comp_status": ""
   },
   {
+   "id": "zqc9dHzVi9A",
+   "url": "https://youtu.be/zqc9dHzVi9A",
    "t": "vivaldi four seasons winter progressive house remix",
    "p": "2026-02-25",
    "tp": "Music (Classical Remix)",
@@ -5396,6 +5922,8 @@
    "comp_status": ""
   },
   {
+   "id": "crCA8p1OJuI",
+   "url": "https://youtu.be/crCA8p1OJuI",
    "t": "Mozart Nr. 40 Trance Remix #classicalremix",
    "p": "2026-02-23",
    "tp": "Music (Classical Remix)",
@@ -5422,6 +5950,8 @@
    "comp_status": ""
   },
   {
+   "id": "7IJxpxi-KuA",
+   "url": "https://youtu.be/7IJxpxi-KuA",
    "t": "in the hall of the mountain king tropical house remix full",
    "p": "2026-02-23",
    "tp": "Music (Classical Remix)",
@@ -5446,6 +5976,8 @@
    "comp_status": ""
   },
   {
+   "id": "fYizUgUacto",
+   "url": "https://youtu.be/fYizUgUacto",
    "t": "The Lost Coin, Chapter 6: A cyber triller in shorts format",
    "p": "2026-02-22",
    "tp": "Other",
@@ -5470,12 +6002,14 @@
    "comp_status": ""
   },
   {
+   "id": "7c-CQ2j1q6I",
+   "url": "https://youtu.be/7c-CQ2j1q6I",
    "t": "mozart symphony 40 tropical house remix  #classicalremix",
    "p": "2026-02-22",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 1045,
-   "w": 130,
+   "v": 1047,
+   "w": 131,
    "a": 18,
    "r": 0.002,
    "L": 31,
@@ -5484,7 +6018,7 @@
    "sh": true,
    "tb": [
     17,
-    157,
+    159,
     871,
     0
    ],
@@ -5494,6 +6028,8 @@
    "comp_status": ""
   },
   {
+   "id": "0inKnq5X4iQ",
+   "url": "https://youtu.be/0inKnq5X4iQ",
    "t": "In the hall of the mountain king - vallenato remix  #classicalremix #mussorgsky  #violin",
    "p": "2026-02-21",
    "tp": "Music (Classical Remix)",
@@ -5518,6 +6054,8 @@
    "comp_status": ""
   },
   {
+   "id": "iwiGQmq8iiw",
+   "url": "https://youtu.be/iwiGQmq8iiw",
    "t": "The Lost Coin. Chapter 5: A cyber triller in Shorts format #thelostcoin",
    "p": "2026-02-21",
    "tp": "Other",
@@ -5542,21 +6080,23 @@
    "comp_status": ""
   },
   {
+   "id": "bF5rZ3nq5jw",
+   "url": "https://youtu.be/bF5rZ3nq5jw",
    "t": "Sugar Plum Fairy Tchaikovsky Trikitixa Remix  #classicalremix #tchaikovsky #nutcracker",
    "p": "2026-02-21",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 62,
-   "w": 3,
+   "v": 67,
+   "w": 4,
    "a": 6,
    "r": 0.002,
    "L": 8,
-   "ret": 84,
+   "ret": 87,
    "geo": "-",
    "sh": true,
    "tb": [
     7,
-    49,
+    52,
     6,
     0
    ],
@@ -5566,6 +6106,8 @@
    "comp_status": ""
   },
   {
+   "id": "-yBDJ3LlQvU",
+   "url": "https://youtu.be/-yBDJ3LlQvU",
    "t": "sugar plum fairy tchaikovsky trikitixa remix",
    "p": "2026-02-21",
    "tp": "Music (Classical Remix)",
@@ -5590,6 +6132,8 @@
    "comp_status": ""
   },
   {
+   "id": "h0leCj1_Sk4",
+   "url": "https://youtu.be/h0leCj1_Sk4",
    "t": "night on the bare mountain   mussorgsky tropical house remix @ #classicalremix #violin #mussorgsky",
    "p": "2026-02-20",
    "tp": "Music (Classical Remix)",
@@ -5614,6 +6158,8 @@
    "comp_status": ""
   },
   {
+   "id": "bPeM42iRKjA",
+   "url": "https://youtu.be/bPeM42iRKjA",
    "t": "The Lost Coin. Chapter 4: A cyber triller in Shorts format #lostcoin",
    "p": "2026-02-20",
    "tp": "Other",
@@ -5638,6 +6184,8 @@
    "comp_status": ""
   },
   {
+   "id": "b2EB6WZY5Uo",
+   "url": "https://youtu.be/b2EB6WZY5Uo",
    "t": "sugar plum fairy tchaikovsky-  tropical hause remix  #classicalremix #tchaikovsky",
    "p": "2026-02-20",
    "tp": "Music (Classical Remix)",
@@ -5662,11 +6210,13 @@
    "comp_status": ""
   },
   {
+   "id": "R69kQOFSu_U",
+   "url": "https://youtu.be/R69kQOFSu_U",
    "t": "Night on the bald mountain   Mussorgsky deep house remix short #classicalremix #mussorgsky",
    "p": "2026-02-19",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 171,
+   "v": 172,
    "w": 21,
    "a": 18,
    "r": 0.001,
@@ -5676,7 +6226,7 @@
    "sh": true,
    "tb": [
     12,
-    24,
+    25,
     133,
     2
    ],
@@ -5688,6 +6238,8 @@
    "comp_status": ""
   },
   {
+   "id": "iyONVpFg9cA",
+   "url": "https://youtu.be/iyONVpFg9cA",
    "t": "My Robot is Alive! Real-World Action with OpenClaw & Local Ollama model #OpenClaw #Robotics #Ollama",
    "p": "2026-02-18",
    "tp": "Other",
@@ -5718,12 +6270,14 @@
    "comp_status": ""
   },
   {
+   "id": "PRwpJrTwUmM",
+   "url": "https://youtu.be/PRwpJrTwUmM",
    "t": "mozart symphony 40 progressive trance remix short #classicalremix #mozart",
    "p": "2026-02-18",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 1302,
-   "w": 151,
+   "v": 1303,
+   "w": 152,
    "a": 16,
    "r": 0.0,
    "L": 24,
@@ -5732,7 +6286,7 @@
    "sh": true,
    "tb": [
     321,
-    46,
+    47,
     933,
     2
    ],
@@ -5744,11 +6298,13 @@
    "comp_status": ""
   },
   {
+   "id": "kYTQo9ey6h0",
+   "url": "https://youtu.be/kYTQo9ey6h0",
    "t": "Night on the bare mountain   mussorgsky celtic pop remix short #mussorgsky  #classicalremix",
    "p": "2026-02-18",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 99,
+   "v": 98,
    "w": 6,
    "a": 11,
    "r": 0.001,
@@ -5758,7 +6314,7 @@
    "sh": true,
    "tb": [
     12,
-    13,
+    12,
     74,
     0
    ],
@@ -5768,6 +6324,8 @@
    "comp_status": ""
   },
   {
+   "id": "a0D2nyDCQcY",
+   "url": "https://youtu.be/a0D2nyDCQcY",
    "t": "Night on the bare mountain   Mussorgsky celtic pop remix",
    "p": "2026-02-18",
    "tp": "Music (Classical Remix)",
@@ -5792,21 +6350,23 @@
    "comp_status": ""
   },
   {
+   "id": "iKsRvWLbkl0",
+   "url": "https://youtu.be/iKsRvWLbkl0",
    "t": "Tchaikovsky's sugar plum fairy modern celtic remix  #classicalremix #classicalmusic",
    "p": "2026-02-17",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 413,
-   "w": 42,
+   "v": 414,
+   "w": 43,
    "a": 19,
    "r": 0.001,
    "L": 24,
-   "ret": 81,
+   "ret": 80,
    "geo": "IT",
    "sh": true,
    "tb": [
     18,
-    81,
+    82,
     314,
     0
    ],
@@ -5816,6 +6376,8 @@
    "comp_status": ""
   },
   {
+   "id": "R4uEEw1y9fs",
+   "url": "https://youtu.be/R4uEEw1y9fs",
    "t": "Mozart symphony 40 modern celtic fusion remix",
    "p": "2026-02-17",
    "tp": "Music (Classical Remix)",
@@ -5842,11 +6404,13 @@
    "comp_status": ""
   },
   {
+   "id": "IbUi7Dhu64I",
+   "url": "https://youtu.be/IbUi7Dhu64I",
    "t": "Mozart in the Alps: Symphony No. 40 (Modern Celtic / Nu-Folk Remix)",
    "p": "2026-02-16",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 3871,
+   "v": 3872,
    "w": 715,
    "a": 28,
    "r": 0.001,
@@ -5856,7 +6420,7 @@
    "sh": true,
    "tb": [
     3528,
-    39,
+    40,
     304,
     0
    ],
@@ -5866,11 +6430,13 @@
    "comp_status": ""
   },
   {
+   "id": "toTiY0DHVj8",
+   "url": "https://youtu.be/toTiY0DHVj8",
    "t": "Ode to Joy progressive house remix full",
    "p": "2026-02-15",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 58066,
+   "v": 58069,
    "w": 41530,
    "a": 84,
    "r": 0.014,
@@ -5879,10 +6445,10 @@
    "geo": "IN",
    "sh": false,
    "tb": [
-    57993,
+    57994,
     23,
     0,
-    50
+    52
    ],
    "er": {
     "Search / Web": 1
@@ -5892,6 +6458,8 @@
    "comp_status": ""
   },
   {
+   "id": "ckhvQNMba-Y",
+   "url": "https://youtu.be/ckhvQNMba-Y",
    "t": "The Lost Coin, Chapter 3: The Rooftop Party",
    "p": "2026-02-15",
    "tp": "Other",
@@ -5916,11 +6484,13 @@
    "comp_status": ""
   },
   {
+   "id": "pdh8I_Jpgbk",
+   "url": "https://youtu.be/pdh8I_Jpgbk",
    "t": "ode to joy official modern celtic remix",
    "p": "2026-02-15",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 882,
+   "v": 883,
    "w": 95,
    "a": 15,
    "r": 0.001,
@@ -5930,7 +6500,7 @@
    "sh": true,
    "tb": [
     31,
-    36,
+    37,
     812,
     3
    ],
@@ -5943,6 +6513,8 @@
    "comp_status": ""
   },
   {
+   "id": "n0Q8wQGhad8",
+   "url": "https://youtu.be/n0Q8wQGhad8",
    "t": "Ode to joy tropical house remix",
    "p": "2026-02-14",
    "tp": "Music (Classical Remix)",
@@ -5967,6 +6539,8 @@
    "comp_status": ""
   },
   {
+   "id": "7dhdaiSgmkg",
+   "url": "https://youtu.be/7dhdaiSgmkg",
    "t": "The Lost Coins, Chapter 2: A cyber triller in Shorts format.",
    "p": "2026-02-14",
    "tp": "Other",
@@ -5993,6 +6567,8 @@
    "comp_status": ""
   },
   {
+   "id": "m-55kujIKXw",
+   "url": "https://youtu.be/m-55kujIKXw",
    "t": "The Lost Coin, Chapter 1: A cyber triller in shorts format",
    "p": "2026-02-13",
    "tp": "Other",
@@ -6021,12 +6597,14 @@
    "comp_status": ""
   },
   {
+   "id": "B-trnCS8tAI",
+   "url": "https://youtu.be/B-trnCS8tAI",
    "t": "ode to joy progressive house remix",
    "p": "2026-02-13",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 1139,
-   "w": 89,
+   "v": 1141,
+   "w": 90,
    "a": 13,
    "r": 0.0,
    "L": 31,
@@ -6035,7 +6613,7 @@
    "sh": true,
    "tb": [
     34,
-    24,
+    26,
     1079,
     2
    ],
@@ -6047,6 +6625,8 @@
    "comp_status": ""
   },
   {
+   "id": "6zX9WopVODU",
+   "url": "https://youtu.be/6zX9WopVODU",
    "t": "In the hall of the mountain king modern vallenato pop short",
    "p": "2026-02-12",
    "tp": "Music (Classical Remix)",
@@ -6071,6 +6651,8 @@
    "comp_status": ""
   },
   {
+   "id": "wx_S30A3aro",
+   "url": "https://youtu.be/wx_S30A3aro",
    "t": "Ode to Joy (Lebanese Percussion Remix)",
    "p": "2026-02-12",
    "tp": "Music (Classical Remix)",
@@ -6095,6 +6677,8 @@
    "comp_status": ""
   },
   {
+   "id": "yBsdbXOCpoo",
+   "url": "https://youtu.be/yBsdbXOCpoo",
    "t": "Danse Macabre Tropical House remix",
    "p": "2026-02-11",
    "tp": "Music (Classical Remix)",
@@ -6119,6 +6703,8 @@
    "comp_status": ""
   },
   {
+   "id": "G-BLDhMdp7s",
+   "url": "https://youtu.be/G-BLDhMdp7s",
    "t": "Danse Macabre Tropical House remix",
    "p": "2026-02-11",
    "tp": "Music (Classical Remix)",
@@ -6143,6 +6729,8 @@
    "comp_status": ""
   },
   {
+   "id": "ltpT5JdJZo8",
+   "url": "https://youtu.be/ltpT5JdJZo8",
    "t": "In the Hall of the Mountain King — Tropical House edition.",
    "p": "2026-02-11",
    "tp": "Music (Classical Remix)",
@@ -6167,6 +6755,8 @@
    "comp_status": ""
   },
   {
+   "id": "TJek6Kg8V8s",
+   "url": "https://youtu.be/TJek6Kg8V8s",
    "t": "In the Hall of the Mountain King — Tropical House edition.",
    "p": "2026-02-11",
    "tp": "Music (Classical Remix)",
@@ -6191,10 +6781,12 @@
    "comp_status": ""
   },
   {
+   "id": "8Ia2h0v1bk8",
+   "url": "https://youtu.be/8Ia2h0v1bk8",
    "t": "Carmina Burana reimagined as Progressive House.",
    "p": "2026-02-10",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
    "v": 125,
    "w": 31,
    "a": 36,
@@ -6210,15 +6802,17 @@
     0
    ],
    "er": {},
-   "cat": "how_we_build",
+   "cat": "others",
    "comp": "",
    "comp_status": ""
   },
   {
+   "id": "3vWVxPhnuUI",
+   "url": "https://youtu.be/3vWVxPhnuUI",
    "t": "Carmina Burana reimagined as Progressive House.",
    "p": "2026-02-10",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
    "v": 273,
    "w": 226,
    "a": 49,
@@ -6237,15 +6831,17 @@
     "Search / Web": 10,
     "Messaging": 2
    },
-   "cat": "how_we_build",
+   "cat": "others",
    "comp": "",
    "comp_status": ""
   },
   {
+   "id": "jE-9g-99Jeo",
+   "url": "https://youtu.be/jE-9g-99Jeo",
    "t": "Saint-Saëns’ Danse Macabre reborn in EDM form",
    "p": "2026-02-09",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
    "v": 741,
    "w": 89,
    "a": 15,
@@ -6266,117 +6862,14 @@
    "comp_status": ""
   },
   {
-   "t": "Saint-Saëns’ Danse Macabre reborn in EDM form",
-   "p": "2026-02-09",
-   "tp": "Other",
-   "tc": "c-grey",
-   "v": 11124,
-   "w": 4746,
-   "a": 62,
-   "r": 0.012,
-   "L": 182,
-   "ret": 34,
-   "geo": "IN",
-   "sh": false,
-   "tb": [
-    10006,
-    18,
-    0,
-    1100
-   ],
-   "er": {
-    "Other sites": 10,
-    "Search / Web": 1
-   },
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "t": "Danse Macabre Irish Folk Fusion",
-   "p": "2026-02-08",
-   "tp": "Other",
-   "tc": "c-grey",
-   "v": 236474,
-   "w": 135864,
-   "a": 78,
-   "r": 0.0,
-   "L": 162,
-   "ret": 48,
-   "geo": "IN",
-   "sh": false,
-   "tb": [
-    235616,
-    9,
-    0,
-    849
-   ],
-   "er": {
-    "Messaging": 7,
-    "Other sites": 9,
-    "Search / Web": 1
-   },
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "t": "Danse Macabre reimagined in Progressive House.",
-   "p": "2026-02-08",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
-   "v": 8,
-   "w": 1,
-   "a": 16,
-   "r": 0.0,
-   "L": 24,
-   "ret": 69,
-   "geo": "-",
-   "sh": true,
-   "tb": [
-    3,
-    2,
-    2,
-    1
-   ],
-   "er": {
-    "Search / Web": 1
-   },
-   "cat": "how_we_build",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "t": "Carmina Burana — reimagined as Tropical House.",
-   "p": "2026-02-08",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
-   "v": 88,
-   "w": 5,
-   "a": 12,
-   "r": 0.001,
-   "L": 24,
-   "ret": 50,
-   "geo": "-",
-   "sh": true,
-   "tb": [
-    4,
-    13,
-    71,
-    0
-   ],
-   "er": {},
-   "cat": "how_we_build",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
+   "id": "-KCfpv6WXVc",
+   "url": "https://youtu.be/-KCfpv6WXVc",
    "t": "Beethoven 9th Symphony second movement EDM remix",
    "p": "2026-04-08",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 280,
-   "w": 185,
+   "v": 282,
+   "w": 186,
    "a": 40,
    "r": 0.009,
    "L": 132,
@@ -6385,7 +6878,7 @@
    "sh": false,
    "tb": [
     174,
-    85,
+    87,
     0,
     21
    ],
@@ -6398,6 +6891,8 @@
    "comp_status": ""
   },
   {
+   "id": "DrqkN4Axndg",
+   "url": "https://youtu.be/DrqkN4Axndg",
    "t": "Chopin's Nocturne — Tropical House Remix | Classical Meets the Beach",
    "p": "2026-04-02",
    "tp": "Music (Classical Remix)",
@@ -6422,6 +6917,90 @@
    "comp_status": ""
   },
   {
+   "id": "S0ZlSxGhWhk",
+   "url": "https://youtu.be/S0ZlSxGhWhk",
+   "t": "Carmina Burana — reimagined as Tropical House.",
+   "p": "2026-04-02",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 15,
+   "w": 4,
+   "a": 19,
+   "r": 0.0,
+   "L": 69,
+   "ret": 29,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    12,
+    2,
+    0,
+    1
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "id": "vcTflgPP5s0",
+   "url": "https://youtu.be/vcTflgPP5s0",
+   "t": "Danse Macabre Irish Folk Fusion",
+   "p": "2026-02-08",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 236477,
+   "w": 135864,
+   "a": 78,
+   "r": 0.0,
+   "L": 162,
+   "ret": 48,
+   "geo": "IN",
+   "sh": false,
+   "tb": [
+    235618,
+    9,
+    0,
+    850
+   ],
+   "er": {
+    "Messaging": 7,
+    "Other sites": 9,
+    "Search / Web": 1
+   },
+   "cat": "others",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "id": "m6By4si6Z8k",
+   "url": "https://youtu.be/m6By4si6Z8k",
+   "t": "Danse Macabre Irish Folk Fusion",
+   "p": "2026-02-07",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 9710,
+   "w": 1726,
+   "a": 22,
+   "r": 0.0,
+   "L": 31,
+   "ret": 72,
+   "geo": "IN",
+   "sh": true,
+   "tb": [
+    8370,
+    29,
+    1309,
+    2
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "id": "X0tyvUUqIAo",
+   "url": "https://youtu.be/X0tyvUUqIAo",
    "t": "Danse Macabre – Vallenato Remix | Saint-Saëns Goes Latin",
    "p": "2026-02-07",
    "tp": "Music (Classical Remix)",
@@ -6446,21 +7025,23 @@
    "comp_status": ""
   },
   {
+   "id": "mJq7mslHKLk",
+   "url": "https://youtu.be/mJq7mslHKLk",
    "t": "In the Hall of the Mountain King – EDM Festival Remix | Epic Drop",
    "p": "2026-02-07",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 1126,
-   "w": 165,
+   "v": 1131,
+   "w": 166,
    "a": 13,
-   "r": 0.018,
+   "r": 0.02,
    "L": 31,
    "ret": 44,
    "geo": "US",
    "sh": true,
    "tb": [
     49,
-    277,
+    282,
     799,
     1
    ],
@@ -6470,6 +7051,8 @@
    "comp_status": ""
   },
   {
+   "id": "QaWhn0pZLHs",
+   "url": "https://youtu.be/QaWhn0pZLHs",
    "t": "In the Hall of the Mountain King – EDM Festival Remix | Epic Drop",
    "p": "2026-02-07",
    "tp": "Music (Classical Remix)",
@@ -6494,11 +7077,39 @@
    "comp_status": ""
   },
   {
+   "id": "bYH3org9UXs",
+   "url": "https://youtu.be/bYH3org9UXs",
+   "t": "Danse Macabre – Vallenato Remix | Saint-Saëns Goes Latin",
+   "p": "2026-02-07",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 1612,
+   "w": 143,
+   "a": 13,
+   "r": 0.001,
+   "L": 21,
+   "ret": 64,
+   "geo": "ES",
+   "sh": true,
+   "tb": [
+    355,
+    24,
+    1233,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": ""
+  },
+  {
+   "id": "ACZ9yofGbmk",
+   "url": "https://youtu.be/ACZ9yofGbmk",
    "t": "Tchaikovsky – Swan Lake Progressive House Rework",
    "p": "2026-02-06",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 160,
+   "v": 162,
    "w": 7,
    "a": 10,
    "r": 0.0,
@@ -6508,7 +7119,7 @@
    "sh": true,
    "tb": [
     6,
-    1,
+    3,
     153,
     0
    ],
@@ -6518,10 +7129,12 @@
    "comp_status": ""
   },
   {
+   "id": "xoYjQJDH0jg",
+   "url": "https://youtu.be/xoYjQJDH0jg",
    "t": "Night on the Bare Mountain - Mussorgsky Extended version",
    "p": "2026-02-06",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
    "v": 46568,
    "w": 86582,
    "a": 147,
@@ -6542,11 +7155,13 @@
    "comp_status": ""
   },
   {
+   "id": "fbGCWZhxQCw",
+   "url": "https://youtu.be/fbGCWZhxQCw",
    "t": "Kleine Nachtmusik // Progressive Trance",
    "p": "2026-02-06",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 893,
+   "v": 894,
    "w": 89,
    "a": 11,
    "r": 0.0,
@@ -6556,7 +7171,7 @@
    "sh": true,
    "tb": [
     18,
-    12,
+    13,
     863,
     0
    ],
@@ -6566,6 +7181,8 @@
    "comp_status": ""
   },
   {
+   "id": "coIf7h-jGc4",
+   "url": "https://youtu.be/coIf7h-jGc4",
    "t": "Dancing Queen (EDM Remix) — Club Rework",
    "p": "2026-02-05",
    "tp": "Music (Classical Remix)",
@@ -6590,12 +7207,14 @@
    "comp_status": ""
   },
   {
+   "id": "k1viS391EmE",
+   "url": "https://youtu.be/k1viS391EmE",
    "t": "Tchaikovsky swan lake EDM Remix",
    "p": "2026-02-05",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 18716,
-   "w": 9288,
+   "v": 18720,
+   "w": 9290,
    "a": 93,
    "r": 0.052,
    "L": 183,
@@ -6604,7 +7223,7 @@
    "sh": false,
    "tb": [
     18585,
-    112,
+    116,
     0,
     19
    ],
@@ -6617,11 +7236,13 @@
    "comp_status": ""
   },
   {
+   "id": "fbjpMREQ8Y8",
+   "url": "https://youtu.be/fbjpMREQ8Y8",
    "t": "Tchaikovsky swan lake EDM Remix",
    "p": "2026-02-05",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 1085,
+   "v": 1088,
    "w": 144,
    "a": 14,
    "r": 0.013,
@@ -6631,8 +7252,8 @@
    "sh": true,
    "tb": [
     18,
-    374,
-    690,
+    376,
+    691,
     3
    ],
    "er": {
@@ -6643,11 +7264,13 @@
    "comp_status": ""
   },
   {
+   "id": "lad5GrQq4xc",
+   "url": "https://youtu.be/lad5GrQq4xc",
    "t": "Night on the Bare Mountain (Progressive House Remix) – Mussorgsky",
    "p": "2026-02-05",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 776,
+   "v": 778,
    "w": 726,
    "a": 56,
    "r": 0.013,
@@ -6657,7 +7280,7 @@
    "sh": false,
    "tb": [
     678,
-    55,
+    57,
     0,
     43
    ],
@@ -6670,6 +7293,8 @@
    "comp_status": ""
   },
   {
+   "id": "kiQ6g-iulpg",
+   "url": "https://youtu.be/kiQ6g-iulpg",
    "t": "Swan Lake (Tropical House Remix) – Tchaikovsky",
    "p": "2026-02-04",
    "tp": "Music (Classical Remix)",
@@ -6694,13 +7319,15 @@
    "comp_status": ""
   },
   {
+   "id": "KDM7urGwkBc",
+   "url": "https://youtu.be/KDM7urGwkBc",
    "t": "Swan Lake (Tropical House Remix) – Tchaikovsky",
    "p": "2026-02-04",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 90,
+   "v": 91,
    "w": 58,
-   "a": 39,
+   "a": 38,
    "r": 0.015,
    "L": 133,
    "ret": 29,
@@ -6708,7 +7335,7 @@
    "sh": false,
    "tb": [
     49,
-    31,
+    32,
     0,
     10
    ],
@@ -6718,11 +7345,13 @@
    "comp_status": ""
   },
   {
+   "id": "TDEqthUFmqw",
+   "url": "https://youtu.be/TDEqthUFmqw",
    "t": "Mussorgsky but Progressive House",
    "p": "2026-02-04",
-   "tp": "Other",
-   "tc": "c-grey",
-   "v": 2937,
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 2939,
    "w": 442,
    "a": 19,
    "r": 0.0,
@@ -6732,7 +7361,7 @@
    "sh": true,
    "tb": [
     1790,
-    18,
+    20,
     1129,
     0
    ],
@@ -6742,21 +7371,23 @@
    "comp_status": ""
   },
   {
+   "id": "tVT2xcrwv9k",
+   "url": "https://youtu.be/tVT2xcrwv9k",
    "t": "ISAAC ALBÉNIZ - ASTURIAS (Official Progressive House Remix)",
    "p": "2026-02-03",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 190,
-   "w": 41,
+   "v": 196,
+   "w": 43,
    "a": 13,
-   "r": 0.003,
+   "r": 0.008,
    "L": 31,
-   "ret": 44,
+   "ret": 45,
    "geo": "-",
    "sh": true,
    "tb": [
-    37,
-    140,
+    40,
+    143,
     0,
     13
    ],
@@ -6768,10 +7399,12 @@
    "comp_status": ""
   },
   {
+   "id": "mglGLu-PmHQ",
+   "url": "https://youtu.be/mglGLu-PmHQ",
    "t": "Bach but progressive. Classical meets club #baroquemusic #dj",
    "p": "2026-02-02",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
    "v": 443,
    "w": 33,
    "a": 14,
@@ -6792,10 +7425,12 @@
    "comp_status": ""
   },
   {
+   "id": "YzHo0_GPYiw",
+   "url": "https://youtu.be/YzHo0_GPYiw",
    "t": "Debussy but it’s Tropical House 🌴🎹",
    "p": "2026-02-01",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
    "v": 88,
    "w": 2,
    "a": 7,
@@ -6816,6 +7451,8 @@
    "comp_status": ""
   },
   {
+   "id": "lzYBTdTW0rE",
+   "url": "https://youtu.be/lzYBTdTW0rE",
    "t": "Debussy – Clair de Lune (Tropical House Remix)",
    "p": "2026-02-01",
    "tp": "Music (Classical Remix)",
@@ -6842,10 +7479,12 @@
    "comp_status": ""
   },
   {
+   "id": "ubVHe8SvySM",
+   "url": "https://youtu.be/ubVHe8SvySM",
    "t": "I took the ethereal beauty of 'Clair de Lune' and reimagined it through the lens of Avicii’s sound",
    "p": "2026-01-31",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
    "v": 56,
    "w": 4,
    "a": 15,
@@ -6861,11 +7500,13 @@
     0
    ],
    "er": {},
-   "cat": "how_we_build",
+   "cat": "others",
    "comp": "",
    "comp_status": ""
   },
   {
+   "id": "or0tSaMBMU4",
+   "url": "https://youtu.be/or0tSaMBMU4",
    "t": "Debussy - Clair de Lune (Avicii Tribute Remix) | Progressive House Version",
    "p": "2026-01-31",
    "tp": "Music (Classical Remix)",
@@ -6892,21 +7533,23 @@
    "comp_status": ""
   },
   {
+   "id": "9wmXfirqCr0",
+   "url": "https://youtu.be/9wmXfirqCr0",
    "t": "Clair de Lune - Vallenato Sentimental (Homenaje to Debussy)",
    "p": "2026-01-31",
-   "tp": "Other",
-   "tc": "c-grey",
-   "v": 16461,
-   "w": 2863,
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 16465,
+   "w": 2864,
    "a": 18,
-   "r": 0.002,
+   "r": 0.003,
    "L": 25,
    "ret": 75,
    "geo": "IN",
    "sh": true,
    "tb": [
     15186,
-    37,
+    41,
     1237,
     1
    ],
@@ -6916,20 +7559,22 @@
    "comp_status": ""
   },
   {
+   "id": "1jVHDOy5Fv0",
+   "url": "https://youtu.be/1jVHDOy5Fv0",
    "t": "Clair de Lune (Vallenato Version) - Debussy Meets Colombia",
    "p": "2026-01-31",
-   "tp": "Other",
-   "tc": "c-grey",
-   "v": 266,
-   "w": 65,
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 267,
+   "w": 66,
    "a": 14,
-   "r": 0.0,
+   "r": 0.001,
    "L": 87,
    "ret": 17,
    "geo": "IN",
    "sh": false,
    "tb": [
-    257,
+    258,
     3,
     0,
     6
@@ -6940,23 +7585,25 @@
    "comp_status": ""
   },
   {
+   "id": "qT-5IcKH--Q",
+   "url": "https://youtu.be/qT-5IcKH--Q",
    "t": "Mozart – Eine kleine Nachtmusik (Deep House Remix)",
    "p": "2026-01-30",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 438,
-   "w": 298,
+   "v": 447,
+   "w": 303,
    "a": 42,
-   "r": 0.086,
+   "r": 0.087,
    "L": 108,
    "ret": 40,
    "geo": "-",
    "sh": false,
    "tb": [
     78,
-    291,
+    299,
     0,
-    69
+    70
    ],
    "er": {
     "Messaging": 3
@@ -6966,6 +7613,8 @@
    "comp_status": ""
   },
   {
+   "id": "SSvDRYbcigY",
+   "url": "https://youtu.be/SSvDRYbcigY",
    "t": "Mozart – Eine kleine Nachtmusik (Progressive Trance Remix)",
    "p": "2026-01-30",
    "tp": "Music (Classical Remix)",
@@ -6990,10 +7639,12 @@
    "comp_status": ""
   },
   {
+   "id": "ey-AYVysttw",
+   "url": "https://youtu.be/ey-AYVysttw",
    "t": "A second melodic house interpretation of Jean-Joseph Mouret’s Rondeau",
    "p": "2026-01-28",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
    "v": 15,
    "w": 10,
    "a": 40,
@@ -7016,6 +7667,8 @@
    "comp_status": ""
   },
   {
+   "id": "hLLz8P7Npnw",
+   "url": "https://youtu.be/hLLz8P7Npnw",
    "t": "Mouret Ronndeau Melodic House remix #electronicmusic",
    "p": "2026-01-27",
    "tp": "Music (Classical Remix)",
@@ -7040,6 +7693,8 @@
    "comp_status": ""
   },
   {
+   "id": "FXFP72usrYM",
+   "url": "https://youtu.be/FXFP72usrYM",
    "t": "Mouret – Rondeau (Melodic House Remix)",
    "p": "2026-01-26",
    "tp": "Music (Classical Remix)",
@@ -7066,6 +7721,8 @@
    "comp_status": ""
   },
   {
+   "id": "IzkMsY2-mUo",
+   "url": "https://youtu.be/IzkMsY2-mUo",
    "t": "Mouret – Rondeau (Progressive House Remix)",
    "p": "2026-01-26",
    "tp": "Music (Classical Remix)",
@@ -7094,6 +7751,8 @@
    "comp_status": ""
   },
   {
+   "id": "6dCtGeLUJsw",
+   "url": "https://youtu.be/6dCtGeLUJsw",
    "t": "Mozart Eine Kleine Nachtmusic trance edit",
    "p": "2026-01-24",
    "tp": "Music (Classical Remix)",
@@ -7120,6 +7779,8 @@
    "comp_status": ""
   },
   {
+   "id": "-c4CXJdnPrM",
+   "url": "https://youtu.be/-c4CXJdnPrM",
    "t": "From concert hall to dancefloor. Mozart in melodic house. ✨",
    "p": "2026-01-24",
    "tp": "Music (Classical Remix)",
@@ -7144,6 +7805,8 @@
    "comp_status": ""
   },
   {
+   "id": "YcTk2LVVx4c",
+   "url": "https://youtu.be/YcTk2LVVx4c",
    "t": "Mozart – Eine kleine Nachtmusik | Progressive Trance Rework",
    "p": "2026-01-23",
    "tp": "Music (Classical Remix)",
@@ -7168,6 +7831,8 @@
    "comp_status": ""
   },
   {
+   "id": "OIHVXzxzDL8",
+   "url": "https://youtu.be/OIHVXzxzDL8",
    "t": "Mozart and Vivaldi in Progresive Trance",
    "p": "2026-01-22",
    "tp": "Music (Classical Remix)",
@@ -7192,6 +7857,8 @@
    "comp_status": ""
   },
   {
+   "id": "kEPdOXWZO_8",
+   "url": "https://youtu.be/kEPdOXWZO_8",
    "t": "Mozart x Vivaldi — Melodic House Rework | Classical Meets Deep Groove",
    "p": "2026-01-22",
    "tp": "Music (Classical Remix)",
@@ -7218,20 +7885,22 @@
    "comp_status": ""
   },
   {
+   "id": "1d-2lJLgJ-0",
+   "url": "https://youtu.be/1d-2lJLgJ-0",
    "t": "Mozart & Vivaldi — Progressive Trance Rework | Full Version",
    "p": "2026-01-21",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 65,
-   "w": 57,
-   "a": 52,
-   "r": 0.003,
+   "v": 66,
+   "w": 59,
+   "a": 53,
+   "r": 0.01,
    "L": 120,
-   "ret": 44,
+   "ret": 45,
    "geo": "-",
    "sh": false,
    "tb": [
-    62,
+    63,
     2,
     0,
     1
@@ -7242,10 +7911,12 @@
    "comp_status": ""
   },
   {
+   "id": "318OSBDTXjg",
+   "url": "https://youtu.be/318OSBDTXjg",
    "t": "Bach Lo-Fi House | Focus / Study / Night Listening",
    "p": "2026-01-21",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
    "v": 129,
    "w": 4,
    "a": 15,
@@ -7266,10 +7937,12 @@
    "comp_status": ""
   },
   {
+   "id": "fWSmjeXY58Y",
+   "url": "https://youtu.be/fWSmjeXY58Y",
    "t": "Bach — Lo-Fi House Rework | Full Version",
    "p": "2026-01-21",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
    "v": 10,
    "w": 9,
    "a": 55,
@@ -7290,10 +7963,12 @@
    "comp_status": ""
   },
   {
+   "id": "SW0Dt6KXe8U",
+   "url": "https://youtu.be/SW0Dt6KXe8U",
    "t": "Bach — deep house edit",
    "p": "2026-01-20",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
    "v": 729,
    "w": 87,
    "a": 23,
@@ -7314,10 +7989,12 @@
    "comp_status": ""
   },
   {
+   "id": "UyfAJmMtSfc",
+   "url": "https://youtu.be/UyfAJmMtSfc",
    "t": "Bach – Invention No. 8 (Deep House Rework)",
    "p": "2026-01-20",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
    "v": 153,
    "w": 60,
    "a": 23,
@@ -7340,12 +8017,14 @@
    "comp_status": ""
   },
   {
+   "id": "YSgmEmkEvV8",
+   "url": "https://youtu.be/YSgmEmkEvV8",
    "t": "Bach – Invention No. 8 (Progressive Trance Rework)",
    "p": "2026-01-19",
-   "tp": "Other",
-   "tc": "c-grey",
-   "v": 1310,
-   "w": 1060,
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 1311,
+   "w": 1061,
    "a": 109,
    "r": 0.015,
    "L": 198,
@@ -7354,7 +8033,7 @@
    "sh": false,
    "tb": [
     1290,
-    18,
+    19,
     0,
     2
    ],
@@ -7364,10 +8043,12 @@
    "comp_status": ""
   },
   {
+   "id": "SAbcu72ZeCI",
+   "url": "https://youtu.be/SAbcu72ZeCI",
    "t": "Pachelbel’s Canon reimagined for the mainstage.Full version exists if you want the whole 🎹🔥",
    "p": "2026-01-17",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
    "v": 122,
    "w": 8,
    "a": 18,
@@ -7383,11 +8064,13 @@
     0
    ],
    "er": {},
-   "cat": "how_we_build",
+   "cat": "others",
    "comp": "",
    "comp_status": ""
   },
   {
+   "id": "GXxEvQglWuI",
+   "url": "https://youtu.be/GXxEvQglWuI",
    "t": "Pachelbel’s Canon… but make it Mainstage 🎹🔥What happens when 1680 meets 2026? (EDM Remix)",
    "p": "2026-01-16",
    "tp": "Music (Classical Remix)",
@@ -7412,6 +8095,8 @@
    "comp_status": ""
   },
   {
+   "id": "2-UibqrWZc4",
+   "url": "https://youtu.be/2-UibqrWZc4",
    "t": "La Bamba EDM 2026 #EDMRemix #MusicMix2026 #BassBoosted #PartyMusic #electronicmusic ",
    "p": "2026-01-15",
    "tp": "Music (Classical Remix)",
@@ -7436,21 +8121,23 @@
    "comp_status": ""
   },
   {
+   "id": "vArEYQsoaNU",
+   "url": "https://youtu.be/vArEYQsoaNU",
    "t": "You Are My Sunshine - Official Dance Remix 2026 [Bass Boosted]#YouAreMySunshine #edmremix2026  ",
    "p": "2026-01-15",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 21116,
-   "w": 4722,
+   "v": 21126,
+   "w": 4732,
    "a": 37,
-   "r": 0.084,
+   "r": 0.088,
    "L": 128,
    "ret": 29,
    "geo": "IN",
    "sh": false,
    "tb": [
-    20830,
-    224,
+    20836,
+    228,
     0,
     62
    ],
@@ -7463,10 +8150,12 @@
    "comp_status": ""
   },
   {
+   "id": "4w9qclXvNaM",
+   "url": "https://youtu.be/4w9qclXvNaM",
    "t": "Dancing Queen EDM version #edm #sunset #lifeisbutadream #generatingmusic #beach #abba ",
    "p": "2026-01-14",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
    "v": 68,
    "w": 38,
    "a": 33,
@@ -7487,10 +8176,12 @@
    "comp_status": ""
   },
   {
+   "id": "7x0Pp7LIzow",
+   "url": "https://youtu.be/7x0Pp7LIzow",
    "t": "It’s only love EDM version ",
    "p": "2026-01-11",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
    "v": 24,
    "w": 9,
    "a": 23,
@@ -7511,21 +8202,23 @@
    "comp_status": ""
   },
   {
+   "id": "sDP2Phe8OKc",
+   "url": "https://youtu.be/sDP2Phe8OKc",
    "t": "Forever Young, EDM Remix. AI generated by Suno, Gemini, Runway and mixed in iMovie. ",
    "p": "2026-01-10",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 23,
+   "v": 24,
    "w": 13,
-   "a": 34,
+   "a": 33,
    "r": 0.0,
    "L": 85,
-   "ret": 40,
+   "ret": 39,
    "geo": "-",
    "sh": false,
    "tb": [
     18,
-    5,
+    6,
     0,
     0
    ],
@@ -7535,6 +8228,8 @@
    "comp_status": ""
   },
   {
+   "id": "83tiRMK-Ga8",
+   "url": "https://youtu.be/83tiRMK-Ga8",
    "t": "9 January 2026",
    "p": "2026-01-09",
    "tp": "Other",
@@ -7559,6 +8254,8 @@
    "comp_status": ""
   },
   {
+   "id": "6e0R0ylHrRE",
+   "url": "https://youtu.be/6e0R0ylHrRE",
    "t": "AI generated music for my potty who is a champion.",
    "p": "2026-01-08",
    "tp": "Other",
@@ -7583,10 +8280,12 @@
    "comp_status": ""
   },
   {
+   "id": "z4z3q5nuQkc",
+   "url": "https://youtu.be/z4z3q5nuQkc",
    "t": "El Vallenato de la Paloma",
    "p": "2026-01-07",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
    "v": 24,
    "w": 14,
    "a": 35,
@@ -7607,6 +8306,8 @@
    "comp_status": ""
   },
   {
+   "id": "_4mwz9ozhZM",
+   "url": "https://youtu.be/_4mwz9ozhZM",
    "t": "Odd Lots: Sour Crude",
    "p": "2026-01-07",
    "tp": "Other",
@@ -7633,10 +8334,12 @@
    "comp_status": ""
   },
   {
+   "id": "BICJlGqXNq4",
+   "url": "https://youtu.be/BICJlGqXNq4",
    "t": "La Bambhetta in full",
    "p": "2026-01-07",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
    "v": 30,
    "w": 13,
    "a": 26,
@@ -7657,10 +8360,12 @@
    "comp_status": ""
   },
   {
+   "id": "UTCBJiy11WI",
+   "url": "https://youtu.be/UTCBJiy11WI",
    "t": "La Bambhetta",
    "p": "2026-01-03",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
    "v": 12,
    "w": 4,
    "a": 20,

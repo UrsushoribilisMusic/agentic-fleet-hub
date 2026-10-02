@@ -24,6 +24,7 @@ Verdicts are rule-based from each topic's aggregate performance.
 import argparse
 import json
 import os
+import re
 import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
@@ -50,9 +51,24 @@ TOPIC_COLOR = {
 
 # Ordered keyword rules: first match wins. (regex-free substring match, lowercased)
 TOPIC_RULES = [
-    ("Music (Classical Remix)", ["remix", "liszt", "mozart", "tchaikovsky", "beethoven",
-                                  "vivaldi", "chopin", "rhapsody", "swan lake", "mountain king",
-                                  "nachtmusik", "classical goes"]),
+    ("Music (Classical Remix)", [
+        # transformation markers (this channel's signature naming)
+        "remix", "reimagined", "reborn", "rework", "fusion", "classical meets", "classical goes",
+        "meets club", "but progressive", "baroquemus",
+        # modern-genre markers
+        "progressive house", "deep house", "progressive trance", "trance", "edm", "dubstep",
+        "phonk", "lofi", "lo-fi", "vallenato", "techno", "drum and bass", "house edit",
+        "melodic house", "mouret",
+        # composers
+        "bach", "mozart", "beethoven", "chopin", "liszt", "tchaikovsky", "vivaldi", "mussorgsky",
+        "saint-sa", "pachelbel", "debussy", "handel", "grieg", "brahms", "schubert", "ravel",
+        "dvor", "rachmanino", "wagner", "verdi", "puccini", "bizet", "strauss", "holst", "satie",
+        "elgar", "prokofiev", "albinoni",
+        # pieces / motifs
+        "danse macabre", "carmina burana", "clair de lune", "bare mountain", "swan lake",
+        "mountain king", "nachtmusik", "rhapsody", "ode to joy", "invention no", "moonlight sonata",
+        "flight of the bumblebee", "ave maria", "bolero", "william tell", "four seasons",
+        "fur elise", "malague"]),
     ("Governance & Geopolitics", ["governance", "geopolit", "sovereign", "framework 3.0",
                                    "regulation", "eu ai act", "policy", "congress", "china",
                                    "europe", "us-china", "transformative ai strategy"]),
@@ -98,12 +114,24 @@ def load_json(p, default):
         return default
 
 
+_KW_RX = {}
+
+
+def _kw_hit(kw, t):
+    """Word-boundary match so short keywords (agi, rag) don't match inside words
+    like 'reimagined' or 'dragon'. Prefix matches still work (capabilit->capabilities)."""
+    rx = _KW_RX.get(kw)
+    if rx is None:
+        rx = _KW_RX[kw] = re.compile(r"\b" + re.escape(kw))
+    return rx.search(t) is not None
+
+
 def classify_topic(title, vid, overrides):
     if vid in overrides:
         return overrides[vid]
     t = title.lower()
     for topic, kws in TOPIC_RULES:
-        if any(k in t for k in kws):
+        if any(_kw_hit(k, t) for k in kws):
             return topic
     return "Other"
 
@@ -248,6 +276,7 @@ def main():
         cat = t2c.get(topic, "others")
         cm = title2comp.get(title.strip().lower())
         videos.append({
+            "id": vid, "url": f"https://youtu.be/{vid}",
             "t": title, "p": pub, "tp": topic, "tc": TOPIC_COLOR.get(topic, "c-grey"),
             "v": a["v"], "w": a["w"], "a": a["a"], "r": a["r"], "L": dur, "ret": a["ret"],
             "geo": a["geo"], "sh": is_short, "tb": a["tb"], "er": a["er"],
