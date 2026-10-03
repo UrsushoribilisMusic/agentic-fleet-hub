@@ -1091,5 +1091,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **uot43m39** | TECH-SHORT (EN video): Japan AISI cyber-capability eval - Claude Opus 4.8 vs GLM-5.2 | gem | planned | CONTEXT: New tech-short on the ideation list (job ... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
