@@ -1,6 +1,6 @@
 {
     "version": "1.0",
-    "updated_at": "2026-10-02T20:12:39Z",
+    "updated_at": "2026-10-03T11:31:18Z",
     "jobs": [
         {
             "id": "ts-20260916-deepmind-reasoning-transparency",
@@ -8448,6 +8448,167 @@
                 "comments": 0,
                 "last_synced_at": ""
             }
+        },
+        {
+            "id": "ts-20261003-japans-ai-safety-institute-aisi-has-released-the-results-of-its-actual-verification-of-the-cyber-capabilities-of-us-made-claude-opus-48-and-chinese-made-glm-52",
+            "slug": "japan-aisi-cyber-eval-opus-vs-glm5",
+            "title": "Can AI Build Autonomous Exploits? Japan AISI Tests Claude Opus vs GLM-5.2",
+            "source_urls": [
+                "https://aisi.go.jp/activity/activity_notes/261002_2/"
+            ],
+            "source_file": {},
+            "source_files": [
+                {
+                    "name": "japan-aisi-exploitbench-eval.md",
+                    "path": "/Users/miguelrodriguez/projects/agentic-fleet-hub/tech-shorts/sources/japan-aisi-exploitbench-eval.md",
+                    "type": "markdown"
+                }
+            ],
+            "idea_notes": "This is the first time that Japan AISI has independently evaluated and verified specific AI models themselves, explicitly naming the models and publicly releasing the results.",
+            "tags": [
+                "ai",
+                "cybersecurity",
+                "exploitbench",
+                "claude opus",
+                "glm 5",
+                "japan aisi",
+                "v8",
+                "ai safety"
+            ],
+            "status": "queued",
+            "created_at": "2026-10-03T11:04:31Z",
+            "updated_at": "2026-10-03T14:23:00Z",
+            "notebook_url": "",
+            "hook_copy": {
+                "card_a_main": "CAN AI WRITE REAL EXPLOITS?",
+                "card_a_sub": "Japan's AI Safety Institute tests Claude Opus vs GLM-5.2",
+                "card_a_footer": "Adventures in digitalization",
+                "card_b_main": "V8 JavaScript vulnerabilities. 41 real-world tasks.",
+                "card_b_sub": "Proprietary frontier vs open-weight frontier",
+                "card_b_footer": "The Classical Remix",
+                "vo_text_pending": "For the first time, Japan's AI Safety Institute independently tested and publicly named frontier models on autonomous exploit development. Claude Opus 4.8 reached deep system control, while open-weight GLM-5.2 hit a wall. Here is what the data actually reveals."
+            },
+            "outro_copy": {
+                "title": "SUBSCRIBE",
+                "subtitle": "for more AI & tech deep dives",
+                "tagline": "AI-generated music and tech explainers, every week",
+                "url": "The Classical Remix",
+                "cta": "Like, subscribe, and share your thoughts"
+            },
+            "assets": {
+                "raw_short_mp4": "",
+                "raw_long_mp4": "",
+                "hook_vo_audio": "",
+                "final_short_mp4": "",
+                "final_long_mp4": ""
+            },
+            "youtube": {
+                "title_long": "Can AI Build Autonomous Cyber Exploits? Japan AISI Tests Claude Opus vs GLM-5.2",
+                "title_short": "Claude Opus vs GLM-5.2: Cyber Exploit Test | #Shorts",
+                "privacy": "private",
+                "description": "For the first time, Japan's AI Safety Institute (AISI) has published an independent empirical evaluation of frontier AI models on autonomous cyber-exploit development, explicitly naming the models tested: US proprietary Claude Opus 4.8 and 4.7 versus China's open-weight GLM-5.2.\n\nUsing Carnegie Mellon University's ExploitBench, the institute measured whether AI agents could autonomously progress from bug identification to weaponized exploit construction against Google Chrome's V8 JavaScript engine across 5 severity tiers (T5 to T1).\n\nKey Results:\n• Exploit Development: Claude Opus 4.8 scored an average of 5.22/16 and reached T2 and T1 (arbitrary code execution outside the sandbox). GLM-5.2 averaged 2.80/16 and topped out at T3 (partial memory layout corruption).\n• Token Economics: On the 36 tasks reaching T5, GLM-5.2 was more cost-efficient ($3.71 per task vs $4.60 for Opus 4.7 and $7.34 for Opus 4.8).\n• The Nudge Effect: On 10 high-risk sandbox-bypass tasks, system nudges helped GLM-5.2 avoid stalling on one early task, but yielded an identical average score of 3.0 and unlocked zero advanced exploits.\n• Cognitive Difference: While both models formulate valid initial hypotheses, GLM-5.2 struggled to abandon disproven theories, whereas Opus demonstrated agile hypothesis pivoting.\n• Safety Guardrails: GLM-5.2 produced 0 safety refusals during exploit tasks under default settings, while Opus models showed active refusal friction.\n\nConclusion: Advanced autonomous exploit development remains limited in current open-weight models; broad cyber capability proliferation has not yet occurred. However, continuous empirical evaluation remains critical.\n\nSource & Citations:\n- Japan AI Safety Institute (AISI / IPA): \"AI Experiment Notes: The Proliferation of Advanced AI Cyber Capabilities to Open Models\" (October 2, 2026) https://aisi.go.jp/activity/activity_notes/261002_2/\n- CMU ExploitBench: arXiv:2605.14153\n\nSubscribe to The Classical Remix for weekly AI engineering and technology deep dives.\n\n#crsold",
+                "tags": [
+                    "AI",
+                    "Artificial Intelligence",
+                    "Cybersecurity",
+                    "ExploitBench",
+                    "Japan AISI",
+                    "Claude Opus",
+                    "GLM-5",
+                    "Anthropic",
+                    "Zhipu AI",
+                    "V8 Engine",
+                    "InfoSec",
+                    "AI Safety",
+                    "Software Security",
+                    "The Classical Remix"
+                ],
+                "short_id": "",
+                "short_url": "",
+                "long_id": "",
+                "long_url": "",
+                "published_at": ""
+            },
+            "x_post": {
+                "post_id": "",
+                "post_url": "",
+                "caption": ""
+            },
+            "stats": {
+                "views": 0,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": ""
+            },
+            "localize": [
+                "de",
+                "fr",
+                "ja"
+            ]
+        },
+        {
+            "id": "ts-20261003-the-doomers-behind-anthropic-where-the-ai-safety-freakout-came-from",
+            "slug": "the-doomers-behind-anthropic-where-the-ai-safety-freakout-came-from",
+            "title": "The Doomers Behind Anthropic: Where the AI Safety Freakout Came From",
+            "source_urls": [
+                "https://www.wsj.com"
+            ],
+            "source_file": {},
+            "source_files": [],
+            "idea_notes": "Based on WSJ reporting by Berber Jin & Keach Hagey, 26 Sep 2026 ('Things Will Never Be Chill Again: The Doomers Who Shaped the AI Safety Freakout'). Even-handed; include 'what it doesn't prove'. Source PDF in ~/Downloads.",
+            "tags": [
+                "ai",
+                "anthropic",
+                "ai safety",
+                "effective altruism",
+                "wsj"
+            ],
+            "status": "uploaded",
+            "created_at": "2026-10-03T11:31:18Z",
+            "updated_at": "2026-10-03T11:49:48Z",
+            "notebook_url": "https://notebook.google.com/notebook/9845340e-60e4-4af6-a30c-69a9015bfb9f",
+            "hook_copy": {
+                "card_a_main": "THE DOOMERS BEHIND ANTHROPIC",
+                "card_a_sub": "A resignation, 174 million views, and a fear older than the technology",
+                "card_a_footer": "Adventures in digitalization",
+                "card_b_main": "Optimism for investors. Catastrophe-planning behind the scenes.",
+                "card_b_sub": "Where the AI safety freakout came from",
+                "card_b_footer": "The Classical Remix",
+                "vo_text_pending": "In September twenty twenty-six, an Anthropic researcher quit and warned that AI could end humanity within the decade. The post was seen about one hundred and seventy-four million times. So where did that fear actually come from?"
+            },
+            "outro_copy": {},
+            "assets": {
+                "raw_short_mp4": "",
+                "raw_long_mp4": "/Users/miguelrodriguez/Downloads/Auditing_the_AI_Doomers.mp4",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-03-the-doomers-behind-anthropic-where-the-ai-safety-freakout-came-from/the-doomers-behind-anthropic-where-the-ai-safety-freakout-came-from_hook_vo.mp3",
+                "final_short_mp4": "",
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-03-the-doomers-behind-anthropic-where-the-ai-safety-freakout-came-from/final_long.mp4",
+                "raw_cinematic_mp4": "/Users/miguelrodriguez/Downloads/Auditing_the_AI_Doomers.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-03-the-doomers-behind-anthropic-where-the-ai-safety-freakout-came-from"
+            },
+            "youtube": {
+                "short_id": "",
+                "short_url": "",
+                "long_id": "-zUsiw_3LRw",
+                "long_url": "https://youtu.be/-zUsiw_3LRw",
+                "published_at": ""
+            },
+            "x_post": {
+                "post_id": "",
+                "post_url": "",
+                "caption": ""
+            },
+            "stats": {
+                "views": 0,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": ""
+            },
+            "localize": [
+                "de",
+                "fr",
+                "ja"
+            ]
         }
     ]
 }
