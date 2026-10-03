@@ -1,6 +1,6 @@
 {
     "version": "1.0",
-    "updated_at": "2026-10-03T11:31:18Z",
+    "updated_at": "2026-10-03T19:05:09Z",
     "jobs": [
         {
             "id": "ts-20260916-deepmind-reasoning-transparency",
@@ -8451,8 +8451,8 @@
         },
         {
             "id": "ts-20261003-japans-ai-safety-institute-aisi-has-released-the-results-of-its-actual-verification-of-the-cyber-capabilities-of-us-made-claude-opus-48-and-chinese-made-glm-52",
-            "slug": "japan-aisi-cyber-eval-opus-vs-glm5",
-            "title": "Can AI Build Autonomous Exploits? Japan AISI Tests Claude Opus vs GLM-5.2",
+            "slug": "japans-ai-safety-institute-aisi-has-released-the-results-of-its-actual-verification-of-the-cyber-capabilities-of-us-made-claude-opus-48-and-chinese-made-glm-52",
+            "title": "Japan's AI Safety Institute (AISI) has released the results of its actual verification of the cyber capabilities of U.S.-made Claude Opus 4.8 and Chinese-made GLM-5.2.",
             "source_urls": [
                 "https://aisi.go.jp/activity/activity_notes/261002_2/"
             ],
@@ -8475,18 +8475,18 @@
                 "v8",
                 "ai safety"
             ],
-            "status": "queued",
+            "status": "uploaded",
             "created_at": "2026-10-03T11:04:31Z",
-            "updated_at": "2026-10-03T14:23:00Z",
-            "notebook_url": "",
+            "updated_at": "2026-10-03T19:30:18Z",
+            "notebook_url": "https://notebook.google.com/notebook/e97672d5-c882-4133-bd37-f09bc09d3352",
             "hook_copy": {
-                "card_a_main": "CAN AI WRITE REAL EXPLOITS?",
-                "card_a_sub": "Japan's AI Safety Institute tests Claude Opus vs GLM-5.2",
+                "card_a_main": "A GOVERNMENT LAB TESTED AI'S HACKING SKILLS",
+                "card_a_sub": "Japan's AI Safety Institute: Claude Opus 4.8 vs China's GLM-5.2",
                 "card_a_footer": "Adventures in digitalization",
-                "card_b_main": "V8 JavaScript vulnerabilities. 41 real-world tasks.",
-                "card_b_sub": "Proprietary frontier vs open-weight frontier",
+                "card_b_main": "How good is AI at building real exploits?",
+                "card_b_sub": "The first independent, publicly named benchmark",
                 "card_b_footer": "The Classical Remix",
-                "vo_text_pending": "For the first time, Japan's AI Safety Institute independently tested and publicly named frontier models on autonomous exploit development. Claude Opus 4.8 reached deep system control, while open-weight GLM-5.2 hit a wall. Here is what the data actually reveals."
+                "vo_text_pending": "For the first time, Japan's AI Safety Institute has independently tested how good today's top AI models really are at hacking, pitting America's Claude Opus against China's open model GLM. Who came out ahead, and how worried should we be?"
             },
             "outro_copy": {
                 "title": "SUBSCRIBE",
@@ -8497,10 +8497,12 @@
             },
             "assets": {
                 "raw_short_mp4": "",
-                "raw_long_mp4": "",
-                "hook_vo_audio": "",
+                "raw_long_mp4": "/Users/miguelrodriguez/Downloads/The_ExploitBench_Experiment.mp4",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-03-japan-aisi-cyber-eval/japans-ai-safety-institute-aisi-has-released-the-results-of-its-actual-verification-of-the-cyber-capabilities-of-us-made-claude-opus-48-and-chinese-made-glm-52_hook_vo.mp3",
                 "final_short_mp4": "",
-                "final_long_mp4": ""
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-03-japan-aisi-cyber-eval/final_long.mp4",
+                "raw_cinematic_mp4": "/Users/miguelrodriguez/Downloads/The_ExploitBench_Experiment.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-03-japan-aisi-cyber-eval"
             },
             "youtube": {
                 "title_long": "Can AI Build Autonomous Cyber Exploits? Japan AISI Tests Claude Opus vs GLM-5.2",
@@ -8525,8 +8527,8 @@
                 ],
                 "short_id": "",
                 "short_url": "",
-                "long_id": "",
-                "long_url": "",
+                "long_id": "ECuneH0hPcg",
+                "long_url": "https://youtu.be/ECuneH0hPcg",
                 "published_at": ""
             },
             "x_post": {
