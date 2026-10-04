@@ -61,3 +61,5 @@ eval/irr_human/rater_map.local.json
 eval/anc/
 eval/canis_arxiv_submission.tar.gz
 eval/canis_submission.tar.gz
+fleet/logs/*.log
+fleet/logs/*.log.*

@@ -37,7 +37,7 @@ GRADED_V2       = REPO / "eval/results_eval007_v2_graded.jsonl"
 BLIND_BATCH_V2  = REPO / "eval/blind_batch_eval007_v2.jsonl"
 BLIND_REVEAL_V2 = REPO / "eval/blind_reveal_eval007_v2.json"
 
-TG_TOKEN    = "8741981300:AAF66YPOhG10xyTq21WHzEfdyzmH3HnC1zE"
+TG_TOKEN    = os.environ.get("TELEGRAM_TOKEN", "")
 TG_CHAT_ID  = "997912895"
 BRANCH      = "task/jeg47u9hj1da0b5"
 GH_URL      = f"https://github.com/UrsushoribilisMusic/agentic-fleet-hub/tree/{BRANCH}/eval"
