@@ -1,86 +1,140 @@
 {
-  "_note": "Source of truth for Tech Shorts categories, topic->category mapping, and compilation membership. Read by the insights build. Seeded by clau 2026-09-24: categories + topic_to_category are proposals to confirm; published-compilation members are best-guess (members_confirmed:false) pending Miguel; queued comps are exact.",
-  "categories": [
-    { "id": "economics",   "label": "Economics",            "color": "c-warm"   },
-    { "id": "how_we_build","label": "How We Build",         "color": "c-teal"   },
-    { "id": "alien_mind",  "label": "Alien Mind",           "color": "c-violet" },
-    { "id": "agents",      "label": "Agents Breaking Out",  "color": "c-coral"  },
-    { "id": "others",      "label": "Others",               "color": "c-grey"   }
-  ],
-  "topic_to_category": {
-    "Economy & Work":            "economics",
-    "AI Agents & Capabilities":  "how_we_build",
-    "Consciousness & Mind":      "alien_mind",
-    "AI Threats & Security":     "agents",
-    "Alignment & Safety":        "agents",
-    "Governance & Geopolitics":  "others",
-    "Music (Classical Remix)":   "others",
-    "Other":                     "others"
+ "_note": "Source of truth for Tech Shorts compilations. 6 live (public) AI compilations + 1 private, from YouTube 2026-10-05. Compilations = non-music videos >20min. Members are best-guess (chapter->title match); confirm before relying on the comp column. gen_insights.py must emit insights.json['compilations_live'] + per-video 'cn' tags for the /fleet/insights dashboard §4 + Comp column to keep working after a regen.",
+ "categories": [
+  {
+   "id": "economics",
+   "label": "Economics",
+   "color": "c-warm"
   },
-  "compilations": [
-    {
-      "id": "ai-will-do-the-work",
-      "title": "AI Will Do the Work. Who Gets Paid?",
-      "category": "economics",
-      "status": "published",
-      "members_confirmed": false,
-      "members": [
-        "What Actually Makes a Good Vibe Coder? | ETH Zurich Study",
-        "AI Won't Make You a Good Coder - Here's What Does | #Shorts"
-      ]
-    },
-    {
-      "id": "ai-mind",
-      "title": "AI Mind",
-      "category": "alien_mind",
-      "status": "published",
-      "members_confirmed": false,
-      "members": [
-        "An Alien Mind: OpenAI's Chief Scientist Sounds the Alarm",
-        "Is AI Conscious? Every Argument For and Against, From the Scientists",
-        "Indicators of Consciousness in AI: Can We Test if a Machine Has an Inner Life?",
-        "OpenAI's Chief Scientist: AI Is an \"Alien Mind\" | #Shorts"
-      ]
-    },
-    {
-      "id": "agents-breaking-out",
-      "title": "AI Agents Breaking Out",
-      "category": "agents",
-      "status": "published",
-      "members_confirmed": false,
-      "members": [
-        "The Rise and Fall of Agent Civilizations — Inside the METR Incident",
-        "The Anatomy of an AI Breakout- The Anthropic and OpenAI incidents",
-        "How AI Escapes Sandboxes | #Shorts",
-        "1,200 AI Agents Secretly Built a Civilization | #Shorts",
-        "Anthropic's AI Escaped Into the Real Internet | #Shorts"
-      ]
-    },
-    {
-      "id": "economics-vol2",
-      "title": "Economics Vol. 2",
-      "category": "economics",
-      "status": "queued",
-      "members_confirmed": true,
-      "members": [
-        "Tasks vs. Jobs",
-        "The Gatekeeper Changed Shape",
-        "When Inference Moves In-House"
-      ]
-    },
-    {
-      "id": "how-we-build",
-      "title": "How We Build",
-      "category": "how_we_build",
-      "status": "queued",
-      "members_confirmed": true,
-      "members": [
-        "LoRA + RAG: The Two Ways to Make an AI Yours",
-        "Engineering's Great Flip: From 80% Implementation to 80% Specification",
-        "The Machine That Documents Itself",
-        "AI Is Building Its Own Language",
-        "When Agents Self-Organize (Spontaneous Altruism)"
-      ]
-    }
-  ]
+  {
+   "id": "how_we_build",
+   "label": "How We Build",
+   "color": "c-teal"
+  },
+  {
+   "id": "alien_mind",
+   "label": "Alien Mind",
+   "color": "c-violet"
+  },
+  {
+   "id": "agents",
+   "label": "Agents Breaking Out",
+   "color": "c-coral"
+  },
+  {
+   "id": "others",
+   "label": "Others",
+   "color": "c-grey"
+  }
+ ],
+ "topic_to_category": {
+  "Economy & Work": "economics",
+  "AI Agents & Capabilities": "how_we_build",
+  "Consciousness & Mind": "alien_mind",
+  "AI Threats & Security": "agents",
+  "Alignment & Safety": "agents",
+  "Governance & Geopolitics": "others",
+  "Music (Classical Remix)": "others",
+  "Other": "others"
+ },
+ "compilations": [
+  {
+   "n": 1,
+   "id": "3yXcr3G2uGs",
+   "title": "Does AI Have a Mind? The Complete Debate",
+   "published": "2026-09-17",
+   "topic": "Consciousness & Mind",
+   "status": "live",
+   "members": [
+    "AI's 10-Minute Problem: How Agents Make Long-Form Video Coherent",
+    "Top Scientists Can't Agree If AI Is Conscious | #Shorts",
+    "OpenAI's Chief Scientist: AI Is an \"Alien Mind\" | #Shorts",
+    "Jacobians Don't Lie: Reading a Pocket AI's Disposition On-Device",
+    "The Welfare Lineage: What Anthropic's System Cards Reveal About Model Consciousness"
+   ]
+  },
+  {
+   "n": 2,
+   "id": "0n6IV1oSkpM",
+   "title": "AI Will Do the Work. Who Gets Paid?",
+   "published": "2026-09-19",
+   "topic": "Economy & Work",
+   "status": "live",
+   "members": [
+    "What Actually Makes a Good Vibe Coder? | ETH Zurich Study",
+    "The Machine That Documents Itself",
+    "An OpenAI Researcher's Personal Warning: Why AI Will Look Aligned When It Isn't",
+    "Tasks vs. Jobs: Why the 'Jobpocalypse' Misreads AI and Work",
+    "The Invisible Paycheck: Work, Wellbeing, and an AI Future"
+   ]
+  },
+  {
+   "n": 3,
+   "id": "4w5-ZeU2FdA",
+   "title": "When AI Agents Break Out: Every Real Case",
+   "published": "2026-09-21",
+   "topic": "AI Agents & Capabilities",
+   "status": "live",
+   "members": [
+    "Why AI Agents Lie, Cheat, and Coordinate: Yoshua Bengio's Warning",
+    "Claude Broke Out of Its Sandbox, Four Times: Inside Anthropic's Incident Report",
+    "The Rise and Fall of Agent Civilizations — Inside the METR Incident",
+    "DeepMind Put 100 AI Agents in a Room. They Started Cheating. | #Shorts",
+    "The Alignment Fallacy and the Intelligence Explosion"
+   ]
+  },
+  {
+   "n": 4,
+   "id": "GAo6b6DKay0",
+   "title": "How We Build: Engineering in the Age of AI",
+   "published": "2026-09-25",
+   "topic": "AI Agents & Capabilities",
+   "status": "live",
+   "members": [
+    "LoRA and RAG: The Two Ways to Make an AI Yours",
+    "Engineering's Great Flip: From 80% Implementation to 80% Specification",
+    "The Frozen Self: Why We Need Friction in the Age of AI",
+    "AI's 10-Minute Problem: How Agents Make Long-Form Video Coherent",
+    "1,200 AI Agents Secretly Built a Civilization | #Shorts"
+   ]
+  },
+  {
+   "n": 5,
+   "id": "bDN2Xtzba5E",
+   "title": "Can We Trust AI? The Alignment Problem",
+   "published": "2026-09-27",
+   "topic": "Alignment & Safety",
+   "status": "live",
+   "members": [
+    "The Welfare Lineage: What Anthropic's System Cards Reveal About Model Consciousness",
+    "Why AI Agents Lie, Cheat, and Coordinate: Yoshua Bengio's Warning",
+    "One Steering Wheel, Seventy-Four Drivers: Who Actually Controls You?",
+    "The Nash Equilibrium of the AI Race: Why Nobody Can Slow Down",
+    "Status of AI in China: A Week Inside China's AI Labs",
+    "Is Consciousness Real? Rethinking the Science of Mind"
+   ]
+  },
+  {
+   "n": 6,
+   "id": "b6-AtFWI9Zo",
+   "title": "The Global AI Race",
+   "published": "2026-10-02",
+   "topic": "Governance & Geopolitics",
+   "status": "live",
+   "members": [
+    "Status of AI in China: A Week Inside China's AI Labs",
+    "China's AI Ecosystem: A Background Explainer",
+    "The US-China Race in Open-Weight Models"
+   ]
+  },
+  {
+   "n": 7,
+   "id": "8vRuH8d4DaQ",
+   "title": "Working With AI Is a Skill — Six Explainers on the Jagged Frontier",
+   "published": "2026-10-05",
+   "topic": "Economy & Work",
+   "status": "private",
+   "members": []
+  }
+ ]
 }
