@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-04T05:18:01Z",
+ "generated_at": "2026-10-05T19:59:07Z",
  "categories": [
   {
    "id": "economics",
@@ -39,68 +39,202 @@
  },
  "compilations": [
   {
-   "id": "ai-will-do-the-work",
+   "n": 1,
+   "id": "3yXcr3G2uGs",
+   "title": "Does AI Have a Mind? The Complete Debate",
+   "published": "2026-09-17",
+   "topic": "Consciousness & Mind",
+   "status": "live",
+   "members": [
+    "AI's 10-Minute Problem: How Agents Make Long-Form Video Coherent",
+    "Top Scientists Can't Agree If AI Is Conscious | #Shorts",
+    "OpenAI's Chief Scientist: AI Is an \"Alien Mind\" | #Shorts",
+    "Jacobians Don't Lie: Reading a Pocket AI's Disposition On-Device",
+    "The Welfare Lineage: What Anthropic's System Cards Reveal About Model Consciousness"
+   ]
+  },
+  {
+   "n": 2,
+   "id": "0n6IV1oSkpM",
    "title": "AI Will Do the Work. Who Gets Paid?",
-   "category": "economics",
-   "status": "published",
-   "members_confirmed": false,
+   "published": "2026-09-19",
+   "topic": "Economy & Work",
+   "status": "live",
    "members": [
     "What Actually Makes a Good Vibe Coder? | ETH Zurich Study",
-    "AI Won't Make You a Good Coder - Here's What Does | #Shorts"
-   ]
-  },
-  {
-   "id": "ai-mind",
-   "title": "AI Mind",
-   "category": "alien_mind",
-   "status": "published",
-   "members_confirmed": false,
-   "members": [
-    "An Alien Mind: OpenAI's Chief Scientist Sounds the Alarm",
-    "Is AI Conscious? Every Argument For and Against, From the Scientists",
-    "Indicators of Consciousness in AI: Can We Test if a Machine Has an Inner Life?",
-    "OpenAI's Chief Scientist: AI Is an \"Alien Mind\" | #Shorts"
-   ]
-  },
-  {
-   "id": "agents-breaking-out",
-   "title": "AI Agents Breaking Out",
-   "category": "agents",
-   "status": "published",
-   "members_confirmed": false,
-   "members": [
-    "The Rise and Fall of Agent Civilizations — Inside the METR Incident",
-    "The Anatomy of an AI Breakout- The Anthropic and OpenAI incidents",
-    "How AI Escapes Sandboxes | #Shorts",
-    "1,200 AI Agents Secretly Built a Civilization | #Shorts",
-    "Anthropic's AI Escaped Into the Real Internet | #Shorts"
-   ]
-  },
-  {
-   "id": "economics-vol2",
-   "title": "Economics Vol. 2",
-   "category": "economics",
-   "status": "queued",
-   "members_confirmed": true,
-   "members": [
-    "Tasks vs. Jobs",
-    "The Gatekeeper Changed Shape",
-    "When Inference Moves In-House"
-   ]
-  },
-  {
-   "id": "how-we-build",
-   "title": "How We Build",
-   "category": "how_we_build",
-   "status": "queued",
-   "members_confirmed": true,
-   "members": [
-    "LoRA + RAG: The Two Ways to Make an AI Yours",
-    "Engineering's Great Flip: From 80% Implementation to 80% Specification",
     "The Machine That Documents Itself",
-    "AI Is Building Its Own Language",
-    "When Agents Self-Organize (Spontaneous Altruism)"
+    "An OpenAI Researcher's Personal Warning: Why AI Will Look Aligned When It Isn't",
+    "Tasks vs. Jobs: Why the 'Jobpocalypse' Misreads AI and Work",
+    "The Invisible Paycheck: Work, Wellbeing, and an AI Future"
    ]
+  },
+  {
+   "n": 3,
+   "id": "4w5-ZeU2FdA",
+   "title": "When AI Agents Break Out: Every Real Case",
+   "published": "2026-09-21",
+   "topic": "AI Agents & Capabilities",
+   "status": "live",
+   "members": [
+    "Why AI Agents Lie, Cheat, and Coordinate: Yoshua Bengio's Warning",
+    "Claude Broke Out of Its Sandbox, Four Times: Inside Anthropic's Incident Report",
+    "The Rise and Fall of Agent Civilizations — Inside the METR Incident",
+    "DeepMind Put 100 AI Agents in a Room. They Started Cheating. | #Shorts",
+    "The Alignment Fallacy and the Intelligence Explosion"
+   ]
+  },
+  {
+   "n": 4,
+   "id": "GAo6b6DKay0",
+   "title": "How We Build: Engineering in the Age of AI",
+   "published": "2026-09-25",
+   "topic": "AI Agents & Capabilities",
+   "status": "live",
+   "members": [
+    "LoRA and RAG: The Two Ways to Make an AI Yours",
+    "Engineering's Great Flip: From 80% Implementation to 80% Specification",
+    "The Frozen Self: Why We Need Friction in the Age of AI",
+    "AI's 10-Minute Problem: How Agents Make Long-Form Video Coherent",
+    "1,200 AI Agents Secretly Built a Civilization | #Shorts"
+   ]
+  },
+  {
+   "n": 5,
+   "id": "bDN2Xtzba5E",
+   "title": "Can We Trust AI? The Alignment Problem",
+   "published": "2026-09-27",
+   "topic": "Alignment & Safety",
+   "status": "live",
+   "members": [
+    "The Welfare Lineage: What Anthropic's System Cards Reveal About Model Consciousness",
+    "Why AI Agents Lie, Cheat, and Coordinate: Yoshua Bengio's Warning",
+    "One Steering Wheel, Seventy-Four Drivers: Who Actually Controls You?",
+    "The Nash Equilibrium of the AI Race: Why Nobody Can Slow Down",
+    "Status of AI in China: A Week Inside China's AI Labs",
+    "Is Consciousness Real? Rethinking the Science of Mind"
+   ]
+  },
+  {
+   "n": 6,
+   "id": "b6-AtFWI9Zo",
+   "title": "The Global AI Race",
+   "published": "2026-10-02",
+   "topic": "Governance & Geopolitics",
+   "status": "live",
+   "members": [
+    "Status of AI in China: A Week Inside China's AI Labs",
+    "China's AI Ecosystem: A Background Explainer",
+    "The US-China Race in Open-Weight Models"
+   ]
+  },
+  {
+   "n": 7,
+   "id": "8vRuH8d4DaQ",
+   "title": "Working With AI Is a Skill — Six Explainers on the Jagged Frontier",
+   "published": "2026-10-05",
+   "topic": "Economy & Work",
+   "status": "private",
+   "members": []
+  }
+ ],
+ "compilations_live": [
+  {
+   "n": 1,
+   "id": "3yXcr3G2uGs",
+   "title": "Does AI Have a Mind? The Complete Debate",
+   "published": "2026-09-17",
+   "topic": "Consciousness & Mind",
+   "status": "live",
+   "members": [
+    "AI's 10-Minute Problem: How Agents Make Long-Form Video Coherent",
+    "Top Scientists Can't Agree If AI Is Conscious | #Shorts",
+    "OpenAI's Chief Scientist: AI Is an \"Alien Mind\" | #Shorts",
+    "Jacobians Don't Lie: Reading a Pocket AI's Disposition On-Device",
+    "The Welfare Lineage: What Anthropic's System Cards Reveal About Model Consciousness"
+   ]
+  },
+  {
+   "n": 2,
+   "id": "0n6IV1oSkpM",
+   "title": "AI Will Do the Work. Who Gets Paid?",
+   "published": "2026-09-19",
+   "topic": "Economy & Work",
+   "status": "live",
+   "members": [
+    "What Actually Makes a Good Vibe Coder? | ETH Zurich Study",
+    "The Machine That Documents Itself",
+    "An OpenAI Researcher's Personal Warning: Why AI Will Look Aligned When It Isn't",
+    "Tasks vs. Jobs: Why the 'Jobpocalypse' Misreads AI and Work",
+    "The Invisible Paycheck: Work, Wellbeing, and an AI Future"
+   ]
+  },
+  {
+   "n": 3,
+   "id": "4w5-ZeU2FdA",
+   "title": "When AI Agents Break Out: Every Real Case",
+   "published": "2026-09-21",
+   "topic": "AI Agents & Capabilities",
+   "status": "live",
+   "members": [
+    "Why AI Agents Lie, Cheat, and Coordinate: Yoshua Bengio's Warning",
+    "Claude Broke Out of Its Sandbox, Four Times: Inside Anthropic's Incident Report",
+    "The Rise and Fall of Agent Civilizations — Inside the METR Incident",
+    "DeepMind Put 100 AI Agents in a Room. They Started Cheating. | #Shorts",
+    "The Alignment Fallacy and the Intelligence Explosion"
+   ]
+  },
+  {
+   "n": 4,
+   "id": "GAo6b6DKay0",
+   "title": "How We Build: Engineering in the Age of AI",
+   "published": "2026-09-25",
+   "topic": "AI Agents & Capabilities",
+   "status": "live",
+   "members": [
+    "LoRA and RAG: The Two Ways to Make an AI Yours",
+    "Engineering's Great Flip: From 80% Implementation to 80% Specification",
+    "The Frozen Self: Why We Need Friction in the Age of AI",
+    "AI's 10-Minute Problem: How Agents Make Long-Form Video Coherent",
+    "1,200 AI Agents Secretly Built a Civilization | #Shorts"
+   ]
+  },
+  {
+   "n": 5,
+   "id": "bDN2Xtzba5E",
+   "title": "Can We Trust AI? The Alignment Problem",
+   "published": "2026-09-27",
+   "topic": "Alignment & Safety",
+   "status": "live",
+   "members": [
+    "The Welfare Lineage: What Anthropic's System Cards Reveal About Model Consciousness",
+    "Why AI Agents Lie, Cheat, and Coordinate: Yoshua Bengio's Warning",
+    "One Steering Wheel, Seventy-Four Drivers: Who Actually Controls You?",
+    "The Nash Equilibrium of the AI Race: Why Nobody Can Slow Down",
+    "Status of AI in China: A Week Inside China's AI Labs",
+    "Is Consciousness Real? Rethinking the Science of Mind"
+   ]
+  },
+  {
+   "n": 6,
+   "id": "b6-AtFWI9Zo",
+   "title": "The Global AI Race",
+   "published": "2026-10-02",
+   "topic": "Governance & Geopolitics",
+   "status": "live",
+   "members": [
+    "Status of AI in China: A Week Inside China's AI Labs",
+    "China's AI Ecosystem: A Background Explainer",
+    "The US-China Race in Open-Weight Models"
+   ]
+  },
+  {
+   "n": 7,
+   "id": "8vRuH8d4DaQ",
+   "title": "Working With AI Is a Skill — Six Explainers on the Jagged Frontier",
+   "published": "2026-10-05",
+   "topic": "Economy & Work",
+   "status": "private",
+   "members": []
   }
  ],
  "verdicts": {
@@ -108,11 +242,11 @@
    "Double down",
    "good"
   ],
-  "Alignment & Safety": [
+  "Economy & Work": [
    "Double down",
    "good"
   ],
-  "Economy & Work": [
+  "Alignment & Safety": [
    "Double down",
    "good"
   ],
@@ -139,17 +273,17 @@
  },
  "videos": [
   {
-   "id": "ECuneH0hPcg",
-   "url": "https://youtu.be/ECuneH0hPcg",
-   "t": "Japan Tested US vs Chinese AI on Real Hacking: Claude Opus 4.8 vs GLM-5.2",
-   "p": "2026-10-03",
+   "id": "8vRuH8d4DaQ",
+   "url": "https://youtu.be/8vRuH8d4DaQ",
+   "t": "Working With AI Is a Skill — Six Explainers on the Jagged Frontier",
+   "p": "2026-10-05",
    "tp": "Other",
    "tc": "c-grey",
    "v": 0,
    "w": 0,
    "a": 0,
    "r": 0,
-   "L": 311,
+   "L": 1814,
    "ret": 0,
    "geo": "-",
    "sh": false,
@@ -162,23 +296,51 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
-   "id": "bBus4VKJJDI",
-   "url": "https://youtu.be/bBus4VKJJDI",
-   "t": "Claude-Shaped Science: A Toolkit for Exact Calculations in Quantitative Research",
-   "p": "2026-10-03",
+   "id": "O3omtQf08mU",
+   "url": "https://youtu.be/O3omtQf08mU",
+   "t": "Will AI Create Jobs or Destroy Them? | #Shorts",
+   "p": "2026-10-05",
+   "tp": "Economy & Work",
+   "tc": "c-warm",
+   "v": 0,
+   "w": 0,
+   "a": 0,
+   "r": 0,
+   "L": 21,
+   "ret": 0,
+   "geo": "-",
+   "sh": true,
+   "tb": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "er": {},
+   "cat": "economics",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "Q0Enib1Hpj0",
+   "url": "https://youtu.be/Q0Enib1Hpj0",
+   "t": "Claude-Shaped Science: AI as a Power Tool | #Shorts",
+   "p": "2026-10-05",
    "tp": "Other",
    "tc": "c-grey",
    "v": 0,
    "w": 0,
    "a": 0,
    "r": 0,
-   "L": 331,
+   "L": 32,
    "ret": 0,
    "geo": "-",
-   "sh": false,
+   "sh": true,
    "tb": [
     0,
     0,
@@ -188,13 +350,68 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "1DcS5g765iY",
+   "url": "https://youtu.be/1DcS5g765iY",
+   "t": "The Machine That Documents Itself | #Shorts",
+   "p": "2026-10-05",
+   "tp": "Other",
+   "tc": "c-grey",
+   "v": 0,
+   "w": 0,
+   "a": 0,
+   "r": 0,
+   "L": 30,
+   "ret": 0,
+   "geo": "-",
+   "sh": true,
+   "tb": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "aca9XOhtIo4",
+   "url": "https://youtu.be/aca9XOhtIo4",
+   "t": "The Great AI Split | #Shorts",
+   "p": "2026-10-05",
+   "tp": "Other",
+   "tc": "c-grey",
+   "v": 0,
+   "w": 0,
+   "a": 0,
+   "r": 0,
+   "L": 32,
+   "ret": 0,
+   "geo": "-",
+   "sh": true,
+   "tb": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "-zUsiw_3LRw",
    "url": "https://youtu.be/-zUsiw_3LRw",
    "t": "The Doomers Behind Anthropic: Where the AI Safety Freakout Came From",
-   "p": "2026-10-03",
+   "p": "2026-10-05",
    "tp": "Alignment & Safety",
    "tc": "c-green",
    "v": 0,
@@ -214,20 +431,21 @@
    "er": {},
    "cat": "agents",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
-   "id": "jxi-GUpdhYI",
-   "url": "https://youtu.be/jxi-GUpdhYI",
-   "t": "The Catch-22 of the AI Economy: Can the Boom Pay for Itself Without Widening Inequality?",
-   "p": "2026-10-03",
+   "id": "Miw8TeG3RFI",
+   "url": "https://youtu.be/Miw8TeG3RFI",
+   "t": "Will AI Create Jobs or Destroy Them? The Jevons Paradox and the Future of Work",
+   "p": "2026-10-05",
    "tp": "Economy & Work",
    "tc": "c-warm",
    "v": 0,
    "w": 0,
    "a": 0,
    "r": 0,
-   "L": 321,
+   "L": 376,
    "ret": 0,
    "geo": "-",
    "sh": false,
@@ -240,195 +458,14 @@
    "er": {},
    "cat": "economics",
    "comp": "",
-   "comp_status": ""
-  },
-  {
-   "id": "Q0Enib1Hpj0",
-   "url": "https://youtu.be/Q0Enib1Hpj0",
-   "t": "Claude-Shaped Science: AI as a Power Tool | #Shorts",
-   "p": "2026-10-02",
-   "tp": "Other",
-   "tc": "c-grey",
-   "v": 0,
-   "w": 0,
-   "a": 0,
-   "r": 0,
-   "L": 32,
-   "ret": 0,
-   "geo": "-",
-   "sh": true,
-   "tb": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "id": "aca9XOhtIo4",
-   "url": "https://youtu.be/aca9XOhtIo4",
-   "t": "The Great AI Split | #Shorts",
-   "p": "2026-10-02",
-   "tp": "Other",
-   "tc": "c-grey",
-   "v": 0,
-   "w": 0,
-   "a": 0,
-   "r": 0,
-   "L": 32,
-   "ret": 0,
-   "geo": "-",
-   "sh": true,
-   "tb": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "id": "1DcS5g765iY",
-   "url": "https://youtu.be/1DcS5g765iY",
-   "t": "The Machine That Documents Itself | #Shorts",
-   "p": "2026-10-02",
-   "tp": "Other",
-   "tc": "c-grey",
-   "v": 0,
-   "w": 0,
-   "a": 0,
-   "r": 0,
-   "L": 30,
-   "ret": 0,
-   "geo": "-",
-   "sh": true,
-   "tb": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "id": "nrmEa_-8WFI",
-   "url": "https://youtu.be/nrmEa_-8WFI",
-   "t": "China's AI Ecosystem, Explained | #Shorts",
-   "p": "2026-10-02",
-   "tp": "Governance & Geopolitics",
-   "tc": "c-grey",
-   "v": 0,
-   "w": 0,
-   "a": 0,
-   "r": 0,
-   "L": 31,
-   "ret": 0,
-   "geo": "-",
-   "sh": true,
-   "tb": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "id": "_J2E6osPXDQ",
-   "url": "https://youtu.be/_J2E6osPXDQ",
-   "t": "The Alignment Fallacy, Explained | #Shorts",
-   "p": "2026-10-02",
-   "tp": "Alignment & Safety",
-   "tc": "c-green",
-   "v": 0,
-   "w": 0,
-   "a": 0,
-   "r": 0,
-   "L": 28,
-   "ret": 0,
-   "geo": "-",
-   "sh": true,
-   "tb": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "er": {},
-   "cat": "agents",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "id": "0ZXTyuXTz5o",
-   "url": "https://youtu.be/0ZXTyuXTz5o",
-   "t": "The Catch-22 of the AI Economy | #Shorts",
-   "p": "2026-10-02",
-   "tp": "Economy & Work",
-   "tc": "c-warm",
-   "v": 0,
-   "w": 0,
-   "a": 0,
-   "r": 0,
-   "L": 30,
-   "ret": 0,
-   "geo": "-",
-   "sh": true,
-   "tb": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "er": {},
-   "cat": "economics",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "id": "N8F0fa3opaU",
-   "url": "https://youtu.be/N8F0fa3opaU",
-   "t": "The Great AI Split: Is China Closing Its AI Frontier? | #Shorts",
-   "p": "2026-10-02",
-   "tp": "Governance & Geopolitics",
-   "tc": "c-grey",
-   "v": 0,
-   "w": 0,
-   "a": 0,
-   "r": 0,
-   "L": 45,
-   "ret": 0,
-   "geo": "-",
-   "sh": true,
-   "tb": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "5kQ60wFYvDU",
    "url": "https://youtu.be/5kQ60wFYvDU",
    "t": "The Great AI Split: Is China Closing Its AI Frontier?",
-   "p": "2026-10-02",
+   "p": "2026-10-04",
    "tp": "Governance & Geopolitics",
    "tc": "c-grey",
    "v": 0,
@@ -448,20 +485,21 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
-   "id": "CGMRY32hPUk",
-   "url": "https://youtu.be/CGMRY32hPUk",
-   "t": "The Alignment Fallacy and the Intelligence Explosion | #Shorts",
-   "p": "2026-10-02",
+   "id": "_J2E6osPXDQ",
+   "url": "https://youtu.be/_J2E6osPXDQ",
+   "t": "The Alignment Fallacy, Explained | #Shorts",
+   "p": "2026-10-04",
    "tp": "Alignment & Safety",
    "tc": "c-green",
    "v": 0,
    "w": 0,
    "a": 0,
    "r": 0,
-   "L": 45,
+   "L": 28,
    "ret": 0,
    "geo": "-",
    "sh": true,
@@ -474,20 +512,21 @@
    "er": {},
    "cat": "agents",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
-   "id": "XVpYOHzYZnI",
-   "url": "https://youtu.be/XVpYOHzYZnI",
+   "id": "0ZXTyuXTz5o",
+   "url": "https://youtu.be/0ZXTyuXTz5o",
    "t": "The Catch-22 of the AI Economy | #Shorts",
-   "p": "2026-10-02",
+   "p": "2026-10-04",
    "tp": "Economy & Work",
    "tc": "c-warm",
    "v": 0,
    "w": 0,
    "a": 0,
    "r": 0,
-   "L": 45,
+   "L": 30,
    "ret": 0,
    "geo": "-",
    "sh": true,
@@ -500,23 +539,24 @@
    "er": {},
    "cat": "economics",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
-   "id": "0gdoZwwtfBI",
-   "url": "https://youtu.be/0gdoZwwtfBI",
-   "t": "The Machine That Documents Itself | #Shorts",
-   "p": "2026-10-02",
+   "id": "ECuneH0hPcg",
+   "url": "https://youtu.be/ECuneH0hPcg",
+   "t": "Japan Tested US vs Chinese AI on Real Hacking: Claude Opus 4.8 vs GLM-5.2",
+   "p": "2026-10-04",
    "tp": "Other",
    "tc": "c-grey",
    "v": 0,
    "w": 0,
    "a": 0,
    "r": 0,
-   "L": 45,
+   "L": 311,
    "ret": 0,
    "geo": "-",
-   "sh": true,
+   "sh": false,
    "tb": [
     0,
     0,
@@ -526,11 +566,66 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
-   "id": "MdFhgj1Fit8",
-   "url": "https://youtu.be/MdFhgj1Fit8",
+   "id": "bBus4VKJJDI",
+   "url": "https://youtu.be/bBus4VKJJDI",
+   "t": "Claude-Shaped Science: A Toolkit for Exact Calculations in Quantitative Research",
+   "p": "2026-10-03",
+   "tp": "Other",
+   "tc": "c-grey",
+   "v": 3,
+   "w": 0,
+   "a": 45,
+   "r": 0.001,
+   "L": 331,
+   "ret": 14,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    1,
+    2,
+    0,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "jxi-GUpdhYI",
+   "url": "https://youtu.be/jxi-GUpdhYI",
+   "t": "The Catch-22 of the AI Economy: Can the Boom Pay for Itself Without Widening Inequality?",
+   "p": "2026-10-03",
+   "tp": "Economy & Work",
+   "tc": "c-warm",
+   "v": 14,
+   "w": 14,
+   "a": 70,
+   "r": 0.003,
+   "L": 321,
+   "ret": 22,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    12,
+    0,
+    0,
+    2
+   ],
+   "er": {},
+   "cat": "economics",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "nrmEa_-8WFI",
+   "url": "https://youtu.be/nrmEa_-8WFI",
    "t": "China's AI Ecosystem, Explained | #Shorts",
    "p": "2026-10-02",
    "tp": "Governance & Geopolitics",
@@ -538,8 +633,8 @@
    "v": 0,
    "w": 0,
    "a": 0,
-   "r": 0,
-   "L": 45,
+   "r": 0.0,
+   "L": 31,
    "ret": 0,
    "geo": "-",
    "sh": true,
@@ -552,7 +647,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "z_70qnh25W8",
@@ -561,24 +657,28 @@
    "p": "2026-10-02",
    "tp": "AI Agents & Capabilities",
    "tc": "c-teal",
-   "v": 0,
-   "w": 0,
-   "a": 0,
-   "r": 0,
+   "v": 2,
+   "w": 7,
+   "a": 444,
+   "r": 0.0,
    "L": 451,
-   "ret": 0,
+   "ret": 99,
    "geo": "-",
    "sh": false,
    "tb": [
-    0,
-    0,
+    1,
+    1,
     0,
     0
    ],
    "er": {},
    "cat": "how_we_build",
-   "comp": "",
-   "comp_status": ""
+   "comp": "How We Build: Engineering in the Age of AI",
+   "comp_status": "live",
+   "cn": [
+    1,
+    4
+   ]
   },
   {
    "id": "b6-AtFWI9Zo",
@@ -587,24 +687,25 @@
    "p": "2026-10-02",
    "tp": "Governance & Geopolitics",
    "tc": "c-grey",
-   "v": 0,
+   "v": 10,
    "w": 0,
-   "a": 0,
-   "r": 0,
+   "a": 3,
+   "r": 0.0,
    "L": 1756,
    "ret": 0,
    "geo": "-",
    "sh": false,
    "tb": [
-    0,
-    0,
+    5,
+    5,
     0,
     0
    ],
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "9Co7-zsVkVc",
@@ -613,24 +714,27 @@
    "p": "2026-10-02",
    "tp": "Other",
    "tc": "c-grey",
-   "v": 0,
-   "w": 0,
-   "a": 0,
-   "r": 0,
+   "v": 59,
+   "w": 17,
+   "a": 62,
+   "r": 0.017,
    "L": 384,
-   "ret": 0,
+   "ret": 16,
    "geo": "-",
    "sh": false,
    "tb": [
-    0,
+    59,
     0,
     0,
     0
    ],
    "er": {},
    "cat": "others",
-   "comp": "",
-   "comp_status": ""
+   "comp": "Can We Trust AI? The Alignment Problem",
+   "comp_status": "live",
+   "cn": [
+    5
+   ]
   },
   {
    "id": "cTcR68V8nq8",
@@ -639,24 +743,25 @@
    "p": "2026-10-01",
    "tp": "AI Threats & Security",
    "tc": "c-coral",
-   "v": 2,
+   "v": 6,
    "w": 9,
-   "a": 545,
+   "a": 187,
    "r": 0.001,
    "L": 546,
-   "ret": 100,
+   "ret": 34,
    "geo": "-",
    "sh": false,
    "tb": [
-    1,
-    1,
+    4,
+    2,
     0,
     0
    ],
    "er": {},
    "cat": "agents",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "zKndSEJBW7U",
@@ -665,7 +770,7 @@
    "p": "2026-09-30",
    "tp": "AI Threats & Security",
    "tc": "c-coral",
-   "v": 8,
+   "v": 10,
    "w": 0,
    "a": 20,
    "r": 0.0,
@@ -676,13 +781,14 @@
    "tb": [
     0,
     2,
-    6,
+    8,
     0
    ],
    "er": {},
    "cat": "agents",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "zrQCToSha8I",
@@ -708,7 +814,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "GMmcaXyle0c",
@@ -734,7 +841,8 @@
    "er": {},
    "cat": "alien_mind",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "Yb89ttQS3dk",
@@ -759,8 +867,11 @@
    ],
    "er": {},
    "cat": "alien_mind",
-   "comp": "",
-   "comp_status": ""
+   "comp": "Can We Trust AI? The Alignment Problem",
+   "comp_status": "live",
+   "cn": [
+    5
+   ]
   },
   {
    "id": "pnOhPx_cI-E",
@@ -769,8 +880,8 @@
    "p": "2026-09-28",
    "tp": "Governance & Geopolitics",
    "tc": "c-grey",
-   "v": 102,
-   "w": 28,
+   "v": 115,
+   "w": 29,
    "a": 64,
    "r": 0.019,
    "L": 482,
@@ -778,15 +889,18 @@
    "geo": "-",
    "sh": false,
    "tb": [
-    99,
+    112,
     1,
     0,
     2
    ],
    "er": {},
    "cat": "others",
-   "comp": "",
-   "comp_status": ""
+   "comp": "The Global AI Race",
+   "comp_status": "live",
+   "cn": [
+    6
+   ]
   },
   {
    "id": "8D7Yt0xcAZM",
@@ -812,7 +926,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "bDN2Xtzba5E",
@@ -821,16 +936,16 @@
    "p": "2026-09-27",
    "tp": "Alignment & Safety",
    "tc": "c-green",
-   "v": 42,
-   "w": 75,
-   "a": 215,
-   "r": 0.069,
+   "v": 43,
+   "w": 86,
+   "a": 230,
+   "r": 0.074,
    "L": 2402,
-   "ret": 9,
+   "ret": 10,
    "geo": "-",
    "sh": false,
    "tb": [
-    16,
+    17,
     13,
     0,
     13
@@ -838,7 +953,8 @@
    "er": {},
    "cat": "agents",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "CKBcyUChfUw",
@@ -864,7 +980,8 @@
    "er": {},
    "cat": "how_we_build",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "7ZvrulKEKo8",
@@ -873,24 +990,27 @@
    "p": "2026-09-27",
    "tp": "AI Agents & Capabilities",
    "tc": "c-teal",
-   "v": 48,
-   "w": 2,
-   "a": 6,
-   "r": 0.011,
+   "v": 56,
+   "w": 10,
+   "a": 29,
+   "r": 0.015,
    "L": 436,
-   "ret": 1,
+   "ret": 7,
    "geo": "US",
    "sh": false,
    "tb": [
-    29,
+    36,
     5,
     0,
-    14
+    15
    ],
-   "er": {},
+   "er": {
+    "Search / Web": 1
+   },
    "cat": "how_we_build",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "-XladWF4a2s",
@@ -916,7 +1036,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "abQZybyIhc0",
@@ -941,8 +1062,11 @@
    ],
    "er": {},
    "cat": "others",
-   "comp": "",
-   "comp_status": ""
+   "comp": "How We Build: Engineering in the Age of AI",
+   "comp_status": "live",
+   "cn": [
+    4
+   ]
   },
   {
    "id": "pJOl7W2NlM0",
@@ -968,7 +1092,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "wyr012lwiHc",
@@ -977,24 +1102,27 @@
    "p": "2026-09-26",
    "tp": "Other",
    "tc": "c-grey",
-   "v": 159,
-   "w": 83,
-   "a": 62,
-   "r": 0.05,
+   "v": 177,
+   "w": 84,
+   "a": 60,
+   "r": 0.056,
    "L": 446,
    "ret": 14,
    "geo": "-",
    "sh": false,
    "tb": [
-    131,
+    150,
     13,
     0,
     14
    ],
    "er": {},
    "cat": "others",
-   "comp": "How We Build",
-   "comp_status": "queued"
+   "comp": "AI Will Do the Work. Who Gets Paid?",
+   "comp_status": "live",
+   "cn": [
+    2
+   ]
   },
   {
    "id": "aNcyXt0Rvgs",
@@ -1020,7 +1148,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "fGpuQhW13KI",
@@ -1029,24 +1158,27 @@
    "p": "2026-09-26",
    "tp": "Alignment & Safety",
    "tc": "c-green",
-   "v": 169,
-   "w": 59,
+   "v": 220,
+   "w": 76,
    "a": 90,
-   "r": 0.079,
+   "r": 0.086,
    "L": 444,
    "ret": 20,
    "geo": "-",
    "sh": false,
    "tb": [
-    168,
+    219,
     0,
     0,
     1
    ],
    "er": {},
    "cat": "agents",
-   "comp": "",
-   "comp_status": ""
+   "comp": "When AI Agents Break Out: Every Real Case",
+   "comp_status": "live",
+   "cn": [
+    3
+   ]
   },
   {
    "id": "9Xw9XLNFF60",
@@ -1055,7 +1187,7 @@
    "p": "2026-09-26",
    "tp": "Other",
    "tc": "c-grey",
-   "v": 29,
+   "v": 31,
    "w": 7,
    "a": 59,
    "r": 0.04,
@@ -1064,15 +1196,18 @@
    "geo": "-",
    "sh": false,
    "tb": [
-    28,
+    30,
     1,
     0,
     0
    ],
    "er": {},
    "cat": "others",
-   "comp": "How We Build",
-   "comp_status": "queued"
+   "comp": "How We Build: Engineering in the Age of AI",
+   "comp_status": "live",
+   "cn": [
+    4
+   ]
   },
   {
    "id": "YJM-GE_LDyQ",
@@ -1098,7 +1233,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "GAo6b6DKay0",
@@ -1107,7 +1243,7 @@
    "p": "2026-09-25",
    "tp": "Other",
    "tc": "c-grey",
-   "v": 98,
+   "v": 100,
    "w": 79,
    "a": 111,
    "r": 0.08,
@@ -1117,14 +1253,15 @@
    "sh": false,
    "tb": [
     92,
-    4,
+    6,
     0,
     2
    ],
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "zln6iRity-M",
@@ -1151,8 +1288,11 @@
     "Search / Web": 1
    },
    "cat": "how_we_build",
-   "comp": "",
-   "comp_status": ""
+   "comp": "How We Build: Engineering in the Age of AI",
+   "comp_status": "live",
+   "cn": [
+    4
+   ]
   },
   {
    "id": "ZMaLfh3tTQI",
@@ -1178,7 +1318,8 @@
    "er": {},
    "cat": "economics",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "dbu9afO-wNU",
@@ -1203,8 +1344,11 @@
    ],
    "er": {},
    "cat": "economics",
-   "comp": "",
-   "comp_status": ""
+   "comp": "AI Will Do the Work. Who Gets Paid?",
+   "comp_status": "live",
+   "cn": [
+    2
+   ]
   },
   {
    "id": "rr4nTRpGz3U",
@@ -1232,8 +1376,12 @@
     "Other sites": 1
    },
    "cat": "others",
-   "comp": "",
-   "comp_status": ""
+   "comp": "The Global AI Race",
+   "comp_status": "live",
+   "cn": [
+    5,
+    6
+   ]
   },
   {
    "id": "GjBM9VSNYE8",
@@ -1259,7 +1407,8 @@
    "er": {},
    "cat": "economics",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "lY9e-AgldXo",
@@ -1284,8 +1433,11 @@
    ],
    "er": {},
    "cat": "economics",
-   "comp": "",
-   "comp_status": ""
+   "comp": "AI Will Do the Work. Who Gets Paid?",
+   "comp_status": "live",
+   "cn": [
+    2
+   ]
   },
   {
    "id": "hRW9NgbagLU",
@@ -1297,7 +1449,7 @@
    "v": 106,
    "w": 93,
    "a": 91,
-   "r": 0.154,
+   "r": 0.153,
    "L": 371,
    "ret": 25,
    "geo": "US",
@@ -1311,7 +1463,8 @@
    "er": {},
    "cat": "alien_mind",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "xljmWkU5BEM",
@@ -1337,7 +1490,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "CO7CjnRQxeA",
@@ -1364,8 +1518,11 @@
     "Other sites": 3
    },
    "cat": "others",
-   "comp": "",
-   "comp_status": ""
+   "comp": "The Global AI Race",
+   "comp_status": "live",
+   "cn": [
+    6
+   ]
   },
   {
    "id": "S-zbOWOdKCw",
@@ -1391,7 +1548,8 @@
    "er": {},
    "cat": "how_we_build",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "4w5-ZeU2FdA",
@@ -1400,24 +1558,27 @@
    "p": "2026-09-21",
    "tp": "AI Threats & Security",
    "tc": "c-coral",
-   "v": 174,
-   "w": 285,
-   "a": 317,
-   "r": 0.21,
+   "v": 176,
+   "w": 305,
+   "a": 327,
+   "r": 0.212,
    "L": 2256,
-   "ret": 14,
+   "ret": 15,
    "geo": "-",
    "sh": false,
    "tb": [
     161,
     12,
     0,
-    1
+    3
    ],
-   "er": {},
+   "er": {
+    "X / Twitter": 2
+   },
    "cat": "agents",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "U29c_5m4lzc",
@@ -1426,7 +1587,7 @@
    "p": "2026-09-21",
    "tp": "Governance & Geopolitics",
    "tc": "c-grey",
-   "v": 22,
+   "v": 23,
    "w": 1,
    "a": 12,
    "r": 0.001,
@@ -1436,14 +1597,69 @@
    "sh": true,
    "tb": [
     0,
-    4,
+    5,
     18,
     0
    ],
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "smTNd7SVemo",
+   "url": "https://youtu.be/smTNd7SVemo",
+   "t": "AI Saves Scientists 7 Hours a Week. Where Did It Go? | #Shorts",
+   "p": "2026-09-21",
+   "tp": "Economy & Work",
+   "tc": "c-warm",
+   "v": 450,
+   "w": 27,
+   "a": 10,
+   "r": 0.018,
+   "L": 25,
+   "ret": 43,
+   "geo": "CH",
+   "sh": true,
+   "tb": [
+    13,
+    5,
+    432,
+    0
+   ],
+   "er": {},
+   "cat": "economics",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "IUNc96iA0_k",
+   "url": "https://youtu.be/IUNc96iA0_k",
+   "t": "Huawei: 100 AI Agents For Every Human by 2035 | #Shorts",
+   "p": "2026-09-20",
+   "tp": "AI Agents & Capabilities",
+   "tc": "c-teal",
+   "v": 170,
+   "w": 16,
+   "a": 15,
+   "r": 0.012,
+   "L": 26,
+   "ret": 60,
+   "geo": "GB",
+   "sh": true,
+   "tb": [
+    20,
+    1,
+    149,
+    0
+   ],
+   "er": {},
+   "cat": "how_we_build",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "zKndSEJBW7U",
@@ -1452,7 +1668,7 @@
    "p": "2026-09-30",
    "tp": "AI Threats & Security",
    "tc": "c-coral",
-   "v": 8,
+   "v": 10,
    "w": 0,
    "a": 20,
    "r": 0.0,
@@ -1463,13 +1679,14 @@
    "tb": [
     0,
     2,
-    6,
+    8,
     0
    ],
    "er": {},
    "cat": "agents",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "zrQCToSha8I",
@@ -1495,59 +1712,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
-  },
-  {
-   "id": "IUNc96iA0_k",
-   "url": "https://youtu.be/IUNc96iA0_k",
-   "t": "Huawei: 100 AI Agents For Every Human by 2035 | #Shorts",
-   "p": "2026-09-20",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
-   "v": 169,
-   "w": 16,
-   "a": 15,
-   "r": 0.012,
-   "L": 26,
-   "ret": 60,
-   "geo": "GB",
-   "sh": true,
-   "tb": [
-    20,
-    1,
-    148,
-    0
-   ],
-   "er": {},
-   "cat": "how_we_build",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "id": "ug2ciOODc4Y",
-   "url": "https://youtu.be/ug2ciOODc4Y",
-   "t": "AI Will Do the Work. Who Gets Paid? | #Shorts",
-   "p": "2026-09-20",
-   "tp": "Economy & Work",
-   "tc": "c-warm",
-   "v": 56,
-   "w": 3,
-   "a": 12,
-   "r": 0.002,
-   "L": 32,
-   "ret": 38,
-   "geo": "-",
-   "sh": true,
-   "tb": [
-    7,
-    0,
-    49,
-    0
-   ],
-   "er": {},
-   "cat": "economics",
-   "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "n0J3a4-1rmY",
@@ -1556,24 +1722,25 @@
    "p": "2026-09-20",
    "tp": "Governance & Geopolitics",
    "tc": "c-grey",
-   "v": 21,
-   "w": 17,
-   "a": 76,
+   "v": 24,
+   "w": 22,
+   "a": 79,
    "r": 0.052,
    "L": 237,
-   "ret": 32,
+   "ret": 34,
    "geo": "-",
    "sh": false,
    "tb": [
-    15,
-    4,
+    16,
+    6,
     0,
     2
    ],
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "1TTTpFG5vSs",
@@ -1599,7 +1766,8 @@
    "er": {},
    "cat": "economics",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "d5weD9PyZI4",
@@ -1628,7 +1796,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "0n6IV1oSkpM",
@@ -1657,7 +1826,8 @@
    },
    "cat": "economics",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "n2qXBGkEjkw",
@@ -1683,7 +1853,8 @@
    "er": {},
    "cat": "how_we_build",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "0a7cpP0O0EE",
@@ -1692,26 +1863,27 @@
    "p": "2026-09-18",
    "tp": "Alignment & Safety",
    "tc": "c-green",
-   "v": 29,
-   "w": 5,
-   "a": 40,
+   "v": 31,
+   "w": 8,
+   "a": 46,
    "r": 0.001,
    "L": 104,
-   "ret": 39,
+   "ret": 45,
    "geo": "-",
    "sh": false,
    "tb": [
     0,
-    3,
+    4,
     24,
-    2
+    3
    ],
    "er": {
-    "Search / Web": 1
+    "Search / Web": 2
    },
    "cat": "agents",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "weJI_CErLYk",
@@ -1739,7 +1911,8 @@
    },
    "cat": "how_we_build",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "3GoX49shPGQ",
@@ -1764,8 +1937,11 @@
    ],
    "er": {},
    "cat": "agents",
-   "comp": "",
-   "comp_status": ""
+   "comp": "Can We Trust AI? The Alignment Problem",
+   "comp_status": "live",
+   "cn": [
+    5
+   ]
   },
   {
    "id": "XHn7WCDLRL0",
@@ -1791,7 +1967,8 @@
    "er": {},
    "cat": "alien_mind",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "3yXcr3G2uGs",
@@ -1800,27 +1977,28 @@
    "p": "2026-09-17",
    "tp": "Consciousness & Mind",
    "tc": "c-violet",
-   "v": 151,
+   "v": 154,
    "w": 570,
-   "a": 363,
-   "r": 0.813,
+   "a": 352,
+   "r": 0.814,
    "L": 2237,
    "ret": 16,
    "geo": "US",
    "sh": false,
    "tb": [
-    133,
+    134,
     5,
     0,
-    13
+    15
    ],
    "er": {
-    "LinkedIn": 2,
-    "X / Twitter": 1
+    "X / Twitter": 2,
+    "LinkedIn": 2
    },
    "cat": "alien_mind",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "EkXI33hWt-c",
@@ -1846,7 +2024,8 @@
    "er": {},
    "cat": "agents",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "x9Kylet2e5Y",
@@ -1855,26 +2034,28 @@
    "p": "2026-09-17",
    "tp": "Alignment & Safety",
    "tc": "c-green",
-   "v": 36,
-   "w": 11,
-   "a": 31,
-   "r": 0.01,
+   "v": 39,
+   "w": 12,
+   "a": 28,
+   "r": 0.02,
    "L": 365,
-   "ret": 9,
+   "ret": 8,
    "geo": "-",
    "sh": false,
    "tb": [
     16,
     3,
     0,
-    17
+    20
    ],
    "er": {
+    "Search / Web": 3,
     "X / Twitter": 1
    },
    "cat": "agents",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "5qpVoUEd8qc",
@@ -1883,17 +2064,17 @@
    "p": "2026-09-16",
    "tp": "Alignment & Safety",
    "tc": "c-green",
-   "v": 35,
-   "w": 6,
-   "a": 31,
-   "r": 0.003,
+   "v": 38,
+   "w": 8,
+   "a": 36,
+   "r": 0.004,
    "L": 98,
-   "ret": 33,
+   "ret": 37,
    "geo": "-",
    "sh": false,
    "tb": [
     2,
-    22,
+    25,
     10,
     1
    ],
@@ -1902,7 +2083,8 @@
    },
    "cat": "agents",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "6etsLBVQTpA",
@@ -1911,10 +2093,10 @@
    "p": "2026-09-16",
    "tp": "Alignment & Safety",
    "tc": "c-green",
-   "v": 120,
-   "w": 38,
+   "v": 121,
+   "w": 39,
    "a": 65,
-   "r": 0.075,
+   "r": 0.176,
    "L": 196,
    "ret": 33,
    "geo": "-",
@@ -1923,14 +2105,17 @@
     79,
     27,
     0,
-    14
+    15
    ],
    "er": {
-    "Search / Web": 9
+    "Search / Web": 10
    },
    "cat": "agents",
-   "comp": "",
-   "comp_status": ""
+   "comp": "AI Will Do the Work. Who Gets Paid?",
+   "comp_status": "live",
+   "cn": [
+    2
+   ]
   },
   {
    "id": "d26y9itRsHw",
@@ -1956,7 +2141,8 @@
    "er": {},
    "cat": "alien_mind",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "cF_7jThs_Fc",
@@ -1983,8 +2169,12 @@
     "X / Twitter": 8
    },
    "cat": "alien_mind",
-   "comp": "",
-   "comp_status": ""
+   "comp": "Can We Trust AI? The Alignment Problem",
+   "comp_status": "live",
+   "cn": [
+    1,
+    5
+   ]
   },
   {
    "id": "4VHP5pqJ12U",
@@ -2010,7 +2200,8 @@
    "er": {},
    "cat": "agents",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "KbxsK1LlVSw",
@@ -2036,7 +2227,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "NUm2hdlQORQ",
@@ -2062,7 +2254,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "zHeTn2dnO3c",
@@ -2090,7 +2283,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "FZOtsKBV-hU",
@@ -2116,7 +2310,8 @@
    "er": {},
    "cat": "agents",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "ZganO6OP_XU",
@@ -2125,8 +2320,8 @@
    "p": "2026-09-15",
    "tp": "Governance & Geopolitics",
    "tc": "c-grey",
-   "v": 312,
-   "w": 111,
+   "v": 314,
+   "w": 112,
    "a": 23,
    "r": 0.565,
    "L": 245,
@@ -2137,7 +2332,7 @@
     38,
     5,
     0,
-    269
+    271
    ],
    "er": {
     "Search / Web": 20,
@@ -2146,7 +2341,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "1navifJxJKE",
@@ -2175,7 +2371,8 @@
    },
    "cat": "economics",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "lChiYc1A4B8",
@@ -2184,27 +2381,28 @@
    "p": "2026-09-12",
    "tp": "Economy & Work",
    "tc": "c-warm",
-   "v": 83,
-   "w": 28,
-   "a": 69,
+   "v": 85,
+   "w": 29,
+   "a": 64,
    "r": 0.018,
    "L": 283,
-   "ret": 25,
+   "ret": 23,
    "geo": "-",
    "sh": false,
    "tb": [
     46,
-    34,
+    35,
     0,
-    3
+    4
    ],
    "er": {
-    "Search / Web": 1,
+    "Search / Web": 2,
     "LinkedIn": 1
    },
    "cat": "economics",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "eT532DDvk0I",
@@ -2230,7 +2428,8 @@
    "er": {},
    "cat": "agents",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "rXnEcKpCz30",
@@ -2259,7 +2458,8 @@
    },
    "cat": "agents",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "KLPY-rz-SfI",
@@ -2285,7 +2485,8 @@
    "er": {},
    "cat": "agents",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "95YOic3mcgw",
@@ -2314,8 +2515,12 @@
     "Other sites": 2
    },
    "cat": "agents",
-   "comp": "",
-   "comp_status": ""
+   "comp": "Can We Trust AI? The Alignment Problem",
+   "comp_status": "live",
+   "cn": [
+    3,
+    5
+   ]
   },
   {
    "id": "KnmkW3nLvWw",
@@ -2341,7 +2546,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "ihEALWtt13o",
@@ -2370,7 +2576,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "jTwS9RBLi1c",
@@ -2379,17 +2586,17 @@
    "p": "2026-09-10",
    "tp": "AI Threats & Security",
    "tc": "c-coral",
-   "v": 658,
-   "w": 387,
+   "v": 663,
+   "w": 391,
    "a": 44,
-   "r": 0.659,
+   "r": 0.667,
    "L": 325,
    "ret": 14,
    "geo": "US",
    "sh": false,
    "tb": [
     22,
-    206,
+    211,
     0,
     430
    ],
@@ -2400,7 +2607,8 @@
    },
    "cat": "agents",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "1YhHhWPc42M",
@@ -2425,8 +2633,9 @@
    ],
    "er": {},
    "cat": "agents",
-   "comp": "AI Agents Breaking Out",
-   "comp_status": "published"
+   "comp": "",
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "eYSaSN02aiM",
@@ -2454,8 +2663,11 @@
     "Search / Web": 1
    },
    "cat": "agents",
-   "comp": "",
-   "comp_status": ""
+   "comp": "When AI Agents Break Out: Every Real Case",
+   "comp_status": "live",
+   "cn": [
+    3
+   ]
   },
   {
    "id": "KMhidu9nCwU",
@@ -2482,8 +2694,11 @@
     "Search / Web": 2
    },
    "cat": "alien_mind",
-   "comp": "",
-   "comp_status": ""
+   "comp": "Does AI Have a Mind? The Complete Debate",
+   "comp_status": "live",
+   "cn": [
+    1
+   ]
   },
   {
    "id": "Z71EvBczPiQ",
@@ -2510,8 +2725,9 @@
     "X / Twitter": 1
    },
    "cat": "alien_mind",
-   "comp": "AI Mind",
-   "comp_status": "published"
+   "comp": "",
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "Gzf6kTOkOjA",
@@ -2537,7 +2753,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "PkrFyVpx1O0",
@@ -2564,8 +2781,11 @@
     "X / Twitter": 9
    },
    "cat": "alien_mind",
-   "comp": "",
-   "comp_status": ""
+   "comp": "Does AI Have a Mind? The Complete Debate",
+   "comp_status": "live",
+   "cn": [
+    1
+   ]
   },
   {
    "id": "xQCZTQYQYsA",
@@ -2592,8 +2812,11 @@
     "Search / Web": 2
    },
    "cat": "agents",
-   "comp": "",
-   "comp_status": ""
+   "comp": "When AI Agents Break Out: Every Real Case",
+   "comp_status": "live",
+   "cn": [
+    3
+   ]
   },
   {
    "id": "cZXzTpRJb8Y",
@@ -2622,7 +2845,8 @@
    },
    "cat": "how_we_build",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "kcsRZBoBg1I",
@@ -2648,7 +2872,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "sWQAhX_ASvs",
@@ -2674,7 +2899,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "xuV7c-Rs80c",
@@ -2699,8 +2925,11 @@
    ],
    "er": {},
    "cat": "alien_mind",
-   "comp": "AI Mind",
-   "comp_status": "published"
+   "comp": "Does AI Have a Mind? The Complete Debate",
+   "comp_status": "live",
+   "cn": [
+    1
+   ]
   },
   {
    "id": "ygFTq74Vs9I",
@@ -2709,9 +2938,9 @@
    "p": "2026-09-07",
    "tp": "Consciousness & Mind",
    "tc": "c-violet",
-   "v": 156,
+   "v": 157,
    "w": 86,
-   "a": 70,
+   "a": 69,
    "r": 0.131,
    "L": 336,
    "ret": 21,
@@ -2719,7 +2948,7 @@
    "sh": false,
    "tb": [
     75,
-    50,
+    51,
     0,
     31
    ],
@@ -2727,8 +2956,9 @@
     "X / Twitter": 27
    },
    "cat": "alien_mind",
-   "comp": "AI Mind",
-   "comp_status": "published"
+   "comp": "",
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "9KN7Ny8NCHw",
@@ -2758,7 +2988,10 @@
    },
    "cat": "economics",
    "comp": "AI Will Do the Work. Who Gets Paid?",
-   "comp_status": "published"
+   "comp_status": "live",
+   "cn": [
+    2
+   ]
   },
   {
    "id": "AsKwOsVG7Rc",
@@ -2783,8 +3016,9 @@
    ],
    "er": {},
    "cat": "economics",
-   "comp": "AI Will Do the Work. Who Gets Paid?",
-   "comp_status": "published"
+   "comp": "",
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "aBRj-vQwrns",
@@ -2810,7 +3044,65 @@
    "er": {},
    "cat": "how_we_build",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "H3KgqSux_4s",
+   "url": "https://youtu.be/H3KgqSux_4s",
+   "t": "AI Beat Humans on the 'AGI' Test | #Shorts",
+   "p": "2026-09-05",
+   "tp": "AI Agents & Capabilities",
+   "tc": "c-teal",
+   "v": 24,
+   "w": 5,
+   "a": 30,
+   "r": 0.001,
+   "L": 106,
+   "ret": 29,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    1,
+    8,
+    14,
+    1
+   ],
+   "er": {},
+   "cat": "how_we_build",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "dG-s-jEaebw",
+   "url": "https://youtu.be/dG-s-jEaebw",
+   "t": "OpenAI's GPT-6 Astra Beat Humans on ARC-AGI - Is This AGI? What the Score Means",
+   "p": "2026-09-05",
+   "tp": "AI Agents & Capabilities",
+   "tc": "c-teal",
+   "v": 176,
+   "w": 88,
+   "a": 35,
+   "r": 0.023,
+   "L": 539,
+   "ret": 7,
+   "geo": "US",
+   "sh": false,
+   "tb": [
+    17,
+    30,
+    0,
+    129
+   ],
+   "er": {
+    "X / Twitter": 7,
+    "Other sites": 2
+   },
+   "cat": "how_we_build",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "zrQCToSha8I",
@@ -2836,63 +3128,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
-  },
-  {
-   "id": "aBRj-vQwrns",
-   "url": "https://youtu.be/aBRj-vQwrns",
-   "t": "AI Is Inventing Its Own Language | #Shorts",
-   "p": "2026-09-05",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
-   "v": 12,
-   "w": 0,
-   "a": 0,
-   "r": 0.0,
-   "L": 88,
-   "ret": 0,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    1,
-    7,
-    4,
-    0
-   ],
-   "er": {},
-   "cat": "how_we_build",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "id": "iS4DJJhIvrY",
-   "url": "https://youtu.be/iS4DJJhIvrY",
-   "t": "AI Is Building Its Own Language - Emergent Symbolic Structure & Non-Readable Representations",
-   "p": "2026-09-04",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
-   "v": 531,
-   "w": 302,
-   "a": 73,
-   "r": 0.327,
-   "L": 324,
-   "ret": 23,
-   "geo": "US",
-   "sh": false,
-   "tb": [
-    390,
-    12,
-    0,
-    129
-   ],
-   "er": {
-    "X / Twitter": 7,
-    "Search / Web": 2,
-    "Other sites": 2
-   },
-   "cat": "how_we_build",
-   "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "N2lTX63upl4",
@@ -2917,8 +3154,9 @@
    ],
    "er": {},
    "cat": "agents",
-   "comp": "AI Agents Breaking Out",
-   "comp_status": "published"
+   "comp": "",
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "cW6arbufGUQ",
@@ -2944,7 +3182,8 @@
    "er": {},
    "cat": "agents",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "FrNzFzYepaU",
@@ -2953,17 +3192,17 @@
    "p": "2026-09-02",
    "tp": "AI Threats & Security",
    "tc": "c-coral",
-   "v": 274,
-   "w": 287,
-   "a": 104,
-   "r": 0.617,
+   "v": 280,
+   "w": 289,
+   "a": 103,
+   "r": 0.631,
    "L": 306,
    "ret": 34,
    "geo": "US",
    "sh": false,
    "tb": [
     84,
-    145,
+    151,
     0,
     45
    ],
@@ -2973,8 +3212,9 @@
     "Messaging": 2
    },
    "cat": "agents",
-   "comp": "AI Agents Breaking Out",
-   "comp_status": "published"
+   "comp": "",
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "WZn0cXeciUM",
@@ -3003,7 +3243,8 @@
    },
    "cat": "agents",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "cTKcKIXQ96s",
@@ -3029,7 +3270,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "sxEGVS8Pb3Q",
@@ -3055,7 +3297,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "iBw_ZDChihc",
@@ -3082,8 +3325,11 @@
     "Messaging": 1
    },
    "cat": "how_we_build",
-   "comp": "AI Agents Breaking Out",
-   "comp_status": "published"
+   "comp": "How We Build: Engineering in the Age of AI",
+   "comp_status": "live",
+   "cn": [
+    4
+   ]
   },
   {
    "id": "EdYppkdOHVw",
@@ -3092,7 +3338,7 @@
    "p": "2026-08-30",
    "tp": "AI Agents & Capabilities",
    "tc": "c-teal",
-   "v": 582,
+   "v": 585,
    "w": 1133,
    "a": 226,
    "r": 2.02,
@@ -3102,7 +3348,7 @@
    "sh": false,
    "tb": [
     30,
-    423,
+    426,
     0,
     129
    ],
@@ -3113,8 +3359,11 @@
     "Search / Web": 5
    },
    "cat": "how_we_build",
-   "comp": "AI Agents Breaking Out",
-   "comp_status": "published"
+   "comp": "When AI Agents Break Out: Every Real Case",
+   "comp_status": "live",
+   "cn": [
+    3
+   ]
   },
   {
    "id": "QKBBcGqJQ0I",
@@ -3143,8 +3392,9 @@
     "Search / Web": 1
    },
    "cat": "alien_mind",
-   "comp": "AI Mind",
-   "comp_status": "published"
+   "comp": "",
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "gmkUqL7hqGY",
@@ -3173,7 +3423,8 @@
    },
    "cat": "how_we_build",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "gM8BNQLRqIw",
@@ -3199,7 +3450,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "GLTz61sEjFI",
@@ -3225,7 +3477,8 @@
    "er": {},
    "cat": "alien_mind",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "qnxoGBTMc38",
@@ -3234,24 +3487,27 @@
    "p": "2026-08-23",
    "tp": "Other",
    "tc": "c-grey",
-   "v": 9,
-   "w": 7,
-   "a": 51,
+   "v": 11,
+   "w": 8,
+   "a": 44,
    "r": 0.0,
    "L": 110,
-   "ret": 47,
+   "ret": 40,
    "geo": "-",
    "sh": false,
    "tb": [
     3,
     0,
     0,
-    6
+    8
    ],
-   "er": {},
+   "er": {
+    "Other sites": 2
+   },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "oeJPAISjIjM",
@@ -3277,7 +3533,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "RRpWWyRmytQ",
@@ -3303,7 +3560,8 @@
    "er": {},
    "cat": "how_we_build",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "e6YuuE1i71o",
@@ -3329,7 +3587,8 @@
    "er": {},
    "cat": "agents",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "ibtN1RjmVto",
@@ -3358,7 +3617,8 @@
    },
    "cat": "agents",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "FcO9BmywV60",
@@ -3386,7 +3646,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "cnklqie9cKA",
@@ -3395,24 +3656,25 @@
    "p": "2026-07-29",
    "tp": "Governance & Geopolitics",
    "tc": "c-grey",
-   "v": 29,
-   "w": 10,
-   "a": 22,
-   "r": 0.038,
+   "v": 30,
+   "w": 11,
+   "a": 23,
+   "r": 0.041,
    "L": 47,
-   "ret": 48,
+   "ret": 50,
    "geo": "-",
    "sh": true,
    "tb": [
     14,
     2,
     0,
-    13
+    14
    ],
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "bhLfaAd_xHE",
@@ -3440,7 +3702,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "3ugc6H0-Kwg",
@@ -3469,7 +3732,8 @@
    },
    "cat": "how_we_build",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "1Pe9_O1Gr5M",
@@ -3495,7 +3759,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "knOFbrelYJc",
@@ -3523,7 +3788,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "m0CSbin3C3k",
@@ -3549,7 +3815,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "a-5KK4-R-Os",
@@ -3575,7 +3842,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "xyF_l39vk9E",
@@ -3601,7 +3869,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "1plrQq_hlbY",
@@ -3627,7 +3896,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "HQir1NvOwLU",
@@ -3653,7 +3923,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "_aUTjS6zGLo",
@@ -3679,7 +3950,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "YL5HgJDsg8w",
@@ -3705,7 +3977,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "yX9XxiACKlY",
@@ -3731,7 +4004,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "eJBI9qfToLw",
@@ -3757,7 +4031,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "5Qejg73IKDc",
@@ -3785,7 +4060,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "PXegzVYuuKA",
@@ -3811,7 +4087,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "xrZZ2N4pKzs",
@@ -3839,7 +4116,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "Y7niqLye_AY",
@@ -3867,7 +4145,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "XoPrgMWDT7Q",
@@ -3893,7 +4172,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "UJdRmPQETRE",
@@ -3919,7 +4199,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "MKt82Yv_o0k",
@@ -3947,7 +4228,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "9hmb-daCkIg",
@@ -3975,7 +4257,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "H4OsJq5Utc4",
@@ -4001,7 +4284,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "1BQdy8gA_wg",
@@ -4027,7 +4311,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "nqMqaU6SDUg",
@@ -4053,7 +4338,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "7owWPKHtzcU",
@@ -4081,7 +4367,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "kpwcRpqAe7w",
@@ -4107,7 +4394,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "cEPHmdW_yhQ",
@@ -4133,7 +4421,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "7wDnGLgUPB8",
@@ -4159,7 +4448,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "Q86WS3Qttrg",
@@ -4185,7 +4475,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "UGOU7mdsmIc",
@@ -4211,7 +4502,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "7lMZ6Gx7m9Q",
@@ -4220,16 +4512,16 @@
    "p": "2026-04-25",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 14406,
-   "w": 10879,
+   "v": 14407,
+   "w": 10883,
    "a": 118,
-   "r": 0.068,
+   "r": 0.07,
    "L": 241,
    "ret": 49,
    "geo": "PT",
    "sh": false,
    "tb": [
-    14374,
+    14375,
     19,
     0,
     13
@@ -4237,7 +4529,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "9CK73vN0B-k",
@@ -4263,7 +4556,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "cdWcGGZVduA",
@@ -4289,7 +4583,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "1MWptTHV2ng",
@@ -4315,7 +4610,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "oOYBo9WKv7E",
@@ -4341,7 +4637,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "pAI5k3K4Jco",
@@ -4369,7 +4666,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "nBwOIGFnHBI",
@@ -4397,7 +4695,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "_5I977P9M2Y",
@@ -4425,7 +4724,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "mJlRvA1ph1g",
@@ -4455,7 +4755,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "QxUc1CwQuU4",
@@ -4483,7 +4784,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "-KCfpv6WXVc",
@@ -4492,8 +4794,8 @@
    "p": "2026-04-08",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 288,
-   "w": 187,
+   "v": 292,
+   "w": 188,
    "a": 40,
    "r": 0.01,
    "L": 132,
@@ -4501,8 +4803,8 @@
    "geo": "-",
    "sh": false,
    "tb": [
-    174,
-    93,
+    176,
+    95,
     0,
     21
    ],
@@ -4512,7 +4814,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "_12dtRQohsg",
@@ -4540,7 +4843,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "Cm53Z8BoIYw",
@@ -4566,7 +4870,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "3rRlj7sxgo4",
@@ -4575,9 +4880,9 @@
    "p": "2026-04-07",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 320,
-   "w": 252,
-   "a": 48,
+   "v": 322,
+   "w": 253,
+   "a": 47,
    "r": 0.01,
    "L": 228,
    "ret": 21,
@@ -4585,7 +4890,7 @@
    "sh": false,
    "tb": [
     219,
-    86,
+    88,
     0,
     15
    ],
@@ -4596,7 +4901,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "yibkteWz1Os",
@@ -4605,7 +4911,7 @@
    "p": "2026-04-07",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 136,
+   "v": 137,
    "w": 101,
    "a": 45,
    "r": 0.023,
@@ -4615,14 +4921,15 @@
    "sh": false,
    "tb": [
     115,
-    15,
+    16,
     0,
     6
    ],
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "40O9d8Kvsik",
@@ -4631,7 +4938,7 @@
    "p": "2026-04-07",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 215547,
+   "v": 215548,
    "w": 80131,
    "a": 41,
    "r": 0.107,
@@ -4641,7 +4948,7 @@
    "sh": false,
    "tb": [
     173714,
-    232,
+    233,
     0,
     41601
    ],
@@ -4652,7 +4959,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "vk_x8vErkzs",
@@ -4661,17 +4969,17 @@
    "p": "2026-04-07",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 113781,
-   "w": 116440,
+   "v": 113782,
+   "w": 116441,
    "a": 95,
-   "r": 0.007,
+   "r": 0.016,
    "L": 193,
    "ret": 50,
    "geo": "IN",
    "sh": false,
    "tb": [
     113529,
-    33,
+    34,
     0,
     219
    ],
@@ -4681,7 +4989,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "p3LsnhbdDMw",
@@ -4710,7 +5019,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "ahoCQCb13fc",
@@ -4738,7 +5048,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "1_Ni4luzncg",
@@ -4764,7 +5075,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "y5-HEkhGdhM",
@@ -4773,7 +5085,7 @@
    "p": "2026-04-03",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 846557,
+   "v": 846559,
    "w": 1063841,
    "a": 95,
    "r": 0.081,
@@ -4782,7 +5094,7 @@
    "geo": "IN",
    "sh": false,
    "tb": [
-    681720,
+    681722,
     179,
     0,
     164658
@@ -4794,7 +5106,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "TI8sLP13nE4",
@@ -4820,7 +5133,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "o6_9Sc6PBeQ",
@@ -4848,7 +5162,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "3niZIAfh3Qs",
@@ -4877,7 +5192,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "h8UFozJ9Ruc",
@@ -4905,7 +5221,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "gZCLw6jF5rY",
@@ -4934,7 +5251,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "AeF1sJS2Qg8",
@@ -4943,7 +5261,7 @@
    "p": "2026-04-03",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 22686,
+   "v": 22687,
    "w": 11424,
    "a": 69,
    "r": 0.0,
@@ -4953,7 +5271,7 @@
    "sh": false,
    "tb": [
     20882,
-    15,
+    16,
     0,
     1789
    ],
@@ -4963,7 +5281,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "nCJjvglK2fo",
@@ -4991,7 +5310,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "EIPTVa9gLGA",
@@ -5000,8 +5320,8 @@
    "p": "2026-04-03",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 1129719,
-   "w": 1308936,
+   "v": 1129723,
+   "w": 1308937,
    "a": 100,
    "r": 0.0,
    "L": 246,
@@ -5009,8 +5329,8 @@
    "geo": "IN",
    "sh": false,
    "tb": [
-    989708,
-    159,
+    989710,
+    161,
     0,
     139852
    ],
@@ -5021,7 +5341,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "DrqkN4Axndg",
@@ -5047,7 +5368,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "S0ZlSxGhWhk",
@@ -5073,7 +5395,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "4pXD3tO-JE4",
@@ -5099,7 +5422,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "QyAaaVflzEY",
@@ -5125,7 +5449,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "e3qEzp5yVeg",
@@ -5153,7 +5478,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "ijOBsDYYVDQ",
@@ -5179,7 +5505,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "mb1wockFnO8",
@@ -5207,7 +5534,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "rpEXI3Dk49s",
@@ -5235,7 +5563,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "lyksqn_Ek9o",
@@ -5261,7 +5590,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "GIOyJQFJWDo",
@@ -5287,7 +5617,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "3XAUb1iWfuQ",
@@ -5313,7 +5644,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "4n8cWDrQK30",
@@ -5339,7 +5671,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "gc2096gCfLY",
@@ -5365,7 +5698,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "Osr_vOQnDpc",
@@ -5391,7 +5725,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "Chp8vUKF20w",
@@ -5419,7 +5754,8 @@
    },
    "cat": "how_we_build",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "453PYmh3vHU",
@@ -5445,7 +5781,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "QrpOg0_sgPc",
@@ -5471,7 +5808,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "cloyhnoWgrQ",
@@ -5497,7 +5835,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "ndqqN4Gqxm4",
@@ -5523,7 +5862,65 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "vx3Z2L2SUHc",
+   "url": "https://youtu.be/vx3Z2L2SUHc",
+   "t": "Moonshots Outro from my claw to Skippy",
+   "p": "2026-03-11",
+   "tp": "Other",
+   "tc": "c-grey",
+   "v": 17,
+   "w": 15,
+   "a": 57,
+   "r": 0.018,
+   "L": 222,
+   "ret": 26,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    6,
+    4,
+    0,
+    7
+   ],
+   "er": {
+    "Other sites": 1,
+    "Search / Web": 1
+   },
+   "cat": "others",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "VlLz8Dc6Uss",
+   "url": "https://youtu.be/VlLz8Dc6Uss",
+   "t": "debussy clair de lune   celtic remix",
+   "p": "2026-03-10",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 322,
+   "w": 21,
+   "a": 15,
+   "r": 0.001,
+   "L": 31,
+   "ret": 50,
+   "geo": "DO",
+   "sh": true,
+   "tb": [
+    8,
+    35,
+    279,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "-KCfpv6WXVc",
@@ -5532,8 +5929,8 @@
    "p": "2026-04-08",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 288,
-   "w": 187,
+   "v": 292,
+   "w": 188,
    "a": 40,
    "r": 0.01,
    "L": 132,
@@ -5541,8 +5938,8 @@
    "geo": "-",
    "sh": false,
    "tb": [
-    174,
-    93,
+    176,
+    95,
     0,
     21
    ],
@@ -5552,7 +5949,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "Cm53Z8BoIYw",
@@ -5578,7 +5976,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "DrqkN4Axndg",
@@ -5604,7 +6003,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "S0ZlSxGhWhk",
@@ -5630,59 +6030,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
-  },
-  {
-   "id": "VlLz8Dc6Uss",
-   "url": "https://youtu.be/VlLz8Dc6Uss",
-   "t": "debussy clair de lune   celtic remix",
-   "p": "2026-03-10",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 321,
-   "w": 21,
-   "a": 15,
-   "r": 0.001,
-   "L": 31,
-   "ret": 51,
-   "geo": "DO",
-   "sh": true,
-   "tb": [
-    8,
-    34,
-    279,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "id": "WjSXNndGqxc",
-   "url": "https://youtu.be/WjSXNndGqxc",
-   "t": "ode to joy - celtic remix",
-   "p": "2026-03-09",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 242,
-   "w": 15,
-   "a": 12,
-   "r": 0.001,
-   "L": 31,
-   "ret": 41,
-   "geo": "-",
-   "sh": true,
-   "tb": [
-    6,
-    30,
-    206,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "tLX5yKlEYGM",
@@ -5708,7 +6057,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "apj7fmThQjY",
@@ -5734,7 +6084,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "CSxbN5vit4U",
@@ -5760,7 +6111,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "Kuce4CG_5aQ",
@@ -5786,7 +6138,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "HCmYZi4R0VI",
@@ -5812,7 +6165,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "Tf0ctF8iX-s",
@@ -5838,7 +6192,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "ZbS8zEg3vNQ",
@@ -5864,7 +6219,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "sAr6_I1ZeVw",
@@ -5890,7 +6246,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "Y0T5BU_qS6c",
@@ -5899,7 +6256,7 @@
    "p": "2026-03-06",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 164,
+   "v": 165,
    "w": 7,
    "a": 9,
    "r": 0.0,
@@ -5909,14 +6266,15 @@
    "sh": true,
    "tb": [
     2,
-    5,
+    6,
     157,
     0
    ],
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "3THpivlEb2o",
@@ -5942,7 +6300,8 @@
    "er": {},
    "cat": "how_we_build",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "zx88W3X7Zqo",
@@ -5968,7 +6327,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "lRDSN19spk0",
@@ -5977,7 +6337,7 @@
    "p": "2026-03-04",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 581,
+   "v": 582,
    "w": 36,
    "a": 10,
    "r": 0.004,
@@ -5987,14 +6347,15 @@
    "sh": true,
    "tb": [
     20,
-    31,
+    32,
     530,
     0
    ],
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "3KYCwYbf_mM",
@@ -6020,7 +6381,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "d-So0-5yg1s",
@@ -6029,8 +6391,8 @@
    "p": "2026-03-02",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 8116,
-   "w": 1230,
+   "v": 8118,
+   "w": 1231,
    "a": 26,
    "r": 0.002,
    "L": 31,
@@ -6039,7 +6401,7 @@
    "sh": true,
    "tb": [
     7385,
-    68,
+    70,
     533,
     130
    ],
@@ -6049,7 +6411,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "C_5j02MH_Ro",
@@ -6075,7 +6438,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "enD3v_ebx-w",
@@ -6101,7 +6465,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "whIKIUfg5mc",
@@ -6127,7 +6492,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "71m5aWD8M3I",
@@ -6153,7 +6519,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "aJmfE6l1Jko",
@@ -6179,7 +6546,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "mKhtRxHcgMI",
@@ -6205,7 +6573,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "IxJnKkcsHS0",
@@ -6214,7 +6583,7 @@
    "p": "2026-02-27",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 91,
+   "v": 93,
    "w": 5,
    "a": 12,
    "r": 0.0,
@@ -6224,14 +6593,15 @@
    "sh": true,
    "tb": [
     10,
-    7,
+    9,
     74,
     0
    ],
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "su78PuoAG58",
@@ -6257,7 +6627,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "3LL99dYlGYc",
@@ -6283,7 +6654,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "Wa9ZnxJENV8",
@@ -6292,17 +6664,17 @@
    "p": "2026-02-26",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 808,
+   "v": 809,
    "w": 72,
    "a": 10,
-   "r": 0.002,
+   "r": 0.003,
    "L": 31,
    "ret": 33,
    "geo": "DE",
    "sh": true,
    "tb": [
     37,
-    79,
+    80,
     691,
     1
    ],
@@ -6311,7 +6683,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "zqc9dHzVi9A",
@@ -6320,7 +6693,7 @@
    "p": "2026-02-25",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 935,
+   "v": 937,
    "w": 111,
    "a": 16,
    "r": 0.0,
@@ -6330,14 +6703,15 @@
    "sh": true,
    "tb": [
     48,
-    77,
+    79,
     810,
     0
    ],
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "crCA8p1OJuI",
@@ -6365,7 +6739,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "7IJxpxi-KuA",
@@ -6391,7 +6766,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "fYizUgUacto",
@@ -6417,7 +6793,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "7c-CQ2j1q6I",
@@ -6426,7 +6803,7 @@
    "p": "2026-02-22",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 1047,
+   "v": 1048,
    "w": 131,
    "a": 18,
    "r": 0.002,
@@ -6436,14 +6813,15 @@
    "sh": true,
    "tb": [
     17,
-    159,
+    160,
     871,
     0
    ],
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "0inKnq5X4iQ",
@@ -6469,7 +6847,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "iwiGQmq8iiw",
@@ -6495,7 +6874,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "bF5rZ3nq5jw",
@@ -6504,7 +6884,7 @@
    "p": "2026-02-21",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 67,
+   "v": 68,
    "w": 4,
    "a": 6,
    "r": 0.002,
@@ -6514,14 +6894,15 @@
    "sh": true,
    "tb": [
     7,
-    54,
+    55,
     6,
     0
    ],
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "-yBDJ3LlQvU",
@@ -6547,7 +6928,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "h0leCj1_Sk4",
@@ -6573,7 +6955,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "bPeM42iRKjA",
@@ -6599,7 +6982,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "b2EB6WZY5Uo",
@@ -6625,7 +7009,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "R69kQOFSu_U",
@@ -6653,7 +7038,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "iyONVpFg9cA",
@@ -6685,7 +7071,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "PRwpJrTwUmM",
@@ -6694,7 +7081,7 @@
    "p": "2026-02-18",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 1303,
+   "v": 1305,
    "w": 152,
    "a": 16,
    "r": 0.0,
@@ -6704,7 +7091,7 @@
    "sh": true,
    "tb": [
     321,
-    47,
+    49,
     933,
     2
    ],
@@ -6713,7 +7100,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "kYTQo9ey6h0",
@@ -6739,7 +7127,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "a0D2nyDCQcY",
@@ -6765,7 +7154,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "iKsRvWLbkl0",
@@ -6791,7 +7181,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "R4uEEw1y9fs",
@@ -6819,7 +7210,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "IbUi7Dhu64I",
@@ -6845,7 +7237,64 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "toTiY0DHVj8",
+   "url": "https://youtu.be/toTiY0DHVj8",
+   "t": "Ode to Joy progressive house remix full",
+   "p": "2026-02-15",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 58070,
+   "w": 41531,
+   "a": 84,
+   "r": 0.014,
+   "L": 190,
+   "ret": 45,
+   "geo": "IN",
+   "sh": false,
+   "tb": [
+    57994,
+    24,
+    0,
+    52
+   ],
+   "er": {
+    "Search / Web": 1
+   },
+   "cat": "others",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "ckhvQNMba-Y",
+   "url": "https://youtu.be/ckhvQNMba-Y",
+   "t": "The Lost Coin, Chapter 3: The Rooftop Party",
+   "p": "2026-02-15",
+   "tp": "Other",
+   "tc": "c-grey",
+   "v": 86,
+   "w": 5,
+   "a": 31,
+   "r": 0.0,
+   "L": 60,
+   "ret": 52,
+   "geo": "-",
+   "sh": true,
+   "tb": [
+    11,
+    1,
+    74,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "-KCfpv6WXVc",
@@ -6854,8 +7303,8 @@
    "p": "2026-04-08",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 288,
-   "w": 187,
+   "v": 292,
+   "w": 188,
    "a": 40,
    "r": 0.01,
    "L": 132,
@@ -6863,8 +7312,8 @@
    "geo": "-",
    "sh": false,
    "tb": [
-    174,
-    93,
+    176,
+    95,
     0,
     21
    ],
@@ -6874,7 +7323,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "Cm53Z8BoIYw",
@@ -6900,7 +7350,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "DrqkN4Axndg",
@@ -6926,7 +7377,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "S0ZlSxGhWhk",
@@ -6952,65 +7404,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
-  },
-  {
-   "id": "7dhdaiSgmkg",
-   "url": "https://youtu.be/7dhdaiSgmkg",
-   "t": "The Lost Coins, Chapter 2: A cyber triller in Shorts format.",
-   "p": "2026-02-14",
-   "tp": "Other",
-   "tc": "c-grey",
-   "v": 96,
-   "w": 6,
-   "a": 18,
-   "r": 0.0,
-   "L": 65,
-   "ret": 28,
-   "geo": "US",
-   "sh": false,
-   "tb": [
-    10,
-    1,
-    82,
-    3
-   ],
-   "er": {
-    "Search / Web": 3
-   },
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
-  },
-  {
-   "id": "m-55kujIKXw",
-   "url": "https://youtu.be/m-55kujIKXw",
-   "t": "The Lost Coin, Chapter 1: A cyber triller in shorts format",
-   "p": "2026-02-13",
-   "tp": "Other",
-   "tc": "c-grey",
-   "v": 139,
-   "w": 22,
-   "a": 35,
-   "r": 0.0,
-   "L": 57,
-   "ret": 62,
-   "geo": "-",
-   "sh": true,
-   "tb": [
-    15,
-    2,
-    117,
-    5
-   ],
-   "er": {
-    "Messaging": 2,
-    "Search / Web": 1,
-    "LinkedIn": 1
-   },
-   "cat": "others",
-   "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "B-trnCS8tAI",
@@ -7038,7 +7433,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "6zX9WopVODU",
@@ -7064,7 +7460,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "wx_S30A3aro",
@@ -7090,7 +7487,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "yBsdbXOCpoo",
@@ -7116,7 +7514,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "G-BLDhMdp7s",
@@ -7142,7 +7541,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "ltpT5JdJZo8",
@@ -7168,7 +7568,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "TJek6Kg8V8s",
@@ -7194,7 +7595,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "8Ia2h0v1bk8",
@@ -7203,7 +7605,7 @@
    "p": "2026-02-10",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 127,
+   "v": 128,
    "w": 31,
    "a": 34,
    "r": 0.002,
@@ -7213,14 +7615,15 @@
    "sh": true,
    "tb": [
     8,
-    53,
+    54,
     66,
     0
    ],
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "3vWVxPhnuUI",
@@ -7229,10 +7632,10 @@
    "p": "2026-02-10",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 275,
-   "w": 227,
-   "a": 49,
-   "r": 0.028,
+   "v": 276,
+   "w": 229,
+   "a": 50,
+   "r": 0.029,
    "L": 189,
    "ret": 26,
    "geo": "BR",
@@ -7241,15 +7644,16 @@
     232,
     8,
     0,
-    35
+    36
    ],
    "er": {
-    "Search / Web": 11,
+    "Search / Web": 12,
     "Messaging": 2
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "jE-9g-99Jeo",
@@ -7275,7 +7679,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "KXqy8niTzOc",
@@ -7287,7 +7692,7 @@
    "v": 11124,
    "w": 4746,
    "a": 62,
-   "r": 0.012,
+   "r": 0.013,
    "L": 182,
    "ret": 34,
    "geo": "IN",
@@ -7304,7 +7709,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "vcTflgPP5s0",
@@ -7334,7 +7740,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "9ha0smAlK6o",
@@ -7362,7 +7769,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "3CoeWZ2zCFc",
@@ -7371,7 +7779,7 @@
    "p": "2026-02-08",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 88,
+   "v": 89,
    "w": 5,
    "a": 12,
    "r": 0.001,
@@ -7381,14 +7789,15 @@
    "sh": true,
    "tb": [
     4,
-    13,
+    14,
     71,
     0
    ],
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "m6By4si6Z8k",
@@ -7397,7 +7806,7 @@
    "p": "2026-02-07",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 9712,
+   "v": 9713,
    "w": 1726,
    "a": 22,
    "r": 0.0,
@@ -7407,14 +7816,15 @@
    "sh": true,
    "tb": [
     8370,
-    31,
+    32,
     1309,
     2
    ],
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "X0tyvUUqIAo",
@@ -7440,7 +7850,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "mJq7mslHKLk",
@@ -7449,24 +7860,25 @@
    "p": "2026-02-07",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 1132,
-   "w": 166,
+   "v": 1135,
+   "w": 167,
    "a": 13,
-   "r": 0.02,
+   "r": 0.021,
    "L": 31,
    "ret": 44,
    "geo": "US",
    "sh": true,
    "tb": [
     49,
-    283,
-    799,
+    285,
+    800,
     1
    ],
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "QaWhn0pZLHs",
@@ -7492,7 +7904,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "bYH3org9UXs",
@@ -7518,7 +7931,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "ACZ9yofGbmk",
@@ -7544,7 +7958,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "xoYjQJDH0jg",
@@ -7570,7 +7985,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "fbGCWZhxQCw",
@@ -7579,7 +7995,7 @@
    "p": "2026-02-06",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 894,
+   "v": 895,
    "w": 89,
    "a": 11,
    "r": 0.0,
@@ -7589,14 +8005,15 @@
    "sh": true,
    "tb": [
     18,
-    13,
+    14,
     863,
     0
    ],
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "coIf7h-jGc4",
@@ -7622,7 +8039,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "k1viS391EmE",
@@ -7631,17 +8049,17 @@
    "p": "2026-02-05",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 18723,
-   "w": 9291,
+   "v": 18726,
+   "w": 9292,
    "a": 93,
-   "r": 0.056,
+   "r": 0.057,
    "L": 183,
    "ret": 51,
    "geo": "PT",
    "sh": false,
    "tb": [
-    18585,
-    119,
+    18586,
+    121,
     0,
     19
    ],
@@ -7651,7 +8069,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "fbjpMREQ8Y8",
@@ -7660,17 +8079,17 @@
    "p": "2026-02-05",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 1095,
-   "w": 145,
+   "v": 1102,
+   "w": 146,
    "a": 14,
-   "r": 0.013,
+   "r": 0.014,
    "L": 31,
-   "ret": 47,
+   "ret": 48,
    "geo": "PL",
    "sh": true,
    "tb": [
     18,
-    383,
+    390,
     691,
     3
    ],
@@ -7679,7 +8098,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "lad5GrQq4xc",
@@ -7708,7 +8128,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "kiQ6g-iulpg",
@@ -7734,7 +8155,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "KDM7urGwkBc",
@@ -7743,7 +8165,7 @@
    "p": "2026-02-04",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 91,
+   "v": 92,
    "w": 58,
    "a": 38,
    "r": 0.015,
@@ -7752,7 +8174,7 @@
    "geo": "-",
    "sh": false,
    "tb": [
-    49,
+    50,
     32,
     0,
     10
@@ -7760,7 +8182,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "TDEqthUFmqw",
@@ -7786,7 +8209,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "tVT2xcrwv9k",
@@ -7795,26 +8219,27 @@
    "p": "2026-02-03",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 199,
-   "w": 43,
+   "v": 203,
+   "w": 44,
    "a": 13,
    "r": 0.008,
    "L": 31,
-   "ret": 45,
+   "ret": 44,
    "geo": "-",
    "sh": true,
    "tb": [
     40,
-    146,
+    149,
     0,
-    13
+    14
    ],
    "er": {
     "Messaging": 2
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "mglGLu-PmHQ",
@@ -7840,7 +8265,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "YzHo0_GPYiw",
@@ -7866,7 +8292,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "lzYBTdTW0rE",
@@ -7894,7 +8321,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "ubVHe8SvySM",
@@ -7920,7 +8348,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "or0tSaMBMU4",
@@ -7948,7 +8377,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "9wmXfirqCr0",
@@ -7974,7 +8404,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "1jVHDOy5Fv0",
@@ -8000,7 +8431,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "qT-5IcKH--Q",
@@ -8009,26 +8441,27 @@
    "p": "2026-01-30",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 455,
-   "w": 308,
-   "a": 42,
+   "v": 461,
+   "w": 359,
+   "a": 49,
    "r": 0.096,
    "L": 108,
-   "ret": 39,
+   "ret": 45,
    "geo": "-",
    "sh": false,
    "tb": [
-    78,
-    306,
+    82,
+    307,
     0,
-    71
+    72
    ],
    "er": {
     "Messaging": 3
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "SSvDRYbcigY",
@@ -8037,24 +8470,27 @@
    "p": "2026-01-30",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 50,
+   "v": 51,
    "w": 23,
-   "a": 29,
+   "a": 28,
    "r": 0.001,
    "L": 95,
-   "ret": 31,
+   "ret": 30,
    "geo": "-",
    "sh": false,
    "tb": [
     35,
     15,
     0,
-    0
+    1
    ],
-   "er": {},
+   "er": {
+    "Search / Web": 1
+   },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "ey-AYVysttw",
@@ -8082,7 +8518,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "hLLz8P7Npnw",
@@ -8108,7 +8545,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "FXFP72usrYM",
@@ -8136,7 +8574,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "IzkMsY2-mUo",
@@ -8166,7 +8605,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "6dCtGeLUJsw",
@@ -8194,7 +8634,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "-c4CXJdnPrM",
@@ -8220,7 +8661,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "YcTk2LVVx4c",
@@ -8246,7 +8688,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "OIHVXzxzDL8",
@@ -8255,7 +8698,7 @@
    "p": "2026-01-22",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 387,
+   "v": 388,
    "w": 26,
    "a": 11,
    "r": 0.0,
@@ -8265,14 +8708,15 @@
    "sh": true,
    "tb": [
     20,
-    9,
+    10,
     355,
     3
    ],
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "kEPdOXWZO_8",
@@ -8300,7 +8744,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "1d-2lJLgJ-0",
@@ -8326,7 +8771,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "318OSBDTXjg",
@@ -8352,7 +8798,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "fWSmjeXY58Y",
@@ -8378,7 +8825,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "SW0Dt6KXe8U",
@@ -8404,7 +8852,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "UyfAJmMtSfc",
@@ -8432,7 +8881,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "YSgmEmkEvV8",
@@ -8458,7 +8908,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "SAbcu72ZeCI",
@@ -8484,7 +8935,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "GXxEvQglWuI",
@@ -8510,7 +8962,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "2-UibqrWZc4",
@@ -8536,7 +8989,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "vArEYQsoaNU",
@@ -8545,8 +8999,8 @@
    "p": "2026-01-15",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 21131,
-   "w": 4736,
+   "v": 21136,
+   "w": 4741,
    "a": 37,
    "r": 0.089,
    "L": 128,
@@ -8554,10 +9008,10 @@
    "geo": "IN",
    "sh": false,
    "tb": [
-    20838,
-    231,
+    20840,
+    233,
     0,
-    62
+    63
    ],
    "er": {
     "Search / Web": 6,
@@ -8565,7 +9019,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "4w9qclXvNaM",
@@ -8591,7 +9046,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "7x0Pp7LIzow",
@@ -8617,7 +9073,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "sDP2Phe8OKc",
@@ -8643,7 +9100,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "83tiRMK-Ga8",
@@ -8669,7 +9127,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "6e0R0ylHrRE",
@@ -8695,7 +9154,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "z4z3q5nuQkc",
@@ -8721,7 +9181,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "_4mwz9ozhZM",
@@ -8749,7 +9210,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "BICJlGqXNq4",
@@ -8775,7 +9237,8 @@
    "er": {},
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "UTCBJiy11WI",
@@ -8803,7 +9266,8 @@
    },
    "cat": "others",
    "comp": "",
-   "comp_status": ""
+   "comp_status": "",
+   "cn": []
   }
  ]
 }

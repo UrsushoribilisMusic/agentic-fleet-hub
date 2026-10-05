@@ -258,7 +258,8 @@ def main():
     for c in comp.get("compilations", []):
         for m in c.get("members", []):
             title2comp[m.strip().lower()] = {"id": c["id"], "title": c["title"],
-                                             "status": c["status"], "category": c["category"]}
+                                             "status": c["status"],
+                                             "category": c.get("category", c.get("topic", ""))}
 
     ya, yt = services()
     vids = channel_uploads(yt, args.limit)
@@ -291,11 +292,24 @@ def main():
         o["v"] += x["v"]; o["w"] += x["w"]; o["e"] += x["tb"][3]
     verdicts = {tp: verdict_for(o) for tp, o in agg.items()}
 
+    # Compilation data for the /fleet/insights dashboard (§4 + the Every-video "Comp"
+    # column): emit `compilations_live` (numbered, with status) and tag each video with
+    # the compilation numbers it belongs to (`cn`), matched by member title.
+    comp_live = comp.get("compilations", [])
+    _tn = {}
+    for c in comp_live:
+        for m in c.get("members", []):
+            if c.get("n") is not None:
+                _tn.setdefault(m.strip().lower(), []).append(c["n"])
+    for x in videos:
+        x["cn"] = _tn.get(x["t"].strip().lower(), [])
+
     payload = {
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "categories": comp.get("categories", []),
         "topic_to_category": t2c,
         "compilations": comp.get("compilations", []),
+        "compilations_live": comp_live,
         "verdicts": verdicts,
         "videos": videos,
     }
