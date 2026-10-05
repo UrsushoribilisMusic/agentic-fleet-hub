@@ -135,6 +135,36 @@
    "topic": "Economy & Work",
    "status": "private",
    "members": []
+  },
+  {
+   "n": 8,
+   "id": "",
+   "title": "The AI Security Files: How AI Gets Hacked & Weaponized",
+   "published": "",
+   "topic": "AI Threats & Security",
+   "status": "queued",
+   "members": [
+    "How Hackers Weaponized Claude in 2026: Inside Anthropic's Threat Intelligence Report",
+    "The Anatomy of an AI Breakout- The Anthropic and OpenAI incidents",
+    "Anatomy of an AI Breach",
+    "Hackers Get Hacked: China's AI Labs Secretly Fed Their Users' Secrets to Claude",
+    "Russia's Self-Healing Malware: The AI That Rewrites Its Own Weapons to Evade Detection"
+   ]
+  },
+  {
+   "n": 9,
+   "id": "",
+   "title": "Can Machines Think? AI's Capability Leaps",
+   "published": "",
+   "topic": "AI Agents & Capabilities",
+   "status": "queued",
+   "members": [
+    "Cognitive Cousins: How LLMs Reverse-Engineered Fast and Slow Thinking",
+    "OpenAI's GPT-6 Astra Beat Humans on ARC-AGI - Is This AGI? What the Score Means",
+    "27 Minutes of Chaos: When 100 AI Agents Broke Their Own Rules",
+    "Measuring the Pace of AI Development: Anthropic's Transparency Numbers",
+    "Artificial Symbiotic Intelligence: The Orchestration of Many Minds"
+   ]
   }
  ]
 }
