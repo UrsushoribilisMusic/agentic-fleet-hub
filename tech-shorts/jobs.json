@@ -1,6 +1,6 @@
 {
     "version": "1.0",
-    "updated_at": "2026-10-03T19:05:09Z",
+    "updated_at": "2026-10-05T09:18:59Z",
     "jobs": [
         {
             "id": "ts-20260916-deepmind-reasoning-transparency",
@@ -8594,6 +8594,69 @@
                 "long_id": "-zUsiw_3LRw",
                 "long_url": "https://youtu.be/-zUsiw_3LRw",
                 "published_at": ""
+            },
+            "x_post": {
+                "post_id": "",
+                "post_url": "",
+                "caption": ""
+            },
+            "stats": {
+                "views": 0,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": ""
+            },
+            "localize": [
+                "de",
+                "fr",
+                "ja"
+            ]
+        },
+        {
+            "id": "ts-20261005-the-jevons-paradox-and-the-future-of-ai-employment",
+            "slug": "the-jevons-paradox-and-the-future-of-ai-employment",
+            "title": "The Jevons Paradox and the Future of AI Employment",
+            "source_urls": [],
+            "source_file": {},
+            "source_files": [],
+            "idea_notes": "Based on Miguel's LinkedIn article 'The Jevons Paradox and the Future of AI Employment'. Thesis: different activities have different ceilings on the Jevons S-curve; AI literacy + task-vs-job determine whether jobs grow. Even-handed. PUBLISH target: 2026-10-06 09:30 CEST (sync with the LinkedIn article).",
+            "tags": [
+                "ai",
+                "jobs",
+                "economy",
+                "jevons paradox",
+                "automation",
+                "productivity"
+            ],
+            "status": "uploaded",
+            "created_at": "2026-10-05T09:18:59Z",
+            "updated_at": "2026-10-05T09:50:34Z",
+            "notebook_url": "",
+            "hook_copy": {
+                "card_a_main": "WILL AI CREATE JOBS, OR DESTROY THEM?",
+                "card_a_sub": "The Jevons paradox, and why the answer depends",
+                "card_a_footer": "Adventures in digitalization",
+                "card_b_main": "Different work, different ceilings",
+                "card_b_sub": "Where AI multiplies jobs, and where it doesn't",
+                "card_b_footer": "The Classical Remix",
+                "vo_text_pending": "In eighteen sixty-five, making steam engines more efficient made Britain burn more coal, not less. That is the Jevons paradox. So will more efficient AI create more jobs, or destroy them? It turns out the answer depends on one thing."
+            },
+            "outro_copy": {},
+            "assets": {
+                "raw_short_mp4": "",
+                "raw_long_mp4": "/Users/miguelrodriguez/Downloads/The_Quadrants_of_Automation.mp4",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-05-the-jevons-paradox-and-the-future-of-ai-employment/the-jevons-paradox-and-the-future-of-ai-employment_hook_vo.mp3",
+                "final_short_mp4": "",
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-05-the-jevons-paradox-and-the-future-of-ai-employment/final_long.mp4",
+                "raw_cinematic_mp4": "/Users/miguelrodriguez/Downloads/The_Quadrants_of_Automation.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-05-the-jevons-paradox-and-the-future-of-ai-employment"
+            },
+            "youtube": {
+                "short_id": "",
+                "short_url": "",
+                "long_id": "Miw8TeG3RFI",
+                "long_url": "https://youtu.be/Miw8TeG3RFI",
+                "published_at": "2026-10-06T07:30:00Z"
             },
             "x_post": {
                 "post_id": "",
