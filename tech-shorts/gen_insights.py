@@ -180,8 +180,9 @@ def channel_uploads(yt, limit=None):
         r = yt.videos().list(part="snippet,contentDetails", id=",".join(chunk)).execute()
         for it in r.get("items", []):
             dur = iso_dur(it["contentDetails"]["duration"])
-            out.append((it["id"], it["snippet"]["title"],
-                        it["snippet"]["publishedAt"][:10], dur, dur <= 60))
+            title = it["snippet"]["title"]
+            is_short = dur <= 60 or "#short" in title.lower()  # channel Shorts run 60-180s but are tagged #Shorts
+            out.append((it["id"], title, it["snippet"]["publishedAt"][:10], dur, is_short))
     return out
 
 
