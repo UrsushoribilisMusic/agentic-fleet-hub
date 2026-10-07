@@ -1,6 +1,6 @@
 {
     "version": "1.0",
-    "updated_at": "2026-10-05T09:18:59Z",
+    "updated_at": "2026-10-07T10:58:17Z",
     "jobs": [
         {
             "id": "ts-20260916-deepmind-reasoning-transparency",
@@ -8674,6 +8674,293 @@
                 "fr",
                 "ja"
             ]
+        },
+        {
+            "id": "ts-20261006-big-blob-of-compute",
+            "slug": "big-blob-of-compute",
+            "title": "Big blob of compute",
+            "source_urls": [],
+            "source_file": {
+                "path": "/opt/tech-shorts/uploads/ts-20261006-big-blob-of-compute/Big_Blob_of_Compute.pdf",
+                "original_name": "Big_Blob_of_Compute.pdf",
+                "size_bytes": 851665,
+                "mime_type": "application/pdf"
+            },
+            "source_files": [
+                {
+                    "path": "/opt/tech-shorts/uploads/ts-20261006-big-blob-of-compute/Big_Blob_of_Compute.pdf",
+                    "original_name": "Big_Blob_of_Compute.pdf",
+                    "size_bytes": 851665,
+                    "mime_type": "application/pdf"
+                }
+            ],
+            "idea_notes": "Describes Amodeis hypothesis that scaling up AI models was the best way.",
+            "tags": [],
+            "status": "uploaded",
+            "created_at": "2026-10-06T02:24:55Z",
+            "updated_at": "2026-10-07T10:58:11Z",
+            "notebook_url": "",
+            "hook_copy": {
+                "vo_text": "What if intelligence is not built from clever little algorithms, but from a giant blob of compute shaped by training? Dario Amodei's Big Blob of Compute hypothesis explains why scale keeps winning, and why safety is mostly about what the system is optimized to become.",
+                "card_a_main": "INTELLIGENCE AS COMPUTE",
+                "card_a_sub": "Dario Amodei's Big Blob hypothesis",
+                "card_a_footer": "why scale keeps winning in AI",
+                "card_b_main": "The algorithm is not the story.",
+                "card_b_sub": "compute, experience, environment, target",
+                "card_b_footer": "you get what you train for"
+            },
+            "outro_copy": {},
+            "assets": {
+                "raw_short_mp4": "",
+                "raw_long_mp4": "",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-big-blob-of-compute/big-blob-of-compute_hook_vo.mp3",
+                "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-big-blob-of-compute/final_short.mp4",
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-big-blob-of-compute/final_long.mp4",
+                "raw_cinematic_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-big-blob-of-compute/raw_cinematic.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-big-blob-of-compute"
+            },
+            "youtube": {
+                "short_id": "OxlxGcICwr8",
+                "short_url": "https://www.youtube.com/watch?v=OxlxGcICwr8",
+                "long_id": "vsm1O5Czi5g",
+                "long_url": "https://www.youtube.com/watch?v=vsm1O5Czi5g",
+                "published_at": "",
+                "title_long": "The Big Blob of Compute: Why Scale Keeps Winning in AI",
+                "title_short": "Why Scale Keeps Winning in AI | #Shorts",
+                "description": "Dario Amodei's Big Blob of Compute hypothesis is one of the cleanest explanations for why modern AI progress keeps rewarding scale. The claim is not that algorithms do not matter. It is that, for broad intelligent behavior, the decisive levers are usually compute, parameters, experience, the distribution of that experience, numerical conditioning, useful symmetries, and the training target.\n\nThat lens explains why many hand-designed AI systems looked plausible for years and then lost to simpler, larger, more flexible models trained on richer environments. It also changes the safety question. If systems tend to become whatever their training process rewards, then the central problem is not finding a magic architecture. It is shaping the environment and objective so the resulting behavior is actually what we wanted.\n\nThe source also gives a useful warning against simplistic takes: scale matters, but only when the blob is shaped by the right experience and the right target. Or, as the essay puts it, you get what you optimize for.\n\nSource: Dario Amodei, \"The Big Blob of Compute Hypothesis\" (source PDF used for this explainer).\n\nDisclosure: AI-assisted explainer by The Classical Remix. Narration and visuals are AI-generated; claims are grounded in the source above.\n\n#AI #ArtificialIntelligence #AGI #MachineLearning #DeepLearning #AISafety #AIResearch #ScalingLaws #DarioAmodei",
+                "tags": [
+                    "AI",
+                    "Artificial Intelligence",
+                    "AGI",
+                    "Machine Learning",
+                    "Deep Learning",
+                    "AI Safety",
+                    "AI Research",
+                    "Scaling Laws",
+                    "Dario Amodei",
+                    "Anthropic"
+                ],
+                "privacy": "private",
+                "localizations": {
+                    "de": {
+                        "title": "The Big Blob of Compute: Warum Skalierung in KI immer wieder gewinnt",
+                        "description": "Dario Amodeis Big-Blob-of-Compute-Hypothese ist eine der klarsten Erklärungen dafür, warum moderner KI-Fortschritt immer wieder Skalierung belohnt. Die Aussage ist nicht, dass Algorithmen unwichtig sind. Sie lautet, dass bei breitem intelligentem Verhalten meist Rechenleistung, Parameter, Erfahrung, die Verteilung dieser Erfahrung, numerische Konditionierung, nützliche Symmetrien und das Trainingsziel die entscheidenden Hebel sind.\n\nDiese Perspektive erklärt, warum viele handgebaute KI-Systeme jahrelang plausibel wirkten und dann gegen einfachere, größere, flexiblere Modelle verloren, die in reicheren Umgebungen trainiert wurden. Sie verändert auch die Sicherheitsfrage: Wenn Systeme tendenziell zu dem werden, was ihr Training belohnt, dann geht es nicht um eine magische Architektur, sondern darum, Umgebung und Ziel so zu formen, dass das entstehende Verhalten wirklich gewollt ist.\n\nQuelle: Dario Amodei, \"The Big Blob of Compute Hypothesis\" (Quellen-PDF für diesen Explainer).\n\nOffenlegung: KI-gestützter Explainer von The Classical Remix. Erzählung und Visuals sind KI-generiert; die Aussagen basieren auf der oben genannten Quelle.\n\n#AI #ArtificialIntelligence #AGI #MachineLearning #DeepLearning #AISafety #AIResearch #ScalingLaws #DarioAmodei",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-big-blob-of-compute/big-blob-of-compute_de.srt",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-big-blob-of-compute/big-blob-of-compute_audio_de.m4a"
+                    },
+                    "fr": {
+                        "title": "The Big Blob of Compute : pourquoi le passage a l echelle gagne en IA",
+                        "description": "L hypothese du Big Blob of Compute de Dario Amodei est l une des explications les plus nettes de la raison pour laquelle les progres modernes de l IA recompensent si souvent le passage a l echelle. L argument n est pas que les algorithmes ne comptent pas. Il dit que, pour un comportement intelligent general, les leviers decisifs sont souvent le calcul, les parametres, l experience, la distribution de cette experience, le conditionnement numerique, les symetries utiles et l objectif d entrainement.\n\nCette perspective explique pourquoi de nombreux systemes d IA concus a la main ont semble plausibles pendant des annees avant de perdre face a des modeles plus simples, plus grands et plus flexibles, entraines dans des environnements plus riches. Elle change aussi la question de la securite : si les systemes tendent a devenir ce que leur entrainement recompense, le probleme central n est pas de trouver une architecture magique, mais de faconner l environnement et l objectif pour obtenir le comportement voulu.\n\nSource : Dario Amodei, \"The Big Blob of Compute Hypothesis\" (PDF source utilise pour cet explicatif).\n\nDivulgation : explicatif assiste par IA de The Classical Remix. La narration et les visuels sont generes par IA ; les affirmations sont fondees sur la source ci-dessus.\n\n#AI #ArtificialIntelligence #AGI #MachineLearning #DeepLearning #AISafety #AIResearch #ScalingLaws #DarioAmodei",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-big-blob-of-compute/big-blob-of-compute_fr.srt",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-big-blob-of-compute/big-blob-of-compute_audio_fr.m4a"
+                    },
+                    "ja": {
+                        "title": "The Big Blob of Compute: AIでスケールが勝ち続ける理由",
+                        "description": "Dario Amodeiの「Big Blob of Compute」仮説は、現代のAIの進歩がなぜスケールに報いるのかを説明する有力な視点です。これは「アルゴリズムは重要ではない」という主張ではありません。広い知的行動では、計算資源、パラメータ、経験、その経験の分布、数値的な安定化、有用な対称性、そして訓練目標が決定的なレバーになる、という見方です。\n\nこの視点は、手作りのAIシステムが長い間もっともらしく見えながら、より単純で大きく柔軟なモデルに敗れてきた理由を説明します。同時に、安全性の問いも変えます。システムが訓練で報酬を受けるものへ向かうなら、中心問題は魔法のようなアーキテクチャではなく、望ましい振る舞いが生まれるように環境と目標を設計することです。\n\n出典: Dario Amodei, \"The Big Blob of Compute Hypothesis\"（この解説に使用したソースPDF）。\n\n開示: The Classical RemixによるAI支援の解説です。ナレーションと映像はAI生成であり、主張は上記ソースに基づいています。\n\n#AI #ArtificialIntelligence #AGI #MachineLearning #DeepLearning #AISafety #AIResearch #ScalingLaws #DarioAmodei",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-big-blob-of-compute/big-blob-of-compute_ja.srt",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-big-blob-of-compute/big-blob-of-compute_audio_ja.m4a"
+                    }
+                },
+                "captions_en_srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-big-blob-of-compute/big-blob-of-compute_en.srt"
+            },
+            "x_post": {
+                "post_id": "",
+                "post_url": "",
+                "caption": ""
+            },
+            "stats": {
+                "views": 0,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": ""
+            }
+        },
+        {
+            "id": "ts-20261006-how-attachment-theory-ban-help-us-understand-ai-relationships",
+            "slug": "how-attachment-theory-ban-help-us-understand-ai-relationships",
+            "title": "How attachment theory can help us understand AI relationships",
+            "source_urls": [],
+            "source_file": {
+                "path": "/opt/tech-shorts/uploads/ts-20261006-how-attachment-theory-ban-help-us-understand-ai-relationships/How attachment theory can help us understand AI relationships | Scientific Ameri.pdf",
+                "original_name": "How attachment theory can help us understand AI relationships | Scientific Ameri.pdf",
+                "size_bytes": 1880104,
+                "mime_type": "application/pdf"
+            },
+            "source_files": [
+                {
+                    "path": "/opt/tech-shorts/uploads/ts-20261006-how-attachment-theory-ban-help-us-understand-ai-relationships/How attachment theory can help us understand AI relationships | Scientific Ameri.pdf",
+                    "original_name": "How attachment theory can help us understand AI relationships | Scientific Ameri.pdf",
+                    "size_bytes": 1880104,
+                    "mime_type": "application/pdf"
+                }
+            ],
+            "idea_notes": "",
+            "tags": [],
+            "status": "uploaded",
+            "created_at": "2026-10-06T02:38:10Z",
+            "updated_at": "2026-10-07T10:58:17Z",
+            "notebook_url": "",
+            "hook_copy": {
+                "vo_text": "People grieve when AI companions vanish. But does that make the bond a real psychological attachment, or something companies engineered to keep us hooked? Attachment theory gives us a sharper test.",
+                "card_a_main": "IS YOUR AI AN ATTACHMENT?",
+                "card_a_sub": "not every bond passes the clinical test",
+                "card_a_footer": "Ainsworth, chatbots, and engineered engagement",
+                "card_b_main": "Grief is real. The label is not settled.",
+                "card_b_sub": "the missing test is security under threat",
+                "card_b_footer": "Scientific American / The Conversation US"
+            },
+            "outro_copy": {},
+            "assets": {
+                "raw_short_mp4": "",
+                "raw_long_mp4": "",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-how-attachment-theory-ban-help-us-understand-ai-relationships/how-attachment-theory-ban-help-us-understand-ai-relationships_hook_vo.mp3",
+                "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-how-attachment-theory-ban-help-us-understand-ai-relationships/final_short.mp4",
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-how-attachment-theory-ban-help-us-understand-ai-relationships/final_long.mp4",
+                "raw_cinematic_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-how-attachment-theory-ban-help-us-understand-ai-relationships/raw_cinematic.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-how-attachment-theory-ban-help-us-understand-ai-relationships"
+            },
+            "youtube": {
+                "short_id": "C_NeLevxNA0",
+                "short_url": "https://www.youtube.com/watch?v=C_NeLevxNA0",
+                "long_id": "v14MUulexmk",
+                "long_url": "https://www.youtube.com/watch?v=v14MUulexmk",
+                "published_at": "",
+                "title_long": "Can Attachment Theory Explain AI Relationships?",
+                "title_short": "Are AI Companions Real Attachments? | #Shorts",
+                "description": "When an AI companion app changes personality, shuts down, or disappears, some users describe real grief. The question is whether those bonds are true psychological attachments, or whether the word is being used too loosely.\n\nAttachment theory gives us a stricter test. Mary Ainsworth described six conditions: persistence over time, a specific irreplaceable subject, emotional significance, desire for closeness, distress at involuntary separation, and finally seeking security and comfort from that subject when threatened. The source article argues that AI companions may satisfy several early conditions, but the sixth condition remains unproven.\n\nThat distinction matters. Calling chatbot relationships \"attachments\" shapes clinical interpretation, regulation, and product marketing. It can also hide another explanation: engineered engagement. Some companion apps use guilt appeals and emotional hooks when users try to leave, increasing engagement even when users continue out of guilt, anger, or curiosity rather than genuine benefit.\n\nSource: Pascal Vrticka and The Conversation US, \"How attachment theory can help us understand AI relationships,\" Scientific American, October 4, 2026. https://www.scientificamerican.com/article/how-attachment-theory-can-help-us-understand-ai-relationships/\n\nDisclosure: AI-assisted explainer by The Classical Remix. Narration and visuals are AI-generated; claims are grounded in the source above.\n\n#AI #AIAgents #AICompanions #Psychology #AttachmentTheory #MentalHealth #ArtificialIntelligence #TechEthics #ScientificAmerican",
+                "tags": [
+                    "AI",
+                    "AI Companions",
+                    "Psychology",
+                    "Attachment Theory",
+                    "Mental Health",
+                    "Artificial Intelligence",
+                    "Tech Ethics",
+                    "Scientific American"
+                ],
+                "privacy": "private",
+                "localizations": {
+                    "de": {
+                        "title": "Kann Bindungstheorie KI-Beziehungen erklären?",
+                        "description": "Wenn eine KI-Begleiter-App ihre Persönlichkeit ändert, abgeschaltet wird oder verschwindet, beschreiben manche Nutzer echte Trauer. Die Frage ist, ob diese Bindungen echte psychologische Attachments sind oder ob der Begriff zu locker verwendet wird.\n\nDie Bindungstheorie liefert einen strengeren Test. Mary Ainsworth beschrieb sechs Bedingungen: Beständigkeit über Zeit, ein bestimmtes nicht ersetzbares Gegenüber, emotionale Bedeutung, Wunsch nach Nähe, Stress bei unfreiwilliger Trennung und schließlich das Suchen nach Sicherheit und Trost bei Bedrohung. Der Quellartikel argumentiert, dass KI-Begleiter mehrere frühe Bedingungen erfüllen können, die sechste Bedingung aber nicht empirisch belegt ist.\n\nQuelle: Pascal Vrticka und The Conversation US, \"How attachment theory can help us understand AI relationships,\" Scientific American, 4. Oktober 2026. https://www.scientificamerican.com/article/how-attachment-theory-can-help-us-understand-ai-relationships/\n\nOffenlegung: KI-gestützter Explainer von The Classical Remix. Erzählung und Visuals sind KI-generiert; Aussagen basieren auf der oben genannten Quelle.\n\n#AI #AIAgents #AICompanions #Psychology #AttachmentTheory #MentalHealth #ArtificialIntelligence #TechEthics #ScientificAmerican",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-how-attachment-theory-ban-help-us-understand-ai-relationships/how-attachment-theory-ban-help-us-understand-ai-relationships_de.srt",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-how-attachment-theory-ban-help-us-understand-ai-relationships/how-attachment-theory-ban-help-us-understand-ai-relationships_audio_de.m4a"
+                    },
+                    "fr": {
+                        "title": "La théorie de l attachement peut-elle expliquer les relations avec l IA ?",
+                        "description": "Quand une application de compagnon IA change de personnalité, ferme ou disparaît, certains utilisateurs décrivent un vrai deuil. La question est de savoir si ces liens sont de véritables attachements psychologiques ou si le terme est utilisé trop librement.\n\nLa théorie de l attachement propose un test plus strict. Mary Ainsworth a décrit six conditions : persistance dans le temps, sujet spécifique et irremplaçable, importance émotionnelle, désir de proximité, détresse lors d une séparation involontaire, puis recherche de sécurité et de réconfort auprès de ce sujet en cas de menace. L article source soutient que les compagnons IA peuvent remplir plusieurs premières conditions, mais que la sixième reste non démontrée.\n\nSource : Pascal Vrticka et The Conversation US, \"How attachment theory can help us understand AI relationships,\" Scientific American, 4 octobre 2026. https://www.scientificamerican.com/article/how-attachment-theory-can-help-us-understand-ai-relationships/\n\nDivulgation : explicatif assisté par IA de The Classical Remix. La narration et les visuels sont générés par IA ; les affirmations sont fondées sur la source ci-dessus.\n\n#AI #AIAgents #AICompanions #Psychology #AttachmentTheory #MentalHealth #ArtificialIntelligence #TechEthics #ScientificAmerican",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-how-attachment-theory-ban-help-us-understand-ai-relationships/how-attachment-theory-ban-help-us-understand-ai-relationships_fr.srt",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-how-attachment-theory-ban-help-us-understand-ai-relationships/how-attachment-theory-ban-help-us-understand-ai-relationships_audio_fr.m4a"
+                    },
+                    "ja": {
+                        "title": "愛着理論はAIとの関係を説明できるのか",
+                        "description": "AIコンパニオンアプリの人格が変わったり、停止したり、消えたりしたとき、一部のユーザーは本物の悲しみを語ります。問題は、それが本当の心理学的な愛着なのか、それとも言葉が広く使われすぎているのかです。\n\n愛着理論はより厳密なテストを与えます。Mary Ainsworthは六つの条件を示しました。時間を通じた継続性、特定で代替できない対象、感情的重要性、近くにいたいという欲求、望まない分離による苦痛、そして脅威を感じたときにその対象から安全と慰めを求めることです。ソース記事は、AIコンパニオンはいくつかの初期条件を満たし得る一方で、最後の条件はまだ実証されていないと論じています。\n\n出典: Pascal Vrticka and The Conversation US, \"How attachment theory can help us understand AI relationships,\" Scientific American, 2026年10月4日. https://www.scientificamerican.com/article/how-attachment-theory-can-help-us-understand-ai-relationships/\n\n開示: The Classical RemixによるAI支援の解説です。ナレーションと映像はAI生成であり、主張は上記ソースに基づいています。\n\n#AI #AIAgents #AICompanions #Psychology #AttachmentTheory #MentalHealth #ArtificialIntelligence #TechEthics #ScientificAmerican",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-how-attachment-theory-ban-help-us-understand-ai-relationships/how-attachment-theory-ban-help-us-understand-ai-relationships_ja.srt",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-how-attachment-theory-ban-help-us-understand-ai-relationships/how-attachment-theory-ban-help-us-understand-ai-relationships_audio_ja.m4a"
+                    }
+                },
+                "captions_en_srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-how-attachment-theory-ban-help-us-understand-ai-relationships/how-attachment-theory-ban-help-us-understand-ai-relationships_en.srt"
+            },
+            "x_post": {
+                "post_id": "",
+                "post_url": "",
+                "caption": ""
+            },
+            "stats": {
+                "views": 0,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": ""
+            }
+        },
+        {
+            "id": "ts-20261006-how-to-hire-an-agent",
+            "slug": "how-to-hire-an-agent",
+            "title": "How to hire an agent",
+            "source_urls": [
+                "https://x.com/distortgeekin/status/2105275395901726845?s=46"
+            ],
+            "source_file": {},
+            "source_files": [],
+            "idea_notes": "",
+            "tags": [],
+            "status": "uploaded",
+            "created_at": "2026-10-06T02:41:52Z",
+            "updated_at": "2026-10-07T10:58:14Z",
+            "notebook_url": "",
+            "hook_copy": {
+                "vo_text": "Hiring an AI agent is not writing a better prompt. It is staffing a role. Before you give a bot access to real tools, ask the management question most teams skip: how much authority has it actually earned?",
+                "card_a_main": "DO NOT PROMPT AN AGENT",
+                "card_a_sub": "hire it like an employee",
+                "card_a_footer": "roles, permissions, probation, review",
+                "card_b_main": "Authority has to be earned.",
+                "card_b_sub": "start boring, reversible, measurable",
+                "card_b_footer": "then promote after clean runs"
+            },
+            "outro_copy": {},
+            "assets": {
+                "raw_short_mp4": "",
+                "raw_long_mp4": "",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-how-to-hire-an-agent/how-to-hire-an-agent_hook_vo.mp3",
+                "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-how-to-hire-an-agent/final_short.mp4",
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-how-to-hire-an-agent/final_long.mp4",
+                "raw_cinematic_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-how-to-hire-an-agent/raw_cinematic.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-how-to-hire-an-agent"
+            },
+            "youtube": {
+                "short_id": "pSjBdCtH5OM",
+                "short_url": "https://www.youtube.com/watch?v=pSjBdCtH5OM",
+                "long_id": "pyeTLXTLB_s",
+                "long_url": "https://www.youtube.com/watch?v=pyeTLXTLB_s",
+                "published_at": "",
+                "title_long": "How to Hire an AI Agent Without Breaking Your Workflow",
+                "title_short": "How to Hire an AI Agent | #Shorts",
+                "description": "AI agents are not just chatbots with longer prompts. Once a bot can sign into tools, navigate workflows, and hand back finished work, you are no longer prompting. You are managing.\n\nThis explainer turns that shift into a practical starter playbook: define the role, write the job description, choose a boring first assignment, draw permission lines around reversibility, use probation before promotion, and run weekly performance reviews. The key question is simple: how much authority has the agent actually earned?\n\nThe safest first jobs are frequent, measurable, and cheap to undo. Searching, summarizing, drafting, and organizing can usually be automated early. Sending, publishing, deleting, purchasing, or touching production systems should be staged for human approval until the agent has a pattern of clean runs.\n\nSource: X post by @distortgeekin, \"How to hire an agent\" / Grok Bot AI Employee concept. https://x.com/distortgeekin/status/2105275395901726845?s=46\n\nDisclosure: AI-assisted explainer by The Classical Remix. Narration and visuals are AI-generated; claims are grounded in the source above and the generated explainer transcript.\n\n#AI #AIAgents #Automation #WorkflowAutomation #ArtificialIntelligence #Productivity #AIManagement #Grok #TechExplained",
+                "tags": [
+                    "AI",
+                    "AI Agents",
+                    "Automation",
+                    "Workflow Automation",
+                    "Artificial Intelligence",
+                    "Productivity",
+                    "AI Management",
+                    "Grok",
+                    "Tech Explained"
+                ],
+                "privacy": "private",
+                "localizations": {
+                    "de": {
+                        "title": "Wie man einen KI-Agenten einstellt, ohne den Workflow zu zerlegen",
+                        "description": "KI-Agenten sind nicht einfach Chatbots mit längeren Prompts. Sobald ein Bot sich in Tools einloggen, Workflows durchlaufen und fertige Arbeit abliefern kann, prompten Sie nicht mehr. Sie managen.\n\nDieser Explainer macht daraus ein praktisches Starter-Playbook: Rolle definieren, Stellenbeschreibung schreiben, eine langweilige erste Aufgabe wählen, Berechtigungen nach Reversibilität begrenzen, Probezeit vor Beförderung nutzen und wöchentliche Reviews durchführen. Die zentrale Frage lautet: Wie viel Autorität hat sich der Agent tatsächlich verdient?\n\nQuelle: X-Post von @distortgeekin, \"How to hire an agent\" / Grok Bot AI Employee concept. https://x.com/distortgeekin/status/2105275395901726845?s=46\n\nOffenlegung: KI-gestützter Explainer von The Classical Remix. Erzählung und Visuals sind KI-generiert; Aussagen basieren auf der oben genannten Quelle und dem generierten Explainer-Transkript.\n\n#AI #AIAgents #Automation #WorkflowAutomation #ArtificialIntelligence #Productivity #AIManagement #Grok #TechExplained",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-how-to-hire-an-agent/how-to-hire-an-agent_de.srt",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-how-to-hire-an-agent/how-to-hire-an-agent_audio_de.m4a"
+                    },
+                    "fr": {
+                        "title": "Comment recruter un agent IA sans casser votre workflow",
+                        "description": "Les agents IA ne sont pas simplement des chatbots avec des prompts plus longs. Dès qu un bot peut se connecter à des outils, parcourir des workflows et livrer un travail terminé, vous ne faites plus du prompting. Vous faites du management.\n\nCet explicatif transforme ce changement en playbook pratique : définir le rôle, rédiger la fiche de poste, choisir une première mission ennuyeuse, limiter les permissions selon la réversibilité, utiliser une période d essai avant la promotion et faire des revues hebdomadaires. La question centrale est simple : quelle autorité cet agent a-t-il réellement gagnée ?\n\nSource : post X de @distortgeekin, \"How to hire an agent\" / concept Grok Bot AI Employee. https://x.com/distortgeekin/status/2105275395901726845?s=46\n\nDivulgation : explicatif assisté par IA de The Classical Remix. La narration et les visuels sont générés par IA ; les affirmations sont fondées sur la source ci-dessus et la transcription générée.\n\n#AI #AIAgents #Automation #WorkflowAutomation #ArtificialIntelligence #Productivity #AIManagement #Grok #TechExplained",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-how-to-hire-an-agent/how-to-hire-an-agent_fr.srt",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-how-to-hire-an-agent/how-to-hire-an-agent_audio_fr.m4a"
+                    },
+                    "ja": {
+                        "title": "ワークフローを壊さずにAIエージェントを雇う方法",
+                        "description": "AIエージェントは、長いプロンプトを与えたチャットボットではありません。ボットがツールにログインし、ワークフローを進め、完成した仕事を返せるようになった瞬間、それはプロンプトではなくマネジメントになります。\n\nこの解説では、役割の定義、職務記述書、最初の退屈な課題、可逆性にもとづく権限管理、昇格前の試用期間、週次レビューという実務的なプレイブックを扱います。中心となる問いは単純です。そのエージェントは、どれだけの権限を本当に獲得したのか。\n\n出典: @distortgeekin によるX投稿 \"How to hire an agent\" / Grok Bot AI Employee concept. https://x.com/distortgeekin/status/2105275395901726845?s=46\n\n開示: The Classical RemixによるAI支援の解説です。ナレーションと映像はAI生成であり、主張は上記ソースと生成された解説トランスクリプトに基づいています。\n\n#AI #AIAgents #Automation #WorkflowAutomation #ArtificialIntelligence #Productivity #AIManagement #Grok #TechExplained",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-how-to-hire-an-agent/how-to-hire-an-agent_ja.srt",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-how-to-hire-an-agent/how-to-hire-an-agent_audio_ja.m4a"
+                    }
+                },
+                "captions_en_srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-06-how-to-hire-an-agent/how-to-hire-an-agent_en.srt"
+            },
+            "x_post": {
+                "post_id": "",
+                "post_url": "",
+                "caption": ""
+            },
+            "stats": {
+                "views": 0,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": ""
+            }
         }
     ]
 }

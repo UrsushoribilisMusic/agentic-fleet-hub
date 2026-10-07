@@ -15,22 +15,22 @@ Automated factory for high-yield AI/tech explainer shorts & longs (NotebookLM &r
 │ Persists to: tech-shorts/jobs.json                          │
 └──────────────────────────────┬──────────────────────────────┘
                                │
-                               ▼ (TS-2: NotebookLM Browser Automation)
+                               ▼ (TS-2: NotebookLM Manual/Browser Step)
 ┌─────────────────────────────────────────────────────────────┐
-│ Claude-in-Chrome / Big Sis creates NotebookLM overview      │
-│ Produces: raw_short.mp4 (9:16) + raw_long.mp4 (16:9)        │
+│ Miguel creates/downloads NotebookLM overview video(s)       │
+│ Typical current input: raw_cinematic.mp4 (16:9)             │
 └──────────────────────────────┬──────────────────────────────┘
                                │
                                ▼ (TS-3: Hook/Outro Parameterization & VO)
 ┌─────────────────────────────────────────────────────────────┐
-│ build_techshort.sh + ElevenLabs "Alice" Hook Voiceover      │
-│ Assembles: Final 9:16 Short + Final 16:9 Long               │
+│ pipeline.py + local Kokoro hook/outro/Short voiceover       │
+│ Assembles: final_long.mp4 and optional derived final_short  │
 └──────────────────────────────┬──────────────────────────────┘
                                │
                                ▼ (TS-4: YouTube Publishing)
 ┌─────────────────────────────────────────────────────────────┐
 │ music-video-tool OAuth & uploader                           │
-│ Publishes: YouTube Short + Main Video                       │
+│ Uploads private YouTube Short + Main Video                  │
 └──────────────────────────────┬──────────────────────────────┘
                                │
                                ▼ (TS-5: X Cross-Posting)
@@ -87,6 +87,97 @@ python3 tech-shorts/intake.py update <id> --status assembled --notebook-url "htt
 # Claim next available job (for worker scripts)
 python3 tech-shorts/intake.py claim
 ```
+
+---
+
+## Current Production Runbook
+
+The active 2026-10 workflow is hybrid: the ideas console tracks jobs, Miguel performs the NotebookLM video generation manually, and the Mac pipeline handles storage, intro/outro assembly, captions, metadata, private YouTube uploads, and derived Shorts.
+
+1. Create or inspect a job in the ideas console at `https://api.robotross.art/ideas/`.
+2. Generate the NotebookLM explainer video manually and download the `.mp4` to `~/Downloads`.
+3. Store the downloaded video in the canonical asset store:
+
+```bash
+python3 tech-shorts/asset_store.py store-raw <job_id> --cinematic ~/Downloads/<video>.mp4
+python3 tech-shorts/intake.py update <job_id> --status raw_videos_ready
+```
+
+4. Add hook copy, YouTube titles/descriptions, source citation, tags, privacy, and localizations in `tech-shorts/jobs.json` or via `pipeline.py set-copy`.
+5. Generate local Kokoro hook VO into the job asset folder using a cached voice such as `af_bella`, with `HF_HUB_OFFLINE=1` when model files are already cached.
+6. Build the long video:
+
+```bash
+python3 tech-shorts/pipeline.py run <job_id> --stage build
+```
+
+7. Generate captions without dubs:
+
+```bash
+/Users/miguelrodriguez/projects/music-video-tool/.venv312/bin/python3 \
+  tech-shorts/subs_gen.py <final_long.mp4> <asset_dir> <slug> en,de,fr,ja
+```
+
+8. Upload private video(s):
+
+```bash
+python3 tech-shorts/pipeline.py run <job_id> --stage upload
+```
+
+The upload stage is idempotent: if the long video already has a YouTube URL, adding `final_short.mp4` later and rerunning upload will only upload the missing Short.
+
+### Captions
+
+Caption files are generated as SRTs under each job asset directory. For manual YouTube upload, copy them to a per-video folder under `~/Downloads`, for example:
+
+```bash
+mkdir -p ~/Downloads/tech-shorts-captions/<slug>
+cp ~/flotilla/tech-shorts/assets/<date-slug>/*_{en,de,fr,ja}.srt ~/Downloads/tech-shorts-captions/<slug>/
+```
+
+Automatic caption upload is already attempted by `pipeline.py`, but the current saved YouTube OAuth token does not have a usable `youtube.force-ssl` grant. To enable automated caption upload, delete/recreate the channel token and re-consent with the scopes in `music-video-tool/youtube_uploader.py`.
+
+### TTS Notes
+
+Hook and derived-Short narration currently uses local Kokoro instead of ElevenLabs because ElevenLabs quota can be exhausted. Approved/cached voices known to work locally include:
+
+- English: `af_bella`, `am_michael`
+- French: `ff_siwis`
+- Japanese: `jf_alpha`
+- German approved: Kerstin from `cryptomilk/kokoro-german-kerstin`
+- German rejected test: Thorsten from `Thorsten-Voice/Kokoro` rendered as noise and should not be used for production.
+- German rejected test: Victoria from `kikiri-tts/kikiri-german-victoria` rendered as noise and should not be used for production.
+
+German should use Kerstin for now; the voice has a noticeable non-native accent, but it is acceptable for Silicon Valley / AI topics. French uses `ff_siwis`; Japanese uses `jf_alpha`. Multilingual TTS should be isolated in a dedicated environment before production dubbing. The quick test used `music-video-tool/.venv312`, but adding Kokoro Japanese/German dependencies there introduced dependency tension with existing Mistral tooling. Prefer a future `tech-shorts/.venv-tts` for multilingual dubbing.
+
+Current sample files:
+
+```text
+~/Downloads/tts-voice-tests/japanese_jf_alpha_test.wav
+~/Downloads/tts-voice-tests/german_kerstin_test.wav  # approved
+~/Downloads/tts-voice-tests/german_thorsten_test.wav  # rejected: noise
+~/Downloads/tts-voice-tests/german_victoria_test.wav  # rejected: noise
+```
+
+German model notes:
+
+- `Thorsten-Voice/Kokoro`: German Kokoro fine-tune with its own model checkpoint and `voices/thorsten.pt`.
+- `cryptomilk/kokoro-german-kerstin`: German female voice `df_kerstin`, trained from the Kerstin dataset. Use the voice pack with base `KModel()`; the repo `.pth` files are training checkpoints, not direct inference checkpoints.
+- `crane-local-ai/Kokoro-82M-v1.0-German-ONNX`: German-only ONNX path with a German G2P, useful if the Python Kokoro path remains brittle.
+
+### 2026-10-07 Batch
+
+The following jobs were assembled and uploaded as private long videos and private derived Shorts:
+
+| Job | Long | Short |
+| --- | --- | --- |
+| `ts-20261006-big-blob-of-compute` | `https://www.youtube.com/watch?v=vsm1O5Czi5g` | `https://www.youtube.com/watch?v=OxlxGcICwr8` |
+| `ts-20261006-how-to-hire-an-agent` | `https://www.youtube.com/watch?v=pyeTLXTLB_s` | `https://www.youtube.com/watch?v=pSjBdCtH5OM` |
+| `ts-20261006-how-attachment-theory-ban-help-us-understand-ai-relationships` | `https://www.youtube.com/watch?v=v14MUulexmk` | `https://www.youtube.com/watch?v=C_NeLevxNA0` |
+
+German, French, and Japanese `.m4a` audio tracks for this batch were generated locally from the translated SRT files with Kokoro voices and copied beside the captions under `~/Downloads/tech-shorts-captions/`.
+
+After upload, open YouTube Studio for each video and confirm the altered/synthetic content setting before publishing.
 
 ---
 

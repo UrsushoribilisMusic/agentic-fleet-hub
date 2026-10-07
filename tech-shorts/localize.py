@@ -26,12 +26,13 @@ HERE = Path(__file__).resolve().parent
 JOBS_FILE = HERE / "jobs.json"
 ENV_FILE = Path("/Users/miguelrodriguez/projects/music-video-tool/.env")
 
-# Native voices (kept identical to the hand-run dubs so a channel's voice is
-# consistent across every video): Sophia (DE), Nathalie (FR).
-VOICES = {"de": "QT6va3HQK8j63EC2r9cw", "fr": "rS7c1woNY04WT3UAS83Y", "ja": "vuzURFNcGxdkmY9AleMn"}
+# Native voices. `kokoro:` voices are local/free fallbacks used when cloud
+# quota is exhausted; plain IDs are ElevenLabs voices.
+VOICES = {"de": "kokoro:de:kerstin", "fr": "kokoro:fr:ff_siwis", "ja": "kokoro:ja:jf_alpha"}
 LANGNAME = {"de": "German", "fr": "French", "ja": "Japanese"}
 MODEL_TTS = "eleven_multilingual_v2"
 TRANS_MODEL = "claude-haiku-4-5-20251001"
+_KOKORO_CACHE = {}
 
 
 def env(k: str) -> str:
@@ -125,10 +126,60 @@ def translate_meta(an, title, desc, lang):
 
 
 def tts(el, text, out, voice):
+    if str(voice).startswith("kokoro:"):
+        return kokoro_tts(text, out.with_suffix(".wav"), voice)
     it = el.text_to_speech.convert(voice_id=voice, text=text, model_id=MODEL_TTS, output_format="mp3_44100_128")
     with open(out, "wb") as f:
         for c in it:
             f.write(c)
+    return out
+
+
+def kokoro_tts(text, out, voice):
+    """Render local Kokoro voices approved for the Tech Shorts multilingual pass."""
+    import numpy as np
+    import soundfile as sf
+    from huggingface_hub import hf_hub_download
+    import kokoro.pipeline as kp
+    kp.LANG_CODES.setdefault("d", "de")
+    from kokoro import KModel, KPipeline
+
+    voice_specs = {
+        "kokoro:de:kerstin": {
+            "lang_code": "d",
+            "voice": "cryptomilk/kokoro-german-kerstin:voices/df_kerstin.pt",
+            "speed": 0.95,
+        },
+        "kokoro:fr:ff_siwis": {
+            "lang_code": "f",
+            "voice": "ff_siwis",
+            "speed": 0.95,
+        },
+        "kokoro:ja:jf_alpha": {
+            "lang_code": "j",
+            "voice": "jf_alpha",
+            "speed": 0.95,
+        },
+    }
+    if voice not in voice_specs:
+        raise ValueError(f"Unsupported Kokoro voice: {voice}")
+
+    if voice not in _KOKORO_CACHE:
+        spec = voice_specs[voice]
+        voice_ref = spec["voice"]
+        voice_path = voice_ref
+        if ":" in voice_ref:
+            repo_id, filename = voice_ref.split(":", 1)
+            voice_path = hf_hub_download(repo_id, filename, local_files_only=True)
+        model = KModel()
+        _KOKORO_CACHE[voice] = (KPipeline(lang_code=spec["lang_code"], model=model), voice_path, spec["speed"])
+
+    pipeline, voice_path, speed = _KOKORO_CACHE[voice]
+    chunks = [audio for _, _, audio in pipeline(text, voice=voice_path, speed=speed)]
+    if not chunks:
+        raise RuntimeError("Kokoro returned no audio")
+    sf.write(out, np.concatenate(chunks), 24000)
+    return out
 
 
 def assemble(el, chunks, texts, voice, video_dur, out_m4a, tmp):
@@ -138,7 +189,7 @@ def assemble(el, chunks, texts, voice, video_dur, out_m4a, tmp):
              for i in range(len(starts))]
     pieces = []
     for i, t in enumerate(texts):
-        raw = tmp / f"{i:03d}.mp3"; tts(el, t, raw, voice)
+        raw = tts(el, t, tmp / f"{i:03d}.mp3", voice)
         di = ffdur(raw); sl = slots[i]
         tempo = 1.0 if di <= sl else min(di / sl, 1.6)
         piece = tmp / f"p{i:03d}.wav"
@@ -172,10 +223,13 @@ def main():
     title = yt.get("title_long") or job["title"]
     desc = yt.get("description") or job.get("idea_notes", "")
 
-    from elevenlabs.client import ElevenLabs
     import anthropic
-    el = ElevenLabs(api_key=env("ELEVENLABS_API_KEY"))
     an = anthropic.Anthropic(api_key=env("ANTHROPIC_API_KEY"), timeout=90.0, max_retries=4)
+    needs_elevenlabs = any(not VOICES.get(lang, "").startswith("kokoro:") for lang in langs)
+    el = None
+    if needs_elevenlabs:
+        from elevenlabs.client import ElevenLabs
+        el = ElevenLabs(api_key=env("ELEVENLABS_API_KEY"))
 
     dur = ffdur(final_video)
     log(f"ASR on {final_video.name} ({dur:.0f}s)...")
