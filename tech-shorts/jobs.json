@@ -1,6 +1,6 @@
 {
     "version": "1.0",
-    "updated_at": "2026-10-11T19:55:00Z",
+    "updated_at": "2026-10-11T20:00:00Z",
     "jobs": [
         {
             "id": "ts-20260916-deepmind-reasoning-transparency",
@@ -7647,9 +7647,9 @@
             ],
             "idea_notes": "Concerns that artificial intelligence might kill us all are blowing up right now following warnings from researchers and leaders at some of the world’s foremost AI companies. Speculation is rife over how legislators will act. Nature breaks down what the fears are, who is expressing them and what might happen next.",
             "tags": [],
-            "status": "failed",
+            "status": "declined",
             "created_at": "2026-09-24T10:09:25Z",
-            "updated_at": "2026-09-24T10:10:23Z",
+            "updated_at": "2026-10-11T20:00:00Z",
             "notebook_url": "",
             "hook_copy": {},
             "outro_copy": {},
@@ -9362,9 +9362,9 @@
             "source_files": [],
             "idea_notes": "",
             "tags": [],
-            "status": "in_progress",
+            "status": "declined",
             "created_at": "2026-10-10T23:17:26Z",
-            "updated_at": "2026-10-10T23:17:43Z",
+            "updated_at": "2026-10-11T20:00:00Z",
             "notebook_url": "",
             "hook_copy": {},
             "outro_copy": {},

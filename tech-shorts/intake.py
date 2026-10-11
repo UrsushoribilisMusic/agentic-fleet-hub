@@ -68,6 +68,7 @@ VALID_STATUSES = {
     "assembled",
     "published",
     "failed",
+    "declined",
 }
 
 STATUS_BADGES = {
@@ -77,6 +78,7 @@ STATUS_BADGES = {
     "assembled": "✨ ASSEMBLED",
     "published": "🚀 PUBLISHED",
     "failed": "❌ FAILED",
+    "declined": "🚫 DECLINED",
 }
 
 
@@ -818,6 +820,7 @@ WEB_HTML = """<!DOCTYPE html>
         .status-badge.assembled { background: rgba(168, 85, 247, 0.2); color: #c084fc; }
         .status-badge.published { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
         .status-badge.failed { background: rgba(232, 103, 77, 0.2); color: var(--coral); }
+        .status-badge.declined { background: rgba(148, 163, 184, 0.18); color: var(--muted); }
 
         /* story table */
         .story-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
@@ -1271,6 +1274,7 @@ WEB_HTML = """<!DOCTYPE html>
         const STATUS_LABEL = {
             queued: 'Queued', in_progress: 'In progress', raw_videos_ready: 'Raw ready',
             assembled: 'Ready · private', published: 'Published', failed: 'Failed',
+            declined: 'Declined',
         };
 
         function jobDate(job) {
@@ -1296,9 +1300,9 @@ WEB_HTML = """<!DOCTYPE html>
 
         function renderQueue() {
             const container = document.getElementById('queue-container');
-            // Ideas page = actionable backlog. Published work is done, and failed
-            // jobs are kept out of the default queue because we do not repair them.
-            const DONE_STATUSES = ['published', 'failed'];
+            // Ideas page = actionable backlog. Published work is done, failed jobs
+            // are not repaired, and declined topics are intentionally dropped.
+            const DONE_STATUSES = ['published', 'failed', 'declined'];
             let filtered = currentFilter === 'all'
                 ? allJobs.filter(j => !DONE_STATUSES.includes(j.status))
                 : allJobs.filter(j => j.status === currentFilter);
