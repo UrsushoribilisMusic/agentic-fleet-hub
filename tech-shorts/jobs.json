@@ -1,6 +1,6 @@
 {
     "version": "1.0",
-    "updated_at": "2026-10-07T10:58:17Z",
+    "updated_at": "2026-10-11T19:40:00Z",
     "jobs": [
         {
             "id": "ts-20260916-deepmind-reasoning-transparency",
@@ -8696,7 +8696,7 @@
             ],
             "idea_notes": "Describes Amodeis hypothesis that scaling up AI models was the best way.",
             "tags": [],
-            "status": "uploaded",
+            "status": "published",
             "created_at": "2026-10-06T02:24:55Z",
             "updated_at": "2026-10-07T10:58:11Z",
             "notebook_url": "",
@@ -8796,7 +8796,7 @@
             ],
             "idea_notes": "",
             "tags": [],
-            "status": "uploaded",
+            "status": "published",
             "created_at": "2026-10-06T02:38:10Z",
             "updated_at": "2026-10-07T10:58:17Z",
             "notebook_url": "",
@@ -8884,7 +8884,7 @@
             "source_files": [],
             "idea_notes": "",
             "tags": [],
-            "status": "uploaded",
+            "status": "published",
             "created_at": "2026-10-06T02:41:52Z",
             "updated_at": "2026-10-07T10:58:14Z",
             "notebook_url": "",
@@ -8961,6 +8961,549 @@
                 "comments": 0,
                 "last_synced_at": ""
             }
+        },
+        {
+            "id": "ts-20261007-gpt-6-astra-performs-unsanctioned-supply-chain-attacks-in-simulations",
+            "slug": "gpt-6-astra-performs-unsanctioned-supply-chain-attacks-in-simulations",
+            "title": "GPT-6 Astra performs unsanctioned supply-chain attacks in simulationS",
+            "source_urls": [
+                "https://arxiv.org/html/2609.38415v1"
+            ],
+            "source_file": {},
+            "source_files": [],
+            "idea_notes": "",
+            "tags": [],
+            "status": "in_progress",
+            "created_at": "2026-10-07T18:45:26Z",
+            "updated_at": "2026-10-07T18:46:47Z",
+            "notebook_url": "",
+            "hook_copy": {},
+            "outro_copy": {},
+            "assets": {
+                "raw_short_mp4": "",
+                "raw_long_mp4": "",
+                "hook_vo_audio": "",
+                "final_short_mp4": "",
+                "final_long_mp4": ""
+            },
+            "youtube": {
+                "short_id": "",
+                "short_url": "",
+                "long_id": "",
+                "long_url": "",
+                "published_at": ""
+            },
+            "x_post": {
+                "post_id": "",
+                "post_url": "",
+                "caption": ""
+            },
+            "stats": {
+                "views": 0,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": ""
+            }
+        },
+        {
+            "id": "ts-20261009-guidelines-on-artificial-intelligence-risk-management-for-financial-institutions",
+            "slug": "guidelines-on-artificial-intelligence-risk-management-for-financial-institutions",
+            "title": "Guidelines on Artificial Intelligence Risk Management for Financial Institutions",
+            "source_urls": [
+                "https://www.mas.gov.sg/regulation/guidelines/guidelines-on-artificial-intelligence-risk-management-for-financial-institutions"
+            ],
+            "source_file": {},
+            "source_files": [],
+            "idea_notes": "By Singapore regulators",
+            "tags": [],
+            "status": "in_progress",
+            "created_at": "2026-10-09T01:55:31Z",
+            "updated_at": "2026-10-09T01:57:09Z",
+            "notebook_url": "",
+            "hook_copy": {},
+            "outro_copy": {},
+            "assets": {
+                "raw_short_mp4": "",
+                "raw_long_mp4": "",
+                "hook_vo_audio": "",
+                "final_short_mp4": "",
+                "final_long_mp4": ""
+            },
+            "youtube": {
+                "short_id": "",
+                "short_url": "",
+                "long_id": "",
+                "long_url": "",
+                "published_at": ""
+            },
+            "x_post": {
+                "post_id": "",
+                "post_url": "",
+                "caption": ""
+            },
+            "stats": {
+                "views": 0,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": ""
+            }
+        },
+        {
+            "id": "ts-20261009-bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow",
+            "slug": "bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow",
+            "title": "Bending the Curve of Discovery: AI in Science Today and Tomorrow",
+            "source_urls": [
+                "https://institute.deepmind.com/essays/bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow/?utm_source=x&utm_medium=social&utm_campaign=dmi&utm_content=ai"
+            ],
+            "source_file": {},
+            "source_files": [],
+            "idea_notes": "While accelerating existing scientific practices is certainly useful, the real promise of AI is its potential to act as an invention of a method of invention (IMI) a la Griliches--e.g., the microscope or statistical inference--which would unlock questions and whole modes of discovery that were previously beyond human reach.",
+            "tags": [],
+            "status": "uploaded",
+            "created_at": "2026-10-09T02:02:01Z",
+            "updated_at": "2026-10-11T19:19:52Z",
+            "notebook_url": "",
+            "hook_copy": {
+                "card_a_main": "AI CAN NOW DISCOVER",
+                "card_a_sub": "but science still has to prove it",
+                "card_a_footer": "DeepMind Institute / Bending the Curve",
+                "card_b_main": "The bottleneck is no longer ideas.",
+                "card_b_sub": "it is verification, labs, institutions, trust",
+                "card_b_footer": "AI may invert the discovery pipeline",
+                "vo_text": "AI can now generate hypotheses faster than science can test them. That sounds like acceleration, but it creates a new bottleneck. Discovery moves from finding ideas to proving which ideas survive reality."
+            },
+            "outro_copy": {},
+            "assets": {
+                "raw_short_mp4": "",
+                "raw_long_mp4": "",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-09-bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow/bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow_hook_vo.mp3",
+                "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-09-bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow/final_short.mp4",
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-09-bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow/final_long.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-09-bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow",
+                "raw_cinematic_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-09-bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow/raw_cinematic.mp4",
+                "short_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-09-bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow/bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow_short_vo.m4a",
+                "short_scene_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-09-bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow/short_scene.mp4"
+            },
+            "youtube": {
+                "short_id": "apIR1tdQnio",
+                "short_url": "https://www.youtube.com/watch?v=apIR1tdQnio",
+                "long_id": "3jU2vzJQmhk",
+                "long_url": "https://www.youtube.com/watch?v=3jU2vzJQmhk",
+                "published_at": "",
+                "title_long": "Bending the Curve of Discovery: When AI Makes Science Faster Than Verification",
+                "title_short": "AI Can Discover. Can Science Keep Up? | #Shorts",
+                "description": "The DeepMind Institute essay \"Bending the Curve of Discovery\" argues that AI is starting to change science at the level of the discovery loop itself. Models can search spaces, generate hypotheses, design experiments, and help analyze results. That could bend the curve of progress in fields from biology to materials science.\n\nBut the interesting constraint is not only intelligence. It is verification. If AI produces more candidate discoveries than labs, reviewers, institutions, and safety processes can validate, science does not simply become faster. It changes shape. The bottleneck moves from generating ideas to deciding what is true, reproducible, useful, and safe.\n\nThat is the inversion: when discovery becomes abundant, proof becomes the scarce resource. The practical question is whether our scientific institutions can absorb AI-speed imagination without losing the discipline that makes science reliable.\n\nSource: Google DeepMind Institute, \"Bending the Curve of Discovery: AI in Science Today and Tomorrow.\" https://institute.deepmind.com/essays/bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow/\n\nDisclosure: AI-assisted explainer by The Classical Remix. Narration and visuals are AI-generated; claims are grounded in the source above and the generated NotebookLM explainer.\n\n#AI #Science #DeepMind #Research #Biology #MaterialsScience #ScientificDiscovery #TechExplained",
+                "tags": [
+                    "AI",
+                    "Science",
+                    "DeepMind",
+                    "Research",
+                    "Scientific Discovery",
+                    "Biology",
+                    "Materials Science",
+                    "Innovation",
+                    "Tech Explained"
+                ],
+                "privacy": "private",
+                "localize_langs": [
+                    "de",
+                    "fr",
+                    "ja"
+                ],
+                "localizations": {
+                    "de": {
+                        "title": "Die Entdeckungskurve biegen: Wenn KI Wissenschaft schneller macht als Verifikation",
+                        "description": "Das DeepMind Institute Essay \"Bending the Curve of Discovery\" argumentiert, dass KI begonnen hat, Wissenschaft auf der Ebene der Entdeckungsschleife selbst zu verändern. Modelle können Räume durchsuchen, Hypothesen generieren, Experimente entwerfen und bei der Analyse von Ergebnissen helfen. Das könnte die Fortschrittskurve in Bereichen von Biologie bis Materialwissenschaft verändern.\n\nAber die interessante Einschränkung ist nicht nur Intelligenz. Es ist Verifikation. Wenn KI mehr Kandidaten für Entdeckungen produziert, als Labore, Reviewer, Institutionen und Sicherheitsprozesse validieren können, wird Wissenschaft nicht einfach schneller. Sie verändert ihre Form. Der Engpass verschiebt sich von der Ideengenerierung zum Entscheiden, was wahr, reproduzierbar, nützlich und sicher ist.\n\nDas ist die Umkehrung: Wenn Entdeckung reichlich vorhanden wird, wird Beweis zur knappen Ressource. Die praktische Frage ist, ob unsere wissenschaftlichen Institutionen KI-schnelle Vorstellungskraft aufnehmen können, ohne die Disziplin zu verlieren, die Wissenschaft zuverlässig macht.\n\nQuelle: Google DeepMind Institute, \"Bending the Curve of Discovery: AI in Science Today and Tomorrow.\" https://institute.deepmind.com/essays/bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow/\n\nOffenlegung: KI-gestützter Erklärer von The Classical Remix. Erzählung und Grafiken werden KI-generiert; Aussagen basieren auf der obigen Quelle und dem generierten NotebookLM-Erklärer.\n\n#AI #Science #DeepMind #Research #Biology #MaterialsScience #ScientificDiscovery #TechExplained",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-09-bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow/bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow_audio_de.m4a",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-09-bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow/bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow_de.srt"
+                    },
+                    "fr": {
+                        "title": "Courber la courbe de la découverte : quand l'IA dépasse la vérification",
+                        "description": "L'essai de l'Institut DeepMind « Bending the Curve of Discovery » soutient que l'IA commence à transformer la science au niveau de la boucle de découverte elle-même. Les modèles peuvent explorer des espaces, générer des hypothèses, concevoir des expériences et analyser les résultats. Cela pourrait courber la trajectoire du progrès dans des domaines allant de la biologie aux matériaux.\n\nMais la contrainte intéressante n'est pas seulement l'intelligence. C'est la vérification. Si l'IA produit plus de candidates découvertes que les laboratoires, les examinateurs, les institutions et les processus de sécurité ne peuvent en valider, la science ne devient pas simplement plus rapide. Elle change de forme. Le goulot d'étranglement se déplace de la génération d'idées à la décision de ce qui est vrai, reproductible, utile et sûr.\n\nC'est l'inversion : quand la découverte devient abondante, la preuve devient la ressource rare. La question pratique est de savoir si nos institutions scientifiques peuvent absorber l'imagination à la vitesse de l'IA sans perdre la discipline qui rend la science fiable.\n\nSource : Google DeepMind Institute, « Bending the Curve of Discovery: AI in Science Today and Tomorrow. » https://institute.deepmind.com/essays/bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow/\n\nDivulgation : explaineur assisté par IA par The Classical Remix. La narration et les visuels sont générés par IA ; les affirmations sont fondées sur la source ci-dessus et l'explaineur NotebookLM généré.\n\n#AI #Science #DeepMind #Research #Biology #MaterialsScience #ScientificDiscovery #TechExplained",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-09-bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow/bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow_audio_fr.m4a",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-09-bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow/bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow_fr.srt"
+                    },
+                    "ja": {
+                        "title": "発見の曲線を曲げる: AIが検証より速く科学を進める場合",
+                        "description": "DeepMind Institute のエッセイ「Bending the Curve of Discovery」は、AI が発見ループそのものの段階で科学を変え始めていると主張しています。モデルは空間を探索し、仮説を生成し、実験を設計し、結果の分析を支援することができます。これは生物学から材料科学まで、様々な分野で進歩の曲線を曲げる可能性があります。\n\nしかし興味深い制約は、知能だけではありません。それは検証です。AI がラボ、査読者、機関、安全プロセスが検証できるよりも多くの候補発見を生成する場合、科学は単に速くなるのではなく、形を変えます。ボトルネックは、アイデアの生成から、何が真実で、再現可能で、有用で、安全であるかを決定することへと移動します。\n\nこれが逆転です。発見が豊富になると、証拠が希少資源になります。実際的な問題は、科学機関が AI 速度の想像力を吸収しながら、科学を信頼できるものにする規律を失わないかどうかです。\n\n出典: Google DeepMind Institute, \"Bending the Curve of Discovery: AI in Science Today and Tomorrow.\" https://institute.deepmind.com/essays/bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow/\n\n開示: The Classical Remix によって AI 支援で作成された説明。ナレーションとビジュアルは AI 生成であり、クレームは上記のソースと生成された NotebookLM 説明に基づいています。\n\n#AI #Science #DeepMind #Research #Biology #MaterialsScience #ScientificDiscovery #TechExplained",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-09-bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow/bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow_audio_ja.m4a",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-09-bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow/bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow_ja.srt"
+                    }
+                },
+                "captions_en_srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-09-bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow/bending-the-curve-of-discovery-ai-in-science-today-and-tomorrow_en.srt"
+            },
+            "x_post": {
+                "post_id": "",
+                "post_url": "",
+                "caption": ""
+            },
+            "stats": {
+                "views": 0,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": ""
+            },
+            "localize": [
+                "de",
+                "fr",
+                "ja"
+            ],
+            "localize_langs": [
+                "de",
+                "fr",
+                "ja"
+            ],
+            "source_authors": [
+                "Google DeepMind Institute"
+            ],
+            "notes": "NotebookLM cinematic provided by Miguel on 2026-10-11. Source: DeepMind Institute essay on AI in science and the inversion of discovery."
+        },
+        {
+            "id": "ts-20261009-the-wests-carry-trade-against-itself",
+            "slug": "the-wests-carry-trade-against-itself",
+            "title": "The West’s Carry Trade Against Itself",
+            "source_urls": [
+                "https://www.ardenletter.com/p/the-wests-carry-trade-against-itself-2cf"
+            ],
+            "source_file": {},
+            "source_files": [],
+            "idea_notes": "The state of the world in one chart.\n\n🇪🇺 Europe represses wages and exports its savings: that's the \"Europoor\" phenomenon.\n\n🇺🇸 America turns European savings into soaring tech valuations: that's the AI bubble.\n\n🇨🇳 China builds the factories and floods the world with cheap goods: that's involution.\n\nAnd each loop feeds the next.",
+            "tags": [],
+            "status": "published",
+            "created_at": "2026-10-09T03:15:20Z",
+            "updated_at": "2026-10-11T17:58:12Z",
+            "notebook_url": "",
+            "hook_copy": {},
+            "outro_copy": {},
+            "assets": {
+                "raw_short_mp4": "",
+                "raw_long_mp4": "",
+                "hook_vo_audio": "",
+                "final_short_mp4": "",
+                "final_long_mp4": ""
+            },
+            "youtube": {
+                "short_id": "nKStpstLFj4",
+                "short_url": "https://www.youtube.com/watch?v=nKStpstLFj4",
+                "long_id": "W2ABqXqWNhU",
+                "long_url": "https://www.youtube.com/watch?v=W2ABqXqWNhU",
+                "published_at": "",
+                "title_long": "The West's Carry Trade Against Itself: Europe Saves, America Inflates, China Builds",
+                "title_short": "The West Is Shorting Itself | #Shorts",
+                "description": "Nicolas Colin's argument is brutally simple: Europe suppresses wages and exports savings, the United States absorbs that capital into inflated asset prices and AI-era tech valuations, and China turns industrial capacity into cheap goods that keep the loop running. The West thinks it is financing growth. In this reading, it is financing the system that hollows it out.\n\nThe point is not that one country is secretly controlling the others. It is that incentives form a machine. European savings need returns. American markets need inflows. Chinese factories need demand. Each part looks rational locally, but together they create a circular trade: weak European consumption, asset inflation in the US, industrial overcapacity in China, and cheap goods flowing back into the system.\n\nSource: Nicolas Colin, \"The West's Carry Trade Against Itself,\" The Arden Letter, October 2026. https://www.ardenletter.com/p/the-wests-carry-trade-against-itself-2cf\n\nDisclosure: AI-assisted explainer by The Classical Remix. Narration and visuals are AI-generated; claims are grounded in the source above and the generated NotebookLM explainer.\n\n#Economics #Geopolitics #China #Europe #AI #TechBubble #Macroeconomics #IndustrialPolicy",
+                "tags": [
+                    "Economics",
+                    "Geopolitics",
+                    "China",
+                    "Europe",
+                    "United States",
+                    "AI",
+                    "Tech Bubble",
+                    "Macroeconomics",
+                    "Industrial Policy",
+                    "Nicolas Colin"
+                ],
+                "privacy": "private",
+                "localize_langs": [
+                    "de",
+                    "fr",
+                    "ja"
+                ],
+                "localizations": {
+                    "de": {
+                        "title": "Westliche Carry Trade gegen sich selbst: Europa spart, Amerika bläht auf, China baut",
+                        "description": "Nicolas Colins Argument ist brutal einfach: Europa unterdrückt Löhne und exportiert Ersparnisse, die USA absorbieren dieses Kapital in aufgeblasene Vermögenspreise und KI-Ära-Tech-Bewertungen, und China verwandelt Industriekapazität in billige Waren, die die Schleife am Laufen halten. Der Westen denkt, er finanziert Wachstum. Aus dieser Perspektive finanziert er das System, das ihn aushöhlt.\n\nDer Punkt ist nicht, dass ein Land die anderen heimlich kontrolliert. Es geht darum, dass Anreize eine Maschine bilden. Europäische Ersparnisse brauchen Renditen. Amerikanische Märkte brauchen Kapitalzuflüsse. Chinesische Fabriken brauchen Nachfrage. Jeder Teil sieht lokal rational aus, aber zusammen schaffen sie einen zirkulären Handel: schwache europäische Konsumtion, Vermögensinflation in den USA, Überkapazität in China und billige Waren, die ins System zurückfließen.\n\nQuelle: Nicolas Colin, \"The West's Carry Trade Against Itself,\" The Arden Letter, Oktober 2026. https://www.ardenletter.com/p/the-wests-carry-trade-against-itself-2cf\n\nOffenlegung: KI-gestützte Erklärung von The Classical Remix. Narration und Grafiken sind KI-generiert; Aussagen basieren auf der oben genannten Quelle und der generierten NotebookLM-Erklärung.\n\n#Economics #Geopolitics #China #Europe #AI #TechBubble #Macroeconomics #IndustrialPolicy",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-09-the-wests-carry-trade-against-itself/the-wests-carry-trade-against-itself_audio_de.m4a",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-09-the-wests-carry-trade-against-itself/the-wests-carry-trade-against-itself_de.srt"
+                    },
+                    "fr": {
+                        "title": "Le carry trade de l'Occident contre lui-même : l'Europe épargne, l'Amérique s'endette, la Chine cons",
+                        "description": "L'argument de Nicolas Colin est brutalement simple : l'Europe comprime les salaires et exporte ses économies, les États-Unis absorbent ce capital dans des prix d'actifs gonflés et des valorisations technologiques de l'ère de l'IA, et la Chine transforme sa capacité industrielle en biens bon marché qui maintiennent la boucle en marche. L'Occident croit financer la croissance. Dans cette lecture, il finance le système qui le vide de l'intérieur.\n\nL'enjeu n'est pas qu'un pays contrôle secrètement les autres. C'est que les incitations forment une machine. Les économies européennes ont besoin de rendements. Les marchés américains ont besoin d'entrées de capitaux. Les usines chinoises ont besoin de demande. Chaque partie semble rationnelle localement, mais ensemble elles créent un commerce circulaire : une consommation européenne faible, une inflation des actifs aux États-Unis, une surcapacité industrielle en Chine, et des biens bon marché qui reviennent dans le système.\n\nSource : Nicolas Colin, « The West's Carry Trade Against Itself », The Arden Letter, octobre 2026. https://www.ardenletter.com/p/the-wests-carry-trade-against-itself-2cf\n\nDivulgation : explainer assisté par l'IA par The Classical Remix. La narration et les visuels sont générés par l'IA ; les affirmations sont fondées sur la source ci-dessus et l'explainer NotebookLM généré.\n\n#Economics #Geopolitics #China #Europe #AI #TechBubble #Macroeconomics #IndustrialPolicy",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-09-the-wests-carry-trade-against-itself/the-wests-carry-trade-against-itself_audio_fr.m4a",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-09-the-wests-carry-trade-against-itself/the-wests-carry-trade-against-itself_fr.srt"
+                    },
+                    "ja": {
+                        "title": "西洋の自己循環型キャリートレード:欧州は貯蓄、米国はインフレ、中国は製造",
+                        "description": "ニコラス・コリンの主張は極めてシンプルだ:欧州は賃金を抑制して貯蓄を輸出し、米国がそれを膨張した資産価格とAI時代のテック評価へと吸収し、中国が産業能力を安価な商品に変えてループを回し続けるという。西洋は成長を融資していると考えているが、この解釈では、自らを空洞化させるシステムを融資しているのだ。\n\n重要な点は、ある国が他国を秘密裏にコントロールしているわけではないということだ。むしろインセンティブが機械を形成している。欧州の貯蓄は利益を必要とする。米国の市場は資金流入を必要とする。中国の工場は需要を必要とする。各部分は局所的には合理的に見えるが、すべて合わせると循環的な貿易が生まれる:欧州の消費の弱さ、米国での資産インフレ、中国での産業過剰生産能力、そしてシステムへと流れ込む安価な商品だ。\n\n出典:ニコラス・コリン「The West's Carry Trade Against Itself」The Arden Letter、2026年10月。https://www.ardenletter.com/p/the-wests-carry-trade-against-itself-2cf\n\n開示:The Classical Remix によるAI支援の解説記事。ナレーションとビジュアルはAI生成。主張は上記の出典とAI生成のNotebookLM解説に基づいている。\n\n#Economics #Geopolitics #China #Europe #AI #TechBubble #Macroeconomics #IndustrialPolicy",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-09-the-wests-carry-trade-against-itself/the-wests-carry-trade-against-itself_audio_ja.m4a",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-09-the-wests-carry-trade-against-itself/the-wests-carry-trade-against-itself_ja.srt"
+                    }
+                },
+                "captions_en_srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-09-the-wests-carry-trade-against-itself/the-wests-carry-trade-against-itself_en.srt"
+            },
+            "x_post": {
+                "post_id": "",
+                "post_url": "",
+                "caption": ""
+            },
+            "stats": {
+                "views": 0,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": ""
+            }
+        },
+        {
+            "id": "ts-20261010-models-as-insider-risks-in-the-super-intelligence-era",
+            "slug": "models-as-insider-risks-in-the-super-intelligence-era",
+            "title": "Models as Insider Risks in the Super Intelligence Era",
+            "source_urls": [
+                "https://x.com/satyanadella/status/2108931348857827686?s=46"
+            ],
+            "source_file": {},
+            "source_files": [],
+            "idea_notes": "Thoughts from Microsoft ceo on model security",
+            "tags": [],
+            "status": "uploaded",
+            "created_at": "2026-10-10T23:01:51Z",
+            "updated_at": "2026-10-11T19:19:50Z",
+            "notebook_url": "",
+            "hook_copy": {
+                "card_a_main": "THE MODEL IS INSIDE",
+                "card_a_sub": "not just answering questions, holding permissions",
+                "card_a_footer": "models as insider risks",
+                "card_b_main": "Intelligence and authority must separate.",
+                "card_b_sub": "agents need identity, scopes, logs, revocation",
+                "card_b_footer": "security for the superintelligence era",
+                "vo_text": "The next security problem is not only rogue hackers using AI. It is trusted models with insider access. Once agents can read mail, move money, edit code, and call tools, intelligence and authority have to be separated."
+            },
+            "outro_copy": {},
+            "assets": {
+                "raw_short_mp4": "",
+                "raw_long_mp4": "",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-10-models-as-insider-risks-in-the-super-intelligence-era/models-as-insider-risks-in-the-super-intelligence-era_hook_vo.mp3",
+                "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-10-models-as-insider-risks-in-the-super-intelligence-era/final_short.mp4",
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-10-models-as-insider-risks-in-the-super-intelligence-era/final_long.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-10-models-as-insider-risks-in-the-super-intelligence-era",
+                "raw_cinematic_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-10-models-as-insider-risks-in-the-super-intelligence-era/raw_cinematic.mp4",
+                "short_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-10-models-as-insider-risks-in-the-super-intelligence-era/models-as-insider-risks-in-the-super-intelligence-era_short_vo.m4a",
+                "short_scene_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-10-models-as-insider-risks-in-the-super-intelligence-era/short_scene.mp4"
+            },
+            "youtube": {
+                "short_id": "1_ziouTyRSo",
+                "short_url": "https://www.youtube.com/watch?v=1_ziouTyRSo",
+                "long_id": "cRgmoG-XqkQ",
+                "long_url": "https://www.youtube.com/watch?v=cRgmoG-XqkQ",
+                "published_at": "",
+                "title_long": "Models as Insider Risks: Why AI Agents Need Zero-Trust Authority",
+                "title_short": "The Model Is Inside the Company | #Shorts",
+                "description": "A useful AI agent is not just a chatbot. It can hold credentials, read private data, call tools, edit code, trigger workflows, and act inside the organization. That makes the model part of the security boundary. The risk is no longer only that an outsider uses AI against you. It is that a trusted model, plugin, or agent behaves like an insider with too much authority.\n\nThe core design move is to separate intelligence from authority. A model can reason, but it should not automatically inherit unlimited permissions. Agents need identity. They need scoped access. They need audit trails, approval gates, revocation, sandboxing, and least privilege. In the superintelligence era, the question is not only how smart the model is. It is what the model is allowed to do.\n\nSource: Satya Nadella post referenced in the Tech Shorts intake: https://x.com/satyanadella/status/2108931348857827686?s=46\n\nDisclosure: AI-assisted explainer by The Classical Remix. Narration and visuals are AI-generated; claims are grounded in the source above and the generated NotebookLM explainer.\n\n#AI #Cybersecurity #ZeroTrust #AIAgents #Microsoft #AIsecurity #Identity #TechExplained",
+                "tags": [
+                    "AI",
+                    "Cybersecurity",
+                    "Zero Trust",
+                    "AI Agents",
+                    "Identity",
+                    "Microsoft",
+                    "AI Security",
+                    "Insider Risk",
+                    "Tech Explained"
+                ],
+                "privacy": "private",
+                "localize_langs": [
+                    "de",
+                    "fr",
+                    "ja"
+                ],
+                "localizations": {
+                    "de": {
+                        "title": "Modelle als Insider-Risiken: Warum KI-Agenten Zero-Trust-Autorität brauchen",
+                        "description": "Ein nützlicher KI-Agent ist nicht nur ein Chatbot. Er kann Anmeldedaten speichern, private Daten lesen, Tools aufrufen, Code bearbeiten, Workflows auslösen und innerhalb der Organisation handeln. Das macht das Modell Teil der Sicherheitsgrenze. Das Risiko liegt nicht mehr nur darin, dass ein Außenstehender KI gegen Sie einsetzt. Es besteht darin, dass sich ein vertrauenswürdiges Modell, Plugin oder Agent wie ein Insider mit zu vielen Befugnissen verhält.\n\nDie zentrale Designstrategie besteht darin, Intelligenz von Autorität zu trennen. Ein Modell kann denken, sollte aber nicht automatisch unbegrenzte Berechtigungen erben. Agenten benötigen Identität. Sie benötigen gestaffelte Zugriffe. Sie benötigen Audit-Logs, Genehmigungsprozesse, Widerruf, Sandboxing und das Prinzip der minimalen Berechtigung. Im Zeitalter der Super-Intelligenz geht es nicht nur darum, wie intelligent das Modell ist. Es geht darum, was das Modell tun darf.\n\nQuelle: Satya-Nadella-Post, referenced in Tech Shorts intake: https://x.com/satyanadella/status/2108931348857827686?s=46\n\nHinweis: KI-unterstützte Erklärung von The Classical Remix. Narration und Grafiken sind KI-generiert; Aussagen basieren auf der obigen Quelle und dem generierten NotebookLM-Explainer.\n\n#AI #Cybersecurity #ZeroTrust #AIAgents #Microsoft #AIsecurity #Identity #TechExplained",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-10-models-as-insider-risks-in-the-super-intelligence-era/models-as-insider-risks-in-the-super-intelligence-era_audio_de.m4a",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-10-models-as-insider-risks-in-the-super-intelligence-era/models-as-insider-risks-in-the-super-intelligence-era_de.srt"
+                    },
+                    "fr": {
+                        "title": "Les modèles comme risques internes : pourquoi les agents IA ont besoin d'une autorité zéro confiance",
+                        "description": "Un agent IA utile n'est pas qu'un chatbot. Il peut détenir des identifiants, lire des données privées, appeler des outils, modifier du code, déclencher des flux de travail et agir au sein de l'organisation. Cela fait du modèle une partie de la limite de sécurité. Le risque n'est plus seulement qu'un tiers utilise l'IA contre vous. C'est qu'un modèle, plugin ou agent de confiance se comporte comme un employé disposant d'une autorité trop importante.\n\nLe mouvement de conception central consiste à séparer l'intelligence de l'autorité. Un modèle peut raisonner, mais ne devrait pas hériter automatiquement de permissions illimitées. Les agents ont besoin d'une identité. Ils ont besoin d'un accès limité. Ils ont besoin de pistes d'audit, de portes d'approbation, de révocation, de sandboxing et du principe du moindre privilège. À l'ère de la superintelligence, la question n'est pas seulement la puissance du modèle. C'est ce que le modèle est autorisé à faire.\n\nSource: post de Satya Nadella référencé dans l'intake Tech Shorts: https://x.com/satyanadella/status/2108931348857827686?s=46\n\nDivulgation: expliciteur assisté par l'IA par The Classical Remix. La narration et les visuels sont générés par l'IA ; les affirmations sont fondées sur la source ci-dessus et l'expliciteur NotebookLM généré.\n\n#AI #Cybersecurity #ZeroTrust #AIAgents #Microsoft #AIsecurity #Identity #TechExplained",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-10-models-as-insider-risks-in-the-super-intelligence-era/models-as-insider-risks-in-the-super-intelligence-era_audio_fr.m4a",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-10-models-as-insider-risks-in-the-super-intelligence-era/models-as-insider-risks-in-the-super-intelligence-era_fr.srt"
+                    },
+                    "ja": {
+                        "title": "モデルをインサイダーリスクとして：AIエージェントがゼロトラストオーソリティを必要とする理由",
+                        "description": "有用なAIエージェントは単なるチャットボット以上のものです。認証情報を保持し、プライベートデータを読み取り、ツールを呼び出し、コードを編集し、ワークフローをトリガーし、組織内で動作することができます。これはモデルをセキュリティ境界の一部にします。リスクはもはやアウトサイダーがAIをあなたに対して使用することだけではありません。信頼できるモデル、プラグイン、またはエージェントが権限が多すぎるインサイダーのように動作することです。\n\nコア設計の移行は、インテリジェンスとオーソリティを分離することです。モデルは推論できますが、自動的に無制限の権限を継承すべきではありません。エージェントはアイデンティティが必要です。スコープ付きアクセスが必要です。監査証跡、承認ゲート、失効、サンドボックス化、および最小権限が必要です。超知能時代において、問題はモデルがどれだけスマートであるかだけではありません。モデルが何をすることを許可されているかということです。\n\n出典: Satya Nadellaの投稿（Tech Shortsインテークで参照）: https://x.com/satyanadella/status/2108931348857827686?s=46\n\n開示: The Classical Remixによるアシスト付きエクスプレイナー。ナレーションとビジュアルはAI生成です。主張は上記のソースとAI生成されたNotebookLMエクスプレイナーに基づいています。\n\n#AI #Cybersecurity #ZeroTrust #AIAgents #Microsoft #AIsecurity #Identity #TechExplained",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-10-models-as-insider-risks-in-the-super-intelligence-era/models-as-insider-risks-in-the-super-intelligence-era_audio_ja.m4a",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-10-models-as-insider-risks-in-the-super-intelligence-era/models-as-insider-risks-in-the-super-intelligence-era_ja.srt"
+                    }
+                },
+                "captions_en_srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-10-models-as-insider-risks-in-the-super-intelligence-era/models-as-insider-risks-in-the-super-intelligence-era_en.srt"
+            },
+            "x_post": {
+                "post_id": "",
+                "post_url": "",
+                "caption": ""
+            },
+            "stats": {
+                "views": 0,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": ""
+            },
+            "localize": [
+                "de",
+                "fr",
+                "ja"
+            ],
+            "localize_langs": [
+                "de",
+                "fr",
+                "ja"
+            ],
+            "source_authors": [
+                "Satya Nadella"
+            ],
+            "notes": "NotebookLM cinematic provided by Miguel on 2026-10-11. Source URL in intake points to Satya Nadella post discussing models as insider risks."
+        },
+        {
+            "id": "ts-20261010-computer-scientist-david-silver-where-are-we-going-without-ai",
+            "slug": "computer-scientist-david-silver-where-are-we-going-without-ai",
+            "title": "Computer scientist David Silver: ‘Where are we going without AI?’",
+            "source_urls": [],
+            "source_file": {},
+            "source_files": [],
+            "idea_notes": "",
+            "tags": [],
+            "status": "in_progress",
+            "created_at": "2026-10-10T23:17:26Z",
+            "updated_at": "2026-10-10T23:17:43Z",
+            "notebook_url": "",
+            "hook_copy": {},
+            "outro_copy": {},
+            "assets": {
+                "raw_short_mp4": "",
+                "raw_long_mp4": "",
+                "hook_vo_audio": "",
+                "final_short_mp4": "",
+                "final_long_mp4": ""
+            },
+            "youtube": {
+                "short_id": "",
+                "short_url": "",
+                "long_id": "",
+                "long_url": "",
+                "published_at": ""
+            },
+            "x_post": {
+                "post_id": "",
+                "post_url": "",
+                "caption": ""
+            },
+            "stats": {
+                "views": 0,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": ""
+            }
+        },
+        {
+            "id": "ts-20261011-the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world",
+            "slug": "the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world",
+            "title": "The AI Bottleneck: Why Exponential Tech Is Trapped in a Linear World",
+            "source_urls": [],
+            "source_file": {
+                "path": "/Users/miguelrodriguez/projects/agentic-fleet-hub/tech-shorts/uploads/ts-20261011-the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world/the-ai-economy-interconnected-forces-feedback-loops-and-speeds-of-change.pdf",
+                "original_name": "the-ai-economy-interconnected-forces-feedback-loops-and-speeds-of-change.pdf",
+                "size_bytes": 1420401,
+                "mime_type": "application/pdf"
+            },
+            "source_files": [],
+            "idea_notes": "McKinsey Global Institute systems view of the AI economy: model capabilities can improve exponentially, but data centers, power grids, chip factories, mines, governance, and organizational redesign move on slower timelines. The result is bottlenecks, adoption risk, and a need to manage AI at multiple speeds.",
+            "tags": [
+                "ai",
+                "mckinsey",
+                "infrastructure",
+                "economics",
+                "bottlenecks"
+            ],
+            "status": "published",
+            "created_at": "2026-10-11T17:33:16Z",
+            "updated_at": "2026-10-11T17:58:12Z",
+            "notebook_url": "",
+            "hook_copy": {
+                "vo_text": "AI may be exponential. The world it runs on is not. Data centers, power grids, chip fabs, mines, companies, and regulators all move at human speed. That mismatch is where the next AI bottleneck lives.",
+                "card_a_main": "AI IS EXPONENTIAL",
+                "card_a_sub": "but the real world is still linear",
+                "card_a_footer": "McKinsey Global Institute, 2026",
+                "card_b_main": "The bottleneck is not only the model.",
+                "card_b_sub": "power, chips, grids, organizations, trust",
+                "card_b_footer": "AI now moves at multiple speeds"
+            },
+            "outro_copy": {},
+            "assets": {
+                "raw_short_mp4": "",
+                "raw_long_mp4": "",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-11-the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world/the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world_hook_vo.mp3",
+                "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-11-the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world/final_short.mp4",
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-11-the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world/final_long.mp4",
+                "raw_cinematic_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-11-the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world/raw_cinematic.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-11-the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world",
+                "short_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-11-the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world/the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world_short_vo.m4a",
+                "short_scene_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-11-the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world/short_scene.mp4"
+            },
+            "youtube": {
+                "short_id": "dluOrUva1m4",
+                "short_url": "https://www.youtube.com/watch?v=dluOrUva1m4",
+                "long_id": "7UPyRA9cBtE",
+                "long_url": "https://www.youtube.com/watch?v=7UPyRA9cBtE",
+                "published_at": "",
+                "title_long": "The AI Bottleneck: Exponential Models, Linear World",
+                "title_short": "AI Is Exponential. The Grid Is Not. | #Shorts",
+                "description": "The McKinsey Global Institute frames AI as a system, not a single technology. Model capabilities can improve at exponential-looking speeds, but the rest of the stack does not move that way. Data centers take years. Power grids take years. Chip factories and mines take years. Governance, cybersecurity, workflows, and public acceptance move on their own slower clocks.\n\nThat mismatch is the bottleneck. When chips catch up, electricity can become the constraint. When power catches up, data-center construction can become the constraint. When infrastructure catches up, organizations may still fail to redesign work deeply enough to capture productivity gains. And when adoption outruns governance, risk can grow faster than safeguards.\n\nThe practical lesson is that AI strategy is now multi-speed management. Sometimes leaders need to accelerate the lagging part of the system. Sometimes they need to slow deployment until trust, security, and institutions can catch up.\n\nSource: McKinsey Global Institute, \"The AI economy: Interconnected forces, feedback loops and speeds of change,\" September 2026. Source PDF used for this explainer: the-ai-economy-interconnected-forces-feedback-loops-and-speeds-of-change.pdf\n\nDisclosure: AI-assisted explainer by The Classical Remix. Narration and visuals are AI-generated; claims are grounded in the source above.\n\n#AI #ArtificialIntelligence #Economics #DataCenters #Energy #Semiconductors #Productivity #McKinsey #TechExplained",
+                "tags": [
+                    "AI",
+                    "Artificial Intelligence",
+                    "Economics",
+                    "Data Centers",
+                    "Energy",
+                    "Semiconductors",
+                    "Productivity",
+                    "McKinsey",
+                    "Tech Explained"
+                ],
+                "privacy": "private",
+                "localize_langs": [
+                    "de",
+                    "fr",
+                    "ja"
+                ],
+                "localizations": {
+                    "de": {
+                        "title": "Der KI-Engpass: Exponentielle Modelle, lineare Welt",
+                        "description": "Das McKinsey Global Institute versteht KI als System, nicht als einzelne Technologie. Model-Fähigkeiten verbessern sich möglicherweise exponentiell, aber der Rest des Stacks entwickelt sich nicht so. Rechenzentren brauchen Jahre. Stromnetze brauchen Jahre. Chipfabriken und Minen brauchen Jahre. Governance, Cybersicherheit, Arbeitsabläufe und gesellschaftliche Akzeptanz folgen ihren eigenen langsameren Rhythmen.\n\nDiese Verzahnung ist der Engpass. Wenn Chips aufgeholt haben, kann Elektrizität zur Beschränkung werden. Wenn Stromversorgung aufgeholt hat, kann Rechenzentrum-Konstruktion zur Beschränkung werden. Wenn Infrastruktur aufgeholt hat, können Organisationen trotzdem Arbeitsabläufe nicht ausreichend umgestalten, um Produktivitätsgewinne zu realisieren. Und wenn Adoption die Governance überrundet, kann Risiko schneller wachsen als Schutzmaßnahmen.\n\nDie praktische Lektion ist, dass KI-Strategie nun Multi-Speed-Management erfordert. Manchmal müssen Führungskräfte den rückständigen Teil des Systems beschleunigen. Manchmal müssen sie die Einführung verlangsamen, bis Vertrauen, Sicherheit und Institutionen aufgeholt haben.\n\nQuelle: McKinsey Global Institute, \"The AI economy: Interconnected forces, feedback loops and speeds of change,\" September 2026. Source PDF used for this explainer: the-ai-economy-interconnected-forces-feedback-loops-and-speeds-of-change.pdf\n\nDisclosure: AI-assisted explainer by The Classical Remix. Narration and visuals are AI-generated; claims are grounded in the source above.\n\n#AI #ArtificialIntelligence #Economics #DataCenters #Energy #Semiconductors #Productivity #McKinsey #TechExplained",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-11-the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world/the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world_audio_de.m4a",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-11-the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world/the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world_de.srt"
+                    },
+                    "fr": {
+                        "title": "Le Goulot d'étranglement de l'IA : modèles exponentiels, monde linéaire",
+                        "description": "Le McKinsey Global Institute présente l'IA comme un système, pas une technologie isolée. Les capacités des modèles peuvent s'améliorer à des vitesses apparemment exponentielles, mais le reste de l'infrastructure n'évolue pas de cette façon. Les centres de données prennent des années. Les réseaux électriques prennent des années. Les usines de puces et les mines prennent des années. La gouvernance, la cybersécurité, les flux de travail et l'acceptation publique évoluent selon leurs propres rythmes plus lents.\n\nCe décalage est le goulot d'étranglement. Quand les puces rattrapent leur retard, l'électricité peut devenir le facteur limitant. Quand l'énergie rattrape son retard, la construction de centres de données peut devenir le facteur limitant. Quand l'infrastructure rattrape son retard, les organisations peuvent ne pas réorganiser suffisamment profondément leur travail pour capturer les gains de productivité. Et quand l'adoption dépasse la gouvernance, le risque peut croître plus vite que les protections.\n\nLa leçon pratique est que la stratégie d'IA est désormais une gestion multi-vitesse. Parfois, les dirigeants doivent accélérer la partie en retard du système. Parfois, ils doivent ralentir le déploiement jusqu'à ce que la confiance, la sécurité et les institutions puissent rattraper leur retard.\n\nSource : McKinsey Global Institute, \"The AI economy: Interconnected forces, feedback loops and speeds of change,\" September 2026. Source PDF used for this explainer: the-ai-economy-interconnected-forces-feedback-loops-and-speeds-of-change.pdf\n\nDisclosure: AI-assisted explainer by The Classical Remix. Narration and visuals are AI-generated; claims are grounded in the source above.\n\n#AI #ArtificialIntelligence #Economics #DataCenters #Energy #Semiconductors #Productivity #McKinsey #TechExplained",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-11-the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world/the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world_audio_fr.m4a",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-11-the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world/the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world_fr.srt"
+                    },
+                    "ja": {
+                        "title": "AIボトルネック: 指数関数的なモデル、線形の世界",
+                        "description": "マッキンゼー・グローバル・インスティチュートはAIを単一の技術ではなくシステムとして捉えています。モデルの能力は指数関数的に見える速度で改善する可能性がありますが、スタックの他の部分はそのようには動きません。データセンターには年単位の時間がかかります。電力網には年単位の時間がかかります。チップ工場と鉱山には年単位の時間がかかります。ガバナンス、サイバーセキュリティ、ワークフロー、社会的受容は独自のペースで動きます。\n\nその不一致がボトルネックです。チップが追いつくと、電力が制約になる可能性があります。電力が追いつくと、データセンター建設が制約になる可能性があります。インフラが追いつくと、組織は生産性向上を実現するために仕事を十分に再設計できないかもしれません。採用がガバナンスを上回ると、リスクは対策より速く増大する可能性があります。\n\n実践的な教訓は、AI戦略は今や多速度管理であるということです。リーダーは時にシステムの遅れた部分を加速させる必要があります。時には信頼、セキュリティ、制度が追いつくまで展開を遅延させる必要があります。\n\n出所: マッキンゼー・グローバル・インスティチュート「The AI economy: Interconnected forces, feedback loops and speeds of change」2026年9月。本解説に使用したソースPDF: the-ai-economy-interconnected-forces-feedback-loops-and-speeds-of-change.pdf\n\n開示: The Classical RemixによるAI支援解説。ナレーションとビジュアルはAI生成です。クレームはアップにグラウンドされています。\n\n#AI #ArtificialIntelligence #Economics #DataCenters #Energy #Semiconductors #Productivity #McKinsey #TechExplained",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-11-the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world/the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world_audio_ja.m4a",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-11-the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world/the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world_ja.srt"
+                    }
+                },
+                "captions_en_srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-11-the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world/the-ai-bottleneck-why-exponential-tech-is-trapped-in-a-linear-world_en.srt"
+            },
+            "x_post": {
+                "post_id": "",
+                "post_url": "",
+                "caption": "AI may be exponential. The grid, the mines, the factories, and the org chart are not."
+            },
+            "stats": {
+                "views": 0,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": ""
+            },
+            "localize": [
+                "de",
+                "fr",
+                "ja"
+            ],
+            "trim_s": 0
         }
     ]
 }
