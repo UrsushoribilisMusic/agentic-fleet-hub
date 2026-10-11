@@ -1296,9 +1296,9 @@ WEB_HTML = """<!DOCTYPE html>
 
         function renderQueue() {
             const container = document.getElementById('queue-container');
-            // Ideas page = the whole pipeline backlog (everything not yet public).
-            // Only PUBLISHED (live on YouTube) drops off; private/ready + in-flight stay.
-            const DONE_STATUSES = ['published'];
+            // Ideas page = actionable backlog. Published work is done, and failed
+            // jobs are kept out of the default queue because we do not repair them.
+            const DONE_STATUSES = ['published', 'failed'];
             let filtered = currentFilter === 'all'
                 ? allJobs.filter(j => !DONE_STATUSES.includes(j.status))
                 : allJobs.filter(j => j.status === currentFilter);
