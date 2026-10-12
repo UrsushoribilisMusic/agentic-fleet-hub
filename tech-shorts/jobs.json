@@ -1,6 +1,6 @@
 {
     "version": "1.0",
-    "updated_at": "2026-10-11T20:00:00Z",
+    "updated_at": "2026-10-12T08:16:03Z",
     "jobs": [
         {
             "id": "ts-20260916-deepmind-reasoning-transparency",
@@ -9016,9 +9016,9 @@
             "source_files": [],
             "idea_notes": "By Singapore regulators",
             "tags": [],
-            "status": "in_progress",
+            "status": "declined",
             "created_at": "2026-10-09T01:55:31Z",
-            "updated_at": "2026-10-09T01:57:09Z",
+            "updated_at": "2026-10-12T08:05:13Z",
             "notebook_url": "",
             "hook_copy": {},
             "outro_copy": {},
@@ -9504,6 +9504,126 @@
                 "ja"
             ],
             "trim_s": 0
+        },
+        {
+            "id": "ts-20261012-labor-llm-language-based-occupational-representations-with-large-language-models",
+            "slug": "labor-llm-language-based-occupational-representations-with-large-language-models",
+            "title": "The Grammar of Work: How LLMs Learn Career Moves",
+            "source_urls": [
+                "https://arxiv.org/abs/2202.08370",
+                "https://arxiv.org/pdf/2406.17972"
+            ],
+            "source_file": {},
+            "source_files": [],
+            "idea_notes": "The researchers adapted large language models to predict which job a person is likely to take next, using their employment history.\nRather than simply asking ChatGPT to guess someone's next job, they fine-tuned language models on career data and compared them with conventional economic models.",
+            "tags": [
+                "labor economics",
+                "llm",
+                "future of work",
+                "career mobility",
+                "ai research",
+                "occupational data"
+            ],
+            "status": "assembled",
+            "created_at": "2026-10-12T06:43:37Z",
+            "updated_at": "2026-10-12T08:16:03Z",
+            "notebook_url": "",
+            "hook_copy": {
+                "vo_text": "What if a career has grammar? Not a metaphor. Researchers trained language models on job histories and found that work moves like language: context matters, sequence matters, and the next job can be predicted from the sentence your career has already written.",
+                "card_a_main": "CAREERS HAVE GRAMMAR",
+                "card_a_sub": "LLMs can read job histories as sequences",
+                "card_a_footer": "LABOR-LLM / occupational representations",
+                "card_b_main": "Your next job is not a keyword match.",
+                "card_b_sub": "it is context, sequence, and trajectory",
+                "card_b_footer": "when labor economics meets language models"
+            },
+            "outro_copy": {
+                "title": "SUBSCRIBE",
+                "subtitle": "for more AI economics explainers",
+                "tagline": "The Classical Remix",
+                "url": "AI, labor, and systems change",
+                "cta": "Watch the next one"
+            },
+            "assets": {
+                "raw_short_mp4": "",
+                "raw_long_mp4": "",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-12-labor-llm-language-based-occupational-representations-with-large-language-models/labor-llm-language-based-occupational-representations-with-large-language-models_hook_vo.mp3",
+                "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-12-labor-llm-language-based-occupational-representations-with-large-language-models/final_short.mp4",
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-12-labor-llm-language-based-occupational-representations-with-large-language-models/final_long.mp4",
+                "raw_cinematic_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-12-labor-llm-language-based-occupational-representations-with-large-language-models/raw_cinematic.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-12-labor-llm-language-based-occupational-representations-with-large-language-models"
+            },
+            "youtube": {
+                "short_id": "qUdXJXyXfpU",
+                "short_url": "https://www.youtube.com/watch?v=qUdXJXyXfpU",
+                "long_id": "Vritr444eKs",
+                "long_url": "https://www.youtube.com/watch?v=Vritr444eKs",
+                "published_at": "",
+                "title_long": "The Grammar of Work: How LLMs Learn Career Moves",
+                "title_short": "Your Career Has Grammar | #Shorts",
+                "description": "Can a career be modeled like language? LABOR-LLM treats occupational histories as sequences, not just rows in a spreadsheet. Instead of asking a general chatbot to guess someone’s next job, the researchers adapt language models to labor-market data and compare them with conventional economic models.\n\nThe core idea is simple but powerful: jobs have context. A move from cashier to supervisor does not mean the same thing as a move from software engineer to supervisor. Occupations carry meaning through the roles that came before them, the order in which they appear, and the structure of the wider labor market. In that sense, a career has grammar.\n\nThis matters because labor markets are usually compressed into categories, codes, and averages. Language-model representations can preserve more of the sequence: what kind of work someone has done, which transitions are plausible, and how skills or opportunities cluster over time. That does not make the model magic, and it does not remove the hard social questions. But it gives economists a new instrument for studying mobility, mismatch, and the future of work.\n\nSources:\n- Susan Athey, Herman Brunborg, Tianyu Du, Ayush Kanodia, and Keyon Vafa, “LABOR-LLM: Language-Based Occupational Representations with Large Language Models.” arXiv:2406.17972. https://arxiv.org/abs/2406.17972\n- Keyon Vafa, Emil Palikot, Tianyu Du, Ayush Kanodia, Susan Athey, and David M. Blei, “CAREER: Transfer Learning for Economic Prediction of Labor Sequence Data.” arXiv:2202.08370. https://arxiv.org/abs/2202.08370\n\nDisclosure: AI-assisted explainer by The Classical Remix. Narration and visuals are AI-generated; claims are grounded in the sources above and the generated NotebookLM explainer.\n\n#AI #LaborEconomics #FutureOfWork #LLM #MachineLearning #Economics #CareerMobility #TechExplained",
+                "tags": [
+                    "AI",
+                    "Labor Economics",
+                    "Future of Work",
+                    "LLM",
+                    "Machine Learning",
+                    "Economics",
+                    "Career Mobility",
+                    "Tech Explained"
+                ],
+                "privacy": "private",
+                "localize_langs": [
+                    "de",
+                    "fr",
+                    "ja"
+                ],
+                "captions_en_srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-12-labor-llm-language-based-occupational-representations-with-large-language-models/labor-llm-language-based-occupational-representations-with-large-language-models_en.srt",
+                "localizations": {
+                    "de": {
+                        "title": "Die Grammatik der Arbeit: Wie LLMs Berufswechsel lernen",
+                        "description": "LABOR-LLM behandelt Erwerbsbiografien als Sequenzen, nicht nur als Tabellenzeilen. Die Forschenden passen Sprachmodelle an Arbeitsmarktdaten an und vergleichen sie mit klassischen ökonomischen Modellen. Die zentrale Idee: Berufe haben Kontext. Ein Karriereverlauf besitzt eine Art Grammatik.\n\nQuellen: LABOR-LLM, arXiv:2406.17972; CAREER, arXiv:2202.08370.\n\nOffenlegung: KI-gestützter Erklärfilm von The Classical Remix; Aussagen basieren auf den genannten Quellen und dem NotebookLM-Explainer.",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-12-labor-llm-language-based-occupational-representations-with-large-language-models/labor-llm-language-based-occupational-representations-with-large-language-models_de.srt",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-12-labor-llm-language-based-occupational-representations-with-large-language-models/labor-llm-language-based-occupational-representations-with-large-language-models_audio_de.m4a"
+                    },
+                    "fr": {
+                        "title": "La grammaire du travail : comment les LLM apprennent les trajectoires de carrière",
+                        "description": "LABOR-LLM traite les parcours professionnels comme des séquences, pas seulement comme des lignes dans un tableau. Les chercheurs adaptent des modèles de langage à des données du marché du travail et les comparent à des modèles économiques classiques. L’idée centrale : les métiers ont un contexte. Une carrière possède une forme de grammaire.\n\nSources : LABOR-LLM, arXiv:2406.17972 ; CAREER, arXiv:2202.08370.\n\nDivulgation : explicatif assisté par IA par The Classical Remix ; les affirmations sont fondées sur les sources ci-dessus et l’explicatif NotebookLM.",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-12-labor-llm-language-based-occupational-representations-with-large-language-models/labor-llm-language-based-occupational-representations-with-large-language-models_fr.srt",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-12-labor-llm-language-based-occupational-representations-with-large-language-models/labor-llm-language-based-occupational-representations-with-large-language-models_audio_fr.m4a"
+                    },
+                    "ja": {
+                        "title": "仕事の文法: LLMはキャリアの移動をどう学ぶのか",
+                        "description": "LABOR-LLMは職歴を単なる表の行ではなく、連続したシーケンスとして扱います。研究者たちは言語モデルを労働市場データに適応させ、従来の経済モデルと比較しました。中心となる考え方は、職業には文脈があり、キャリアには一種の文法があるということです。\n\n出典: LABOR-LLM, arXiv:2406.17972; CAREER, arXiv:2202.08370。\n\n開示: The Classical RemixによるAI支援の解説です。主張は上記ソースとNotebookLM explainerに基づいています。",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-12-labor-llm-language-based-occupational-representations-with-large-language-models/labor-llm-language-based-occupational-representations-with-large-language-models_ja.srt"
+                    }
+                }
+            },
+            "x_post": {
+                "post_id": "",
+                "post_url": "",
+                "caption": ""
+            },
+            "stats": {
+                "views": 0,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": ""
+            },
+            "source_authors": [
+                "Susan Athey",
+                "Herman Brunborg",
+                "Tianyu Du",
+                "Ayush Kanodia",
+                "Keyon Vafa",
+                "Emil Palikot",
+                "David M. Blei"
+            ],
+            "localize": [
+                "de",
+                "fr",
+                "ja"
+            ]
         }
     ]
 }
