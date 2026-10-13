@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canis Privacy Policy</title>
+  <meta name="description" content="Privacy policy for Canis, the on-device AI assistant with local Sources and disposition readouts.">
+  <style>
+    :root {
+      --bg-dark: #07151D;
+      --panel: #0E2530;
+      --panel-elevated: #143544;
+      --panel-border: rgba(79, 209, 197, 0.18);
+      --ink: #0B1D26;
+      --pale: #E7F1EF;
+      --muted: #8AA2A8;
+      --brass: #C9A24B;
+      --teal: #4FD1C5;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg-dark);
+      color: var(--pale);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+    }
+    .bg-ambient {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 50% 16%, rgba(79, 209, 197, 0.1) 0%, transparent 58%),
+                  radial-gradient(circle at 88% 82%, rgba(201, 162, 75, 0.06) 0%, transparent 48%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .container {
+      width: min(920px, calc(100% - 48px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    header {
+      border-bottom: 1px solid var(--panel-border);
+      background: rgba(7, 21, 29, 0.86);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav-wrap {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--pale);
+      text-decoration: none;
+    }
+    .logo-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--teal), var(--brass));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .logo-text {
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    nav {
+      display: flex;
+      gap: 22px;
+    }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    nav a:hover { color: var(--teal); }
+    main {
+      padding: 82px 0 96px;
+    }
+    .eyebrow {
+      color: var(--teal);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: clamp(40px, 7vw, 68px);
+      line-height: 1.05;
+      letter-spacing: -1px;
+      margin-bottom: 22px;
+      max-width: 760px;
+    }
+    .lead {
+      color: #B7CACE;
+      font-size: 20px;
+      max-width: 760px;
+      margin-bottom: 36px;
+    }
+    .panel {
+      background: linear-gradient(180deg, rgba(20, 53, 68, 0.82), rgba(14, 37, 48, 0.92));
+      border: 1px solid var(--panel-border);
+      border-radius: 16px;
+      padding: 28px;
+      margin-top: 20px;
+    }
+    h2 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+    p, li { color: #C8D7D9; }
+    ul {
+      margin: 12px 0 0 20px;
+      display: grid;
+      gap: 10px;
+    }
+    a {
+      color: var(--teal);
+      text-underline-offset: 3px;
+    }
+    .updated {
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      margin-bottom: 28px;
+    }
+    footer {
+      border-top: 1px solid var(--panel-border);
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 640px) {
+      nav { gap: 14px; }
+      nav a { font-size: 13px; }
+      .container { width: min(100% - 32px, 920px); }
+      main { padding-top: 56px; }
+      .panel { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-ambient"></div>
+  <header>
+    <div class="container nav-wrap">
+      <a class="logo" href="/">
+        <span class="logo-badge">🐶</span>
+        <span class="logo-text">Canis</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/support/">Support</a>
+        <a href="/architecture.html">Architecture</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <p class="eyebrow">Privacy Policy</p>
+    <h1>Canis is local-first.</h1>
+    <p class="lead">Canis is an experimental on-device AI assistant. It is designed to answer questions, use local Sources, and show model disposition without requiring an account.</p>
+    <p class="updated">Last updated: October 13, 2026</p>
+
+    <section class="panel" aria-labelledby="summary-heading">
+      <h2 id="summary-heading">Summary</h2>
+      <p>Canis does not sell personal data, does not use third-party advertising, and does not require a user account. Prompts, answers, chat history, downloaded models, and local Source indexes are stored on your device unless you explicitly choose to share feedback for research or support.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="device-heading">
+      <h2 id="device-heading">Data Stored On Your Device</h2>
+      <p>Canis may store the following locally so the app can work:</p>
+      <ul>
+        <li>Questions, answers, chat history, ratings, and app settings.</li>
+        <li>Downloaded model files needed for on-device generation.</li>
+        <li>Documents you add as Sources, plus chunks and local indexes created from those documents.</li>
+        <li>Disposition readouts, certainty values, and related model-behavior metadata shown inside the app.</li>
+      </ul>
+    </section>
+
+    <section class="panel" aria-labelledby="sources-heading">
+      <h2 id="sources-heading">Sources</h2>
+      <p>When you add a PDF, text file, Markdown file, or other supported document as a Source, Canis processes it locally so the model can retrieve relevant passages and cite them. Deleting a Source removes the app's local copy and index for that Source.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="network-heading">
+      <h2 id="network-heading">Network Use</h2>
+      <p>Canis may connect to the internet to download model files and app resources. If optional feedback sharing is enabled and you choose to share feedback, the feedback may be sent to Big Bear Engineering or its research infrastructure for debugging and product improvement.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="feedback-heading">
+      <h2 id="feedback-heading">Optional Feedback</h2>
+      <p>If you explicitly share feedback, it may include the prompt, answer, correction text, disposition label, model metadata, app version, and an installation identifier so duplicate or related reports can be managed. This data is not used for tracking across apps or websites and is not sold.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="children-heading">
+      <h2 id="children-heading">Children</h2>
+      <p>Canis is not directed to children. If you believe a child has provided personal information through support or feedback, contact us and we will delete it.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <p>Canis is developed and published by Big Bear Engineering GmbH. Privacy questions can be sent to <a href="mailto:miguel@bigbearengineering.com?subject=Canis%20privacy">miguel@bigbearengineering.com</a>.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Big Bear Engineering GmbH. Canis is an experimental on-device AI application.</div>
+  </footer>
+</body>
+</html>

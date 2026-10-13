@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canis Support</title>
+  <meta name="description" content="Support for Canis, the on-device AI assistant with a disposition readout.">
+  <style>
+    :root {
+      --bg-dark: #07151D;
+      --panel: #0E2530;
+      --panel-elevated: #143544;
+      --panel-border: rgba(79, 209, 197, 0.18);
+      --ink: #0B1D26;
+      --pale: #E7F1EF;
+      --muted: #8AA2A8;
+      --brass: #C9A24B;
+      --teal: #4FD1C5;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg-dark);
+      color: var(--pale);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+    }
+    .bg-ambient {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 50% 16%, rgba(79, 209, 197, 0.1) 0%, transparent 58%),
+                  radial-gradient(circle at 88% 82%, rgba(201, 162, 75, 0.06) 0%, transparent 48%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .container {
+      width: min(920px, calc(100% - 48px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    header {
+      border-bottom: 1px solid var(--panel-border);
+      background: rgba(7, 21, 29, 0.86);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav-wrap {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--pale);
+      text-decoration: none;
+    }
+    .logo-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--teal), var(--brass));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .logo-text {
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    nav {
+      display: flex;
+      gap: 22px;
+    }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    nav a:hover { color: var(--teal); }
+    main {
+      padding: 82px 0 96px;
+    }
+    .eyebrow {
+      color: var(--teal);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: clamp(40px, 7vw, 68px);
+      line-height: 1.05;
+      letter-spacing: -1px;
+      margin-bottom: 22px;
+      max-width: 760px;
+    }
+    .lead {
+      color: #B7CACE;
+      font-size: 20px;
+      max-width: 720px;
+      margin-bottom: 36px;
+    }
+    .panel {
+      background: linear-gradient(180deg, rgba(20, 53, 68, 0.82), rgba(14, 37, 48, 0.92));
+      border: 1px solid var(--panel-border);
+      border-radius: 16px;
+      padding: 28px;
+      margin-top: 20px;
+    }
+    h2 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+    p, li { color: #C8D7D9; }
+    ul {
+      list-style: none;
+      display: grid;
+      gap: 16px;
+      margin-top: 18px;
+    }
+    li {
+      border-top: 1px solid rgba(231, 241, 239, 0.08);
+      padding-top: 16px;
+    }
+    li strong {
+      color: var(--pale);
+      display: block;
+      margin-bottom: 4px;
+    }
+    a {
+      color: var(--teal);
+      text-underline-offset: 3px;
+    }
+    .contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 24px;
+      padding: 12px 18px;
+      border-radius: 10px;
+      background: rgba(79, 209, 197, 0.12);
+      color: var(--pale);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    footer {
+      border-top: 1px solid var(--panel-border);
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 640px) {
+      nav { gap: 14px; }
+      nav a { font-size: 13px; }
+      .container { width: min(100% - 32px, 920px); }
+      main { padding-top: 56px; }
+      .panel { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-ambient"></div>
+  <header>
+    <div class="container nav-wrap">
+      <a class="logo" href="/">
+        <span class="logo-badge">🐶</span>
+        <span class="logo-text">Canis</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/architecture.html">Architecture</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <p class="eyebrow">Support</p>
+    <h1>Help with Canis.</h1>
+    <p class="lead">Canis is an on-device AI assistant that answers questions, can use your local Sources, and shows a disposition readout while the model responds.</p>
+
+    <section class="panel" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <p>For app support, bug reports, TestFlight notes, or App Store questions, email Big Bear Engineering.</p>
+      <a class="contact" href="mailto:miguel@bigbearengineering.com?subject=Canis%20support">miguel@bigbearengineering.com</a>
+    </section>
+
+    <section class="panel" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">Common Questions</h2>
+      <ul>
+        <li>
+          <strong>Do I need an account?</strong>
+          No. Canis runs without a login.
+        </li>
+        <li>
+          <strong>Why does the model download take time?</strong>
+          Canis runs the LLM locally, so the model has to be downloaded to the device before use. Wi-Fi is recommended.
+        </li>
+        <li>
+          <strong>What are Sources?</strong>
+          Sources are documents you add so Canis can answer with local retrieval and citations. The app chunks and indexes those documents on the device.
+        </li>
+        <li>
+          <strong>Does the dog have feelings?</strong>
+          No. The dog is a readable instrument panel for model behavior. Dispositions such as confident, unsure, curious, concerned, reluctant, or warm describe signals in the answer, not emotions.
+        </li>
+        <li>
+          <strong>What should I do if an answer looks wrong?</strong>
+          Treat Canis as an experimental local AI tool. Check cited Sources, use the thumbs feedback controls, and send a support note if you can reproduce the issue.
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Big Bear Engineering GmbH. Canis is an experimental on-device AI application.</div>
+  </footer>
+</body>
+</html>
