@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download Canis — TestFlight</title>
+  <meta name="description" content="Join the Canis iOS TestFlight beta.">
+  <style>
+    :root {
+      --bg: #f7f5f1;
+      --surface: #ffffff;
+      --surface-2: #f0ede8;
+      --ink: #1f1b28;
+      --muted: #625d6d;
+      --line: rgba(39, 34, 58, 0.12);
+      --primary: #29243b;
+      --green: #2b9e74;
+      --purple: #8056d6;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100svh;
+      margin: 0;
+      background:
+        radial-gradient(circle at 50% 18%, rgba(85, 205, 165, 0.24), transparent 34rem),
+        radial-gradient(circle at 100% 0%, rgba(128, 86, 214, 0.14), transparent 26rem),
+        var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+    }
+    .container { width: min(1080px, calc(100% - 40px)); margin: 0 auto; }
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 245, 241, 0.86);
+      backdrop-filter: blur(18px);
+    }
+    .nav {
+      min-height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 10px 24px rgba(39, 34, 58, 0.16);
+    }
+    .brand strong {
+      font-size: 24px;
+      letter-spacing: -0.02em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .nav-links a { color: inherit; text-decoration: none; }
+    main {
+      min-height: calc(100svh - 73px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 48px;
+      align-items: center;
+      padding: 64px 0;
+    }
+    .eyebrow {
+      color: var(--green);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0;
+      max-width: 720px;
+      font-size: clamp(48px, 7vw, 88px);
+      line-height: 0.94;
+      letter-spacing: -0.045em;
+    }
+    .lead {
+      margin: 24px 0 0;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.55;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 900;
+      box-shadow: 0 12px 26px rgba(39, 34, 58, 0.08);
+    }
+    .button.primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .qr-card {
+      background: rgba(255,255,255,0.78);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 24px 56px rgba(39, 34, 58, 0.14);
+    }
+    .dog {
+      width: 164px;
+      height: 164px;
+      object-fit: contain;
+      margin: 0 auto 10px;
+      display: block;
+      filter: drop-shadow(0 18px 28px rgba(39, 34, 58, 0.16));
+    }
+    .qr {
+      width: min(100%, 260px);
+      border-radius: 8px;
+      background: #fff;
+      padding: 12px;
+      border: 1px solid var(--line);
+    }
+    .qr-card h2 {
+      margin: 12px 0 6px;
+      font-size: 24px;
+      letter-spacing: -0.025em;
+    }
+    .qr-card p {
+      margin: 0 auto 18px;
+      color: var(--muted);
+      max-width: 290px;
+    }
+    .facts {
+      display: grid;
+      gap: 10px;
+      margin-top: 28px;
+      max-width: 680px;
+    }
+    .fact {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px 16px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .fact strong { color: var(--ink); }
+    footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      padding: 24px 0 36px;
+      font-size: 14px;
+    }
+    @media (max-width: 860px) {
+      main { grid-template-columns: 1fr; padding: 40px 0 56px; }
+      .qr-card { max-width: 380px; }
+    }
+    @media (max-width: 560px) {
+      .container { width: min(100% - 28px, 1080px); }
+      .nav-links { display: none; }
+      .actions .button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="/">
+        <img src="assets/dog/listening.webp" alt="">
+        <strong>Canis</strong>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="/">Main page</a>
+        <a href="reading-disposition.pdf">Paper</a>
+        <a href="support/">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <div class="eyebrow">iOS beta · TestFlight</div>
+      <h1>Download Canis for iPhone.</h1>
+      <p class="lead">Join the TestFlight while App Store review is pending. Canis runs local open-weight models on-device, lets you add private sources, and shows a disposition readout next to each answer.</p>
+      <div class="actions">
+        <a class="button primary" href="https://testflight.apple.com/join/eH5WeYxJ">Open TestFlight</a>
+        <a class="button" href="/">Back to Canis</a>
+      </div>
+      <div class="facts">
+        <div class="fact"><strong>No account required.</strong> The app is designed for local use without login.</div>
+        <div class="fact"><strong>Model downloads on first run.</strong> Use Wi-Fi and keep the app open while the model finishes downloading.</div>
+        <div class="fact"><strong>App Store link coming later.</strong> This page will switch to the final store listing as soon as Apple publishes it.</div>
+      </div>
+    </section>
+
+    <aside class="qr-card" aria-label="TestFlight QR code">
+      <img class="dog" src="assets/dog/warm.webp" alt="Warm Canis dog face">
+      <img class="qr" src="assets/download/testflight-qr.png" alt="QR code for the Canis TestFlight invitation">
+      <h2>Scan to join</h2>
+      <p>Point an iPhone camera at the QR code or use the direct TestFlight button.</p>
+      <a class="button primary" href="https://testflight.apple.com/join/eH5WeYxJ">Join TestFlight</a>
+    </aside>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Big Bear Engineering GmbH. Canis is an experimental on-device AI application.</div>
+  </footer>
+</body>
+</html>
