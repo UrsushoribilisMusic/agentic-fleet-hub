@@ -219,6 +219,17 @@ def generate_vo(text: str, out_path: Path) -> None:
     """Generate hook VO via ElevenLabs API (Alice, British female)."""
     api_key = os.environ.get("ELEVENLABS_API_KEY", "")
     if not api_key:
+        try:
+            from dotenv import load_dotenv
+            load_dotenv(MUSIC_VIDEO_TOOL / ".env")
+            vault_dir = HERE.parent / "vault"
+            if vault_dir.exists():
+                sys.path.insert(0, str(vault_dir))
+                from vault import get_secret
+                api_key = get_secret("ELEVENLABS_API_KEY") or ""
+        except Exception:
+            pass
+    if not api_key:
         env_file = MUSIC_VIDEO_TOOL / ".env"
         if env_file.exists():
             for line in env_file.read_text().splitlines():
@@ -227,7 +238,7 @@ def generate_vo(text: str, out_path: Path) -> None:
                     break
 
     if not api_key:
-        raise RuntimeError("ELEVENLABS_API_KEY not found in env or music-video-tool/.env")
+        raise RuntimeError("ELEVENLABS_API_KEY not found in Infisical vault, env, or music-video-tool/.env")
 
     try:
         from elevenlabs.client import ElevenLabs

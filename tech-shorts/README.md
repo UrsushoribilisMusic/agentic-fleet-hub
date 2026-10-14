@@ -126,44 +126,43 @@ python3 tech-shorts/pipeline.py run <job_id> --stage upload
 
 The upload stage is idempotent: if the long video already has a YouTube URL, adding `final_short.mp4` later and rerunning upload will only upload the missing Short.
 
-### Captions
+### Captions & Multi-Language Audio Staging
 
-Caption files are generated as SRTs under each job asset directory. For manual YouTube upload, copy them to a per-video folder under `~/Downloads`, for example:
+Caption files (`.srt`) and localized voice-over tracks (`.m4a`) are generated under each job's canonical asset directory (`~/flotilla/tech-shorts/assets/<date-slug>/`).
+
+Because the YouTube Data API v3 does not support uploading secondary audio tracks programmatically (and caption API upload requires `youtube.force-ssl` re-consent), the automated pipeline stages all multi-language assets directly into:
 
 ```bash
-mkdir -p ~/Downloads/tech-shorts-captions/<slug>
-cp ~/flotilla/tech-shorts/assets/<date-slug>/*_{en,de,fr,ja}.srt ~/Downloads/tech-shorts-captions/<slug>/
+~/Downloads/tech-shorts-captions/<slug>/
 ```
 
-Automatic caption upload is already attempted by `pipeline.py`, but the current saved YouTube OAuth token does not have a usable `youtube.force-ssl` grant. To enable automated caption upload, delete/recreate the channel token and re-consent with the scopes in `music-video-tool/youtube_uploader.py`.
+Staged files include:
+- `<slug>_en.srt`, `<slug>_de.srt`, `<slug>_fr.srt`, `<slug>_ja.srt`
+- `<slug>_audio_de.m4a`, `<slug>_audio_fr.m4a`
+- `<slug>_hook_vo.mp3`
 
-### TTS Notes
+From there, attach the `.srt` subtitles and `.m4a` audio dubs directly in **YouTube Studio** under *Content → Video → Languages*.
 
-Hook and derived-Short narration currently uses local Kokoro instead of ElevenLabs because ElevenLabs quota can be exhausted. Approved/cached voices known to work locally include:
+### TTS & Secrets via Infisical Vault
 
-- English: `af_bella`, `am_michael`
-- French: `ff_siwis`
-- Japanese: `jf_alpha`
-- German approved: Kerstin from `cryptomilk/kokoro-german-kerstin`
-- German rejected test: Thorsten from `Thorsten-Voice/Kokoro` rendered as noise and should not be used for production.
-- German rejected test: Victoria from `kikiri-tts/kikiri-german-victoria` rendered as noise and should not be used for production.
+The pipeline fetches credentials dynamically via the centralized **Infisical EU Vault** (`agentic-fleet-hub/vault/vault.py`) without requiring hardcoded keys:
 
-German should use Kerstin for now; the voice has a noticeable non-native accent, but it is acceptable for Silicon Valley / AI topics. French uses `ff_siwis`; Japanese uses `jf_alpha`. Multilingual TTS should be isolated in a dedicated environment before production dubbing. The quick test used `music-video-tool/.venv312`, but adding Kokoro Japanese/German dependencies there introduced dependency tension with existing Mistral tooling. Prefer a future `tech-shorts/.venv-tts` for multilingual dubbing.
+1. **Vault Fetch**: `INFISICAL_TOKEN` and `INFISICAL_PROJECT_ID` are configured in `music-video-tool/.env` (or environment). Calling `from vault import get_secret; key = get_secret("ELEVENLABS_API_KEY")` queries Infisical EU (`https://eu.infisical.com/api`) and returns the active secret.
+2. **Permissions Note**: The ElevenLabs API key has scoped permissions for Text-to-Speech (`/v1/text-to-speech`) with model `eleven_multilingual_v2`. Account metadata requests (`/v1/user/subscription`) return `401 missing_permissions`, which is normal for scoped operational keys and does not affect TTS generation.
+3. **Approved Production Voices**:
+   - **English Hook**: `Xb7hH8MSUJpSbSDYk0k2` (Alice, British female)
+   - **German Dub**: `QT6va3HQK8j63EC2r9cw` (ElevenLabs Multilingual v2)
+   - **French Dub**: `rS7c1woNY04WT3UAS83Y` (ElevenLabs Multilingual v2)
+   - **Local Kokoro Fallback**: If ElevenLabs quota is ever fully exhausted, the local Kokoro engine is available in `.venv312` (`af_bella` for EN, `cryptomilk/kokoro-german-kerstin` for DE, `ff_siwis` for FR, `jf_alpha` for JA).
 
-Current sample files:
+### 2026-10-14 Batch
 
-```text
-~/Downloads/tts-voice-tests/japanese_jf_alpha_test.wav
-~/Downloads/tts-voice-tests/german_kerstin_test.wav  # approved
-~/Downloads/tts-voice-tests/german_thorsten_test.wav  # rejected: noise
-~/Downloads/tts-voice-tests/german_victoria_test.wav  # rejected: noise
-```
+| Job | Long (Private) | Localizations | Staged Assets |
+| --- | --- | --- | --- |
+| `ts-20261014-the-convenience-paradox-why-the-internet-of-things-is-melting` | `https://www.youtube.com/watch?v=D-LV9YJN2ZM` | EN, DE, FR, JA | `~/Downloads/tech-shorts-captions/the-convenience-paradox-why-the-internet-of-things-is-melting/` |
+| `ts-20261014-the-shadow-datacenter-why-ai-worms-are-targeting-your-smart-tv` | `https://www.youtube.com/watch?v=lZ_LLtp8Ulo` | EN, DE, FR, JA | `~/Downloads/tech-shorts-captions/the-shadow-datacenter-why-ai-worms-are-targeting-your-smart-tv/` |
 
-German model notes:
-
-- `Thorsten-Voice/Kokoro`: German Kokoro fine-tune with its own model checkpoint and `voices/thorsten.pt`.
-- `cryptomilk/kokoro-german-kerstin`: German female voice `df_kerstin`, trained from the Kerstin dataset. Use the voice pack with base `KModel()`; the repo `.pth` files are training checkpoints, not direct inference checkpoints.
-- `crane-local-ai/Kokoro-82M-v1.0-German-ONNX`: German-only ONNX path with a German G2P, useful if the Python Kokoro path remains brittle.
+After upload, open YouTube Studio for each video, confirm the altered/synthetic content setting, and attach the staged subtitles and audio tracks under Languages before publishing.
 
 ### 2026-10-07 Batch
 
