@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canis Terms of Use</title>
+  <meta name="description" content="Terms of use for Canis, the on-device AI assistant with local Sources and disposition readouts.">
+  <style>
+    :root {
+      --bg: #f7f5f1;
+      --surface: #ffffff;
+      --surface-2: #f0ede8;
+      --ink: #1f1b28;
+      --muted: #625d6d;
+      --line: rgba(39, 34, 58, 0.12);
+      --primary: #29243b;
+      --green: #2b9e74;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 50% 14%, rgba(85, 205, 165, 0.18), transparent 34rem),
+        var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+    }
+    a { color: var(--primary); text-underline-offset: 3px; }
+    .container { width: min(920px, calc(100% - 40px)); margin: 0 auto; }
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 245, 241, 0.88);
+      backdrop-filter: blur(18px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 24px;
+      letter-spacing: -0.02em;
+    }
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 10px 24px rgba(39, 34, 58, 0.16);
+    }
+    nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+    }
+    nav a { color: inherit; text-decoration: none; }
+    main { padding: 72px 0 92px; }
+    .eyebrow {
+      color: var(--green);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0 0 18px;
+      max-width: 760px;
+      font-size: clamp(42px, 7vw, 72px);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+    }
+    .lead {
+      margin: 0 0 18px;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 20px;
+    }
+    .updated {
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      margin-bottom: 30px;
+    }
+    .panel {
+      background: rgba(255,255,255,0.76);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 26px;
+      margin-top: 16px;
+      box-shadow: 0 16px 42px rgba(39, 34, 58, 0.08);
+    }
+    h2 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+    }
+    p, li { color: var(--muted); }
+    p { margin: 0; }
+    ul {
+      margin: 10px 0 0 20px;
+      display: grid;
+      gap: 8px;
+    }
+    .note {
+      background: var(--primary);
+      color: #fff;
+    }
+    .note p { color: rgba(255,255,255,0.78); }
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 36px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    @media (max-width: 640px) {
+      .container { width: min(100% - 28px, 920px); }
+      nav { gap: 12px; font-size: 13px; }
+      main { padding-top: 48px; }
+      .panel { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="/">
+        <img src="/assets/dog/listening.webp" alt="">
+        <span>Canis</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/download.html">Download</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/support/">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <p class="eyebrow">Terms of Use</p>
+    <h1>Canis is an experimental local AI assistant.</h1>
+    <p class="lead">These terms apply to the Canis iOS app, TestFlight beta, website, and related support materials provided by Big Bear Engineering GmbH.</p>
+    <p class="updated">Last updated: October 14, 2026</p>
+
+    <section class="panel note" aria-labelledby="summary-heading">
+      <h2 id="summary-heading">Short Version</h2>
+      <p>Use Canis as an experimental AI tool. Verify important answers, especially in medical, legal, financial, safety, or other high-stakes contexts. The disposition readout is an interpretability signal, not a guarantee that an answer is correct.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="scope-heading">
+      <h2 id="scope-heading">Scope</h2>
+      <p>Canis is designed to answer questions locally, use user-provided Sources, and show a model disposition readout. The app may be distributed through TestFlight before App Store release. Beta features can change, break, or be removed.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="ai-heading">
+      <h2 id="ai-heading">AI Outputs</h2>
+      <ul>
+        <li>Answers are generated by local language models and may be incomplete, outdated, or wrong.</li>
+        <li>Disposition labels such as confident, unsure, curious, concerned, reluctant, or warm describe model-behavior signals. They do not mean the model has emotions or human intent.</li>
+        <li>You are responsible for deciding whether an answer is appropriate for your use case.</li>
+      </ul>
+    </section>
+
+    <section class="panel" aria-labelledby="sources-heading">
+      <h2 id="sources-heading">Sources and User Documents</h2>
+      <p>If you add documents as Sources, you confirm that you have the right to use those files in the app. Canis processes Sources locally for retrieval and citation, but you should not rely on it as the only copy or archive of important documents.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="permitted-heading">
+      <h2 id="permitted-heading">Permitted Use</h2>
+      <ul>
+        <li>Do not use Canis to create unlawful, harmful, abusive, or rights-infringing content.</li>
+        <li>Do not attempt to reverse engineer restricted distribution components except where permitted by applicable law or open-source licenses.</li>
+        <li>Do not misuse TestFlight, support, or feedback channels.</li>
+      </ul>
+    </section>
+
+    <section class="panel" aria-labelledby="availability-heading">
+      <h2 id="availability-heading">Availability and Changes</h2>
+      <p>Canis is provided on an as-is and as-available basis. Model downloads, TestFlight access, website links, and app features may be unavailable or change over time, especially during beta review.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="liability-heading">
+      <h2 id="liability-heading">Liability</h2>
+      <p>To the extent permitted by applicable law, Big Bear Engineering GmbH is not liable for indirect, incidental, special, consequential, or business-loss damages arising from use of Canis. Mandatory statutory rights remain unaffected.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="privacy-heading">
+      <h2 id="privacy-heading">Privacy</h2>
+      <p>Data handling is described in the <a href="/privacy/">Canis Privacy Policy</a>. Canis is local-first and does not require an account.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <p>Canis is developed and published by Big Bear Engineering GmbH. Questions can be sent to <a href="mailto:miguel@bigbearengineering.com?subject=Canis%20terms">miguel@bigbearengineering.com</a>.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Big Bear Engineering GmbH. Canis is an experimental on-device AI application.</div>
+  </footer>
+</body>
+</html>
