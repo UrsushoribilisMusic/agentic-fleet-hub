@@ -155,6 +155,15 @@ The pipeline fetches credentials dynamically via the centralized **Infisical EU 
    - **French Dub**: `rS7c1woNY04WT3UAS83Y` (ElevenLabs Multilingual v2)
    - **Local Kokoro Fallback**: If ElevenLabs quota is ever fully exhausted, the local Kokoro engine is available in `.venv312` (`af_bella` for EN, `cryptomilk/kokoro-german-kerstin` for DE, `ff_siwis` for FR, `jf_alpha` for JA).
 
+### 2026-10-16 Batch
+
+| Job | Long (Private) | Localizations | Staged Assets |
+| --- | --- | --- | --- |
+| `ts-20261013-ai-models-may-be-capable-of-self-replicating-without-access-to-a-datacenter` | `https://www.youtube.com/watch?v=GLLa6t_MQuA` | EN, DE, FR, JA | `~/Downloads/tech-shorts-captions/the-convergence-point-why-ai-worms-are-targeting-your-smart-tv/` |
+| `ts-20261014-how-to-be-more-ambitious-a-tutorial-for-humans-with-models` | `https://www.youtube.com/watch?v=UzrGSQ6-l6k` | EN, DE, FR, JA | `~/Downloads/tech-shorts-captions/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/` |
+
+After upload, open YouTube Studio for each video, confirm the altered/synthetic content setting, and attach the staged subtitles and audio tracks under Languages before publishing.
+
 ### 2026-10-14 Batch
 
 | Job | Long (Private) | Localizations | Staged Assets |
