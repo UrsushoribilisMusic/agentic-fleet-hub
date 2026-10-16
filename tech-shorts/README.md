@@ -159,10 +159,11 @@ The pipeline fetches credentials dynamically via the centralized **Infisical EU 
 
 | Job | Long (Published) | Localizations | Staged Assets |
 | --- | --- | --- | --- |
-| `ts-20261013-ai-models-may-be-capable-of-self-replicating-without-access-to-a-datacenter` | `https://www.youtube.com/watch?v=GLLa6t_MQuA` | EN, DE, FR, JA | `~/Downloads/tech-shorts-captions/the-convergence-point-why-ai-worms-are-targeting-your-smart-tv/` |
-| `ts-20261014-how-to-be-more-ambitious-a-tutorial-for-humans-with-models` | `https://www.youtube.com/watch?v=UzrGSQ6-l6k` | EN, DE, FR, JA | `~/Downloads/tech-shorts-captions/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/` |
+| `ts-20261013-ai-models-may-be-capable-of-self-replicating-without-access-to-a-datacenter` | `https://www.youtube.com/watch?v=GLLa6t_MQuA` (Live) | EN, DE, FR, JA | `~/Downloads/tech-shorts-captions/the-convergence-point-why-ai-worms-are-targeting-your-smart-tv/` |
+| `ts-20261014-how-to-be-more-ambitious-a-tutorial-for-humans-with-models` | `https://www.youtube.com/watch?v=UzrGSQ6-l6k` (Live) | EN, DE, FR, JA | `~/Downloads/tech-shorts-captions/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/` |
+| `ts-20261012-cheap-labor-loses-its-edge` | `https://www.youtube.com/watch?v=JFhLTSY7Pxw` (Private) | EN, DE, FR, JA | `~/Downloads/tech-shorts-captions/the-white-collar-bypass/` |
 
-Both episodes reviewed, altered/synthetic content toggled, multilingual subtitles (EN/DE/FR/JA) and ElevenLabs audio tracks (DE/FR) attached, and published live on YouTube.
+Episodes reviewed, altered/synthetic content toggled, multilingual subtitles (EN/DE/FR/JA) and ElevenLabs audio tracks (DE/FR) attached, and published live on YouTube. For the new White-Collar Bypass video, attach staged subtitles and dub tracks in YouTube Studio under Languages before setting public.
 
 ### 2026-10-14 Batch
 

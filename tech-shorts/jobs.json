@@ -1,6 +1,6 @@
 {
     "version": "1.0",
-    "updated_at": "2026-10-16T08:50:43Z",
+    "updated_at": "2026-10-16T14:47:04Z",
     "jobs": [
         {
             "id": "ts-20260916-deepmind-reasoning-transparency",
@@ -9634,8 +9634,8 @@
         },
         {
             "id": "ts-20261012-cheap-labor-loses-its-edge",
-            "slug": "cheap-labor-loses-its-edge",
-            "title": "Cheap Labor Loses Its Edge",
+            "slug": "the-white-collar-bypass",
+            "title": "The White-Collar Bypass: How AI Is Erasing Entry-Level Jobs",
             "source_urls": [
                 "https://www.reveliolabs.com/news/ai-and-work/after-a-decade-of-growth-global-call-center-employment-is-shrinking?ref=newsletter.myclaw.ai"
             ],
@@ -9643,25 +9643,73 @@
             "source_files": [],
             "idea_notes": "Revelio Labs says global call-center employment is 5.3% below its 2023 peak, with the Philippines down 5.5% year over year and India entering decline. The shift is notable because these markets were built on cheap outsourced labor. TaskUs says agentic AI could cut support costs 25%-50%, suggesting automation may now undercut even low-wage outsourcing at scale.",
             "tags": [],
-            "status": "failed",
+            "status": "uploaded",
             "created_at": "2026-10-12T14:09:34Z",
-            "updated_at": "2026-10-12T14:11:21Z",
+            "updated_at": "2026-10-16T14:47:04Z",
             "notebook_url": "",
-            "hook_copy": {},
-            "outro_copy": {},
+            "hook_copy": {
+                "card_a_main": "THE WHITE-COLLAR BYPASS",
+                "card_a_sub": "HOW AI IS ERASING ENTRY-LEVEL JOBS",
+                "card_a_footer": "Call center hiring drops for 8 consecutive quarters",
+                "card_b_main": "Global call center employment fell 5.3% below peak.",
+                "card_b_sub": "AI agents are undercutting low-wage outsourcing at scale.",
+                "card_b_footer": "The entry-level ladder into the middle class is vanishing.",
+                "vo_text": "For over a decade, outsourced call centers were the most reliable ticket into the corporate middle class across developing nations. But since the rise of generative AI, that entire entry-level ladder is vanishing. Welcome to the white-collar bypass."
+            },
+            "outro_copy": {
+                "title": "SUBSCRIBE",
+                "subtitle": "for weekly AI & tech explainers",
+                "tagline": "Understanding the economics of the intelligence age",
+                "url": "The Classical Remix",
+                "cta": "Like, subscribe, and watch the next deep dive"
+            },
             "assets": {
                 "raw_short_mp4": "",
                 "raw_long_mp4": "",
-                "hook_vo_audio": "",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-12-the-white-collar-bypass/the-white-collar-bypass_hook_vo.mp3",
                 "final_short_mp4": "",
-                "final_long_mp4": ""
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-12-the-white-collar-bypass/final_long.mp4",
+                "raw_cinematic_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-12-the-white-collar-bypass/raw_cinematic.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-12-the-white-collar-bypass"
             },
             "youtube": {
-                "short_id": "",
-                "short_url": "",
-                "long_id": "",
-                "long_url": "",
-                "published_at": ""
+                "title_long": "The White-Collar Bypass: How AI Is Erasing Entry-Level Jobs",
+                "privacy": "private",
+                "tags": [
+                    "AI",
+                    "Call Centers",
+                    "Outsourcing",
+                    "Labor Economics",
+                    "ChatGPT",
+                    "Automation",
+                    "White Collar",
+                    "Economy",
+                    "The Classical Remix"
+                ],
+                "description": "For over a decade, customer support and outsourced call centers have functioned as the most reliable gateway into the formal corporate middle class for millions across the Philippines, India, and Latin America.\n\nRight now, that pathway is closing.\n\nAccording to workforce intelligence data from Revelio Labs, global call center employment has contracted for eight consecutive quarters, falling 5.3% below its late-2023 peak. But this isn't a normal economic downturn or a routine corporate cost-cutting cycle—the broader tech, data, and software sectors in these countries are booming.\n\nThe divergence began in November 2022 with the public launch of ChatGPT.\n\nIn this deep dive, we examine:\n1. The Broken Escalator: Why companies have stopped relocating support jobs to lower-income economies and started replacing them with autonomous LLM agents.\n2. The 50% Margin Trap: How enterprise operators predict agentic workflows will slash customer support overhead by 25% to 50%, undercutting even low-wage outsourcing.\n3. Where Do Displaced Workers Go? Tracking workforce flow data: why only 10.8% transition into high-paying tech roles, while nearly half are pushed downward into lower-wage retail and clerical work.\n4. The White-Collar Bypass: The International Labor Organization's warning on how AI risks permanently pulling up the development ladder that created modern middle classes.\n\nSources & Citations:\n- Revelio Labs: \"After a Decade of Growth, Global Call Center Employment is Shrinking\" (https://www.reveliolabs.com/news/ai-and-work/after-a-decade-of-growth-global-call-center-employment-is-shrinking)\n- International Labor Organization (ILO / Geneva): Research on the white-collar automation bypass.\n\nDisclosure: AI-assisted explainer by The Classical Remix. Grounded in workforce analytics from Revelio Labs and ILO labor economics research.\n\n#AI #LaborEconomics #CallCenters #Automation #ChatGPT #Outsourcing #FutureOfWork #TechExplained",
+                "localizations": {
+                    "de": {
+                        "title": "Der White-Collar-Bypass: Wie KI die Einstiegsjobs vernichtet",
+                        "description": "Seit über einem Jahrzehnt waren ausgelagerte Callcenter und Support-Zentren das verlässlichste Sprungbrett in die Mittelschicht für Millionen von Menschen auf den Philippinen, in Indien und Lateinamerika.\n\nGenau dieser Weg versperrt sich nun.\n\nArbeitsmarktdaten von Revelio Labs belegen: Die weltweite Beschäftigung in Callcentern schrumpft seit acht aufeinanderfolgenden Quartalen und liegt 5,3 % unter ihrem Höchststand von Ende 2023. Doch das ist kein normaler Abschwung: Die Tech-, Daten- und Softwaresphäre in diesen Schwellenländern boomt zeitgleich.\n\nDie historische Entkopplung begann im November 2022 mit der Veröffentlichung von ChatGPT.\n\nIn dieser Analyse beleuchten wir:\n1. Die abgebrochene Rolltreppe: Warum Unternehmen Jobs nicht mehr in Niedriglohnländer auslagern, sondern durch autonome LLM-Agenten ersetzen.\n2. Die 50%-Marge: Wie führende Dienstleister mit KI-Workflows Support-Kosten um 25 % bis 50 % senken und selbst billige Outsourcing-Löhne unterbieten.\n3. Wohin gehen die Arbeitskräfte? Laut Flussdiagrammen gelingt nur 10,8 % der Aufstieg in Tech-Rollen; fast die Hälfte wird in schlechter bezahlte Jobs abgedrängt.\n4. Der White-Collar-Bypass: Die Warnung der Internationalen Arbeitsorganisation (ILO) vor dem dauerhaften Einziehen der Aufstiegsleiter.\n\nQuellen & Zitate:\n- Revelio Labs: \"After a Decade of Growth, Global Call Center Employment is Shrinking\" (https://www.reveliolabs.com/news/ai-and-work/after-a-decade-of-growth-global-call-center-employment-is-shrinking)\n- Internationale Arbeitsorganisation (ILO / Genf): Forschung zum White-Collar-Bypass.\n\nOffenlegung: KI-unterstützte Erklärung von The Classical Remix. Basiert auf Arbeitsmarktanalysen von Revelio Labs und der ILO.\n\n#AI #LaborEconomics #CallCenters #Automation #ChatGPT #Outsourcing #FutureOfWork #TechExplained",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-12-the-white-collar-bypass/the-white-collar-bypass_audio_de.m4a",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-12-the-white-collar-bypass/the-white-collar-bypass_de.srt"
+                    },
+                    "fr": {
+                        "title": "Le contournement des cols blancs : Comment l'IA détruit les emplois d'entrée de gamme",
+                        "description": "Depuis plus de dix ans, les centres d'appels délocalisés ont été la porte d'entrée la plus fiable vers la classe moyenne pour des millions d'individus aux Philippines, en Inde et en Amérique latine.\n\nAujourd'hui, cette opportunité disparaît.\n\nSelon les données de Revelio Labs, les effectifs mondiaux des centres d'appels reculent depuis huit trimestres consécutifs, affichant une baisse de 5,3 % par rapport à leur pic de fin 2023. Il ne s'agit pas d'une crise classique : le secteur tertiaire technologique et logiciel est en plein boom dans ces mêmes pays.\n\nLa cassure historique s'est produite en novembre 2022, avec le lancement public de ChatGPT.\n\nDans cette vidéo, nous analysons :\n1. L'escalator brisé : Pourquoi les entreprises cessent de délocaliser le support pour le confier directement à des agents IA autonomes.\n2. Le piège des marges : Comment les opérateurs prévoient de réduire les coûts de 25 % à 50 %, devenant plus compétitifs que la main-d'œuvre la moins chère.\n3. Où vont les employés licenciés ? Les données de flux montrent que seuls 10,8 % accèdent à des postes technologiques, tandis que près de la moitié est reléguée vers des emplois précaires.\n4. Le White-Collar Bypass : L'alerte de l'Organisation internationale du Travail (OIT) sur le risque de voir retirée l'échelle du développement économique.\n\nSources & Références :\n- Revelio Labs : \"After a Decade of Growth, Global Call Center Employment is Shrinking\" (https://www.reveliolabs.com/news/ai-and-work/after-a-decade-of-growth-global-call-center-employment-is-shrinking)\n- Organisation internationale du Travail (OIT / Genève) : Études sur l'automatisation des emplois de bureau.\n\nDivulgation : Vidéo assistée par IA par The Classical Remix. Fondée sur les analyses de Revelio Labs et de l'OIT.\n\n#AI #LaborEconomics #CallCenters #Automation #ChatGPT #Outsourcing #FutureOfWork #TechExplained",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-12-the-white-collar-bypass/the-white-collar-bypass_audio_fr.m4a",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-12-the-white-collar-bypass/the-white-collar-bypass_fr.srt"
+                    },
+                    "ja": {
+                        "title": "ホワイトカラー・バイパス：AIはいかにして新興国の初任職を奪うのか",
+                        "description": "過去10年以上にわたり、業務委託のコールセンターはフィリピン、インド、中南米の何百万人もの人々にとって、正規の企業社会と中間層へ登りつめる最も確実な足がかりでした。\n\nしかし今、その道が閉ざされつつあります。\n\nRevelio Labsの労働市場データによると、世界のコールセンター雇用は8四半期連続で減少し、2023年末のピークから5.3%落ち込みました。しかしこれは通常の不況ではありません。これらの国々のテック、データ、ソフトウェア産業は力強く成長を続けています。\n\n両者の決定的な分岐点は、2022年11月のChatGPT一般公開でした。\n\n本解説では以下の論点を掘り下げます：\n1. 壊れたエスカレーター：企業が低賃金国への外注をやめ、自律型LLMエージェントへの置き換えに舵を切った理由。\n2. 50%のコスト削減：自律型AIワークフローが顧客サポート費を25%〜50%圧縮し、安価なアウトソーシングすら下回る現実。\n3. 失職した労働者の行方：テック職へ移行できたのはわずか10.8%で、半数近くがより低賃金の小売や雑務へ転落している実態。\n4. ホワイトカラー・バイパス：国際労働機関（ILO）が警告する、中間層を生み出してきた発展のはしごの消滅リスク。\n\n情報源：\n- Revelio Labs: \"After a Decade of Growth, Global Call Center Employment is Shrinking\" (https://www.reveliolabs.com/news/ai-and-work/after-a-decade-of-growth-global-call-center-employment-is-shrinking)\n- 国際労働機関（ILO / ジュネーブ）：ホワイトカラー自動化バイパスに関する調査研究。\n\n開示：The Classical RemixによるAI支援解説。Revelio LabsおよびILOの労働経済研究に基づいています。\n\n#AI #LaborEconomics #CallCenters #Automation #ChatGPT #Outsourcing #FutureOfWork #TechExplained",
+                        "audio": "",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-12-the-white-collar-bypass/the-white-collar-bypass_ja.srt"
+                    }
+                },
+                "captions_en_srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-12-the-white-collar-bypass/the-white-collar-bypass_en.srt",
+                "long_id": "JFhLTSY7Pxw",
+                "long_url": "https://www.youtube.com/watch?v=JFhLTSY7Pxw"
             },
             "x_post": {
                 "post_id": "",
