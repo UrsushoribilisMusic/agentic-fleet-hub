@@ -9696,7 +9696,7 @@
                 "DistributedAI",
                 "TechExplained"
             ],
-            "status": "uploaded",
+            "status": "published",
             "created_at": "2026-10-13T18:49:16Z",
             "updated_at": "2026-10-16T08:50:33Z",
             "notebook_url": "",
@@ -9739,12 +9739,12 @@
                     "Distributed AI",
                     "Tech Explained"
                 ],
-                "privacy": "private",
+                "privacy": "public",
                 "short_id": "",
                 "short_url": "",
                 "long_id": "GLLa6t_MQuA",
                 "long_url": "https://www.youtube.com/watch?v=GLLa6t_MQuA",
-                "published_at": "",
+                "published_at": "2026-10-16T09:15:00Z",
                 "localizations": {
                     "de": {
                         "title": "Der Konvergenzpunkt: Wenn KI-Würmer sich auf Smart-TVs selbst replizieren",
@@ -9805,7 +9805,7 @@
                 "TechCareer",
                 "Workflow"
             ],
-            "status": "uploaded",
+            "status": "published",
             "created_at": "2026-10-14T06:17:52Z",
             "updated_at": "2026-10-16T08:50:43Z",
             "notebook_url": "",
@@ -9848,12 +9848,12 @@
                     "Self Efficacy",
                     "Tech Career"
                 ],
-                "privacy": "private",
+                "privacy": "public",
                 "short_id": "",
                 "short_url": "",
                 "long_id": "UzrGSQ6-l6k",
                 "long_url": "https://www.youtube.com/watch?v=UzrGSQ6-l6k",
-                "published_at": "",
+                "published_at": "2026-10-16T09:15:00Z",
                 "localizations": {
                     "de": {
                         "title": "Wie man ehrgeiziger wird: Ein Leitfaden für Menschen mit KI-Modellen",
