@@ -155,6 +155,16 @@ The pipeline fetches credentials dynamically via the centralized **Infisical EU 
    - **French Dub**: `rS7c1woNY04WT3UAS83Y` (ElevenLabs Multilingual v2)
    - **Local Kokoro Fallback**: If ElevenLabs quota is ever fully exhausted, the local Kokoro engine is available in `.venv312` (`af_bella` for EN, `cryptomilk/kokoro-german-kerstin` for DE, `ff_siwis` for FR, `jf_alpha` for JA).
 
+### 2026-10-18 Batch
+
+| Job | Long (Private) | Localizations | Staged Assets |
+| --- | --- | --- | --- |
+| `ts-20261018-conscious-and-suppressed-stimuli` | `https://www.youtube.com/watch?v=ckNAJdh26Sg` | EN, DE, FR, JA | `~/Downloads/tech-shorts-captions/the-flickering-mind/` |
+| `ts-20261018-how-employment-is-changing-at-anthropic` | `https://www.youtube.com/watch?v=MS4c5Dmiqec` | EN, DE, FR, JA | `~/Downloads/tech-shorts-captions/ai-transforms-office-roles/` |
+| `ts-20261018-demis-hassabis-on-choosing-whats-worth-spending-your-life-building-in-a-world-changing-this-fast` | `https://www.youtube.com/watch?v=4tJamjOCNno` | EN, DE, FR, JA | `~/Downloads/tech-shorts-captions/the-sleep-deficit-why-ai-needs-to-dream/` |
+
+Multilingual pass migrated to local Kokoro neural engine (`.venv312`) following ElevenLabs quota exhaustion. Local voices: `af_bella` (EN hook), `cryptomilk/kokoro-german-kerstin` (DE), `ff_siwis` (FR), `jf_alpha` (JA). Multilingual subtitles (`EN`, `DE`, `FR`, `JA`) and audio dubs (`DE`, `FR`) staged to `~/Downloads/tech-shorts-captions/`.
+
 ### 2026-10-16 Batch
 
 | Job | Long (Published) | Localizations | Staged Assets |

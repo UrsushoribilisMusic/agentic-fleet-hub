@@ -242,21 +242,39 @@ def generate_vo(text: str, out_path: Path) -> None:
 
     try:
         from elevenlabs.client import ElevenLabs
-    except ImportError:
-        raise RuntimeError("elevenlabs not installed — run: pip install elevenlabs")
+        client = ElevenLabs(api_key=api_key)
+        audio_iter = client.text_to_speech.convert(
+            voice_id=ELEVENLABS_VOICE_ID,
+            text=text,
+            model_id=ELEVENLABS_MODEL,
+            output_format="mp3_44100_128",
+        )
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(out_path, "wb") as f:
+            for chunk in audio_iter:
+                f.write(chunk)
+        print(f"  VO written: {out_path} ({out_path.stat().st_size // 1024}KB)")
+        return
+    except Exception as e:
+        print(f"  ElevenLabs VO generation failed ({e}) — falling back to local Kokoro (af_bella)...")
 
-    client = ElevenLabs(api_key=api_key)
-    audio_iter = client.text_to_speech.convert(
-        voice_id=ELEVENLABS_VOICE_ID,
-        text=text,
-        model_id=ELEVENLABS_MODEL,
-        output_format="mp3_44100_128",
-    )
+    # Fallback to local Kokoro (af_bella) via LOCALIZE_VENV_PY
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(out_path, "wb") as f:
-        for chunk in audio_iter:
-            f.write(chunk)
-    print(f"  VO written: {out_path} ({out_path.stat().st_size // 1024}KB)")
+    tmp_wav = out_path.with_suffix(".wav")
+    code = f"""
+from kokoro import KPipeline
+import soundfile as sf
+import numpy as np
+p = KPipeline(lang_code='a')
+chunks = [audio for _, _, audio in p({json.dumps(text)}, voice='af_bella', speed=1.0)]
+sf.write({json.dumps(str(tmp_wav))}, np.concatenate(chunks), 24000)
+"""
+    subprocess.run([str(LOCALIZE_VENV_PY), "-c", code], check=True)
+    subprocess.run(["ffmpeg", "-y", "-i", str(tmp_wav), "-c:a", "libmp3lame", "-b:a", "128k", str(out_path)], check=True, capture_output=True)
+    if tmp_wav.exists():
+        tmp_wav.unlink()
+    print(f"  Kokoro VO written: {out_path} ({out_path.stat().st_size // 1024}KB)")
+
 
 
 # ── ffmpeg assembly ───────────────────────────────────────────────────────────
