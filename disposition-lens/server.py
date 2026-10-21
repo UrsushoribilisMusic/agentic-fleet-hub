@@ -11,8 +11,9 @@ from typing import List, Optional, Dict, Any
 
 import numpy as np
 import torch
-from fastapi import FastAPI, HTTPException, Response
+from fastapi import Depends, FastAPI, HTTPException, Response
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from pydantic import BaseModel, Field
 from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForImageTextToText
 
@@ -31,6 +32,17 @@ app = FastAPI(
     description="Mac Mini FastAPI service for Apertus-4B PyTorch inference with hidden states & entropy calculation",
     version="1.0.0"
 )
+
+_BEARER = HTTPBearer(auto_error=False)
+_DISPOSITION_LENS_TOKEN = os.getenv("DISPOSITION_LENS_TOKEN", "")
+
+
+def _require_token(creds: HTTPAuthorizationCredentials = Depends(_BEARER)) -> None:
+    if not _DISPOSITION_LENS_TOKEN:
+        raise HTTPException(status_code=503, detail="Service not configured: DISPOSITION_LENS_TOKEN is unset.")
+    if creds is None or creds.credentials != _DISPOSITION_LENS_TOKEN:
+        raise HTTPException(status_code=401, detail="Unauthorized.")
+
 
 # Enable CORS for frontend clients
 app.add_middleware(
@@ -360,7 +372,6 @@ def health_check():
         "entropy_calibrated": entropy_stats is not None,
         "seed_vectors_ready": seed_vectors is not None,  # DL-9b
         "use_jvp": USE_JVP,                       # DL-9c stretch
-        "elevenlabs_configured": bool(os.getenv("ELEVENLABS_API_KEY")),
     }
 
 
@@ -456,7 +467,7 @@ def _format_prompt(tokenizer, input_text: str) -> str:
 
 
 @app.post("/infer", response_model=InferResponse)
-async def infer(req: InferRequest):
+async def infer(req: InferRequest, _: None = Depends(_require_token)):
     """
     Run inference.  When search_enabled=True and the model is uncertain
     (entropy >= 0.55 or uncertainty phrases in Pass-1 output), a live web
@@ -563,7 +574,7 @@ async def infer(req: InferRequest):
 
 
 @app.post("/voice")
-def voice(req: VoiceRequest):
+def voice(req: VoiceRequest, _: None = Depends(_require_token)):
     text = req.text.strip()
     if not text:
         raise HTTPException(status_code=400, detail="'text' must be provided.")
@@ -605,4 +616,5 @@ def voice(req: VoiceRequest):
 if __name__ == "__main__":
     import uvicorn
     port = int(os.getenv("PORT", "8000"))
-    uvicorn.run("server:app", host="0.0.0.0", port=port, reload=False)
+    host = os.getenv("DISPOSITION_LENS_HOST", "127.0.0.1")
+    uvicorn.run("server:app", host=host, port=port, reload=False)
