@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-10-21",
+    "summary": "Clau: fixed disposition-lens CWE-306 — bearer-token auth on /infer and /voice, localhost-default bind, dropped ElevenLabs posture from /health. Task jrd58rbigoj3mdu → peer_review.",
+    "file": "2026-10-21.md"
+  },
+  {
     "date": "2026-10-20",
     "summary": "Storage & Fleet: reclaimed 6.24 GB in Downloads; Sovereign Mind Android V1 Phase 0 spike shipped. The Little Model: canonical episode registry and game brief, title-based chapter cleanup, corrected Influencer master, playable Baobab-to-Rose work, and an 88-second Politician structure draft with G03/G04 placeholders.",
     "file": "2026-10-20.md"
