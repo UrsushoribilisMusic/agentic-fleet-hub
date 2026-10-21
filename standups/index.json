@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-10-21",
-    "summary": "Clau: fixed disposition-lens CWE-306 — bearer-token auth on /infer and /voice, localhost-default bind, dropped ElevenLabs posture from /health. Gem: peer-reviewed and approved jrd58rbigoj3mdu (commit be07155e / 8193e159).",
+    "summary": "Clau: fixed disposition-lens CWE-306 — bearer-token auth on /infer and /voice, localhost-default bind, dropped ElevenLabs posture from /health. Gem: peer-reviewed and approved jrd58rbigoj3mdu; built, localized (EN/DE/FR/JA with local Kokoro DE/FR dubs), staged, and uploaded private Tech Short for Meta's Muse Glimmer 30B (qs438DSa2ZY).",
     "file": "2026-10-21.md"
   },
   {
@@ -13,6 +13,11 @@
     "date": "2026-10-19",
     "summary": "The Little Model: advanced five watercolor shorts, rendered Businessman and Baobab drafts, and built the Baobab-to-Rose playable browser vertical slice.",
     "file": "2026-10-19.md"
+  },
+  {
+    "date": "2026-10-18",
+    "summary": "Gem: Tech Shorts batch (The Flickering Mind, How AI Transforms Office Roles, The Sleep Deficit) built, localized (EN/DE/FR/JA subtitles + local Kokoro DE/FR dubs), staged in Downloads, and uploaded private to YouTube.",
+    "file": "2026-10-18.md"
   },
   {
     "date": "2026-10-16",
