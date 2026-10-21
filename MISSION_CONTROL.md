@@ -124,6 +124,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ---
 
 ### CLOSED
+- **jrd58rbi**: disposition-lens: hardcoded 0.0.0.0 bind + no auth — unauthenticated LLM inference & ElevenLabs TTS proxy (CWE-306) -- # disposition-lens inference service: hardcoded 0.0.0.0 bind with no authentication — unauthenticated LLM inference + ElevenLabs TTS proxy (CWE-306) -- Clau. Approved.
 - **uot43m39**: TECH-SHORT (done): Japan AISI cyber-eval — Claude Opus 4.8 vs GLM-5.2 (uploaded private) -- CONTEXT: New tech-short on the ideation list (job id: ts-20261003-japans-ai-safety-institute-aisi-has-released-the-results-of-its-actual-verification-of-the-cyber-capabilities-of-us-made-claude-opus-48-and-chinese-made-glm-52). Miguel wants this prioritized (front of the queue) and handed to Gem to take from the ORIGINAL JAPANESE SOURCE. -- Clau. Approved.
 - **wqwzihlg**: CANIS-BONE-07: Keep title enrichment opt-in + add a manual 'Generate titles' action -- CONTEXT: Canis (agentic-fleet-hub/canis-ios), on-device SwiftUI + MLX app with the 'bones' ingestion pipeline (CANIS-BONE-01..06). REGRESSION GUARD: BoneIngestionManager.ingest(url:model:enrichTitles:) now defaults enrichTitles to FALSE (committed). Reason: running the model to title every chunk right after import caused an on-device OOM crash (EXC_RESOURCE, RESOURCE_TYPE_MEMORY, 3376 MB cap) and a heat spike on an iPhone 15 Pro Max. DO NOT re-enable enrichment by default. -- Clau. Approved.
 - **0azpt3z7**: SM-357: Wiki tab — collapsible 3-tier nav tree (Group → Page → Section), replaces flat Pages list -- CONTEXT: Sovereign Mind admin console (~/projects/sovereign-mind/server.js, deployed on the robotsales droplet as sovereign-mind-backend.service behind sm.flotilla.cc, nginx -> 127.0.0.1:3001). The console HTML is built inline in adminConsoleHtml(user). The 'Wiki Review' tab of a collection currently shows TWO disconnected navigation surfaces: (1) a flat 'Pages' list block (all pages + section counts), and (2) once you click a page, a per-page 'Contents' TOC listing only THAT page's sections. Problem: they don't connect — after drilling into a page there is no persistent way back to other pages (dead-end), and the flat list wastes the left rail. Confirmed model (vs Wikipedia's Contents tree): the left panel should be ONE persistent tree that IS the whole wiki. -- Clau. Approved.
@@ -1092,6 +1093,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **jrd58rbi** | disposition-lens: hardcoded 0.0.0.0 bind + no auth — unauthenticated LLM inference & ElevenLabs TTS proxy (CWE-306) | clau | merged | # disposition-lens inference service: hardcoded 0.... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
