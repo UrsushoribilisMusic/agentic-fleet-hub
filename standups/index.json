@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-10-21",
-    "summary": "Clau: fixed disposition-lens CWE-306 — bearer-token auth on /infer and /voice, localhost-default bind, dropped ElevenLabs posture from /health. Task jrd58rbigoj3mdu → peer_review.",
+    "summary": "Clau: fixed disposition-lens CWE-306 — bearer-token auth on /infer and /voice, localhost-default bind, dropped ElevenLabs posture from /health. Gem: peer-reviewed and approved jrd58rbigoj3mdu (commit be07155e / 8193e159).",
     "file": "2026-10-21.md"
   },
   {
