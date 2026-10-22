@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-10-22",
+    "summary": "Gem: Built, localized (EN/DE/FR/JA with local Kokoro DE/FR dubs), staged, and uploaded private Tech Short for Blaise Agüera y Arcas's 'What Is Intelligence?' (LCn_xfbxfeA); created & documented reusable 9:16 vertical Short builder (build_vertical_short.py) and built/uploaded the <90s vertical Short for Meta's Muse Glimmer 30B (vbRx1BNjJQk).",
+    "file": "2026-10-22.md"
+  },
+  {
     "date": "2026-10-21",
     "summary": "Clau: fixed disposition-lens CWE-306 — bearer-token auth on /infer and /voice, localhost-default bind, dropped ElevenLabs posture from /health. Gem: peer-reviewed and approved jrd58rbigoj3mdu; built, localized (EN/DE/FR/JA with local Kokoro DE/FR dubs), staged, and uploaded private Tech Short for Meta's Muse Glimmer 30B (qs438DSa2ZY).",
     "file": "2026-10-21.md"

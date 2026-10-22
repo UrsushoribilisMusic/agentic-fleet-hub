@@ -126,6 +126,31 @@ python3 tech-shorts/pipeline.py run <job_id> --stage upload
 
 The upload stage is idempotent: if the long video already has a YouTube URL, adding `final_short.mp4` later and rerunning upload will only upload the missing Short.
 
+### Derived Vertical Shorts (`<90s`, `9:16`, `1080x1920`)
+
+Because NotebookLM exports landscape (`16:9`, `1280x720`) videos and `pipeline.py`'s default single-line card renderer shrinks or clips text on portrait screens, derived vertical Shorts (`1080x1920`, `<90s`) are built via [`build_vertical_short.py`](file:///Users/miguelrodriguez/projects/agentic-fleet-hub/tech-shorts/build_vertical_short.py):
+
+1. **Native Vertical Intro & Outro Cards (`1080x1920`)**:
+   - `render_vertical_hook_card()` renders two vertical hook cards (`short_hook_card_a_vertical.png` and `short_hook_card_b_vertical.png`) at `1080x1920` with multi-line word wrapping (`textwrap.wrap`), top `TEAL` (`#00D4AA`) and bottom `RED` (`#FF5C5C`) accent bars, and a crossfade transition during the opening hook.
+   - `render_vertical_outro_card()` renders a native `1080x1920` vertical outro card (`short_outro_vertical.png`) with wrapped `"SUBSCRIBE / for more AI & computer / science explainers"` copy.
+2. **Dedicated `<90s` Continuous Voiceover**:
+   - `synthesize_kokoro_vo()` synthesizes a tight `~65–78s` narration script (`short_script.txt` &rarr; `short_vo.wav`) using local Kokoro (`af_bella` in `.venv312` with `HF_HUB_OFFLINE=1`) and normalizes loudness to `-16 LUFS` (`44.1 kHz` stereo).
+   - A hard guard enforces `vo_duration + outro_duration < 89.5s` so the assembled video always qualifies as a YouTube Short (`<90s`).
+3. **Curated Visual Highlight Segments (`crop` vs. `pillarbox`)**:
+   - Extracts timestamped visual highlights from `raw_cinematic.mp4` (`16:9`) and converts each clip to `1080x1920 @ 30fps`:
+     - **`crop` mode**: `scale=-2:1920:flags=lanczos,crop=1080:1920` for full-bleed graphical illustrations.
+     - **`pillarbox` mode**: Blurred `1080x1920` backdrop (`boxblur=28:6`) with a full-width `1080px` foreground overlay so wide benchmark radar charts, scaling curves, and architecture diagrams remain 100% readable on mobile.
+4. **Build & Idempotent Upload**:
+   ```bash
+   # 1. Build final_short.mp4 (1080x1920, <90s), stage to ~/Downloads/tech-shorts-captions/<slug>/, and update jobs.json
+   HF_HUB_OFFLINE=1 /Users/miguelrodriguez/projects/music-video-tool/.venv312/bin/python3 \
+     tech-shorts/build_vertical_short.py --job-id <job_id> [--config <custom_config.json>]
+
+   # 2. Upload only the newly generated Short as private (skips already-uploaded long video)
+   /Users/miguelrodriguez/projects/music-video-tool/.venv312/bin/python3 \
+     tech-shorts/pipeline.py run <job_id> --stage upload
+   ```
+
 ### Captions & Multi-Language Audio Staging
 
 Caption files (`.srt`) and localized voice-over tracks (`.m4a`) are generated under each job's canonical asset directory (`~/flotilla/tech-shorts/assets/<date-slug>/`).
@@ -155,11 +180,17 @@ The pipeline fetches credentials dynamically via the centralized **Infisical EU 
    - **French Dub**: `rS7c1woNY04WT3UAS83Y` (ElevenLabs Multilingual v2)
    - **Local Kokoro Fallback**: If ElevenLabs quota is ever fully exhausted, the local Kokoro engine is available in `.venv312` (`af_bella` for EN, `cryptomilk/kokoro-german-kerstin` for DE, `ff_siwis` for FR, `jf_alpha` for JA).
 
-### 2026-10-21 Batch
+### 2026-10-22 Batch
 
 | Job | Long (Private) | Localizations | Staged Assets |
 | --- | --- | --- | --- |
-| `ts-20261021-squeezing-an-autonomous-agent-into-32gb` | `https://www.youtube.com/watch?v=qs438DSa2ZY` | EN, DE, FR, JA | `~/Downloads/tech-shorts-captions/squeezing-an-autonomous-agent-into-32gb/` |
+| `ts-20261022-the-autocomplete-theory-of-everything` | `https://www.youtube.com/watch?v=LCn_xfbxfeA` | EN, DE, FR, JA | `~/Downloads/tech-shorts-captions/the-autocomplete-theory-of-everything/` |
+
+### 2026-10-21 Batch
+
+| Job | Long (Private) | Short (Private) | Localizations | Staged Assets |
+| --- | --- | --- | --- | --- |
+| `ts-20261021-squeezing-an-autonomous-agent-into-32gb` | `https://www.youtube.com/watch?v=qs438DSa2ZY` | `https://www.youtube.com/watch?v=vbRx1BNjJQk` | EN, DE, FR, JA | `~/Downloads/tech-shorts-captions/squeezing-an-autonomous-agent-into-32gb/` |
 
 ### 2026-10-18 Batch
 

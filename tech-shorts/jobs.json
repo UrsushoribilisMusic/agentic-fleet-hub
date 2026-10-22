@@ -1,6 +1,6 @@
 {
     "version": "1.0",
-    "updated_at": "2026-10-21T13:05:46Z",
+    "updated_at": "2026-10-22T08:27:37Z",
     "jobs": [
         {
             "id": "ts-20260916-deepmind-reasoning-transparency",
@@ -10498,7 +10498,7 @@
             ],
             "status": "uploaded",
             "created_at": "2026-10-21T12:58:19Z",
-            "updated_at": "2026-10-21T13:05:46Z",
+            "updated_at": "2026-10-22T08:27:37Z",
             "notebook_url": "",
             "hook_copy": {
                 "card_a_main": "AN AUTONOMOUS AGENT IN 32GB",
@@ -10520,14 +10520,16 @@
                 "raw_short_mp4": "",
                 "raw_long_mp4": "",
                 "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-21-squeezing-an-autonomous-agent-into-32gb/squeezing-an-autonomous-agent-into-32gb_hook_vo.mp3",
-                "final_short_mp4": "",
+                "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-21-squeezing-an-autonomous-agent-into-32gb/final_short.mp4",
                 "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-21-squeezing-an-autonomous-agent-into-32gb/final_long.mp4",
                 "raw_cinematic_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-21-squeezing-an-autonomous-agent-into-32gb/raw_cinematic.mp4",
-                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-21-squeezing-an-autonomous-agent-into-32gb"
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-21-squeezing-an-autonomous-agent-into-32gb",
+                "short_vo_wav": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-21-squeezing-an-autonomous-agent-into-32gb/short_vo.wav",
+                "short_script_txt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-21-squeezing-an-autonomous-agent-into-32gb/short_script.txt"
             },
             "youtube": {
-                "short_id": "",
-                "short_url": "",
+                "short_id": "vbRx1BNjJQk",
+                "short_url": "https://www.youtube.com/watch?v=vbRx1BNjJQk",
                 "long_id": "qs438DSa2ZY",
                 "long_url": "https://www.youtube.com/watch?v=qs438DSa2ZY",
                 "published_at": "",
@@ -10568,6 +10570,113 @@
                     }
                 },
                 "captions_en_srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-21-squeezing-an-autonomous-agent-into-32gb/squeezing-an-autonomous-agent-into-32gb_en.srt"
+            },
+            "x_post": {
+                "post_id": "",
+                "post_url": "",
+                "caption": ""
+            },
+            "stats": {
+                "views": 0,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": ""
+            },
+            "trim_s": 3.5
+        },
+        {
+            "id": "ts-20261022-the-autocomplete-theory-of-everything",
+            "slug": "the-autocomplete-theory-of-everything",
+            "title": "The Autocomplete Theory of Everything: What AI Teaches Us About Life and Minds",
+            "source_urls": [
+                "https://mitpress.mit.edu/9780262049955/what-is-intelligence/"
+            ],
+            "source_file": {},
+            "source_files": [],
+            "idea_notes": "Blaise Agüera y Arcas (What Is Intelligence? Lessons from AI About Evolution, Computing, and Minds, MIT Press) argues that prediction is the unifying principle behind life, evolution, computation, and minds. Dismissing LLMs as mere autocomplete misses that the human brain itself is a hierarchical predictive engine minimizing surprise, and life emerges when computational replicators symbiotically fuse to predict and model their environment.",
+            "tags": [
+                "whatisintelligence",
+                "blaiseaguerayarcas",
+                "mitpress",
+                "predictivebrain",
+                "artificialintelligence",
+                "neuroscience",
+                "evolution",
+                "philosophyofmind",
+                "techexplained"
+            ],
+            "status": "uploaded",
+            "created_at": "2026-10-22T08:10:13Z",
+            "updated_at": "2026-10-22T08:17:30Z",
+            "notebook_url": "",
+            "hook_copy": {
+                "card_a_main": "THE AUTOCOMPLETE THEORY OF EVERYTHING",
+                "card_a_sub": "WHAT IS INTELLIGENCE?",
+                "card_a_footer": "Blaise Agüera y Arcas · Google & MIT Press",
+                "card_b_main": "“Just next-token prediction” is not a flaw—it is the mechanism of life.",
+                "card_b_sub": "From self-replicating code to the predictive brain and symbiogenesis.",
+                "card_b_footer": "Why prediction is the fundamental engine of evolution, computing, and minds",
+                "vo_text": "Critics love to dismiss artificial intelligence as glorified autocomplete. Best-selling author and Google Fellow Blaise Aguera y Arcas argues the exact opposite: next-token prediction isn’t a limitation of machines, it is the fundamental mathematical engine behind life, evolution, and the human brain itself."
+            },
+            "outro_copy": {
+                "title": "SUBSCRIBE",
+                "subtitle": "for weekly AI & philosophy explainers",
+                "tagline": "Decoding intelligence, neuroscience, and the physics of minds",
+                "url": "The Classical Remix",
+                "cta": "Like, subscribe, and watch the next deep dive"
+            },
+            "assets": {
+                "raw_short_mp4": "",
+                "raw_long_mp4": "",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-22-the-autocomplete-theory-of-everything/the-autocomplete-theory-of-everything_hook_vo.mp3",
+                "final_short_mp4": "",
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-22-the-autocomplete-theory-of-everything/final_long.mp4",
+                "raw_cinematic_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-22-the-autocomplete-theory-of-everything/raw_cinematic.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-22-the-autocomplete-theory-of-everything"
+            },
+            "youtube": {
+                "short_id": "",
+                "short_url": "",
+                "long_id": "LCn_xfbxfeA",
+                "long_url": "https://www.youtube.com/watch?v=LCn_xfbxfeA",
+                "published_at": "",
+                "title_long": "The Autocomplete Theory of Everything: What AI Teaches Us About Life and Minds",
+                "title_short": "Is Your Brain Just Autocomplete? What Is Intelligence Explained | #Shorts",
+                "privacy": "private",
+                "tags": [
+                    "What Is Intelligence",
+                    "Blaise Aguera y Arcas",
+                    "MIT Press",
+                    "Autocomplete Theory",
+                    "Predictive Coding",
+                    "Neuroscience",
+                    "Artificial General Intelligence",
+                    "Symbiogenesis",
+                    "Philosophy of Mind",
+                    "The Classical Remix"
+                ],
+                "description": "What if \"mere autocomplete\" isn’t a limitation of artificial intelligence—what if it is the secret to life, evolution, and the human mind itself?\n\nIn his landmark MIT Press book, \"What Is Intelligence? Lessons from AI About Evolution, Computing, and Minds\", Google VP and Fellow Blaise Agüera y Arcas dismantles the wall between biological organisms and computational machines.\n\nIn this explainer, we explore how the science of prediction unifies physics, biology, neuroscience, and modern AI:\n\n1. The \"Stochastic Parrot\" Fallacy: Critics often dismiss Large Language Models as statistical next-token predictors incapable of true understanding. Yet to predict the next token accurately across all human text, a system is forced to build a deep, compressed internal world model of physics, logic, and human psychology.\n2. The Predictive Brain: Neuroscience has converged on the exact same architecture. Your brain does not passively record reality like a camera; it is a prediction machine constantly hallucinating the next sensory frame and only propagating prediction errors.\n3. Life as Self-Replicating Computation: In artificial life experiments with random BFF (Brainfuck) byte tapes, self-replicating programs spontaneously emerge out of chaos without an explicit fitness function—demonstrating how information resists entropy through replication and symbiogenesis.\n4. Consciousness, Free Will & Symbiosis: How subjective experience and agency arise as functional control models when predictive agents must model themselves interacting with other agents.\n\nSource & Reference:\n- \"What Is Intelligence? Lessons from AI About Evolution, Computing, and Minds\" by Blaise Agüera y Arcas (The MIT Press / Antikythera, ISBN: 9780262049955).\n- MIT Press Book Page: https://mitpress.mit.edu/9780262049955/what-is-intelligence/\n\nDisclosure: AI-assisted explainer by The Classical Remix, based on the book by Blaise Agüera y Arcas (MIT Press).\n\n#WhatIsIntelligence #BlaiseAgueraYArcas #MITPress #PredictiveBrain #ArtificialIntelligence #Neuroscience #Evolution #PhilosophyOfMind #TechExplained",
+                "localizations": {
+                    "de": {
+                        "title": "Die Autovervollständigungs-Theorie von allem: Was KI über Leben & Geist lehrt",
+                        "description": "Was wäre, wenn „bloße Autovervollständigung“ keine Schwäche künstlicher Intelligenz ist, sondern das fundamentale Geheimnis hinter Leben, Evolution und dem menschlichen Geist?\n\nIn seinem wegweisenden MIT-Press-Buch „What Is Intelligence? Lessons from AI About Evolution, Computing, and Minds“ reißt Google-VP und Fellow Blaise Agüera y Arcas die Mauer zwischen biologischen Organismen und rechnenden Maschinen ein.\n\nIn diesem Erklärvideo zeigen wir, wie die Wissenschaft der Vorhersage Physik, Biologie, Neurowissenschaften und moderne KI vereint:\n\n1. Der Trugschluss vom „stochastischen Papagei“: Kritiker tun große Sprachmodelle oft als bloße Wort-Vorhersagemaschinen ab. Doch um das nächste Wort über Millionen menschlicher Szenarien hinweg präzise vorherzusagen, muss ein System zwangsläufig ein tiefes inneres Weltmodell aus Physik, Zeit, Kausalität und sozialer Absicht aufbauen.\n2. Leben als selbstreplizierender Code: Von Alan Turing und John von Neumann über die DNA bis hin zu einzelnen Bakterien beruht biologisches Überleben darauf, vergangene Daten zu verarbeiten, um eine überlebensfähige Zukunft vorherzusagen.\n3. Das soziale Wettrüsten & Theory of Mind: Unser Gehirn wuchs nicht wegen besserer Speere, sondern um andere Gehirne vorherzusagen. Diese rekursive Rückkopplungsschleife brachte Sprache, Selbstbewusstsein und durch innere Zukunftssimulationen den freien Willen hervor.\n4. Eine Ökologie intelligenter Systeme: Warum Biologie, menschlicher Geist und KI drei Ausdrucksformen desselben Rechenprozesses sind.\n\nQuelle & Referenz:\n- „What Is Intelligence? Lessons from AI About Evolution, Computing, and Minds“ von Blaise Agüera y Arcas (The MIT Press / Antikythera, ISBN: 9780262049955).\n- MIT Press Buchseite: https://mitpress.mit.edu/9780262049955/what-is-intelligence/\n\nHinweis: KI-gestütztes Erklärvideo von The Classical Remix auf Basis des Buches von Blaise Agüera y Arcas (MIT Press).\n\n#WhatIsIntelligence #BlaiseAgueraYArcas #MITPress #PredictiveBrain #ArtificialIntelligence #Neuroscience #Evolution #PhilosophyOfMind #TechExplained",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-22-the-autocomplete-theory-of-everything/the-autocomplete-theory-of-everything_audio_de.m4a",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-22-the-autocomplete-theory-of-everything/the-autocomplete-theory-of-everything_de.srt"
+                    },
+                    "fr": {
+                        "title": "La théorie de l'autocomplétion du tout : ce que l'IA révèle sur la vie et l'esprit",
+                        "description": "Et si la « simple saisie semi-automatique » n'était pas une limite de l'intelligence artificielle, mais le secret même de la vie, de l'évolution et de l'esprit humain ?\n\nDans son ouvrage majeur publié chez MIT Press, « What Is Intelligence? Lessons from AI About Evolution, Computing, and Minds », Blaise Agüera y Arcas (VP et Fellow chez Google) abolit la frontière entre organismes biologiques et machines informatiques.\n\nDans cette vidéo, nous explorons comment la science de la prédiction unifie la biologie, les neurosciences et l'IA moderne :\n\n1. L'illusion du « perroquet stochastique » : pour prédire avec justesse le mot suivant à travers des millions de situations humaines, un modèle ne peut pas réciter un dictionnaire mémorisé ; il est forcé de construire un modèle interne profond de la physique, de la causalité et des intentions sociales.\n2. La vie comme code autoréplicant : d'Alan Turing et John von Neumann jusqu'à l'ADN et aux bactéries, survivre consiste à exploiter l'information passée pour prédire un futur viable.\n3. Course aux armements sociale et théorie de l'esprit : nos cerveaux ont évolué pour prédire d'autres cerveaux. Cette boucle récursive a fait émerger le langage, la conscience de soi et, par la simulation interne de futurs possibles, le libre arbitre.\n4. Une écologie des intelligences : pourquoi la biologie, l'esprit humain et l'IA sont trois expressions du même processus computationnel.\n\nSource et référence :\n- « What Is Intelligence? Lessons from AI About Evolution, Computing, and Minds » par Blaise Agüera y Arcas (The MIT Press / Antikythera, ISBN : 9780262049955).\n- Page MIT Press : https://mitpress.mit.edu/9780262049955/what-is-intelligence/\n\nDivulgation : Vidéo explicative assistée par IA par The Classical Remix, fondée sur l'ouvrage de Blaise Agüera y Arcas (MIT Press).\n\n#WhatIsIntelligence #BlaiseAgueraYArcas #MITPress #PredictiveBrain #ArtificialIntelligence #Neuroscience #Evolution #PhilosophyOfMind #TechExplained",
+                        "audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-22-the-autocomplete-theory-of-everything/the-autocomplete-theory-of-everything_audio_fr.m4a",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-22-the-autocomplete-theory-of-everything/the-autocomplete-theory-of-everything_fr.srt"
+                    },
+                    "ja": {
+                        "title": "「オートコンプリート」の万物理論：AIが解き明かす生命・進化・心の正体",
+                        "description": "もし「単なるオートコンプリート（次単語予測）」が人工知能の限界ではなく、生命・進化・そして人間の心そのものを動かす究極の原理だとしたらどうでしょうか？\n\nMITプレスから刊行された話題作『What Is Intelligence? Lessons from AI About Evolution, Computing, and Minds』において、Google副社長兼フェローのブレーズ・アグエラ・イ・アルカス氏は、生物と計算機の間に引かれた境界線を根底から覆します。\n\n本動画では、「予測」という科学がいかに物理学、生物学、神経科学、そして現代のAIを統一するかを解説します：\n\n1. 「確率的オウム」という誤解：何百万もの複雑な人間社会の文脈で「次の単語」を正確に予測するためには、丸暗記の辞書では不可能です。AIはテキストの背後に物理法則、時間、因果関係、社会的意図からなる深い「世界モデル」を構築せざるを得ません。\n2. 自己複製するコードとしての生命：アラン・チューリングやフォン・ノイマンの理論からDNA、単細胞バクテリアの走化性に至るまで、生命の本質は「過去の情報を処理して生き残れる未来を予測すること」にあります。\n3. 社会的な軍拡競争と「心の理論」：人間の巨大な脳は、他者の脳を予測する無限の再帰ループから進化しました。他者をモデル化する機構が自分自身に向けられたとき「自己意識」が生まれ、複数の未来を内部シミュレーションする能力から「自由意志」が創発します。\n4. 知的システムの生態系：生物、人間の心、AIは孤立した別物ではなく、同一の計算プロセスの三つの表現形態です。\n\n情報源・参考文献：\n- \"What Is Intelligence? Lessons from AI About Evolution, Computing, and Minds\" by Blaise Agüera y Arcas (The MIT Press / Antikythera, ISBN: 9780262049955)\n- MIT Press 書籍ページ: https://mitpress.mit.edu/9780262049955/what-is-intelligence/\n\n開示：The Classical RemixによるAI支援解説動画。Blaise Agüera y Arcas氏の著書（MIT Press）に基づいています。\n\n#WhatIsIntelligence #BlaiseAgueraYArcas #MITPress #PredictiveBrain #ArtificialIntelligence #Neuroscience #Evolution #PhilosophyOfMind #TechExplained",
+                        "audio": "",
+                        "srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-22-the-autocomplete-theory-of-everything/the-autocomplete-theory-of-everything_ja.srt"
+                    }
+                },
+                "captions_en_srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-22-the-autocomplete-theory-of-everything/the-autocomplete-theory-of-everything_en.srt"
             },
             "x_post": {
                 "post_id": "",
