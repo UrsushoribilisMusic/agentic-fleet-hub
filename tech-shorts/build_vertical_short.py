@@ -606,12 +606,15 @@ def build_vertical_short_for_job(job_id: str, config_path: Path | None = None) -
     final_dur = ffprobe_duration(final_short_mp4)
     print(f"[5/5] Built {final_short_mp4} ({final_dur:.2f}s, 1080x1920)")
 
-    # Stage copy to Downloads/tech-shorts-captions/<slug>/
+    # Stage copy to Downloads/tech-shorts-captions/<slug>/ and top-level ~/Downloads/ for X upload
     stage_dir = CAPTIONS_ROOT / slug
     stage_dir.mkdir(parents=True, exist_ok=True)
     staged_short = stage_dir / f"{slug}_SHORT_FINAL.mp4"
     shutil.copy2(final_short_mp4, staged_short)
+    top_downloads_short = CAPTIONS_ROOT.parent / f"{slug}_SHORT_FINAL.mp4"
+    shutil.copy2(final_short_mp4, top_downloads_short)
     print(f"      Staged copy: {staged_short}")
+    print(f"      X-ready copy: {top_downloads_short}")
 
     # Update jobs.json
     job["assets"]["final_short_mp4"] = str(final_short_mp4)

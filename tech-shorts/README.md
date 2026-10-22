@@ -142,7 +142,7 @@ Because NotebookLM exports landscape (`16:9`, `1280x720`) videos and `pipeline.p
      - **`pillarbox` mode**: Blurred `1080x1920` backdrop (`boxblur=28:6`) with a full-width `1080px` foreground overlay so wide benchmark radar charts, scaling curves, and architecture diagrams remain 100% readable on mobile.
 4. **Build & Idempotent Upload**:
    ```bash
-   # 1. Build final_short.mp4 (1080x1920, <90s), stage to ~/Downloads/tech-shorts-captions/<slug>/, and update jobs.json
+   # 1. Build final_short.mp4 (1080x1920, <90s), stage to ~/Downloads/<slug>_SHORT_FINAL.mp4 + ~/Downloads/tech-shorts-captions/<slug>/, and update jobs.json
    HF_HUB_OFFLINE=1 /Users/miguelrodriguez/projects/music-video-tool/.venv312/bin/python3 \
      tech-shorts/build_vertical_short.py --job-id <job_id> [--config <custom_config.json>]
 
@@ -182,15 +182,15 @@ The pipeline fetches credentials dynamically via the centralized **Infisical EU 
 
 ### 2026-10-22 Batch
 
-| Job | Long (Private) | Localizations | Staged Assets |
+| Job | Long (Published) | Localizations | Staged Assets |
 | --- | --- | --- | --- |
-| `ts-20261022-the-autocomplete-theory-of-everything` | `https://www.youtube.com/watch?v=LCn_xfbxfeA` | EN, DE, FR, JA | `~/Downloads/tech-shorts-captions/the-autocomplete-theory-of-everything/` |
+| `ts-20261022-the-autocomplete-theory-of-everything` | `https://www.youtube.com/watch?v=LCn_xfbxfeA` (Live) | EN, DE, FR, JA | `~/Downloads/tech-shorts-captions/the-autocomplete-theory-of-everything/` |
 
 ### 2026-10-21 Batch
 
-| Job | Long (Private) | Short (Private) | Localizations | Staged Assets |
+| Job | Long (Published) | Short (Published) | Localizations | Staged Assets |
 | --- | --- | --- | --- | --- |
-| `ts-20261021-squeezing-an-autonomous-agent-into-32gb` | `https://www.youtube.com/watch?v=qs438DSa2ZY` | `https://www.youtube.com/watch?v=vbRx1BNjJQk` | EN, DE, FR, JA | `~/Downloads/tech-shorts-captions/squeezing-an-autonomous-agent-into-32gb/` |
+| `ts-20261021-squeezing-an-autonomous-agent-into-32gb` | `https://www.youtube.com/watch?v=qs438DSa2ZY` (Live) | `https://www.youtube.com/watch?v=vbRx1BNjJQk` (Live) | EN, DE, FR, JA | `~/Downloads/tech-shorts-captions/squeezing-an-autonomous-agent-into-32gb/` |
 
 ### 2026-10-18 Batch
 
