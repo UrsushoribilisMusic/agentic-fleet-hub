@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-10-22",
-    "summary": "Gem: Built, localized (EN/DE/FR/JA with local Kokoro DE/FR dubs), staged, and uploaded private Tech Short for Blaise Agüera y Arcas's 'What Is Intelligence?' (LCn_xfbxfeA); created & documented reusable 9:16 vertical Short builder (build_vertical_short.py) and built/uploaded the <90s vertical Short for Meta's Muse Glimmer 30B (vbRx1BNjJQk).",
+    "summary": "Gem: Built, localized (EN/DE/FR/JA with local Kokoro DE/FR dubs), staged, and uploaded private Tech Short for Blaise Agüera y Arcas's 'What Is Intelligence?' (LCn_xfbxfeA); created & documented reusable 9:16 vertical Short builder (build_vertical_short.py) and built/uploaded the <90s vertical Short for Meta's Muse Glimmer 30B (vbRx1BNjJQk). Codi: delivered Evaluator v4 with all six Gemini clips, corrected page-drop cut and full Earth ending; audited Mac and DigitalOcean Droplet and found no active PHP exposure.",
     "file": "2026-10-22.md"
   },
   {
