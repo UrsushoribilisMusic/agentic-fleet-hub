@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-10-23",
-    "summary": "Clau: finished the EN→ES translation of the abrasives corpus (3,366 prose lines), merged Spanish beside each original as bilingual chunks, and seeded the abrasivos collection live on sm.flotilla.cc (25 docs, 10,641 chunks, 11-page wiki). Found and fixed a stripHtml regex that was silently deleting 598,593 words — 31.4% of the corpus — before chunking (main @ 0cb2cfa, deployed). Rendered both Norton manuals to PDF. Brother's login and the iOS build still pending.",
+    "summary": "Clau: finished the EN→ES translation of the abrasives corpus (3,366 prose lines), merged Spanish beside each original as bilingual chunks, and seeded the abrasivos collection live on sm.flotilla.cc (25 docs, 10,641 chunks, 11-page wiki). Found and fixed a stripHtml regex that was silently deleting 598,593 words — 31.4% of the corpus — before chunking (main @ 0cb2cfa, deployed). Rendered both Norton manuals to PDF. Brother's login and the iOS build still pending. Codi: delivered six Little Model visual revisions and a Rose preview, preserved existing ElevenLabs soundtracks where available, used local Kokoro for Businessman/Politician, and staged ROS-03 then Baobabs for the next Gemini session. Identified the Sovereign Mind app target still enabling iPad; no release configuration changes made.",
     "file": "2026-10-23.md"
   },
   {
