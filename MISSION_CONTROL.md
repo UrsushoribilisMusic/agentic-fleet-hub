@@ -1,6 +1,6 @@
 # MISSION_CONTROL
 
-Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry point for **Clau**, **Gem**, **Codi**, and **Misty**. Read this first to synchronize state across the multi-agent crew.
+Welcome to the **Ursushoribilis Agentic Workspace**. This is the primary entry point for **Clau**, **Gem**, **Codi**, **Misty**, and **Muse**. Read this first to synchronize state across the multi-agent crew.
 
 ---
 
@@ -116,7 +116,7 @@ The fleet does not auto-enter these. Miguel enters them monthly via the Financia
 
 ---
 
-## Ticket Status (as of 2026-10-21)
+## Ticket Status (as of 2026-10-24)
 
 ### ENVIRONMENT NOTE — Mac Mini migration complete (2026-03-14)
 All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users/miguel/` → `/Users/miguelrodriguez/`. Repos cloned to `~/projects/`. Python 3.12 venv at `~/projects/music-video-tool/.venv312`. OpenClaw at `/opt/homebrew/bin/openclaw`. Fleet always-on infrastructure build in progress — see tickets #34–#43.
@@ -1093,5 +1093,17 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **pewz2dpk** | ABR-W1: wiki abrasivos — Discos diamantados para corte | codi | merged | Escribir la página 'diamante-corte' del wiki de la... |
+| **kuu91cr1** | ABR-W2: wiki abrasivos — Herramienta de diamante y CBN | clau | merged | Escribir la página 'diamante-herramienta' del wiki... |
+| **7xii1hzm** | ABR-W3: wiki abrasivos — Muelas aglomeradas para rectificado | clau | merged | Escribir la página 'muelas-aglomeradas' del wiki d... |
+| **vmwbzw1h** | ABR-W5: wiki abrasivos — Lija en hoja | codi | planned | Escribir la página 'lija-hoja' del wiki de la cole... |
+| **dfushbdb** | ABR-W6: wiki abrasivos — Lija en disco | codi | planned | Escribir la página 'lija-disco' del wiki de la col... |
+| **gmuw7aob** | ABR-W7: wiki abrasivos — Bandas abrasivas | codi | planned | Escribir la página 'bandas' del wiki de la colecci... |
+| **tfj4arl1** | ABR-W8: wiki abrasivos — Rollos abrasivos | codi | planned | Escribir la página 'rollos' del wiki de la colecci... |
+| **fn6tcnl5** | ABR-W9: wiki abrasivos — Discos de láminas y fibrodiscos | codi | planned | Escribir la página 'flap-fibrodiscos' del wiki de ... |
+| **tbu8o19y** | ABR-W10: wiki abrasivos — No tejido (Bear-Tex / Vlies) | codi | planned | Escribir la página 'no-tejido' del wiki de la cole... |
+| **5319xg2l** | ABR-W11: wiki abrasivos — Pulido y pastas | codi | planned | Escribir la página 'pulido' del wiki de la colecci... |
+| **e4byt8b4** | ABR-W12: wiki abrasivos — Piedras de afilar | codi | planned | Escribir la página 'piedras-afilar' del wiki de la... |
+| **rew2uf9e** | ABR-W13: wiki abrasivos — Seguridad y velocidades máximas | clau | merged | Escribir la página 'seguridad-velocidades' del wik... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
