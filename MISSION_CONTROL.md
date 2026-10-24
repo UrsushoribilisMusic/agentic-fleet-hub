@@ -1096,11 +1096,12 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **pewz2dpk** | ABR-W1: wiki abrasivos — Discos diamantados para corte | codi | merged | Escribir la página 'diamante-corte' del wiki de la... |
 | **kuu91cr1** | ABR-W2: wiki abrasivos — Herramienta de diamante y CBN | clau | merged | Escribir la página 'diamante-herramienta' del wiki... |
 | **7xii1hzm** | ABR-W3: wiki abrasivos — Muelas aglomeradas para rectificado | clau | merged | Escribir la página 'muelas-aglomeradas' del wiki d... |
+| **raupgfg4** | ABR-W4: wiki abrasivos — Muelas con mango y puntas montadas | codi | planned | Escribir la página 'muelas-mango' del wiki de la c... |
 | **vmwbzw1h** | ABR-W5: wiki abrasivos — Lija en hoja | codi | merged | Escribir la página 'lija-hoja' del wiki de la cole... |
 | **dfushbdb** | ABR-W6: wiki abrasivos — Lija en disco | clau | merged | Escribir la página 'lija-disco' del wiki de la col... |
 | **gmuw7aob** | ABR-W7: wiki abrasivos — Bandas abrasivas | clau | merged | Escribir la página 'bandas' del wiki de la colecci... |
 | **tfj4arl1** | ABR-W8: wiki abrasivos — Rollos abrasivos | codi | in_work | Escribir la página 'rollos' del wiki de la colecci... |
-| **fn6tcnl5** | ABR-W9: wiki abrasivos — Discos de láminas y fibrodiscos | codi | planned | Escribir la página 'flap-fibrodiscos' del wiki de ... |
+| **fn6tcnl5** | ABR-W9: wiki abrasivos — Discos de láminas y fibrodiscos | codi | in_work | Escribir la página 'flap-fibrodiscos' del wiki de ... |
 | **tbu8o19y** | ABR-W10: wiki abrasivos — No tejido (Bear-Tex / Vlies) | codi | planned | Escribir la página 'no-tejido' del wiki de la cole... |
 | **5319xg2l** | ABR-W11: wiki abrasivos — Pulido y pastas | codi | planned | Escribir la página 'pulido' del wiki de la colecci... |
 | **e4byt8b4** | ABR-W12: wiki abrasivos — Piedras de afilar | codi | planned | Escribir la página 'piedras-afilar' del wiki de la... |
