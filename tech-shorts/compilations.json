@@ -1,5 +1,5 @@
 {
- "_note": "Source of truth for Tech Shorts compilations. 6 live (public) AI compilations + 1 private, from YouTube 2026-10-05. Compilations = non-music videos >20min. Members are best-guess (chapter->title match); confirm before relying on the comp column. gen_insights.py must emit insights.json['compilations_live'] + per-video 'cn' tags for the /fleet/insights dashboard §4 + Comp column to keep working after a regen.",
+ "_note": "Source of truth for Tech Shorts compilations. 6 live (public) AI compilations + 1 private, from YouTube 2026-10-05. Compilations = non-music videos >20min. Members are best-guess (chapter->title match); confirm before relying on the comp column. gen_insights.py must emit insights.json['compilations_live'] + per-video 'cn' tags for the /fleet/insights dashboard §4 + Comp column to keep working after a regen. 2026-10-24: #5 and #7 titles/status corrected against the YouTube Data API (both public); #7 retitled and moved to the new 'Working With AI' topic.",
  "categories": [
   {
    "id": "economics",
@@ -22,6 +22,21 @@
    "color": "c-coral"
   },
   {
+   "id": "science",
+   "label": "Science & Discovery",
+   "color": "c-lime"
+  },
+  {
+   "id": "compute",
+   "label": "Compute & Energy",
+   "color": "c-amber"
+  },
+  {
+   "id": "working_with_ai",
+   "label": "Working With AI",
+   "color": "c-rose"
+  },
+  {
    "id": "others",
    "label": "Others",
    "color": "c-grey"
@@ -35,7 +50,10 @@
   "Alignment & Safety": "agents",
   "Governance & Geopolitics": "others",
   "Music (Classical Remix)": "others",
-  "Other": "others"
+  "Other": "others",
+  "Science & Discovery": "science",
+  "Compute & Energy": "compute",
+  "Working With AI": "working_with_ai"
  },
  "compilations": [
   {
@@ -101,7 +119,7 @@
   {
    "n": 5,
    "id": "bDN2Xtzba5E",
-   "title": "Can We Trust AI? The Alignment Problem",
+   "title": "Can We Trust AI? The Alignment Problem, Explained (Full Compilation)",
    "published": "2026-09-27",
    "topic": "Alignment & Safety",
    "status": "live",
@@ -130,10 +148,10 @@
   {
    "n": 7,
    "id": "8vRuH8d4DaQ",
-   "title": "Working With AI Is a Skill — Six Explainers on the Jagged Frontier",
-   "published": "2026-10-05",
-   "topic": "Economy & Work",
-   "status": "private",
+   "title": "Why Smart People Struggle With AI (Full Deep Dive)",
+   "published": "2026-10-07",
+   "topic": "Working With AI",
+   "status": "live",
    "members": []
   },
   {

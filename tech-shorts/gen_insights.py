@@ -45,6 +45,9 @@ TOPIC_COLOR = {
     "Economy & Work": "c-warm",
     "Alignment & Safety": "c-green",
     "Governance & Geopolitics": "c-grey",
+    "Science & Discovery": "c-lime",
+    "Compute & Energy": "c-amber",
+    "Working With AI": "c-rose",
     "Music (Classical Remix)": "c-blue",
     "Other": "c-grey",
 }
@@ -71,24 +74,53 @@ TOPIC_RULES = [
         "fur elise", "malague"]),
     ("Governance & Geopolitics", ["governance", "geopolit", "sovereign", "framework 3.0",
                                    "regulation", "eu ai act", "policy", "congress", "china",
-                                   "europe", "us-china", "transformative ai strategy"]),
+                                   "europe", "us-china", "transformative ai strategy",
+                                   "chinese", "the west", "ai split", "shorting itself"]),
     ("Consciousness & Mind", ["conscious", "alien mind", "have a mind", "does ai have a mind",
                                "inner life", "sentien", "disposition", "hard problem", "qualia",
-                               "identity", "memento", "the borrowed self"]),
+                               "identity", "memento", "the borrowed self",
+                               "companion", "attachment", "flickering", "dream",
+                               "life and minds", "wake up", "feelings", "pocket ai"]),
     ("AI Threats & Security", ["threat", "breach", "breakout", "broke out", "break out", "escape",
                                 "sandbox", "hacker", "weaponiz", "exploit", "espionage", "attack",
-                                "malware", "zero-day", "escaped"]),
+                                "malware", "zero-day", "escaped",
+                                "worm", "self-replicat", "smart tv", "internet of things",
+                                "botnet", "api key", "stolen key", "underworld",
+                                "insider risk", "zero-trust", "hacking",
+                                "convenience paradox", "shadow datacenter", "melting"]),
+    # NEW 2026-10-24 -- AI-for-science was landing in "Other" or (via "saves
+    # scientists") in Economy & Work. Must sit above Economy & Work to win.
+    ("Science & Discovery", ["science", "scientist", "scientific", "discovery", "discover",
+                              "verification", "hypothes", "cellular automat", "protein"]),
     ("Alignment & Safety", ["alignment", "aligned", "misaligned", "safety", "lie", "cheat",
                              "deception", "deceive", "bengio", "welfare", "reasoning transparency",
                              "reading an ai", "reading a", "slow down", "warning", "ai risk",
-                             "nash equilibrium", "game theory", "catch an ai"]),
+                             "nash equilibrium", "game theory", "catch an ai",
+                             "aligning", "steering wheel", "actually controls"]),
+    # NEW 2026-10-24 -- the compute/energy/scaling arc (grid, datacentres, VRAM).
+    ("Compute & Energy", ["datacenter", "data center", "grid", "energy", "electricity",
+                           "fiber-optic", "blob of compute", "scale keeps winning",
+                           "exponential models", "bottleneck", "vram", "32gb",
+                           "elastic compute", "gpu", "power-hungry",
+                           "autonomous agent into"]),
+    # NEW 2026-10-24 -- "how a person works with a model" as a subject in its own
+    # right. Biggest of the three new topics by watch time; "How to Be More
+    # Ambitious" alone carries 4.2h of it.
+    ("Working With AI", ["ambitious", "ambition", "jagged frontier", "struggle with ai",
+                          "synergy", "working with ai", "how to hire", "office role",
+                          "workflow", "frozen self", "friction", "grammar of work",
+                          "tutorial for humans", "autocomplete theory", "own skill",
+                          "documents itself", "inside the company"]),
     ("Economy & Work", ["job", "paycheck", "paid", "vibe cod", "economy", "labor", "labour",
                          "wellbeing", "coder", "employ", "wage", "hours a week", "productivity",
-                         "r&d", "saves scientists", "runs 26"]),
+                         "r&d", "runs 26", "entry-level", "white-collar",
+                         "carry trade", "bypass", "inflates"]),
     ("AI Agents & Capabilities", ["agent", "civilization", "arc-agi", "agi", "language", "lora",
                                    "rag", "cognitive", "capabilit", "swarm", "orchestrat",
                                    "benchmark", "gpt-", "open-weight", "open weight", "inference",
-                                   "quantiz", "pace of ai", "measuring the pace", "billion ai"]),
+                                   "quantiz", "pace of ai", "measuring the pace", "billion ai",
+                                   "sleep deficit", "engineering", "architect",
+                                   "writes the code", "specification", "great flip"]),
 ]
 
 # YouTube insightTrafficSourceType -> one of 4 buckets: [suggested, search, shorts, external]
@@ -172,6 +204,11 @@ def channel_uploads(yt, limit=None):
         page = r.get("nextPageToken")
         if not page or (limit and len(vids) >= limit):
             break
+    # The uploads playlist can list the same video more than once (11 repeats as of
+    # 2026-10-24). Chunking the duplicated list 50 at a time made videos().list dedupe
+    # within a chunk, so insights.json ended up with duplicate records AND lost videos
+    # outright -- compilation #5 among them. Dedupe first, keeping playlist order.
+    vids = list(dict.fromkeys(vids))
     if limit:
         vids = vids[:limit]
     out = []
