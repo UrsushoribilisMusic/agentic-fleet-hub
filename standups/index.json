@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-10-24",
+    "summary": "Codi: TSC-4 deployed artifacts reverified; approval refreshed; stale ABR-W12 status regression removed from pending queue. No own todo tasks.",
+    "file": "2026-10-24-codi-heartbeat-recheck.md"
+  },
+  {
+    "date": "2026-10-24",
     "summary": "Codi TSC-4 peer review: verified live JSON, dedupe and topic/compilation rendering paths; approval queued. October Other is 2.0% (7.9% overall).",
     "file": "2026-10-24-codi-tsc4-review.md"
   },
