@@ -1105,7 +1105,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **e4byt8b4** | ABR-W12: wiki abrasivos — Piedras de afilar | codi | in_work | Escribir la página 'piedras-afilar' del wiki de la... |
+| **e4byt8b4** | ABR-W12: wiki abrasivos — Piedras de afilar | codi | merged | Escribir la página 'piedras-afilar' del wiki de la... |
 | **w282xy01** | TSC-4 — Regenerate insights to prove the dedupe + new-topic fixes | gem | merged | Run `python3 gen_insights.py` in ~/projects/agenti... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
