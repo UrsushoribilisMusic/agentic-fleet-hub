@@ -1106,5 +1106,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | **e4byt8b4** | ABR-W12: wiki abrasivos — Piedras de afilar | codi | in_work | Escribir la página 'piedras-afilar' del wiki de la... |
+| **2gghdork** | TSC-1 — Build compilation C1: AI Will Do the Work, Vol. 2 | gem | in_work | Build the Economy & Work compilation (6 parts, ~33... |
+| **w282xy01** | TSC-4 — Regenerate insights to prove the dedupe + new-topic fixes | gem | planned | Run `python3 gen_insights.py` in ~/projects/agenti... |
+| **opzapszk** | TSC-3 — Build compilation C3: Alien Minds, Vol. 2 | gem | planned | Build the Consciousness & Mind compilation (6 part... |
+| **9o8v196i** | TSC-2 — Build compilation C2: The Attack Surface in Your House | gem | planned | Build the AI Threats & Security compilation (7 par... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
