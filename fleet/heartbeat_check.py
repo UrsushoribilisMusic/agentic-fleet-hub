@@ -52,6 +52,7 @@ AGENT_ALIASES_DEFAULT = {
     "misty": ["misty", "mistral"],
     "gem":   ["gem", "gemini"],
     "codi":  ["codi", "codex"],
+    "muse":  ["muse", "meta"],
 }
 
 

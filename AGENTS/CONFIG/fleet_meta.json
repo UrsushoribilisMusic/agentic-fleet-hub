@@ -74,6 +74,24 @@
       "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/MISTRAL.md"
     },
     {
+      "name": "Muse",
+      "avatar": "🕶️",
+      "heartbeatKey": "muse",
+      "roleTitle": "Wearables & Multimodal Engineer",
+      "roleDesc": "Meta Muse Code specialist for Ray-Ban Display wearables (MWDAT/MockDeviceKit), SAM 3.1 vision pipelines, and Muse Glimmer/Spark multimodal workflows.",
+      "skills": [
+        "Meta Wearables DAT",
+        "Multimodal Vision",
+        "iOS & Swift HUD"
+      ],
+      "fallbackChain": [
+        "clau",
+        "gem"
+      ],
+      "runtime": "Cloud (Meta Muse)",
+      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/MUSE.md"
+    },
+    {
       "name": "Qwen Coder",
       "avatar": "QC",
       "heartbeatKey": "gemma",

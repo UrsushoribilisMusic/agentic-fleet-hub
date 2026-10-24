@@ -94,6 +94,14 @@ AGENT_COMMANDS = {
         "/Users/miguelrodriguez/projects/agentic-fleet-hub/.fleet_cache",
         "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
     ],
+    "muse": [
+        "/Users/miguelrodriguez/.local/bin/muse",
+        "exec",
+        "--yolo",
+        "--workspace",
+        CODEX_REPO_DIR,
+        "Run your heartbeat protocol. Read ~/projects/agentic-fleet-hub/MUSE.md and MISSION_CONTROL.md first, then follow AGENTS/RULES.md."
+    ],
     # Legacy key retained for PB/launchd compatibility.
     "gemma": ["/bin/bash", f"{FLEET_DIR}/gemma/run_heartbeat.sh"],
     # Qwen Coder runs through the same gemma wrapper (launchd plist is fleet.gemma).
@@ -730,6 +738,7 @@ AGENT_TIMEOUT_SECONDS = {
     "gem":   1200,  # 20 min
     "misty": 1200,
     "codi":  1200,
+    "muse":  1200,  # 20 min
     "qwen":  3600,  # 60 min — local 30b model, thinking mode disabled but codegen is slow
 }
 _DEFAULT_AGENT_TIMEOUT = 1200
@@ -793,7 +802,7 @@ def run_agent(agent_name, task):
     update_task_status(task["id"], "in_progress", from_status=task.get("status"), agent=agent_name)
 
     cmd = list(AGENT_COMMANDS[agent_name])
-    if agent_name in ["clau", "gem", "codi"]:
+    if agent_name in ["clau", "gem", "codi", "muse"]:
         task_prompt = f"\n\nYOUR TASK: {task['title']}\nDescription: {task.get('description', '')}"
         cmd[-1] = cmd[-1] + task_prompt
 
