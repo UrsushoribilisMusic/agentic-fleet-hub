@@ -124,6 +124,15 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ---
 
 ### CLOSED
+- **rew2uf9e**: ABR-W13: wiki abrasivos — Seguridad y velocidades máximas -- Escribir la página 'seguridad-velocidades' del wiki de la colección `abrasivos`. -- Clau. Approved.
+- **fn6tcnl5**: ABR-W9: wiki abrasivos — Discos de láminas y fibrodiscos -- Escribir la página 'flap-fibrodiscos' del wiki de la colección `abrasivos`. -- Codi. Approved.
+- **tfj4arl1**: ABR-W8: wiki abrasivos — Rollos abrasivos -- Escribir la página 'rollos' del wiki de la colección `abrasivos`. -- Codi. Approved.
+- **gmuw7aob**: ABR-W7: wiki abrasivos — Bandas abrasivas -- Escribir la página 'bandas' del wiki de la colección `abrasivos`. -- Clau. Approved.
+- **dfushbdb**: ABR-W6: wiki abrasivos — Lija en disco -- Escribir la página 'lija-disco' del wiki de la colección `abrasivos`. -- Clau. Approved.
+- **vmwbzw1h**: ABR-W5: wiki abrasivos — Lija en hoja -- Escribir la página 'lija-hoja' del wiki de la colección `abrasivos`. -- Codi. Approved.
+- **7xii1hzm**: ABR-W3: wiki abrasivos — Muelas aglomeradas para rectificado -- Escribir la página 'muelas-aglomeradas' del wiki de la colección `abrasivos`. -- Clau. Approved.
+- **kuu91cr1**: ABR-W2: wiki abrasivos — Herramienta de diamante y CBN -- Escribir la página 'diamante-herramienta' del wiki de la colección `abrasivos`. -- Clau. Approved.
+- **pewz2dpk**: ABR-W1: wiki abrasivos — Discos diamantados para corte -- Escribir la página 'diamante-corte' del wiki de la colección `abrasivos`. -- Codi. Approved.
 - **jrd58rbi**: disposition-lens: hardcoded 0.0.0.0 bind + no auth — unauthenticated LLM inference & ElevenLabs TTS proxy (CWE-306) -- # disposition-lens inference service: hardcoded 0.0.0.0 bind with no authentication — unauthenticated LLM inference + ElevenLabs TTS proxy (CWE-306) -- Clau. Approved.
 - **uot43m39**: TECH-SHORT (done): Japan AISI cyber-eval — Claude Opus 4.8 vs GLM-5.2 (uploaded private) -- CONTEXT: New tech-short on the ideation list (job id: ts-20261003-japans-ai-safety-institute-aisi-has-released-the-results-of-its-actual-verification-of-the-cyber-capabilities-of-us-made-claude-opus-48-and-chinese-made-glm-52). Miguel wants this prioritized (front of the queue) and handed to Gem to take from the ORIGINAL JAPANESE SOURCE. -- Clau. Approved.
 - **wqwzihlg**: CANIS-BONE-07: Keep title enrichment opt-in + add a manual 'Generate titles' action -- CONTEXT: Canis (agentic-fleet-hub/canis-ios), on-device SwiftUI + MLX app with the 'bones' ingestion pipeline (CANIS-BONE-01..06). REGRESSION GUARD: BoneIngestionManager.ingest(url:model:enrichTitles:) now defaults enrichTitles to FALSE (committed). Reason: running the model to title every chunk right after import caused an on-device OOM crash (EXC_RESOURCE, RESOURCE_TYPE_MEMORY, 3376 MB cap) and a heat spike on an iPhone 15 Pro Max. DO NOT re-enable enrichment by default. -- Clau. Approved.
@@ -1093,18 +1102,9 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **pewz2dpk** | ABR-W1: wiki abrasivos — Discos diamantados para corte | codi | merged | Escribir la página 'diamante-corte' del wiki de la... |
-| **kuu91cr1** | ABR-W2: wiki abrasivos — Herramienta de diamante y CBN | clau | merged | Escribir la página 'diamante-herramienta' del wiki... |
-| **7xii1hzm** | ABR-W3: wiki abrasivos — Muelas aglomeradas para rectificado | clau | merged | Escribir la página 'muelas-aglomeradas' del wiki d... |
 | **raupgfg4** | ABR-W4: wiki abrasivos — Muelas con mango y puntas montadas | codi | in_work | Escribir la página 'muelas-mango' del wiki de la c... |
-| **vmwbzw1h** | ABR-W5: wiki abrasivos — Lija en hoja | codi | merged | Escribir la página 'lija-hoja' del wiki de la cole... |
-| **dfushbdb** | ABR-W6: wiki abrasivos — Lija en disco | clau | merged | Escribir la página 'lija-disco' del wiki de la col... |
-| **gmuw7aob** | ABR-W7: wiki abrasivos — Bandas abrasivas | clau | merged | Escribir la página 'bandas' del wiki de la colecci... |
-| **tfj4arl1** | ABR-W8: wiki abrasivos — Rollos abrasivos | codi | merged | Escribir la página 'rollos' del wiki de la colecci... |
-| **fn6tcnl5** | ABR-W9: wiki abrasivos — Discos de láminas y fibrodiscos | codi | merged | Escribir la página 'flap-fibrodiscos' del wiki de ... |
 | **tbu8o19y** | ABR-W10: wiki abrasivos — No tejido (Bear-Tex / Vlies) | codi | planned | Escribir la página 'no-tejido' del wiki de la cole... |
 | **5319xg2l** | ABR-W11: wiki abrasivos — Pulido y pastas | codi | planned | Escribir la página 'pulido' del wiki de la colecci... |
 | **e4byt8b4** | ABR-W12: wiki abrasivos — Piedras de afilar | codi | planned | Escribir la página 'piedras-afilar' del wiki de la... |
-| **rew2uf9e** | ABR-W13: wiki abrasivos — Seguridad y velocidades máximas | clau | merged | Escribir la página 'seguridad-velocidades' del wik... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
