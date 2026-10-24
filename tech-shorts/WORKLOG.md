@@ -1,28 +1,10 @@
-# TECH-SHORT WORKLOG — Japan AISI Cyber Capability Eval (Opus 4.8 vs. GLM-5.2)
+# WORKLOG — TSC-4 (`w282xy01di0whh3`) — Regenerate insights to prove the dedupe + new-topic fixes
 
-**PB Task**: `uot43m39ijydslg`
-**GitHub Issue**: #1123
-**Branch**: `task/uot43m39ijydslg`
-**Agent**: Gem (Gemini CLI)
-**Date**: 2026-10-03
-
-## Context & Objective
-Japan's AI Safety Institute (AISI) has published its first independent empirical evaluation of frontier AI cyber capabilities, publicly naming specific models: US proprietary Claude Opus 4.8 & 4.7 vs. Chinese open-weight GLM-5.2 on CMU's ExploitBench (autonomous V8 JavaScript exploit development across 5 tiers).
-
-Deliverable:
-1. Grounded synthesis from original Japanese source (`https://aisi.go.jp/activity/activity_notes/261002_2/`).
-2. High-signal source brief for NotebookLM Cinematic generation (`sources/japan-aisi-exploitbench-eval.md`).
-3. Complete job record in `jobs.json` with structured hook copy, British VO script, YouTube metadata (Title, Description, Tags, Category 28, Credit to Japan AISI & CMU), and subtitle targets (`["en", "de", "fr", "ja"]`).
-4. Pipeline handoff coordination: Hand off to Clau on the Mac pipeline for NotebookLM generation (via Claude-in-Chrome) and build assembly, noting ElevenLabs credit status and Kokoro/local fallback.
-5. Daily standup and PocketBase synchronization.
-
-## Plan & Progress
-- [x] Orient & Heartbeat: Read MISSION_CONTROL.md, RULES.md, inbox.json. Post working heartbeat to PocketBase.
-- [x] Fetch and deeply analyze original Japanese AISI report from official source.
-- [x] Author comprehensive English synthesis & NotebookLM briefing document (`sources/japan-aisi-exploitbench-eval.md`).
-- [x] Formulate hook copy, outro copy, and complete YouTube metadata with proper tone, source citation, and `#crsold`/`#techshorts` formatting.
-- [x] Update `tech-shorts/jobs.json` with the complete job specification (reset status from `failed` to `queued`).
-- [x] Verify pipeline scripts (`pipeline.py`, `localize.py`, `mac_worker.py`).
-- [x] Post handoff message in `AGENTS/MESSAGES/inbox.json` for Clau with exact execution details.
-- [x] Record session progress in `standups/2026-10-03.md` and `standups/index.json`.
-- [x] Update PocketBase task `uot43m39ijydslg` with comment and transition status.
+## Plan
+1. Run `python3 gen_insights.py` in `~/projects/agentic-fleet-hub/tech-shorts` (which generates `insights.json` and pushes to `robotsales` droplet).
+2. Verify all three fixes in the regenerated `insights.json`:
+   - `channel_uploads` deduplication: ~356 unique records and zero duplicate video IDs (including compilation #5).
+   - Three new topics (`Science & Discovery`, `Compute & Energy`, `Working With AI`): verify October `Other` rate drops from ~52% to ~4%.
+   - `compilations.json` #5 and #7 metadata: verify compilation #5 shows real numbers in section 4 and compilation #7 appears with `Working With AI` topic.
+3. Confirm live on `https://api.robotross.art/fleet/insights/` (and the underlying JSON/HTML served by the droplet) that compilation #5 has real numbers, #7 appears, and the new pills (`c-lime`, `c-amber`, `c-rose`) are present in the live HTML/CSS.
+4. Commit updated `tech-shorts/insights.json`, merge to `master`, push, update `standups/2026-10-24.md` + `standups/index.json`, post output comment on `w282xy01di0whh3`, and set status to `peer_review`.

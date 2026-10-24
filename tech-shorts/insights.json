@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-24T05:18:38Z",
+ "generated_at": "2026-10-24T09:28:21Z",
  "categories": [
   {
    "id": "economics",
@@ -22,6 +22,21 @@
    "color": "c-coral"
   },
   {
+   "id": "science",
+   "label": "Science & Discovery",
+   "color": "c-lime"
+  },
+  {
+   "id": "compute",
+   "label": "Compute & Energy",
+   "color": "c-amber"
+  },
+  {
+   "id": "working_with_ai",
+   "label": "Working With AI",
+   "color": "c-rose"
+  },
+  {
    "id": "others",
    "label": "Others",
    "color": "c-grey"
@@ -35,7 +50,10 @@
   "Alignment & Safety": "agents",
   "Governance & Geopolitics": "others",
   "Music (Classical Remix)": "others",
-  "Other": "others"
+  "Other": "others",
+  "Science & Discovery": "science",
+  "Compute & Energy": "compute",
+  "Working With AI": "working_with_ai"
  },
  "compilations": [
   {
@@ -101,7 +119,7 @@
   {
    "n": 5,
    "id": "bDN2Xtzba5E",
-   "title": "Can We Trust AI? The Alignment Problem",
+   "title": "Can We Trust AI? The Alignment Problem, Explained (Full Compilation)",
    "published": "2026-09-27",
    "topic": "Alignment & Safety",
    "status": "live",
@@ -130,10 +148,10 @@
   {
    "n": 7,
    "id": "8vRuH8d4DaQ",
-   "title": "Working With AI Is a Skill — Six Explainers on the Jagged Frontier",
-   "published": "2026-10-05",
-   "topic": "Economy & Work",
-   "status": "private",
+   "title": "Why Smart People Struggle With AI (Full Deep Dive)",
+   "published": "2026-10-07",
+   "topic": "Working With AI",
+   "status": "live",
    "members": []
   },
   {
@@ -231,7 +249,7 @@
   {
    "n": 5,
    "id": "bDN2Xtzba5E",
-   "title": "Can We Trust AI? The Alignment Problem",
+   "title": "Can We Trust AI? The Alignment Problem, Explained (Full Compilation)",
    "published": "2026-09-27",
    "topic": "Alignment & Safety",
    "status": "live",
@@ -260,10 +278,10 @@
   {
    "n": 7,
    "id": "8vRuH8d4DaQ",
-   "title": "Working With AI Is a Skill — Six Explainers on the Jagged Frontier",
-   "published": "2026-10-05",
-   "topic": "Economy & Work",
-   "status": "private",
+   "title": "Why Smart People Struggle With AI (Full Deep Dive)",
+   "published": "2026-10-07",
+   "topic": "Working With AI",
+   "status": "live",
    "members": []
   },
   {
@@ -298,15 +316,27 @@
   }
  ],
  "verdicts": {
-  "Other": [
+  "Science & Discovery": [
+   "Emerging",
+   "warm"
+  ],
+  "Alignment & Safety": [
    "Double down",
    "good"
   ],
-  "AI Agents & Capabilities": [
-   "Reach engine",
-   "warm"
-  ],
   "Consciousness & Mind": [
+   "Double down",
+   "good"
+  ],
+  "Compute & Energy": [
+   "Base",
+   "muted"
+  ],
+  "Working With AI": [
+   "Double down",
+   "good"
+  ],
+  "AI Threats & Security": [
    "Double down",
    "good"
   ],
@@ -314,17 +344,17 @@
    "Double down",
    "good"
   ],
+  "Other": [
+   "Double down",
+   "good"
+  ],
+  "AI Agents & Capabilities": [
+   "Double down",
+   "good"
+  ],
   "Governance & Geopolitics": [
    "Reach engine",
    "warm"
-  ],
-  "Alignment & Safety": [
-   "Double down",
-   "good"
-  ],
-  "AI Threats & Security": [
-   "Double down",
-   "good"
   ],
   "Music (Classical Remix)": [
    "Double down",
@@ -333,12 +363,66 @@
  },
  "videos": [
   {
+   "id": "CkCozT3nUIg",
+   "url": "https://youtu.be/CkCozT3nUIg",
+   "t": "The Spatial Chain of Thought: Reasoning with Neural Cellular Automata (Google & Mila)",
+   "p": "2026-10-24",
+   "tp": "Science & Discovery",
+   "tc": "c-lime",
+   "v": 0,
+   "w": 0,
+   "a": 0,
+   "r": 0,
+   "L": 404,
+   "ret": 0,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "er": {},
+   "cat": "science",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "k-zRH2cbDOA",
+   "url": "https://youtu.be/k-zRH2cbDOA",
+   "t": "Anatomy of AI Deception: Inside Anthropic's UK AISI Alignment Investigation",
+   "p": "2026-10-24",
+   "tp": "Alignment & Safety",
+   "tc": "c-green",
+   "v": 0,
+   "w": 0,
+   "a": 0,
+   "r": 0,
+   "L": 647,
+   "ret": 0,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "er": {},
+   "cat": "agents",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
    "id": "LCn_xfbxfeA",
    "url": "https://youtu.be/LCn_xfbxfeA",
    "t": "The Autocomplete Theory of Everything: What AI Teaches Us About Life and Minds",
    "p": "2026-10-22",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Consciousness & Mind",
+   "tc": "c-violet",
    "v": 0,
    "w": 0,
    "a": 0,
@@ -354,7 +438,7 @@
     0
    ],
    "er": {},
-   "cat": "others",
+   "cat": "alien_mind",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -364,8 +448,8 @@
    "url": "https://youtu.be/vbRx1BNjJQk",
    "t": "Meta’s 30B Local Agent in 32GB VRAM: Muse Glimmer Explained | #Shorts",
    "p": "2026-10-22",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
+   "tp": "Compute & Energy",
+   "tc": "c-amber",
    "v": 0,
    "w": 0,
    "a": 0,
@@ -381,7 +465,7 @@
     0
    ],
    "er": {},
-   "cat": "how_we_build",
+   "cat": "compute",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -391,8 +475,8 @@
    "url": "https://youtu.be/qs438DSa2ZY",
    "t": "Squeezing an Autonomous Agent into 32GB: Inside Meta’s Muse Glimmer 30B",
    "p": "2026-10-22",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
+   "tp": "Compute & Energy",
+   "tc": "c-amber",
    "v": 0,
    "w": 0,
    "a": 0,
@@ -408,7 +492,7 @@
     0
    ],
    "er": {},
-   "cat": "how_we_build",
+   "cat": "compute",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -418,8 +502,8 @@
    "url": "https://youtu.be/MS4c5Dmiqec",
    "t": "How AI Transforms Office Roles: Inside Anthropic's Agentic Workplace",
    "p": "2026-10-20",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
+   "tp": "Working With AI",
+   "tc": "c-rose",
    "v": 12,
    "w": 20,
    "a": 237,
@@ -435,7 +519,7 @@
     1
    ],
    "er": {},
-   "cat": "how_we_build",
+   "cat": "working_with_ai",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -472,8 +556,8 @@
    "url": "https://youtu.be/4tJamjOCNno",
    "t": "The Sleep Deficit: Why AI Needs to \"Dream\" to Reach AGI",
    "p": "2026-10-19",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
+   "tp": "Consciousness & Mind",
+   "tc": "c-violet",
    "v": 24,
    "w": 9,
    "a": 52,
@@ -489,7 +573,7 @@
     0
    ],
    "er": {},
-   "cat": "how_we_build",
+   "cat": "alien_mind",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -499,8 +583,8 @@
    "url": "https://youtu.be/lZ_LLtp8Ulo",
    "t": "The Shadow Datacenter: Why AI Worms Are Targeting Your Smart TV",
    "p": "2026-10-18",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "AI Threats & Security",
+   "tc": "c-coral",
    "v": 7,
    "w": 6,
    "a": 123,
@@ -516,7 +600,7 @@
     0
    ],
    "er": {},
-   "cat": "others",
+   "cat": "agents",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -553,8 +637,8 @@
    "url": "https://youtu.be/GLLa6t_MQuA",
    "t": "The Convergence Point: When AI Worms Self-Replicate on Smart TVs",
    "p": "2026-10-17",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "AI Threats & Security",
+   "tc": "c-coral",
    "v": 2,
    "w": 1,
    "a": 111,
@@ -570,7 +654,7 @@
     0
    ],
    "er": {},
-   "cat": "others",
+   "cat": "agents",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -580,8 +664,8 @@
    "url": "https://youtu.be/UzrGSQ6-l6k",
    "t": "How to Be More Ambitious: A Tutorial for Humans with Models",
    "p": "2026-10-16",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Working With AI",
+   "tc": "c-rose",
    "v": 285,
    "w": 254,
    "a": 119,
@@ -599,7 +683,7 @@
    "er": {
     "Search / Web": 49
    },
-   "cat": "others",
+   "cat": "working_with_ai",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -665,8 +749,8 @@
    "url": "https://youtu.be/D-LV9YJN2ZM",
    "t": "The Convenience Paradox: Why the Internet of Things is Melting",
    "p": "2026-10-14",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "AI Threats & Security",
+   "tc": "c-coral",
    "v": 5,
    "w": 4,
    "a": 86,
@@ -682,7 +766,7 @@
     0
    ],
    "er": {},
-   "cat": "others",
+   "cat": "agents",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -692,8 +776,8 @@
    "url": "https://youtu.be/1_ziouTyRSo",
    "t": "The Model Is Inside the Company | #Shorts",
    "p": "2026-10-14",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Working With AI",
+   "tc": "c-rose",
    "v": 23,
    "w": 0,
    "a": 0,
@@ -709,7 +793,7 @@
     0
    ],
    "er": {},
-   "cat": "others",
+   "cat": "working_with_ai",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -746,8 +830,8 @@
    "url": "https://youtu.be/apIR1tdQnio",
    "t": "AI Can Discover. Can Science Keep Up? | #Shorts",
    "p": "2026-10-14",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Science & Discovery",
+   "tc": "c-lime",
    "v": 14,
    "w": 0,
    "a": 18,
@@ -763,7 +847,7 @@
     0
    ],
    "er": {},
-   "cat": "others",
+   "cat": "science",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -773,8 +857,8 @@
    "url": "https://youtu.be/7UPyRA9cBtE",
    "t": "The AI Bottleneck: Exponential Models, Linear World",
    "p": "2026-10-14",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Compute & Energy",
+   "tc": "c-amber",
    "v": 155,
    "w": 45,
    "a": 95,
@@ -790,7 +874,7 @@
     5
    ],
    "er": {},
-   "cat": "others",
+   "cat": "compute",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -827,8 +911,8 @@
    "url": "https://youtu.be/3jU2vzJQmhk",
    "t": "Bending the Curve of Discovery: When AI Makes Science Faster Than Verification",
    "p": "2026-10-13",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Science & Discovery",
+   "tc": "c-lime",
    "v": 2,
    "w": 4,
    "a": 277,
@@ -844,7 +928,7 @@
     0
    ],
    "er": {},
-   "cat": "others",
+   "cat": "science",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -854,8 +938,8 @@
    "url": "https://youtu.be/cRgmoG-XqkQ",
    "t": "Models as Insider Risks: Why AI Agents Need Zero-Trust Authority",
    "p": "2026-10-12",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
+   "tp": "AI Threats & Security",
+   "tc": "c-coral",
    "v": 8,
    "w": 9,
    "a": 279,
@@ -871,7 +955,7 @@
     0
    ],
    "er": {},
-   "cat": "how_we_build",
+   "cat": "agents",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -881,8 +965,8 @@
    "url": "https://youtu.be/pSjBdCtH5OM",
    "t": "How to Hire an AI Agent | #Shorts",
    "p": "2026-10-12",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
+   "tp": "Working With AI",
+   "tc": "c-rose",
    "v": 54,
    "w": 2,
    "a": 11,
@@ -900,7 +984,7 @@
    "er": {
     "Search / Web": 3
    },
-   "cat": "how_we_build",
+   "cat": "working_with_ai",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -910,8 +994,8 @@
    "url": "https://youtu.be/Vritr444eKs",
    "t": "The Grammar of Work: How LLMs Learn Career Moves",
    "p": "2026-10-12",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Working With AI",
+   "tc": "c-rose",
    "v": 11,
    "w": 1,
    "a": 10,
@@ -927,7 +1011,7 @@
     1
    ],
    "er": {},
-   "cat": "others",
+   "cat": "working_with_ai",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -937,8 +1021,8 @@
    "url": "https://youtu.be/ytIioQpavMw",
    "t": "Economics may be about to have its Nobel week. How LLMs Learn Career Moves by Susan Athey",
    "p": "2026-10-12",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Working With AI",
+   "tc": "c-rose",
    "v": 49,
    "w": 3,
    "a": 20,
@@ -954,7 +1038,7 @@
     0
    ],
    "er": {},
-   "cat": "others",
+   "cat": "working_with_ai",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -964,8 +1048,8 @@
    "url": "https://youtu.be/OxlxGcICwr8",
    "t": "Why Scale Keeps Winning in AI | #Shorts",
    "p": "2026-10-12",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Compute & Energy",
+   "tc": "c-amber",
    "v": 41,
    "w": 3,
    "a": 18,
@@ -981,7 +1065,7 @@
     0
    ],
    "er": {},
-   "cat": "others",
+   "cat": "compute",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -991,8 +1075,8 @@
    "url": "https://youtu.be/C_NeLevxNA0",
    "t": "Are AI Companions Real Attachments? | #Shorts",
    "p": "2026-10-11",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Consciousness & Mind",
+   "tc": "c-violet",
    "v": 27,
    "w": 0,
    "a": 7,
@@ -1008,7 +1092,7 @@
     0
    ],
    "er": {},
-   "cat": "others",
+   "cat": "alien_mind",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -1018,8 +1102,8 @@
    "url": "https://youtu.be/dluOrUva1m4",
    "t": "AI Is Exponential. The Grid Is Not. | #Shorts",
    "p": "2026-10-11",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Compute & Energy",
+   "tc": "c-amber",
    "v": 0,
    "w": 0,
    "a": 0,
@@ -1035,7 +1119,7 @@
     0
    ],
    "er": {},
-   "cat": "others",
+   "cat": "compute",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -1045,7 +1129,7 @@
    "url": "https://youtu.be/nKStpstLFj4",
    "t": "The West Is Shorting Itself | #Shorts",
    "p": "2026-10-11",
-   "tp": "Other",
+   "tp": "Governance & Geopolitics",
    "tc": "c-grey",
    "v": 0,
    "w": 0,
@@ -1099,8 +1183,8 @@
    "url": "https://youtu.be/pyeTLXTLB_s",
    "t": "How to Hire an AI Agent Without Breaking Your Workflow",
    "p": "2026-10-10",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
+   "tp": "Working With AI",
+   "tc": "c-rose",
    "v": 15,
    "w": 21,
    "a": 96,
@@ -1116,7 +1200,7 @@
     5
    ],
    "er": {},
-   "cat": "how_we_build",
+   "cat": "working_with_ai",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -1126,8 +1210,8 @@
    "url": "https://youtu.be/vsm1O5Czi5g",
    "t": "The Big Blob of Compute: Why Scale Keeps Winning in AI",
    "p": "2026-10-09",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Compute & Energy",
+   "tc": "c-amber",
    "v": 14,
    "w": 21,
    "a": 144,
@@ -1143,7 +1227,7 @@
     1
    ],
    "er": {},
-   "cat": "others",
+   "cat": "compute",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -1153,8 +1237,8 @@
    "url": "https://youtu.be/v14MUulexmk",
    "t": "Can Attachment Theory Explain AI Relationships?",
    "p": "2026-10-08",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Consciousness & Mind",
+   "tc": "c-violet",
    "v": 5,
    "w": 1,
    "a": 22,
@@ -1170,7 +1254,7 @@
     2
    ],
    "er": {},
-   "cat": "others",
+   "cat": "alien_mind",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -1180,8 +1264,8 @@
    "url": "https://youtu.be/8vRuH8d4DaQ",
    "t": "Why Smart People Struggle With AI (Full Deep Dive)",
    "p": "2026-10-07",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Working With AI",
+   "tc": "c-rose",
    "v": 59,
    "w": 12,
    "a": 45,
@@ -1199,7 +1283,7 @@
    "er": {
     "Search / Web": 1
    },
-   "cat": "others",
+   "cat": "working_with_ai",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -1239,8 +1323,8 @@
    "url": "https://youtu.be/Q0Enib1Hpj0",
    "t": "Claude-Shaped Science: AI as a Power Tool | #Shorts",
    "p": "2026-10-05",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Science & Discovery",
+   "tc": "c-lime",
    "v": 130,
    "w": 5,
    "a": 9,
@@ -1256,7 +1340,7 @@
     0
    ],
    "er": {},
-   "cat": "others",
+   "cat": "science",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -1266,8 +1350,8 @@
    "url": "https://youtu.be/1DcS5g765iY",
    "t": "The Machine That Documents Itself | #Shorts",
    "p": "2026-10-05",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Working With AI",
+   "tc": "c-rose",
    "v": 52,
    "w": 3,
    "a": 11,
@@ -1283,7 +1367,7 @@
     0
    ],
    "er": {},
-   "cat": "others",
+   "cat": "working_with_ai",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -1293,7 +1377,7 @@
    "url": "https://youtu.be/aca9XOhtIo4",
    "t": "The Great AI Split | #Shorts",
    "p": "2026-10-05",
-   "tp": "Other",
+   "tp": "Governance & Geopolitics",
    "tc": "c-grey",
    "v": 58,
    "w": 2,
@@ -1430,7 +1514,7 @@
    "url": "https://youtu.be/ECuneH0hPcg",
    "t": "Japan Tested US vs Chinese AI on Real Hacking: Claude Opus 4.8 vs GLM-5.2",
    "p": "2026-10-04",
-   "tp": "Other",
+   "tp": "Governance & Geopolitics",
    "tc": "c-grey",
    "v": 186,
    "w": 62,
@@ -1457,8 +1541,8 @@
    "url": "https://youtu.be/bBus4VKJJDI",
    "t": "Claude-Shaped Science: A Toolkit for Exact Calculations in Quantitative Research",
    "p": "2026-10-03",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Science & Discovery",
+   "tc": "c-lime",
    "v": 37,
    "w": 10,
    "a": 63,
@@ -1477,7 +1561,7 @@
     "Search / Web": 4,
     "Other sites": 1
    },
-   "cat": "others",
+   "cat": "science",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -1600,8 +1684,8 @@
    "url": "https://youtu.be/9Co7-zsVkVc",
    "t": "One Steering Wheel, Seventy-Four Drivers: Who Actually Controls You?",
    "p": "2026-10-02",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Alignment & Safety",
+   "tc": "c-green",
    "v": 335,
    "w": 81,
    "a": 62,
@@ -1619,8 +1703,8 @@
    "er": {
     "Search / Web": 1
    },
-   "cat": "others",
-   "comp": "Can We Trust AI? The Alignment Problem",
+   "cat": "agents",
+   "comp": "Can We Trust AI? The Alignment Problem, Explained (Full Compilation)",
    "comp_status": "live",
    "cn": [
     5
@@ -1685,8 +1769,8 @@
    "url": "https://youtu.be/zrQCToSha8I",
    "t": "How AI Could Wake Up | #Shorts",
    "p": "2026-09-29",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Consciousness & Mind",
+   "tc": "c-violet",
    "v": 9,
    "w": 0,
    "a": 11,
@@ -1702,61 +1786,7 @@
     0
    ],
    "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": "",
-   "cn": []
-  },
-  {
-   "id": "zKndSEJBW7U",
-   "url": "https://youtu.be/zKndSEJBW7U",
-   "t": "2 Students Built an AI Zero-Day Factory | #Shorts",
-   "p": "2026-09-30",
-   "tp": "AI Threats & Security",
-   "tc": "c-coral",
-   "v": 10,
-   "w": 0,
-   "a": 20,
-   "r": 0.0,
-   "L": 92,
-   "ret": 22,
-   "geo": "-",
-   "sh": true,
-   "tb": [
-    0,
-    2,
-    8,
-    0
-   ],
-   "er": {},
-   "cat": "agents",
-   "comp": "",
-   "comp_status": "",
-   "cn": []
-  },
-  {
-   "id": "zrQCToSha8I",
-   "url": "https://youtu.be/zrQCToSha8I",
-   "t": "How AI Could Wake Up | #Shorts",
-   "p": "2026-09-29",
-   "tp": "Other",
-   "tc": "c-grey",
-   "v": 9,
-   "w": 0,
-   "a": 11,
-   "r": 0.002,
-   "L": 76,
-   "ret": 15,
-   "geo": "-",
-   "sh": true,
-   "tb": [
-    2,
-    0,
-    7,
-    0
-   ],
-   "er": {},
-   "cat": "others",
+   "cat": "alien_mind",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -1811,7 +1841,7 @@
    ],
    "er": {},
    "cat": "alien_mind",
-   "comp": "Can We Trust AI? The Alignment Problem",
+   "comp": "Can We Trust AI? The Alignment Problem, Explained (Full Compilation)",
    "comp_status": "live",
    "cn": [
     5
@@ -1845,6 +1875,60 @@
    "cn": [
     6
    ]
+  },
+  {
+   "id": "8D7Yt0xcAZM",
+   "url": "https://youtu.be/8D7Yt0xcAZM",
+   "t": "Can We Trust AI? #Shorts",
+   "p": "2026-09-27",
+   "tp": "Other",
+   "tc": "c-grey",
+   "v": 22,
+   "w": 1,
+   "a": 12,
+   "r": 0.002,
+   "L": 14,
+   "ret": 92,
+   "geo": "-",
+   "sh": true,
+   "tb": [
+    1,
+    4,
+    17,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "bDN2Xtzba5E",
+   "url": "https://youtu.be/bDN2Xtzba5E",
+   "t": "Can We Trust AI? The Alignment Problem, Explained (Full Compilation)",
+   "p": "2026-09-27",
+   "tp": "Alignment & Safety",
+   "tc": "c-green",
+   "v": 52,
+   "w": 100,
+   "a": 158,
+   "r": 0.106,
+   "L": 2402,
+   "ret": 7,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    18,
+    18,
+    0,
+    16
+   ],
+   "er": {},
+   "cat": "agents",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "CKBcyUChfUw",
@@ -1909,8 +1993,8 @@
    "url": "https://youtu.be/-XladWF4a2s",
    "t": "The Frozen Self: What Frictionless AI Costs Us #Shorts",
    "p": "2026-09-27",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Working With AI",
+   "tc": "c-rose",
    "v": 8,
    "w": 0,
    "a": 9,
@@ -1926,7 +2010,7 @@
     0
    ],
    "er": {},
-   "cat": "others",
+   "cat": "working_with_ai",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -1936,8 +2020,8 @@
    "url": "https://youtu.be/abQZybyIhc0",
    "t": "The Frozen Self: Why We Need Friction in the Age of AI",
    "p": "2026-09-27",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Working With AI",
+   "tc": "c-rose",
    "v": 28,
    "w": 39,
    "a": 103,
@@ -1955,7 +2039,7 @@
    "er": {
     "X / Twitter": 1
    },
-   "cat": "others",
+   "cat": "working_with_ai",
    "comp": "How We Build: Engineering in the Age of AI",
    "comp_status": "live",
    "cn": [
@@ -1967,8 +2051,8 @@
    "url": "https://youtu.be/pJOl7W2NlM0",
    "t": "Aligning AI Isn't Enough #Shorts",
    "p": "2026-09-26",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Alignment & Safety",
+   "tc": "c-green",
    "v": 28,
    "w": 2,
    "a": 34,
@@ -1984,7 +2068,7 @@
     0
    ],
    "er": {},
-   "cat": "others",
+   "cat": "agents",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -1994,8 +2078,8 @@
    "url": "https://youtu.be/wyr012lwiHc",
    "t": "The Machine That Documents Itself",
    "p": "2026-09-26",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Working With AI",
+   "tc": "c-rose",
    "v": 203,
    "w": 87,
    "a": 55,
@@ -2011,7 +2095,7 @@
     15
    ],
    "er": {},
-   "cat": "others",
+   "cat": "working_with_ai",
    "comp": "AI Will Do the Work. Who Gets Paid?",
    "comp_status": "live",
    "cn": [
@@ -2023,8 +2107,8 @@
    "url": "https://youtu.be/aNcyXt0Rvgs",
    "t": "Engineering's Great Flip: 80% Code to 80% Spec #Shorts",
    "p": "2026-09-26",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "AI Agents & Capabilities",
+   "tc": "c-teal",
    "v": 1384,
    "w": 36,
    "a": 12,
@@ -2040,7 +2124,7 @@
     0
    ],
    "er": {},
-   "cat": "others",
+   "cat": "how_we_build",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -2079,8 +2163,8 @@
    "url": "https://youtu.be/9Xw9XLNFF60",
    "t": "Engineering's Great Flip: From 80% Implementation to 80% Specification",
    "p": "2026-09-26",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "AI Agents & Capabilities",
+   "tc": "c-teal",
    "v": 38,
    "w": 12,
    "a": 79,
@@ -2096,7 +2180,7 @@
     0
    ],
    "er": {},
-   "cat": "others",
+   "cat": "how_we_build",
    "comp": "How We Build: Engineering in the Age of AI",
    "comp_status": "live",
    "cn": [
@@ -2108,8 +2192,8 @@
    "url": "https://youtu.be/YJM-GE_LDyQ",
    "t": "AI writes the code now. We architect the system. #Shorts",
    "p": "2026-09-25",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "AI Agents & Capabilities",
+   "tc": "c-teal",
    "v": 20,
    "w": 0,
    "a": 10,
@@ -2125,7 +2209,7 @@
     0
    ],
    "er": {},
-   "cat": "others",
+   "cat": "how_we_build",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -2135,8 +2219,8 @@
    "url": "https://youtu.be/GAo6b6DKay0",
    "t": "How We Build: Engineering in the Age of AI (Full Compilation)",
    "p": "2026-09-25",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "AI Agents & Capabilities",
+   "tc": "c-teal",
    "v": 106,
    "w": 80,
    "a": 123,
@@ -2152,7 +2236,7 @@
     2
    ],
    "er": {},
-   "cat": "others",
+   "cat": "how_we_build",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -2367,7 +2451,7 @@
    "url": "https://youtu.be/xljmWkU5BEM",
    "t": "The Best Free AI Models Are Now Chinese #Shorts",
    "p": "2026-09-21",
-   "tp": "Other",
+   "tp": "Governance & Geopolitics",
    "tc": "c-grey",
    "v": 49,
    "w": 1,
@@ -2508,8 +2592,8 @@
    "url": "https://youtu.be/smTNd7SVemo",
    "t": "AI Saves Scientists 7 Hours a Week. Where Did It Go? | #Shorts",
    "p": "2026-09-21",
-   "tp": "Economy & Work",
-   "tc": "c-warm",
+   "tp": "Science & Discovery",
+   "tc": "c-lime",
    "v": 450,
    "w": 27,
    "a": 10,
@@ -2525,7 +2609,7 @@
     0
    ],
    "er": {},
-   "cat": "economics",
+   "cat": "science",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -2643,8 +2727,8 @@
    "url": "https://youtu.be/1TTTpFG5vSs",
    "t": "AI Saves Scientists 7 Hours a Week: Google's AI in Science Report",
    "p": "2026-09-20",
-   "tp": "Economy & Work",
-   "tc": "c-warm",
+   "tp": "Science & Discovery",
+   "tc": "c-lime",
    "v": 17,
    "w": 23,
    "a": 175,
@@ -2660,7 +2744,7 @@
     1
    ],
    "er": {},
-   "cat": "economics",
+   "cat": "science",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -2837,7 +2921,7 @@
    ],
    "er": {},
    "cat": "agents",
-   "comp": "Can We Trust AI? The Alignment Problem",
+   "comp": "Can We Trust AI? The Alignment Problem, Explained (Full Compilation)",
    "comp_status": "live",
    "cn": [
     5
@@ -3069,7 +3153,7 @@
     "X / Twitter": 8
    },
    "cat": "alien_mind",
-   "comp": "Can We Trust AI? The Alignment Problem",
+   "comp": "Can We Trust AI? The Alignment Problem, Explained (Full Compilation)",
    "comp_status": "live",
    "cn": [
     1,
@@ -3108,8 +3192,8 @@
    "url": "https://youtu.be/KbxsK1LlVSw",
    "t": "Secure Your API Keys: How Stolen Keys Became the AI Underworld's Free Weapon",
    "p": "2026-09-15",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "AI Threats & Security",
+   "tc": "c-coral",
    "v": 135,
    "w": 26,
    "a": 55,
@@ -3122,33 +3206,6 @@
     112,
     23,
     0,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": "",
-   "cn": []
-  },
-  {
-   "id": "zKndSEJBW7U",
-   "url": "https://youtu.be/zKndSEJBW7U",
-   "t": "2 Students Built an AI Zero-Day Factory | #Shorts",
-   "p": "2026-09-30",
-   "tp": "AI Threats & Security",
-   "tc": "c-coral",
-   "v": 10,
-   "w": 0,
-   "a": 20,
-   "r": 0.0,
-   "L": 92,
-   "ret": 22,
-   "geo": "-",
-   "sh": true,
-   "tb": [
-    0,
-    2,
-    8,
     0
    ],
    "er": {},
@@ -3158,82 +3215,28 @@
    "cn": []
   },
   {
-   "id": "zrQCToSha8I",
-   "url": "https://youtu.be/zrQCToSha8I",
-   "t": "How AI Could Wake Up | #Shorts",
-   "p": "2026-09-29",
-   "tp": "Other",
-   "tc": "c-grey",
-   "v": 9,
-   "w": 0,
-   "a": 11,
-   "r": 0.002,
-   "L": 76,
-   "ret": 15,
-   "geo": "-",
-   "sh": true,
-   "tb": [
-    2,
-    0,
-    7,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": "",
-   "cn": []
-  },
-  {
-   "id": "n0J3a4-1rmY",
-   "url": "https://youtu.be/n0J3a4-1rmY",
-   "t": "Two Students Built an AI Zero-Day Factory: Inside China's Autonomous Exploit Foundry",
-   "p": "2026-09-20",
-   "tp": "Governance & Geopolitics",
-   "tc": "c-grey",
-   "v": 22,
-   "w": 17,
-   "a": 76,
-   "r": 0.052,
-   "L": 237,
-   "ret": 32,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    15,
-    5,
-    0,
-    2
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": "",
-   "cn": []
-  },
-  {
-   "id": "KbxsK1LlVSw",
-   "url": "https://youtu.be/KbxsK1LlVSw",
-   "t": "Secure Your API Keys: How Stolen Keys Became the AI Underworld's Free Weapon",
+   "id": "FZOtsKBV-hU",
+   "url": "https://youtu.be/FZOtsKBV-hU",
+   "t": "Pace, Not Pause: What Amodei Actually Proposed to Slow Down AI",
    "p": "2026-09-15",
-   "tp": "Other",
-   "tc": "c-grey",
-   "v": 135,
-   "w": 26,
-   "a": 55,
-   "r": 0.004,
-   "L": 305,
-   "ret": 18,
+   "tp": "Alignment & Safety",
+   "tc": "c-green",
+   "v": 25,
+   "w": 6,
+   "a": 82,
+   "r": 0.005,
+   "L": 284,
+   "ret": 29,
    "geo": "-",
    "sh": false,
    "tb": [
-    112,
-    23,
+    11,
+    14,
     0,
     0
    ],
    "er": {},
-   "cat": "others",
+   "cat": "agents",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -3411,7 +3414,7 @@
     "Other sites": 2
    },
    "cat": "agents",
-   "comp": "Can We Trust AI? The Alignment Problem",
+   "comp": "Can We Trust AI? The Alignment Problem, Explained (Full Compilation)",
    "comp_status": "live",
    "cn": [
     3,
@@ -3634,8 +3637,8 @@
    "url": "https://youtu.be/Gzf6kTOkOjA",
    "t": "You Can Read a Pocket AI's Hidden Feelings | #Shorts",
    "p": "2026-09-09",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Consciousness & Mind",
+   "tc": "c-violet",
    "v": 19,
    "w": 1,
    "a": 17,
@@ -3651,7 +3654,7 @@
     0
    ],
    "er": {},
-   "cat": "others",
+   "cat": "alien_mind",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -3755,8 +3758,8 @@
    "url": "https://youtu.be/kcsRZBoBg1I",
    "t": "Working Well With AI Is Its Own Skill | #Shorts",
    "p": "2026-09-08",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Working With AI",
+   "tc": "c-rose",
    "v": 7,
    "w": 0,
    "a": 6,
@@ -3772,7 +3775,7 @@
     0
    ],
    "er": {},
-   "cat": "others",
+   "cat": "working_with_ai",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -3782,8 +3785,8 @@
    "url": "https://youtu.be/sWQAhX_ASvs",
    "t": "Human-AI Synergy: Why Teamwork With AI Is Its Own Skill",
    "p": "2026-09-08",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Working With AI",
+   "tc": "c-rose",
    "v": 31,
    "w": 5,
    "a": 13,
@@ -3802,7 +3805,7 @@
     "Search / Web": 1,
     "Other sites": 1
    },
-   "cat": "others",
+   "cat": "working_with_ai",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -4192,8 +4195,8 @@
    "url": "https://youtu.be/sxEGVS8Pb3Q",
    "t": "Could an AI Ever Wake Up? | #Shorts",
    "p": "2026-08-30",
-   "tp": "Other",
-   "tc": "c-grey",
+   "tp": "Consciousness & Mind",
+   "tc": "c-violet",
    "v": 29,
    "w": 4,
    "a": 36,
@@ -4209,7 +4212,7 @@
     0
    ],
    "er": {},
-   "cat": "others",
+   "cat": "alien_mind",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -4457,8 +4460,8 @@
    "url": "https://youtu.be/RRpWWyRmytQ",
    "t": "The Ghost of Fiber-Optic Economics: Will Edge Inference Crash the AI Data-Center Boom?",
    "p": "2026-08-22",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
+   "tp": "Compute & Energy",
+   "tc": "c-amber",
    "v": 3,
    "w": 0,
    "a": 0,
@@ -4474,7 +4477,7 @@
     0
    ],
    "er": {},
-   "cat": "how_we_build",
+   "cat": "compute",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -5949,28 +5952,30 @@
    "cn": []
   },
   {
-   "id": "ahoCQCb13fc",
-   "url": "https://youtu.be/ahoCQCb13fc",
-   "t": "Night on the Bare Mountain — Vallenato Remix | Classical Goes Latin",
+   "id": "y5-HEkhGdhM",
+   "url": "https://youtu.be/y5-HEkhGdhM",
+   "t": "Liszt's Hungarian Rhapsody No. 2 — Vallenato Remix | Classical Goes Latin",
    "p": "2026-04-03",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 1899,
-   "w": 635,
-   "a": 31,
-   "r": 0.001,
-   "L": 118,
-   "ret": 26,
+   "v": 846578,
+   "w": 1063855,
+   "a": 95,
+   "r": 0.095,
+   "L": 261,
+   "ret": 37,
    "geo": "IN",
    "sh": false,
    "tb": [
-    1895,
+    681738,
+    181,
     0,
-    0,
-    4
+    164659
    ],
    "er": {
-    "LinkedIn": 1
+    "Other sites": 508,
+    "Messaging": 10,
+    "Search / Web": 6
    },
    "cat": "others",
    "comp": "",
@@ -5978,86 +5983,27 @@
    "cn": []
   },
   {
-   "id": "1_Ni4luzncg",
-   "url": "https://youtu.be/1_Ni4luzncg",
-   "t": "In the Hall of the Mountain King — Vallenato Remix | Classical Goes Latin",
+   "id": "TI8sLP13nE4",
+   "url": "https://youtu.be/TI8sLP13nE4",
+   "t": "Carmina Burana — Vallenato Remix | Classical Goes Latin",
    "p": "2026-04-03",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 80,
-   "w": 43,
-   "a": 32,
-   "r": 0.001,
-   "L": 148,
-   "ret": 22,
+   "v": 1189,
+   "w": 336,
+   "a": 16,
+   "r": 0.0,
+   "L": 169,
+   "ret": 10,
    "geo": "IN",
    "sh": false,
    "tb": [
-    75,
-    4,
+    1173,
+    9,
     0,
-    1
+    7
    ],
    "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": "",
-   "cn": []
-  },
-  {
-   "id": "-KCfpv6WXVc",
-   "url": "https://youtu.be/-KCfpv6WXVc",
-   "t": "Beethoven 9th Symphony second movement EDM remix",
-   "p": "2026-04-08",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 313,
-   "w": 201,
-   "a": 40,
-   "r": 0.026,
-   "L": 132,
-   "ret": 31,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    181,
-    110,
-    0,
-    22
-   ],
-   "er": {
-    "Search / Web": 2,
-    "Messaging": 1
-   },
-   "cat": "others",
-   "comp": "",
-   "comp_status": "",
-   "cn": []
-  },
-  {
-   "id": "Cm53Z8BoIYw",
-   "url": "https://youtu.be/Cm53Z8BoIYw",
-   "t": "Danse Macabre reimagined in Progressive House.",
-   "p": "2026-04-07",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 25,
-   "w": 8,
-   "a": 20,
-   "r": 0.0,
-   "L": 69,
-   "ret": 30,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    23,
-    1,
-    0,
-    1
-   ],
-   "er": {
-    "Search / Web": 1
-   },
    "cat": "others",
    "comp": "",
    "comp_status": "",
@@ -6256,7 +6202,7 @@
    "geo": "IN",
    "sh": false,
    "tb": [
-    989750,
+    989752,
     173,
     0,
     139856
@@ -7339,165 +7285,25 @@
    "cn": []
   },
   {
-   "id": "C_5j02MH_Ro",
-   "url": "https://youtu.be/C_5j02MH_Ro",
-   "t": "We took a classic from the Police, did a Medley and remixed it in Celtic style #music #thepolice",
+   "id": "aJmfE6l1Jko",
+   "url": "https://youtu.be/aJmfE6l1Jko",
+   "t": "Beethoven's Ode to Joy - Tropical House Remix",
    "p": "2026-03-01",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 341,
+   "v": 43,
    "w": 15,
-   "a": 11,
-   "r": 0.0,
-   "L": 31,
-   "ret": 39,
-   "geo": "CH",
-   "sh": true,
-   "tb": [
-    13,
-    2,
-    326,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": "",
-   "cn": []
-  },
-  {
-   "id": "enD3v_ebx-w",
-   "url": "https://youtu.be/enD3v_ebx-w",
-   "t": "The Lost Coins: A cyber triller. https://scifibymiguel.substack.com/",
-   "p": "2026-03-01",
-   "tp": "Other",
-   "tc": "c-grey",
-   "v": 41,
-   "w": 11,
-   "a": 37,
-   "r": 0.0,
-   "L": 168,
-   "ret": 22,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    2,
-    1,
-    38,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": "",
-   "cn": []
-  },
-  {
-   "id": "-KCfpv6WXVc",
-   "url": "https://youtu.be/-KCfpv6WXVc",
-   "t": "Beethoven 9th Symphony second movement EDM remix",
-   "p": "2026-04-08",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 313,
-   "w": 201,
-   "a": 40,
-   "r": 0.026,
-   "L": 132,
-   "ret": 31,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    181,
-    110,
-    0,
-    22
-   ],
-   "er": {
-    "Search / Web": 2,
-    "Messaging": 1
-   },
-   "cat": "others",
-   "comp": "",
-   "comp_status": "",
-   "cn": []
-  },
-  {
-   "id": "Cm53Z8BoIYw",
-   "url": "https://youtu.be/Cm53Z8BoIYw",
-   "t": "Danse Macabre reimagined in Progressive House.",
-   "p": "2026-04-07",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 25,
-   "w": 8,
-   "a": 20,
-   "r": 0.0,
-   "L": 69,
-   "ret": 30,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    23,
-    1,
-    0,
-    1
-   ],
-   "er": {
-    "Search / Web": 1
-   },
-   "cat": "others",
-   "comp": "",
-   "comp_status": "",
-   "cn": []
-  },
-  {
-   "id": "DrqkN4Axndg",
-   "url": "https://youtu.be/DrqkN4Axndg",
-   "t": "Chopin's Nocturne — Tropical House Remix | Classical Meets the Beach",
-   "p": "2026-04-02",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 19,
-   "w": 16,
-   "a": 51,
-   "r": 0.0,
-   "L": 126,
-   "ret": 41,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    15,
-    3,
-    0,
-    1
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": "",
-   "cn": []
-  },
-  {
-   "id": "S0ZlSxGhWhk",
-   "url": "https://youtu.be/S0ZlSxGhWhk",
-   "t": "Carmina Burana — reimagined as Tropical House.",
-   "p": "2026-04-02",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 16,
-   "w": 5,
-   "a": 19,
-   "r": 0.0,
-   "L": 69,
+   "a": 23,
+   "r": 0.01,
+   "L": 80,
    "ret": 29,
    "geo": "-",
    "sh": false,
    "tb": [
+    28,
     12,
-    3,
     0,
-    1
+    3
    ],
    "er": {},
    "cat": "others",
@@ -7579,6 +7385,33 @@
     0,
     13,
     0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "3LL99dYlGYc",
+   "url": "https://youtu.be/3LL99dYlGYc",
+   "t": "Vivaldi Four Seasons- Winter  Celtic remix",
+   "p": "2026-02-27",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 94,
+   "w": 59,
+   "a": 38,
+   "r": 0.0,
+   "L": 119,
+   "ret": 33,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    83,
+    9,
+    0,
+    2
    ],
    "er": {},
    "cat": "others",
@@ -8741,33 +8574,6 @@
    "cn": []
   },
   {
-   "id": "m6By4si6Z8k",
-   "url": "https://youtu.be/m6By4si6Z8k",
-   "t": "Danse Macabre Irish Folk Fusion",
-   "p": "2026-02-07",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 9714,
-   "w": 1726,
-   "a": 22,
-   "r": 0.0,
-   "L": 31,
-   "ret": 72,
-   "geo": "IN",
-   "sh": true,
-   "tb": [
-    8370,
-    32,
-    1310,
-    2
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": "",
-   "cn": []
-  },
-  {
    "id": "X0tyvUUqIAo",
    "url": "https://youtu.be/X0tyvUUqIAo",
    "t": "Danse Macabre – Vallenato Remix | Saint-Saëns Goes Latin",
@@ -8795,54 +8601,24 @@
    "cn": []
   },
   {
-   "id": "-KCfpv6WXVc",
-   "url": "https://youtu.be/-KCfpv6WXVc",
-   "t": "Beethoven 9th Symphony second movement EDM remix",
-   "p": "2026-04-08",
+   "id": "mJq7mslHKLk",
+   "url": "https://youtu.be/mJq7mslHKLk",
+   "t": "In the Hall of the Mountain King – EDM Festival Remix | Epic Drop",
+   "p": "2026-02-07",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 313,
-   "w": 201,
-   "a": 40,
-   "r": 0.026,
-   "L": 132,
-   "ret": 31,
-   "geo": "-",
-   "sh": false,
+   "v": 1149,
+   "w": 169,
+   "a": 13,
+   "r": 0.023,
+   "L": 31,
+   "ret": 44,
+   "geo": "US",
+   "sh": true,
    "tb": [
-    181,
-    110,
-    0,
-    22
-   ],
-   "er": {
-    "Search / Web": 2,
-    "Messaging": 1
-   },
-   "cat": "others",
-   "comp": "",
-   "comp_status": "",
-   "cn": []
-  },
-  {
-   "id": "DrqkN4Axndg",
-   "url": "https://youtu.be/DrqkN4Axndg",
-   "t": "Chopin's Nocturne — Tropical House Remix | Classical Meets the Beach",
-   "p": "2026-04-02",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 19,
-   "w": 16,
-   "a": 51,
-   "r": 0.0,
-   "L": 126,
-   "ret": 41,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    15,
-    3,
-    0,
+    49,
+    299,
+    800,
     1
    ],
    "er": {},
