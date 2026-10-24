@@ -180,6 +180,13 @@ The pipeline fetches credentials dynamically via the centralized **Infisical EU 
    - **French Dub**: `rS7c1woNY04WT3UAS83Y` (ElevenLabs Multilingual v2)
    - **Local Kokoro Fallback**: If ElevenLabs quota is ever fully exhausted, the local Kokoro engine is available in `.venv312` (`af_bella` for EN, `cryptomilk/kokoro-german-kerstin` for DE, `ff_siwis` for FR, `jf_alpha` for JA).
 
+### 2026-10-24 Batch
+
+| Job | Long (Private) | Localizations | Staged Assets |
+| --- | --- | --- | --- |
+| `ts-20261024-an-alignment-assessment-of-the-uk-aisi-cybertesting-incident` | `https://www.youtube.com/watch?v=k-zRH2cbDOA` (Private) | EN, DE, FR, JA | `~/Downloads/tech-shorts-captions/an-alignment-assessment-of-the-uk-aisi-cybertesting-incident/` |
+| `ts-20261024-reasoning-with-neural-cellular-automata-nca` | `https://www.youtube.com/watch?v=CkCozT3nUIg` (Private) | EN, DE, FR, JA | `~/Downloads/tech-shorts-captions/reasoning-with-neural-cellular-automata-nca/` |
+
 ### 2026-10-22 Batch
 
 | Job | Long (Published) | Localizations | Staged Assets |
