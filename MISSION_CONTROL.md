@@ -1103,7 +1103,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **tbu8o19y** | ABR-W10: wiki abrasivos — No tejido (Bear-Tex / Vlies) | codi | in_work | Escribir la página 'no-tejido' del wiki de la cole... |
+| **tbu8o19y** | ABR-W10: wiki abrasivos — No tejido (Bear-Tex / Vlies) | codi | merged | Escribir la página 'no-tejido' del wiki de la cole... |
 | **5319xg2l** | ABR-W11: wiki abrasivos — Pulido y pastas | codi | planned | Escribir la página 'pulido' del wiki de la colecci... |
 | **e4byt8b4** | ABR-W12: wiki abrasivos — Piedras de afilar | codi | in_work | Escribir la página 'piedras-afilar' del wiki de la... |
 
