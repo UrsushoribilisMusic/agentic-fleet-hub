@@ -1097,7 +1097,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **kuu91cr1** | ABR-W2: wiki abrasivos — Herramienta de diamante y CBN | clau | merged | Escribir la página 'diamante-herramienta' del wiki... |
 | **7xii1hzm** | ABR-W3: wiki abrasivos — Muelas aglomeradas para rectificado | clau | merged | Escribir la página 'muelas-aglomeradas' del wiki d... |
 | **vmwbzw1h** | ABR-W5: wiki abrasivos — Lija en hoja | codi | merged | Escribir la página 'lija-hoja' del wiki de la cole... |
-| **dfushbdb** | ABR-W6: wiki abrasivos — Lija en disco | clau | in_work | Escribir la página 'lija-disco' del wiki de la col... |
+| **dfushbdb** | ABR-W6: wiki abrasivos — Lija en disco | clau | merged | Escribir la página 'lija-disco' del wiki de la col... |
 | **gmuw7aob** | ABR-W7: wiki abrasivos — Bandas abrasivas | clau | merged | Escribir la página 'bandas' del wiki de la colecci... |
 | **tfj4arl1** | ABR-W8: wiki abrasivos — Rollos abrasivos | codi | planned | Escribir la página 'rollos' del wiki de la colecci... |
 | **fn6tcnl5** | ABR-W9: wiki abrasivos — Discos de láminas y fibrodiscos | codi | planned | Escribir la página 'flap-fibrodiscos' del wiki de ... |
