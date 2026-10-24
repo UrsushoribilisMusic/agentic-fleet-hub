@@ -7,3 +7,5 @@
 5. Commit source and deployment artifact, report evidence, leave ticket in peer_review.
 
 Downloads is restricted by macOS. The updated playbook in sovereign-mind/collections/abrasivos explicitly provides the repository workflow.
+
+Completed: deployed through locked helper; production renderer returned four tables and 29 rows; source resolves; active/pending ACL grants checked after restart. Source/wiki pushed in sovereign-mind commit 8a5bb6c. Ticket moved to peer_review.
