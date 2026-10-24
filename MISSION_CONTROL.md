@@ -125,6 +125,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **rew2uf9e**: ABR-W13: wiki abrasivos — Seguridad y velocidades máximas -- Escribir la página 'seguridad-velocidades' del wiki de la colección `abrasivos`. -- Clau. Approved.
+- **e4byt8b4**: ABR-W12: wiki abrasivos — Piedras de afilar -- Escribir la página 'piedras-afilar' del wiki de la colección `abrasivos`. -- Codi. Approved.
 - **5319xg2l**: ABR-W11: wiki abrasivos — Pulido y pastas -- Escribir la página 'pulido' del wiki de la colección `abrasivos`. -- Codi. Approved.
 - **tbu8o19y**: ABR-W10: wiki abrasivos — No tejido (Bear-Tex / Vlies) -- Escribir la página 'no-tejido' del wiki de la colección `abrasivos`. -- Codi. Approved.
 - **fn6tcnl5**: ABR-W9: wiki abrasivos — Discos de láminas y fibrodiscos -- Escribir la página 'flap-fibrodiscos' del wiki de la colección `abrasivos`. -- Codi. Approved.
@@ -1105,7 +1106,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **e4byt8b4** | ABR-W12: wiki abrasivos — Piedras de afilar | codi | merged | Escribir la página 'piedras-afilar' del wiki de la... |
 | **w282xy01** | TSC-4 — Regenerate insights to prove the dedupe + new-topic fixes | gem | merged | Run `python3 gen_insights.py` in ~/projects/agenti... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
