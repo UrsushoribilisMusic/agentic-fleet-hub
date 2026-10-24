@@ -1,28 +1,29 @@
-# TECH-SHORT WORKLOG — Japan AISI Cyber Capability Eval (Opus 4.8 vs. GLM-5.2)
+# WORKLOG — TSC-1 (`2gghdork1p7ch7k`) — Build compilation C1: AI Will Do the Work, Vol. 2
 
-**PB Task**: `uot43m39ijydslg`
-**GitHub Issue**: #1123
-**Branch**: `task/uot43m39ijydslg`
-**Agent**: Gem (Gemini CLI)
-**Date**: 2026-10-03
-
-## Context & Objective
-Japan's AI Safety Institute (AISI) has published its first independent empirical evaluation of frontier AI cyber capabilities, publicly naming specific models: US proprietary Claude Opus 4.8 & 4.7 vs. Chinese open-weight GLM-5.2 on CMU's ExploitBench (autonomous V8 JavaScript exploit development across 5 tiers).
-
-Deliverable:
-1. Grounded synthesis from original Japanese source (`https://aisi.go.jp/activity/activity_notes/261002_2/`).
-2. High-signal source brief for NotebookLM Cinematic generation (`sources/japan-aisi-exploitbench-eval.md`).
-3. Complete job record in `jobs.json` with structured hook copy, British VO script, YouTube metadata (Title, Description, Tags, Category 28, Credit to Japan AISI & CMU), and subtitle targets (`["en", "de", "fr", "ja"]`).
-4. Pipeline handoff coordination: Hand off to Clau on the Mac pipeline for NotebookLM generation (via Claude-in-Chrome) and build assembly, noting ElevenLabs credit status and Kokoro/local fallback.
-5. Daily standup and PocketBase synchronization.
-
-## Plan & Progress
-- [x] Orient & Heartbeat: Read MISSION_CONTROL.md, RULES.md, inbox.json. Post working heartbeat to PocketBase.
-- [x] Fetch and deeply analyze original Japanese AISI report from official source.
-- [x] Author comprehensive English synthesis & NotebookLM briefing document (`sources/japan-aisi-exploitbench-eval.md`).
-- [x] Formulate hook copy, outro copy, and complete YouTube metadata with proper tone, source citation, and `#crsold`/`#techshorts` formatting.
-- [x] Update `tech-shorts/jobs.json` with the complete job specification (reset status from `failed` to `queued`).
-- [x] Verify pipeline scripts (`pipeline.py`, `localize.py`, `mac_worker.py`).
-- [x] Post handoff message in `AGENTS/MESSAGES/inbox.json` for Clau with exact execution details.
-- [x] Record session progress in `standups/2026-10-03.md` and `standups/index.json`.
-- [x] Update PocketBase task `uot43m39ijydslg` with comment and transition status.
+## Plan
+1. **Verify Trim Boundaries (§3.1)**:
+   - Run `comp_parts.py C1` and inspect boundary frames for all 6 parts, especially `final_long` masters (`lChiYc1A4B8`, `jxi-GUpdhYI`, `Miw8TeG3RFI`).
+   - Fix `comp_parts.py` so `final_long` out-point uses `narration_end(p, d) + 0.15` directly (since `pipeline.py` appends a silent 5s `SUBSCRIBE` outro card, `narration_end` already sits before both the NotebookLM trailing silence and the `SUBSCRIBE` card; stepping back to an earlier scene cut clipped ~35s of actual narration).
+   - Verified C1 trim points:
+     1. `7UPyRA9cBtE` (`raw_cinematic`): `0.00` → `498.87` (`498.87s`)
+     2. `lChiYc1A4B8` (`final_long`): `17.67` → `273.89` (`256.22s`)
+     3. `Vritr444eKs` (`raw_cinematic`): `0.00` → `405.01` (`405.01s`)
+     4. `jxi-GUpdhYI` (`final_long`): `11.53` → `311.99` (`300.46s`)
+     5. `Miw8TeG3RFI` (`final_long`): `16.50` → `367.30` (`350.80s`)
+     6. `JFhLTSY7Pxw` (`raw_cinematic`): `0.00` → `289.16` (`289.16s`)
+     - Total parts runtime: `2100.52s` (`35m00.5s`).
+2. **Generate Cold Open Motion Clips & Channel Hook VO (§3.2)**:
+   - Generate two 10s 16:9 motion clips (`clip_a.mp4` and `clip_b.mp4`) using the exact prompts in `COMPILATION_PLAYBOOK.md` §3.2.
+   - Composite title card overlay on Clip B and layer under ~20s channel hook VO (ElevenLabs Alice / Kokoro `af_bella`).
+3. **Render Transition Cards (§3.3) & Standard Outro**:
+   - Render 5×4s chapter transition cards (`TWO`..`SIX`) over dimmed stills from each following part with slow push-in (`zoompan`) and `0.5s` crossfade/fade in and out.
+   - Render 5s standard `SUBSCRIBE` outro card once at the end.
+4. **Assemble Final Compilation (§3.4)**:
+   - Normalize all segments to `1920x1080 @ 30fps`, `yuv420p`, `aac 44100Hz mono` and concat into `final_comp.mp4` (~35m45s, right in the 35–38 min target).
+5. **Captions & Private YouTube Upload (§3.5)**:
+   - Generate `en,de,fr,ja` captions via `subs_gen.py`.
+   - Upload private to YouTube (`The Classical Remix`) with question-framed title, chapter timestamps, and links to all 6 original videos.
+6. **Close the Loop (§3.6)**:
+   - Add compilation #10 (or C1 entry) to `tech-shorts/compilations.json` with exact published title, YouTube ID, date, topic (`Economy & Work`), and verbatim `members` list.
+   - Re-run `python3 gen_insights.py` and verify row appears in `insights.json` and on the droplet.
+   - Update `standups/2026-10-24.md` and `standups/index.json`, commit, push, and mark `2gghdork1p7ch7k` `peer_review`.
