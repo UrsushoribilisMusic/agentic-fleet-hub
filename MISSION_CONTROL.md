@@ -1106,6 +1106,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **2gghdork** | TSC-1 — Build compilation C1: AI Will Do the Work, Vol. 2 | gem | merged | Build the Economy & Work compilation (6 parts, ~33... |
+| **9o8v196i** | TSC-2 — Build compilation C2: The Attack Surface in Your House | gem | merged | Build the AI Threats & Security compilation (7 par... |
 | **w282xy01** | TSC-4 — Regenerate insights to prove the dedupe + new-topic fixes | gem | merged | Run `python3 gen_insights.py` in ~/projects/agenti... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
