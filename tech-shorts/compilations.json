@@ -183,6 +183,39 @@
     "Measuring the Pace of AI Development: Anthropic's Transparency Numbers",
     "Artificial Symbiotic Intelligence: The Orchestration of Many Minds"
    ]
+  },
+  {
+   "n": 10,
+   "id": "6y2y-4UETU4",
+   "title": "If AI Does the Work, Who Gets Paid Next? (Full Compilation · Vol. 2)",
+   "published": "2026-10-25",
+   "topic": "Economy & Work",
+   "status": "private",
+   "members": [
+    "The AI Bottleneck: Exponential Models, Linear World",
+    "How AI Reshapes Jobs, Growth & Unemployment: Anthropic's 2026-2030 Economic Scenarios",
+    "The Grammar of Work: How LLMs Learn Career Moves",
+    "The Catch-22 of the AI Economy: Can the Boom Pay for Itself Without Widening Inequality?",
+    "Will AI Create Jobs or Destroy Them? The Jevons Paradox and the Future of Work",
+    "The White-Collar Bypass: How AI Is Erasing Entry-Level Jobs"
+   ]
+  },
+  {
+   "n": 11,
+   "id": "S2vV_Nca80g",
+   "title": "What Is Running on Your Living Room Network? The Attack Surface in Your House",
+   "published": "2026-10-25",
+   "topic": "AI Threats & Security",
+   "status": "private",
+   "members": [
+    "Japan Tested US vs Chinese AI on Real Hacking: Claude Opus 4.8 vs GLM-5.2",
+    "Secure Your API Keys: How Stolen Keys Became the AI Underworld's Free Weapon",
+    "Two Students Built an AI Zero-Day Factory: Inside China's Autonomous Exploit Foundry",
+    "The Convenience Paradox: Why the Internet of Things is Melting",
+    "The Convergence Point: When AI Worms Self-Replicate on Smart TVs",
+    "The Shadow Datacenter: Why AI Worms Are Targeting Your Smart TV",
+    "Models as Insider Risks: Why AI Agents Need Zero-Trust Authority"
+   ]
   }
  ]
 }
