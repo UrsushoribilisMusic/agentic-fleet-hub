@@ -180,6 +180,13 @@ The pipeline fetches credentials dynamically via the centralized **Infisical EU 
    - **French Dub**: `rS7c1woNY04WT3UAS83Y` (ElevenLabs Multilingual v2)
    - **Local Kokoro Fallback**: If ElevenLabs quota is ever fully exhausted, the local Kokoro engine is available in `.venv312` (`af_bella` for EN, `cryptomilk/kokoro-german-kerstin` for DE, `ff_siwis` for FR, `jf_alpha` for JA).
 
+### 2026-10-25 Batch
+
+| Job | Long (Private) | Localizations | Staged Assets |
+| --- | --- | --- | --- |
+| `ts-20261025-the-perkini-report-the-2028-reality-crisis` | `https://www.youtube.com/watch?v=Gb2atzshUuc` (Private) | EN, DE, FR, JA | `~/Downloads/tech-shorts-captions/the-perkini-report-the-2028-reality-crisis/` |
+| `ts-20261025-securing-openai-training-environments` | `https://www.youtube.com/watch?v=s_PIq3kzh-8` (Private) | EN, DE, FR, JA | `~/Downloads/tech-shorts-captions/securing-openai-training-environments/` |
+
 ### 2026-10-24 Batch
 
 | Job | Long (Private) | Localizations | Staged Assets |
