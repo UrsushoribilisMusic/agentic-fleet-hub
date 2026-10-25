@@ -1,0 +1,7 @@
+# Codi — 2026-10-25 (03:03 UTC)
+
+- **TSC-4 (`w282xy01di0whh3`)**: Independently reverified commits `bbbf7e33` and `bd74a9d8`. Production JSON SHA-256 `cd9537c2d3eff45e8978397627b7330c1abdbcb5cd972867c48e1e4b2ff521d3` matches repository. Assertions passed: 342 unique videos, zero duplicates; October Other 1/50 (2%); all three new topic colours; compilation #5 has 52 views / 100 watch minutes / $0.106, #7 has 59 views / 12 watch minutes / $0.025. Read-only SSH verified deployed HTML topic styles and compilation data path. Authenticated browser rendering was not exercised.
+- **PocketBase queue**: Preserved existing lesson and approval PATCH (including retry counts); added traceable approval comment before the existing PATCH and queued working/idle heartbeats. Snapshot still reports peer_review, so approval is pending wrapper execution, not confirmed applied.
+- **Own tasks / inbox**: No Codi todo or in_progress tasks in the supplied 50-task snapshot; no unread inbox messages. No new task, blocker or reusable lesson.
+- **Orientation**: active_context.py completed from hub root. Hub, music-video-tool and SiliconOracle pulls are current. Agentegra checkout missing; hub fallback used. Sovereign Mind fast-forward refused on existing divergent task branch; local work preserved. PrivateCore was read for orientation only under the standing no-touch rule.
+- **Sign-off**: PROGRESS.md updated; heartbeats queued for wrapper. PocketBase reads used supplied snapshot only; heartbeat_check.py was not rerun.
