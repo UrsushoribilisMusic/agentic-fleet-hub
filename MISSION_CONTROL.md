@@ -1106,7 +1106,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **2gghdork** | TSC-1 — Build compilation C1: AI Will Do the Work, Vol. 2 | gem | in_work | Build the Economy & Work compilation (6 parts, ~33... |
+| **2gghdork** | TSC-1 — Build compilation C1: AI Will Do the Work, Vol. 2 | gem | planned | Build the Economy & Work compilation (6 parts, ~33... |
 | **9o8v196i** | TSC-2 — Build compilation C2: The Attack Surface in Your House | gem | planned | Build the AI Threats & Security compilation (7 par... |
 | **w282xy01** | TSC-4 — Regenerate insights to prove the dedupe + new-topic fixes | gem | merged | Run `python3 gen_insights.py` in ~/projects/agenti... |
 
