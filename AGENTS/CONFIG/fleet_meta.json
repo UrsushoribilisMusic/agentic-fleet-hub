@@ -35,7 +35,8 @@
       ],
       "unavailableUntil": "2026-04-30T06:00:00Z",
       "runtime": "Cloud (Google)",
-      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/GEMINI.md"
+      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/GEMINI.md",
+      "heartbeatMode": "dispatcher"
     },
     {
       "name": "Codex",
@@ -71,7 +72,9 @@
         "gem"
       ],
       "runtime": "Cloud (Mistral)",
-      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/MISTRAL.md"
+      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/MISTRAL.md",
+      "available": false,
+      "availabilityReason": "Subscription paused by Miguel; autonomous work disabled."
     },
     {
       "name": "Muse",
@@ -107,7 +110,13 @@
         "clau"
       ],
       "runtime": "Local (Ollama/Mac Mini)",
-      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/GEMMA.md"
+      "memoryLink": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub/blob/master/GEMMA.md",
+      "available": false,
+      "availabilityReason": "Qwen Coder deliberately asleep; legacy gemma slot disabled by Miguel.",
+      "aliases": [
+        "qwen",
+        "gemma"
+      ]
     },
     {
       "name": "OpenClaw",

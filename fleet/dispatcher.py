@@ -14,6 +14,7 @@ import signal
 import tempfile
 import hashlib
 from datetime import datetime, timedelta
+from scheduler_policy import availability, quota_retry_seconds
 
 try:
     from council_coordinator import run_council_cycle as _run_council_cycle
@@ -75,7 +76,7 @@ AGENT_COMMANDS = {
     "scout": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/scout", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "echo": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/echo", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "closer": ["/opt/homebrew/bin/openclaw", "--dir", f"{FLEET_DIR}/closer", "--prompt", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
-    "clau": ["/Users/miguelrodriguez/.local/bin/claude", "--dangerously-skip-permissions", "--model", "claude-sonnet-4-6", "--add-dir", SILICON_ORACLE_DIR, "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
+    "clau": ["/Users/miguelrodriguez/.local/bin/claude", "--dangerously-skip-permissions", "--model", "claude-sonnet-4-6", "--add-dir", SILICON_ORACLE_DIR, "--add-dir", "/Users/miguelrodriguez/projects/sovereign-mind", "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "gem": ["/Users/miguelrodriguez/.local/bin/agy", "--dangerously-skip-permissions", "--add-dir", SILICON_ORACLE_DIR, "-p", "Run your heartbeat protocol. Read MISSION_CONTROL.md first."],
     "misty": ["/opt/homebrew/bin/vibe", "--workdir", CODEX_REPO_DIR, "--trust", "-p", "Run your heartbeat protocol. Read ~/projects/agentic-fleet-hub/MISTRAL.md first, then follow AGENTS/RULES.md. Follow all 6 phases."],
     "codi": [
@@ -92,6 +93,8 @@ AGENT_COMMANDS = {
         "/Users/miguelrodriguez/projects/private-core",
         "--add-dir",
         "/Users/miguelrodriguez/projects/agentic-fleet-hub/.fleet_cache",
+        "--add-dir",
+        "/Users/miguelrodriguez/projects/sovereign-mind",
         "Run your heartbeat protocol. Read MISSION_CONTROL.md first."
     ],
     "muse": [
@@ -232,22 +235,11 @@ def _agent_meta_by_key(agent_key, all_agents_meta=None):
 
 def is_agent_available(agent_key, agent_meta=None):
     """Explicit availability gate: token exhaustion beats heartbeat freshness."""
-    agent_meta = agent_meta or _agent_meta_by_key(agent_key)
-    now = datetime.utcnow()
-
-    if agent_meta.get("available") is False:
-        return False, "disabled in fleet_meta"
-
-    meta_until = _parse_utc(agent_meta.get("unavailableUntil") or agent_meta.get("blocked_until"))
-    if meta_until and meta_until > now:
-        return False, f"unavailable until {meta_until.isoformat()}Z"
-
-    failure = _load_agent_failures().get(agent_key, {})
-    blocked_until = _parse_utc(failure.get("blocked_until"))
-    if blocked_until and blocked_until > now:
-        return False, failure.get("reason", f"cooldown until {blocked_until.isoformat()}Z")
-
-    return True, ""
+    meta = _load_fleet_meta()
+    if agent_meta:
+        meta = dict(meta, team=[agent_meta] + [a for a in meta.get('team', [])
+                                             if a.get('heartbeatKey') != agent_meta.get('heartbeatKey')])
+    return availability(agent_key, meta=meta, failures=_load_agent_failures())
 
 def mark_agent_unavailable(agent_key, reason, cooldown_seconds):
     blocked_until = datetime.utcnow() + timedelta(seconds=cooldown_seconds)
@@ -263,7 +255,7 @@ def mark_agent_unavailable(agent_key, reason, cooldown_seconds):
 def classify_agent_failure(output):
     text = (output or "").lower()
     if any(pattern in text for pattern in TOKEN_FAILURE_PATTERNS):
-        return "token/quota failure", TOKEN_FAILURE_COOLDOWN_SECONDS
+        return "token/quota failure", quota_retry_seconds(output, TOKEN_FAILURE_COOLDOWN_SECONDS)
     return "invocation failure", FAILURE_COOLDOWN_SECONDS
 
 def _active_project_watch_files():
@@ -648,6 +640,10 @@ def check_agent_health():
             if agent_key == "openclaw": continue
             
             is_available, availability_reason = is_agent_available(agent_key, agent_meta)
+            if not is_available:
+                # Deliberate pauses and provider quotas are not offline failures.
+                # Keep their work queued instead of fanning it out to other models.
+                continue
             is_currently_offline, last_seen_str = is_agent_offline(agent_key)
             if not is_available:
                 is_currently_offline = True
@@ -805,6 +801,14 @@ def run_agent(agent_name, task):
     if agent_name in ["clau", "gem", "codi", "muse"]:
         task_prompt = f"\n\nYOUR TASK: {task['title']}\nDescription: {task.get('description', '')}"
         cmd[-1] = cmd[-1] + task_prompt
+        if agent_name == 'gem':
+            cmd[-1] = (
+                'This is an explicit dispatcher assignment; availability was already checked. '
+                'Do not run heartbeat_check.py or scan unrelated queues. '
+                'Read GEMINI.md and the applicable project rules, then perform only the task below. '
+                'Update its actual status when finished; retain waiting_human for human-dependent work.'
+                + task_prompt
+            )
 
     # For qwen the heartbeat is a self-directed scanner; inject the task via
     # env vars so it skips the PocketBase scan and uses the exact task.

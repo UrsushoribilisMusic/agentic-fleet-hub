@@ -9,6 +9,13 @@ LOG_PREFIX="[gem-wrapper] $(date '+%Y-%m-%d %H:%M:%S')"
 
 echo "$LOG_PREFIX: starting Gem heartbeat"
 
+# Legacy scheduled entrypoint is inert: fleet.dispatcher owns Gem execution.
+if [ -z "$1" ]; then
+    echo "$LOG_PREFIX: Gem execution belongs to fleet.dispatcher; skipping legacy heartbeat."
+    exit 0
+fi
+if ! /usr/bin/python3 "$FLEET/scheduler_policy.py" --agent gem; then exit 0; fi
+
 # Phase 0: checksum gate — skip only on autonomous heartbeat runs.
 if [ -z "$1" ]; then
     REPO="/Users/miguelrodriguez/projects/agentic-fleet-hub"

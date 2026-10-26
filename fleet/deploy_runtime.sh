@@ -17,12 +17,14 @@ FILES=(
   fleet_sync.py
   github_sync.py
   heartbeat_check.py
+  scheduler_policy.py
   codi/heartbeat_wrapper.sh
   codi/pb_flush.py
   codi/pb_fetch.py
   codi/heartbeat_prompt.txt
   clau/heartbeat_wrapper.sh
   gem/heartbeat_wrapper.sh
+  misty/heartbeat_wrapper.sh
   gemma/GEMMA.md
   gemma/run_heartbeat.sh
 )
@@ -31,7 +33,6 @@ FILES=(
 SERVICES=(
   fleet.dispatcher
   fleet.github
-  fleet.gemma
 )
 
 echo "=== sync repo → runtime ==="

@@ -20,10 +20,16 @@ SCRIPTS=(
     fleet_sync.py
     fleet_push.py
     heartbeat_check.py
+    scheduler_policy.py
     active_context.py
     telegram_bridge.py
     council_coordinator.py
     research_ledger.py
+    codi/pb_flush.py
+    codi/heartbeat_wrapper.sh
+    gem/heartbeat_wrapper.sh
+    misty/heartbeat_wrapper.sh
+    gemma/run_heartbeat.sh
 )
 
 echo "[sync_to_fleet] Mirroring from $REPO_FLEET -> $RUNTIME_DIR"
@@ -37,6 +43,7 @@ for f in "${SCRIPTS[@]}"; do
     if diff -q "$src" "$dst" >/dev/null 2>&1; then
         echo "  OK   $f (unchanged)"
     else
+        mkdir -p "$(dirname "$dst")"
         cp "$src" "$dst"
         echo "  COPY $f"
     fi

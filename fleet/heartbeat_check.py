@@ -25,6 +25,7 @@ Run from the repo root. Cache is stored in .fleet_cache/ (gitignored).
 """
 
 import argparse
+from scheduler_policy import availability, canonical_agent
 import hashlib
 import json
 import os
@@ -53,6 +54,8 @@ AGENT_ALIASES_DEFAULT = {
     "gem":   ["gem", "gemini"],
     "codi":  ["codi", "codex"],
     "muse":  ["muse", "meta"],
+    "gemma": ["gemma", "qwen"],
+    "qwen":  ["qwen", "gemma"],
 }
 
 
@@ -183,16 +186,18 @@ def _inbox_for_agent(inbox_path: str, aliases: list) -> bool:
 
 def _pb_fetch_actionable(aliases: List[str]) -> Optional[List[dict]]:
     """
-    Fetch all actionable tasks (todo/in_progress/peer_review) assigned to
-    any of this agent's aliases. Returns None on PocketBase error so the
+    Fetch own todo/in_progress work and somebody else's peer_review work.
+    Own peer_review tasks must not wake their author for self-review.
+    Returns None on PocketBase error so the
     gate degrades gracefully without blocking the agent.
     """
     if not aliases:
         return []
 
     agent_clauses = "||".join(f"assigned_agent='{a}'" for a in aliases)
-    status_clauses = "||".join(f"status='{s}'" for s in PB_ACTIONABLE_STATUSES)
-    pb_filter = f"({status_clauses})&&({agent_clauses})"
+    other_agents = '&&'.join(f"assigned_agent!='{a}'" for a in aliases)
+    pb_filter = (f"((status='todo'||status='in_progress')&&({agent_clauses}))"
+                 f"||(status='peer_review'&&({other_agents}))")
 
     encoded = urllib.parse.quote(pb_filter, safe="")
     url = f"{PB_BASE_URL}/api/collections/tasks/records?perPage=200&fields=id,updated,status,title&filter={encoded}"
@@ -235,6 +240,15 @@ def main():
 
     repo    = os.path.abspath(args.repo)
     meta    = _load_meta(repo)
+    allowed, reason = availability(args.agent, meta=meta)
+    if not allowed:
+        print(f'[heartbeat:{args.agent}] {reason}; skipping model.')
+        sys.exit(1)
+    member = next((a for a in (meta or {}).get('team', [])
+                   if a.get('heartbeatKey') == canonical_agent(args.agent)), {})
+    if member.get('heartbeatMode') == 'dispatcher':
+        print(f'[heartbeat:{args.agent}] Dispatcher owns execution; no autonomous heartbeat.')
+        sys.exit(1)
     aliases = _get_agent_aliases(args.agent, meta)
     cache_path = os.path.join(repo, ".fleet_cache", f"heartbeat_{args.agent}.json")
 
@@ -300,11 +314,11 @@ def main():
     hub_inbox_abs = os.path.join(repo, "AGENTS", "MESSAGES", "inbox.json")
 
     # If ANY watched file changed (even fleet_meta.json), check ALL active MCs and Inbox
-    if os.path.exists(hub_mc_abs):
+    if pb_items is None and os.path.exists(hub_mc_abs):
         if _ticket_for_agent(hub_mc_abs, aliases):
             reasons.append("open ticket assigned to you in hub MC")
 
-    for mc_abs in proj_mcs:
+    for mc_abs in (proj_mcs if pb_items is None else []):
         if os.path.exists(mc_abs):
             if _ticket_for_agent(mc_abs, aliases):
                 # Get the project title if possible for the reason string
@@ -329,7 +343,7 @@ def main():
             s = t.get("status", "unknown")
             by_status[s] = by_status.get(s, 0) + 1
         breakdown = ", ".join(f"{n} {s}" for s, n in sorted(by_status.items()))
-        reasons.append(f"PocketBase: {breakdown} ticket(s) assigned to you")
+        reasons.append(f"PocketBase: {breakdown} actionable ticket(s)")
     elif pb_items is None:
         # PB unreachable — log it but don't block; force_wakeup will still
         # surface eventually.
