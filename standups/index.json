@@ -10,6 +10,11 @@
     "file": "2026-10-26.md"
   },
   {
+    "date": "2026-10-26",
+    "summary": "Codi: drawing-readiness CPU checkpoint pushed in draft PR #3; 40 tests passed, one SAM call decoded two masks; single-view captures saved, real registration and all-scene validation pending; no GPU or gate wiring.",
+    "file": "2026-10-26.md"
+  },
+  {
     "date": "2026-10-25",
     "summary": "Codi: TSC-4 production review reverified; approval retry preserved with traceable evidence; no own todo tasks.",
     "file": "2026-10-25-codi-heartbeat.md"
