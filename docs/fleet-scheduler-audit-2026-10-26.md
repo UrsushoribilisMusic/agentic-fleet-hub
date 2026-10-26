@@ -1,5 +1,15 @@
 # Codi — scheduler audit, 2026-10-26
 
+## Repair applied later on October 26
+
+At Miguel's request, the fixes are deployed: Gem is dispatcher-only; Misty and
+Qwen are paused in configuration and launchd; the TSC-4 approval has landed;
+Codi's pending queue is empty and the relevance gate returns idle. Runtime
+matches the committed source. Nineteen model-free regression checks passed.
+See `fleet-scheduler-verification-2026-10-26.json` and
+`AGENTS/CONTEXT/fleet_scheduler.md`. Implementation commits: `22e491aa`, `470bf754`.
+The findings below describe the pre-repair audit.
+
 Read-only inspection of launchd registrations, runtime scripts, logs, the Muse
 onboarding commit and live PocketBase records. No agents were launched for the
 audit, no task statuses were changed, and no schedules were disabled.

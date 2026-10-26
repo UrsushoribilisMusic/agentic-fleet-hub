@@ -1,8 +1,8 @@
 [
   {
     "date": "2026-10-26",
-    "summary": "Codi: TSC-4 refreshed production rechecked (345 unique, 0 duplicates); approval retry preserved with fresh evidence and working/idle heartbeats queued; no own todo tasks.",
-    "file": "2026-10-26-codi-heartbeat.md"
+    "summary": "Codi: repaired scheduler—Gem dispatcher-only; Misty subscription paused and legacy Gemma/Qwen asleep; TSC-4 approval applied and repeated-review loop fixed. Shared quota reset gates deployed; 19 regression checks and live idle checks passed.",
+    "file": "2026-10-26.md"
   },
   {
     "date": "2026-10-25",

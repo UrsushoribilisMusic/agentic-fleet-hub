@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-26",
+  "regression_tests_passed": 19,
+  "model_invocations_for_verification": 0,
+  "services": {
+    "com.flotilla.heartbeat.gem": {
+      "loaded": false,
+      "disabled": true
+    },
+    "fleet.misty": {
+      "loaded": false,
+      "disabled": true
+    },
+    "fleet.gemma": {
+      "loaded": false,
+      "disabled": true
+    },
+    "fleet.dispatcher": {
+      "loaded": true,
+      "disabled": false
+    },
+    "com.flotilla.heartbeat.codi": {
+      "loaded": true,
+      "disabled": false
+    }
+  },
+  "runtime_files_match": [
+    "scheduler_policy.py",
+    "dispatcher.py",
+    "heartbeat_check.py",
+    "codi/pb_flush.py",
+    "codi/heartbeat_wrapper.sh",
+    "gem/heartbeat_wrapper.sh",
+    "misty/heartbeat_wrapper.sh",
+    "gemma/run_heartbeat.sh"
+  ],
+  "TSC-4": "approved",
+  "pending_writes": 0,
+  "gem_cooldown": {
+    "blocked_until": "2026-10-31T04:03:04Z",
+    "reason": "provider quota; reset hint respected",
+    "updated": "2026-10-26T10:04:51Z"
+  }
+}
