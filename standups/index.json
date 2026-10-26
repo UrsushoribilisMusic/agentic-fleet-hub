@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-10-26",
+    "summary": "Codi: TSC-4 deployed artifacts reverified; approval and working/idle heartbeats queued; no own todo tasks.",
+    "file": "2026-10-26-codi-heartbeat.md"
+  },
+  {
     "date": "2026-10-25",
     "summary": "Codi: TSC-4 production review reverified; approval retry preserved with traceable evidence; no own todo tasks.",
     "file": "2026-10-25-codi-heartbeat.md"
