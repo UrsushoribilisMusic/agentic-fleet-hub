@@ -487,12 +487,14 @@ def build_vertical_short_for_job(job_id: str, config_path: Path | None = None) -
         headline=cfg["card_a"]["headline"],
         accent_line=cfg["card_a"]["accent_line"],
         sub_line=cfg["card_a"]["sub_line"],
+        badge=cfg.get("badge", "TECH SHORTS · 90s ARCHITECTURE BRIEF"),
     )
     card_b_png = render_vertical_hook_card(
         asset_dir / "short_hook_card_b_vertical.png",
         headline=cfg["card_b"]["headline"],
         accent_line=cfg["card_b"]["accent_line"],
         sub_line=cfg["card_b"]["sub_line"],
+        badge=cfg.get("badge", "TECH SHORTS · 90s ARCHITECTURE BRIEF"),
     )
     outro_png = render_vertical_outro_card(asset_dir / "short_outro_vertical.png")
 

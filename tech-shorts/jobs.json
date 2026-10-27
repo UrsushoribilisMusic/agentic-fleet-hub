@@ -11139,6 +11139,102 @@
                 "comments": 0,
                 "last_synced_at": ""
             }
+        },
+        {
+            "id": "ts-20261027-eth-hipótesis-disproved",
+            "slug": "eth-hipótesis-disproved",
+            "title": "Breaking the Exponential Time Hypothesis",
+            "source_urls": [
+                "https://github.com/openai/math/blob/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/paper.pdf"
+            ],
+            "source_file": {
+                "path": "/opt/tech-shorts/uploads/ts-20261027-eth-hipótesis-disproved/some_eth_false_exposition.pdf",
+                "original_name": "some_eth_false_exposition.pdf",
+                "size_bytes": 449420,
+                "mime_type": "application/pdf"
+            },
+            "source_files": [
+                {
+                    "path": "/opt/tech-shorts/uploads/ts-20261027-eth-hipótesis-disproved/some_eth_false_exposition.pdf",
+                    "original_name": "some_eth_false_exposition.pdf",
+                    "size_bytes": 449420,
+                    "mime_type": "application/pdf"
+                }
+            ],
+            "idea_notes": "",
+            "tags": [],
+            "status": "uploaded",
+            "created_at": "2026-10-27T19:24:32Z",
+            "updated_at": "2026-10-27T21:29:16Z",
+            "notebook_url": "",
+            "hook_copy": {
+                "card_a_main": "THE SAT WALL",
+                "card_a_sub": "BROKEN?",
+                "card_a_footer": "OpenAI · October 2026 preprint",
+                "card_b_main": "SUBEXPONENTIAL",
+                "card_b_sub": "IS NOT POLYNOMIAL",
+                "card_b_footer": "What the ETH claim would actually change",
+                "vo_text": "OpenAI claims a subexponential algorithm for SAT, challenging the Exponential Time Hypothesis. This explainer unpacks the claim, and why it does not settle P versus N P."
+            },
+            "outro_copy": {
+                "title": "SUBSCRIBE",
+                "subtitle": "for more science & AI explainers",
+                "tagline": "Ideas, algorithms, and discoveries",
+                "url": "The Classical Remix",
+                "cta": "Watch the next explainer on the channel"
+            },
+            "assets": {
+                "raw_short_mp4": "",
+                "raw_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-27-eth-hipótesis-disproved/raw_cinematic.mp4",
+                "hook_vo_audio": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-27-eth-hipótesis-disproved/eth-hipótesis-disproved_hook_vo.mp3",
+                "final_short_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-27-eth-hipótesis-disproved/final_short.mp4",
+                "final_long_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-27-eth-hipótesis-disproved/final_long.mp4",
+                "raw_cinematic_mp4": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-27-eth-hipótesis-disproved/raw_cinematic.mp4",
+                "store_dir": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-27-eth-hipótesis-disproved",
+                "short_vo_wav": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-27-eth-hipótesis-disproved/short_vo.wav",
+                "short_script_txt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-27-eth-hipótesis-disproved/short_script.txt",
+                "long_captions_srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-27-eth-hipótesis-disproved/final_long.srt",
+                "short_captions_srt": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-27-eth-hipótesis-disproved/final_short.srt"
+            },
+            "youtube": {
+                "short_id": "hh2sRHudm7U",
+                "short_url": "https://www.youtube.com/watch?v=hh2sRHudm7U",
+                "long_id": "CKlgDc7_bmM",
+                "long_url": "https://www.youtube.com/watch?v=CKlgDc7_bmM",
+                "published_at": "",
+                "privacy": "private",
+                "title_long": "ETH Is False? OpenAI's SAT Breakthrough Explained",
+                "title_short": "The SAT Wall Just Cracked? OpenAI's ETH Claim #Shorts",
+                "description": "OpenAI’s October 25, 2026 preprint claims a deterministic, subexponential-time algorithm for exactly counting satisfying assignments of fixed-width k-CNF formulas, using polynomial space. This explainer examines the Exponential Time Hypothesis, counting problems, algebraic transformations, and what such a result would change.\n\nETH rules out subexponential worst-case algorithms for 3-SAT; it does not say every algorithm must exhaustively try all 2^n assignments. Subexponential time is also different from polynomial time: the claim does not settle P versus NP or establish that every hard problem is now practical.\n\nSource: OpenAI, “The Exponential Time Hypothesis Is False,” revised October 25, 2026.\nPaper: https://github.com/openai/math/blob/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/paper.pdf\nRepository: https://github.com/openai/math\n\nThe main explainer is the supplied NotebookLM video, with a branded introduction and outro. The companion Short summarizes the linked preprint in a separately written narration. Research claims are attributed to the preprint; this video is an explainer, not an independent verification of its proof.\n\nAI-assisted production by The Classical Remix. Subscribe for more computer science, mathematics and AI explainers.\n\n#ETH #SAT #ComplexityTheory #OpenAI #Mathematics #ComputerScience",
+                "default_language": "en",
+                "tags": [
+                    "Exponential Time Hypothesis",
+                    "ETH",
+                    "SAT",
+                    "3-SAT",
+                    "k-SAT",
+                    "counting complexity",
+                    "OpenAI",
+                    "computational complexity",
+                    "subexponential algorithms",
+                    "P versus NP",
+                    "mathematics"
+                ],
+                "processing_status": "succeeded",
+                "captions_status": "English SRT staged locally; existing OAuth scope does not permit caption upload",
+                "verified_private": true
+            },
+            "x_post": {
+                "post_id": "",
+                "post_url": "",
+                "caption": ""
+            },
+            "stats": {
+                "views": 0,
+                "likes": 0,
+                "comments": 0,
+                "last_synced_at": ""
+            }
         }
     ]
 }

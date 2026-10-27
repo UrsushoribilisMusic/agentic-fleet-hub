@@ -1,0 +1,26 @@
+{
+  "badge": "MATH BRIEF · ETH EXPLAINED",
+  "card_a": {
+    "headline": "THE SAT WALL JUST CRACKED?",
+    "accent_line": "OpenAI’s ETH preprint",
+    "sub_line": "A decades-old computational barrier challenged"
+  },
+  "card_b": {
+    "headline": "SUBEXPONENTIAL IS NOT POLYNOMIAL",
+    "accent_line": "What the claim actually means",
+    "sub_line": "Exact counting · fixed-width SAT · polynomial space"
+  },
+  "script": "OpenAI has posted a preprint claiming to overturn a decades-old assumption in computer science.\nThe Exponential Time Hypothesis says that solving three sat, in the worst case, requires time exponential in the number of variables.\nThe paper claims something stronger than finding one solution: computing the exact number of satisfying assignments for fixed-width Boolean formulas, using subexponential time and polynomial space.\nThe approach translates Boolean constraints into algebra, then reuses shared linear summaries instead of expanding every possible assignment.\nBut subexponential does not mean polynomial. An asymptotic improvement does not automatically make enormous problems practical.\nThis does not prove that P equals N P, or that every encryption system is suddenly broken.\nThe claim challenges assumptions behind many conditional hardness bounds. The story is a proposed new route around a computational wall, with important limits to understand.\nWatch the full explainer on The Classical Remix.",
+  "intro_ratio": 0.14,
+  "outro_sec": 4.0,
+  "segments": [
+    {"start": 23.0, "weight": 1.0, "mode": "pillarbox", "label": "Exponential search tree"},
+    {"start": 50.0, "weight": 1.2, "mode": "pillarbox", "label": "Preprint and claimed algorithm"},
+    {"start": 91.0, "weight": 1.1, "mode": "pillarbox", "label": "Counting and graph structure"},
+    {"start": 172.0, "weight": 1.15, "mode": "pillarbox", "label": "Algebraic transformation"},
+    {"start": 223.0, "weight": 1.0, "mode": "pillarbox", "label": "Structured computation"},
+    {"start": 300.0, "weight": 1.05, "mode": "crop", "label": "Computation and practical limits"},
+    {"start": 324.0, "weight": 0.9, "mode": "pillarbox", "label": "Interpolation bridge"},
+    {"start": 399.0, "weight": 1.0, "mode": "crop", "label": "ETH wall and closing visual"}
+  ]
+}
