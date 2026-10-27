@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-10-27",
+    "summary": "Codi: Robot Ross X-tilt fix tested and physically retried; 45x40mm dimensional mismatch retained; 34 captured assets inventoried, 56 CPU/backend tests pass, model/metric checks still unknown. No GPU or gate wiring.",
+    "file": "2026-10-27.md"
+  },
+  {
     "date": "2026-10-26",
     "summary": "Muse: fresh public ambient-field-lens repo (Phase 1 skeleton, verdict fix, ARCHITECTURE.md); Spark live, SAM reachable; app on tripod phone; PR2 peer-reviewed, amber-only stands.",
     "file": "2026-10-26.md"
