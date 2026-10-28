@@ -1,0 +1,39 @@
+Life is about stories, and we have always used stories to transmit knowledge.
+
+Sovereign Mind puts that knowledge in the hands of industrial technicians—even where cloud AI cannot go.
+
+This demo shows open-weight AI running on an iPhone with local knowledge packs, source-backed answers, model and persona choices, multilingual conversations, and camera-based text recognition (OCR).
+
+Technical manuals, operating procedures, and expertise become an editable Wiki and a local knowledge base. User feedback and model disposition signals help identify interactions worth reviewing. Proposed improvements are reviewed, edited, and approved by a human before updated knowledge reaches technicians.
+
+Local inference means no per-query cloud inference fees and no need to send technicians' questions and proprietary documents to an external AI service.
+
+We have an active test system with an industrial abrasives distributor and are in discussions with equipment manufacturers in Switzerland and Germany. The goal: shorter setup times, fewer unnecessary repairs, and fewer repeat visits—reducing service costs and improving our customers' bottom line.
+
+EXPLORE
+Sovereign Mind — product and on-device AI:
+https://sm.flotilla.cc/
+
+Public example Wiki — Robot Ross Automated Technical File:
+https://api.robotross.art/atf/
+
+Agentegra — sovereign AI for industrial knowledge:
+https://agentegra.com/
+
+Research — Reading Disposition from Smartphone-Class Open Models:
+https://canis.flotilla.cc/reading-disposition.pdf
+
+CHAPTERS
+0:00 Stories and knowledge
+0:17 Sovereign Mind in action
+0:29 Knowledge packs and local models
+0:41 Multilingual conversations
+0:55 Feedback and model disposition
+1:27 Human-reviewed knowledge
+1:41 From a question to camera and OCR
+1:59 Industrial pilot
+2:09 The business case
+
+Historical image credits: Altamira cave art photograph by Daniel VILLAFRUELA, CC BY-SA 3.0 (resized/reframed): https://commons.wikimedia.org/wiki/File:Cueva_de_Altamira-19621007-003.jpg — license: https://creativecommons.org/licenses/by-sa/3.0/ . Trojan Horse painting by Giovanni Domenico Tiepolo and Leonardo da Vinci's aerial-screw drawing: public domain. Wikipedia home-page screenshot: Wikimedia contributors / Wikimedia Foundation, CC BY-SA; site names and logos identify the site shown.
+
+#SovereignMind #OnDeviceAI #IndustrialAI #EdgeAI #DataSovereignty
