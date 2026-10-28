@@ -1,0 +1,47 @@
+{
+  "version": 2,
+  "recordings": [
+    {
+      "original": "/Users/miguelrodriguez/Downloads/ScreenRecording_07-18-2026 14-28-28_1.mov",
+      "stored": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-28-yc-air-gapped-industrial-ai/sources/sm-camera-ocr.mov",
+      "description": "Question, calibration answer, camera capture and extracted text",
+      "bytes": 47889194,
+      "sha256": "1ab9da9c2c8827eea5361a6730b0d946af26aeb2f0ceb37fd6672c0b084d9c8d",
+      "storage": "Hard-linked canonical source; no additional master-video data duplicated"
+    },
+    {
+      "original": "/Users/miguelrodriguez/Downloads/ScreenRecording_10-28-2026 16-34-03_1.MP4",
+      "stored": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-28-yc-air-gapped-industrial-ai/sources/sm-settings.MP4",
+      "description": "Knowledge packs, models, personas, response-language settings",
+      "bytes": 5227454,
+      "sha256": "797d3d6e1cb4c7b9f3031cd09a560df4edb97a9e0ae2480422629f136c355c0b",
+      "storage": "Hard-linked canonical source; no additional master-video data duplicated"
+    },
+    {
+      "original": "/Users/miguelrodriguez/Downloads/ScreenRecording_10-28-2026 16-35-34_1.MP4",
+      "stored": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-28-yc-air-gapped-industrial-ai/sources/sm-abrasives-wiki.MP4",
+      "description": "Abrasives Wiki and supplier technical diagrams",
+      "bytes": 9649491,
+      "sha256": "ed94c5c21294c3eba527030c3b979b0572019536ff055e951b87e128f02725da",
+      "storage": "Hard-linked canonical source; no additional master-video data duplicated"
+    },
+    {
+      "original": "/Users/miguelrodriguez/Downloads/ScreenRecording_10-28-2026 16-38-48_1.MP4",
+      "stored": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-28-yc-air-gapped-industrial-ai/sources/sm-chat-multilingual.MP4",
+      "description": "Question, cited answer, chat history, German and Spanish questions",
+      "bytes": 24329081,
+      "sha256": "ded7561b66ef73e9939a7ece7eff26dcd1970652fc027421184a74c86b18ea02",
+      "storage": "Hard-linked canonical source; no additional master-video data duplicated"
+    }
+  ],
+  "narration": "Approved original AAC reused without re-encoding",
+  "camera_alignment": {
+    "camera_word": 113.1675,
+    "capture_view": 112.7,
+    "extracted_text_view": 114.65,
+    "text_word": 114.7425
+  },
+  "canis_use": "Disposition panel only,62.6667–69.8667s",
+  "editing": "Selected typing/generation/focus waits trimmed; no speed benchmark claimed",
+  "canonical_output": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-28-yc-air-gapped-industrial-ai/v2/Air-Gapped-Industrial-AI-Demo-v2.mp4"
+}

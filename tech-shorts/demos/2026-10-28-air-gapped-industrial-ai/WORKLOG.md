@@ -58,3 +58,19 @@ Align the camera and extracted-text screens to the existing camera narration,
 starting the source interaction before that phrase. Local Kokoro timing-only
 replay measured the camera word at113.1675s; approved audio is not replaced.
 V2 gets its own segment cache, MP4 and review page; keep V1 intact.
+
+## V2 complete
+
+V2 uses all four supplied Sovereign Mind recordings; Canis is confined to
+the existing disposition panel at62.67–69.87s. Settings show packs/models/
+personas, real Wiki figures illustrate knowledge and the abrasives pilot, and
+chat history shows English/German/Spanish interactions. Camera/photo/OCR
+sequence starts before the narration; actual capture and extracted-text views
+are aligned to the spoken camera/text clauses, with a readable OCR detail.
+
+148.9s,1920×1080/30fps,4467 frames. All30 segment frame counts verified, full
+video decoded without errors, contact sheet and camera/OCR frames inspected.
+Original AAC packet hash matches V1 exactly; no narration regenerated for the
+output. V1 preserved, root review points to V2, MP4/captions linked to Downloads.
+No new TTS/cloud/GPU spending or publishing. Timing-only Kokoro replay used
+its cached local model and matched the original paragraph's sample count.

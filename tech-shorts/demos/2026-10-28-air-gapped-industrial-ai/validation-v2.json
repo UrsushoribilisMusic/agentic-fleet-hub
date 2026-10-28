@@ -1,0 +1,61 @@
+{
+  "version": 2,
+  "duration_seconds": 148.9,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "frames": 4467,
+  "segments": 30,
+  "all_segment_frame_counts_verified": true,
+  "audio_track_unchanged_from_v1": true,
+  "audio_packet_sha256": "SHA256=091c6f76432eac3fc106420e7c711a3600fcfd4f9dbba4bf02599ee8a8a78b31",
+  "canis_only_for_disposition": true,
+  "canis_interval_seconds": [
+    62.666666666666664,
+    69.86666666666666
+  ],
+  "all_four_supplied_recordings_used": true,
+  "camera_narration_word_seconds": 113.1675,
+  "camera_capture_video_starts": 112.7,
+  "ocr_text_view_starts": 114.65,
+  "extracted_text_narration_word_seconds": 114.7425,
+  "narration_timing_replay_sample_count_matches_original": true,
+  "approved_script_unchanged": true,
+  "source_recordings": [
+    {
+      "original": "/Users/miguelrodriguez/Downloads/ScreenRecording_07-18-2026 14-28-28_1.mov",
+      "stored": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-28-yc-air-gapped-industrial-ai/sources/sm-camera-ocr.mov",
+      "description": "Question, calibration answer, camera capture and extracted text",
+      "bytes": 47889194,
+      "sha256": "1ab9da9c2c8827eea5361a6730b0d946af26aeb2f0ceb37fd6672c0b084d9c8d",
+      "storage": "Hard-linked canonical source; no additional master-video data duplicated"
+    },
+    {
+      "original": "/Users/miguelrodriguez/Downloads/ScreenRecording_10-28-2026 16-34-03_1.MP4",
+      "stored": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-28-yc-air-gapped-industrial-ai/sources/sm-settings.MP4",
+      "description": "Knowledge packs, models, personas, response-language settings",
+      "bytes": 5227454,
+      "sha256": "797d3d6e1cb4c7b9f3031cd09a560df4edb97a9e0ae2480422629f136c355c0b",
+      "storage": "Hard-linked canonical source; no additional master-video data duplicated"
+    },
+    {
+      "original": "/Users/miguelrodriguez/Downloads/ScreenRecording_10-28-2026 16-35-34_1.MP4",
+      "stored": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-28-yc-air-gapped-industrial-ai/sources/sm-abrasives-wiki.MP4",
+      "description": "Abrasives Wiki and supplier technical diagrams",
+      "bytes": 9649491,
+      "sha256": "ed94c5c21294c3eba527030c3b979b0572019536ff055e951b87e128f02725da",
+      "storage": "Hard-linked canonical source; no additional master-video data duplicated"
+    },
+    {
+      "original": "/Users/miguelrodriguez/Downloads/ScreenRecording_10-28-2026 16-38-48_1.MP4",
+      "stored": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-28-yc-air-gapped-industrial-ai/sources/sm-chat-multilingual.MP4",
+      "description": "Question, cited answer, chat history, German and Spanish questions",
+      "bytes": 24329081,
+      "sha256": "ded7561b66ef73e9939a7ece7eff26dcd1970652fc027421184a74c86b18ea02",
+      "storage": "Hard-linked canonical source; no additional master-video data duplicated"
+    }
+  ],
+  "video_bytes": 62574764,
+  "video_sha256": "16f99ac6fe78e4036cb5aa04ef4b725ccfcc88e6b6dc40920ee3548b4bd6a3e4",
+  "publishing": "Local review only; not uploaded or queued"
+}
