@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-10-28",
-    "summary": "Codi: Baseten wording route and shared API ledger in PR10; 107 backend tests pass, 7 expected skips. 22 Meta receipts imported, no new paid/GPU calls; visual labels pending.",
+    "summary": "Codi: live SAM/Ross/Glimmer providers verified in PR11; H100 raw prefill score served, 114 tests pass/7 expected skips; windows closed, containers empty. Miguel review received; contact unknown. Phone two-state acceptance pending.",
     "file": "2026-10-28-codi-trajectory.md"
   },
   {
