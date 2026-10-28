@@ -1,0 +1,77 @@
+{
+  "images": [
+    {
+      "file": "cave-painting.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Cueva_de_Altamira-19621007-003.jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Cueva_de_Altamira-19621007-003.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+      "author": "Daniel VILLAFRUELA",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "sha256": "1e9a4485be02fb615a221343cfea362351be83efedeeb4440e799bc91e487dc3",
+      "modification": "Resized/reframed for video; source image retained"
+    },
+    {
+      "file": "trojan-horse.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Giovanni_Domenico_Tiepolo_-_The_Procession_of_the_Trojan_Horse_in_Troy_-_WGA22382.jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Giovanni_Domenico_Tiepolo_-_The_Procession_of_the_Trojan_Horse_in_Troy_-_WGA22382.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+      "author": "Giovanni Domenico Tiepolo",
+      "license": "Public domain",
+      "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "sha256": "ff5b0a97e67fec2258bfbab3c81d9b75ef89ee9fbf29e1fe999f08ecb6998f61",
+      "modification": "Resized/reframed for video; source image retained"
+    },
+    {
+      "file": "leonardo-aerial-screw.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Leonardo_da_Vinci_helicopter.jpg",
+      "author": "Leonardo da Vinci",
+      "license": "Public domain",
+      "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "reused_from": "/Users/miguelrodriguez/Downloads/thermoplan-pitch/assets/03_davinci.jpg",
+      "sha256": "843404c97dcb83e5daa007c1254dd7d08b8bc444edf0017f06a9ee3311d02eb5",
+      "note": "Known earlier Thermoplan source reused after Commons download returned429",
+      "modification": "Resized and reframed for video"
+    },
+    {
+      "file": "wikipedia-home.png",
+      "page": "https://www.wikipedia.org/",
+      "author": "Wikimedia contributors / Wikimedia Foundation",
+      "license": "CC BY-SA; individual logos/trademarks retain their respective terms",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "captured": "2026-10-28",
+      "modification": "Browser screenshot, resized for video",
+      "sha256": "c85998dd42041b278b4bbd2bded0ca68c2d975619f3e17c2d5cec1be93e4d263"
+    }
+  ],
+  "footage": [
+    {
+      "source": "~/Downloads/canis-app-review-video/canis-apple-review-silent-reordered.mp4",
+      "stored": "sources/device-actual.mp4",
+      "kind": "Actual physical-iPhone screen recording; local-model technical answer, feedback controls, disposition panel, sources, model choices and image input",
+      "storage": "Hard-linked into canonical asset store; Downloads cleanup will not remove canonical copy",
+      "product_ui": "Existing Canis app recording; no product names in narration"
+    },
+    {
+      "source": "~/Downloads/thermoplan-pitch/assets/sm_console_wiki.png",
+      "stored": "sources/console-wiki.png",
+      "kind": "Existing actual Sovereign Mind backend screenshot, gently panned; not a new live navigation recording"
+    },
+    {
+      "source": "~/Downloads/thermoplan-pitch/assets/sm_console_details.png",
+      "stored": "sources/console-knowledge.png",
+      "kind": "Existing actual Sovereign Mind knowledge admin screenshot"
+    },
+    {
+      "source": "~/Downloads/sovereign_mind_feedback_loop.png",
+      "stored": "sources/feedback-loop-original.png",
+      "kind": "Prior diagram reference; rebuilt as native animated graphic with both feedback signals and explicit human review"
+    },
+    {
+      "source": "~/Downloads/sovereign-mind-demo.mp4",
+      "stored": "sources/product-walkthrough.mp4",
+      "kind": "Animated product walkthrough, inspected but deliberately not represented as actual app footage; not used in v1"
+    }
+  ],
+  "script": "script-approved.md",
+  "assets": "/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-28-yc-air-gapped-industrial-ai",
+  "privacy": "Local draft only; not in automated jobs queue"
+}

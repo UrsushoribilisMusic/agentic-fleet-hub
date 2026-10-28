@@ -1,0 +1,20 @@
+{
+  "duration_seconds": 148.9,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_codec": "aac",
+  "audio_sample_rate": "48000",
+  "narration_seconds": 147.095,
+  "voice": "Kokoro af_bella, local cached model, speed1.04",
+  "music": null,
+  "integrated_loudness_lufs": -16.7,
+  "true_peak_dbfs": -4.4,
+  "all_23_segments_have_exact_frame_counts": true,
+  "sidecar_captions_not_burned": true,
+  "opening_preserved_verbatim": true,
+  "script_word_count": 296,
+  "file_bytes": 57821563,
+  "sha256": "d6776b1e2a0c37b9b3de079ab81bee5dc4c316901d3ebe412c66098e7a7044fc",
+  "publishing": "not uploaded / not queued"
+}

@@ -20,3 +20,25 @@ local review page, approved script, timeline, and list of shots to replace.
 Keep publishing outside the automated Tech Shorts queue. No YouTube upload,
 external messaging, product/backend mutations, or paid generation requested.
 Do not stage unrelated dirty jobs.json, insights.json or standup changes.
+
+## First cut complete
+
+148.9s,1080p/30fps,296-word approved script, local Kokoro af_bella at1.04.
+Narration−16.7LUFS /−4.4dBTP, no music bed, separate EN SRT/VTT.23 scene
+segments verified at exact frame counts and common30fps; decoded full video
+without errors and visually inspected the contact sheet. No cloud TTS calls.
+
+Historical cave/Trojan images sourced with attribution; Leonardo reused from
+Thermoplan and SHA1-matched to the public-domain Commons original. Wikipedia
+home page captured in a temporary headless Chrome profile. Actual iPhone
+recording, real backend stills, and a new native-code animated two-signal
+feedback loop are used. Old animated phone demo inspected but not presented
+as a real interaction. Masters hard-linked into local store to avoid extra
+disk use. Final MP4 also linked into Downloads.
+
+Review page lists three replacement captures: consistent target-product phone
+interaction visibly offline; live Wiki/knowledge/users/reviewer navigation;
+dedicated equipment-text OCR. No publishing/upload performed.
+
+Canonical review.html and MP4:
+~/flotilla/tech-shorts/assets/2026-10-28-yc-air-gapped-industrial-ai/ .
