@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-10-29",
+    "summary": "Codi overnight handoff: PR11 runtime providers verified; Muse integrating. Physical geometry, reviewed admission and phone green/amber acceptance remain. No new work or spend.",
+    "file": "2026-10-29-codi-handoff.md"
+  },
+  {
+    "date": "2026-10-28",
+    "summary": "Clau: AFL submission video lane. Rubric pulled verbatim (finals rank the VIDEO); 3-min cap confirmed. Corrected the 0.889/0.861 mislabel (true prefill = 1.000 both). Demo redesigned to three states \u2014 State 3 (unsupported question -> amber from the footing check) is the only one where the readout fires. Delivered DEMO_PATH_BRIEF.md and a complete 2:58 animatic with real narration, real data graphics and labelled placeholders.",
+    "file": "2026-10-28-clau-afl-video.md"
+  },
+  {
     "date": "2026-10-28",
     "summary": "Codi: live SAM/Ross/Glimmer providers verified in PR11; H100 raw prefill score served, 114 tests pass/7 expected skips; windows closed, containers empty. Miguel review received; contact unknown. Phone two-state acceptance pending.",
     "file": "2026-10-28-codi-trajectory.md"
