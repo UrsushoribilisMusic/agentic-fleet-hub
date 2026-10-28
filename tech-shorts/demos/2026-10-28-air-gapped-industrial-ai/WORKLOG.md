@@ -42,3 +42,19 @@ dedicated equipment-text OCR. No publishing/upload performed.
 
 Canonical review.html and MP4:
 ~/flotilla/tech-shorts/assets/2026-10-28-yc-air-gapped-industrial-ai/ .
+
+## V2 requested — actual Sovereign Mind footage
+
+Miguel provided four recordings: July camera/OCR, October settings, October
+abrasives Wiki and diagrams, and October chat history/multilingual interactions.
+Inspected all four; filenames16:34=settings,16:35=Wiki,16:38=chat. All master
+recordings hard-linked to the canonical asset directory.
+
+Replace every Canis shot except the disposition panel. Preserve approved
+narration/audio and duration, historical opening, feedback animation and ending.
+Use settings for model/knowledge-pack/persona sections, real Wiki diagrams for
+knowledge/pilot scenes, and real questions/history/German/Spanish interactions.
+Align the camera and extracted-text screens to the existing camera narration,
+starting the source interaction before that phrase. Local Kokoro timing-only
+replay measured the camera word at113.1675s; approved audio is not replaced.
+V2 gets its own segment cache, MP4 and review page; keep V1 intact.
