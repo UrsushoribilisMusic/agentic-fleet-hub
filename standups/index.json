@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-10-29",
+    "summary": "Codi: PR13 amber pen-presence replay, measured signed offsets, read-only controller binding and review-only RED proposal. 127 tests pass/7 skips; two Meta observations $0.006252 estimated, no GPU; physical geometry pending.",
+    "file": "2026-10-29-codi-observables.md"
+  },
+  {
+    "date": "2026-10-29",
     "summary": "Codi overnight handoff: PR11 runtime providers verified; Muse integrating. Physical geometry, reviewed admission and phone green/amber acceptance remain. No new work or spend.",
     "file": "2026-10-29-codi-handoff.md"
   },
