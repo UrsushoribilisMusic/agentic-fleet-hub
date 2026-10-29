@@ -47,3 +47,17 @@ height, actual robot linkage/uncertainty measurements, reviewed capture-clock
 binding (current query+JPEG wire has no sensor timestamp), and actual phone
 presence/containment refusals. Original VG03 contact stays unknown. Raw Glimmer
 signal is diagnostic only; no validated weight-based permission gate.
+
+## Codi — PR14 independent review
+
+Reviewed exact head0c36effd80c495e3a01147534e2f4805462807c2 in isolated checkout.
+Backend142tests:135pass/7expected skips. Simulator build succeeded, signing off.
+No paid calls, deployment or GPU work. Three findings prevent acceptance:
+shared Dict read/increment/write is not atomic (max1 admitted2 provider calls,
+recorded1); timeout releases slot while to_thread worker continues (concurrency1
+reproduced2workers); phone preview can submit retained glasses/mock frame.
+Published review https://github.com/UrsushoribilisMusic/ambient-field-lens/pull/14#pullrequestreview-5696884050 .
+GitHub state COMMENTED (shared author account); content requests changes. PR left
+open/unmerged, no approval claimed. Repro and findings in reviews/ambient-field-lens/.
+Await Muse fixes and re-review; documented geometry/clock/RED limitations were
+not misreported as new PR regressions.

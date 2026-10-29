@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-10-29",
-    "summary": "Codi: PR13 amber pen-presence replay, measured signed offsets, read-only controller binding and review-only RED proposal. 127 tests pass/7 skips; two Meta observations $0.006252 estimated, no GPU; physical geometry pending.",
+    "summary": "Codi: PR13 observable checks ready; PR14 reviewed, 135 tests pass/build succeeds but budget race, timeout worker overlap and camera-source mismatch require changes. No paid/GPU review calls.",
     "file": "2026-10-29-codi-observables.md"
   },
   {
