@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-10-29",
-    "summary": "Codi: PR14 re-review at9324b18; 143 backend tests pass, simulator builds. Cancellation and window-close races still block merge; Swift tests blocked by existing SDK startup assertion. No paid/GPU calls.",
+    "summary": "Codi: PR16 prepares immutable documentation repair and rollback; before paper-position retrieval captured,139tests pass. Actual wiki text/pin/deployment pending. PR14 re-review still blocked by cancellation/window races.",
     "file": "2026-10-29-codi-observables.md"
   },
   {

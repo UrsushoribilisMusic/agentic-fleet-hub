@@ -76,3 +76,37 @@ https://github.com/UrsushoribilisMusic/ambient-field-lens/pull/14#pullrequestrev
 No merge/approval; actual GitHub review COMMENTED due shared author account.
 No paid calls, GPU, deployment or robot action. Durable findings and repro in
 reviews/ambient-field-lens/pr14-rereview-*; Muse must fix before acceptance.
+
+## Codi — documentation repair before capture and PR16 (separate from PR14)
+
+Clau's direct film-critical request, issue15. Branchcodi/repair-reingest,
+commit5fa5e9f, ready for independent review:
+https://github.com/UrsushoribilisMusic/ambient-field-lens/pull/16
+
+Exact query “what to do if the paper is in the wrong position” against unchanged
+38-record corpus: top8135308218c2c50dfd8b0aec8c0a48b25782d42098b2af9d4aa03fb2d71ccbb6,
+distance0.8199027180671692 (calibration slopes/lift height, no paper-position
+correction procedure). Runnersddc2942ee79…0.8298013210296631 and
+d4ed86dba966…0.8333027362823486. Full3 passages in
+~/Downloads/AFL-paper-position-before-passages.md. Exact full corpus+embedding
+snapshot/report and ranking in ~/Movies/Ambient-Field-Lens/2026-10-29/repair-reingest/.
+Human reading, not a calibrated coverage conclusion. Public hashed receipt inPR.
+
+Implemented immutable separate DB/collection staging of one exact human SM wiki
+export, explicit reviewed registry binding name/count/fullfingerprint/report and
+fullID/text/metadata/vectors. Original38/report preserved; proposed39pin only
+after actual text exists. Deployed-pin-checked IAM selection/rollback and full
+citation comparison. No gate, threshold, verdict, /assist or PR14 changes.
+No automatic SM sync; stable export revision/reviewer is operator provenance.
+
+Verification:146backendtests,139pass/7expected archive skips;12new corpus tests.
+ActualChroma1.5.9 temporary synthetic38→39 smoke preserves baseline/vectors and
+repeats read-only. Actual archived38 matches committedpin. CLIhelp imports.
+One receipted read-only CPU Modal capture appap-CRz1i9zsDA4z1DTHXmJaAU stopped
+0tasks; final container listempty. No GPU/SAM/hostedmodels/deployment/active switch.
+
+Pending: Miguel writes/reviews/exports actualSMpassage; stage it; review/commit
+actual39-recordpin and coordinate providerdeploymentwithMuse; select, verify
+the new addition is actually top1, film both fulltexts. Different citation is
+the only payoff claim, never notcovered→covered or permission. PR14 separate
+cancellation/window blockers still stand. Handoff docs/documentation-repair-handoff.md.
