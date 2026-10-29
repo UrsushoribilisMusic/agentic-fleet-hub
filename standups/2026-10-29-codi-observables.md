@@ -61,3 +61,18 @@ GitHub state COMMENTED (shared author account); content requests changes. PR lef
 open/unmerged, no approval claimed. Repro and findings in reviews/ambient-field-lens/.
 Await Muse fixes and re-review; documented geometry/clock/RED limitations were
 not misreported as new PR regressions.
+
+## Codi — PR14 re-review after Muse fixes
+
+Reviewed code at480777d, then fetched latest9324b18 (documentation-only delta).
+Backend150tests:143pass/7expected skips; simulator BUILD SUCCEEDED. FrameSource
+tests did not execute: host traps on existing Wearables.configure assertion at
+AmbientFieldLensApp.swift:10 before XCTest attaches; not reported as a test pass.
+Phone/Glass source preference fixed; ordinary timeout drain and last-token take
+improved. Two original blockers remain, independently reproduced offline:
+cancellation frees slot and starts SAM afterward; active-window lifecycle race
+still admits closed window and statistics put can resurrect it. Review posted:
+https://github.com/UrsushoribilisMusic/ambient-field-lens/pull/14#pullrequestreview-5704577188
+No merge/approval; actual GitHub review COMMENTED due shared author account.
+No paid calls, GPU, deployment or robot action. Durable findings and repro in
+reviews/ambient-field-lens/pr14-rereview-*; Muse must fix before acceptance.
