@@ -26,8 +26,9 @@ HERE = Path(__file__).resolve().parent
 JOBS_FILE = HERE / "jobs.json"
 ENV_FILE = Path("/Users/miguelrodriguez/projects/music-video-tool/.env")
 
-# Native voices. `kokoro:` voices are local/free fallbacks used when cloud
-# quota is exhausted; plain IDs are ElevenLabs voices.
+# Native voices. `kokoro:` voices run locally and cost nothing, and are the
+# default for every language; plain IDs are ElevenLabs voices, whose small
+# monthly allowance is reserved for hero videos (The Small Model, hackathon).
 VOICES = {"de": "kokoro:de:kerstin", "fr": "kokoro:fr:ff_siwis", "ja": "kokoro:ja:jf_alpha"}
 LANGNAME = {"de": "German", "fr": "French", "ja": "Japanese"}
 MODEL_TTS = "eleven_multilingual_v2"

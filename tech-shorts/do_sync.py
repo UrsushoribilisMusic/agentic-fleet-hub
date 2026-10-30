@@ -22,6 +22,7 @@ import subprocess
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 from typing import Any, Dict, Optional
@@ -42,6 +43,17 @@ def _headers() -> Dict[str, str]:
     if token:
         h["Authorization"] = f"Bearer {token}"
     return h
+
+
+def _quote_id(job_id: str) -> str:
+    """Percent-encode a job id for use in a URL path.
+
+    Job ids are slugified from titles and can carry non-ASCII characters
+    (e.g. ``ts-20261027-eth-hipótesis-disproved``). http.client encodes the
+    request line as ASCII, so an unencoded id raises UnicodeEncodeError and
+    kills the worker mid-job.
+    """
+    return urllib.parse.quote(job_id, safe="")
 
 
 def _request(method: str, url: str, body: Any = None, timeout: int = 15) -> Any:
@@ -88,7 +100,7 @@ def claim_queued_job(base_url: str = DEFAULT_INTAKE_URL) -> Optional[Dict]:
 def get_job(job_id: str, base_url: str = DEFAULT_INTAKE_URL) -> Optional[Dict]:
     """Fetch current state of a job from the DO API."""
     try:
-        return _request("GET", f"{base_url.rstrip('/')}/api/jobs/{job_id}")
+        return _request("GET", f"{base_url.rstrip('/')}/api/jobs/{_quote_id(job_id)}")
     except RuntimeError as e:
         if "404" in str(e):
             return None
@@ -120,7 +132,7 @@ def post_status(
     """
     payload: Dict[str, Any] = {"status": status}
     payload.update(extra_fields)
-    result = _request("PATCH", f"{base_url.rstrip('/')}/api/jobs/{job_id}", body=payload)
+    result = _request("PATCH", f"{base_url.rstrip('/')}/api/jobs/{_quote_id(job_id)}", body=payload)
     print(f"[do_sync] {job_id} → {status}")
     return result
 

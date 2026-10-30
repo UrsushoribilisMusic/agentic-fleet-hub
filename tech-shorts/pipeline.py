@@ -213,10 +213,18 @@ def build_outro_card(job: dict, workdir: Path, w: int, h: int) -> Path:
     return path
 
 
-# ── ElevenLabs VO ────────────────────────────────────────────────────────────
+# ── Hook VO ───────────────────────────────────────────────────
+# Kokoro runs locally and costs nothing, so it is the default engine for the
+# routine tech-shorts. The ElevenLabs monthly allowance is small and reserved
+# for work where the voice carries the piece (The Small Model, hackathon and
+# other hero videos), so it is opt-in: set TS_VO_ENGINE=elevenlabs in the
+# environment, or pass engine="elevenlabs".
 
-def generate_vo(text: str, out_path: Path) -> None:
-    """Generate hook VO via ElevenLabs API (Alice, British female)."""
+VO_ENGINE_DEFAULT = "kokoro"
+
+
+def _vo_elevenlabs(text: str, out_path: Path) -> None:
+    """Generate hook VO via ElevenLabs API (Alice, British female). Metered — opt-in."""
     api_key = os.environ.get("ELEVENLABS_API_KEY", "")
     if not api_key:
         try:
@@ -240,25 +248,23 @@ def generate_vo(text: str, out_path: Path) -> None:
     if not api_key:
         raise RuntimeError("ELEVENLABS_API_KEY not found in Infisical vault, env, or music-video-tool/.env")
 
-    try:
-        from elevenlabs.client import ElevenLabs
-        client = ElevenLabs(api_key=api_key)
-        audio_iter = client.text_to_speech.convert(
-            voice_id=ELEVENLABS_VOICE_ID,
-            text=text,
-            model_id=ELEVENLABS_MODEL,
-            output_format="mp3_44100_128",
-        )
-        out_path.parent.mkdir(parents=True, exist_ok=True)
-        with open(out_path, "wb") as f:
-            for chunk in audio_iter:
-                f.write(chunk)
-        print(f"  VO written: {out_path} ({out_path.stat().st_size // 1024}KB)")
-        return
-    except Exception as e:
-        print(f"  ElevenLabs VO generation failed ({e}) — falling back to local Kokoro (af_bella)...")
+    from elevenlabs.client import ElevenLabs
+    client = ElevenLabs(api_key=api_key)
+    audio_iter = client.text_to_speech.convert(
+        voice_id=ELEVENLABS_VOICE_ID,
+        text=text,
+        model_id=ELEVENLABS_MODEL,
+        output_format="mp3_44100_128",
+    )
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(out_path, "wb") as f:
+        for chunk in audio_iter:
+            f.write(chunk)
+    print(f"  ElevenLabs VO written: {out_path} ({out_path.stat().st_size // 1024}KB)")
 
-    # Fallback to local Kokoro (af_bella) via LOCALIZE_VENV_PY
+
+def _vo_kokoro(text: str, out_path: Path) -> None:
+    """Generate hook VO with local Kokoro (af_bella). Free, offline, quota-proof."""
     out_path.parent.mkdir(parents=True, exist_ok=True)
     tmp_wav = out_path.with_suffix(".wav")
     code = f"""
@@ -274,6 +280,20 @@ sf.write({json.dumps(str(tmp_wav))}, np.concatenate(chunks), 24000)
     if tmp_wav.exists():
         tmp_wav.unlink()
     print(f"  Kokoro VO written: {out_path} ({out_path.stat().st_size // 1024}KB)")
+
+
+def generate_vo(text: str, out_path: Path, engine: str = None) -> None:
+    """Generate the hook VO. Kokoro by default; ElevenLabs only when asked for."""
+    engine = (engine or os.environ.get("TS_VO_ENGINE", VO_ENGINE_DEFAULT)).strip().lower()
+
+    if engine in ("elevenlabs", "11labs", "eleven"):
+        try:
+            _vo_elevenlabs(text, out_path)
+            return
+        except Exception as e:
+            print(f"  ElevenLabs VO generation failed ({e}) — falling back to local Kokoro (af_bella)...")
+
+    _vo_kokoro(text, out_path)
 
 
 

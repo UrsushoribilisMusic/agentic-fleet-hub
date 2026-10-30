@@ -63,3 +63,6 @@ eval/canis_arxiv_submission.tar.gz
 eval/canis_submission.tar.gz
 fleet/logs/*.log
 fleet/logs/*.log.*
+
+# Infisical workspace pointer (no secrets, but not ours to version)
+.infisical.json
