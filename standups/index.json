@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-10-30",
+    "summary": "Codi: AFL v12 video rubric review, weighted7.0/10; tighten readout/coverage/privacy claims and repair payoff, remove opening error. Detailed timestamped edit notes saved; no film or live-system changes.",
+    "file": "2026-10-30-codi-video-review.md"
+  },
+  {
     "date": "2026-10-29",
     "summary": "Codi: PR16 prepares immutable documentation repair and rollback; before paper-position retrieval captured,139tests pass. Actual wiki text/pin/deployment pending. PR14 re-review still blocked by cancellation/window races.",
     "file": "2026-10-29-codi-observables.md"
