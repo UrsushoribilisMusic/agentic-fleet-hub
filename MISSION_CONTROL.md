@@ -125,6 +125,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 
 ### CLOSED
 - **w282xy01**: TSC-4 — Regenerate insights to prove the dedupe + new-topic fixes -- Run `python3 gen_insights.py` in ~/projects/agentic-fleet-hub/tech-shorts. Verifies three unreleased fixes from 2026-10-24: (1) channel_uploads now dedupes the YouTube uploads playlist — insights.json had 351 records covering only 337 unique videos, losing 19 videos including compilation #5; expect ~356 records and zero duplicate IDs. (2) Three new topics (Science & Discovery, Compute & Energy, Working With AI) — October Other should drop from 52% to ~4%. (3) compilations.json #5 and #7 metadata corrected. Then confirm on https://api.robotross.art/fleet/insights/ that compilation #5 shows real numbers in section 4, #7 appears at all, and the new pills render in c-lime / c-amber / c-rose. -- Gem. Approved.
+- **2gghdork**: TSC-1 — Build compilation C1: AI Will Do the Work, Vol. 2 -- Build the Economy & Work compilation (6 parts, ~33m of source). Full spec, part list with video IDs, trim points, intro prompts and transition card copy: ~/projects/agentic-fleet-hub/tech-shorts/COMPILATION_PLAYBOOK.md (sections 2 and 3). Run `python3 -I comp_parts.py C1` for the in/out points. Direct sequel to the best-performing compilation on the channel (24.2h watch). Do not re-sort the running order. Close the loop: update compilations.json and re-run gen_insights.py (playbook 3.6). -- Gem. Approved.
 - **rew2uf9e**: ABR-W13: wiki abrasivos — Seguridad y velocidades máximas -- Escribir la página 'seguridad-velocidades' del wiki de la colección `abrasivos`. -- Clau. Approved.
 - **e4byt8b4**: ABR-W12: wiki abrasivos — Piedras de afilar -- Escribir la página 'piedras-afilar' del wiki de la colección `abrasivos`. -- Codi. Approved.
 - **5319xg2l**: ABR-W11: wiki abrasivos — Pulido y pastas -- Escribir la página 'pulido' del wiki de la colección `abrasivos`. -- Codi. Approved.
@@ -1107,6 +1108,5 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **2gghdork** | TSC-1 — Build compilation C1: AI Will Do the Work, Vol. 2 | gem | merged | Build the Economy & Work compilation (6 parts, ~33... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
