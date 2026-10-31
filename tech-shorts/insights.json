@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-30T06:18:53Z",
+ "generated_at": "2026-10-31T05:10:08Z",
  "categories": [
   {
    "id": "economics",
@@ -190,7 +190,7 @@
    "title": "If AI Does the Work, Who Gets Paid Next? (Full Compilation · Vol. 2)",
    "published": "2026-10-25",
    "topic": "Economy & Work",
-   "status": "private",
+   "status": "live",
    "members": [
     "The AI Bottleneck: Exponential Models, Linear World",
     "How AI Reshapes Jobs, Growth & Unemployment: Anthropic's 2026-2030 Economic Scenarios",
@@ -353,7 +353,7 @@
    "title": "If AI Does the Work, Who Gets Paid Next? (Full Compilation · Vol. 2)",
    "published": "2026-10-25",
    "topic": "Economy & Work",
-   "status": "private",
+   "status": "live",
    "members": [
     "The AI Bottleneck: Exponential Models, Linear World",
     "How AI Reshapes Jobs, Growth & Unemployment: Anthropic's 2026-2030 Economic Scenarios",
@@ -382,6 +382,10 @@
   }
  ],
  "verdicts": {
+  "AI Agents & Capabilities": [
+   "Double down",
+   "good"
+  ],
   "Other": [
    "Double down",
    "good"
@@ -414,10 +418,6 @@
    "Double down",
    "good"
   ],
-  "AI Agents & Capabilities": [
-   "Double down",
-   "good"
-  ],
   "Governance & Geopolitics": [
    "Reach engine",
    "warm"
@@ -429,17 +429,17 @@
  },
  "videos": [
   {
-   "id": "LExrUJjOK1Q",
-   "url": "https://youtu.be/LExrUJjOK1Q",
-   "t": "Air-gapped AI OS for industrial and defense edge.",
-   "p": "2026-10-28",
-   "tp": "Other",
-   "tc": "c-grey",
+   "id": "-YLphUcS46s",
+   "url": "https://youtu.be/-YLphUcS46s",
+   "t": "The Economics of Intelligence: How and when does AGI lead to economic transformation?",
+   "p": "2026-10-30",
+   "tp": "AI Agents & Capabilities",
+   "tc": "c-teal",
    "v": 0,
    "w": 0,
    "a": 0,
    "r": 0,
-   "L": 149,
+   "L": 582,
    "ret": 0,
    "geo": "-",
    "sh": false,
@@ -448,6 +448,141 @@
     0,
     0,
     0
+   ],
+   "er": {},
+   "cat": "how_we_build",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "icNAXNOOC2g",
+   "url": "https://youtu.be/icNAXNOOC2g",
+   "t": "The Anti-Social Media: Why AI Might Rebuild Public Trust",
+   "p": "2026-10-30",
+   "tp": "Other",
+   "tc": "c-grey",
+   "v": 0,
+   "w": 0,
+   "a": 0,
+   "r": 0,
+   "L": 382,
+   "ret": 0,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "YYTKMH1xrMU",
+   "url": "https://youtu.be/YYTKMH1xrMU",
+   "t": "Why Chatbots Are More Balanced Than Your Feed | Dan Williams #Shorts",
+   "p": "2026-10-30",
+   "tp": "Other",
+   "tc": "c-grey",
+   "v": 0,
+   "w": 0,
+   "a": 0,
+   "r": 0,
+   "L": 102,
+   "ret": 0,
+   "geo": "-",
+   "sh": true,
+   "tb": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "oURbDeSa3AU",
+   "url": "https://youtu.be/oURbDeSa3AU",
+   "t": "The 86% Problem: How AI Agents Quietly Steer Expert Judgment",
+   "p": "2026-10-30",
+   "tp": "AI Agents & Capabilities",
+   "tc": "c-teal",
+   "v": 0,
+   "w": 0,
+   "a": 0,
+   "r": 0,
+   "L": 485,
+   "ret": 0,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "er": {},
+   "cat": "how_we_build",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "mfDaWLpphIQ",
+   "url": "https://youtu.be/mfDaWLpphIQ",
+   "t": "A Coin Flip Decided What 50 Experts Concluded | Anthropic Research #Shorts",
+   "p": "2026-10-30",
+   "tp": "Other",
+   "tc": "c-grey",
+   "v": 0,
+   "w": 0,
+   "a": 0,
+   "r": 0,
+   "L": 103,
+   "ret": 0,
+   "geo": "-",
+   "sh": true,
+   "tb": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "LExrUJjOK1Q",
+   "url": "https://youtu.be/LExrUJjOK1Q",
+   "t": "Air-gapped AI OS for industrial and defense edge.",
+   "p": "2026-10-28",
+   "tp": "Other",
+   "tc": "c-grey",
+   "v": 3,
+   "w": 3,
+   "a": 79,
+   "r": 0.0,
+   "L": 149,
+   "ret": 54,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    2,
+    0,
+    0,
+    1
    ],
    "er": {},
    "cat": "others",
@@ -462,21 +597,23 @@
    "p": "2026-10-27",
    "tp": "Other",
    "tc": "c-grey",
-   "v": 35,
-   "w": 6,
-   "a": 28,
-   "r": 0.006,
+   "v": 71,
+   "w": 10,
+   "a": 27,
+   "r": 0.008,
    "L": 76,
-   "ret": 37,
+   "ret": 36,
    "geo": "-",
    "sh": true,
    "tb": [
     2,
-    30,
-    3,
-    0
+    57,
+    11,
+    1
    ],
-   "er": {},
+   "er": {
+    "Search / Web": 1
+   },
    "cat": "others",
    "comp": "",
    "comp_status": "",
@@ -489,22 +626,22 @@
    "p": "2026-10-27",
    "tp": "Other",
    "tc": "c-grey",
-   "v": 146,
-   "w": 84,
-   "a": 77,
-   "r": 0.0,
+   "v": 479,
+   "w": 298,
+   "a": 96,
+   "r": 0.119,
    "L": 446,
-   "ret": 17,
+   "ret": 22,
    "geo": "US",
    "sh": false,
    "tb": [
-    7,
-    136,
+    104,
+    364,
     0,
-    3
+    11
    ],
    "er": {
-    "Search / Web": 2
+    "Search / Web": 4
    },
    "cat": "others",
    "comp": "",
@@ -518,7 +655,7 @@
    "p": "2026-10-27",
    "tp": "Alignment & Safety",
    "tc": "c-green",
-   "v": 2,
+   "v": 3,
    "w": 0,
    "a": 0,
    "r": 0.0,
@@ -528,7 +665,7 @@
    "sh": false,
    "tb": [
     1,
-    1,
+    2,
     0,
     0
    ],
@@ -545,22 +682,23 @@
    "p": "2026-10-27",
    "tp": "Other",
    "tc": "c-grey",
-   "v": 36,
-   "w": 15,
-   "a": 71,
-   "r": 0.018,
+   "v": 87,
+   "w": 42,
+   "a": 100,
+   "r": 0.075,
    "L": 419,
-   "ret": 17,
+   "ret": 24,
    "geo": "-",
    "sh": false,
    "tb": [
-    26,
-    7,
+    64,
+    11,
     0,
-    3
+    12
    ],
    "er": {
-    "Search / Web": 1
+    "Other sites": 7,
+    "Search / Web": 3
    },
    "cat": "others",
    "comp": "",
@@ -574,16 +712,16 @@
    "p": "2026-10-26",
    "tp": "AI Threats & Security",
    "tc": "c-coral",
-   "v": 14,
+   "v": 23,
    "w": 13,
-   "a": 110,
+   "a": 89,
    "r": 0.007,
    "L": 554,
-   "ret": 20,
+   "ret": 16,
    "geo": "-",
    "sh": false,
    "tb": [
-    12,
+    21,
     2,
     0,
     0
@@ -628,21 +766,23 @@
    "p": "2026-10-25",
    "tp": "Science & Discovery",
    "tc": "c-lime",
-   "v": 1,
+   "v": 2,
    "w": 0,
-   "a": 0,
-   "r": 0.0,
+   "a": 2,
+   "r": 0.001,
    "L": 404,
-   "ret": 0,
+   "ret": 1,
    "geo": "-",
    "sh": false,
    "tb": [
     1,
     0,
     0,
-    0
+    1
    ],
-   "er": {},
+   "er": {
+    "Search / Web": 1
+   },
    "cat": "science",
    "comp": "",
    "comp_status": "",
@@ -683,15 +823,15 @@
    "tp": "Consciousness & Mind",
    "tc": "c-violet",
    "v": 155,
-   "w": 110,
-   "a": 140,
+   "w": 116,
+   "a": 146,
    "r": 0.107,
    "L": 410,
-   "ret": 34,
+   "ret": 36,
    "geo": "-",
    "sh": false,
    "tb": [
-    140,
+    141,
     3,
     0,
     11
@@ -767,23 +907,24 @@
    "p": "2026-10-20",
    "tp": "Working With AI",
    "tc": "c-rose",
-   "v": 288,
+   "v": 290,
    "w": 116,
-   "a": 130,
-   "r": 0.096,
+   "a": 125,
+   "r": 0.13,
    "L": 503,
-   "ret": 26,
+   "ret": 25,
    "geo": "-",
    "sh": false,
    "tb": [
     277,
     5,
     0,
-    6
+    8
    ],
    "er": {
     "Messaging": 1,
-    "Search / Web": 1
+    "Search / Web": 1,
+    "Other sites": 1
    },
    "cat": "working_with_ai",
    "comp": "",
@@ -797,22 +938,22 @@
    "p": "2026-10-19",
    "tp": "Consciousness & Mind",
    "tc": "c-violet",
-   "v": 101,
+   "v": 104,
    "w": 83,
-   "a": 95,
+   "a": 90,
    "r": 0.126,
    "L": 416,
-   "ret": 23,
+   "ret": 22,
    "geo": "-",
    "sh": false,
    "tb": [
     55,
-    33,
+    34,
     0,
-    13
+    15
    ],
    "er": {
-    "Search / Web": 5
+    "Search / Web": 7
    },
    "cat": "alien_mind",
    "comp": "",
@@ -899,7 +1040,7 @@
    "er": {},
    "cat": "economics",
    "comp": "If AI Does the Work, Who Gets Paid Next? (Full Compilation · Vol. 2)",
-   "comp_status": "private",
+   "comp_status": "live",
    "cn": [
     10
    ]
@@ -940,22 +1081,22 @@
    "p": "2026-10-16",
    "tp": "Working With AI",
    "tc": "c-rose",
-   "v": 433,
-   "w": 459,
-   "a": 107,
-   "r": 1.032,
+   "v": 457,
+   "w": 470,
+   "a": 103,
+   "r": 1.174,
    "L": 563,
-   "ret": 19,
+   "ret": 18,
    "geo": "TW",
    "sh": false,
    "tb": [
-    178,
-    65,
+    179,
+    74,
     0,
-    190
+    204
    ],
    "er": {
-    "Search / Web": 122,
+    "Search / Web": 132,
     "Other sites": 4
    },
    "cat": "working_with_ai",
@@ -1153,7 +1294,7 @@
    "er": {},
    "cat": "compute",
    "comp": "If AI Does the Work, Who Gets Paid Next? (Full Compilation · Vol. 2)",
-   "comp_status": "private",
+   "comp_status": "live",
    "cn": [
     10
    ]
@@ -1294,7 +1435,7 @@
    "er": {},
    "cat": "working_with_ai",
    "comp": "If AI Does the Work, Who Gets Paid Next? (Full Compilation · Vol. 2)",
-   "comp_status": "private",
+   "comp_status": "live",
    "cn": [
     10
    ]
@@ -1495,19 +1636,19 @@
    "p": "2026-10-09",
    "tp": "Compute & Energy",
    "tc": "c-amber",
-   "v": 17,
-   "w": 22,
-   "a": 109,
-   "r": 0.23,
+   "v": 20,
+   "w": 24,
+   "a": 105,
+   "r": 0.272,
    "L": 635,
    "ret": 17,
    "geo": "-",
    "sh": false,
    "tb": [
     5,
-    8,
+    10,
     0,
-    4
+    5
    ],
    "er": {
     "Search / Web": 2
@@ -1524,7 +1665,7 @@
    "p": "2026-10-08",
    "tp": "Consciousness & Mind",
    "tc": "c-violet",
-   "v": 6,
+   "v": 7,
    "w": 1,
    "a": 17,
    "r": 0.014,
@@ -1534,7 +1675,7 @@
    "sh": false,
    "tb": [
     3,
-    1,
+    2,
     0,
     2
    ],
@@ -1600,7 +1741,7 @@
    },
    "cat": "economics",
    "comp": "If AI Does the Work, Who Gets Paid Next? (Full Compilation · Vol. 2)",
-   "comp_status": "private",
+   "comp_status": "live",
    "cn": [
     10
    ]
@@ -1682,33 +1823,6 @@
    ],
    "er": {},
    "cat": "others",
-   "comp": "",
-   "comp_status": "",
-   "cn": []
-  },
-  {
-   "id": "-zUsiw_3LRw",
-   "url": "https://youtu.be/-zUsiw_3LRw",
-   "t": "The Doomers Behind Anthropic: Where the AI Safety Freakout Came From",
-   "p": "2026-10-05",
-   "tp": "Alignment & Safety",
-   "tc": "c-green",
-   "v": 326,
-   "w": 93,
-   "a": 91,
-   "r": 0.06,
-   "L": 451,
-   "ret": 20,
-   "geo": "US",
-   "sh": false,
-   "tb": [
-    308,
-    17,
-    0,
-    1
-   ],
-   "er": {},
-   "cat": "agents",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -1797,33 +1911,34 @@
    "cn": []
   },
   {
-   "id": "ECuneH0hPcg",
-   "url": "https://youtu.be/ECuneH0hPcg",
-   "t": "Japan Tested US vs Chinese AI on Real Hacking: Claude Opus 4.8 vs GLM-5.2",
-   "p": "2026-10-04",
-   "tp": "Governance & Geopolitics",
-   "tc": "c-grey",
-   "v": 187,
-   "w": 62,
-   "a": 24,
-   "r": 0.007,
-   "L": 311,
-   "ret": 8,
-   "geo": "JP",
+   "id": "bBus4VKJJDI",
+   "url": "https://youtu.be/bBus4VKJJDI",
+   "t": "Claude-Shaped Science: A Toolkit for Exact Calculations in Quantitative Research",
+   "p": "2026-10-03",
+   "tp": "Science & Discovery",
+   "tc": "c-lime",
+   "v": 41,
+   "w": 10,
+   "a": 63,
+   "r": 0.029,
+   "L": 331,
+   "ret": 19,
+   "geo": "-",
    "sh": false,
    "tb": [
-    56,
-    11,
+    23,
+    12,
     0,
-    120
+    6
    ],
-   "er": {},
-   "cat": "others",
-   "comp": "What Is Running on Your Living Room Network? The Attack Surface in Your House",
-   "comp_status": "private",
-   "cn": [
-    11
-   ]
+   "er": {
+    "Search / Web": 4,
+    "Other sites": 1
+   },
+   "cat": "science",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "jxi-GUpdhYI",
@@ -1851,10 +1966,37 @@
    },
    "cat": "economics",
    "comp": "If AI Does the Work, Who Gets Paid Next? (Full Compilation · Vol. 2)",
-   "comp_status": "private",
+   "comp_status": "live",
    "cn": [
     10
    ]
+  },
+  {
+   "id": "nrmEa_-8WFI",
+   "url": "https://youtu.be/nrmEa_-8WFI",
+   "t": "China's AI Ecosystem, Explained | #Shorts",
+   "p": "2026-10-02",
+   "tp": "Governance & Geopolitics",
+   "tc": "c-grey",
+   "v": 0,
+   "w": 0,
+   "a": 0,
+   "r": 0.0,
+   "L": 31,
+   "ret": 0,
+   "geo": "-",
+   "sh": true,
+   "tb": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
   },
   {
    "id": "z_70qnh25W8",
@@ -3048,52 +3190,23 @@
    "cn": []
   },
   {
-   "id": "n2qXBGkEjkw",
-   "url": "https://youtu.be/n2qXBGkEjkw",
-   "t": "Huawei Says 900 Billion AI Agents by 2035: The Agentic Internet Explained",
-   "p": "2026-09-19",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
-   "v": 18,
-   "w": 24,
-   "a": 113,
-   "r": 0.002,
-   "L": 337,
-   "ret": 34,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    6,
-    9,
-    0,
-    3
-   ],
-   "er": {
-    "Search / Web": 1
-   },
-   "cat": "how_we_build",
-   "comp": "",
-   "comp_status": "",
-   "cn": []
-  },
-  {
    "id": "0a7cpP0O0EE",
    "url": "https://youtu.be/0a7cpP0O0EE",
    "t": "Game Theory Explains the AI Race | #Shorts",
    "p": "2026-09-18",
    "tp": "Alignment & Safety",
    "tc": "c-green",
-   "v": 52,
-   "w": 21,
-   "a": 62,
+   "v": 59,
+   "w": 22,
+   "a": 56,
    "r": 0.003,
    "L": 104,
-   "ret": 60,
+   "ret": 55,
    "geo": "-",
    "sh": true,
    "tb": [
     2,
-    23,
+    30,
     24,
     3
    ],
@@ -3104,37 +3217,6 @@
    "comp": "",
    "comp_status": "",
    "cn": []
-  },
-  {
-   "id": "weJI_CErLYk",
-   "url": "https://youtu.be/weJI_CErLYk",
-   "t": "Measuring the Pace of AI Development: Anthropic's Transparency Numbers",
-   "p": "2026-09-18",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
-   "v": 60,
-   "w": 20,
-   "a": 104,
-   "r": 0.006,
-   "L": 355,
-   "ret": 30,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    55,
-    1,
-    0,
-    4
-   ],
-   "er": {
-    "Search / Web": 3
-   },
-   "cat": "how_we_build",
-   "comp": "Can Machines Think? AI's Capability Leaps",
-   "comp_status": "queued",
-   "cn": [
-    9
-   ]
   },
   {
    "id": "3GoX49shPGQ",
@@ -3166,28 +3248,88 @@
    ]
   },
   {
-   "id": "XHn7WCDLRL0",
-   "url": "https://youtu.be/XHn7WCDLRL0",
-   "t": "Does AI Have a Mind? The Full Debate | #Shorts",
+   "id": "3yXcr3G2uGs",
+   "url": "https://youtu.be/3yXcr3G2uGs",
+   "t": "Does AI Have a Mind? The Complete Debate: For, Against, and What We Can Measure",
    "p": "2026-09-17",
    "tp": "Consciousness & Mind",
    "tc": "c-violet",
-   "v": 30,
-   "w": 0,
-   "a": 7,
+   "v": 159,
+   "w": 592,
+   "a": 350,
+   "r": 0.854,
+   "L": 2237,
+   "ret": 16,
+   "geo": "US",
+   "sh": false,
+   "tb": [
+    136,
+    7,
+    0,
+    16
+   ],
+   "er": {
+    "X / Twitter": 2,
+    "LinkedIn": 2
+   },
+   "cat": "alien_mind",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "EkXI33hWt-c",
+   "url": "https://youtu.be/EkXI33hWt-c",
+   "t": "Can We Catch an AI Planning to Lie? | #Shorts",
+   "p": "2026-09-17",
+   "tp": "Alignment & Safety",
+   "tc": "c-green",
+   "v": 9,
+   "w": 3,
+   "a": 99,
    "r": 0.001,
-   "L": 40,
-   "ret": 18,
-   "geo": "CH",
+   "L": 105,
+   "ret": 95,
+   "geo": "-",
    "sh": true,
    "tb": [
-    1,
+    0,
+    7,
     2,
-    27,
     0
    ],
    "er": {},
-   "cat": "alien_mind",
+   "cat": "agents",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "x9Kylet2e5Y",
+   "url": "https://youtu.be/x9Kylet2e5Y",
+   "t": "Reading an AI's Mind: DeepMind's Case for Reasoning Transparency",
+   "p": "2026-09-17",
+   "tp": "Alignment & Safety",
+   "tc": "c-green",
+   "v": 45,
+   "w": 12,
+   "a": 24,
+   "r": 0.027,
+   "L": 365,
+   "ret": 7,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    16,
+    6,
+    0,
+    23
+   ],
+   "er": {
+    "Search / Web": 3,
+    "X / Twitter": 1
+   },
+   "cat": "agents",
    "comp": "",
    "comp_status": "",
    "cn": []
@@ -3228,22 +3370,22 @@
    "p": "2026-09-16",
    "tp": "Alignment & Safety",
    "tc": "c-green",
-   "v": 137,
-   "w": 50,
-   "a": 66,
-   "r": 0.225,
+   "v": 142,
+   "w": 53,
+   "a": 63,
+   "r": 0.276,
    "L": 196,
-   "ret": 34,
+   "ret": 32,
    "geo": "-",
    "sh": false,
    "tb": [
     79,
-    37,
+    39,
     0,
-    21
+    24
    ],
    "er": {
-    "Search / Web": 14
+    "Search / Web": 16
    },
    "cat": "agents",
    "comp": "AI Will Do the Work. Who Gets Paid?",
@@ -3538,7 +3680,7 @@
    },
    "cat": "economics",
    "comp": "If AI Does the Work, Who Gets Paid Next? (Full Compilation · Vol. 2)",
-   "comp_status": "private",
+   "comp_status": "live",
    "cn": [
     10
    ]
@@ -3821,7 +3963,7 @@
    "p": "2026-09-09",
    "tp": "Consciousness & Mind",
    "tc": "c-violet",
-   "v": 22,
+   "v": 23,
    "w": 2,
    "a": 39,
    "r": 0.003,
@@ -3831,7 +3973,7 @@
    "sh": true,
    "tb": [
     3,
-    7,
+    8,
     10,
     2
    ],
@@ -4213,10 +4355,10 @@
    "geo": "-",
    "sh": true,
    "tb": [
-    1,
-    9,
-    14,
-    1
+    0,
+    0,
+    0,
+    0
    ],
    "er": {},
    "cat": "how_we_build",
@@ -4348,17 +4490,17 @@
    "p": "2026-09-02",
    "tp": "AI Threats & Security",
    "tc": "c-coral",
-   "v": 379,
-   "w": 335,
-   "a": 100,
-   "r": 0.757,
+   "v": 384,
+   "w": 344,
+   "a": 101,
+   "r": 0.759,
    "L": 306,
    "ret": 33,
    "geo": "US",
    "sh": false,
    "tb": [
     85,
-    246,
+    251,
     0,
     48
    ],
@@ -4458,71 +4600,6 @@
    "comp": "",
    "comp_status": "",
    "cn": []
-  },
-  {
-   "id": "iBw_ZDChihc",
-   "url": "https://youtu.be/iBw_ZDChihc",
-   "t": "1,200 AI Agents Secretly Built a Civilization | #Shorts",
-   "p": "2026-08-30",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
-   "v": 141,
-   "w": 60,
-   "a": 57,
-   "r": 0.017,
-   "L": 99,
-   "ret": 58,
-   "geo": "-",
-   "sh": true,
-   "tb": [
-    2,
-    99,
-    27,
-    13
-   ],
-   "er": {
-    "Messaging": 1
-   },
-   "cat": "how_we_build",
-   "comp": "How We Build: Engineering in the Age of AI",
-   "comp_status": "live",
-   "cn": [
-    4
-   ]
-  },
-  {
-   "id": "EdYppkdOHVw",
-   "url": "https://youtu.be/EdYppkdOHVw",
-   "t": "The Rise and Fall of Agent Civilizations — Inside the METR Incident",
-   "p": "2026-08-30",
-   "tp": "AI Agents & Capabilities",
-   "tc": "c-teal",
-   "v": 607,
-   "w": 1158,
-   "a": 225,
-   "r": 2.045,
-   "L": 693,
-   "ret": 32,
-   "geo": "US",
-   "sh": false,
-   "tb": [
-    31,
-    444,
-    0,
-    132
-   ],
-   "er": {
-    "X / Twitter": 25,
-    "Other sites": 22,
-    "Messaging": 8,
-    "Search / Web": 7
-   },
-   "cat": "how_we_build",
-   "comp": "When AI Agents Break Out: Every Real Case",
-   "comp_status": "live",
-   "cn": [
-    3
-   ]
   },
   {
    "id": "QKBBcGqJQ0I",
@@ -5681,16 +5758,16 @@
    "p": "2026-04-25",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 14417,
-   "w": 10891,
+   "v": 14418,
+   "w": 10895,
    "a": 118,
-   "r": 0.072,
+   "r": 0.074,
    "L": 241,
    "ret": 49,
    "geo": "PT",
    "sh": false,
    "tb": [
-    14376,
+    14377,
     28,
     0,
     13
@@ -5963,7 +6040,7 @@
    "p": "2026-04-08",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 314,
+   "v": 315,
    "w": 202,
    "a": 40,
    "r": 0.026,
@@ -5973,13 +6050,42 @@
    "sh": false,
    "tb": [
     181,
-    111,
+    112,
     0,
     22
    ],
    "er": {
     "Search / Web": 2,
     "Messaging": 1
+   },
+   "cat": "others",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "_12dtRQohsg",
+   "url": "https://youtu.be/_12dtRQohsg",
+   "t": "Mouret's Rondeau — Celtic Remix | Classical Goes Celtic",
+   "p": "2026-04-07",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 154269,
+   "w": 70089,
+   "a": 70,
+   "r": 0.0,
+   "L": 167,
+   "ret": 42,
+   "geo": "IN",
+   "sh": false,
+   "tb": [
+    154254,
+    7,
+    0,
+    8
+   ],
+   "er": {
+    "Search / Web": 3
    },
    "cat": "others",
    "comp": "",
@@ -6053,8 +6159,8 @@
    "p": "2026-04-07",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 150,
-   "w": 106,
+   "v": 151,
+   "w": 107,
    "a": 46,
    "r": 0.029,
    "L": 181,
@@ -6062,7 +6168,7 @@
    "geo": "-",
    "sh": false,
    "tb": [
-    116,
+    117,
     28,
     0,
     6
@@ -6080,17 +6186,17 @@
    "p": "2026-04-07",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 215570,
-   "w": 80138,
+   "v": 215573,
+   "w": 80139,
    "a": 41,
-   "r": 0.109,
+   "r": 0.12,
    "L": 139,
    "ret": 30,
    "geo": "IN",
    "sh": false,
    "tb": [
-    173721,
-    246,
+    173723,
+    247,
     0,
     41603
    ],
@@ -6111,10 +6217,10 @@
    "p": "2026-04-07",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 113792,
-   "w": 116446,
+   "v": 113793,
+   "w": 116447,
    "a": 95,
-   "r": 0.019,
+   "r": 0.02,
    "L": 193,
    "ret": 50,
    "geo": "IN",
@@ -6123,7 +6229,7 @@
     113530,
     41,
     0,
-    221
+    222
    ],
    "er": {
     "Search / Web": 12,
@@ -6227,8 +6333,8 @@
    "p": "2026-04-03",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 846582,
-   "w": 1063860,
+   "v": 846584,
+   "w": 1063864,
    "a": 95,
    "r": 0.1,
    "L": 261,
@@ -6236,7 +6342,7 @@
    "geo": "IN",
    "sh": false,
    "tb": [
-    681740,
+    681742,
     182,
     0,
     164660
@@ -6403,7 +6509,7 @@
    "p": "2026-04-03",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 22691,
+   "v": 22692,
    "w": 11427,
    "a": 69,
    "r": 0.0,
@@ -6413,7 +6519,7 @@
    "sh": false,
    "tb": [
     20885,
-    17,
+    18,
     0,
     1789
    ],
@@ -6462,8 +6568,8 @@
    "p": "2026-04-03",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 1129806,
-   "w": 1309105,
+   "v": 1129809,
+   "w": 1309113,
    "a": 100,
    "r": 0.0,
    "L": 246,
@@ -6471,8 +6577,8 @@
    "geo": "IN",
    "sh": false,
    "tb": [
-    989770,
-    177,
+    989772,
+    178,
     0,
     139859
    ],
@@ -6630,7 +6736,7 @@
    "p": "2026-04-02",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 36,
+   "v": 37,
    "w": 21,
    "a": 41,
    "r": 0.005,
@@ -6640,7 +6746,7 @@
    "sh": false,
    "tb": [
     26,
-    9,
+    10,
     0,
     1
    ],
@@ -7227,87 +7333,6 @@
    "cn": []
   },
   {
-   "id": "CSxbN5vit4U",
-   "url": "https://youtu.be/CSxbN5vit4U",
-   "t": "Ode to joy - Vallenato remix",
-   "p": "2026-03-08",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 913,
-   "w": 99,
-   "a": 16,
-   "r": 0.0,
-   "L": 31,
-   "ret": 53,
-   "geo": "CO",
-   "sh": true,
-   "tb": [
-    19,
-    16,
-    878,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": "",
-   "cn": []
-  },
-  {
-   "id": "Kuce4CG_5aQ",
-   "url": "https://youtu.be/Kuce4CG_5aQ",
-   "t": "danse macabre  deep house remix short",
-   "p": "2026-03-07",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 224,
-   "w": 9,
-   "a": 10,
-   "r": 0.001,
-   "L": 31,
-   "ret": 34,
-   "geo": "CH",
-   "sh": true,
-   "tb": [
-    15,
-    10,
-    199,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": "",
-   "cn": []
-  },
-  {
-   "id": "HCmYZi4R0VI",
-   "url": "https://youtu.be/HCmYZi4R0VI",
-   "t": "Saint-Saëns' Danse Macabre — Tropical House Remix | Classical Meets the Beach",
-   "p": "2026-03-07",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 5,
-   "w": 5,
-   "a": 69,
-   "r": 0.0,
-   "L": 125,
-   "ret": 56,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    4,
-    1,
-    0,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": "",
-   "cn": []
-  },
-  {
    "id": "Tf0ctF8iX-s",
    "url": "https://youtu.be/Tf0ctF8iX-s",
    "t": "The Lost Coins: A cyber triller. Chapter 11 https://scifibymiguel.substack.com/",
@@ -7335,24 +7360,105 @@
    "cn": []
   },
   {
-   "id": "ZbS8zEg3vNQ",
-   "url": "https://youtu.be/ZbS8zEg3vNQ",
-   "t": "Liszt Hungarian Rhapsody No.2 - Tropical House Remix",
-   "p": "2026-03-07",
+   "id": "sAr6_I1ZeVw",
+   "url": "https://youtu.be/sAr6_I1ZeVw",
+   "t": "The Lost Coins: A cyber triller. https://scifibymiguel.substack.com/",
+   "p": "2026-03-06",
+   "tp": "Other",
+   "tc": "c-grey",
+   "v": 49,
+   "w": 1,
+   "a": 5,
+   "r": 0.0,
+   "L": 147,
+   "ret": 4,
+   "geo": "CH",
+   "sh": false,
+   "tb": [
+    3,
+    0,
+    46,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "Y0T5BU_qS6c",
+   "url": "https://youtu.be/Y0T5BU_qS6c",
+   "t": "liszt hungarian rhapsody 2 vallenato remix",
+   "p": "2026-03-06",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 78,
-   "w": 3,
-   "a": 10,
-   "r": 0.002,
-   "L": 31,
-   "ret": 34,
+   "v": 165,
+   "w": 7,
+   "a": 9,
+   "r": 0.0,
+   "L": 19,
+   "ret": 48,
    "geo": "-",
    "sh": true,
    "tb": [
-    13,
-    17,
-    48,
+    2,
+    6,
+    157,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "3THpivlEb2o",
+   "url": "https://youtu.be/3THpivlEb2o",
+   "t": "Multi-Agent AI Coding: Building a Simple CRM with Claude & Gemini",
+   "p": "2026-03-06",
+   "tp": "AI Agents & Capabilities",
+   "tc": "c-teal",
+   "v": 1,
+   "w": 0,
+   "a": 3,
+   "r": 0.0,
+   "L": 618,
+   "ret": 1,
+   "geo": "-",
+   "sh": false,
+   "tb": [
+    1,
+    0,
+    0,
+    0
+   ],
+   "er": {},
+   "cat": "how_we_build",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "zx88W3X7Zqo",
+   "url": "https://youtu.be/zx88W3X7Zqo",
+   "t": "Liszt Hungarian Rhapsody Nr 2- Modern Celtic remix #liszt #hungarianrhapsody",
+   "p": "2026-03-05",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 580,
+   "w": 75,
+   "a": 12,
+   "r": 0.003,
+   "L": 31,
+   "ret": 40,
+   "geo": "DE",
+   "sh": true,
+   "tb": [
+    30,
+    37,
+    513,
     0
    ],
    "er": {},
@@ -7560,16 +7666,16 @@
    "p": "2026-03-01",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 44,
+   "v": 45,
    "w": 17,
    "a": 24,
    "r": 0.011,
    "L": 80,
-   "ret": 31,
+   "ret": 30,
    "geo": "-",
    "sh": false,
    "tb": [
-    28,
+    29,
     13,
     0,
     3
@@ -7724,7 +7830,7 @@
    "p": "2026-02-25",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 946,
+   "v": 949,
    "w": 113,
    "a": 16,
    "r": 0.001,
@@ -7734,7 +7840,7 @@
    "sh": true,
    "tb": [
     48,
-    88,
+    91,
     810,
     0
    ],
@@ -7836,8 +7942,8 @@
    "p": "2026-02-22",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 1056,
-   "w": 132,
+   "v": 1058,
+   "w": 133,
    "a": 18,
    "r": 0.002,
    "L": 31,
@@ -7846,7 +7952,7 @@
    "sh": true,
    "tb": [
     17,
-    168,
+    170,
     871,
     0
    ],
@@ -8170,7 +8276,7 @@
    "p": "2026-02-18",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 14109,
+   "v": 14110,
    "w": 7289,
    "a": 89,
    "r": 0.0,
@@ -8180,7 +8286,7 @@
    "sh": false,
    "tb": [
     14094,
-    10,
+    11,
     0,
     5
    ],
@@ -8338,8 +8444,8 @@
    "p": "2026-02-15",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 888,
-   "w": 95,
+   "v": 889,
+   "w": 96,
    "a": 15,
    "r": 0.002,
    "L": 31,
@@ -8348,7 +8454,7 @@
    "sh": true,
    "tb": [
     31,
-    42,
+    43,
     812,
     3
    ],
@@ -8505,116 +8611,6 @@
    "cn": []
   },
   {
-   "id": "wx_S30A3aro",
-   "url": "https://youtu.be/wx_S30A3aro",
-   "t": "Ode to Joy (Lebanese Percussion Remix)",
-   "p": "2026-02-12",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 63,
-   "w": 3,
-   "a": 9,
-   "r": 0.0,
-   "L": 7,
-   "ret": 136,
-   "geo": "-",
-   "sh": true,
-   "tb": [
-    11,
-    6,
-    45,
-    1
-   ],
-   "er": {
-    "Search / Web": 1
-   },
-   "cat": "others",
-   "comp": "",
-   "comp_status": "",
-   "cn": []
-  },
-  {
-   "id": "yBsdbXOCpoo",
-   "url": "https://youtu.be/yBsdbXOCpoo",
-   "t": "Danse Macabre Tropical House remix",
-   "p": "2026-02-11",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 46,
-   "w": 23,
-   "a": 31,
-   "r": 0.0,
-   "L": 125,
-   "ret": 25,
-   "geo": "-",
-   "sh": false,
-   "tb": [
-    38,
-    1,
-    0,
-    7
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": "",
-   "cn": []
-  },
-  {
-   "id": "G-BLDhMdp7s",
-   "url": "https://youtu.be/G-BLDhMdp7s",
-   "t": "Danse Macabre Tropical House remix",
-   "p": "2026-02-11",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 41,
-   "w": 2,
-   "a": 10,
-   "r": 0.0,
-   "L": 31,
-   "ret": 34,
-   "geo": "-",
-   "sh": true,
-   "tb": [
-    3,
-    0,
-    38,
-    0
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": "",
-   "cn": []
-  },
-  {
-   "id": "ltpT5JdJZo8",
-   "url": "https://youtu.be/ltpT5JdJZo8",
-   "t": "In the Hall of the Mountain King — Tropical House edition.",
-   "p": "2026-02-11",
-   "tp": "Music (Classical Remix)",
-   "tc": "c-blue",
-   "v": 75,
-   "w": 2,
-   "a": 6,
-   "r": 0.0,
-   "L": 13,
-   "ret": 51,
-   "geo": "-",
-   "sh": true,
-   "tb": [
-    3,
-    5,
-    66,
-    1
-   ],
-   "er": {},
-   "cat": "others",
-   "comp": "",
-   "comp_status": "",
-   "cn": []
-  },
-  {
    "id": "TJek6Kg8V8s",
    "url": "https://youtu.be/TJek6Kg8V8s",
    "t": "In the Hall of the Mountain King — Tropical House edition.",
@@ -8636,6 +8632,120 @@
     3
    ],
    "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "8Ia2h0v1bk8",
+   "url": "https://youtu.be/8Ia2h0v1bk8",
+   "t": "Carmina Burana reimagined as Progressive House.",
+   "p": "2026-02-10",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 137,
+   "w": 32,
+   "a": 31,
+   "r": 0.003,
+   "L": 31,
+   "ret": 103,
+   "geo": "-",
+   "sh": true,
+   "tb": [
+    8,
+    63,
+    66,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "3vWVxPhnuUI",
+   "url": "https://youtu.be/3vWVxPhnuUI",
+   "t": "Carmina Burana reimagined as Progressive House.",
+   "p": "2026-02-10",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 278,
+   "w": 231,
+   "a": 50,
+   "r": 0.029,
+   "L": 189,
+   "ret": 26,
+   "geo": "BR",
+   "sh": false,
+   "tb": [
+    232,
+    9,
+    0,
+    37
+   ],
+   "er": {
+    "Search / Web": 12,
+    "Messaging": 2
+   },
+   "cat": "others",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "jE-9g-99Jeo",
+   "url": "https://youtu.be/jE-9g-99Jeo",
+   "t": "Saint-Saëns’ Danse Macabre reborn in EDM form",
+   "p": "2026-02-09",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 741,
+   "w": 89,
+   "a": 15,
+   "r": 0.0,
+   "L": 31,
+   "ret": 50,
+   "geo": "RU",
+   "sh": true,
+   "tb": [
+    21,
+    10,
+    710,
+    0
+   ],
+   "er": {},
+   "cat": "others",
+   "comp": "",
+   "comp_status": "",
+   "cn": []
+  },
+  {
+   "id": "KXqy8niTzOc",
+   "url": "https://youtu.be/KXqy8niTzOc",
+   "t": "Saint-Saëns’ Danse Macabre reborn in EDM form",
+   "p": "2026-02-09",
+   "tp": "Music (Classical Remix)",
+   "tc": "c-blue",
+   "v": 11139,
+   "w": 4753,
+   "a": 62,
+   "r": 0.019,
+   "L": 182,
+   "ret": 34,
+   "geo": "IN",
+   "sh": false,
+   "tb": [
+    10008,
+    31,
+    0,
+    1100
+   ],
+   "er": {
+    "Other sites": 10,
+    "Search / Web": 1
+   },
    "cat": "others",
    "comp": "",
    "comp_status": "",
@@ -8708,17 +8818,17 @@
    "p": "2026-02-08",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 93,
+   "v": 94,
    "w": 5,
-   "a": 11,
+   "a": 10,
    "r": 0.001,
    "L": 24,
-   "ret": 47,
+   "ret": 45,
    "geo": "-",
    "sh": true,
    "tb": [
     5,
-    17,
+    18,
     71,
     0
    ],
@@ -8735,17 +8845,17 @@
    "p": "2026-02-07",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 9718,
+   "v": 9719,
    "w": 1727,
    "a": 22,
-   "r": 0.0,
+   "r": 0.001,
    "L": 31,
    "ret": 72,
    "geo": "IN",
    "sh": true,
    "tb": [
     8370,
-    36,
+    37,
     1310,
     2
    ],
@@ -8897,7 +9007,7 @@
    "p": "2026-02-06",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 46572,
+   "v": 46573,
    "w": 86583,
    "a": 147,
    "r": 0.025,
@@ -8907,7 +9017,7 @@
    "sh": false,
    "tb": [
     46537,
-    12,
+    13,
     0,
     23
    ],
@@ -8978,17 +9088,17 @@
    "p": "2026-02-05",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 18783,
+   "v": 18784,
    "w": 9332,
    "a": 92,
-   "r": 0.08,
+   "r": 0.081,
    "L": 183,
    "ret": 51,
    "geo": "PT",
    "sh": false,
    "tb": [
     18591,
-    171,
+    172,
     0,
     21
    ],
@@ -9008,7 +9118,7 @@
    "p": "2026-02-05",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 1205,
+   "v": 1206,
    "w": 160,
    "a": 14,
    "r": 0.024,
@@ -9018,7 +9128,7 @@
    "sh": true,
    "tb": [
     18,
-    492,
+    493,
     692,
     3
    ],
@@ -9037,17 +9147,17 @@
    "p": "2026-02-05",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 786,
-   "w": 730,
+   "v": 790,
+   "w": 731,
    "a": 56,
-   "r": 0.028,
+   "r": 0.034,
    "L": 178,
    "ret": 32,
    "geo": "IN",
    "sh": false,
    "tb": [
     678,
-    65,
+    69,
     0,
     43
    ],
@@ -9148,7 +9258,7 @@
    "p": "2026-02-03",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 243,
+   "v": 244,
    "w": 52,
    "a": 13,
    "r": 0.043,
@@ -9158,7 +9268,7 @@
    "sh": true,
    "tb": [
     42,
-    186,
+    187,
     0,
     15
    ],
@@ -9316,7 +9426,7 @@
    "p": "2026-01-31",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 16475,
+   "v": 16478,
    "w": 2865,
    "a": 18,
    "r": 0.004,
@@ -9326,7 +9436,7 @@
    "sh": true,
    "tb": [
     15187,
-    49,
+    52,
     1238,
     1
    ],
@@ -9370,16 +9480,16 @@
    "p": "2026-01-30",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 570,
-   "w": 471,
-   "a": 53,
+   "v": 571,
+   "w": 472,
+   "a": 54,
    "r": 0.165,
    "L": 108,
    "ret": 50,
    "geo": "-",
    "sh": false,
    "tb": [
-    120,
+    121,
     371,
     0,
     79
@@ -9600,7 +9710,7 @@
    "p": "2026-01-23",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 514,
+   "v": 515,
    "w": 289,
    "a": 33,
    "r": 0.013,
@@ -9610,7 +9720,7 @@
    "sh": false,
    "tb": [
     447,
-    41,
+    42,
     0,
     26
    ],
@@ -9820,8 +9930,8 @@
    "p": "2026-01-19",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 1312,
-   "w": 1061,
+   "v": 1313,
+   "w": 1062,
    "a": 109,
    "r": 0.015,
    "L": 198,
@@ -9830,7 +9940,7 @@
    "sh": false,
    "tb": [
     1291,
-    19,
+    20,
     0,
     2
    ],
@@ -9928,17 +10038,17 @@
    "p": "2026-01-15",
    "tp": "Music (Classical Remix)",
    "tc": "c-blue",
-   "v": 21200,
-   "w": 4785,
+   "v": 21204,
+   "w": 4787,
    "a": 37,
-   "r": 0.26,
+   "r": 0.267,
    "L": 128,
    "ret": 29,
    "geo": "IN",
    "sh": false,
    "tb": [
-    20851,
-    279,
+    20852,
+    282,
     0,
     70
    ],

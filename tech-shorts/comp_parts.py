@@ -108,11 +108,15 @@ def report(vids, label=""):
             tin = 0.0
         else:
             tin = first_scene_cut(p) or 0.0
-            # final_long also carries the SUBSCRIBE card; narration_end sits AFTER
-            # its voiceover, so step back to the cut before it.
-            cut = first_scene_cut(p, after=max(out - 40, 5), before=out)
-            if cut and out - cut > 2:
-                out = cut
+            # Note: pipeline.py's SUBSCRIBE outro card is 5s of silence (anullsrc),
+            # so narration_end(p, d) already lands at the end of spoken narration
+            # (~8.6s before EOF, prior to both NotebookLM trailing silence and the
+            # silent SUBSCRIBE card). Only step back to a scene cut if narration_end
+            # failed to strip the 5s outro card (i.e. d - out < 4.5s).
+            if d - out < 4.5:
+                cut = first_scene_cut(p, after=max(out - 12, 5), before=out)
+                if cut and out - cut > 2:
+                    out = cut
         out = min(out, d)
         total += max(0.0, out - tin)
         rows.append((vid, kind, tin, out, out - tin, title))
