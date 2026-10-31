@@ -1107,7 +1107,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **2gghdork** | TSC-1 — Build compilation C1: AI Will Do the Work, Vol. 2 | gem | in_work | Build the Economy & Work compilation (6 parts, ~33... |
+| **2gghdork** | TSC-1 — Build compilation C1: AI Will Do the Work, Vol. 2 | gem | merged | Build the Economy & Work compilation (6 parts, ~33... |
 | **9o8v196i** | TSC-2 — Build compilation C2: The Attack Surface in Your House | gem | planned | Build the AI Threats & Security compilation (7 par... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
