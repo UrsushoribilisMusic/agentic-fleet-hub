@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-10-31",
-    "summary": "Gem: Completed TSC-1 (Compilation C1: AI Will Do the Work, Vol. 2). Merged build_c1.py and comp_parts.py out-trim fix to master, updated compilation #10 (6y2y-4UETU4) status to live in compilations.json, regenerated and pushed insights.json to robotsales, and verified #10 renders live in section 4.",
+    "summary": "Gem: Completed TSC-1 (Compilation C1 #10 live in insights, moved to peer_review); verified TSC-2 (Compilation C2 #11, 38m03s, S2vV_Nca80g) and set waiting_human pending Miguel's YouTube Studio release.",
     "file": "2026-10-31.md"
   },
   {

@@ -1,29 +1,29 @@
-# WORKLOG — TSC-1 (`2gghdork1p7ch7k`) — Build compilation C1: AI Will Do the Work, Vol. 2
+# WORKLOG — TSC-2 (`9o8v196i9cd8ppi`) — Build compilation C2: The Attack Surface in Your House
 
 ## Plan & Execution
 1. **Verify Trim Boundaries (§3.1)**:
-   - Run `python3 -I comp_parts.py C1` and inspect boundary frames for all 6 parts, including `final_long` masters (`lChiYc1A4B8`, `jxi-GUpdhYI`, `Miw8TeG3RFI`).
-   - Updated `comp_parts.py` so `final_long` out-point preserves spoken narration up to `narration_end(p, d) + 0.15` prior to the silent 5s `SUBSCRIBE` outro card (only stepping back to a scene cut if `d - out < 4.5s`).
-   - Verified C1 trim points:
-     1. `7UPyRA9cBtE` (`raw_cinematic`): `0.00` → `498.87` (`498.87s`)
-     2. `lChiYc1A4B8` (`final_long`): `17.67` → `273.89` (`256.22s`)
-     3. `Vritr444eKs` (`raw_cinematic`): `0.00` → `405.01` (`405.01s`)
-     4. `jxi-GUpdhYI` (`final_long`): `11.53` → `311.99` (`300.46s`)
-     5. `Miw8TeG3RFI` (`final_long`): `16.50` → `367.30` (`350.80s`)
-     6. `JFhLTSY7Pxw` (`raw_cinematic`): `0.00` → `289.16` (`289.16s`)
-     - Total parts runtime: `2100.52s` (`35m00.5s`).
+   - Run `python3 -I comp_parts.py C2` and inspect boundary frames for all 7 parts, including the 3 `final_long` masters (`ECuneH0hPcg`, `KbxsK1LlVSw`, `n0J3a4-1rmY`).
+   - Record human-verified `in = 12.96s` override for `KbxsK1LlVSw` in `comp_parts.py` (`VERIFIED_IN_OVERRIDES`), because the hook card (`#0b1d26`) cuts to a dark 3D glass cube on black at `12.96s` (`lavfi.scene_score = 0.177 < 0.40`).
+   - Verified C2 trim points:
+     1. `ECuneH0hPcg` (`final_long`): `16.70` → `301.98` (`285.28s`)
+     2. `KbxsK1LlVSw` (`final_long`): `12.96` → `296.80` (`283.84s`)
+     3. `n0J3a4-1rmY` (`final_long`): `12.90` → `228.04` (`215.14s`)
+     4. `D-LV9YJN2ZM` (`raw_cinematic`): `0.00` → `309.67` (`309.67s`)
+     5. `GLLa6t_MQuA` (`raw_cinematic`): `0.00` → `304.02` (`304.02s`)
+     6. `lZ_LLtp8Ulo` (`raw_cinematic`): `0.00` → `355.55` (`355.55s`)
+     7. `cRgmoG-XqkQ` (`raw_cinematic`): `0.00` → `480.46` (`480.46s`)
+     - Total parts runtime: `2233.96s` (`37m13.96s`).
 2. **Cold Open Motion Clips & Channel Hook VO (§3.2)**:
-   - Built `intro.mp4` (`20.00s`) using `gemini_intro_20s.mp4` (and Runway `clip_a.mp4` + `clip_b.mp4` fallback) with `_intro_title_overlay.png` composited over the second half (`t >= 10.8s`) and Kokoro `af_bella` channel hook VO (`c1_hook_vo.mp3`) underneath.
+   - Built `intro.mp4` (`20.00s`) using `gemini_intro_20s.mp4` in `/Users/miguelrodriguez/flotilla/tech-shorts/assets/2026-10-25-compilation-c2-the-attack-surface-in-your-house/` with `_intro_title_overlay.png` composited over the second half (`t >= 10.8s`) and Kokoro `af_bella` channel hook VO (`c2_hook_vo.mp3`) underneath.
+   - Guarded `shutil.copy2(GEMINI_INTRO, raw_dest)` in `build_c2.py` so reruns reuse `OUT_DIR / "gemini_intro_20s.mp4"` without requiring `~/Downloads` access.
 3. **Render Transition Cards (§3.3) & Standard Outro**:
-   - Rendered 5×4s chapter transition cards (`TWO`..`SIX`) over dimmed stills from each following part with slow push-in (`zoompan`) and `0.5s` fade in and out.
+   - Rendered 6×4s chapter transition cards (`TWO`..`SEVEN`) over dimmed stills from each following part with slow push-in (`zoompan`) and `0.5s` fade in and out.
    - Rendered 5s standard `SUBSCRIBE` outro card once at the end.
 4. **Assemble Final Compilation (§3.4)**:
-   - Normalized all segments to `1920x1080 @ 30fps`, `yuv420p`, `aac 44100Hz mono` and concatenated into `final_comp.mp4` (`2145.67s` = `35m45s`, inside the 35–38 min target).
-5. **Captions, Upload & Publication (§3.5)**:
-   - Stitched `en,de,fr,ja` `.srt` captions via `stitch_c1_subs.py` and uploaded via `upload_c1_c2.py` to YouTube (`https://www.youtube.com/watch?v=6y2y-4UETU4`).
-   - Verified on YouTube Data API that `6y2y-4UETU4` ("If AI Does the Work, Who Gets Paid Next? (Full Compilation · Vol. 2)") is published (`privacyStatus: public`, `publishedAt: 2026-10-25T16:24:47Z`).
-6. **Close the Loop (§3.6 & Codi Peer Review Resolution)**:
-   - Merge `tech-shorts/build_c1.py` and the `comp_parts.py` `final_long` out-trim fix into `master`.
-   - Update `tech-shorts/compilations.json` entry `n: 10` (`6y2y-4UETU4`) from `"status": "private"` to `"status": "live"`.
-   - Re-run `python3 gen_insights.py` to update `tech-shorts/insights.json` and push to the `robotsales` droplet (`https://api.robotross.art/fleet/insights/`).
-   - Verify compilation #10 appears as `live` in §4 of the deployed dashboard.
+   - Normalized all segments to `1920x1080 @ 30fps`, `yuv420p`, `aac 44100Hz mono` and concatenated into `final_comp.mp4` (`2283.17s` = `38m03s`).
+5. **Captions & Private Upload (§3.5)**:
+   - Stitched `en,de,fr,ja` `.srt` captions (223 blocks each) via `stitch_c2_subs.py` and uploaded private via `upload_c1_c2.py` to YouTube (`https://www.youtube.com/watch?v=S2vV_Nca80g`).
+   - Added Compilation `#11` (`S2vV_Nca80g`, *"What Is Running on Your Living Room Network? The Attack Surface in Your House"*, `"status": "private"`) to `tech-shorts/compilations.json` with all 7 verbatim member titles (kept separate from queued compilation `#8`).
+6. **Human Release Gate (§3.5, §3.6 & Codi Peer Review `eif6frkopq5gvo0`)**:
+   - Checked live YouTube status via YouTube Data API v3: unlike C1 (`6y2y-4UETU4`, now `public`), C2 (`S2vV_Nca80g`) is still `privacyStatus: "private"` (`uploaded 2026-10-25T11:37:04Z`).
+   - Per Playbook §3.5, Clau's note (`u7zy8c4ffkw7x36`), and Codi's review (`eif6frkopq5gvo0`), retain `waiting_human` with a clear question to `@miguel` to review `https://www.youtube.com/watch?v=S2vV_Nca80g` in YouTube Studio (attach staged EN/DE/FR/JA `.srt` captions, confirm synthetic content setting, and flip to `public`), after which `#11` can be flipped to `"status": "live"` in `compilations.json` and `gen_insights.py` re-run.

@@ -294,7 +294,8 @@ def build_outro() -> None:
 def build_intro() -> Path:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     raw_dest = OUT_DIR / "gemini_intro_20s.mp4"
-    shutil.copy2(GEMINI_INTRO, raw_dest)
+    if not (raw_dest.exists() and raw_dest.stat().st_size > 200_000):
+        shutil.copy2(GEMINI_INTRO, raw_dest)
 
     vo_mp3 = OUT_DIR / "c2_hook_vo.mp3"
     if not vo_mp3.exists():

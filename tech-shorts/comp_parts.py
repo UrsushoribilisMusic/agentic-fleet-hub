@@ -41,6 +41,12 @@ PLAN = {
         "ckNAJdh26Sg", "LCn_xfbxfeA"]),
 }
 
+# Human-verified in-point overrides for final_long masters whose hook-card to
+# first-scene transition is dark-on-dark (lavfi.scene_score < 0.40).
+VERIFIED_IN_OVERRIDES = {
+    "KbxsK1LlVSw": 12.96,  # dark hook card (#0b1d26) -> dark 3D glass cube (scene_score=0.177)
+}
+
 
 def jobs():
     return json.load(open(JOBS))["jobs"]
@@ -107,7 +113,7 @@ def report(vids, label=""):
         if kind == "raw_cinematic":
             tin = 0.0
         else:
-            tin = first_scene_cut(p) or 0.0
+            tin = VERIFIED_IN_OVERRIDES.get(vid) or first_scene_cut(p) or 0.0
             # Note: pipeline.py's SUBSCRIBE outro card is 5s of silence (anullsrc),
             # so narration_end(p, d) already lands at the end of spoken narration
             # (~8.6s before EOF, prior to both NotebookLM trailing silence and the
