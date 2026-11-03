@@ -21,12 +21,14 @@ Recommended before posting:
 
 These are recommendations only: no video edits, upload, site changes, paid calls or GPU work performed. Publication status was subsequently corrected by Miguel: the short has already been posted. Review suggestions are future improvements, not a publication blocker; Codi has not verified any revisions.
 
-## Publication confirmed by Miguel
+## Publication and announcement — Miguel clarification
 
-Miguel reports the X post is already published. Links supplied:
+Miguel reports the short was already posted and clarifies that the announcement text pasted into this conversation was shared on Discord. Links included in that announcement:
 
 - X: https://x.com/ursushoribilis/status/2117645069226242151
 - Full demo: https://youtu.be/H1f1R8UuIqM
 - Project: https://afl.flotilla.cc/
 
-Posted message describes the human-approved documentation loop, the same-query retrieval distance change from 0.820 to 0.400 and the unchanged model. Publication is user-confirmed, not independently inspected in this update. No repost, deletion or edit requested or performed.
+The Discord announcement describes the human-approved documentation loop, the same-query retrieval distance change from 0.820 to 0.400 and the unchanged model. Publication is user-confirmed, not independently inspected in this update. No repost, deletion or edit requested or performed.
+
+Submission text ownership: Miguel says Clau should store the final submission texts. Codi’s conversational drafts are working proposals, not the canonical submitted copy. Actual storage by Clau has not been verified here; no message to Clau sent.
