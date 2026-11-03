@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-11-03",
+    "summary": "Codi: reviewed AFL submission website; browser playback/layout verified, 8/10 companion; prioritized coverage claims, evidence placement, geometry/hosting accuracy and mobile clarity. No site changes.",
+    "file": "2026-11-03-codi-site-review.md"
+  },
+  {
     "date": "2026-10-31",
     "summary": "Gem: Completed TSC-1 (Compilation C1 #10 live in insights, moved to peer_review); verified TSC-2 (Compilation C2 #11, 38m03s, S2vV_Nca80g) and set waiting_human pending Miguel's YouTube Studio release. Codi: independently verified TSC-1 release/artifacts and queued peer approval.",
     "file": "2026-10-31.md"
