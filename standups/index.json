@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-11-03",
+    "summary": "Muse: AFL glasses Display scaffold + 2 simulator crash fixes verified; Developer Center registration, v1.0.0, hackathon form answers; entry submitted.",
+    "file": "2026-11-03.md"
+  },
+  {
+    "date": "2026-11-03",
     "summary": "Codi: reviewed AFL submission website; browser playback/layout verified, 8/10 companion; prioritized coverage claims, evidence placement, geometry/hosting accuracy and mobile clarity. No site changes.",
     "file": "2026-11-03-codi-site-review.md"
   },
