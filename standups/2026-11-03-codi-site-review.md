@@ -19,4 +19,14 @@ Recommended before posting:
 - Repair and recapture the 23–29s answer payoff if possible: merged words (stoppedPosition, armEnsure, blockProceed) and cropped text detract from the result. Otherwise accompany original footage with a clearly labelled readable passage excerpt. Suggested caption: “Same question. New passage cited.”
 - Keep human approval and the closing line: “Nothing was retrained. The documentation improved.”
 
-These are recommendations only: no video edits, upload, site changes, paid calls or GPU work performed. Miguel is out walking the dog. Next action is the author's revisions and a final check of the revised short before posting; Codi has not certified those changes as completed.
+These are recommendations only: no video edits, upload, site changes, paid calls or GPU work performed. Publication status was subsequently corrected by Miguel: the short has already been posted. Review suggestions are future improvements, not a publication blocker; Codi has not verified any revisions.
+
+## Publication confirmed by Miguel
+
+Miguel reports the X post is already published. Links supplied:
+
+- X: https://x.com/ursushoribilis/status/2117645069226242151
+- Full demo: https://youtu.be/H1f1R8UuIqM
+- Project: https://afl.flotilla.cc/
+
+Posted message describes the human-approved documentation loop, the same-query retrieval distance change from 0.820 to 0.400 and the unchanged model. Publication is user-confirmed, not independently inspected in this update. No repost, deletion or edit requested or performed.
