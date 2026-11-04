@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-11-04",
+    "summary": "Codi: Stage One public AFL repo review at 4f60311; credible pass case, prioritize theme/Meta evidence guide, public quickstart and consistent status. 180 tests pass, 7 skips.",
+    "file": "2026-11-04-codi-stage-one-review.md"
+  },
+  {
     "date": "2026-11-03",
     "summary": "Muse: AFL glasses Display scaffold + 2 simulator crash fixes verified; Developer Center registration, v1.0.0, hackathon form answers; entry submitted.",
     "file": "2026-11-03.md"
