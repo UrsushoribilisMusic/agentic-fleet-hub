@@ -13,3 +13,11 @@ Reviewed exact public film --41dwUlMIs using YouTube metadata/captions and timed
 Prepared targeted README/ARCHITECTURE/shared-diagram/repair/submission/verification-index recommendations at Miguel's request. In particular the 0.820 refusal is text retrieval, not a visual displaced-paper control; actual pipeline has no identity-driven retrieval stage. Current local edits to backend requirements and the repair handoff belong to others and were preserved.
 
 Report: reviews/ambient-field-lens/stage-two-2026-11-04.md; local copy ~/Downloads/AFL-stage-two-review-2026-11-04.md. No repo implementation, publication, GPU or model-call work. This was a visual/transcript assessment, not a continuous listening or independent live-hardware test.
+
+## Repository re-review — d37ad9a
+
+Confirmed revised public main and reviewed all changes since 4f60311, including rendered diagrams. Major improvements verified: judge guide, evidence index, provenance/status labels, actual retrieval-first sequence, Meta API hosting, explicit repair deployment stages and nuanced probe outcomes.
+
+Independently reproduced documented tests in a fresh Python 3.12 venv with Modal credentials hidden: 213 passed, 8 skipped, 131 subtests passed (42.00s; 4 warnings). Dependency install succeeded from requirements-dev.txt. No missing local file targets in the principal Markdown docs. No project changes or live model/GPU work.
+
+Four residual findings: filmed no-mask re-ask cannot be claimed to run Glimmer; old coverage/displaced-paper statements persist; old approval-implies-deployment sentence contradicts the corrected diagram; after-distance needs a direct public query receipt beyond the corpus pin. Full report: reviews/ambient-field-lens/repo-rereview-2026-11-04.md; copy in Downloads. Video work remains separate.

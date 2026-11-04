@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-11-04",
-    "summary": "Codi: AFL Stage One credible pass case; Stage Two estimate 7.2/10 with exact published-video checks. README/architecture/evidence corrections specified; 180 backend tests passed, 7 skips. No project edits.",
+    "summary": "Codi: AFL Stage One/Two reviews; re-reviewed d37ad9a documentation fixes. Fresh venv: 213 passed, 8 skips, 131 subtests. Four residual consistency/evidence items; video work next.",
     "file": "2026-11-04-codi-stage-one-review.md"
   },
   {
