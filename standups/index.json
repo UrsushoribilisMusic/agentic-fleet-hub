@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-11-04",
-    "summary": "Codi: Stage One public AFL repo review at 4f60311; credible pass case, prioritize theme/Meta evidence guide, public quickstart and consistent status. 180 tests pass, 7 skips.",
+    "summary": "Codi: AFL Stage One credible pass case; Stage Two estimate 7.2/10 with exact published-video checks. README/architecture/evidence corrections specified; 180 backend tests passed, 7 skips. No project edits.",
     "file": "2026-11-04-codi-stage-one-review.md"
   },
   {
