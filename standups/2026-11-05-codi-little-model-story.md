@@ -63,3 +63,7 @@ Miguel paused the game follow-up to deliver five videos. Mapped and archived: 18
 ## Codi — Influencer first for joint playthrough
 
 Miguel chose closest-to-finished chapter. Gem had already pushed ec1aaaf mobile layout fix. Independently re-ran build, 6 rule groups, full browser suite with new bounds assertions at 320/390 in arrival/studio/comparison; all pass. Inspected updated screenshot. PocketBase LM-G02 approved for technical module, user gameplay/creative review and shared integration still pending. Preview remains http://127.0.0.1:4176/chapters/influencer/. Main review addendum c4f33ef pushed. No duplicated implementation or shared integration attempted.
+
+## Codi — Influencer needs a purpose before controls
+
+Miguel could use framing/lights but did not know what to do. Added portrait-request introduction, explicit approval-discovery task, three play steps, prominent first portrait button, optional Rose album and before/after capture next-action hints. Scoring unchanged. Build, 6 rules and browser checks (including 320/390 bounds) pass; introduction visually checked. Commit bc622fb on task/vxwz2j0v0slbu9j; new delta peer_review, user playthrough pending. Refresh :4176/chapters/influencer/ to start intro.
