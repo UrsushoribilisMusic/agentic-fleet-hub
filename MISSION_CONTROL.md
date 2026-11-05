@@ -1108,8 +1108,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **zs237lom** | LM-G01 — Rose capture and the carried album | clau | planned | Assigned fleet agent: **clau** (reassigned from co... |
-| **vxwz2j0v** | LM-G02 — Influencer: the camera acquires a score | gem | planned | Assigned fleet agent: **gem**. Status: todo. Migue... |
-| **5tqcnbsz** | LM-G03 — Doomscroller: choosing Enough | muse | planned | Assigned fleet agent: **muse**. Status: todo. Migu... |
+| **zs237lom** | LM-G01 — Rose capture and the carried album | clau | in_work | Assigned fleet agent: **clau** (reassigned from co... |
+| **vxwz2j0v** | LM-G02 — Influencer: the camera acquires a score | gem | in_work | Assigned fleet agent: **gem**. Status: todo. Migue... |
+| **5tqcnbsz** | LM-G03 — Doomscroller: choosing Enough | muse | in_work | Assigned fleet agent: **muse**. Status: todo. Migu... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
