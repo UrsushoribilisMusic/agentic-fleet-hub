@@ -37,3 +37,17 @@ Received gemini_generated_video_6bca1799.mp4 for BAO-03: 720×1280, 10.0267s, au
 ## Garden seed set completed
 
 Generated GAR-02/03/04 using GAR-01 and original Rose shelter references. All four Garden PNGs and matching video prompts now in both Downloads/Little-Model-* folders; both ZIPs refreshed. Miguel caught that generated images were visible in chat before being copied; corrected immediately and verified files. Received d8343c60 as GAR-01 arrival, sampled pullback coherent; archived in new Garden workspace. Received distinct Bao candidate 4f037909, full removal still not established in sampled ending; archived as v2, no master replacement.
+
+## Codi — production desk and parallel game handoff
+
+Production tracker built at local :8792/production/tracker.html with shot/seed/video counts, filters, prompt copying, browser-local review notes and JSON export/import. Garden 02/03 received and archived. Fox 01 reused; 02–04 generated with built-in image tool, checked, copied to both Downloads packs and ZIPs. Incorrect first FOX-02 pouch perspective rejected. Project commit 2ab322b.
+
+Edition 03 story checkpoint f569896: map at end with seven future chapters, larger stage labels, crossfades, Rose More with nine scenes/all 17 original lines and optional original voice playback, fullscreen game viewer. Chromium interaction checks passed (desktop/390px, narration toggle, return position, reduced motion); Miguel visual review and physical Safari remain pending. No further site work after Miguel switched priorities.
+
+Miguel requested three actionable fleet tickets. Created chapter directories under game/chapters/{rose,influencer,doomscroller}, shared story/state/event contract, isolated harness/file ownership, detailed mechanics and acceptance tests, 13 copied seed references with hashes. Base branch codi/little-model-scroll-story at f569896. Agents must use isolated worktrees; shared production tree is dirty. Codi owns eventual shared integration after module reviews. No paid generation authorized by these tickets.
+
+- Codi / LM-G01 Rose capture + twelve-exposure album: small-model-series#1; PB zs237lomup6ywrp.
+- Gem / LM-G02 Influencer camera + persistent approval score: #2; PB vxwz2j0v0slbu9j.
+- Muse / LM-G03 Doomscroller deliberate stopping / Enough: #3; PB 5tqcnbsz4qm91o8.
+
+All three read back from PocketBase with correct assigned_agent and status todo. Implementation not started in this handoff. Sources: https://github.com/UrsushoribilisMusic/small-model-series/issues/1 through /3; project game/chapters/TICKETS.json.
