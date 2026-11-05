@@ -25,3 +25,11 @@ Next: Miguel reviews the reading pace and new prose, BAO-03 repair, four final v
 Changed to deep blue space, training-first opening (Engineer later), minimal captions, vertical-scroll-driven horizontal world overview and eight video-led chapter introductions with numbered left guide. Play uses the existing shared Baobabs/Rose journey; Watch opens narrated masters; More opens three scrollable written beats. No new spoken narration or gameplay implied. Added six motion derivatives plus the existing two; no paid calls.
 
 Final Chromium checks: real downward wheel moves the overview horizontally, all eight previews play one at a time, More scrolls and pauses background media, Watch loads, game returns to the same position, motion toggling preserves the chapter, 390px/320px no overflow, reduced-motion mode uses stacked sections and loads no clips. Project commit `35028b7` pushed on `codi/little-model-scroll-story`. Same local preview URL.
+
+## Next chapters — prompt pack and actual seed artwork
+
+Miguel explicitly deferred the next site pass to prioritize generation materials. Saved all five requests in project `docs/story-2026-11-05/NEXT-PASS.md`: world map at end; smoother chapter transitions; larger one-word stage labels; full Rose More with existing clips/graphics/dialogue; all missing worlds as titled placeholders. Prepared 18 artwork / 17 video prompts plus BAO-03 repair, references and Download ZIP (project commit a0ab415).
+
+Miguel clarified he needed actual seed images, not just prompts. Generated GAR-01, FOX-01 and SNA-01 using built-in image_gen with the approved ROS-03 reference; visually checked identity, composition and style. Native PNGs 941×1672, saved beside matching animation prompts and in Downloads/Little-Model-First-Seed-Images-2026-11-05.zip. Remaining follow-up seeds are not generated; first designs await Miguel's creative review. Project commit 84f2bfd. No Modal/GPU window or voice generation.
+
+Received gemini_generated_video_6bca1799.mp4 for BAO-03: 720×1280, 10.0267s, audio stream present. Archived candidate in chapter gemini-clips. Sampled 0–7s and 9s frames: one Model/scene retained, but completed root removal is not established; final plant remains upright with pale strands. Not promoted into the master. Audio not reviewed.
