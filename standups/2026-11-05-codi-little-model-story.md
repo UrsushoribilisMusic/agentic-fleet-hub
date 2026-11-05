@@ -33,3 +33,7 @@ Miguel explicitly deferred the next site pass to prioritize generation materials
 Miguel clarified he needed actual seed images, not just prompts. Generated GAR-01, FOX-01 and SNA-01 using built-in image_gen with the approved ROS-03 reference; visually checked identity, composition and style. Native PNGs 941×1672, saved beside matching animation prompts and in Downloads/Little-Model-First-Seed-Images-2026-11-05.zip. Remaining follow-up seeds are not generated; first designs await Miguel's creative review. Project commit 84f2bfd. No Modal/GPU window or voice generation.
 
 Received gemini_generated_video_6bca1799.mp4 for BAO-03: 720×1280, 10.0267s, audio stream present. Archived candidate in chapter gemini-clips. Sampled 0–7s and 9s frames: one Model/scene retained, but completed root removal is not established; final plant remains upright with pale strands. Not promoted into the master. Audio not reviewed.
+
+## Garden seed set completed
+
+Generated GAR-02/03/04 using GAR-01 and original Rose shelter references. All four Garden PNGs and matching video prompts now in both Downloads/Little-Model-* folders; both ZIPs refreshed. Miguel caught that generated images were visible in chat before being copied; corrected immediately and verified files. Received d8343c60 as GAR-01 arrival, sampled pullback coherent; archived in new Garden workspace. Received distinct Bao candidate 4f037909, full removal still not established in sampled ending; archived as v2, no master replacement.
