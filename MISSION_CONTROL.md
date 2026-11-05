@@ -1108,5 +1108,6 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
+| **zs237lom** | LM-G01 — Rose capture and the carried album | codi | planned | Assigned fleet agent: **codi**. Status: todo. Migu... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
