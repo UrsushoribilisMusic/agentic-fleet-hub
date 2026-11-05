@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-11-05",
+    "summary": "Codi: Little Model media/voice inventory, three-act narration and Earth drafts, local scroll story with optional game; browser checks passed. Nine cuts, five ElevenLabs; no paid generation.",
+    "file": "2026-11-05-codi-little-model-story.md"
+  },
+  {
     "date": "2026-11-04",
     "summary": "Codi: AFL Stage One/Two reviews; re-reviewed d37ad9a documentation fixes. Fresh venv: 213 passed, 8 skips, 131 subtests. Four residual consistency/evidence items; video work next.",
     "file": "2026-11-04-codi-stage-one-review.md"
