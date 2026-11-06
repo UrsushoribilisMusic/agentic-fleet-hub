@@ -1,6 +1,11 @@
 [
  {
   "date": "2026-11-06",
+  "summary": "Gem: LM-F01 CPU Kokoro review films (The Snake + The Echo) rendered, verified (-16.1 LUFS, <= -1.9 dBTP), copied to Downloads, and pushed on task/26ua0p8b8ex8fzo (a0a1e7f); moved to peer_review.",
+  "file": "2026-11-06-gem-snake-echo-films.md"
+ },
+ {
+  "date": "2026-11-06",
   "summary": "Codi: LM-G05 completed and pushed (0af1be0), 19/19 rules + Chromium 1440/320/390; LM-G04/06/07 returned with reproducible review failures; PocketBase writes queued.",
   "file": "2026-11-06-codi-chapter-review.md"
  },
