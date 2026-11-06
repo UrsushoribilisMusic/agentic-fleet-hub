@@ -11,7 +11,7 @@
  },
  {
   "date": "2026-11-06",
-  "summary": "Gem: LM-G06 (Episode 07: The Politician) playable chapter, 9/9 pure rule tests, preview harness, and 1440/390/320px Chromium verification shipped on task/yyxpieeq1kkr5gq (85b1c37); moved to peer_review.",
+  "summary": "Gem: LM-G06 (Episode 07: The Politician) peer-review fix shipped on task/yyxpieeq1kkr5gq (1cc9b98) — gated bridge comparison completion on 3600ms milestone, 10/10 pure rule tests + 1440/390/320px Chromium verify green; moved to peer_review.",
   "file": "2026-11-06-gem-politician.md"
  },
  {
