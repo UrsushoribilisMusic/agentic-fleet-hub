@@ -67,3 +67,7 @@ Miguel chose closest-to-finished chapter. Gem had already pushed ec1aaaf mobile 
 ## Codi — Influencer needs a purpose before controls
 
 Miguel could use framing/lights but did not know what to do. Added portrait-request introduction, explicit approval-discovery task, three play steps, prominent first portrait button, optional Rose album and before/after capture next-action hints. Scoring unchanged. Build, 6 rules and browser checks (including 320/390 bounds) pass; introduction visually checked. Commit bc622fb on task/vxwz2j0v0slbu9j; new delta peer_review, user playthrough pending. Refresh :4176/chapters/influencer/ to start intro.
+
+## Overnight completion — 6 November
+
+Garden/Fox Kokoro review films, three integrated game chapters and all 5+1 story requests are ready for Miguel. Pushed `184d515`. See [full overnight daily](2026-11-06-codi-little-model-overnight.md) for results and Downloads paths.
