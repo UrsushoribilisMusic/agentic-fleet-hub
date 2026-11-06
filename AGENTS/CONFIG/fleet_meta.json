@@ -293,6 +293,18 @@
       "web": "https://so.flotilla.cc",
       "kanban": "",
       "is_active": true
+    },
+    {
+      "title": "The Little Model",
+      "owners": "Ursus Fleet",
+      "repo_path": "../small-model-series",
+      "summary": "Watercolour AI-fable series: narrated chapter films, a scroll story and small chapter games about a little model learning to live in the world. Private review build behind the fleet login.",
+      "docs": [
+        "https://github.com/UrsushoribilisMusic/small-model-series"
+      ],
+      "web": "https://api.robotross.art/little-model/story/",
+      "kanban": "",
+      "is_active": true
     }
   ]
 }
