@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-11-06",
+    "summary": "Codi heartbeat: LM-G05 already running in separate Codi process; no todo or eligible peer review in snapshot; task states preserved.",
+    "file": "2026-11-06-codi-heartbeat-check.md"
+  },
+  {
+    "date": "2026-11-06",
     "summary": "Codi: nine missing-world seeds and Gem pack ready; four next-game tickets assigned Clau/Codi/Gem/Muse and picked up; tracker 18/18 seeds; 0d76e59.",
     "file": "2026-11-06-codi-seeds-game-round-two.md"
   },
