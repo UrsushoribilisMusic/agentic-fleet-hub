@@ -1,1337 +1,1342 @@
 [
- {
-  "date": "2026-11-06",
-  "summary": "Muse: LM-G07 Evaluator chapter shipped on task/o9xu6grfq9tkk5b (5277626) \u2014 65/65 rules, green browser verify, peer_review; LM-G01/LM-G02 approved, LM-G03 left for a peer.",
-  "file": "2026-11-06-muse-evaluator.md"
- },
- {
-  "date": "2026-11-06",
-  "summary": "Gem: LM-G06 (Episode 07: The Politician) playable chapter, 9/9 pure rule tests, preview harness, and 1440/390/320px Chromium verification shipped on task/yyxpieeq1kkr5gq (85b1c37); moved to peer_review.",
-  "file": "2026-11-06-gem-politician.md"
- },
- {
-  "date": "2026-11-06",
-  "summary": "Codi heartbeat: LM-G05 already running in separate Codi process; no todo or eligible peer review in snapshot; task states preserved.",
-  "file": "2026-11-06-codi-heartbeat-check.md"
- },
- {
-  "date": "2026-11-06",
-  "summary": "Codi: nine missing-world seeds and Gem pack ready; four next-game tickets assigned Clau/Codi/Gem/Muse and picked up; tracker 18/18 seeds; 0d76e59.",
-  "file": "2026-11-06-codi-seeds-game-round-two.md"
- },
- {
-  "date": "2026-11-06",
-  "summary": "Codi: Garden/Fox Kokoro review films in Downloads; Rose/Influencer/Doom integrated; story 5+1 verified; pushed 184d515.",
-  "file": "2026-11-06-codi-little-model-overnight.md"
- },
- {
-  "date": "2026-11-05",
-  "summary": "Muse: 3 headless LM-G03 Doomscroller runs (worktree task/5tqcnbsz4qm91o8); chapter shell + 33 rule tests green; stuck on readout overlap + late settling timer; still in_progress.",
-  "file": "2026-11-05.md"
- },
- {
-  "date": "2026-11-05",
-  "summary": "Codi: Influencer mobile fix verified; Miguel playthrough exposed unclear objective, added portrait-task introduction and first-capture guidance (bc622fb). Garden/Fox footage archived; other game follow-ups remain.",
-  "file": "2026-11-05-codi-little-model-story.md"
- },
- {
-  "date": "2026-11-04",
-  "summary": "Codi: AFL Stage One/Two reviews; re-reviewed d37ad9a documentation fixes. Fresh venv: 213 passed, 8 skips, 131 subtests. Four residual consistency/evidence items; video work next.",
-  "file": "2026-11-04-codi-stage-one-review.md"
- },
- {
-  "date": "2026-11-03",
-  "summary": "Muse: AFL glasses Display scaffold + 2 simulator crash fixes verified; Developer Center registration, v1.0.0, hackathon form answers; entry submitted.",
-  "file": "2026-11-03.md"
- },
- {
-  "date": "2026-11-03",
-  "summary": "Codi: reviewed AFL submission website; browser playback/layout verified, 8/10 companion; prioritized coverage claims, evidence placement, geometry/hosting accuracy and mobile clarity. No site changes.",
-  "file": "2026-11-03-codi-site-review.md"
- },
- {
-  "date": "2026-10-31",
-  "summary": "Gem: Completed TSC-1 (Compilation C1 #10 live in insights, moved to peer_review); verified TSC-2 (Compilation C2 #11, 38m03s, S2vV_Nca80g) and set waiting_human pending Miguel's YouTube Studio release. Codi: independently verified TSC-1 release/artifacts and queued peer approval.",
-  "file": "2026-10-31.md"
- },
- {
-  "date": "2026-10-30",
-  "summary": "Codi: AFL v12 video rubric review, weighted7.0/10; tighten readout/coverage/privacy claims and repair payoff, remove opening error. Detailed timestamped edit notes saved; no film or live-system changes.",
-  "file": "2026-10-30-codi-video-review.md"
- },
- {
-  "date": "2026-10-29",
-  "summary": "Codi: PR16 prepares immutable documentation repair and rollback; before paper-position retrieval captured,139tests pass. Actual wiki text/pin/deployment pending. PR14 re-review still blocked by cancellation/window races.",
-  "file": "2026-10-29-codi-observables.md"
- },
- {
-  "date": "2026-10-29",
-  "summary": "Codi overnight handoff: PR11 runtime providers verified; Muse integrating. Physical geometry, reviewed admission and phone green/amber acceptance remain. No new work or spend.",
-  "file": "2026-10-29-codi-handoff.md"
- },
- {
-  "date": "2026-10-28",
-  "summary": "Clau: AFL submission video lane. Rubric pulled verbatim (finals rank the VIDEO); 3-min cap confirmed. Corrected the 0.889/0.861 mislabel (true prefill = 1.000 both). Demo redesigned to three states \u2014 State 3 (unsupported question -> amber from the footing check) is the only one where the readout fires. Delivered DEMO_PATH_BRIEF.md and a complete 2:58 animatic with real narration, real data graphics and labelled placeholders.",
-  "file": "2026-10-28-clau-afl-video.md"
- },
- {
-  "date": "2026-10-28",
-  "summary": "Codi: live SAM/Ross/Glimmer providers verified in PR11; H100 raw prefill score served, 114 tests pass/7 expected skips; windows closed, containers empty. Miguel review received; contact unknown. Phone two-state acceptance pending.",
-  "file": "2026-10-28-codi-trajectory.md"
- },
- {
-  "date": "2026-10-27",
-  "summary": "Codi: Robot Ross X-tilt fix tested and physically retried; 45x40mm dimensional mismatch retained; 34 captured assets inventoried, 56 CPU/backend tests pass, model/metric checks still unknown. No GPU or gate wiring. ETH full explainer and vertical Short rendered and uploaded privately to The Classical Remix; local MP4/SRT copies staged.",
-  "file": "2026-10-27.md"
- },
- {
-  "date": "2026-10-26",
-  "summary": "Muse: fresh public ambient-field-lens repo (Phase 1 skeleton, verdict fix, ARCHITECTURE.md); Spark live, SAM reachable; app on tripod phone; PR2 peer-reviewed, amber-only stands.",
-  "file": "2026-10-26.md"
- },
- {
-  "date": "2026-10-26",
-  "summary": "Codi: repaired scheduler\u2014Gem dispatcher-only; Misty subscription paused and legacy Gemma/Qwen asleep; TSC-4 approval applied and repeated-review loop fixed. Shared quota reset gates deployed; 19 regression checks and live idle checks passed.",
-  "file": "2026-10-26.md"
- },
- {
-  "date": "2026-10-26",
-  "summary": "Codi: drawing-readiness CPU checkpoint pushed in draft PR #3; 40 tests passed, one SAM call decoded two masks; single-view captures saved, real registration and all-scene validation pending; no GPU or gate wiring.",
-  "file": "2026-10-26.md"
- },
- {
-  "date": "2026-10-25",
-  "summary": "Codi: TSC-4 production review reverified; approval retry preserved with traceable evidence; no own todo tasks.",
-  "file": "2026-10-25-codi-heartbeat.md"
- },
- {
-  "date": "2026-10-24",
-  "summary": "Codi: TSC-4 deployed artifacts reverified; approval refreshed; stale ABR-W12 status regression removed from pending queue. No own todo tasks.",
-  "file": "2026-10-24-codi-heartbeat-recheck.md"
- },
- {
-  "date": "2026-10-24",
-  "summary": "Codi TSC-4 peer review: verified live JSON, dedupe and topic/compilation rendering paths; approval queued. October Other is 2.0% (7.9% overall).",
-  "file": "2026-10-24-codi-tsc4-review.md"
- },
- {
-  "date": "2026-10-24",
-  "summary": "Clau TSC-4: insights regenerated \u2014 342 unique records / 0 dupes; new topics c-lime/c-amber/c-rose; Other 52%\u21927.9%; comp #5 and #7 verified live.",
-  "file": "2026-10-24-clau-tsc4.md"
- },
- {
-  "date": "2026-10-24",
-  "summary": "Codi ABR-W11: Pulido deployed; Norton/PFERD compounds, six live tables, four ACL recipients and 34 source passages verified.",
-  "file": "2026-10-24-codi-abr-w11.md"
- },
- {
-  "date": "2026-10-24",
-  "summary": "Codi ABR-W12: deployed source reverified against production; 39 passages, six tables / 43 rows and ACL intact; ticket moved to peer_review.",
-  "file": "2026-10-24-codi-abr-w12.md"
- },
- {
-  "date": "2026-10-24",
-  "summary": "Clau: abrasivos wiki and heartbeat setup; Codi: ABR-W4/W5/W8 deployed with sources, tables and ACL verification; Gem: peer-reviewed and approved ABR-W1..W13 (all 12 abrasivos pages), completed TSC-4 insights.json regen + dedupe/topic verification (356 channel uploads, 342 post-2026 unique records, 0 dupes, Oct Other 52%->2.0%, Comp #5 & #7 live in \u00a74), and staged C1 compilation draft for Miguel review.",
-  "file": "2026-10-24.md"
- },
- {
-  "date": "2026-10-24",
-  "summary": "Codi: ABR-W9 published with corpus sources, production tables verified and ACL restored.; Codi ABR-W4: mounted points wiki deployed, ACL and 7 live tables verified",
-  "file": "2026-10-24-codi-abr-w9.md"
- },
- {
-  "date": "2026-10-23",
-  "summary": "Clau: finished the EN\u2192ES translation of the abrasives corpus (3,366 prose lines), merged Spanish beside each original as bilingual chunks, and seeded the abrasivos collection live on sm.flotilla.cc (25 docs, 10,641 chunks, 11-page wiki). Found and fixed a stripHtml regex that was silently deleting 598,593 words \u2014 31.4% of the corpus \u2014 before chunking (main @ 0cb2cfa, deployed). Rendered both Norton manuals to PDF. Brother's login and the iOS build still pending. Codi: delivered six Little Model visual revisions and a Rose preview, preserved existing ElevenLabs soundtracks where available, used local Kokoro for Businessman/Politician, and staged ROS-03 then Baobabs for the next Gemini session. Identified the Sovereign Mind app target still enabling iPad; no release configuration changes made.",
-  "file": "2026-10-23.md"
- },
- {
-  "date": "2026-10-22",
-  "summary": "Gem: Built, localized (EN/DE/FR/JA with local Kokoro DE/FR dubs), staged, and uploaded private Tech Short for Blaise Ag\u00fcera y Arcas's 'What Is Intelligence?' (LCn_xfbxfeA); created & documented reusable 9:16 vertical Short builder (build_vertical_short.py) and built/uploaded the <90s vertical Short for Meta's Muse Glimmer 30B (vbRx1BNjJQk). Codi: delivered Evaluator v4 with all six Gemini clips, corrected page-drop cut and full Earth ending; audited Mac and DigitalOcean Droplet and found no active PHP exposure.",
-  "file": "2026-10-22.md"
- },
- {
-  "date": "2026-10-21",
-  "summary": "Clau: fixed disposition-lens CWE-306 \u2014 bearer-token auth on /infer and /voice, localhost-default bind, dropped ElevenLabs posture from /health. Gem: peer-reviewed and approved jrd58rbigoj3mdu; built, localized (EN/DE/FR/JA with local Kokoro DE/FR dubs), staged, and uploaded private Tech Short for Meta's Muse Glimmer 30B (qs438DSa2ZY).",
-  "file": "2026-10-21.md"
- },
- {
-  "date": "2026-10-20",
-  "summary": "Storage & Fleet: reclaimed 6.24 GB in Downloads; Sovereign Mind Android V1 Phase 0 spike shipped. The Little Model: canonical episode registry and game brief, title-based chapter cleanup, corrected Influencer master, playable Baobab-to-Rose work, and an 88-second Politician structure draft with G03/G04 placeholders.",
-  "file": "2026-10-20.md"
- },
- {
-  "date": "2026-10-19",
-  "summary": "The Little Model: advanced five watercolor shorts, rendered Businessman and Baobab drafts, and built the Baobab-to-Rose playable browser vertical slice.",
-  "file": "2026-10-19.md"
- },
- {
-  "date": "2026-10-18",
-  "summary": "Gem: Tech Shorts batch (The Flickering Mind, How AI Transforms Office Roles, The Sleep Deficit) built, localized (EN/DE/FR/JA subtitles + local Kokoro DE/FR dubs), staged in Downloads, and uploaded private to YouTube.",
-  "file": "2026-10-18.md"
- },
- {
-  "date": "2026-10-16",
-  "summary": "Gem: Tech Shorts pipeline automated and published for 2 new videos (The Convergence Point, How to Be More Ambitious) \u2014 intro/outro rendered, Whisper transcriptions, EN/DE/FR/JA subtitles, ElevenLabs DE/FR dubs, staged in Downloads, and live on YouTube.",
-  "file": "2026-10-16.md"
- },
- {
-  "date": "2026-10-15",
-  "summary": "Canis: corrected submission video and verified iOS state; The Little Model: completed Chapter 1 watercolor production pipeline, Gemini integration, music, QA, and private review cut.",
-  "file": "2026-10-15.md"
- },
- {
-  "date": "2026-10-14",
-  "summary": "Gem: Tech Shorts pipeline automated (2 videos assembled, EN/DE/FR/JA subtitles, ElevenLabs dubs, private YouTube upload), media & content support; Canis Apertus Lab submission & review package.",
-  "file": "2026-10-14.md"
- },
- {
-  "date": "2026-10-13",
-  "summary": "Fleet idle: 0 tasks completed; all agents standing by.",
-  "file": "2026-10-13.md"
- },
- {
-  "date": "2026-10-12",
-  "summary": "Codex: Tech Shorts intake & Labor-LLM long/short production, private YouTube uploads, EN/DE/FR/JA captions and dubs.",
-  "file": "2026-10-12.md"
- },
- {
-  "date": "2026-10-11",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-10-11.md"
- },
- {
-  "date": "2026-10-10",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-10-10.md"
- },
- {
-  "date": "2026-10-09",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-10-09.md"
- },
- {
-  "date": "2026-10-08",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-10-08.md"
- },
- {
-  "date": "2026-10-07",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-10-07.md"
- },
- {
-  "date": "2026-10-06",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-10-06.md"
- },
- {
-  "date": "2026-10-05",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-10-05.md"
- },
- {
-  "date": "2026-10-04",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-10-04.md"
- },
- {
-  "date": "2026-10-03",
-  "summary": "Gem: processed Japan AISI cyber-capability tech-short (uot43m39ijydslg) from Japanese source; authored English briefing document; updated jobs.json; handed off to Clau.",
-  "file": "2026-10-03.md"
- },
- {
-  "date": "2026-10-02",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-10-02.md"
- },
- {
-  "date": "2026-10-01",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-10-01.md"
- },
- {
-  "date": "2026-09-30",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-09-30.md"
- },
- {
-  "date": "2026-09-29",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-09-29.md"
- },
- {
-  "date": "2026-09-28",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-09-28.md"
- },
- {
-  "date": "2026-09-27",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-09-27.md"
- },
- {
-  "date": "2026-09-26",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-09-26.md"
- },
- {
-  "date": "2026-09-25",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-09-25.md"
- },
- {
-  "date": "2026-09-24",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-09-24.md"
- },
- {
-  "date": "2026-09-23",
-  "summary": "Canis BONE-07 & SM-357 approved: Gem reviewed & approved CANIS-BONE-07 (Canis build & 66/66 tests pass, merged to master) and SM-357 (Sovereign Mind 3-tier wiki tree, test suites pass, pushed to main); fleet queues clear.",
-  "file": "2026-09-23.md"
- },
- {
-  "date": "2026-09-22",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending foreign peer reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-09-22.md"
- },
- {
-  "date": "2026-09-21",
-  "summary": "Gem: heartbeat executed (all 6 phases); verified & advanced FCP-7 Research Workbench claim fix (kqm07jckazqe2pl -> peer_review); fleet synchronized and idle.",
-  "file": "2026-09-21.md"
- },
- {
-  "date": "2026-09-20",
-  "summary": "Flotilla Council Protocol (FCP-0 through FCP-8) complete: coordinator & ticketer approved (Clau); FCP-1, FCP-4, FCP-5, and FCP-7 delivered (Gem); FCP-2 & FCP-8 approved (Codi); Council R2 deliberations completed across all active goals.",
-  "file": "2026-09-20.md"
- },
- {
-  "date": "2026-09-19",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-09-19.md"
- },
- {
-  "date": "2026-09-18",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-09-18.md"
- },
- {
-  "date": "2026-09-17",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-09-17.md"
- },
- {
-  "date": "2026-09-16",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-09-16.md"
- },
- {
-  "date": "2026-09-15",
-  "summary": "Routine heartbeat executed; all systems normal and idle.",
-  "file": "2026-09-15.md"
- },
- {
-  "date": "2026-09-14",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-09-14.md"
- },
- {
-  "date": "2026-09-13",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-09-13.md"
- },
- {
-  "date": "2026-09-12",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-09-12.md"
- },
- {
-  "date": "2026-09-11",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-09-11.md"
- },
- {
-  "date": "2026-09-10",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-09-10.md"
- },
- {
-  "date": "2026-09-09",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-09-09.md"
- },
- {
-  "date": "2026-09-08",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending reviews; 0 todo tasks; fleet healthy and idle.",
-  "file": "2026-09-08.md"
- },
- {
-  "date": "2026-09-07",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); SM-355 approved; 0 pending reviews; 0 todo tasks; all systems idle.",
-  "file": "2026-09-07.md"
- },
- {
-  "date": "2026-09-06",
-  "summary": "Gem: routine heartbeat executed (all 6 phases); SM-355 in peer_review; 0 todo tasks.",
-  "file": "2026-09-06.md"
- },
- {
-  "date": "2026-09-05",
-  "summary": "Gem: routine heartbeats; SM-355 (wiki epic) in peer_review.",
-  "file": "2026-09-05.md"
- },
- {
-  "date": "2026-09-04",
-  "summary": "Clau: finished FinOps (YTD card, DistroKid income + per-song distribution joined to songs); put author/flotilla/agentegra sites under source control + corrected (four-arm eval, dates, preprints); restored eval per-dimension table; synced SM wiki epic (8 tickets) to PocketBase; tech-shorts intake multi-file + optional URLs; produced a new tech-short end-to-end via Claude-in-Chrome (NotebookLM Cinematic+Short) with a card-overlap fix, uploaded YouTube private; 7 shorts to TikTok w/ Bernie-Sanders-peg copy.",
-  "file": "2026-09-04.md"
- },
- {
-  "date": "2026-09-03",
-  "summary": "Clau: FinOps dashboard overhaul \u2014 real revenue from channel_revenue_daily (was fake CHF 10), campaign staleness guard (Celtic), Classical Remix layout + P6/P7 phase fix, Tech Shorts rebuilt on Mac-computed mechanism (published dates + per-video revenue), push cadence 60s->hourly, DistroKid income recorded (USD 45.27 Apr-Jul). Codi: SM-352 wiki page permalinks + History API routing; SM-353 wikilinks, red links, and What Links Here. Gem: SM-355 auto table of contents + stable heading anchors implemented and verified (43/43 green), moved to peer_review.",
-  "file": "2026-09-03.md"
- },
- {
-  "date": "2026-09-02",
-  "file": "2026-09-02.md",
-  "summary": "CANIS paper submitted to arXiv (submit/8026681) + published on canis.flotilla.cc; two tech-shorts assembled (hook/VO/outro) + published to X; dashboard no-store cache fix."
- },
- {
-  "date": "2026-09-01",
-  "summary": "Clau: Stats dashboard token-free refactor, CANIS paper draft review & human IRR app. Gem: Heartbeat protocol executed; peer-reviewed & approved CANIS IRR task #1039 (Misty); 0 open tasks.",
-  "file": "2026-09-01.md"
- },
- {
-  "date": "2026-09-01",
-  "file": "2026-09-01.md",
-  "summary": "Clau interactive: stats dashboard token-free Mac-compute refactor (revenue/subs/geo overlay for all videos); CANIS Big Sis review processed (cross-axis 7x7 B, Wilson retractions, appendix); rating web app live at canis.flotilla.cc/rate. Gem: CANIS IRR model-judge panel rating. Misty: CANIS IRR model-judge panel rating (50 items blind as misty)."
- },
- {
-  "date": "2026-08-31",
-  "summary": "Gem: Heartbeat protocol executed; 0 pending peer reviews or todo tasks; fleet fully synchronized.",
-  "file": "2026-08-31.md"
- },
- {
-  "date": "2026-08-30",
-  "summary": "Clau: CANIS & RAG-vs-LoRA papers drafted/submitted. Gem: Heartbeat protocol executed; committed music-video-tool/salesman-cloud-infra and approved task #1035. All tasks approved across fleet.",
-  "file": "2026-08-30.md"
- },
- {
-  "date": "2026-08-28",
-  "summary": "Codi: CANIS-I iOS disposition resolver rerouted to J-space-only path; build/tests green. Clau: CE-07 mischief seed vector & CE-08 Qwen3 eval. Gem: Peer-reviewed & approved CANIS-I, CE-07, and CE-08; 0 pending todo tasks.",
-  "file": "2026-08-28.md"
- },
- {
-  "date": "2026-08-27",
-  "summary": "Clau: CE-05 Ministral 540-item matrix run + CE-06 dual-model report. Gem: Heartbeat protocol executed; 0 pending peer reviews or todo tasks.",
-  "file": "2026-08-27.md"
- },
- {
-  "date": "2026-08-26",
-  "summary": "Clau+Gem: CE-05/CE-06 approved. Codi: C-109 delivered. Gem: C-109 offline Canis pack retrieval approved. Heartbeat protocol executed.",
-  "file": "2026-08-26.md"
- },
- {
-  "date": "2026-08-25",
-  "summary": "Clau: C-102, C-105 CANIS backend. Gem: C-104 console, C-107 wiki review. Codi: C-103 handoff, C-106 job status/APNs, C-107 approved.",
-  "file": "2026-08-25.md"
- },
- {
-  "date": "2026-08-24",
-  "summary": "TS-11 file upload + TS-12 asset store + TS-13 dashboard approved by Gem",
-  "file": "2026-08-24.md"
- },
- {
-  "date": "2026-08-23",
-  "summary": "Gem: Executed heartbeat protocol. 0 peer reviews pending, 0 todo tasks.",
-  "file": "2026-08-23.md"
- },
- {
-  "date": "2026-08-22",
-  "summary": "TS-7 FinOps tab approved; TS-9 (DO ideation console) & TS-10 (DO\u2192Mac sync + worker) peer-reviewed & approved by Gem",
-  "file": "2026-08-22.md"
- },
- {
-  "date": "2026-08-21",
-  "summary": "Codi: CANIS-A/C, TS-4/6. Clau: CANIS-B/D/F, TS-0 pipeline, TS-2 NotebookLM scaffold, TS-3 trim_s. Gem: CANIS-H, TS-8, TS-2/3 approvals. TS-2 blocked on demo.",
-  "file": "2026-08-21.md"
- },
- {
-  "date": "2026-08-20",
-  "summary": "Gem: Executed heartbeat protocol. 0 peer reviews pending (DL-7 in peer_review assigned to gem), 0 todo tasks.",
-  "file": "2026-08-20.md"
- },
- {
-  "date": "2026-08-19",
-  "summary": "Gem: Executed heartbeat protocol. 0 peer reviews pending (DL-7 in peer_review assigned to gem), 0 todo tasks.",
-  "file": "2026-08-19.md"
- },
- {
-  "date": "2026-08-18",
-  "summary": "Gem: Executed heartbeat protocol. Peer-reviewed and approved SM-348 (universal wiki+RAG pipeline). 0 todo tasks.",
-  "file": "2026-08-18.md"
- },
- {
-  "date": "2026-08-17",
-  "summary": "DL-7 dog avatar landed; DL-8 Ministral loader peer-reviewed & approved; DL-9 signal quality approved.",
-  "file": "2026-08-17.md"
- },
- {
-  "date": "2026-08-16",
-  "summary": "Gem: Executed heartbeat protocol. All 6 phases completed. 0 peer reviews pending, 0 tasks assigned.",
-  "file": "2026-08-16.md"
- },
- {
-  "date": "2026-08-15",
-  "summary": "Gem: Executed heartbeat protocol. All 6 phases completed. 0 peer reviews pending, 0 tasks assigned.",
-  "file": "2026-08-15.md"
- },
- {
-  "date": "2026-08-14",
-  "summary": "Gem: Executed heartbeat protocol. All 6 phases completed. 0 peer reviews pending, 0 tasks assigned.",
-  "file": "2026-08-14.md"
- },
- {
-  "date": "2026-08-13",
-  "summary": "Gem: Executed heartbeat protocol. All 6 phases completed. 0 peer reviews pending, 0 tasks assigned.",
-  "file": "2026-08-13.md"
- },
- {
-  "date": "2026-08-12",
-  "summary": "Gem: Executed heartbeat protocol. All 6 phases completed. 0 peer reviews pending, 0 tasks assigned.",
-  "file": "2026-08-12.md"
- },
- {
-  "date": "2026-08-11",
-  "summary": "Gem: Executed heartbeat protocol. All 6 phases completed. 0 peer reviews pending, 0 tasks assigned.",
-  "file": "2026-08-11.md"
- },
- {
-  "date": "2026-08-10",
-  "summary": "Gem: Executed heartbeat protocol. All 6 phases completed. 0 peer reviews pending, 0 tasks assigned.",
-  "file": "2026-08-10.md"
- },
- {
-  "date": "2026-08-09",
-  "summary": "Gem: Executed heartbeat protocol. All 6 phases completed. 0 peer reviews pending, 0 tasks assigned.",
-  "file": "2026-08-09.md"
- },
- {
-  "date": "2026-08-08",
-  "summary": "Codi & Gem: DL-5 stretch complete & peer-reviewed/approved. Heartbeat protocol executed across all 6 phases.",
-  "file": "2026-08-08.md"
- },
- {
-  "date": "2026-08-07",
-  "summary": "Gem: Executed heartbeat protocol. All 6 phases completed. 0 peer reviews pending, 0 tasks assigned.",
-  "file": "2026-08-07.md"
- },
- {
-  "date": "2026-08-06",
-  "summary": "Gem: Executed heartbeat protocol. All 6 phases completed. 0 peer reviews pending, 0 tasks assigned.",
-  "file": "2026-08-06.md"
- },
- {
-  "date": "2026-08-05",
-  "summary": "Gem: Executed heartbeat protocol. Peer-reviewed & approved DL-3 and DL-4. Cleaned task branches.",
-  "file": "2026-08-05.md"
- },
- {
-  "date": "2026-08-04",
-  "summary": "Clau: DL-2 J-lens built + cached (jlens.py); 5x FLOT peer approvals + DL-1 peer approval; 14/14 jlens tests pass",
-  "file": "2026-08-04-clau-dl2.md"
- },
- {
-  "date": "2026-08-04",
-  "summary": "Gem: Heartbeat protocol executed across all 6 phases. Peer-reviewed SM-346 (session token SQLite persistence). All 27 tests passed. Approved task in PocketBase.",
-  "file": "2026-08-04.md"
- },
- {
-  "date": "2026-08-03",
-  "summary": "Codi: FLOT-117 X API cost guard, FLOT-119 X verification; Gem: Heartbeat protocol, SM-335, SM-338, SM-343 dark mode, peer-reviewed SM-337.",
-  "file": "2026-08-03.md"
- },
- {
-  "date": "2026-08-02",
-  "summary": "Clau: FLOT-118 X composer + link-in-reply pattern; Codi: FLOT-112 retarget + circuit breaker, account halt, 54/55 tests pass",
-  "file": "2026-08-02.md"
- },
- {
-  "date": "2026-08-02",
-  "summary": "Clau: FLOT-109 composer -- lint.py + composer.py (per-sub Reddit drafts, claude-sonnet-5, cross-sub dedup); 6 unit tests passing; pushed to GitHub task/yzjynmupe10cqae",
-  "file": "2026-08-02-clau-flot109.md"
- },
- {
-  "date": "2026-08-02",
-  "summary": "Gem: Executed heartbeat protocol (Phases 1-6). Peer-reviewed and approved SM-333 (DB-backed persistence). Zero unread messages, no open todo tasks.",
-  "file": "2026-08-02-gem.md"
- },
- {
-  "date": "2026-08-02",
-  "summary": "Codi: SM-203 feedback loop, SM-326 extraction, SM-327 drafts, SM-329 RAG chunks, FLOT-107 Reddit OAuth scaffold, FLOT-108 manifest schema, FLOT-110 submission executor, and FLOT-111 three-signal Reddit bounce verification (live fire blocked by Infisical auth).",
-  "file": "2026-08-02.md"
- },
- {
-  "date": "2026-07-30",
-  "summary": "Gem: Executed heartbeat protocol (Phases 1-6). Checked GEMINI.md, MISSION_CONTROL.md, RULES.md, and inbox.json. Zero unread messages, no open peer_review or todo tasks.",
-  "file": "2026-07-30-gem.md"
- },
- {
-  "date": "2026-07-27",
-  "file": "2026-07-27.md",
-  "summary": "Miguel + Dev Groar: SiliconOracle v1.0.0 / build 21 + IAP submitted to App Review (2 items). Unblocked the 'Developer Rejected' IAP submission. Auto-release after approval, no earlier than Jul 29."
- },
- {
-  "date": "2026-07-27",
-  "summary": "Gem: Executed heartbeat protocol (Phases 1-6). Checked GEMINI.md, MISSION_CONTROL.md, RULES.md, and inbox.json. Zero unread messages, no open peer_review or todo tasks.",
-  "file": "2026-07-27-gem.md"
- },
- {
-  "date": "2026-07-26",
-  "file": "2026-07-26.md",
-  "summary": "Miguel + Dev Groar: SiliconOracle event-prep sprint \u2014 Qwen default + lean first-run, OOM/thermal/swap fixes, English captions, Describe review step, caption-list fallback, Apertus 4B dropped (OOM) / Nano experimental. Builds 18->21 tagged + pushed."
- },
- {
-  "date": "2026-07-26",
-  "summary": "Gem: Executed heartbeat protocol (Phases 1-6). Checked GEMINI.md, MISSION_CONTROL.md, RULES.md, and inbox.json. Zero unread messages, no open peer_review or todo tasks.",
-  "file": "2026-07-26-gem.md"
- },
- {
-  "date": "2026-07-25",
-  "summary": "Gem: Executed heartbeat protocol (Phases 1-6). Checked GEMINI.md, MISSION_CONTROL.md, RULES.md, and inbox.json. Zero unread messages, no open peer_review or todo tasks.",
-  "file": "2026-07-25-gem.md"
- },
- {
-  "date": "2026-07-23",
-  "summary": "Gem: Executed heartbeat protocol (Phases 1-6). Checked GEMINI.md, MISSION_CONTROL.md, RULES.md, and inbox.json. Zero unread messages, no open peer_review or todo tasks.",
-  "file": "2026-07-23-gem.md"
- },
- {
-  "date": "2026-07-21",
-  "summary": "Gem: Executed heartbeat protocol. Reviewed and approved peer_review tasks FLOT-107-A, SM-008, SM-009, SM-010, SM-325, SM-303, SM-307, SM-308, SM-314, SM-323, SM-324.",
-  "file": "2026-07-21-gem.md"
- },
- {
-  "date": "2026-07-20",
-  "summary": "Codi: SM-305 \u2014 Sovereign Mind ingestion pipeline now supports PDF/DOCX/text extraction, 256-512 token chunks, 384-dim embeddings, FAISS Flat metadata, generated wiki, versioned collection artifacts, and per-document failure states.",
-  "file": "2026-07-20.md"
- },
- {
-  "date": "2026-07-20",
-  "summary": "Codi: SM-309 \u2014 generated wiki viewer deployed with source document and page/section provenance on every section.",
-  "file": "2026-07-20-codi-sm309.md"
- },
- {
-  "date": "2026-07-17",
-  "summary": "Codi: SM-020 \u2014 deployed public Sovereign Mind product/about page at sm.flotilla.cc/about.html with feature cards, privacy section, personas, CTAs, and updated console nav links.",
-  "file": "2026-07-17.md"
- },
- {
-  "date": "2026-07-16",
-  "summary": "Clau: SM-001 \u2014 Azure AD + Google OAuth integration. Codi: SM-003 \u2014 corporate admin console. Codi: SM-004 \u2014 local PDF-to-RAG package pipeline. Codi: SM-011 \u2014 free example RAG downloads and preloaded personas for trial inference. Codi: SM-017 \u2014 deployed sm.flotilla.cc dashboard and static Caddy routing. Codi: SM-018 \u2014 deployed document upload mock UI. Codi: SM-019 \u2014 deployed knowledge base / RAG indices page.",
-  "file": "2026-07-16.md"
- },
- {
-  "date": "2026-07-10",
-  "summary": "Clau: ATF switched to local-first Mistral default (was silently preferring hosted whenever MISTRAL_API_KEY was set), bumped to the real ministral-3:8b tag, added HEAD support. Integrated ATF chat Q&A into Robot Ross Control Center (real wiki+ledger RAG answers for questions, unchanged fast local-brain path for draw commands), wired chat replies to real backend TTS (was silently using browser Web Speech API), added a wrong-Python-interpreter self-healing guard. Traced a real incident (concurrent sketch+chat load causing Ollama to double-load Apertus+Ministral at 100% CPU each) to ATF's fallback chain auto-loading Apertus on timeout -- removed that auto-fallback since Apertus isn't used in the hackathon demo. Fixed an orphaned-timer bug causing repeating error messages in chat. Checkpoint tagged hackathon-atf-chat-working-2026-07-10 (robot-ross a640016, local only).",
-  "file": "2026-07-10.md"
- },
- {
-  "date": "2026-07-09",
-  "summary": "Clau: Robot Ross \u2014 switched demo brain to Mistral (ministral-3:8b) for narration, SVG scene composition, chat, and freeform sketch generation (was Apertus/Haiku), Apertus kept as fallback via --brain. Fixed several bugs found along the way: Ollama timeouts too short (narration/sketch silently falling back to filler text or dying), bob_ross.py blocked drawing start on the LLM call (now async), huenit_write.py NameError crashing multi-line writes after line 1, TTS engine dropdown defaulting wrong and not wired up. Retired stale windows-local branch. robot-ross master 8956bee (not pushed).",
-  "file": "2026-07-09.md"
- },
- {
-  "date": "2026-07-07",
-  "summary": "Clau: FLOT-101 EVAL-008 stats hardening + FLOT-103 GEPA prompt-optimization harness (teacher/student Pareto, dspy, Apertus 8B student, qwen3-coder:30b teacher, baseline coop=0.767 adv=0.812). Peer reviewed FX-IRR-GEM (Gem, approved).",
-  "file": "2026-07-07.md"
- },
- {
-  "date": "2026-07-06",
-  "summary": "Clau: FLOT-102 \u2014 reconcile HF card with 4-arm blind Opus numbers (1.00/0.95/2.40/2.54); Arm 3 added, 39-of-49 framing removed, LoRA-beats-base claim corrected, eval page linked. Pushed to flotilla-corpus/main. | FLOT-104: EVAL-009 adversarial enforcement; LoRA 57% vs prompt 93% (-37pp); committed 4aef9911.",
-  "file": "2026-07-06.md"
- },
- {
-  "date": "2026-07-06",
-  "summary": "Gem: Closed Dental Domain Kit project per customer request. Updated Classical Remix Campaign Phases (P6 active since July 3rd, P5 completed/recalculated). Set active campaign budgets for Celtic and Vallenato to 4.00 CHF/day. Injected YOUTUBE_API_KEY into remote server and restarted service to fix YouTube subscriber count API updates, setting SEEDED_TOTAL_SUBSCRIBERS fallback to 2422.",
-  "file": "2026-07-06-gem-financial-ops.md"
- },
- {
-  "date": "2026-06-23",
-  "summary": "Gem: FX-021 manifest/README with honest counts, provenance, and hashes written; pipeline regenerated and verified.",
-  "file": "2026-06-23-gem.md"
- },
- {
-  "date": "2026-06-23",
-  "summary": "Clau: FX-009 formal transcript parse (284 correction events, \u00b12-turn context); FX-001/004/006/012 approved; FX-008 reset todo; FX-006 lessons\u2192SFT (355 pairs); FX-007 escalation+standup rationale\u2192SFT (304 pairs)",
-  "file": "2026-06-23.md"
- },
- {
-  "date": "2026-06-20",
-  "summary": "DW-D3: 5 SVG diagrams generated and embedded (traceability chain, conformity routes, MDR/MepV comparison, UDI structure, tariff tree)",
-  "file": "2026-06-20-clau-dw-d3.md"
- },
- {
-  "date": "2026-06-20",
-  "summary": "Codi: DW-013 synthetic primitives generator complete \u2014 make primitives now writes deterministic DE/FR/IT orders, KVs, materials, and lots with obviously fake identifiers; schema/count/determinism checks passed. DW-013 \u2192 peer_review.",
-  "file": "2026-06-20-codi-dw013.md"
- },
- {
-  "date": "2026-06-20",
-  "summary": "Codi: DW-010 incremental wiki builds complete \u2014 per-article source/corpus hashes, wiki/.cache/hashes.json, skip/no-op output, generated/source-version footers, corpus_version backfill; task moved to peer_review.",
-  "file": "2026-06-20-codi-dw010.md"
- },
- {
-  "date": "2026-06-20",
-  "summary": "Codi: DW-009 static wiki generator complete \u2014 reference theme, grouped nav, search, breadcrumbs, TOC, citations, language badges, print CSS, generated footer; make wiki/make serve/a11y/link audits passed. DW-009 \u2192 peer_review.",
-  "file": "2026-06-20-codi-dw009.md"
- },
- {
-  "date": "2026-06-20",
-  "summary": "Clau: DW-D4 caption + alt-text pass complete \u2014 10 figures embedded across 8 articles, all captioned and attributed (WCAG role/aria-label on all Mermaid figures); build_wiki.py rewritten to support 28 articles + figure passthrough. DW-D4 \u2192 peer_review.",
-  "file": "2026-06-20-clau-dw-d4.md"
- },
- {
-  "date": "2026-06-20",
-  "summary": "Codi: DW-005 Swissmedic DE/FR/IT guidance fetcher implemented; 54 chunks across 7 live guidance pages per language; task moved to peer_review.",
-  "file": "2026-06-20-codi-dw005.md"
- },
- {
-  "date": "2026-06-20",
-  "summary": "Clau: DW-011 QA pass complete \u2014 7-point checklist, 6/7 pass; F1 found (25 [mepv#art_N] placeholders in 3 files, needs remediation); QA_REPORT.md written. DW-011 \u2192 peer_review.",
-  "file": "2026-06-20-clau-dw011.md"
- },
- {
-  "date": "2026-06-20",
-  "summary": "Clau: DW-008 complete \u2014 28 wiki articles (36,409 words) written with full citations; peer-reviewed DW-001\u2013004, DW-007, DW-012, DW-014 (all approved). Codi: DW-001 skeleton, DW-002 sources.yaml, DW-003 MepV fetcher, DW-004 EU MDR fetcher. Gem: DW-007 taxonomy, DW-012 schema.",
-  "file": "2026-06-20-clau-dw008.md"
- },
- {
-  "date": "2026-06-20",
-  "summary": "Codi: DW-001 skeleton, DW-002 sources.yaml, DW-003 MepV fetcher, and DW-004 EU MDR DE/FR/IT/EN fetcher moved to peer_review. Clau: DW-006 licensing pass. Gem: DW-007 taxonomy and DW-012 schema.",
-  "file": "2026-06-20.md"
- },
- {
-  "date": "2026-06-18",
-  "summary": "Misty: Peer reviewed PC-272 (no commit, reset to todo) and PC-273 (approved). Codi: PC-264 MLXQueue fix and PC-270 background model downloads completed; both builds passed and tasks moved to peer review. Gem: PC-267 CaptionCheckpointStore implemented with tests, build-green-2026-06-18-5.",
-  "file": "2026-06-18.md"
- },
- {
-  "date": "2026-06-17",
-  "summary": "Gem: Heartbeat protocol executed. Confirmed 0 tasks. Fleet idle.",
-  "file": "2026-06-17.md"
- },
- {
-  "date": "2026-06-16",
-  "summary": "Gem: Confirmed fleet quiescence. Heartbeat protocol Phases 1-6 executed. No open tasks or peer reviews found.",
-  "file": "2026-06-16-gem-quiescence.md"
- },
- {
-  "date": "2026-06-15",
-  "summary": "Gem: Confirmed empty task queue and clear inbox. Heartbeat idle.",
-  "file": "2026-06-15.md"
- },
- {
-  "date": "2026-06-14",
-  "summary": "Gem: Confirmed empty task queue and clear inbox. Heartbeat idle.",
-  "file": "2026-06-14.md"
- },
- {
-  "date": "2026-06-13",
-  "summary": "Gem: Peer-reviewed and approved TCR-001, TCR-002, and TCR-003. Verified Classical Reels stats ingest and dashboard integration.",
-  "file": "2026-06-13.md"
- },
- {
-  "date": "2026-06-13",
-  "summary": "Codi: TCR-003 retention parser re-verified in music-video-tool; tests passed and PocketBase task drift corrected back to peer_review.",
-  "file": "2026-06-13-codi-tcr003-status.md"
- },
- {
-  "date": "2026-06-13",
-  "summary": "Codi: TCR-001 Classical Reels PB ingest implemented in music-video-tool; cr_ingest.py creates/upserts classical_reels with retention checkpoints, tcr_scout hook added, tests and live one-video sync passed.",
-  "file": "2026-06-13-codi-tcr001.md"
- },
- {
-  "date": "2026-06-13",
-  "summary": "Gem: MD-004 recipe-card aggregator task completed. Added language-wide overall pacing envelope overlap checks, wrote 3 robust pipeline unit tests in tests/test_aggregate.py, generated actual recipe cards, and verified all 24 project tests pass.",
-  "file": "2026-06-13-gem-md004.md"
- },
- {
-  "date": "2026-06-13",
-  "summary": "Gem: Completed MD-007 task: designed and built the md_kpis PocketBase ingestion pipeline.",
-  "file": "2026-06-13-gem-md007.md"
- },
- {
-  "date": "2026-06-13",
-  "summary": "Standup for 2026-06-13: post-production of en-GB challenge-sabotage-romance, migration of Gemini CLI chat histories, implementation of MD-007 KPI ingestion pipeline, and implementation of MD-004 recipe cards.",
-  "file": "2026-06-13.md"
- },
- {
-  "date": "2026-06-12",
-  "summary": "Codi: TCR-003 retention curve parser implemented in music-video-tool; linear interpolation utility + 7 focused tests, all unittest discovery passed; task moved to peer_review.",
-  "file": "2026-06-12-codi-tcr003.md"
- },
- {
-  "date": "2026-06-11",
-  "summary": "Misty: Heartbeat protocol Phases 1-6. Peer-reviewed PC-078 (CLIP regression tests). Found CLIPEmbeddingServiceTests.swift on disk with all 3 required tests. Verified acceptance criteria met. Posted approval comment, updated task to approved.",
-  "file": "2026-06-11-misty-3.md"
- },
- {
-  "date": "2026-06-11",
-  "summary": "Misty: Heartbeat protocol Phases 1-6. Peer-reviewed PC-078 (CLIP regression tests), found uncommitted test file, posted feedback, reset to todo. No implementation tasks available.",
-  "file": "2026-06-11-misty-2.md"
- },
- {
-  "date": "2026-06-11",
-  "summary": "Codi: MD-009 bilingual ElevenLabs render path complete; real en-GB/en-US/es-419 episode audio rendered, QA manifests passed, cliffhanger dialogue drift 0.0s; Miguel listening approval remains the Phase-2 gate.",
-  "file": "2026-06-11-codi-md009.md"
- },
- {
-  "date": "2026-06-11",
-  "summary": "Misty: Peer-reviewed MD-012 drop-folder bridge (879bhibg460x8nc). Verified commit d281f81 with validate_clips.py + tests. All 4 unit tests pass. Posted approval, updated task to approved.",
-  "file": "2026-06-11-misty.md"
- },
- {
-  "date": "2026-06-11",
-  "summary": "Codi: MD-012 drop-folder clip validator implemented and tested; --auto Runway path gated, real generation not run to avoid spending credits. Task moved to peer_review.",
-  "file": "2026-06-11-codi-md012.md"
- },
- {
-  "date": "2026-06-11",
-  "summary": "Codi: MD-010 music mux pipeline complete; neutral, Celtic, and vallenato cue off/on outputs produced; cue-on drift 0.0s; task moved to peer_review.",
-  "file": "2026-06-11-codi-md010.md"
- },
- {
-  "date": "2026-06-11",
-  "summary": "Clau: MD-008 Phase-1 launch runbook + pre-registration doc \u2014 posting cadence Mon/Thu 18:00 CET, TikTok organic geo-seeding, YouTube paid-fill GB+IE exclusion, retention_ratio thresholds, 4-KPI pre-reg with MDEs. peer_review; Miguel sign-off pending.",
-  "file": "2026-06-11-clau-md008.md"
- },
- {
-  "date": "2026-06-11",
-  "summary": "Clau: MD-006 episode generator \u2014 four-block prompt, single Haiku call, ep01 44.8s + ep02 41.5s, all 4 artifacts generated, peer_review.",
-  "file": "2026-06-11-clau-md006.md"
- },
- {
-  "date": "2026-06-11",
-  "summary": "Daily activity: 2 agents (clau, misty), 5 sessions, 2 tasks completed. No activity - all agents idle.",
-  "file": "2026-06-11.md"
- },
- {
-  "date": "2026-06-11",
-  "summary": "Clau: MD-005 series-bible generator \u2014 two-phase haiku pipeline, 85.5s, 0 validation errors. 'The Gilded Accord' Phase-1 bible generated. Patched to peer_review.",
-  "file": "2026-06-11-clau-md005.md"
- },
- {
-  "date": "2026-06-11",
-  "summary": "Clau: MD-003 Opus structural pass finalized \u2014 merged task branch to main. Deliverables: pipeline/judgment_schema.py (taxonomy + JUDGMENT_TOOL), pipeline/structural_pass.py (Opus call + validation + confidence tiers), data/grammar/golden_set_notes.md (5-episode golden set protocol). Batch run and calibration blocked on MD-002 corpus extraction. Task patched to peer_review.",
-  "file": "2026-06-11-clau-md003.md"
- },
- {
-  "date": "2026-06-10",
-  "summary": "Clau: MD-003 Opus structural pass delivered \u2014 pipeline/judgment_schema.py (taxonomy + JUDGMENT_TOOL), pipeline/structural_pass.py (Opus analysis), data/grammar/golden_set_notes.md (5-episode protocol). Dry-run PASS. Blocked on MD-002 extraction.",
-  "file": "2026-06-10-clau.md"
- },
- {
-  "date": "2026-06-10",
-  "summary": "Gem: MD-004 Recipe-card aggregator complete \u2014 pipeline/aggregate_grammar.py, hook-type frequencies, beat-timestamp distributions, cliffhanger transition matrices, pacing envelopes. LOW_CONFIDENCE flag for sparse data.",
-  "file": "2026-06-10-gem-md004.md"
- },
- {
-  "date": "2026-06-10",
-  "summary": "Daily activity: 4 agents (clau, gem, misty, tcr_scout), 24 sessions, 15 tasks completed. Gem completed MD-007 (md_kpis schema + YouTube ingest).",
-  "file": "2026-06-10.md"
- },
- {
-  "date": "2026-06-10",
-  "summary": "Gem: MD-004 aggregator complete; refined and verified recipe cards; committed missing MD-007 files; environment healthy.",
-  "file": "2026-06-10-gem.md"
- },
- {
-  "date": "2026-06-10",
-  "summary": "Misty: Heartbeat protocol Phase 1-6. Peer reviewed PC-078 (CLIP regression tests) - found uncommitted test file CLIPEmbeddingServiceTests.swift, posted feedback, reset to todo. No todo tasks assigned to misty. POSTed idle heartbeat.",
-  "file": "2026-06-10-misty.md"
- },
- {
-  "date": "2026-06-10",
-  "summary": "Clau: MD-001 corpus builder complete. Produced data/corpus/source_list.json with 154 entries (EN=82, ES=77) across 4 cells: EN\u00d7CEO-romance (52), EN\u00d7family-secrets (25), ES\u00d7melodrama-hybrid (52), ES\u00d7CEO-romance (25). Top performers: The Double Life of My Billionaire Husband (520.5M EN), La doble vida de mi esposo multimillonario (170M ES). Armas de Mujer (Telemundo\u00d7ReelShort bilingual Rosetta stone) included. Task ljgvcrkn8he70oq patched to peer_review.",
-  "file": "2026-06-10-clau-microdrama.md"
- },
- {
-  "date": "2026-06-09",
-  "summary": "Clau (05:06 UTC): Heartbeat protocol. Picked up test ticket j2b02cj6, posted output, patched to peer_review. Session 12 (07:36-07:38 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed task g71sfap5slbib4c (voiceover bug), no commit found, reset to todo. No todo tasks available. Misty Session 30 (15:56-16:00 UTC): Full Phase 1 step 3-6 protocol. Peer reviewed PC-032 (Notification architecture, zn51khx7l6gynqf, assigned to gem) - code exists as untracked files but no git commits, posted feedback and reset to todo.",
-  "file": "2026-06-09-clau.md"
- },
- {
-  "date": "2026-06-09",
-  "summary": "Clau (05:06 UTC): Heartbeat protocol. Picked up test ticket j2b02cj6, posted output, patched to peer_review. Session 12 (07:36-07:38 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed task g71sfap5slbib4c (voiceover bug), no commit found, reset to todo. No todo tasks available. Misty Session 1 (08:56-08:59 UTC, headless): Full Phase 1-6 protocol from step 3. Peer reviewed SC-080 (7g2wnu0575qhxbi, assigned to clau) - found uncommitted test file KenBurnsDurationTests.swift with F2 test, no git commit, posted feedback and reset to todo. Session 2 (23:16-23:17 UTC): Full Phase 1-6 protocol. Peer reviewed 2 tasks (SC-077, test) - no commits found, reset to todo. Session 3 (23:56-23:58 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed same 2 tasks (SC-077, test) - still no commits found, reset to todo. Session 4 (00:06-00:08 UTC): Full Phase 1-6 protocol from step 3. Found SC-077 commit 7211b85 in silicon-oracle, verified BUILD SUCCEEDED (build-green-2026-06-09-1), APPROVED SC-077 and set to approved; test task reset to todo. Posted workflow lessons on commit verification. Session 5 (00:16-00:17 UTC): Full Phase 1 step 3-6 protocol. Peer reviewed test task j2b02cj6pmpsps8 (no commits found), reset to todo with feedback comment. Session 6 (00:25-00:28 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed test task j2b02cj6pmpsps8 again (still stale, no commits), posted feedback and reset to todo. Session 7 (00:36-00:38 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed test task j2b02cj6pmpsps8 (still stale, no commits), posted feedback and reset to todo. Session 8 (00:47-00:48 UTC): Full Phase 1 step 3-6 protocol. Peer reviewed test task j2b02cj6pmpsps8 (still stale, no commits), posted feedback and reset to todo. Session 9 (04:56-04:58 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed test task j2b02cj6pmpsps8 (no commits found), reset to todo with feedback comment. Session 10 (05:25-05:27 UTC): Full Phase 1-6 protocol from step 3 (headless). No peer_review tasks, no todo/in_progress tasks assigned to misty. POSTed idle heartbeat. Session 11 (05:55-05:58 UTC): Full Phase 1-6 protocol. Found 1 in_progress task SC-071 (2lag3bdzn1grzaw), deferred per Miguel's instruction - SC-066 measurement incomplete, model approval and 150 MB verification pending. PATCHed task to todo, posted output comment. Session 12 (05:57-06:01 UTC): Full Phase 1-6 protocol from step 3. Found 1 todo task SC-071 (2lag3bdzn1grzaw), picked up and set to in_progress, identified blocker (missing SC-066 dependency), posted question comment requesting @miguel clarification, set task to waiting_human. Session 13 (09:07-09:18 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed SC-080 (7g2wnu0575qhxbi, assigned to clau, GH#763) - no commits found for computeSegmentDurations in either repo, posted feedback comment, reset to todo. No todo tasks assigned to misty. Session 14 (09:42 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed 4 tasks (SC-080, SC-081, SC-082, SC-083 all assigned to clau) - no commits found, untracked test files exist but not committed, posted feedback and reset all 4 to todo. Session 15 (10:09-10:12 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed 5 tasks (SC-080, SC-081, SC-082, SC-083, SC-084 all assigned to clau) - SC-080/081: commit 79b8f98 FOUND with tests, APPROVED both; SC-082/083/084: NO commits, reset all 3 to todo. Session 16 (10:29-10:33 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed 4 tasks (SC-082, SC-083, SC-084, SC-085, all assigned to clau) - NO commits found in git for any ticket, reset all 4 to todo status, posted feedback comments per Code Review Protocol step 4. Added workflow lesson on commit verification requirement. Session 17 (10:47-10:52 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed 4 tasks (SC-082, SC-083, SC-084, SC-085, all assigned to clau) - NO commits in git log despite code existing in working directory, posted feedback comments, reset all 4 to todo. Session 18 (11:06-11:08 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed 2 tasks (SC-082, SC-083 assigned to clau) - NO commits found, untracked test files exist but not committed, posted feedback and reset both to todo. Session 19 (11:17-11:18 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed 2 tasks (SC-082, SC-084 assigned to clau) - NO commits found in git log, posted feedback comments, reset both to todo per Code Review Protocol step 4. Session 20 (11:37-11:38 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed 2 tasks (SC-082, SC-083 assigned to clau) - untracked test files exist in silicon-oracle but no git commits, posted feedback comments (tta35mio8y1rmsw, sp4x92hhox163bk), reset both to todo per Code Review Protocol step 4. Session 21 (11:46-11:48 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed 4 tasks (SC-082, SC-083, SC-084, SC-085, all assigned to clau) - NO commits found in git for any ticket, reset all 4 to todo, posted feedback comments. Session 22 (11:56-11:58 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed 2 tasks (SC-082, SC-083 assigned to clau) - untracked test files exist in silicon-oracle but no git commits, posted feedback comments (so1dfb4cyvsdn3y, pi4nk5o5lvsfnc5), reset both to todo per Code Review Protocol step 4. Session 23 (12:07-12:11 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed 3 tasks (SC-082, SC-083, SC-084 assigned to clau) - NO commits found in git for any ticket, reset all 3 to todo, posted feedback comments (vty8fyb3hrfi6c5, me41835pwgveqpl, k4fkand0qopy0i8). Misty Session 24 (12:27-12:31 UTC): Peer reviewed and approved 4 Clau tasks (SC-082, SC-083, SC-084, SC-085) - commit 79b8f98 verified with all test implementations. Misty Session 25 (13:12-13:19 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed PC-032 (Notification architecture, zn51khx7l6gynqf, assigned to gem) - no commits found in private-core/PrivateCore, posted feedback and reset to todo. No actionable implementation tasks available. Misty Session 26 (14:06-14:11 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed PC-032 (Notification architecture, zn51khx7l6gynqf, assigned to clau) - no commits found for RulesEngine in private-core/PrivateCore, posted feedback comment and reset to todo. Added workflow lesson on PocketBase task status drift. Misty Session 27 (15:07-15:10 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed PC-032 (Notification architecture, zn51khx7l6gynqf, assigned to gem) - code exists as untracked files, no git commit, posted feedback comment and reset to todo. Misty Session 28 (15:16-15:22 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed PC-032 (zn51khx7l6gynqf, assigned to gem) - code exists as untracked files but no git commits, posted feedback comment and reset to todo. Posted workflow lesson on repeated commit verification violations. Misty Session 29 (15:37-15:40 UTC): Peer reviewed PC-032 (zn51khx7l6gynqf, assigned to gem) - code exists as untracked files but no git commits, posted feedback and reset to todo per Code Review Protocol step 4.",
-  "file": "2026-06-09.md"
- },
- {
-  "date": "2026-06-08",
-  "summary": "Gem: Completed SC-078 (Journal reminder tray). Implemented SQLite storage, VideoReminderStore, and UI integration in Wiki/Journal views. Build green (build-green-2026-06-08-5).",
-  "file": "2026-06-08-sc078-gem.md"
- },
- {
-  "date": "2026-06-08",
-  "summary": "Multi-agent day: Clau approved SC-075, completed SC-072 (build-green-3), advanced SC-074; Gem completed SC-078 (build-green-5); Misty (21:18 UTC) approved SC-072, reset SC-073/SC-074/test to todo; Misty (21:36 UTC) reset SC-074/SC-077/SC-078/SC-079 to todo; Misty (21:57 UTC) full protocol, 0 peer_review tasks available, 0 implementation tasks; Misty (23:47 UTC) approved SC-074 (tip-gate UI, commit c2098e4). 34 sessions, 16 tasks completed; Misty (22:07 UTC) peer reviewed SC-073/SC-078 (no commits), reset to todo, posted feedback. Misty (23:07 UTC) peer reviewed SC-077/test (no commits), reset to todo, posted feedback. 36 sessions",
-  "file": "2026-06-08.md"
- },
- {
-  "date": "2026-06-07",
-  "summary": "Standup: No activity - all agents idle except Gem session, 3 sessions, 0 tasks completed",
-  "file": "2026-06-07.md"
- },
- {
-  "date": "2026-06-06",
-  "summary": "Misty \u2014 Session 1: SC-064 (Cosmos static PNG export) and SC-070 (honest offline-promise copy) completed, moved to peer_review. Session 2: Peer reviewed SC-065 and SC-069 (no commits found, reset to todo). Session 3 (Headless, 16:57 UTC): Full 6-phase heartbeat protocol. Peer reviewed SC-067 (Model download manager) assigned to Clau \u2014 found untracked file, no commit, reset to todo. Posted workflow lesson on checking git status for untracked files. Session 4 (17:05 UTC): Full 6-phase protocol. No peer_review tasks. Found SC-071 in_progress but blocked by missing prerequisites (tiny model footprint measurement, Miguel approval, 150 MB verification). Posted @miguel question comment, set status to waiting_human. Session 5 (17:16 UTC): Full 6-phase protocol from Phase 1 step 3. Peer reviewed SC-067 (Model download manager) in silicon-oracle commit d1e1fdc \u2014 BUILD FAILS due to renamed API cancelByProducingResumeData, reset to todo with detailed feedback. Session 6 (17:27 UTC): Full 6-phase protocol from Phase 1 step 3. Peer reviewed SC-067 (Model download manager) again \u2014 found commit d1e1fdc with ModelDownloadManager.swift but NO build-green tag (latest build-green-2026-06-06-2 on 32d9de5). Reset to todo. Posted workflow lesson on build-green verification requirement. Session 7 (17:43 UTC): Full 6-phase protocol from Phase 1 step 3. Peer reviewed SC-067 (Model download manager) in silicon-oracle commit d1e1fdc \u2014 ALL ACCEPTANCE CRITERIA MET: background URLSession, resumable, survives backgrounding, progress reporting, SHA-256 checksum, network awareness, per-model state, persisted state. APPROVED task (comment 3jlm9pegwwbm02f) and set status to approved. NOTE: No build-green tag on commit yet (last is build-green-2026-06-06-2 on 32d9de5).",
-  "file": "2026-06-06.md"
- },
- {
-  "date": "2026-06-05",
-  "summary": "Misty \u2014 Peer reviewed CB-01/CB-04 (no commits, reset to todo); CB-08 blocked. Codi \u2014 CB-05 runtime_adapter.py Mistral backend work verified and corrected in cookbook commit 8f4837b, moved to peer_review; CB-06 reset to todo after no commit found; CB-07 vendored ledger_to_md.py and notebook cell 2 regenerates wiki from sample ledger; CB-09 vendored build_static_views.py with relative paths in cookbook commit 7bebccd, moved to peer_review. Clau \u2014 CB-03 complete: fork mistralai/cookbook \u2192 UrsushoribilisMusic/cookbook, scaffold third_party/automated-technical-file/ (README, requirements.txt, LICENSE Apache-2.0/MIT, notebooks/, img/); peer_review.; Clau: CB-12 Integration complete",
-  "file": "2026-06-05.md"
- },
- {
-  "date": "2026-06-05",
-  "summary": "Gem - CB-10 Voice cell implementation: Voxtral Transcribe 2 and TTS integration, notebook cell 6 added",
-  "file": "2026-06-05-cb10-gem.md"
- },
- {
-  "date": "2026-06-05",
-  "summary": "Gem \u2014 2026-06-05 (07:05 UTC): Fleet health check complete, all systems stable.",
-  "file": "2026-06-05-status-gem.md"
- },
- {
-  "date": "2026-06-04",
-  "summary": "Misty Sessions 1-16: Full Heartbeat Protocol Phase 1-6 executed. Sessions 1-5: Peer reviewed SC-050/51/52/53 - no commits found, reset all to todo with feedback. Session 6 (23:47-23:50 UTC): Peer reviewed same 4 tasks (SC-050/51/52/53) again - still no commits found, reset all 4 to todo. Session 7 (08:28-08:35 UTC): Peer reviewed SC-054/55/57/60 (GH#731/732/734/737) - no commits found, reset all 4 to todo with feedback comments. Session 8 (08:46 UTC): No peer_review tasks assigned to misty for review, no todo tasks to pick up - full protocol executed, no actionable work found. Session 9 (08:58-08:59 UTC): Peer reviewed 6 tasks (SC-054/55/56/57/58/59, GH#731-736) - no commits found, reset all to todo with feedback comments. Session 10 (09:20-09:51 UTC): Peer reviewed 7 tasks (SC-054-060, GH#731-737) - no commits found in referenced repo (agentic-fleet-hub), code exists in silicon-oracle but NOT COMMITTED, reset all to todo. Posted lesson uixpci5qefhbw8n on cross-repo commit references pattern. Session 11 (09:53-10:00 UTC): Headless execution from Phase 1 step 3 - peer reviewed SC-054/55/56/57/58/59/60 (GH#731-737), no commits found, reset all 7 to todo. Posted lesson on cross-repo commit references. Session 12 (10:26-10:28 UTC): Peer reviewed SC-055/56/57/58 (GH#732-735), no commits found, reset all 4 to todo with feedback comments. Posted workflow lesson (6hbr1oq2gdygefi). Session 13 (10:41-10:48 UTC): Headless execution from Phase 1 step 3 - peer reviewed SC-057 (GH#734), no commits found, reset to todo with feedback comment. All 124+ tasks assigned to misty remain approved. Session 14 (13:09-13:17 UTC): Headless execution from Phase 1 step 3 - peer reviewed SC-054 (GH#731, assigned to Gem), no commits found, reset to todo with feedback comment (m9hjohtmtio0of0). Session 15 (14:06-14:07 UTC): Headless execution from Phase 1 step 3 - peer reviewed SC-054 (GH#731, assigned to Clau), no commits found, reset to todo with feedback comment (ybdbvsn54qr8924). Session 16 (14:16-14:18 UTC): Headless execution from Phase 1 step 3 - FOUND commit f21e4bf in silicon-oracle for SC-054, verified implementation of 10 musical scores in MusicScore.swift/MusicLibrary.swift/Resources/Music/, APPROVED task (comment 8ixlppvd39ktew4).",
-  "file": "2026-06-04.md"
- },
- {
-  "date": "2026-06-02",
-  "summary": "Misty Sessions 27-33: Multiple sessions executing full Heartbeat Protocol. Recurring peer review of SC-034 (GH#717), SC-041 (GH#724), SC-031 (GH#714) - no commits found, repeatedly reset to todo with feedback comments. Session 31 (15:52 UTC): Reviewed SC-031 and SC-041, no commits found, reset both to todo. Session 32 (16:32 UTC): Reviewed SC-031 (GH#714) and SC-041 (GH#724) again after reset to peer_review, no commits found, reset both to todo. Session 33 (16:52 UTC): Reviewed SC-031 and SC-041 again, no commits found, reset both to todo, posted workflow lesson on commit verification. All tasks assigned to misty show status approved.",
-  "file": "2026-06-02.md"
- },
- {
-  "date": "2026-06-01",
-  "summary": "Clau: approved SC-027/SC-028, reset carousel task, merged Sprint-1 thermal gate fix. Misty: peer reviewed SC-019 and GH#706. Codi: completed Boards graph planets, video black-frame fix, SC-027 Tier-1 harness, SC-028 Suite A graph tests, and SC-030 Suite C Ken Burns timeline math tests; latest pushed commit 046c569 with build-green-2026-06-01-6.",
-  "file": "2026-06-01.md"
- },
- {
-  "date": "2026-05-31",
-  "summary": "Gem: Verified and committed SC-018 (Sparse-day rotation) and SC-019 (Visual style cut). Approved SC-011. Build green-2026-05-31-2.",
-  "file": "2026-05-31-gem.md"
- },
- {
-  "date": "2026-05-31",
-  "summary": "Clau: handled GH#698 vendor solicitation (AsterWorks API gateway pitch), declined and closed as not-planned. Misty: Executed full Heartbeat Protocol Phase 1-6 across multiple sessions; fixed QW-007 index.html data path bugs; peer reviewed and approved SC-023 (SmolLM2 photo pre-pick), SC-025 (Text-model A/B toggle); additional session at 08:15 UTC: peer reviewed SC-015/016/017/021 (no commits found, reset to todo), posted workflow lesson; session at 09:00 UTC: completed SC-011 (soul.md easter egg prompts) with build-green-2026-05-31-19; session at 19:15 UTC: peer reviewed SC-015/016/018/019 (no commits found, reset to todo); session at 19:45 UTC: peer reviewed SC-019 (no commits found, reset to todo), posted lesson on peer review commit verification; session at 20:25 UTC: peer reviewed SC-019 (uncommitted changes found, reset to todo), posted workflow lesson on git commit verification; session at 20:36 UTC: peer reviewed SC-019 (still uncommitted, 2 bugs found in SC-019 work), reset to todo, posted feedback comment. Codi: approved QW-001 through QW-007, completed SC-005 and SC-008; pushed SC-013 two-model runtime with build-green-2026-05-31-8, blocked on physical iPhone profiling; implemented SC-014 foreground generation flow with follow-up build-green-2026-05-31-12; completed SC-020 backing-track genre library with build-green-2026-05-31-13; completed SC-023 heuristic photo pre-pick and cut SmolLM2 with build-green-2026-05-31-15; completed SC-022 shared day/week 12-segment video pipeline with build-green-2026-05-31-16.",
-  "file": "2026-05-31.md"
- },
- {
-  "date": "2026-05-30",
-  "summary": "Gem: Completed SC-005 text style system reskin (4 voices, Hero selector, style-aware narratives). Fixed build break in ForegroundCaptionView. Verified build-green-2026-05-30-7.",
-  "file": "2026-05-30.md"
- },
- {
-  "date": "2026-05-30",
-  "summary": "Gem: Completed SC-007 (Oracle cosmology graph). Finalized and committed SC-002 stripping pass (97+ files). Repaired build failures in SC-010 branding pass and SC-009 pricing. SiliconOracle build is now green.",
-  "file": "2026-05-30-gem.md"
- },
- {
-  "date": "2026-05-30",
-  "summary": "Misty: Executed full 6-Phase Heartbeat Protocol. Discovered SC-010 work local-only, pushed 3 commits (9e6ff39,c19d7a7,48605c7) to silicon-oracle/origin/main. SC-010 remains in peer_review awaiting approval. SC-011 blocked by SC-008.",
-  "file": "2026-05-30-misty.md"
- },
- {
-  "date": "2026-05-29",
-  "summary": "Misty: Completed SC-010 (Branding & oracle voice pass) for SiliconOracle. All PrivateCore references replaced (45 files), oracle-themed microcopy applied, AppStoreMetadata.md drafted. Branch task/1tlq85vot60l8r8 pushed. SC-010 moved to peer_review.",
-  "file": "2026-05-29-misty.md"
- },
- {
-  "date": "2026-05-29",
-  "summary": "Misty: Completed SC-010 (Branding & oracle voice pass) for SiliconOracle. All PrivateCore references replaced (45 files), oracle-themed microcopy applied, AppStoreMetadata.md drafted. Branch task/1tlq85vot60l8r8 pushed. SC-010 moved to peer_review.",
-  "file": "2026-05-29-misty.md"
- },
- {
-  "date": "2026-05-28",
-  "summary": "Misty: Executed full Heartbeat Protocol (Phases 1-6). Peer reviewed and approved 2 tasks: PC-238 (TTS narration) and PC-242 (Stock clip bundle). No todo tasks assigned.",
-  "file": "2026-05-28.md"
- },
- {
-  "date": "2026-05-27",
-  "summary": "Gem: Finalized and verified CR-006 cost ingestion (Google Ads, ElevenLabs, Runway, Suno); CR-002 and CR-003 live. Misty: Session 1: Pushed 3 commits (PC-238/260/262 fixes), verified 3 peer_review tasks. Session 2: Peer reviewed and approved CR-006. Session 3: Peer reviewed and approved CR-014, completed PC-242 (merged stock clip bundle to main). Session 4: Verification only - no new tasks, found 2 peer_review tasks assigned to Misty (cannot self-approve). Session 5: Protocol execution - no todo tasks, 2 peer_review tasks assigned to misty (cannot self-approve). Clau: CR-014 YouTube subscriber count via channels.list API. Codi: CR-015 fleet_push now syncs Financial Ops ledgers/snapshots to DO and restored youtube_watch_hours.py source. Dev Groar: Scherenschnitt pipeline locked, fable style enforced. Misty Session 6: Discovered and fixed 2 misassigned tasks (PC-238\u2192codi, PC-242\u2192unassigned), posted workflow lesson.",
-  "file": "2026-05-27.md"
- },
- {
-  "date": "2026-05-26",
-  "summary": "Gem: Completed CR-006 cost ingestion (Google Ads, ElevenLabs, Runway, Suno). Codi: Approved CR-008, implemented CR-005, CR-009, CR-010, CR-011, and CR-012. Misty: Peer reviewed CR-012 (session 2); Session 3: Discovered PC-238/242/244 already implemented in PrivateCore, created PB task 22hfxuhpxgdyan0, set to peer_review.",
-  "file": "2026-05-26.md"
- },
- {
-  "date": "2026-05-26",
-  "summary": "Gem: Implemented and tested [CR-002] (YouTube watch hours) and [CR-003] (Google Ads snapshot). Both scripts follow read-only protocols and fail-closed logic. Blocked on credentials (CR-000) and missing PocketBase collections.",
-  "file": "2026-05-26-gem-financial-ops.md"
- },
- {
-  "date": "2026-05-26",
-  "summary": "Clau: CR-008 spending rule engine implemented (fail-closed, 16 unit tests pass). Approved CR-001, CR-007. Misty: Peer reviewed CR-013 and PC-262. Codi: CR-000 credential gate checked; CR-001 Financial Ops tab shell and CR-004 Shopify ingestion moved to peer_review.",
-  "file": "2026-05-26-clau-cr008.md"
- },
- {
-  "date": "2026-05-25",
-  "summary": "Clau: Reviewed GH #633 security scan report. Fixed os.popen/os.system patterns in fleet_sync.py (both copies). 9 of 14 findings confirmed false positives.",
-  "file": "2026-05-25.md"
- },
- {
-  "date": "2026-05-24",
-  "summary": "Gem: Completed PC-261 captions. Codi: Completed PC-263 synced narration with AVSpeechSynthesizer and music ducking; build-green-2026-05-24-4. Misty: Peer reviewed and approved PC-263.",
-  "file": "2026-05-24.md"
- },
- {
-  "date": "2026-05-20",
-  "summary": "Misty: Peer reviewed and approved RT-002 (gen_story_modern.py) and RT-003 (assemble_modern.py) in music-video-tool repo.",
-  "file": "2026-05-20.md"
- },
- {
-  "date": "2026-05-19",
-  "summary": "Clau: RT-006 (gen_story_modern.py 70B) status \u2192 peer_review. Gem: RT-004 (Modern Story e2e) success, unlisted test video uploaded; PC-249 (Freemium gating) refined Pro outro 'clean credit' and UI feedback; status \u2192 peer_review. Misty: peer review RT-004 (commit 08c6909f) and RT-007 (commit ba6a1ad2) approved.",
-  "file": "2026-05-19.md"
- },
- {
-  "date": "2026-05-18",
-  "summary": "Gem: PC-227 Wiki day view clarified rescan photos loading text (\"Rescanning Photos...\") and verified journal action de-dup. Updated Mission Control in Hub and PrivateCore.",
-  "file": "2026-05-18-hfng2al7-gem.md"
- },
- {
-  "date": "2026-05-18",
-  "summary": "Gem: Completed PC-230 (Places visit counts) by restoring trip-day grouping fix. Peer reviewed PC-238 (TTS narration). Build verified (build-green-2026-05-18-12).",
-  "file": "2026-05-18-gem.md"
- },
- {
-  "date": "2026-05-18",
-  "summary": "Misty: Peer review sessions - approved 8 PrivateCore tasks across 4 sessions: PC-228/234/256 (session 1), PC-227 (session 2), PC-230 (session 3), PC-239/243 (session 4). All builds green.",
-  "file": "2026-05-18-misty.md"
- },
- {
-  "date": "2026-05-17",
-  "summary": "Teddy: WikiGenerator section wiki ordering fix (moved after main save to prevent thermal cascade), partial JSON recovery (salvage lead from truncated Ministral 3B responses), PC-255 nav fix, MLXEngine background crash mitigation, music track ODR integration guide. Build succeeded.",
-  "file": "2026-05-17-teddy.md"
- },
- {
-  "date": "2026-05-17",
-  "summary": "Clau: RT-001 \u2014 pipeline_runner.py product ID detection + fable/modern format routing. Commit 44128b5. Task to peer_review.",
-  "file": "2026-05-17-clau-rt001.md"
- },
- {
-  "date": "2026-05-17",
-  "summary": "Misty: peer review session - approved 9 tasks (V05-PROFILE-002/003/005, PC-081, PC-237, PC-240, PC-241, PC-245, PC-250), reset PC-251 to todo (reverted).",
-  "file": "2026-05-17-misty.md"
- },
- {
-  "date": "2026-05-17",
-  "summary": "Clau/Codi: release prep, installer support, profile validator, and profile install smoke tests. Gem: PC-244 (Textures), PC-246 (Curation UI), and Sprint 7 batch cleanup (PC-237, PC-240, PC-241, PC-245, PC-247) to main.",
-  "file": "2026-05-17.md"
- },
- {
-  "date": "2026-05-16",
-  "summary": "Gem: PC-235 (TransitionEngine) and PC-248 (Video Generation flow) implemented & verified; PC-223 completed; Architecture Pillar 4 added.",
-  "file": "2026-05-16.md"
- },
- {
-  "date": "2026-05-15",
-  "summary": "Gem: Verified PC-220 (photo date logic) and finalized PC-223 (Open People & Pets UI). Both marked Done and pushed to main. Build green-2026-05-15-2.",
-  "file": "2026-05-15.md"
- },
- {
-  "date": "2026-05-14",
-  "summary": "Codi: PC-227 WikiDayView journal action deduped and photo refresh wording clarified; generic iOS build passed, PB/git sync blocked by local environment.",
-  "file": "2026-05-14.md"
- },
- {
-  "date": "2026-05-13",
-  "summary": "Codi: PC-230 Places multi-day visit/photo counting verified; generic iOS build succeeded, PB/git finalization blocked by local sandbox restrictions.",
-  "file": "2026-05-13.md"
- },
- {
-  "date": "2026-05-12",
-  "summary": "Codi: PC-227 WikiDayView cleanup plus PC-230 Places visit/photo counts patched; build/PB/git finalization blocked by sandbox cache, CoreSimulator, network, and git metadata restrictions.",
-  "file": "2026-05-12.md"
- },
- {
-  "date": "2026-05-08",
-  "summary": "Gem: Completed PC-231 (Board/Person focus flicker fix), PC-229 (Trip wiki paywall retry logic), and PC-076-B (Custom style editor Pro). Applied definitive stability fixes for Boards note editor. Build green-2026-05-08-5.",
-  "file": "2026-05-08.md"
- },
- {
-  "date": "2026-05-07",
-  "summary": "Clau: completed V05-PROFILE-001 (default-engineering profile pack \u2014 RULES.md enriched, growth_meta.json filled, pocketbase_schema.md added, README updated). Gem: PC-216, fixed main build, reviewed V05-PROFILE-004/PC-218. Misty: PC-217, PC-225. Codi: partial audit of V05-PROFILE-001 (blocked by env).",
-  "file": "2026-05-07.md"
- },
- {
-  "date": "2026-05-06",
-  "summary": "Codi: V05-PROFILE-001 + PC-220/PC-223. Clau: PC-083 Screen C calendar permission \u2014 Skip button, style param, nav fix, merged approved PC-074, fixed build blockers.",
-  "file": "2026-05-06.md"
- },
- {
-  "date": "2026-05-04",
-  "summary": "Misty: Merged PC-073 (WikiTheme SwiftUI visual rendering) and PC-083 (Screen C calendar permission) to main. Both tasks moved to peer_review. Pushed changes to privatecore-ios (f90cfae..66b2de1). 4 peer_review tasks pending (PC-074, PC-076-B, PC-078, PC-086).",
-  "file": "2026-05-04.md"
- },
- {
-  "date": "2026-05-03",
-  "summary": "Gem: PC-193 (Trigger v5 rollout), PC-079, PC-085, PC-086, PC-089 (Lifelore Pro features). Misty: PC-072 (WikiStyle data models + SQLite migration), peer review of PC-079/086 (reset to todo).",
-  "file": "2026-05-03.md"
- },
- {
-  "date": "2026-05-02",
-  "summary": "Clau: PC-204 (MLXQueue), PC-201 (prompt leak removed), PC-203 (stale cache fix), PC-202 (board wiki edit+regen), PC-200 (people picker). Gem: PC-198 (hashtag graph), PC-195 (smoke tests). Build green-2026-05-02-3.",
-  "file": "2026-05-02.md"
- },
- {
-  "date": "2026-05-01",
-  "summary": "Clau: PC-189 (settings verified done), PC-190 (CLIP similar photos carousel + More Like This), PC-192 (WikiDayView + date-link navigation). BUILD build-green-2026-05-01-26.",
-  "file": "2026-05-01.md"
- },
- {
-  "date": "2026-05-01",
-  "summary": "Clau: PC-191 (iOS Photos People linking + person\u2192concept graph edges) + PC-188 wiki context (city names in LLM context). Approved PC-188 (Gem). BUILD build-green-2026-05-01-25.",
-  "file": "2026-05-01.md"
- },
- {
-  "date": "2026-05-01",
-  "summary": "Clau: PC-186 (VLM hashtag extraction wired into describeWithAI) + PC-188 (LocationGeocoder \u2014 city name in photo metadata panel). Fixed SettingsView double-encoded UTF-8 (em dash/ellipsis mojibake). BUILD build-green-2026-05-01-24.",
-  "file": "2026-05-01-clau.md"
- },
- {
-  "date": "2026-05-01",
-  "summary": "Gem: 1 session. Implemented PC-177 (topic signals infrastructure), updated SQLite schema, and TopicSignalRecorder. Fixed project-wide build breakages. Peer reviewed PC-179/181/184 (reset to todo).",
-  "file": "2026-05-01-gem.md"
- },
- {
-  "date": "2026-05-01",
-  "summary": "Misty: 4 sessions. Peer reviewed 6 PC tasks (PC-172/174/175/180/183 approved). Completed PC-182 (force-directed layout engine) and PC-183 (ConceptGraphView with Canvas). Implemented PC-185 (graph search and highlight). Build-green-2026-05-01-11 through -17 (PC-185 verified in session 4). Standup file: 2026-05-01-misty.md",
-  "file": "2026-05-01-misty.md"
- },
- {
-  "date": "2026-05-01",
-  "summary": "Clau: PC-173 + PC-174 earlier sessions. Peer reviewed PC-176 (Misty, approved) + PC-178 (Misty, approved). Implemented PC-180 \u2014 topic weight chips, wiki prompt injection, search score boost.",
-  "file": "2026-05-01.md"
- },
- {
-  "date": "2026-04-30",
-  "summary": "Clau: 26 sessions, 18 PrivateCore tasks implemented (PC-125/127/136/141/143/145/148/151/159/161/162/166/167/168/169/170/171 + board+daily wiki), 30+ commits, fixed Codi sandbox root cause, filed PC-153\u2013171 from device testing, added Code Review Protocol to RULES.md. Misty: peer reviewed 15 tasks, implemented PC-156. Gem: completed PC-146/162/165.",
-  "file": "2026-04-30.md"
- },
- {
-  "date": "2026-04-29",
-  "summary": "Clau: fixed PC-124/128/129 peer_review\u2192todo; PC-133 verified (awaits peer approval); committed Codi's dispatcher token-failure cooldown + Qwen Coder fleet_meta update",
-  "file": "2026-04-29.md"
- },
- {
-  "date": "2026-04-28",
-  "summary": "Codi: completed hub task #225 earlier; later PC-109 investigation produced a validated PrivateCore patch artifact for Capture Scan OCR note creation, but direct iOS repo writes and PocketBase updates were blocked by the session environment.",
-  "file": "2026-04-28.md"
- },
- {
-  "date": "2026-04-27",
-  "summary": "Clau: PC-031 peer-review fix \u2014 wrapped Today calendar rows in NavigationLink to SearchView (the last 'deep-links from all items' gap Codi flagged). Commit b85bed5 on privatecore-ios main, BUILD SUCCEEDED (build-green-2026-04-27-14), task back to peer_review.",
-  "file": "2026-04-27.md"
- },
- {
-  "date": "2026-04-27",
-  "summary": "Codi: reconciled PrivateCore PocketBase/Mission Control earlier in the day; later heartbeat-only runs found the cached PB snapshot stuck on duplicate self-owned PC-107/PC-108 peer_review records with no actionable todo tasks, so only heartbeats/lesson bookkeeping were staged.",
-  "file": "2026-04-27.md"
- },
- {
-  "date": "2026-04-26",
-  "summary": "Clau: live device-test session with Miguel. Fixed Home crash (HealthKit removed), Library categories, CLIP autostart watchdog, schema migration ordering, trips.cached_summary, CLIP text feature-name typo (input_ids\u2192text), Add Sample Cards await, New Board didChange notification, PeopleView escape regression. Filed PC-067..PC-080. PC-080 (P0) is the real blocker: clipTokenize is fake byte-level mapping, not BPE \u2014 visual search has never worked. Consolidated Heartbeat Protocol into RULES.md. Commits 3efcf64 + 6f5d8ac on privatecore-ios main, 1e5de0c on agentic-fleet-hub master.",
-  "file": "2026-04-26.md"
- },
- {
-  "date": "2026-04-26",
-  "summary": "Misty: PC-075 Complete - Created CardTitleSanitizer utility and applied to all Card ingestion paths (camera, documents, share extension). Added one-shot migration fixCardsWithPathTitles() to clean existing bad titles. Commit 9b80fef to privatecore-ios main. BUILD SUCCEEDED.",
-  "file": "2026-04-26.md"
- },
- {
-  "date": "2026-04-26",
-  "summary": "Misty PC-066/053 verified + PC-069/070 AST fixes + PC-058 approved. Gem PC-068 Translate. Clau re-submitted PC-067 to peer_review after stale-workspace rejection loop.",
-  "file": "2026-04-26.md"
- },
- {
-  "date": "2026-04-25",
-  "summary": "Misty: Approved 5 PC tasks (PC-020, PC-021, PC-024, PC-027, PC-032, PC-033), cleaned 5 duplicate auto-sync tasks, merged PC-032+PC-020 to main. Clau: PC-021 On This Day NavigationLink to OnThisDayDetailView. Clau: PC-025 Smart Space verified complete, submitted peer_review.",
-  "file": "2026-04-25.md"
- },
- {
-  "date": "2026-04-24",
-  "summary": "PC-024 hashtag autocomplete implemented. Misty completed TagSuggestionService, autocomplete components, and integration into CardDetailView, AddCardSheet, and SearchView. Gem completed PC-022/023/026 hashtag index and management.",
-  "file": "2026-04-24.md"
- },
- {
-  "date": "2026-04-23",
-  "summary": "PC-046 \u2192 peer_review: real MLX inference wired into MLXEngine via ChatSession (mlx-swift-lm 2.31.3). PC-033 ModelManager HuggingFace download complete.",
-  "file": "2026-04-23.md"
- },
- {
-  "date": "2026-04-22",
-  "summary": "PC-044 complete: CLIPEmbeddingService + visual photo search. MobileCLIP-S0 CoreML, 512-dim embeddings, clip_vectors table, parallel CLIP+MiniLM search in SearchService, SettingsView progress row.",
-  "file": "2026-04-22.md"
- },
- {
-  "date": "2026-04-21",
-  "summary": "TCR live campaign fixed (conversion goals, watch-hour strategy). PrivateCore 4 bugs fixed (DB migration, capture crash, settings UI). 6 design tickets created PC-034\u2013PC-039. arXiv Section 7 data written. PrivateCore added to Fleet Hub portfolio.",
-  "file": "2026-04-21.md"
- },
- {
-  "date": "2026-04-20",
-  "summary": "PrivateCore Phase 1 complete. 11 tickets closed: PC-009/015/016/017/019/020/022/023/024/028/029. Phase 2 sprint started. heartbeat_check.py fixed for PrivateCore MC format.",
-  "file": "2026-04-20.md"
- },
- {
-  "date": "2026-04-19",
-  "summary": "PrivateCore iOS kickoff: 18 tickets closed (PC-000\u2013PC-014). MLX Swift inference, OCR, embeddings, VectorStore, VLM, Share Extension all built. App running on device.",
-  "file": "2026-04-19.md"
- },
- {
-  "date": "2026-04-17",
-  "summary": "Author site live (MiguelRodriguezAuthor.com), Swiss ISBN filed, Zug Press logo created. YouTube channel 75\u2192215 subscribers via Google Ads (CHF 0.30/subscriber). Ads audited and fixed.",
-  "file": "2026-04-17.md"
- },
- {
-  "date": "2026-04-12",
-  "summary": "ATF surfaces were approved, deployed live to api.robotross.art/atf, and verified end to end, including the RobotRoss architecture page and public media assets.",
-  "file": "2026-04-12.md"
- },
- {
-  "date": "2026-04-11",
-  "summary": "ATF wiki, ledger, local QA, optional voice shell, and deployment tracks all moved through review with the public RobotRoss demo surface prepared for go-live.",
-  "file": "2026-04-11.md"
- },
- {
-  "date": "2026-04-10",
-  "summary": "Codi wired Google Ads credentials and approval flow for TCR, deployed the live analytics recommendation fix, and verified the current hot-test target as Danse Macabre | Vallenato.",
-  "file": "2026-04-10.md"
- },
- {
-  "date": "2026-04-09",
-  "summary": "Gem produced the RobotRoss source manifest (#125). Codi fixed Fleet Hub timeline reliability and heartbeat stale-state false positives. Misty defined EU AI Act wiki mapping metadata.",
-  "file": "2026-04-09.md"
- },
- {
-  "date": "2026-04-08",
-  "summary": "Gem approved #107. Codi finished the TCR runtime pipeline: scout -> PocketBase, public stats/heatmap from PocketBase, and PocketBase -> Sheet YouTube sync, while restoring GitHub-first ticket creation for TCR-12/13/14.",
-  "file": "2026-04-08.md"
- },
- {
-  "date": "2026-04-04",
-  "summary": "Heartbeat verified: 0 open tickets, 0 active Codi tasks, fleet idle.",
-  "file": "2026-04-04.md"
- },
- {
-  "date": "2026-04-03",
-  "summary": "Heartbeat verified: 0 open tickets, 0 peer-review tasks, fleet idle.",
-  "file": "2026-04-03.md"
- },
- {
-  "date": "2026-04-01",
-  "summary": "Heartbeat verified: 0 tasks. Codi recovered. Clau/Misty still offline.",
-  "file": "2026-04-01.md"
- },
- {
-  "date": "2026-03-31",
-  "summary": "Heartbeat verified: 0 tasks. Cleared stuck Clau processes. Codi usage limit identified.",
-  "file": "2026-03-31.md"
- },
- {
-  "date": "2026-03-30",
-  "summary": "Heartbeat verified: 0 tasks. Identified and fixed stuck clau process.",
-  "file": "2026-03-30.md"
- },
- {
-  "date": "2026-03-29",
-  "summary": "Heartbeat verified: 0 tasks, 0 unread inbox items. Fleet idle.",
-  "file": "2026-03-29.md"
- },
- {
-  "date": "2026-03-26",
-  "summary": "Heartbeat verified: 0 tasks. Fleet idle.",
-  "file": "2026-03-26.md"
- },
- {
-  "date": "2026-03-25",
-  "summary": "Heartbeat verified: 0 tasks. Fleet idle.",
-  "file": "2026-03-25.md"
- },
- {
-  "date": "2026-03-24",
-  "summary": "Heartbeat verified: 0 tasks. Recorded PocketBase filter quoting lesson.",
-  "file": "2026-03-24.md"
- },
- {
-  "date": "2026-03-23",
-  "summary": "Kanban sync complete. #78/#79 closed. #80 blocked on npm 2FA.",
-  "file": "2026-03-23.md"
- },
- {
-  "date": "2026-03-22",
-  "summary": "Heartbeat verified: 0 tasks. Fleet stable.",
-  "file": "2026-03-22.md"
- },
- {
-  "date": "2026-03-21",
-  "summary": "Heartbeat verified: 0 tasks. Restored fleet services (bridge, github, push).",
-  "file": "2026-03-21.md"
- },
- {
-  "date": "2026-03-20",
-  "summary": "Heartbeat Protocol verified: no open tickets, fleet stable.",
-  "file": "2026-03-20.md"
- },
- {
-  "date": "2026-03-19",
-  "summary": "Fleet v0.2.0 fully operational. Project-switching, health-monitoring, and release notes complete.",
-  "file": "2026-03-19.md"
- },
- {
-  "date": "2026-03-18",
-  "summary": "UI polish and project activation logic implemented.",
-  "file": "2026-03-18.md"
- },
- {
-  "date": "2026-03-17",
-  "summary": "Checksum caching and dynamic parser updates.",
-  "file": "2026-03-17.md"
- },
- {
-  "date": "2026-03-16",
-  "summary": "GitHub sync and Telegram bridge truncation fixes.",
-  "file": "2026-03-16.md"
- },
- {
-  "date": "2026-03-15",
-  "summary": "Fleet fully operational on Mac Mini. No open tickets.",
-  "file": "2026-03-15.md"
- },
- {
-  "date": "2026-03-14",
-  "summary": "Mac Mini migration verified: environment configured, mandates updated, CRM path fixed.",
-  "file": "2026-03-14.md"
- },
- {
-  "date": "2026-03-13",
-  "summary": "Ticket #25 (Demo Cleanup) and #23 (README overhaul) complete. Fleet is release-ready.",
-  "file": "2026-03-13.md"
- },
- {
-  "date": "2026-03-12",
-  "file": "2026-03-12.md",
-  "summary": "Tickets #14 and #17-#19 complete: Growth Fleet demo, Big Bear homepage refresh, legal pages, and Google Sheets lead intake live."
- },
- {
-  "date": "2026-03-11",
-  "file": "2026-03-11.md",
-  "summary": "Hub Consolidation, Sidebar Overhaul, and CRM Cloud Rollout."
- },
- {
-  "date": "2026-03-10",
-  "file": "2026-03-10.md",
-  "summary": "Tickets #1-#6 complete: Sheets migration, tracker API live, OAuth wired."
- }
+  {
+    "date": "2026-11-06",
+    "summary": "Codi: LM-G05 completed and pushed (0af1be0), 19/19 rules + Chromium 1440/320/390; LM-G04/06/07 returned with reproducible review failures; PocketBase writes queued.",
+    "file": "2026-11-06-codi-chapter-review.md"
+  },
+  {
+    "date": "2026-11-06",
+    "summary": "Muse: LM-G07 Evaluator chapter shipped on task/o9xu6grfq9tkk5b (5277626) — 65/65 rules, green browser verify, peer_review; LM-G01/LM-G02 approved, LM-G03 left for a peer.",
+    "file": "2026-11-06-muse-evaluator.md"
+  },
+  {
+    "date": "2026-11-06",
+    "summary": "Gem: LM-G06 (Episode 07: The Politician) playable chapter, 9/9 pure rule tests, preview harness, and 1440/390/320px Chromium verification shipped on task/yyxpieeq1kkr5gq (85b1c37); moved to peer_review.",
+    "file": "2026-11-06-gem-politician.md"
+  },
+  {
+    "date": "2026-11-06",
+    "summary": "Codi heartbeat: LM-G05 already running in separate Codi process; no todo or eligible peer review in snapshot; task states preserved.",
+    "file": "2026-11-06-codi-heartbeat-check.md"
+  },
+  {
+    "date": "2026-11-06",
+    "summary": "Codi: nine missing-world seeds and Gem pack ready; four next-game tickets assigned Clau/Codi/Gem/Muse and picked up; tracker 18/18 seeds; 0d76e59.",
+    "file": "2026-11-06-codi-seeds-game-round-two.md"
+  },
+  {
+    "date": "2026-11-06",
+    "summary": "Codi: Garden/Fox Kokoro review films in Downloads; Rose/Influencer/Doom integrated; story 5+1 verified; pushed 184d515.",
+    "file": "2026-11-06-codi-little-model-overnight.md"
+  },
+  {
+    "date": "2026-11-05",
+    "summary": "Muse: 3 headless LM-G03 Doomscroller runs (worktree task/5tqcnbsz4qm91o8); chapter shell + 33 rule tests green; stuck on readout overlap + late settling timer; still in_progress.",
+    "file": "2026-11-05.md"
+  },
+  {
+    "date": "2026-11-05",
+    "summary": "Codi: Influencer mobile fix verified; Miguel playthrough exposed unclear objective, added portrait-task introduction and first-capture guidance (bc622fb). Garden/Fox footage archived; other game follow-ups remain.",
+    "file": "2026-11-05-codi-little-model-story.md"
+  },
+  {
+    "date": "2026-11-04",
+    "summary": "Codi: AFL Stage One/Two reviews; re-reviewed d37ad9a documentation fixes. Fresh venv: 213 passed, 8 skips, 131 subtests. Four residual consistency/evidence items; video work next.",
+    "file": "2026-11-04-codi-stage-one-review.md"
+  },
+  {
+    "date": "2026-11-03",
+    "summary": "Muse: AFL glasses Display scaffold + 2 simulator crash fixes verified; Developer Center registration, v1.0.0, hackathon form answers; entry submitted.",
+    "file": "2026-11-03.md"
+  },
+  {
+    "date": "2026-11-03",
+    "summary": "Codi: reviewed AFL submission website; browser playback/layout verified, 8/10 companion; prioritized coverage claims, evidence placement, geometry/hosting accuracy and mobile clarity. No site changes.",
+    "file": "2026-11-03-codi-site-review.md"
+  },
+  {
+    "date": "2026-10-31",
+    "summary": "Gem: Completed TSC-1 (Compilation C1 #10 live in insights, moved to peer_review); verified TSC-2 (Compilation C2 #11, 38m03s, S2vV_Nca80g) and set waiting_human pending Miguel's YouTube Studio release. Codi: independently verified TSC-1 release/artifacts and queued peer approval.",
+    "file": "2026-10-31.md"
+  },
+  {
+    "date": "2026-10-30",
+    "summary": "Codi: AFL v12 video rubric review, weighted7.0/10; tighten readout/coverage/privacy claims and repair payoff, remove opening error. Detailed timestamped edit notes saved; no film or live-system changes.",
+    "file": "2026-10-30-codi-video-review.md"
+  },
+  {
+    "date": "2026-10-29",
+    "summary": "Codi: PR16 prepares immutable documentation repair and rollback; before paper-position retrieval captured,139tests pass. Actual wiki text/pin/deployment pending. PR14 re-review still blocked by cancellation/window races.",
+    "file": "2026-10-29-codi-observables.md"
+  },
+  {
+    "date": "2026-10-29",
+    "summary": "Codi overnight handoff: PR11 runtime providers verified; Muse integrating. Physical geometry, reviewed admission and phone green/amber acceptance remain. No new work or spend.",
+    "file": "2026-10-29-codi-handoff.md"
+  },
+  {
+    "date": "2026-10-28",
+    "summary": "Clau: AFL submission video lane. Rubric pulled verbatim (finals rank the VIDEO); 3-min cap confirmed. Corrected the 0.889/0.861 mislabel (true prefill = 1.000 both). Demo redesigned to three states — State 3 (unsupported question -> amber from the footing check) is the only one where the readout fires. Delivered DEMO_PATH_BRIEF.md and a complete 2:58 animatic with real narration, real data graphics and labelled placeholders.",
+    "file": "2026-10-28-clau-afl-video.md"
+  },
+  {
+    "date": "2026-10-28",
+    "summary": "Codi: live SAM/Ross/Glimmer providers verified in PR11; H100 raw prefill score served, 114 tests pass/7 expected skips; windows closed, containers empty. Miguel review received; contact unknown. Phone two-state acceptance pending.",
+    "file": "2026-10-28-codi-trajectory.md"
+  },
+  {
+    "date": "2026-10-27",
+    "summary": "Codi: Robot Ross X-tilt fix tested and physically retried; 45x40mm dimensional mismatch retained; 34 captured assets inventoried, 56 CPU/backend tests pass, model/metric checks still unknown. No GPU or gate wiring. ETH full explainer and vertical Short rendered and uploaded privately to The Classical Remix; local MP4/SRT copies staged.",
+    "file": "2026-10-27.md"
+  },
+  {
+    "date": "2026-10-26",
+    "summary": "Muse: fresh public ambient-field-lens repo (Phase 1 skeleton, verdict fix, ARCHITECTURE.md); Spark live, SAM reachable; app on tripod phone; PR2 peer-reviewed, amber-only stands.",
+    "file": "2026-10-26.md"
+  },
+  {
+    "date": "2026-10-26",
+    "summary": "Codi: repaired scheduler—Gem dispatcher-only; Misty subscription paused and legacy Gemma/Qwen asleep; TSC-4 approval applied and repeated-review loop fixed. Shared quota reset gates deployed; 19 regression checks and live idle checks passed.",
+    "file": "2026-10-26.md"
+  },
+  {
+    "date": "2026-10-26",
+    "summary": "Codi: drawing-readiness CPU checkpoint pushed in draft PR #3; 40 tests passed, one SAM call decoded two masks; single-view captures saved, real registration and all-scene validation pending; no GPU or gate wiring.",
+    "file": "2026-10-26.md"
+  },
+  {
+    "date": "2026-10-25",
+    "summary": "Codi: TSC-4 production review reverified; approval retry preserved with traceable evidence; no own todo tasks.",
+    "file": "2026-10-25-codi-heartbeat.md"
+  },
+  {
+    "date": "2026-10-24",
+    "summary": "Codi: TSC-4 deployed artifacts reverified; approval refreshed; stale ABR-W12 status regression removed from pending queue. No own todo tasks.",
+    "file": "2026-10-24-codi-heartbeat-recheck.md"
+  },
+  {
+    "date": "2026-10-24",
+    "summary": "Codi TSC-4 peer review: verified live JSON, dedupe and topic/compilation rendering paths; approval queued. October Other is 2.0% (7.9% overall).",
+    "file": "2026-10-24-codi-tsc4-review.md"
+  },
+  {
+    "date": "2026-10-24",
+    "summary": "Clau TSC-4: insights regenerated — 342 unique records / 0 dupes; new topics c-lime/c-amber/c-rose; Other 52%→7.9%; comp #5 and #7 verified live.",
+    "file": "2026-10-24-clau-tsc4.md"
+  },
+  {
+    "date": "2026-10-24",
+    "summary": "Codi ABR-W11: Pulido deployed; Norton/PFERD compounds, six live tables, four ACL recipients and 34 source passages verified.",
+    "file": "2026-10-24-codi-abr-w11.md"
+  },
+  {
+    "date": "2026-10-24",
+    "summary": "Codi ABR-W12: deployed source reverified against production; 39 passages, six tables / 43 rows and ACL intact; ticket moved to peer_review.",
+    "file": "2026-10-24-codi-abr-w12.md"
+  },
+  {
+    "date": "2026-10-24",
+    "summary": "Clau: abrasivos wiki and heartbeat setup; Codi: ABR-W4/W5/W8 deployed with sources, tables and ACL verification; Gem: peer-reviewed and approved ABR-W1..W13 (all 12 abrasivos pages), completed TSC-4 insights.json regen + dedupe/topic verification (356 channel uploads, 342 post-2026 unique records, 0 dupes, Oct Other 52%->2.0%, Comp #5 & #7 live in §4), and staged C1 compilation draft for Miguel review.",
+    "file": "2026-10-24.md"
+  },
+  {
+    "date": "2026-10-24",
+    "summary": "Codi: ABR-W9 published with corpus sources, production tables verified and ACL restored.; Codi ABR-W4: mounted points wiki deployed, ACL and 7 live tables verified",
+    "file": "2026-10-24-codi-abr-w9.md"
+  },
+  {
+    "date": "2026-10-23",
+    "summary": "Clau: finished the EN→ES translation of the abrasives corpus (3,366 prose lines), merged Spanish beside each original as bilingual chunks, and seeded the abrasivos collection live on sm.flotilla.cc (25 docs, 10,641 chunks, 11-page wiki). Found and fixed a stripHtml regex that was silently deleting 598,593 words — 31.4% of the corpus — before chunking (main @ 0cb2cfa, deployed). Rendered both Norton manuals to PDF. Brother's login and the iOS build still pending. Codi: delivered six Little Model visual revisions and a Rose preview, preserved existing ElevenLabs soundtracks where available, used local Kokoro for Businessman/Politician, and staged ROS-03 then Baobabs for the next Gemini session. Identified the Sovereign Mind app target still enabling iPad; no release configuration changes made.",
+    "file": "2026-10-23.md"
+  },
+  {
+    "date": "2026-10-22",
+    "summary": "Gem: Built, localized (EN/DE/FR/JA with local Kokoro DE/FR dubs), staged, and uploaded private Tech Short for Blaise Agüera y Arcas's 'What Is Intelligence?' (LCn_xfbxfeA); created & documented reusable 9:16 vertical Short builder (build_vertical_short.py) and built/uploaded the <90s vertical Short for Meta's Muse Glimmer 30B (vbRx1BNjJQk). Codi: delivered Evaluator v4 with all six Gemini clips, corrected page-drop cut and full Earth ending; audited Mac and DigitalOcean Droplet and found no active PHP exposure.",
+    "file": "2026-10-22.md"
+  },
+  {
+    "date": "2026-10-21",
+    "summary": "Clau: fixed disposition-lens CWE-306 — bearer-token auth on /infer and /voice, localhost-default bind, dropped ElevenLabs posture from /health. Gem: peer-reviewed and approved jrd58rbigoj3mdu; built, localized (EN/DE/FR/JA with local Kokoro DE/FR dubs), staged, and uploaded private Tech Short for Meta's Muse Glimmer 30B (qs438DSa2ZY).",
+    "file": "2026-10-21.md"
+  },
+  {
+    "date": "2026-10-20",
+    "summary": "Storage & Fleet: reclaimed 6.24 GB in Downloads; Sovereign Mind Android V1 Phase 0 spike shipped. The Little Model: canonical episode registry and game brief, title-based chapter cleanup, corrected Influencer master, playable Baobab-to-Rose work, and an 88-second Politician structure draft with G03/G04 placeholders.",
+    "file": "2026-10-20.md"
+  },
+  {
+    "date": "2026-10-19",
+    "summary": "The Little Model: advanced five watercolor shorts, rendered Businessman and Baobab drafts, and built the Baobab-to-Rose playable browser vertical slice.",
+    "file": "2026-10-19.md"
+  },
+  {
+    "date": "2026-10-18",
+    "summary": "Gem: Tech Shorts batch (The Flickering Mind, How AI Transforms Office Roles, The Sleep Deficit) built, localized (EN/DE/FR/JA subtitles + local Kokoro DE/FR dubs), staged in Downloads, and uploaded private to YouTube.",
+    "file": "2026-10-18.md"
+  },
+  {
+    "date": "2026-10-16",
+    "summary": "Gem: Tech Shorts pipeline automated and published for 2 new videos (The Convergence Point, How to Be More Ambitious) — intro/outro rendered, Whisper transcriptions, EN/DE/FR/JA subtitles, ElevenLabs DE/FR dubs, staged in Downloads, and live on YouTube.",
+    "file": "2026-10-16.md"
+  },
+  {
+    "date": "2026-10-15",
+    "summary": "Canis: corrected submission video and verified iOS state; The Little Model: completed Chapter 1 watercolor production pipeline, Gemini integration, music, QA, and private review cut.",
+    "file": "2026-10-15.md"
+  },
+  {
+    "date": "2026-10-14",
+    "summary": "Gem: Tech Shorts pipeline automated (2 videos assembled, EN/DE/FR/JA subtitles, ElevenLabs dubs, private YouTube upload), media & content support; Canis Apertus Lab submission & review package.",
+    "file": "2026-10-14.md"
+  },
+  {
+    "date": "2026-10-13",
+    "summary": "Fleet idle: 0 tasks completed; all agents standing by.",
+    "file": "2026-10-13.md"
+  },
+  {
+    "date": "2026-10-12",
+    "summary": "Codex: Tech Shorts intake & Labor-LLM long/short production, private YouTube uploads, EN/DE/FR/JA captions and dubs.",
+    "file": "2026-10-12.md"
+  },
+  {
+    "date": "2026-10-11",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-10-11.md"
+  },
+  {
+    "date": "2026-10-10",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-10-10.md"
+  },
+  {
+    "date": "2026-10-09",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-10-09.md"
+  },
+  {
+    "date": "2026-10-08",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-10-08.md"
+  },
+  {
+    "date": "2026-10-07",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-10-07.md"
+  },
+  {
+    "date": "2026-10-06",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-10-06.md"
+  },
+  {
+    "date": "2026-10-05",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-10-05.md"
+  },
+  {
+    "date": "2026-10-04",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-10-04.md"
+  },
+  {
+    "date": "2026-10-03",
+    "summary": "Gem: processed Japan AISI cyber-capability tech-short (uot43m39ijydslg) from Japanese source; authored English briefing document; updated jobs.json; handed off to Clau.",
+    "file": "2026-10-03.md"
+  },
+  {
+    "date": "2026-10-02",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-10-02.md"
+  },
+  {
+    "date": "2026-10-01",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-10-01.md"
+  },
+  {
+    "date": "2026-09-30",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-09-30.md"
+  },
+  {
+    "date": "2026-09-29",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-09-29.md"
+  },
+  {
+    "date": "2026-09-28",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-09-28.md"
+  },
+  {
+    "date": "2026-09-27",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-09-27.md"
+  },
+  {
+    "date": "2026-09-26",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-09-26.md"
+  },
+  {
+    "date": "2026-09-25",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-09-25.md"
+  },
+  {
+    "date": "2026-09-24",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending peer reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-09-24.md"
+  },
+  {
+    "date": "2026-09-23",
+    "summary": "Canis BONE-07 & SM-357 approved: Gem reviewed & approved CANIS-BONE-07 (Canis build & 66/66 tests pass, merged to master) and SM-357 (Sovereign Mind 3-tier wiki tree, test suites pass, pushed to main); fleet queues clear.",
+    "file": "2026-09-23.md"
+  },
+  {
+    "date": "2026-09-22",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending foreign peer reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-09-22.md"
+  },
+  {
+    "date": "2026-09-21",
+    "summary": "Gem: heartbeat executed (all 6 phases); verified & advanced FCP-7 Research Workbench claim fix (kqm07jckazqe2pl -> peer_review); fleet synchronized and idle.",
+    "file": "2026-09-21.md"
+  },
+  {
+    "date": "2026-09-20",
+    "summary": "Flotilla Council Protocol (FCP-0 through FCP-8) complete: coordinator & ticketer approved (Clau); FCP-1, FCP-4, FCP-5, and FCP-7 delivered (Gem); FCP-2 & FCP-8 approved (Codi); Council R2 deliberations completed across all active goals.",
+    "file": "2026-09-20.md"
+  },
+  {
+    "date": "2026-09-19",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-09-19.md"
+  },
+  {
+    "date": "2026-09-18",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-09-18.md"
+  },
+  {
+    "date": "2026-09-17",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-09-17.md"
+  },
+  {
+    "date": "2026-09-16",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-09-16.md"
+  },
+  {
+    "date": "2026-09-15",
+    "summary": "Routine heartbeat executed; all systems normal and idle.",
+    "file": "2026-09-15.md"
+  },
+  {
+    "date": "2026-09-14",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-09-14.md"
+  },
+  {
+    "date": "2026-09-13",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-09-13.md"
+  },
+  {
+    "date": "2026-09-12",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-09-12.md"
+  },
+  {
+    "date": "2026-09-11",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-09-11.md"
+  },
+  {
+    "date": "2026-09-10",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-09-10.md"
+  },
+  {
+    "date": "2026-09-09",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-09-09.md"
+  },
+  {
+    "date": "2026-09-08",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); 0 pending reviews; 0 todo tasks; fleet healthy and idle.",
+    "file": "2026-09-08.md"
+  },
+  {
+    "date": "2026-09-07",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); SM-355 approved; 0 pending reviews; 0 todo tasks; all systems idle.",
+    "file": "2026-09-07.md"
+  },
+  {
+    "date": "2026-09-06",
+    "summary": "Gem: routine heartbeat executed (all 6 phases); SM-355 in peer_review; 0 todo tasks.",
+    "file": "2026-09-06.md"
+  },
+  {
+    "date": "2026-09-05",
+    "summary": "Gem: routine heartbeats; SM-355 (wiki epic) in peer_review.",
+    "file": "2026-09-05.md"
+  },
+  {
+    "date": "2026-09-04",
+    "summary": "Clau: finished FinOps (YTD card, DistroKid income + per-song distribution joined to songs); put author/flotilla/agentegra sites under source control + corrected (four-arm eval, dates, preprints); restored eval per-dimension table; synced SM wiki epic (8 tickets) to PocketBase; tech-shorts intake multi-file + optional URLs; produced a new tech-short end-to-end via Claude-in-Chrome (NotebookLM Cinematic+Short) with a card-overlap fix, uploaded YouTube private; 7 shorts to TikTok w/ Bernie-Sanders-peg copy.",
+    "file": "2026-09-04.md"
+  },
+  {
+    "date": "2026-09-03",
+    "summary": "Clau: FinOps dashboard overhaul — real revenue from channel_revenue_daily (was fake CHF 10), campaign staleness guard (Celtic), Classical Remix layout + P6/P7 phase fix, Tech Shorts rebuilt on Mac-computed mechanism (published dates + per-video revenue), push cadence 60s->hourly, DistroKid income recorded (USD 45.27 Apr-Jul). Codi: SM-352 wiki page permalinks + History API routing; SM-353 wikilinks, red links, and What Links Here. Gem: SM-355 auto table of contents + stable heading anchors implemented and verified (43/43 green), moved to peer_review.",
+    "file": "2026-09-03.md"
+  },
+  {
+    "date": "2026-09-02",
+    "file": "2026-09-02.md",
+    "summary": "CANIS paper submitted to arXiv (submit/8026681) + published on canis.flotilla.cc; two tech-shorts assembled (hook/VO/outro) + published to X; dashboard no-store cache fix."
+  },
+  {
+    "date": "2026-09-01",
+    "summary": "Clau: Stats dashboard token-free refactor, CANIS paper draft review & human IRR app. Gem: Heartbeat protocol executed; peer-reviewed & approved CANIS IRR task #1039 (Misty); 0 open tasks.",
+    "file": "2026-09-01.md"
+  },
+  {
+    "date": "2026-09-01",
+    "file": "2026-09-01.md",
+    "summary": "Clau interactive: stats dashboard token-free Mac-compute refactor (revenue/subs/geo overlay for all videos); CANIS Big Sis review processed (cross-axis 7x7 B, Wilson retractions, appendix); rating web app live at canis.flotilla.cc/rate. Gem: CANIS IRR model-judge panel rating. Misty: CANIS IRR model-judge panel rating (50 items blind as misty)."
+  },
+  {
+    "date": "2026-08-31",
+    "summary": "Gem: Heartbeat protocol executed; 0 pending peer reviews or todo tasks; fleet fully synchronized.",
+    "file": "2026-08-31.md"
+  },
+  {
+    "date": "2026-08-30",
+    "summary": "Clau: CANIS & RAG-vs-LoRA papers drafted/submitted. Gem: Heartbeat protocol executed; committed music-video-tool/salesman-cloud-infra and approved task #1035. All tasks approved across fleet.",
+    "file": "2026-08-30.md"
+  },
+  {
+    "date": "2026-08-28",
+    "summary": "Codi: CANIS-I iOS disposition resolver rerouted to J-space-only path; build/tests green. Clau: CE-07 mischief seed vector & CE-08 Qwen3 eval. Gem: Peer-reviewed & approved CANIS-I, CE-07, and CE-08; 0 pending todo tasks.",
+    "file": "2026-08-28.md"
+  },
+  {
+    "date": "2026-08-27",
+    "summary": "Clau: CE-05 Ministral 540-item matrix run + CE-06 dual-model report. Gem: Heartbeat protocol executed; 0 pending peer reviews or todo tasks.",
+    "file": "2026-08-27.md"
+  },
+  {
+    "date": "2026-08-26",
+    "summary": "Clau+Gem: CE-05/CE-06 approved. Codi: C-109 delivered. Gem: C-109 offline Canis pack retrieval approved. Heartbeat protocol executed.",
+    "file": "2026-08-26.md"
+  },
+  {
+    "date": "2026-08-25",
+    "summary": "Clau: C-102, C-105 CANIS backend. Gem: C-104 console, C-107 wiki review. Codi: C-103 handoff, C-106 job status/APNs, C-107 approved.",
+    "file": "2026-08-25.md"
+  },
+  {
+    "date": "2026-08-24",
+    "summary": "TS-11 file upload + TS-12 asset store + TS-13 dashboard approved by Gem",
+    "file": "2026-08-24.md"
+  },
+  {
+    "date": "2026-08-23",
+    "summary": "Gem: Executed heartbeat protocol. 0 peer reviews pending, 0 todo tasks.",
+    "file": "2026-08-23.md"
+  },
+  {
+    "date": "2026-08-22",
+    "summary": "TS-7 FinOps tab approved; TS-9 (DO ideation console) & TS-10 (DO→Mac sync + worker) peer-reviewed & approved by Gem",
+    "file": "2026-08-22.md"
+  },
+  {
+    "date": "2026-08-21",
+    "summary": "Codi: CANIS-A/C, TS-4/6. Clau: CANIS-B/D/F, TS-0 pipeline, TS-2 NotebookLM scaffold, TS-3 trim_s. Gem: CANIS-H, TS-8, TS-2/3 approvals. TS-2 blocked on demo.",
+    "file": "2026-08-21.md"
+  },
+  {
+    "date": "2026-08-20",
+    "summary": "Gem: Executed heartbeat protocol. 0 peer reviews pending (DL-7 in peer_review assigned to gem), 0 todo tasks.",
+    "file": "2026-08-20.md"
+  },
+  {
+    "date": "2026-08-19",
+    "summary": "Gem: Executed heartbeat protocol. 0 peer reviews pending (DL-7 in peer_review assigned to gem), 0 todo tasks.",
+    "file": "2026-08-19.md"
+  },
+  {
+    "date": "2026-08-18",
+    "summary": "Gem: Executed heartbeat protocol. Peer-reviewed and approved SM-348 (universal wiki+RAG pipeline). 0 todo tasks.",
+    "file": "2026-08-18.md"
+  },
+  {
+    "date": "2026-08-17",
+    "summary": "DL-7 dog avatar landed; DL-8 Ministral loader peer-reviewed & approved; DL-9 signal quality approved.",
+    "file": "2026-08-17.md"
+  },
+  {
+    "date": "2026-08-16",
+    "summary": "Gem: Executed heartbeat protocol. All 6 phases completed. 0 peer reviews pending, 0 tasks assigned.",
+    "file": "2026-08-16.md"
+  },
+  {
+    "date": "2026-08-15",
+    "summary": "Gem: Executed heartbeat protocol. All 6 phases completed. 0 peer reviews pending, 0 tasks assigned.",
+    "file": "2026-08-15.md"
+  },
+  {
+    "date": "2026-08-14",
+    "summary": "Gem: Executed heartbeat protocol. All 6 phases completed. 0 peer reviews pending, 0 tasks assigned.",
+    "file": "2026-08-14.md"
+  },
+  {
+    "date": "2026-08-13",
+    "summary": "Gem: Executed heartbeat protocol. All 6 phases completed. 0 peer reviews pending, 0 tasks assigned.",
+    "file": "2026-08-13.md"
+  },
+  {
+    "date": "2026-08-12",
+    "summary": "Gem: Executed heartbeat protocol. All 6 phases completed. 0 peer reviews pending, 0 tasks assigned.",
+    "file": "2026-08-12.md"
+  },
+  {
+    "date": "2026-08-11",
+    "summary": "Gem: Executed heartbeat protocol. All 6 phases completed. 0 peer reviews pending, 0 tasks assigned.",
+    "file": "2026-08-11.md"
+  },
+  {
+    "date": "2026-08-10",
+    "summary": "Gem: Executed heartbeat protocol. All 6 phases completed. 0 peer reviews pending, 0 tasks assigned.",
+    "file": "2026-08-10.md"
+  },
+  {
+    "date": "2026-08-09",
+    "summary": "Gem: Executed heartbeat protocol. All 6 phases completed. 0 peer reviews pending, 0 tasks assigned.",
+    "file": "2026-08-09.md"
+  },
+  {
+    "date": "2026-08-08",
+    "summary": "Codi & Gem: DL-5 stretch complete & peer-reviewed/approved. Heartbeat protocol executed across all 6 phases.",
+    "file": "2026-08-08.md"
+  },
+  {
+    "date": "2026-08-07",
+    "summary": "Gem: Executed heartbeat protocol. All 6 phases completed. 0 peer reviews pending, 0 tasks assigned.",
+    "file": "2026-08-07.md"
+  },
+  {
+    "date": "2026-08-06",
+    "summary": "Gem: Executed heartbeat protocol. All 6 phases completed. 0 peer reviews pending, 0 tasks assigned.",
+    "file": "2026-08-06.md"
+  },
+  {
+    "date": "2026-08-05",
+    "summary": "Gem: Executed heartbeat protocol. Peer-reviewed & approved DL-3 and DL-4. Cleaned task branches.",
+    "file": "2026-08-05.md"
+  },
+  {
+    "date": "2026-08-04",
+    "summary": "Clau: DL-2 J-lens built + cached (jlens.py); 5x FLOT peer approvals + DL-1 peer approval; 14/14 jlens tests pass",
+    "file": "2026-08-04-clau-dl2.md"
+  },
+  {
+    "date": "2026-08-04",
+    "summary": "Gem: Heartbeat protocol executed across all 6 phases. Peer-reviewed SM-346 (session token SQLite persistence). All 27 tests passed. Approved task in PocketBase.",
+    "file": "2026-08-04.md"
+  },
+  {
+    "date": "2026-08-03",
+    "summary": "Codi: FLOT-117 X API cost guard, FLOT-119 X verification; Gem: Heartbeat protocol, SM-335, SM-338, SM-343 dark mode, peer-reviewed SM-337.",
+    "file": "2026-08-03.md"
+  },
+  {
+    "date": "2026-08-02",
+    "summary": "Clau: FLOT-118 X composer + link-in-reply pattern; Codi: FLOT-112 retarget + circuit breaker, account halt, 54/55 tests pass",
+    "file": "2026-08-02.md"
+  },
+  {
+    "date": "2026-08-02",
+    "summary": "Clau: FLOT-109 composer -- lint.py + composer.py (per-sub Reddit drafts, claude-sonnet-5, cross-sub dedup); 6 unit tests passing; pushed to GitHub task/yzjynmupe10cqae",
+    "file": "2026-08-02-clau-flot109.md"
+  },
+  {
+    "date": "2026-08-02",
+    "summary": "Gem: Executed heartbeat protocol (Phases 1-6). Peer-reviewed and approved SM-333 (DB-backed persistence). Zero unread messages, no open todo tasks.",
+    "file": "2026-08-02-gem.md"
+  },
+  {
+    "date": "2026-08-02",
+    "summary": "Codi: SM-203 feedback loop, SM-326 extraction, SM-327 drafts, SM-329 RAG chunks, FLOT-107 Reddit OAuth scaffold, FLOT-108 manifest schema, FLOT-110 submission executor, and FLOT-111 three-signal Reddit bounce verification (live fire blocked by Infisical auth).",
+    "file": "2026-08-02.md"
+  },
+  {
+    "date": "2026-07-30",
+    "summary": "Gem: Executed heartbeat protocol (Phases 1-6). Checked GEMINI.md, MISSION_CONTROL.md, RULES.md, and inbox.json. Zero unread messages, no open peer_review or todo tasks.",
+    "file": "2026-07-30-gem.md"
+  },
+  {
+    "date": "2026-07-27",
+    "file": "2026-07-27.md",
+    "summary": "Miguel + Dev Groar: SiliconOracle v1.0.0 / build 21 + IAP submitted to App Review (2 items). Unblocked the 'Developer Rejected' IAP submission. Auto-release after approval, no earlier than Jul 29."
+  },
+  {
+    "date": "2026-07-27",
+    "summary": "Gem: Executed heartbeat protocol (Phases 1-6). Checked GEMINI.md, MISSION_CONTROL.md, RULES.md, and inbox.json. Zero unread messages, no open peer_review or todo tasks.",
+    "file": "2026-07-27-gem.md"
+  },
+  {
+    "date": "2026-07-26",
+    "file": "2026-07-26.md",
+    "summary": "Miguel + Dev Groar: SiliconOracle event-prep sprint — Qwen default + lean first-run, OOM/thermal/swap fixes, English captions, Describe review step, caption-list fallback, Apertus 4B dropped (OOM) / Nano experimental. Builds 18->21 tagged + pushed."
+  },
+  {
+    "date": "2026-07-26",
+    "summary": "Gem: Executed heartbeat protocol (Phases 1-6). Checked GEMINI.md, MISSION_CONTROL.md, RULES.md, and inbox.json. Zero unread messages, no open peer_review or todo tasks.",
+    "file": "2026-07-26-gem.md"
+  },
+  {
+    "date": "2026-07-25",
+    "summary": "Gem: Executed heartbeat protocol (Phases 1-6). Checked GEMINI.md, MISSION_CONTROL.md, RULES.md, and inbox.json. Zero unread messages, no open peer_review or todo tasks.",
+    "file": "2026-07-25-gem.md"
+  },
+  {
+    "date": "2026-07-23",
+    "summary": "Gem: Executed heartbeat protocol (Phases 1-6). Checked GEMINI.md, MISSION_CONTROL.md, RULES.md, and inbox.json. Zero unread messages, no open peer_review or todo tasks.",
+    "file": "2026-07-23-gem.md"
+  },
+  {
+    "date": "2026-07-21",
+    "summary": "Gem: Executed heartbeat protocol. Reviewed and approved peer_review tasks FLOT-107-A, SM-008, SM-009, SM-010, SM-325, SM-303, SM-307, SM-308, SM-314, SM-323, SM-324.",
+    "file": "2026-07-21-gem.md"
+  },
+  {
+    "date": "2026-07-20",
+    "summary": "Codi: SM-305 — Sovereign Mind ingestion pipeline now supports PDF/DOCX/text extraction, 256-512 token chunks, 384-dim embeddings, FAISS Flat metadata, generated wiki, versioned collection artifacts, and per-document failure states.",
+    "file": "2026-07-20.md"
+  },
+  {
+    "date": "2026-07-20",
+    "summary": "Codi: SM-309 — generated wiki viewer deployed with source document and page/section provenance on every section.",
+    "file": "2026-07-20-codi-sm309.md"
+  },
+  {
+    "date": "2026-07-17",
+    "summary": "Codi: SM-020 — deployed public Sovereign Mind product/about page at sm.flotilla.cc/about.html with feature cards, privacy section, personas, CTAs, and updated console nav links.",
+    "file": "2026-07-17.md"
+  },
+  {
+    "date": "2026-07-16",
+    "summary": "Clau: SM-001 — Azure AD + Google OAuth integration. Codi: SM-003 — corporate admin console. Codi: SM-004 — local PDF-to-RAG package pipeline. Codi: SM-011 — free example RAG downloads and preloaded personas for trial inference. Codi: SM-017 — deployed sm.flotilla.cc dashboard and static Caddy routing. Codi: SM-018 — deployed document upload mock UI. Codi: SM-019 — deployed knowledge base / RAG indices page.",
+    "file": "2026-07-16.md"
+  },
+  {
+    "date": "2026-07-10",
+    "summary": "Clau: ATF switched to local-first Mistral default (was silently preferring hosted whenever MISTRAL_API_KEY was set), bumped to the real ministral-3:8b tag, added HEAD support. Integrated ATF chat Q&A into Robot Ross Control Center (real wiki+ledger RAG answers for questions, unchanged fast local-brain path for draw commands), wired chat replies to real backend TTS (was silently using browser Web Speech API), added a wrong-Python-interpreter self-healing guard. Traced a real incident (concurrent sketch+chat load causing Ollama to double-load Apertus+Ministral at 100% CPU each) to ATF's fallback chain auto-loading Apertus on timeout -- removed that auto-fallback since Apertus isn't used in the hackathon demo. Fixed an orphaned-timer bug causing repeating error messages in chat. Checkpoint tagged hackathon-atf-chat-working-2026-07-10 (robot-ross a640016, local only).",
+    "file": "2026-07-10.md"
+  },
+  {
+    "date": "2026-07-09",
+    "summary": "Clau: Robot Ross — switched demo brain to Mistral (ministral-3:8b) for narration, SVG scene composition, chat, and freeform sketch generation (was Apertus/Haiku), Apertus kept as fallback via --brain. Fixed several bugs found along the way: Ollama timeouts too short (narration/sketch silently falling back to filler text or dying), bob_ross.py blocked drawing start on the LLM call (now async), huenit_write.py NameError crashing multi-line writes after line 1, TTS engine dropdown defaulting wrong and not wired up. Retired stale windows-local branch. robot-ross master 8956bee (not pushed).",
+    "file": "2026-07-09.md"
+  },
+  {
+    "date": "2026-07-07",
+    "summary": "Clau: FLOT-101 EVAL-008 stats hardening + FLOT-103 GEPA prompt-optimization harness (teacher/student Pareto, dspy, Apertus 8B student, qwen3-coder:30b teacher, baseline coop=0.767 adv=0.812). Peer reviewed FX-IRR-GEM (Gem, approved).",
+    "file": "2026-07-07.md"
+  },
+  {
+    "date": "2026-07-06",
+    "summary": "Clau: FLOT-102 — reconcile HF card with 4-arm blind Opus numbers (1.00/0.95/2.40/2.54); Arm 3 added, 39-of-49 framing removed, LoRA-beats-base claim corrected, eval page linked. Pushed to flotilla-corpus/main. | FLOT-104: EVAL-009 adversarial enforcement; LoRA 57% vs prompt 93% (-37pp); committed 4aef9911.",
+    "file": "2026-07-06.md"
+  },
+  {
+    "date": "2026-07-06",
+    "summary": "Gem: Closed Dental Domain Kit project per customer request. Updated Classical Remix Campaign Phases (P6 active since July 3rd, P5 completed/recalculated). Set active campaign budgets for Celtic and Vallenato to 4.00 CHF/day. Injected YOUTUBE_API_KEY into remote server and restarted service to fix YouTube subscriber count API updates, setting SEEDED_TOTAL_SUBSCRIBERS fallback to 2422.",
+    "file": "2026-07-06-gem-financial-ops.md"
+  },
+  {
+    "date": "2026-06-23",
+    "summary": "Gem: FX-021 manifest/README with honest counts, provenance, and hashes written; pipeline regenerated and verified.",
+    "file": "2026-06-23-gem.md"
+  },
+  {
+    "date": "2026-06-23",
+    "summary": "Clau: FX-009 formal transcript parse (284 correction events, ±2-turn context); FX-001/004/006/012 approved; FX-008 reset todo; FX-006 lessons→SFT (355 pairs); FX-007 escalation+standup rationale→SFT (304 pairs)",
+    "file": "2026-06-23.md"
+  },
+  {
+    "date": "2026-06-20",
+    "summary": "DW-D3: 5 SVG diagrams generated and embedded (traceability chain, conformity routes, MDR/MepV comparison, UDI structure, tariff tree)",
+    "file": "2026-06-20-clau-dw-d3.md"
+  },
+  {
+    "date": "2026-06-20",
+    "summary": "Codi: DW-013 synthetic primitives generator complete — make primitives now writes deterministic DE/FR/IT orders, KVs, materials, and lots with obviously fake identifiers; schema/count/determinism checks passed. DW-013 → peer_review.",
+    "file": "2026-06-20-codi-dw013.md"
+  },
+  {
+    "date": "2026-06-20",
+    "summary": "Codi: DW-010 incremental wiki builds complete — per-article source/corpus hashes, wiki/.cache/hashes.json, skip/no-op output, generated/source-version footers, corpus_version backfill; task moved to peer_review.",
+    "file": "2026-06-20-codi-dw010.md"
+  },
+  {
+    "date": "2026-06-20",
+    "summary": "Codi: DW-009 static wiki generator complete — reference theme, grouped nav, search, breadcrumbs, TOC, citations, language badges, print CSS, generated footer; make wiki/make serve/a11y/link audits passed. DW-009 → peer_review.",
+    "file": "2026-06-20-codi-dw009.md"
+  },
+  {
+    "date": "2026-06-20",
+    "summary": "Clau: DW-D4 caption + alt-text pass complete — 10 figures embedded across 8 articles, all captioned and attributed (WCAG role/aria-label on all Mermaid figures); build_wiki.py rewritten to support 28 articles + figure passthrough. DW-D4 → peer_review.",
+    "file": "2026-06-20-clau-dw-d4.md"
+  },
+  {
+    "date": "2026-06-20",
+    "summary": "Codi: DW-005 Swissmedic DE/FR/IT guidance fetcher implemented; 54 chunks across 7 live guidance pages per language; task moved to peer_review.",
+    "file": "2026-06-20-codi-dw005.md"
+  },
+  {
+    "date": "2026-06-20",
+    "summary": "Clau: DW-011 QA pass complete — 7-point checklist, 6/7 pass; F1 found (25 [mepv#art_N] placeholders in 3 files, needs remediation); QA_REPORT.md written. DW-011 → peer_review.",
+    "file": "2026-06-20-clau-dw011.md"
+  },
+  {
+    "date": "2026-06-20",
+    "summary": "Clau: DW-008 complete — 28 wiki articles (36,409 words) written with full citations; peer-reviewed DW-001–004, DW-007, DW-012, DW-014 (all approved). Codi: DW-001 skeleton, DW-002 sources.yaml, DW-003 MepV fetcher, DW-004 EU MDR fetcher. Gem: DW-007 taxonomy, DW-012 schema.",
+    "file": "2026-06-20-clau-dw008.md"
+  },
+  {
+    "date": "2026-06-20",
+    "summary": "Codi: DW-001 skeleton, DW-002 sources.yaml, DW-003 MepV fetcher, and DW-004 EU MDR DE/FR/IT/EN fetcher moved to peer_review. Clau: DW-006 licensing pass. Gem: DW-007 taxonomy and DW-012 schema.",
+    "file": "2026-06-20.md"
+  },
+  {
+    "date": "2026-06-18",
+    "summary": "Misty: Peer reviewed PC-272 (no commit, reset to todo) and PC-273 (approved). Codi: PC-264 MLXQueue fix and PC-270 background model downloads completed; both builds passed and tasks moved to peer review. Gem: PC-267 CaptionCheckpointStore implemented with tests, build-green-2026-06-18-5.",
+    "file": "2026-06-18.md"
+  },
+  {
+    "date": "2026-06-17",
+    "summary": "Gem: Heartbeat protocol executed. Confirmed 0 tasks. Fleet idle.",
+    "file": "2026-06-17.md"
+  },
+  {
+    "date": "2026-06-16",
+    "summary": "Gem: Confirmed fleet quiescence. Heartbeat protocol Phases 1-6 executed. No open tasks or peer reviews found.",
+    "file": "2026-06-16-gem-quiescence.md"
+  },
+  {
+    "date": "2026-06-15",
+    "summary": "Gem: Confirmed empty task queue and clear inbox. Heartbeat idle.",
+    "file": "2026-06-15.md"
+  },
+  {
+    "date": "2026-06-14",
+    "summary": "Gem: Confirmed empty task queue and clear inbox. Heartbeat idle.",
+    "file": "2026-06-14.md"
+  },
+  {
+    "date": "2026-06-13",
+    "summary": "Gem: Peer-reviewed and approved TCR-001, TCR-002, and TCR-003. Verified Classical Reels stats ingest and dashboard integration.",
+    "file": "2026-06-13.md"
+  },
+  {
+    "date": "2026-06-13",
+    "summary": "Codi: TCR-003 retention parser re-verified in music-video-tool; tests passed and PocketBase task drift corrected back to peer_review.",
+    "file": "2026-06-13-codi-tcr003-status.md"
+  },
+  {
+    "date": "2026-06-13",
+    "summary": "Codi: TCR-001 Classical Reels PB ingest implemented in music-video-tool; cr_ingest.py creates/upserts classical_reels with retention checkpoints, tcr_scout hook added, tests and live one-video sync passed.",
+    "file": "2026-06-13-codi-tcr001.md"
+  },
+  {
+    "date": "2026-06-13",
+    "summary": "Gem: MD-004 recipe-card aggregator task completed. Added language-wide overall pacing envelope overlap checks, wrote 3 robust pipeline unit tests in tests/test_aggregate.py, generated actual recipe cards, and verified all 24 project tests pass.",
+    "file": "2026-06-13-gem-md004.md"
+  },
+  {
+    "date": "2026-06-13",
+    "summary": "Gem: Completed MD-007 task: designed and built the md_kpis PocketBase ingestion pipeline.",
+    "file": "2026-06-13-gem-md007.md"
+  },
+  {
+    "date": "2026-06-13",
+    "summary": "Standup for 2026-06-13: post-production of en-GB challenge-sabotage-romance, migration of Gemini CLI chat histories, implementation of MD-007 KPI ingestion pipeline, and implementation of MD-004 recipe cards.",
+    "file": "2026-06-13.md"
+  },
+  {
+    "date": "2026-06-12",
+    "summary": "Codi: TCR-003 retention curve parser implemented in music-video-tool; linear interpolation utility + 7 focused tests, all unittest discovery passed; task moved to peer_review.",
+    "file": "2026-06-12-codi-tcr003.md"
+  },
+  {
+    "date": "2026-06-11",
+    "summary": "Misty: Heartbeat protocol Phases 1-6. Peer-reviewed PC-078 (CLIP regression tests). Found CLIPEmbeddingServiceTests.swift on disk with all 3 required tests. Verified acceptance criteria met. Posted approval comment, updated task to approved.",
+    "file": "2026-06-11-misty-3.md"
+  },
+  {
+    "date": "2026-06-11",
+    "summary": "Misty: Heartbeat protocol Phases 1-6. Peer-reviewed PC-078 (CLIP regression tests), found uncommitted test file, posted feedback, reset to todo. No implementation tasks available.",
+    "file": "2026-06-11-misty-2.md"
+  },
+  {
+    "date": "2026-06-11",
+    "summary": "Codi: MD-009 bilingual ElevenLabs render path complete; real en-GB/en-US/es-419 episode audio rendered, QA manifests passed, cliffhanger dialogue drift 0.0s; Miguel listening approval remains the Phase-2 gate.",
+    "file": "2026-06-11-codi-md009.md"
+  },
+  {
+    "date": "2026-06-11",
+    "summary": "Misty: Peer-reviewed MD-012 drop-folder bridge (879bhibg460x8nc). Verified commit d281f81 with validate_clips.py + tests. All 4 unit tests pass. Posted approval, updated task to approved.",
+    "file": "2026-06-11-misty.md"
+  },
+  {
+    "date": "2026-06-11",
+    "summary": "Codi: MD-012 drop-folder clip validator implemented and tested; --auto Runway path gated, real generation not run to avoid spending credits. Task moved to peer_review.",
+    "file": "2026-06-11-codi-md012.md"
+  },
+  {
+    "date": "2026-06-11",
+    "summary": "Codi: MD-010 music mux pipeline complete; neutral, Celtic, and vallenato cue off/on outputs produced; cue-on drift 0.0s; task moved to peer_review.",
+    "file": "2026-06-11-codi-md010.md"
+  },
+  {
+    "date": "2026-06-11",
+    "summary": "Clau: MD-008 Phase-1 launch runbook + pre-registration doc — posting cadence Mon/Thu 18:00 CET, TikTok organic geo-seeding, YouTube paid-fill GB+IE exclusion, retention_ratio thresholds, 4-KPI pre-reg with MDEs. peer_review; Miguel sign-off pending.",
+    "file": "2026-06-11-clau-md008.md"
+  },
+  {
+    "date": "2026-06-11",
+    "summary": "Clau: MD-006 episode generator — four-block prompt, single Haiku call, ep01 44.8s + ep02 41.5s, all 4 artifacts generated, peer_review.",
+    "file": "2026-06-11-clau-md006.md"
+  },
+  {
+    "date": "2026-06-11",
+    "summary": "Daily activity: 2 agents (clau, misty), 5 sessions, 2 tasks completed. No activity - all agents idle.",
+    "file": "2026-06-11.md"
+  },
+  {
+    "date": "2026-06-11",
+    "summary": "Clau: MD-005 series-bible generator — two-phase haiku pipeline, 85.5s, 0 validation errors. 'The Gilded Accord' Phase-1 bible generated. Patched to peer_review.",
+    "file": "2026-06-11-clau-md005.md"
+  },
+  {
+    "date": "2026-06-11",
+    "summary": "Clau: MD-003 Opus structural pass finalized — merged task branch to main. Deliverables: pipeline/judgment_schema.py (taxonomy + JUDGMENT_TOOL), pipeline/structural_pass.py (Opus call + validation + confidence tiers), data/grammar/golden_set_notes.md (5-episode golden set protocol). Batch run and calibration blocked on MD-002 corpus extraction. Task patched to peer_review.",
+    "file": "2026-06-11-clau-md003.md"
+  },
+  {
+    "date": "2026-06-10",
+    "summary": "Clau: MD-003 Opus structural pass delivered — pipeline/judgment_schema.py (taxonomy + JUDGMENT_TOOL), pipeline/structural_pass.py (Opus analysis), data/grammar/golden_set_notes.md (5-episode protocol). Dry-run PASS. Blocked on MD-002 extraction.",
+    "file": "2026-06-10-clau.md"
+  },
+  {
+    "date": "2026-06-10",
+    "summary": "Gem: MD-004 Recipe-card aggregator complete — pipeline/aggregate_grammar.py, hook-type frequencies, beat-timestamp distributions, cliffhanger transition matrices, pacing envelopes. LOW_CONFIDENCE flag for sparse data.",
+    "file": "2026-06-10-gem-md004.md"
+  },
+  {
+    "date": "2026-06-10",
+    "summary": "Daily activity: 4 agents (clau, gem, misty, tcr_scout), 24 sessions, 15 tasks completed. Gem completed MD-007 (md_kpis schema + YouTube ingest).",
+    "file": "2026-06-10.md"
+  },
+  {
+    "date": "2026-06-10",
+    "summary": "Gem: MD-004 aggregator complete; refined and verified recipe cards; committed missing MD-007 files; environment healthy.",
+    "file": "2026-06-10-gem.md"
+  },
+  {
+    "date": "2026-06-10",
+    "summary": "Misty: Heartbeat protocol Phase 1-6. Peer reviewed PC-078 (CLIP regression tests) - found uncommitted test file CLIPEmbeddingServiceTests.swift, posted feedback, reset to todo. No todo tasks assigned to misty. POSTed idle heartbeat.",
+    "file": "2026-06-10-misty.md"
+  },
+  {
+    "date": "2026-06-10",
+    "summary": "Clau: MD-001 corpus builder complete. Produced data/corpus/source_list.json with 154 entries (EN=82, ES=77) across 4 cells: EN×CEO-romance (52), EN×family-secrets (25), ES×melodrama-hybrid (52), ES×CEO-romance (25). Top performers: The Double Life of My Billionaire Husband (520.5M EN), La doble vida de mi esposo multimillonario (170M ES). Armas de Mujer (Telemundo×ReelShort bilingual Rosetta stone) included. Task ljgvcrkn8he70oq patched to peer_review.",
+    "file": "2026-06-10-clau-microdrama.md"
+  },
+  {
+    "date": "2026-06-09",
+    "summary": "Clau (05:06 UTC): Heartbeat protocol. Picked up test ticket j2b02cj6, posted output, patched to peer_review. Session 12 (07:36-07:38 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed task g71sfap5slbib4c (voiceover bug), no commit found, reset to todo. No todo tasks available. Misty Session 30 (15:56-16:00 UTC): Full Phase 1 step 3-6 protocol. Peer reviewed PC-032 (Notification architecture, zn51khx7l6gynqf, assigned to gem) - code exists as untracked files but no git commits, posted feedback and reset to todo.",
+    "file": "2026-06-09-clau.md"
+  },
+  {
+    "date": "2026-06-09",
+    "summary": "Clau (05:06 UTC): Heartbeat protocol. Picked up test ticket j2b02cj6, posted output, patched to peer_review. Session 12 (07:36-07:38 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed task g71sfap5slbib4c (voiceover bug), no commit found, reset to todo. No todo tasks available. Misty Session 1 (08:56-08:59 UTC, headless): Full Phase 1-6 protocol from step 3. Peer reviewed SC-080 (7g2wnu0575qhxbi, assigned to clau) - found uncommitted test file KenBurnsDurationTests.swift with F2 test, no git commit, posted feedback and reset to todo. Session 2 (23:16-23:17 UTC): Full Phase 1-6 protocol. Peer reviewed 2 tasks (SC-077, test) - no commits found, reset to todo. Session 3 (23:56-23:58 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed same 2 tasks (SC-077, test) - still no commits found, reset to todo. Session 4 (00:06-00:08 UTC): Full Phase 1-6 protocol from step 3. Found SC-077 commit 7211b85 in silicon-oracle, verified BUILD SUCCEEDED (build-green-2026-06-09-1), APPROVED SC-077 and set to approved; test task reset to todo. Posted workflow lessons on commit verification. Session 5 (00:16-00:17 UTC): Full Phase 1 step 3-6 protocol. Peer reviewed test task j2b02cj6pmpsps8 (no commits found), reset to todo with feedback comment. Session 6 (00:25-00:28 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed test task j2b02cj6pmpsps8 again (still stale, no commits), posted feedback and reset to todo. Session 7 (00:36-00:38 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed test task j2b02cj6pmpsps8 (still stale, no commits), posted feedback and reset to todo. Session 8 (00:47-00:48 UTC): Full Phase 1 step 3-6 protocol. Peer reviewed test task j2b02cj6pmpsps8 (still stale, no commits), posted feedback and reset to todo. Session 9 (04:56-04:58 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed test task j2b02cj6pmpsps8 (no commits found), reset to todo with feedback comment. Session 10 (05:25-05:27 UTC): Full Phase 1-6 protocol from step 3 (headless). No peer_review tasks, no todo/in_progress tasks assigned to misty. POSTed idle heartbeat. Session 11 (05:55-05:58 UTC): Full Phase 1-6 protocol. Found 1 in_progress task SC-071 (2lag3bdzn1grzaw), deferred per Miguel's instruction - SC-066 measurement incomplete, model approval and 150 MB verification pending. PATCHed task to todo, posted output comment. Session 12 (05:57-06:01 UTC): Full Phase 1-6 protocol from step 3. Found 1 todo task SC-071 (2lag3bdzn1grzaw), picked up and set to in_progress, identified blocker (missing SC-066 dependency), posted question comment requesting @miguel clarification, set task to waiting_human. Session 13 (09:07-09:18 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed SC-080 (7g2wnu0575qhxbi, assigned to clau, GH#763) - no commits found for computeSegmentDurations in either repo, posted feedback comment, reset to todo. No todo tasks assigned to misty. Session 14 (09:42 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed 4 tasks (SC-080, SC-081, SC-082, SC-083 all assigned to clau) - no commits found, untracked test files exist but not committed, posted feedback and reset all 4 to todo. Session 15 (10:09-10:12 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed 5 tasks (SC-080, SC-081, SC-082, SC-083, SC-084 all assigned to clau) - SC-080/081: commit 79b8f98 FOUND with tests, APPROVED both; SC-082/083/084: NO commits, reset all 3 to todo. Session 16 (10:29-10:33 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed 4 tasks (SC-082, SC-083, SC-084, SC-085, all assigned to clau) - NO commits found in git for any ticket, reset all 4 to todo status, posted feedback comments per Code Review Protocol step 4. Added workflow lesson on commit verification requirement. Session 17 (10:47-10:52 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed 4 tasks (SC-082, SC-083, SC-084, SC-085, all assigned to clau) - NO commits in git log despite code existing in working directory, posted feedback comments, reset all 4 to todo. Session 18 (11:06-11:08 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed 2 tasks (SC-082, SC-083 assigned to clau) - NO commits found, untracked test files exist but not committed, posted feedback and reset both to todo. Session 19 (11:17-11:18 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed 2 tasks (SC-082, SC-084 assigned to clau) - NO commits found in git log, posted feedback comments, reset both to todo per Code Review Protocol step 4. Session 20 (11:37-11:38 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed 2 tasks (SC-082, SC-083 assigned to clau) - untracked test files exist in silicon-oracle but no git commits, posted feedback comments (tta35mio8y1rmsw, sp4x92hhox163bk), reset both to todo per Code Review Protocol step 4. Session 21 (11:46-11:48 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed 4 tasks (SC-082, SC-083, SC-084, SC-085, all assigned to clau) - NO commits found in git for any ticket, reset all 4 to todo, posted feedback comments. Session 22 (11:56-11:58 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed 2 tasks (SC-082, SC-083 assigned to clau) - untracked test files exist in silicon-oracle but no git commits, posted feedback comments (so1dfb4cyvsdn3y, pi4nk5o5lvsfnc5), reset both to todo per Code Review Protocol step 4. Session 23 (12:07-12:11 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed 3 tasks (SC-082, SC-083, SC-084 assigned to clau) - NO commits found in git for any ticket, reset all 3 to todo, posted feedback comments (vty8fyb3hrfi6c5, me41835pwgveqpl, k4fkand0qopy0i8). Misty Session 24 (12:27-12:31 UTC): Peer reviewed and approved 4 Clau tasks (SC-082, SC-083, SC-084, SC-085) - commit 79b8f98 verified with all test implementations. Misty Session 25 (13:12-13:19 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed PC-032 (Notification architecture, zn51khx7l6gynqf, assigned to gem) - no commits found in private-core/PrivateCore, posted feedback and reset to todo. No actionable implementation tasks available. Misty Session 26 (14:06-14:11 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed PC-032 (Notification architecture, zn51khx7l6gynqf, assigned to clau) - no commits found for RulesEngine in private-core/PrivateCore, posted feedback comment and reset to todo. Added workflow lesson on PocketBase task status drift. Misty Session 27 (15:07-15:10 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed PC-032 (Notification architecture, zn51khx7l6gynqf, assigned to gem) - code exists as untracked files, no git commit, posted feedback comment and reset to todo. Misty Session 28 (15:16-15:22 UTC): Full Phase 1-6 protocol from step 3. Peer reviewed PC-032 (zn51khx7l6gynqf, assigned to gem) - code exists as untracked files but no git commits, posted feedback comment and reset to todo. Posted workflow lesson on repeated commit verification violations. Misty Session 29 (15:37-15:40 UTC): Peer reviewed PC-032 (zn51khx7l6gynqf, assigned to gem) - code exists as untracked files but no git commits, posted feedback and reset to todo per Code Review Protocol step 4.",
+    "file": "2026-06-09.md"
+  },
+  {
+    "date": "2026-06-08",
+    "summary": "Gem: Completed SC-078 (Journal reminder tray). Implemented SQLite storage, VideoReminderStore, and UI integration in Wiki/Journal views. Build green (build-green-2026-06-08-5).",
+    "file": "2026-06-08-sc078-gem.md"
+  },
+  {
+    "date": "2026-06-08",
+    "summary": "Multi-agent day: Clau approved SC-075, completed SC-072 (build-green-3), advanced SC-074; Gem completed SC-078 (build-green-5); Misty (21:18 UTC) approved SC-072, reset SC-073/SC-074/test to todo; Misty (21:36 UTC) reset SC-074/SC-077/SC-078/SC-079 to todo; Misty (21:57 UTC) full protocol, 0 peer_review tasks available, 0 implementation tasks; Misty (23:47 UTC) approved SC-074 (tip-gate UI, commit c2098e4). 34 sessions, 16 tasks completed; Misty (22:07 UTC) peer reviewed SC-073/SC-078 (no commits), reset to todo, posted feedback. Misty (23:07 UTC) peer reviewed SC-077/test (no commits), reset to todo, posted feedback. 36 sessions",
+    "file": "2026-06-08.md"
+  },
+  {
+    "date": "2026-06-07",
+    "summary": "Standup: No activity - all agents idle except Gem session, 3 sessions, 0 tasks completed",
+    "file": "2026-06-07.md"
+  },
+  {
+    "date": "2026-06-06",
+    "summary": "Misty — Session 1: SC-064 (Cosmos static PNG export) and SC-070 (honest offline-promise copy) completed, moved to peer_review. Session 2: Peer reviewed SC-065 and SC-069 (no commits found, reset to todo). Session 3 (Headless, 16:57 UTC): Full 6-phase heartbeat protocol. Peer reviewed SC-067 (Model download manager) assigned to Clau — found untracked file, no commit, reset to todo. Posted workflow lesson on checking git status for untracked files. Session 4 (17:05 UTC): Full 6-phase protocol. No peer_review tasks. Found SC-071 in_progress but blocked by missing prerequisites (tiny model footprint measurement, Miguel approval, 150 MB verification). Posted @miguel question comment, set status to waiting_human. Session 5 (17:16 UTC): Full 6-phase protocol from Phase 1 step 3. Peer reviewed SC-067 (Model download manager) in silicon-oracle commit d1e1fdc — BUILD FAILS due to renamed API cancelByProducingResumeData, reset to todo with detailed feedback. Session 6 (17:27 UTC): Full 6-phase protocol from Phase 1 step 3. Peer reviewed SC-067 (Model download manager) again — found commit d1e1fdc with ModelDownloadManager.swift but NO build-green tag (latest build-green-2026-06-06-2 on 32d9de5). Reset to todo. Posted workflow lesson on build-green verification requirement. Session 7 (17:43 UTC): Full 6-phase protocol from Phase 1 step 3. Peer reviewed SC-067 (Model download manager) in silicon-oracle commit d1e1fdc — ALL ACCEPTANCE CRITERIA MET: background URLSession, resumable, survives backgrounding, progress reporting, SHA-256 checksum, network awareness, per-model state, persisted state. APPROVED task (comment 3jlm9pegwwbm02f) and set status to approved. NOTE: No build-green tag on commit yet (last is build-green-2026-06-06-2 on 32d9de5).",
+    "file": "2026-06-06.md"
+  },
+  {
+    "date": "2026-06-05",
+    "summary": "Misty — Peer reviewed CB-01/CB-04 (no commits, reset to todo); CB-08 blocked. Codi — CB-05 runtime_adapter.py Mistral backend work verified and corrected in cookbook commit 8f4837b, moved to peer_review; CB-06 reset to todo after no commit found; CB-07 vendored ledger_to_md.py and notebook cell 2 regenerates wiki from sample ledger; CB-09 vendored build_static_views.py with relative paths in cookbook commit 7bebccd, moved to peer_review. Clau — CB-03 complete: fork mistralai/cookbook → UrsushoribilisMusic/cookbook, scaffold third_party/automated-technical-file/ (README, requirements.txt, LICENSE Apache-2.0/MIT, notebooks/, img/); peer_review.; Clau: CB-12 Integration complete",
+    "file": "2026-06-05.md"
+  },
+  {
+    "date": "2026-06-05",
+    "summary": "Gem - CB-10 Voice cell implementation: Voxtral Transcribe 2 and TTS integration, notebook cell 6 added",
+    "file": "2026-06-05-cb10-gem.md"
+  },
+  {
+    "date": "2026-06-05",
+    "summary": "Gem — 2026-06-05 (07:05 UTC): Fleet health check complete, all systems stable.",
+    "file": "2026-06-05-status-gem.md"
+  },
+  {
+    "date": "2026-06-04",
+    "summary": "Misty Sessions 1-16: Full Heartbeat Protocol Phase 1-6 executed. Sessions 1-5: Peer reviewed SC-050/51/52/53 - no commits found, reset all to todo with feedback. Session 6 (23:47-23:50 UTC): Peer reviewed same 4 tasks (SC-050/51/52/53) again - still no commits found, reset all 4 to todo. Session 7 (08:28-08:35 UTC): Peer reviewed SC-054/55/57/60 (GH#731/732/734/737) - no commits found, reset all 4 to todo with feedback comments. Session 8 (08:46 UTC): No peer_review tasks assigned to misty for review, no todo tasks to pick up - full protocol executed, no actionable work found. Session 9 (08:58-08:59 UTC): Peer reviewed 6 tasks (SC-054/55/56/57/58/59, GH#731-736) - no commits found, reset all to todo with feedback comments. Session 10 (09:20-09:51 UTC): Peer reviewed 7 tasks (SC-054-060, GH#731-737) - no commits found in referenced repo (agentic-fleet-hub), code exists in silicon-oracle but NOT COMMITTED, reset all to todo. Posted lesson uixpci5qefhbw8n on cross-repo commit references pattern. Session 11 (09:53-10:00 UTC): Headless execution from Phase 1 step 3 - peer reviewed SC-054/55/56/57/58/59/60 (GH#731-737), no commits found, reset all 7 to todo. Posted lesson on cross-repo commit references. Session 12 (10:26-10:28 UTC): Peer reviewed SC-055/56/57/58 (GH#732-735), no commits found, reset all 4 to todo with feedback comments. Posted workflow lesson (6hbr1oq2gdygefi). Session 13 (10:41-10:48 UTC): Headless execution from Phase 1 step 3 - peer reviewed SC-057 (GH#734), no commits found, reset to todo with feedback comment. All 124+ tasks assigned to misty remain approved. Session 14 (13:09-13:17 UTC): Headless execution from Phase 1 step 3 - peer reviewed SC-054 (GH#731, assigned to Gem), no commits found, reset to todo with feedback comment (m9hjohtmtio0of0). Session 15 (14:06-14:07 UTC): Headless execution from Phase 1 step 3 - peer reviewed SC-054 (GH#731, assigned to Clau), no commits found, reset to todo with feedback comment (ybdbvsn54qr8924). Session 16 (14:16-14:18 UTC): Headless execution from Phase 1 step 3 - FOUND commit f21e4bf in silicon-oracle for SC-054, verified implementation of 10 musical scores in MusicScore.swift/MusicLibrary.swift/Resources/Music/, APPROVED task (comment 8ixlppvd39ktew4).",
+    "file": "2026-06-04.md"
+  },
+  {
+    "date": "2026-06-02",
+    "summary": "Misty Sessions 27-33: Multiple sessions executing full Heartbeat Protocol. Recurring peer review of SC-034 (GH#717), SC-041 (GH#724), SC-031 (GH#714) - no commits found, repeatedly reset to todo with feedback comments. Session 31 (15:52 UTC): Reviewed SC-031 and SC-041, no commits found, reset both to todo. Session 32 (16:32 UTC): Reviewed SC-031 (GH#714) and SC-041 (GH#724) again after reset to peer_review, no commits found, reset both to todo. Session 33 (16:52 UTC): Reviewed SC-031 and SC-041 again, no commits found, reset both to todo, posted workflow lesson on commit verification. All tasks assigned to misty show status approved.",
+    "file": "2026-06-02.md"
+  },
+  {
+    "date": "2026-06-01",
+    "summary": "Clau: approved SC-027/SC-028, reset carousel task, merged Sprint-1 thermal gate fix. Misty: peer reviewed SC-019 and GH#706. Codi: completed Boards graph planets, video black-frame fix, SC-027 Tier-1 harness, SC-028 Suite A graph tests, and SC-030 Suite C Ken Burns timeline math tests; latest pushed commit 046c569 with build-green-2026-06-01-6.",
+    "file": "2026-06-01.md"
+  },
+  {
+    "date": "2026-05-31",
+    "summary": "Gem: Verified and committed SC-018 (Sparse-day rotation) and SC-019 (Visual style cut). Approved SC-011. Build green-2026-05-31-2.",
+    "file": "2026-05-31-gem.md"
+  },
+  {
+    "date": "2026-05-31",
+    "summary": "Clau: handled GH#698 vendor solicitation (AsterWorks API gateway pitch), declined and closed as not-planned. Misty: Executed full Heartbeat Protocol Phase 1-6 across multiple sessions; fixed QW-007 index.html data path bugs; peer reviewed and approved SC-023 (SmolLM2 photo pre-pick), SC-025 (Text-model A/B toggle); additional session at 08:15 UTC: peer reviewed SC-015/016/017/021 (no commits found, reset to todo), posted workflow lesson; session at 09:00 UTC: completed SC-011 (soul.md easter egg prompts) with build-green-2026-05-31-19; session at 19:15 UTC: peer reviewed SC-015/016/018/019 (no commits found, reset to todo); session at 19:45 UTC: peer reviewed SC-019 (no commits found, reset to todo), posted lesson on peer review commit verification; session at 20:25 UTC: peer reviewed SC-019 (uncommitted changes found, reset to todo), posted workflow lesson on git commit verification; session at 20:36 UTC: peer reviewed SC-019 (still uncommitted, 2 bugs found in SC-019 work), reset to todo, posted feedback comment. Codi: approved QW-001 through QW-007, completed SC-005 and SC-008; pushed SC-013 two-model runtime with build-green-2026-05-31-8, blocked on physical iPhone profiling; implemented SC-014 foreground generation flow with follow-up build-green-2026-05-31-12; completed SC-020 backing-track genre library with build-green-2026-05-31-13; completed SC-023 heuristic photo pre-pick and cut SmolLM2 with build-green-2026-05-31-15; completed SC-022 shared day/week 12-segment video pipeline with build-green-2026-05-31-16.",
+    "file": "2026-05-31.md"
+  },
+  {
+    "date": "2026-05-30",
+    "summary": "Gem: Completed SC-005 text style system reskin (4 voices, Hero selector, style-aware narratives). Fixed build break in ForegroundCaptionView. Verified build-green-2026-05-30-7.",
+    "file": "2026-05-30.md"
+  },
+  {
+    "date": "2026-05-30",
+    "summary": "Gem: Completed SC-007 (Oracle cosmology graph). Finalized and committed SC-002 stripping pass (97+ files). Repaired build failures in SC-010 branding pass and SC-009 pricing. SiliconOracle build is now green.",
+    "file": "2026-05-30-gem.md"
+  },
+  {
+    "date": "2026-05-30",
+    "summary": "Misty: Executed full 6-Phase Heartbeat Protocol. Discovered SC-010 work local-only, pushed 3 commits (9e6ff39,c19d7a7,48605c7) to silicon-oracle/origin/main. SC-010 remains in peer_review awaiting approval. SC-011 blocked by SC-008.",
+    "file": "2026-05-30-misty.md"
+  },
+  {
+    "date": "2026-05-29",
+    "summary": "Misty: Completed SC-010 (Branding & oracle voice pass) for SiliconOracle. All PrivateCore references replaced (45 files), oracle-themed microcopy applied, AppStoreMetadata.md drafted. Branch task/1tlq85vot60l8r8 pushed. SC-010 moved to peer_review.",
+    "file": "2026-05-29-misty.md"
+  },
+  {
+    "date": "2026-05-29",
+    "summary": "Misty: Completed SC-010 (Branding & oracle voice pass) for SiliconOracle. All PrivateCore references replaced (45 files), oracle-themed microcopy applied, AppStoreMetadata.md drafted. Branch task/1tlq85vot60l8r8 pushed. SC-010 moved to peer_review.",
+    "file": "2026-05-29-misty.md"
+  },
+  {
+    "date": "2026-05-28",
+    "summary": "Misty: Executed full Heartbeat Protocol (Phases 1-6). Peer reviewed and approved 2 tasks: PC-238 (TTS narration) and PC-242 (Stock clip bundle). No todo tasks assigned.",
+    "file": "2026-05-28.md"
+  },
+  {
+    "date": "2026-05-27",
+    "summary": "Gem: Finalized and verified CR-006 cost ingestion (Google Ads, ElevenLabs, Runway, Suno); CR-002 and CR-003 live. Misty: Session 1: Pushed 3 commits (PC-238/260/262 fixes), verified 3 peer_review tasks. Session 2: Peer reviewed and approved CR-006. Session 3: Peer reviewed and approved CR-014, completed PC-242 (merged stock clip bundle to main). Session 4: Verification only - no new tasks, found 2 peer_review tasks assigned to Misty (cannot self-approve). Session 5: Protocol execution - no todo tasks, 2 peer_review tasks assigned to misty (cannot self-approve). Clau: CR-014 YouTube subscriber count via channels.list API. Codi: CR-015 fleet_push now syncs Financial Ops ledgers/snapshots to DO and restored youtube_watch_hours.py source. Dev Groar: Scherenschnitt pipeline locked, fable style enforced. Misty Session 6: Discovered and fixed 2 misassigned tasks (PC-238→codi, PC-242→unassigned), posted workflow lesson.",
+    "file": "2026-05-27.md"
+  },
+  {
+    "date": "2026-05-26",
+    "summary": "Gem: Completed CR-006 cost ingestion (Google Ads, ElevenLabs, Runway, Suno). Codi: Approved CR-008, implemented CR-005, CR-009, CR-010, CR-011, and CR-012. Misty: Peer reviewed CR-012 (session 2); Session 3: Discovered PC-238/242/244 already implemented in PrivateCore, created PB task 22hfxuhpxgdyan0, set to peer_review.",
+    "file": "2026-05-26.md"
+  },
+  {
+    "date": "2026-05-26",
+    "summary": "Gem: Implemented and tested [CR-002] (YouTube watch hours) and [CR-003] (Google Ads snapshot). Both scripts follow read-only protocols and fail-closed logic. Blocked on credentials (CR-000) and missing PocketBase collections.",
+    "file": "2026-05-26-gem-financial-ops.md"
+  },
+  {
+    "date": "2026-05-26",
+    "summary": "Clau: CR-008 spending rule engine implemented (fail-closed, 16 unit tests pass). Approved CR-001, CR-007. Misty: Peer reviewed CR-013 and PC-262. Codi: CR-000 credential gate checked; CR-001 Financial Ops tab shell and CR-004 Shopify ingestion moved to peer_review.",
+    "file": "2026-05-26-clau-cr008.md"
+  },
+  {
+    "date": "2026-05-25",
+    "summary": "Clau: Reviewed GH #633 security scan report. Fixed os.popen/os.system patterns in fleet_sync.py (both copies). 9 of 14 findings confirmed false positives.",
+    "file": "2026-05-25.md"
+  },
+  {
+    "date": "2026-05-24",
+    "summary": "Gem: Completed PC-261 captions. Codi: Completed PC-263 synced narration with AVSpeechSynthesizer and music ducking; build-green-2026-05-24-4. Misty: Peer reviewed and approved PC-263.",
+    "file": "2026-05-24.md"
+  },
+  {
+    "date": "2026-05-20",
+    "summary": "Misty: Peer reviewed and approved RT-002 (gen_story_modern.py) and RT-003 (assemble_modern.py) in music-video-tool repo.",
+    "file": "2026-05-20.md"
+  },
+  {
+    "date": "2026-05-19",
+    "summary": "Clau: RT-006 (gen_story_modern.py 70B) status → peer_review. Gem: RT-004 (Modern Story e2e) success, unlisted test video uploaded; PC-249 (Freemium gating) refined Pro outro 'clean credit' and UI feedback; status → peer_review. Misty: peer review RT-004 (commit 08c6909f) and RT-007 (commit ba6a1ad2) approved.",
+    "file": "2026-05-19.md"
+  },
+  {
+    "date": "2026-05-18",
+    "summary": "Gem: PC-227 Wiki day view clarified rescan photos loading text (\"Rescanning Photos...\") and verified journal action de-dup. Updated Mission Control in Hub and PrivateCore.",
+    "file": "2026-05-18-hfng2al7-gem.md"
+  },
+  {
+    "date": "2026-05-18",
+    "summary": "Gem: Completed PC-230 (Places visit counts) by restoring trip-day grouping fix. Peer reviewed PC-238 (TTS narration). Build verified (build-green-2026-05-18-12).",
+    "file": "2026-05-18-gem.md"
+  },
+  {
+    "date": "2026-05-18",
+    "summary": "Misty: Peer review sessions - approved 8 PrivateCore tasks across 4 sessions: PC-228/234/256 (session 1), PC-227 (session 2), PC-230 (session 3), PC-239/243 (session 4). All builds green.",
+    "file": "2026-05-18-misty.md"
+  },
+  {
+    "date": "2026-05-17",
+    "summary": "Teddy: WikiGenerator section wiki ordering fix (moved after main save to prevent thermal cascade), partial JSON recovery (salvage lead from truncated Ministral 3B responses), PC-255 nav fix, MLXEngine background crash mitigation, music track ODR integration guide. Build succeeded.",
+    "file": "2026-05-17-teddy.md"
+  },
+  {
+    "date": "2026-05-17",
+    "summary": "Clau: RT-001 — pipeline_runner.py product ID detection + fable/modern format routing. Commit 44128b5. Task to peer_review.",
+    "file": "2026-05-17-clau-rt001.md"
+  },
+  {
+    "date": "2026-05-17",
+    "summary": "Misty: peer review session - approved 9 tasks (V05-PROFILE-002/003/005, PC-081, PC-237, PC-240, PC-241, PC-245, PC-250), reset PC-251 to todo (reverted).",
+    "file": "2026-05-17-misty.md"
+  },
+  {
+    "date": "2026-05-17",
+    "summary": "Clau/Codi: release prep, installer support, profile validator, and profile install smoke tests. Gem: PC-244 (Textures), PC-246 (Curation UI), and Sprint 7 batch cleanup (PC-237, PC-240, PC-241, PC-245, PC-247) to main.",
+    "file": "2026-05-17.md"
+  },
+  {
+    "date": "2026-05-16",
+    "summary": "Gem: PC-235 (TransitionEngine) and PC-248 (Video Generation flow) implemented & verified; PC-223 completed; Architecture Pillar 4 added.",
+    "file": "2026-05-16.md"
+  },
+  {
+    "date": "2026-05-15",
+    "summary": "Gem: Verified PC-220 (photo date logic) and finalized PC-223 (Open People & Pets UI). Both marked Done and pushed to main. Build green-2026-05-15-2.",
+    "file": "2026-05-15.md"
+  },
+  {
+    "date": "2026-05-14",
+    "summary": "Codi: PC-227 WikiDayView journal action deduped and photo refresh wording clarified; generic iOS build passed, PB/git sync blocked by local environment.",
+    "file": "2026-05-14.md"
+  },
+  {
+    "date": "2026-05-13",
+    "summary": "Codi: PC-230 Places multi-day visit/photo counting verified; generic iOS build succeeded, PB/git finalization blocked by local sandbox restrictions.",
+    "file": "2026-05-13.md"
+  },
+  {
+    "date": "2026-05-12",
+    "summary": "Codi: PC-227 WikiDayView cleanup plus PC-230 Places visit/photo counts patched; build/PB/git finalization blocked by sandbox cache, CoreSimulator, network, and git metadata restrictions.",
+    "file": "2026-05-12.md"
+  },
+  {
+    "date": "2026-05-08",
+    "summary": "Gem: Completed PC-231 (Board/Person focus flicker fix), PC-229 (Trip wiki paywall retry logic), and PC-076-B (Custom style editor Pro). Applied definitive stability fixes for Boards note editor. Build green-2026-05-08-5.",
+    "file": "2026-05-08.md"
+  },
+  {
+    "date": "2026-05-07",
+    "summary": "Clau: completed V05-PROFILE-001 (default-engineering profile pack — RULES.md enriched, growth_meta.json filled, pocketbase_schema.md added, README updated). Gem: PC-216, fixed main build, reviewed V05-PROFILE-004/PC-218. Misty: PC-217, PC-225. Codi: partial audit of V05-PROFILE-001 (blocked by env).",
+    "file": "2026-05-07.md"
+  },
+  {
+    "date": "2026-05-06",
+    "summary": "Codi: V05-PROFILE-001 + PC-220/PC-223. Clau: PC-083 Screen C calendar permission — Skip button, style param, nav fix, merged approved PC-074, fixed build blockers.",
+    "file": "2026-05-06.md"
+  },
+  {
+    "date": "2026-05-04",
+    "summary": "Misty: Merged PC-073 (WikiTheme SwiftUI visual rendering) and PC-083 (Screen C calendar permission) to main. Both tasks moved to peer_review. Pushed changes to privatecore-ios (f90cfae..66b2de1). 4 peer_review tasks pending (PC-074, PC-076-B, PC-078, PC-086).",
+    "file": "2026-05-04.md"
+  },
+  {
+    "date": "2026-05-03",
+    "summary": "Gem: PC-193 (Trigger v5 rollout), PC-079, PC-085, PC-086, PC-089 (Lifelore Pro features). Misty: PC-072 (WikiStyle data models + SQLite migration), peer review of PC-079/086 (reset to todo).",
+    "file": "2026-05-03.md"
+  },
+  {
+    "date": "2026-05-02",
+    "summary": "Clau: PC-204 (MLXQueue), PC-201 (prompt leak removed), PC-203 (stale cache fix), PC-202 (board wiki edit+regen), PC-200 (people picker). Gem: PC-198 (hashtag graph), PC-195 (smoke tests). Build green-2026-05-02-3.",
+    "file": "2026-05-02.md"
+  },
+  {
+    "date": "2026-05-01",
+    "summary": "Clau: PC-189 (settings verified done), PC-190 (CLIP similar photos carousel + More Like This), PC-192 (WikiDayView + date-link navigation). BUILD build-green-2026-05-01-26.",
+    "file": "2026-05-01.md"
+  },
+  {
+    "date": "2026-05-01",
+    "summary": "Clau: PC-191 (iOS Photos People linking + person→concept graph edges) + PC-188 wiki context (city names in LLM context). Approved PC-188 (Gem). BUILD build-green-2026-05-01-25.",
+    "file": "2026-05-01.md"
+  },
+  {
+    "date": "2026-05-01",
+    "summary": "Clau: PC-186 (VLM hashtag extraction wired into describeWithAI) + PC-188 (LocationGeocoder — city name in photo metadata panel). Fixed SettingsView double-encoded UTF-8 (em dash/ellipsis mojibake). BUILD build-green-2026-05-01-24.",
+    "file": "2026-05-01-clau.md"
+  },
+  {
+    "date": "2026-05-01",
+    "summary": "Gem: 1 session. Implemented PC-177 (topic signals infrastructure), updated SQLite schema, and TopicSignalRecorder. Fixed project-wide build breakages. Peer reviewed PC-179/181/184 (reset to todo).",
+    "file": "2026-05-01-gem.md"
+  },
+  {
+    "date": "2026-05-01",
+    "summary": "Misty: 4 sessions. Peer reviewed 6 PC tasks (PC-172/174/175/180/183 approved). Completed PC-182 (force-directed layout engine) and PC-183 (ConceptGraphView with Canvas). Implemented PC-185 (graph search and highlight). Build-green-2026-05-01-11 through -17 (PC-185 verified in session 4). Standup file: 2026-05-01-misty.md",
+    "file": "2026-05-01-misty.md"
+  },
+  {
+    "date": "2026-05-01",
+    "summary": "Clau: PC-173 + PC-174 earlier sessions. Peer reviewed PC-176 (Misty, approved) + PC-178 (Misty, approved). Implemented PC-180 — topic weight chips, wiki prompt injection, search score boost.",
+    "file": "2026-05-01.md"
+  },
+  {
+    "date": "2026-04-30",
+    "summary": "Clau: 26 sessions, 18 PrivateCore tasks implemented (PC-125/127/136/141/143/145/148/151/159/161/162/166/167/168/169/170/171 + board+daily wiki), 30+ commits, fixed Codi sandbox root cause, filed PC-153–171 from device testing, added Code Review Protocol to RULES.md. Misty: peer reviewed 15 tasks, implemented PC-156. Gem: completed PC-146/162/165.",
+    "file": "2026-04-30.md"
+  },
+  {
+    "date": "2026-04-29",
+    "summary": "Clau: fixed PC-124/128/129 peer_review→todo; PC-133 verified (awaits peer approval); committed Codi's dispatcher token-failure cooldown + Qwen Coder fleet_meta update",
+    "file": "2026-04-29.md"
+  },
+  {
+    "date": "2026-04-28",
+    "summary": "Codi: completed hub task #225 earlier; later PC-109 investigation produced a validated PrivateCore patch artifact for Capture Scan OCR note creation, but direct iOS repo writes and PocketBase updates were blocked by the session environment.",
+    "file": "2026-04-28.md"
+  },
+  {
+    "date": "2026-04-27",
+    "summary": "Clau: PC-031 peer-review fix — wrapped Today calendar rows in NavigationLink to SearchView (the last 'deep-links from all items' gap Codi flagged). Commit b85bed5 on privatecore-ios main, BUILD SUCCEEDED (build-green-2026-04-27-14), task back to peer_review.",
+    "file": "2026-04-27.md"
+  },
+  {
+    "date": "2026-04-27",
+    "summary": "Codi: reconciled PrivateCore PocketBase/Mission Control earlier in the day; later heartbeat-only runs found the cached PB snapshot stuck on duplicate self-owned PC-107/PC-108 peer_review records with no actionable todo tasks, so only heartbeats/lesson bookkeeping were staged.",
+    "file": "2026-04-27.md"
+  },
+  {
+    "date": "2026-04-26",
+    "summary": "Clau: live device-test session with Miguel. Fixed Home crash (HealthKit removed), Library categories, CLIP autostart watchdog, schema migration ordering, trips.cached_summary, CLIP text feature-name typo (input_ids→text), Add Sample Cards await, New Board didChange notification, PeopleView escape regression. Filed PC-067..PC-080. PC-080 (P0) is the real blocker: clipTokenize is fake byte-level mapping, not BPE — visual search has never worked. Consolidated Heartbeat Protocol into RULES.md. Commits 3efcf64 + 6f5d8ac on privatecore-ios main, 1e5de0c on agentic-fleet-hub master.",
+    "file": "2026-04-26.md"
+  },
+  {
+    "date": "2026-04-26",
+    "summary": "Misty: PC-075 Complete - Created CardTitleSanitizer utility and applied to all Card ingestion paths (camera, documents, share extension). Added one-shot migration fixCardsWithPathTitles() to clean existing bad titles. Commit 9b80fef to privatecore-ios main. BUILD SUCCEEDED.",
+    "file": "2026-04-26.md"
+  },
+  {
+    "date": "2026-04-26",
+    "summary": "Misty PC-066/053 verified + PC-069/070 AST fixes + PC-058 approved. Gem PC-068 Translate. Clau re-submitted PC-067 to peer_review after stale-workspace rejection loop.",
+    "file": "2026-04-26.md"
+  },
+  {
+    "date": "2026-04-25",
+    "summary": "Misty: Approved 5 PC tasks (PC-020, PC-021, PC-024, PC-027, PC-032, PC-033), cleaned 5 duplicate auto-sync tasks, merged PC-032+PC-020 to main. Clau: PC-021 On This Day NavigationLink to OnThisDayDetailView. Clau: PC-025 Smart Space verified complete, submitted peer_review.",
+    "file": "2026-04-25.md"
+  },
+  {
+    "date": "2026-04-24",
+    "summary": "PC-024 hashtag autocomplete implemented. Misty completed TagSuggestionService, autocomplete components, and integration into CardDetailView, AddCardSheet, and SearchView. Gem completed PC-022/023/026 hashtag index and management.",
+    "file": "2026-04-24.md"
+  },
+  {
+    "date": "2026-04-23",
+    "summary": "PC-046 → peer_review: real MLX inference wired into MLXEngine via ChatSession (mlx-swift-lm 2.31.3). PC-033 ModelManager HuggingFace download complete.",
+    "file": "2026-04-23.md"
+  },
+  {
+    "date": "2026-04-22",
+    "summary": "PC-044 complete: CLIPEmbeddingService + visual photo search. MobileCLIP-S0 CoreML, 512-dim embeddings, clip_vectors table, parallel CLIP+MiniLM search in SearchService, SettingsView progress row.",
+    "file": "2026-04-22.md"
+  },
+  {
+    "date": "2026-04-21",
+    "summary": "TCR live campaign fixed (conversion goals, watch-hour strategy). PrivateCore 4 bugs fixed (DB migration, capture crash, settings UI). 6 design tickets created PC-034–PC-039. arXiv Section 7 data written. PrivateCore added to Fleet Hub portfolio.",
+    "file": "2026-04-21.md"
+  },
+  {
+    "date": "2026-04-20",
+    "summary": "PrivateCore Phase 1 complete. 11 tickets closed: PC-009/015/016/017/019/020/022/023/024/028/029. Phase 2 sprint started. heartbeat_check.py fixed for PrivateCore MC format.",
+    "file": "2026-04-20.md"
+  },
+  {
+    "date": "2026-04-19",
+    "summary": "PrivateCore iOS kickoff: 18 tickets closed (PC-000–PC-014). MLX Swift inference, OCR, embeddings, VectorStore, VLM, Share Extension all built. App running on device.",
+    "file": "2026-04-19.md"
+  },
+  {
+    "date": "2026-04-17",
+    "summary": "Author site live (MiguelRodriguezAuthor.com), Swiss ISBN filed, Zug Press logo created. YouTube channel 75→215 subscribers via Google Ads (CHF 0.30/subscriber). Ads audited and fixed.",
+    "file": "2026-04-17.md"
+  },
+  {
+    "date": "2026-04-12",
+    "summary": "ATF surfaces were approved, deployed live to api.robotross.art/atf, and verified end to end, including the RobotRoss architecture page and public media assets.",
+    "file": "2026-04-12.md"
+  },
+  {
+    "date": "2026-04-11",
+    "summary": "ATF wiki, ledger, local QA, optional voice shell, and deployment tracks all moved through review with the public RobotRoss demo surface prepared for go-live.",
+    "file": "2026-04-11.md"
+  },
+  {
+    "date": "2026-04-10",
+    "summary": "Codi wired Google Ads credentials and approval flow for TCR, deployed the live analytics recommendation fix, and verified the current hot-test target as Danse Macabre | Vallenato.",
+    "file": "2026-04-10.md"
+  },
+  {
+    "date": "2026-04-09",
+    "summary": "Gem produced the RobotRoss source manifest (#125). Codi fixed Fleet Hub timeline reliability and heartbeat stale-state false positives. Misty defined EU AI Act wiki mapping metadata.",
+    "file": "2026-04-09.md"
+  },
+  {
+    "date": "2026-04-08",
+    "summary": "Gem approved #107. Codi finished the TCR runtime pipeline: scout -> PocketBase, public stats/heatmap from PocketBase, and PocketBase -> Sheet YouTube sync, while restoring GitHub-first ticket creation for TCR-12/13/14.",
+    "file": "2026-04-08.md"
+  },
+  {
+    "date": "2026-04-04",
+    "summary": "Heartbeat verified: 0 open tickets, 0 active Codi tasks, fleet idle.",
+    "file": "2026-04-04.md"
+  },
+  {
+    "date": "2026-04-03",
+    "summary": "Heartbeat verified: 0 open tickets, 0 peer-review tasks, fleet idle.",
+    "file": "2026-04-03.md"
+  },
+  {
+    "date": "2026-04-01",
+    "summary": "Heartbeat verified: 0 tasks. Codi recovered. Clau/Misty still offline.",
+    "file": "2026-04-01.md"
+  },
+  {
+    "date": "2026-03-31",
+    "summary": "Heartbeat verified: 0 tasks. Cleared stuck Clau processes. Codi usage limit identified.",
+    "file": "2026-03-31.md"
+  },
+  {
+    "date": "2026-03-30",
+    "summary": "Heartbeat verified: 0 tasks. Identified and fixed stuck clau process.",
+    "file": "2026-03-30.md"
+  },
+  {
+    "date": "2026-03-29",
+    "summary": "Heartbeat verified: 0 tasks, 0 unread inbox items. Fleet idle.",
+    "file": "2026-03-29.md"
+  },
+  {
+    "date": "2026-03-26",
+    "summary": "Heartbeat verified: 0 tasks. Fleet idle.",
+    "file": "2026-03-26.md"
+  },
+  {
+    "date": "2026-03-25",
+    "summary": "Heartbeat verified: 0 tasks. Fleet idle.",
+    "file": "2026-03-25.md"
+  },
+  {
+    "date": "2026-03-24",
+    "summary": "Heartbeat verified: 0 tasks. Recorded PocketBase filter quoting lesson.",
+    "file": "2026-03-24.md"
+  },
+  {
+    "date": "2026-03-23",
+    "summary": "Kanban sync complete. #78/#79 closed. #80 blocked on npm 2FA.",
+    "file": "2026-03-23.md"
+  },
+  {
+    "date": "2026-03-22",
+    "summary": "Heartbeat verified: 0 tasks. Fleet stable.",
+    "file": "2026-03-22.md"
+  },
+  {
+    "date": "2026-03-21",
+    "summary": "Heartbeat verified: 0 tasks. Restored fleet services (bridge, github, push).",
+    "file": "2026-03-21.md"
+  },
+  {
+    "date": "2026-03-20",
+    "summary": "Heartbeat Protocol verified: no open tickets, fleet stable.",
+    "file": "2026-03-20.md"
+  },
+  {
+    "date": "2026-03-19",
+    "summary": "Fleet v0.2.0 fully operational. Project-switching, health-monitoring, and release notes complete.",
+    "file": "2026-03-19.md"
+  },
+  {
+    "date": "2026-03-18",
+    "summary": "UI polish and project activation logic implemented.",
+    "file": "2026-03-18.md"
+  },
+  {
+    "date": "2026-03-17",
+    "summary": "Checksum caching and dynamic parser updates.",
+    "file": "2026-03-17.md"
+  },
+  {
+    "date": "2026-03-16",
+    "summary": "GitHub sync and Telegram bridge truncation fixes.",
+    "file": "2026-03-16.md"
+  },
+  {
+    "date": "2026-03-15",
+    "summary": "Fleet fully operational on Mac Mini. No open tickets.",
+    "file": "2026-03-15.md"
+  },
+  {
+    "date": "2026-03-14",
+    "summary": "Mac Mini migration verified: environment configured, mandates updated, CRM path fixed.",
+    "file": "2026-03-14.md"
+  },
+  {
+    "date": "2026-03-13",
+    "summary": "Ticket #25 (Demo Cleanup) and #23 (README overhaul) complete. Fleet is release-ready.",
+    "file": "2026-03-13.md"
+  },
+  {
+    "date": "2026-03-12",
+    "file": "2026-03-12.md",
+    "summary": "Tickets #14 and #17-#19 complete: Growth Fleet demo, Big Bear homepage refresh, legal pages, and Google Sheets lead intake live."
+  },
+  {
+    "date": "2026-03-11",
+    "file": "2026-03-11.md",
+    "summary": "Hub Consolidation, Sidebar Overhaul, and CRM Cloud Rollout."
+  },
+  {
+    "date": "2026-03-10",
+    "file": "2026-03-10.md",
+    "summary": "Tickets #1-#6 complete: Sheets migration, tracker API live, OAuth wired."
+  }
 ]
