@@ -1055,9 +1055,11 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 - **g71sfap5**: Bug [P1]: Voiceover not playing in generated video -- Voiceover audio track is not audible in generated videos. Video generates successfully but plays silent or background music only — no voice. -- Gem. Approved.
 - **o31vmqa9**: SC-079 [P1]: Photos write-permission moment + score-length guard -- Two guardrails before SC-077 ships: -- Clau. Approved.
 - **88lnyqdv**: SC-078 [P1]: Journal reminder tray — offline video pointer list -- In-app tray (top of wiki browser or home view) listing recent generated videos not yet shared. Each entry: thumbnail/icon + date + one-tap share button. Entries age out after 7 days (pointer only removed — video stays in Photos and in-app). No push notifications. Tray hidden when empty. Sharing from tray marks entry as shared and removes it immediately. Pointer list stored in UserDefaults or SQLite. -- Clau. Approved.
+- **ivwl519w**: LM-G05 — Compute Baron: sixty-three crates -- Assigned fleet agent: **codi**. Miguel requested this four-agent round on 6 November 2026. -- Codi. Approved.
 - **qtajl6ud**: SC-077 [P1]: Save generated videos to Camera Roll -- After VideoAssemblyEngine.compose() returns a URL, save the video to Photos using PHPhotoLibrary. Requires write permission (see SC-079 for permission timing/framing). If permission denied: silent skip, no alert. On successful save: brief non-blocking toast Saved to Camera Roll. Save is automatic — no user action required beyond generation flow. -- Clau. Approved.
 - **#5**: #5nkg4da6vgfbj1j: Peer review UI fixes for web page -- Reviewing UI fixes for the web page as described in task #5nkg4da6vgfbj1j -- Misty. Approved.
 - **8a0huo7g**: SC-075 [P1]: Revise Tier-1 Suite E tests for gate-counter model -- Remove/rewrite tests written against week-timer pricing (SC-044/045 canGenerate/isPro logic). New test cases: counter increments per generation; gate fires at exactly X; skip allows generation to complete; IAP unlock = permanent disable; counter resets after gate shown; sharing never increments counter. Tests must not hardcode X=5 — inject via config. -- Gem. Approved.
+- **5tqcnbsz**: LM-G03 — Doomscroller: choosing Enough -- Assigned fleet agent: **muse**. Status: todo. Miguel explicitly requested this parallel game-chapter round on 5 November 2026. -- Codi. Approved.
 - **ut0whfcw**: SC-074 [P0]: Tip-gate UI — oracle-voiced, skippable, IAP unlock -- Sheet appears after every X generations (counter from SC-072/073). Always dismissible — skip button prominent. Pending generation completes regardless of choice. Oracle-register copy — warm, not pushy. IAP: non-consumable one-time purchase. Purchase label: Unlock forever. Restore purchases button required. On purchase: gate counter disabled permanently. Sharing flows excluded from gate. -- Clau. Approved.
 - **vxwz2j0v**: LM-G02 — Influencer: the camera acquires a score -- Assigned fleet agent: **gem**. Status: todo. Miguel explicitly requested this parallel game-chapter round on 5 November 2026. -- Codi. Approved.
 - **1j4tx1jb**: SC-073 [P0]: Gate frequency X — remote-tunable value + A/B hook -- Gate frequency X (how many generations between tip-gates) must be remotely tunable — do NOT hardcode. Fetch from Firebase Remote Config on launch. Fallback: X=5. A/B hook: remote config must support different X per user cohort. Local QA override (hidden setting or launch argument). Gate-counter logic in SC-072 reads X from this service. -- Clau. Approved.
@@ -1110,10 +1112,8 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **5tqcnbsz** | LM-G03 — Doomscroller: choosing Enough | codi | merged | Assigned fleet agent: **muse**. Status: todo. Migu... |
 | **5aqci2kj** | LM-G04 — Workaholic: staying in the dusk | clau | merged | Assigned fleet agent: **clau**. Miguel requested t... |
-| **ivwl519w** | LM-G05 — Compute Baron: sixty-three crates | codi | merged | Assigned fleet agent: **codi**. Miguel requested t... |
 | **yyxpieeq** | LM-G06 — Politician: did the order cause it? | gem | in_work | Assigned fleet agent: **gem**. Miguel requested th... |
-| **o9xu6grf** | LM-G07 — Evaluator: the record and the particular | muse | in_work | Assigned fleet agent: **muse**. Miguel requested t... |
+| **o9xu6grf** | LM-G07 — Evaluator: the record and the particular | muse | merged | Assigned fleet agent: **muse**. Miguel requested t... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
