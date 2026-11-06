@@ -1113,7 +1113,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 | **5tqcnbsz** | LM-G03 — Doomscroller: choosing Enough | codi | merged | Assigned fleet agent: **muse**. Status: todo. Migu... |
 | **5aqci2kj** | LM-G04 — Workaholic: staying in the dusk | clau | in_work | Assigned fleet agent: **clau**. Miguel requested t... |
 | **ivwl519w** | LM-G05 — Compute Baron: sixty-three crates | codi | planned | Assigned fleet agent: **codi**. Miguel requested t... |
-| **yyxpieeq** | LM-G06 — Politician: did the order cause it? | gem | in_work | Assigned fleet agent: **gem**. Miguel requested th... |
+| **yyxpieeq** | LM-G06 — Politician: did the order cause it? | gem | merged | Assigned fleet agent: **gem**. Miguel requested th... |
 | **o9xu6grf** | LM-G07 — Evaluator: the record and the particular | muse | in_work | Assigned fleet agent: **muse**. Miguel requested t... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
