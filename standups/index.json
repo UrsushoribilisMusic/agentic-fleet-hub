@@ -1,7 +1,7 @@
 [
  {
   "date": "2026-11-06",
-  "summary": "Gem: LM-F01 CPU Kokoro review films (The Snake + The Echo) rendered, verified (-16.1 LUFS, <= -1.9 dBTP), copied to Downloads, and pushed on task/26ua0p8b8ex8fzo (a0a1e7f); moved to peer_review.",
+  "summary": "Gem: LM-F01 v2 CPU Kokoro review films (The Snake + The Echo) rendered with af_heart echo return filter + tighter pacing, verified (-16.0/-16.1 LUFS, <= -2.0 dBTP), copied to Downloads (v1 preserved), pushed on task/26ua0p8b8ex8fzo (db1736b); moved to peer_review.",
   "file": "2026-11-06-gem-snake-echo-films.md"
  },
  {
