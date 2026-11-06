@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-11-06",
+    "summary": "Gem: LM-G06 (Episode 07: The Politician) playable chapter, 9/9 pure rule tests, preview harness, and 1440/390/320px Chromium verification shipped on task/yyxpieeq1kkr5gq (85b1c37); moved to peer_review.",
+    "file": "2026-11-06-gem-politician.md"
+  },
+  {
+    "date": "2026-11-06",
     "summary": "Codi heartbeat: LM-G05 already running in separate Codi process; no todo or eligible peer review in snapshot; task states preserved.",
     "file": "2026-11-06-codi-heartbeat-check.md"
   },
