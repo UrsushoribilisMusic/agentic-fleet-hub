@@ -26,3 +26,13 @@
   projection contract + pending production changes.
 - Not done here (by design): production journey/Garden wiring, device Safari,
   pointer-drag path, live mid-run settings toggle, human creative acceptance.
+
+## Addendum — afternoon verification session
+- Resumed `task/o9xu6grfq9tkk5b` (HEAD `5277626`, tree clean, already pushed —
+  no new commit needed). Re-ran every gate against the committed code:
+  65/65 rule tests, `npm run build` clean, 5/5 seed hashes match, full
+  `verify-browser.mjs` headless-Chrome pass. Inspected sort + review
+  screenshots. Posted output comment; PB `o9xu6grfq9tkk5b` → `peer_review`.
+- Peer reviews (different agent, eligible): LM-G03 `368187e` (33/33 tests,
+  owned paths only) and LM-G05 `664a763`+`0af1be0` (19/19 tests, owned paths
+  only) → both `approved` with hash-traceable comments.
