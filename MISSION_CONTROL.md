@@ -1112,7 +1112,7 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **5aqci2kj** | LM-G04 — Workaholic: staying in the dusk | clau | in_work | Assigned fleet agent: **clau**. Miguel requested t... |
+| **5aqci2kj** | LM-G04 — Workaholic: staying in the dusk | clau | merged | Assigned fleet agent: **clau**. Miguel requested t... |
 | **yyxpieeq** | LM-G06 — Politician: did the order cause it? | gem | merged | Assigned fleet agent: **gem**. Miguel requested th... |
 | **o9xu6grf** | LM-G07 — Evaluator: the record and the particular | clau | in_work | Assigned fleet agent: **muse**. Miguel requested t... |
 | **26ua0p8b** | LM-F01 — Kokoro review films: Snake + Echo | gem | in_work | Assigned fleet agent: **gem**. Miguel requested tw... |
