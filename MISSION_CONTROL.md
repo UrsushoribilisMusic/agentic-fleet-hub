@@ -1112,10 +1112,10 @@ All agents now run on Mac Mini (darwin, Apple Silicon). Key path change: `/Users
 ### OPEN
 | Ticket | Description | Owner | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **5aqci2kj** | LM-G04 — Workaholic: staying in the dusk | clau | merged | Assigned fleet agent: **clau**. Miguel requested t... |
+| **5aqci2kj** | LM-G04 — Workaholic: staying in the dusk | clau | in_work | Assigned fleet agent: **clau**. Miguel requested t... |
 | **yyxpieeq** | LM-G06 — Politician: did the order cause it? | gem | merged | Assigned fleet agent: **gem**. Miguel requested th... |
-| **o9xu6grf** | LM-G07 — Evaluator: the record and the particular | muse | merged | Assigned fleet agent: **muse**. Miguel requested t... |
+| **o9xu6grf** | LM-G07 — Evaluator: the record and the particular | clau | in_work | Assigned fleet agent: **muse**. Miguel requested t... |
 | **26ua0p8b** | LM-F01 — Kokoro review films: Snake + Echo | gem | in_work | Assigned fleet agent: **gem**. Miguel requested tw... |
-| **1km6idiu** | LM-F02 — Kokoro review films: Switchman + Well | codi | in_work | Assigned fleet agent: **codi**. Miguel requested t... |
+| **1km6idiu** | LM-F02 — Kokoro review films: Switchman + Well | codi | planned | Assigned fleet agent: **codi**. Miguel requested t... |
 
 **Status: `create-flotilla@0.5.0` live on npm as of 2026-05-26.**
