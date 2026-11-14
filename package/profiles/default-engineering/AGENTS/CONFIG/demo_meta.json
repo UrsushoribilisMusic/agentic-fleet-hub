@@ -1,0 +1,9 @@
+{
+  "meta": {
+    "template": "default-engineering",
+    "purpose": "demo",
+    "notes": "Use this file for static demo metadata only. Do not point it at production task data."
+  },
+  "team": [],
+  "projects": []
+}

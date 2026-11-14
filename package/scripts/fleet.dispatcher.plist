@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Template: install with scripts/install_launchd.sh, which fills in __WORKSPACE__ and __RUNTIME__. -->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>fleet.dispatcher</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>__RUNTIME__/run_with_secrets.sh</string>
+    <string>dispatcher.py</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>__WORKSPACE__</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>FLOTILLA_WORKSPACE</key>
+    <string>__WORKSPACE__</string>
+    <key>PATH</key>
+    <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+  </dict>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>__RUNTIME__/logs/dispatcher.log</string>
+  <key>StandardErrorPath</key>
+  <string>__RUNTIME__/logs/dispatcher_err.log</string>
+</dict>
+</plist>

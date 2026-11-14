@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.DS_Store
+node_modules/
+scripts/logs/
+scripts/.venv/
+scripts/flotilla.env
+pocketbase/pb_data/
+pocketbase/pocketbase
+*.tgz

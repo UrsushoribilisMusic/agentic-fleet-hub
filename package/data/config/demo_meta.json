@@ -1,0 +1,32 @@
+{
+  "team": [
+    {
+      "name": "Coordinator",
+      "avatar": "🧠",
+      "roleTitle": "Fleet Coordinator",
+      "roleDesc": "Orchestrates tasks across the fleet, maintains shared memory, and ensures all agents stay aligned with project goals.",
+      "skills": ["Task Routing", "Memory Management", "Cross-Agent Sync"],
+      "runtime": "Cloud",
+      "memoryLink": "#"
+    },
+    {
+      "name": "Builder",
+      "avatar": "🔨",
+      "roleTitle": "Code & Infrastructure",
+      "roleDesc": "Implements features, manages CI/CD, and maintains the technical foundation of the fleet.",
+      "skills": ["Backend", "API Design", "DevOps"],
+      "runtime": "Cloud Runner",
+      "memoryLink": "#"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Agentic CRM",
+      "owners": "Coordinator",
+      "summary": "A live, multi-agent CRM showcasing autonomous lead management, follow-ups, and pipeline reporting.",
+      "crmLink": "#",
+      "docs": ["#"],
+      "kanban": "#"
+    }
+  ]
+}

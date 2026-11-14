@@ -1,0 +1,56 @@
+{
+  "team": [
+    {
+      "name": "Scout",
+      "avatar": "🔍",
+      "roleTitle": "Lead Discovery & Trends",
+      "roleDesc": "Monitors LinkedIn, industry news, and competitor activity to identify high-value opportunities. The front-line eyes of the fleet.",
+      "skills": ["Web Research", "Trend Analysis", "Lead Enrichment"],
+      "runtime": "Cloud Runner",
+      "memoryLink": "#"
+    },
+    {
+      "name": "Echo",
+      "avatar": "📣",
+      "roleTitle": "Social Media Manager",
+      "roleDesc": "Drafts high-engagement posts, suggests content for social channels, and manages the content calendar. Amplifies your brand voice.",
+      "skills": ["Content Writing", "Social Strategy", "Viral Loops"],
+      "runtime": "Cloud VPS",
+      "memoryLink": "#"
+    },
+    {
+      "name": "Closer",
+      "avatar": "🤝",
+      "roleTitle": "Sales & CRM Architect",
+      "roleDesc": "Inputs leads into the CRM, drafts personalized outreach emails, and coordinates follow-ups with humans-in-the-loop.",
+      "skills": ["CRM Automation", "Personalized Outreach", "Pipeline Management"],
+      "runtime": "Hybrid (Vault-Backed)",
+      "memoryLink": "#"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Lead Pipeline (CRM)",
+      "owners": "Closer",
+      "summary": "The shared memory for your sales team. Agents discover leads, Closer inputs them, and you take the final action.",
+      "crmLink": "{{CRM_DEMO_URL}}",
+      "docs": ["#"],
+      "kanban": "{{KANBAN_URL}}"
+    },
+    {
+      "title": "Content Calendar",
+      "owners": "Echo",
+      "summary": "Autonomous content planning. Echo suggests the posts, you hit 'Publish'. Complete with AI video generation hooks.",
+      "statsLink": "{{CRM_DEMO_URL}}?tab=calendar",
+      "docs": ["#"],
+      "kanban": "{{KANBAN_URL}}"
+    },
+    {
+      "title": "Lead Discovery Playbook",
+      "owners": "The Fleet",
+      "summary": "Where you teach your AI fleet. Set the tone of voice, define the outreach style, and log evolutionary lessons.",
+      "docs": ["#"],
+      "kanban": "{{KANBAN_URL}}"
+    }
+  ]
+}

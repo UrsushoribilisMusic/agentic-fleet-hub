@@ -1,0 +1,7 @@
+{
+  "_comment": "Copy to agent_commands.json to override how the dispatcher starts each agent. Placeholders: {workspace} {fleet_dir} {runtime_dir} {cache_dir} {prompt}. Set an agent to null to disable a built-in default.",
+  "clau": ["claude", "--dangerously-skip-permissions", "--model", "claude-sonnet-4-6", "-p", "{prompt}"],
+  "codi": ["codex", "exec", "--dangerously-bypass-approvals-and-sandbox", "--skip-git-repo-check", "-C", "{workspace}", "{prompt}"],
+  "gem": ["gemini", "--yolo", "-p", "{prompt}"],
+  "misty": null
+}

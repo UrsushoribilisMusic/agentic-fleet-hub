@@ -1,0 +1,47 @@
+{
+  "name": "create-flotilla",
+  "version": "0.6.0",
+  "description": "Scaffold a self-hosted Flotilla workspace: shared task board, heartbeat dispatcher, cross-model peer review, Council Room, Telegram bridge and dashboard for teams of AI coding agents.",
+  "type": "module",
+  "scripts": {
+    "smoke:profile-install": "node ./tools/smoke-profile-install.mjs",
+    "verify:dry-run": "node ./tools/verify-dry-run.mjs",
+    "prepublishOnly": "npm run verify:dry-run && npm run smoke:profile-install"
+  },
+  "bin": {
+    "create-flotilla": "bin/create-flotilla.mjs"
+  },
+  "files": [
+    "bin/",
+    "blueprint/",
+    "dashboard/",
+    "data/",
+    "lib/",
+    "profiles/",
+    "scripts/",
+    "server/",
+    "test-fixtures/",
+    "tools/",
+    "INSTALL.md",
+    "LICENSE",
+    "COMPLIANCE.md",
+    "README.md",
+    "pocketbase/"
+  ],
+  "keywords": [
+    "agentfleet",
+    "multi-agent",
+    "scaffolder",
+    "create-flotilla"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UrsushoribilisMusic/agentic-fleet-hub.git",
+    "directory": "package"
+  },
+  "homepage": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub"
+}

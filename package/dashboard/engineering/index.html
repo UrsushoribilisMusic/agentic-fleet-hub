@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" data-auth-loading="1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flotilla</title>
+  <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+  <link rel="stylesheet" href="assets/style.css?v=20260716-sm003">
+  <script>window.FlotillaAuthConfig = { enabled: true }; document.documentElement.dataset.authLoading = "1";</script>
+  <script src="/auth/auth.js" defer></script>
+</head>
+<body>
+  <button class="mobile-menu-btn" id="mobile-toggle">Menu</button>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <img src="assets/icon.svg" alt="Icon" style="width: 20px; height: 20px;">
+        <h2 style="font-size: 16px; font-weight: 600;">Flotilla</h2>
+      </div>
+    </div>
+    
+    <nav class="sidebar-nav" id="sidebar-nav">
+      <button class="nav-button is-active" data-section-button="section-team">Team</button>
+      <button class="nav-button" data-section-button="section-projects">Projects</button>
+
+      <button class="nav-button" data-section-button="section-kanban">Kanban</button>
+      <button class="nav-button" data-section-button="section-rules">Rules</button>
+      <button class="nav-button" data-section-button="section-memory">Memory</button>
+      <button class="nav-button" data-section-button="section-pbviewer">PB Viewer</button>
+      <button class="nav-button" data-section-button="section-standups">Standups</button>
+      <button class="nav-button" data-section-button="section-inbox">Inbox</button>
+      <button class="nav-button" data-section-button="section-users">Users</button>
+      </button>
+    </nav>
+
+    <div class="theme-toggle">
+      <button class="theme-btn" id="theme-toggle-btn" title="Toggle Dark/Light Mode">Theme</button>
+      <span style="font-size: 12px; color: var(--text-secondary);">Theme</span>
+    </div>
+
+    <footer style="padding: 16px; font-size: 11px; color: var(--text-muted);">
+      Â© 2026 Big Bear Engineering
+    </footer>
+  </aside>
+
+  <main class="main-content">
+    <section id="section-team" class="section is-active">
+      <header class="page-header" style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <p class="eyebrow">Fleet Crew</p>
+          <h1>Agentic Team</h1>
+        </div>
+        <button class="btn-submit standalone-only" onclick="openAgentModal()" style="display: none;">+ Add Agent</button>
+      </header>
+      <div id="agents-stats-table" style="margin-bottom: 24px;"></div>
+      <div id="team-grid" class="cards-grid"></div>
+
+      <div id="schichtplan-container" style="margin-top: 32px;">
+        <div class="schichtplan-header">
+          <h4 class="schichtplan-title">SHIFT TIMELINE</h4>
+          <div class="schichtplan-window-btns">
+            <button class="schicht-btn is-active" data-window="24h" onclick="loadSchichtplan('24h')">24h</button>
+            <button class="schicht-btn" data-window="7d" onclick="loadSchichtplan('7d')">7d</button>
+            <button class="schicht-btn" data-window="30d" onclick="loadSchichtplan('30d')">30d</button>
+          </div>
+        </div>
+        <div id="schichtplan-chart" class="schichtplan-chart">
+          <p style="font-size: 12px; color: var(--text-muted); padding: 16px;">Loading timeline...</p>
+        </div>
+      </div>
+
+      <div id="aggregate-stats-panel" style="margin-top: 32px;">
+        <h4 class="schichtplan-title" style="margin-bottom: 12px;">FLEET PERFORMANCE</h4>
+        <div class="stats-grid">
+          <!-- Row 1: Activity -->
+          <div class="card stat-card">
+            <div class="stat-label">TASKS (24H)</div>
+            <div class="stat-value" id="stat-tasks-24h">...</div>
+            <div class="stat-sub">completed / in review / blocked</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-label">REASSIGNMENTS</div>
+            <div class="stat-value" id="stat-reassigns">...</div>
+            <div class="stat-sub" id="stat-reassigns-sub">count / blocked / avg</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-label">CIRCUIT BREAKER</div>
+            <div class="stat-value" id="stat-circuit">...</div>
+            <div class="stat-sub" id="stat-circuit-sub">fires today / total / last</div>
+          </div>
+          <!-- Row 2: Resilience -->
+          <div class="card stat-card">
+            <div class="stat-label">MTBF</div>
+            <div class="stat-value" id="stat-mtbf">...</div>
+            <div class="stat-sub">Mean Time Between Failures</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-label">MTTR</div>
+            <div class="stat-value" id="stat-mttr">...</div>
+            <div class="stat-sub">Mean Time To Recovery</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-label">FALSE WAKE RATE</div>
+            <div class="stat-value" id="stat-wake">...</div>
+            <div class="stat-sub" id="stat-wake-sub">before / after gate</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-projects" class="section">
+      <header class="page-header" style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <p class="eyebrow">Active Work</p>
+          <h1>Project Portfolio</h1>
+          <p class="page-subtitle">Toggle any number of projects active at once. Hub remains available as the fallback context.</p>
+        </div>
+        <div style="display:flex;gap:12px;">
+          <button class="btn-submit" style="background:none;border-color:rgba(255,255,255,0.15);color:var(--text-muted);" onclick="clearAllProjects()">CLEAR ALL</button>
+          <button class="btn-submit" onclick="openProjectModal()">+ Add Project</button>
+        </div>
+      </header>
+      <div id="projects-grid" class="cards-grid"></div>
+    </section>
+
+    
+
+
+    <section id="section-kanban" class="section">
+      <header class="page-header" style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <p class="eyebrow">Live Board</p>
+          <h1>Fleet Kanban</h1>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <button class="btn-submit" onclick="openTaskModal()">+ Add Task</button>
+          <button class="btn-submit" onclick="refreshKanban()">Refresh</button>
+        </div>
+      </header>
+      <div id="kanban-board" class="pipeline-board">
+        <div class="card">
+          <div class="card-header"><h3 class="card-title">Planned</h3></div>
+          <div id="kanban-planned" class="activity-list"></div>
+        </div>
+        <div class="card">
+          <div class="card-header"><h3 class="card-title">In Work</h3></div>
+          <div id="kanban-working" class="activity-list"></div>
+        </div>
+        <div class="card">
+          <div class="card-header"><h3 class="card-title">Blocked</h3></div>
+          <div id="kanban-blocked" class="activity-list"></div>
+        </div>
+        <div class="card">
+          <div class="card-header"><h3 class="card-title">Done</h3></div>
+          <div id="kanban-done" class="activity-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-rules" class="section">
+      <header class="page-header">
+        <p class="eyebrow">Protocols</p>
+        <h1>Team Rules</h1>
+      </header>
+      <div id="rules-view" class="markdown-view">Loading rules...</div>
+    </section>
+
+    <section id="section-memory" class="section">
+      <header class="page-header" style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <p class="eyebrow">Knowledge Base</p>
+          <h1>Memory Tree</h1>
+        </div>
+        <div style="width: 240px;">
+          <input type="text" id="memory-search" placeholder="Search docs..." class="standup-form" style="padding: 6px 12px; margin: 0;" oninput="handleMemorySearch(this.value)">
+        </div>
+      </header>
+      <div id="lessons-group" style="margin-bottom: 24px;">
+        <h4 style="font-size: 13px; font-weight: 600; margin-bottom: 12px; color: var(--text-secondary);">LESSONS</h4>
+        <div id="lessons-grid" class="cards-grid"></div>
+      </div>
+      <div id="docs-grid" class="cards-grid"></div>
+    </section>
+
+    <section id="section-pbviewer" class="section">
+      <header class="page-header">
+        <p class="eyebrow">Database</p>
+        <h1>PocketBase Viewer</h1>
+      </header>
+      <div class="pb-controls" style="margin-bottom: 12px; padding: 8px; background: var(--bg-secondary); border-radius: 6px;">
+        <div class="filter-group" style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+          <label style="font-size: 12px; font-weight: 600;">Status Filter:</label>
+          <select id="pb-status-filter" onchange="loadPBTasks()" style="padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border); background: var(--bg-primary); color: var(--text-primary);">
+            <option value="all">All Tasks</option>
+            <option value="todo">TODO</option>
+            <option value="in_progress">In Progress</option>
+            <option value="peer_review">Peer Review</option>
+            <option value="waiting_human">Waiting Human</option>
+            <option value="blocked">Blocked</option>
+            <option value="approved">Approved</option>
+          </select>
+          <button onclick="loadPBTasks()" style="padding: 4px 12px; background: var(--accent); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 600;">Refresh</button>
+        </div>
+      </div>
+      <div id="pb-tasks-container" class="activity-list"></div>
+    </section>
+
+    <section id="section-standups" class="section">
+      <header class="page-header">
+        <p class="eyebrow">Daily Pulse</p>
+        <h1>Standups</h1>
+      </header>
+      <div class="daily-buttons" id="daily-buttons"></div>
+      <div id="daily-view" class="daily-view" style="margin-bottom: 24px;">Select a date.</div>
+      <form id="standup-form" class="standup-form card" style="padding: 16px; border: 1px solid var(--border); background: var(--bg-secondary);">
+        <h3 style="font-size: 14px; font-weight: 600;">Add Entry</h3>
+        <label><span>Done</span><textarea name="done" required rows="3"></textarea></label>
+        <label><span>Today</span><textarea name="today" required rows="3"></textarea></label>
+        <label><span>Blockers</span><input name="blockers" placeholder="None"></label>
+        <button type="submit" class="btn-submit">Submit Log</button>
+      </form>
+    </section>
+
+    <section id="section-inbox" class="section">
+      <header class="page-header">
+        <p class="eyebrow">Fleet Protocol</p>
+        <h1>Inter-Agent Inbox</h1>
+      </header>
+      <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 24px;">
+        <div id="inbox-feed">Loading...</div>
+        <form id="message-form" class="standup-form card" style="padding: 16px; border: 1px solid var(--border); background: var(--bg-secondary);">
+          <h3 style="font-size: 14px; font-weight: 600;">Send Message</h3>
+          <label><span>To</span><select id="m-to"><option value="All">Everyone</option><option value="Clau">Clau</option><option value="Gem">Gem</option><option value="Codi">Codi</option></select></label>
+          <label><span>Subject</span><input type="text" id="m-subject" required></label>
+          <label><span>Body</span><textarea id="m-body" required rows="4"></textarea></label>
+          <button type="submit" class="btn-submit">Send Message â†’</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="section-users" class="section">
+      <header class="page-header">
+        <p class="eyebrow">Access Control</p>
+        <h1>Users</h1>
+      </header>
+      <div id="users-list" style="margin-bottom: 24px;"></div>
+      <form id="user-form" class="standup-form card" style="padding: 16px; border: 1px solid var(--border); background: var(--bg-secondary); flex-direction: row; align-items: flex-end; gap: 12px;">
+        <label style="flex: 1;"><span>Add Email</span><input type="email" name="email" required></label>
+        <button type="submit" class="btn-submit">Add User</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Modals -->
+  <div id="project-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <h2 style="font-size: 18px; margin-bottom: 16px;">Add Project</h2>
+      <form id="project-form" class="standup-form">
+        <label><span>Title</span><input type="text" name="title" required></label>
+        <label><span>Summary</span><textarea name="summary" required rows="3"></textarea></label>
+        <label><span>GitHub URL</span><input type="url" name="github" required></label>
+        <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 8px;">
+          <button type="button" class="btn-link" onclick="closeProjectModal()">Cancel</button>
+          <button type="submit" class="btn-submit">Save Project</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="agent-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <h2 style="font-size: 18px; margin-bottom: 16px;">Add Agent</h2>
+      <form id="agent-form" class="standup-form">
+        <label><span>Name</span><input type="text" name="name" required></label>
+        <label><span>Emoji</span><input type="text" name="avatar" required></label>
+        <label><span>Role Title</span><input type="text" name="roleTitle" required></label>
+        <label><span>Description</span><textarea name="roleDesc" required rows="3"></textarea></label>
+        <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 8px;">
+          <button type="button" class="btn-link" onclick="closeAgentModal()">Cancel</button>
+          <button type="submit" class="btn-submit">Save Agent</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="task-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <h2 style="font-size: 18px; margin-bottom: 16px;">Add Task</h2>
+      <form id="task-form" class="standup-form">
+        <label><span>Title</span><input type="text" name="title" required></label>
+        <label><span>Description</span><textarea name="description" required rows="3"></textarea></label>
+        <label><span>Assigned Agent</span>
+          <select name="assigned_agent" id="task-assigned-agent">
+            <option value="scout">Scout</option>
+            <option value="echo">Echo</option>
+            <option value="closer">Closer</option>
+            <option value="clau">Clau</option>
+            <option value="gem">Gem</option>
+            <option value="codi">Codi</option>
+            <option value="misty">Misty</option>
+          </select>
+        </label>
+        <label><span>Required Skills (comma separated)</span><input type="text" name="required_skills" placeholder="e.g. Python, Docker"></label>
+        <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 8px;">
+          <button type="button" class="btn-link" onclick="closeTaskModal()">Cancel</button>
+          <button type="submit" class="btn-submit">Save Task</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/main.js?v=20260716-sm003" defer></script>
+</body>
+</html>

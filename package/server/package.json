@@ -1,0 +1,16 @@
+{
+  "name": "agentfleet-server",
+  "version": "0.1.0",
+  "description": "Fleet Hub API server — static serving, agent config, lessons ledger, and IAP inbox.",
+  "type": "module",
+  "main": "fleet-server.mjs",
+  "scripts": {
+    "start": "node fleet-server.mjs",
+    "dev": "node --watch fleet-server.mjs"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": ["agentfleet", "multi-agent", "fleet-hub"],
+  "license": "MIT"
+}

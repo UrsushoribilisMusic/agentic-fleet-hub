@@ -1,0 +1,247 @@
+#!/usr/bin/env node
+
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
+import { spawnSync } from "node:child_process";
+import { fileURLToPath, pathToFileURL } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const PACKAGE_ROOT = path.join(__dirname, "..");
+const SCAFFOLDER = path.join(PACKAGE_ROOT, "bin", "create-flotilla.mjs");
+const FIXTURE_ROOT = path.join(PACKAGE_ROOT, "test-fixtures", "profiles");
+
+function assert(condition, message) {
+  if (!condition) throw new Error(message);
+}
+
+function run(command, args, options = {}) {
+  const result = spawnSync(command, args, {
+    encoding: "utf8",
+    windowsHide: true,
+    ...options,
+  });
+  if (result.error) throw result.error;
+  if (result.status !== 0) {
+    throw new Error((result.stderr || result.stdout || `${command} failed`).trim());
+  }
+  return (result.stdout || "").trim();
+}
+
+function verifyDashboard(targetPath) {
+  const html = fs.readFileSync(path.join(targetPath, "dashboard", "engineering", "index.html"), "utf8");
+  const mainJs = fs.readFileSync(path.join(targetPath, "dashboard", "engineering", "assets", "main.js"), "utf8");
+  const styleCss = fs.readFileSync(path.join(targetPath, "dashboard", "engineering", "assets", "style.css"), "utf8");
+
+  const requiredSections = [
+    'id="section-team"',
+    'id="section-projects"',
+    'id="section-kanban"',
+    'id="section-rules"',
+    'id="section-memory"',
+    'id="section-standups"',
+    'id="section-inbox"',
+    'id="section-users"',
+  ];
+
+  for (const marker of requiredSections) {
+    assert(html.includes(marker), `engineering/index.html missing ${marker}`);
+  }
+
+  assert(html.includes('id="theme-toggle-btn"'), "engineering/index.html missing theme toggle button");
+  assert(html.includes('onclick="openAgentModal()"'), "engineering/index.html missing Add Agent action");
+  assert(html.includes('assets/main.js'), "engineering/index.html missing main.js asset reference");
+  assert(html.includes('assets/style.css'), "engineering/index.html missing style.css asset reference");
+
+  assert(mainJs.includes("window.openAgentModal"), "engineering main.js missing openAgentModal");
+  assert(mainJs.includes("document.getElementById('agent-form').onsubmit"), "engineering main.js missing Add Agent submit handler");
+  assert(mainJs.includes("theme-toggle-btn"), "engineering main.js missing theme toggle wiring");
+  assert(styleCss.includes('[data-theme="dark"]'), "engineering style.css missing dark theme support");
+}
+
+function makeProfile(profileRoot, marker) {
+  fs.mkdirSync(path.join(profileRoot, "AGENTS"), { recursive: true });
+  fs.mkdirSync(path.join(profileRoot, "AGENTS", "CONFIG"), { recursive: true });
+  fs.mkdirSync(path.join(profileRoot, "AGENTS", "MESSAGES"), { recursive: true });
+  fs.mkdirSync(path.join(profileRoot, "AGENTS", "LESSONS"), { recursive: true });
+  fs.mkdirSync(path.join(profileRoot, "standups"), { recursive: true });
+  fs.mkdirSync(path.join(profileRoot, "extensions"), { recursive: true });
+  fs.mkdirSync(path.join(profileRoot, "scripts"), { recursive: true });
+  fs.writeFileSync(path.join(profileRoot, "MISSION_CONTROL.md"), `# Mission\n\n${marker}\n`);
+  fs.writeFileSync(path.join(profileRoot, "AGENTS.md"), `# Agent Mandate\n\n${marker}\n`);
+  fs.writeFileSync(path.join(profileRoot, "AGENTS", "KEYVAULT.md"), `# Keyvault\n\n${marker}\n`);
+  fs.writeFileSync(path.join(profileRoot, "AGENTS", "RULES.md"), `# Custom Rules\n\n${marker}\n`);
+  fs.writeFileSync(path.join(profileRoot, "AGENTS", "CONFIG", "custom_profile.json"), JSON.stringify({ marker }, null, 2));
+  fs.writeFileSync(path.join(profileRoot, "AGENTS", "CONFIG", "fleet_meta.json"), JSON.stringify({ marker }, null, 2));
+  fs.writeFileSync(path.join(profileRoot, "AGENTS", "MESSAGES", "inbox.json"), "[]\n");
+  fs.writeFileSync(path.join(profileRoot, "AGENTS", "LESSONS", "ledger.json"), "[]\n");
+  fs.writeFileSync(path.join(profileRoot, "standups", "index.json"), "[]\n");
+  fs.writeFileSync(path.join(profileRoot, "README.md"), "This profile README must not overwrite the package README.\n");
+  fs.writeFileSync(path.join(profileRoot, "extensions", "custom-note.md"), "Manual extension area.\n");
+  fs.writeFileSync(path.join(profileRoot, "scripts", "evil.py"), "print('not allowed')\n");
+}
+
+function verifyProfileOverlay(targetPath, marker) {
+  const rules = fs.readFileSync(path.join(targetPath, "AGENTS", "RULES.md"), "utf8");
+  const customJson = JSON.parse(fs.readFileSync(path.join(targetPath, "AGENTS", "CONFIG", "custom_profile.json"), "utf8"));
+  const packageReadme = fs.readFileSync(path.join(targetPath, "README.md"), "utf8");
+  assert(rules.includes(marker), "profile overlay did not write AGENTS/RULES.md");
+  assert(customJson.marker === marker, "profile overlay did not write AGENTS/CONFIG/custom_profile.json");
+  assert(!fs.existsSync(path.join(targetPath, "scripts", "evil.py")), "profile overlay wrote outside allowed instruction/config paths");
+  assert(!fs.existsSync(path.join(targetPath, "extensions", "custom-note.md")), "profile overlay wrote extension files into install tree");
+  assert(!packageReadme.includes("must not overwrite"), "profile README overwrote package README");
+}
+
+async function main() {
+  const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "flotilla-dry-run-"));
+  const targetPath = path.join(tempRoot, "smoke-fleet");
+
+  try {
+    run(process.execPath, [SCAFFOLDER, targetPath]);
+    const validator = await import(pathToFileURL(path.join(PACKAGE_ROOT, "lib", "profile-validator.mjs")).href);
+    const defaultValidation = validator.validateProfileDirectory(path.join(PACKAGE_ROOT, "profiles", "default-engineering"));
+    assert(defaultValidation.allowedFiles.length > 0, "default profile validator returned no allowed files");
+    assert(defaultValidation.unknownFiles.includes("gitignore.template") === false, "gitignore.template should be a known optional file");
+    const fixtureValidation = validator.validateProfileDirectory(path.join(FIXTURE_ROOT, "valid-minimal"));
+    assert(fixtureValidation.extensionFiles.includes("extensions/README.md"), "valid fixture extension file was not recognized");
+    const traversalZipRoot = path.join(tempRoot, "zip-traversal-root");
+    const traversalZipPath = path.join(tempRoot, "zip-traversal.zip");
+    fs.mkdirSync(traversalZipRoot, { recursive: true });
+    fs.writeFileSync(path.join(tempRoot, "zip-escape.txt"), "escape\n");
+    run("zip", ["-q", traversalZipPath, "../zip-escape.txt"], { cwd: traversalZipRoot });
+    let zipTraversalRejected = false;
+    try {
+      validator.assertSafeZipEntries(traversalZipPath);
+    } catch (error) {
+      zipTraversalRejected = error.message.includes("unsafe path");
+    }
+    assert(zipTraversalRejected, "zip traversal entry was not rejected");
+
+    const expectedFiles = [
+      "package.json",
+      "server/fleet-server.mjs",
+      "server/setup-lib.mjs",
+      "scripts/doctor.mjs",
+      "scripts/dispatcher.py",
+      "scripts/telegram_bridge.py",
+      "scripts/github_sync.py",
+      "scripts/fleet.github.plist",
+      "scripts/fleet_push.py",
+      "scripts/fleet.push.plist",
+      "scripts/fleet.pocketbase.plist",
+      "dashboard/setup/index.html",
+      "dashboard/configure/index.html",
+      "dashboard/engineering/index.html",
+      "dashboard/engineering/assets/main.js",
+      "dashboard/engineering/assets/style.css",
+      "data/config/fleet_meta.json",
+    ];
+
+    for (const relativePath of expectedFiles) {
+      assert(fs.existsSync(path.join(targetPath, relativePath)), `Scaffold missing ${relativePath}`);
+    }
+    assert(fs.existsSync(path.join(targetPath, "profiles", "default-engineering", "AGENTS", "RULES.md")), "Scaffold missing bundled default profile");
+    assert(fs.readFileSync(path.join(targetPath, "MISSION_CONTROL.md"), "utf8").includes("default-engineering"), "Default profile did not overlay MISSION_CONTROL.md");
+
+    const setupLib = await import(pathToFileURL(path.join(targetPath, "server", "setup-lib.mjs")).href);
+    let meta = setupLib.buildSetupPayload(setupLib.getDefaultFleetMeta(), {
+      org_name: "Smoke Fleet",
+      deployment_scenario: "hybrid",
+      repo_path: targetPath,
+      repo_url: "https://github.com/acme/smoke-fleet",
+      kanban_url: "https://github.com/orgs/acme/projects/1",
+      crm_url: "https://example.com/crm",
+      vault_provider: "infisical",
+      vault_region: "EU",
+      telegram_enabled: true,
+      telegram_chat_id: "-1001234567890",
+      openclaw_enabled: true,
+      openclaw_gateway_url: "http://localhost:18789",
+      github_sync_enabled: true,
+      github_sync_repo: "acme/smoke-fleet",
+      selected_agents: [
+        { id: "claude_code", name: "Clau" },
+        { id: "gemini_cli", name: "Gem" },
+        { id: "codex", name: "Codi" },
+      ],
+    });
+
+    const bootstrap = setupLib.writeBootstrapFiles(meta, targetPath);
+    meta = setupLib.updateBootstrapMetadata(meta, bootstrap);
+    setupLib.writeJson(path.join(targetPath, "data", "config", "fleet_meta.json"), meta);
+
+    const doctorRaw = run(process.execPath, [path.join(targetPath, "scripts", "doctor.mjs")], {
+      cwd: targetPath,
+      env: {
+        ...process.env,
+        TELEGRAM_TOKEN: "dry-run-telegram-token",
+        GITHUB_TOKEN: "dry-run-github-token",
+        FLEET_SYNC_TOKEN: "dry-run-fleet-sync-token",
+      },
+    });
+    const doctor = JSON.parse(doctorRaw);
+    assert(doctor.ok, `Generated doctor failed: ${doctor.issues.join(" | ")}`);
+
+    run("git", ["rev-parse", "--is-inside-work-tree"], { cwd: targetPath });
+    verifyDashboard(targetPath);
+
+    const dirProfile = path.join(tempRoot, "custom-profile");
+    const dirTarget = path.join(tempRoot, "dir-profile-fleet");
+    makeProfile(dirProfile, "dir-profile-marker");
+    const dirOutput = run(process.execPath, [SCAFFOLDER, dirTarget, "--skip-git", "--profile-dir", dirProfile]);
+    assert(dirOutput.includes(`Profile: ${dirProfile}`), "profile-dir output did not name the selected profile");
+    verifyProfileOverlay(dirTarget, "dir-profile-marker");
+
+    const zipProfile = path.join(tempRoot, "zip-profile");
+    const zipTarget = path.join(tempRoot, "zip-profile-fleet");
+    const zipPath = path.join(tempRoot, "zip-profile.zip");
+    makeProfile(zipProfile, "zip-profile-marker");
+    run("zip", ["-qr", zipPath, "."], { cwd: zipProfile });
+    const zipOutput = run(process.execPath, [SCAFFOLDER, zipTarget, "--skip-git", "--profile-zip", zipPath]);
+    assert(zipOutput.includes(`Profile: ${zipPath}`), "profile-zip output did not name the selected profile");
+    verifyProfileOverlay(zipTarget, "zip-profile-marker");
+
+    const invalid = spawnSync(process.execPath, [SCAFFOLDER, path.join(tempRoot, "invalid-profile-fleet"), "--profile-dir", path.join(tempRoot, "missing-profile")], {
+      encoding: "utf8",
+      windowsHide: true,
+    });
+    assert(invalid.status !== 0, "invalid profile directory unexpectedly succeeded");
+    assert((invalid.stderr || "").includes("Profile directory does not exist"), "invalid profile directory error was not useful");
+
+    const missingRequired = spawnSync(process.execPath, [SCAFFOLDER, path.join(tempRoot, "missing-required-fleet"), "--profile-dir", path.join(FIXTURE_ROOT, "missing-required")], {
+      encoding: "utf8",
+      windowsHide: true,
+    });
+    assert(missingRequired.status !== 0, "missing required profile unexpectedly succeeded");
+    assert((missingRequired.stderr || "").includes("missing required file(s): AGENTS/RULES.md"), "missing required error was not useful");
+
+    const invalidJsonTarget = path.join(tempRoot, "invalid-json-fleet");
+    const invalidJson = spawnSync(process.execPath, [SCAFFOLDER, invalidJsonTarget, "--profile-dir", path.join(FIXTURE_ROOT, "invalid-json")], {
+      encoding: "utf8",
+      windowsHide: true,
+    });
+    assert(invalidJson.status !== 0, "invalid JSON profile unexpectedly succeeded");
+    assert((invalidJson.stderr || "").includes("Invalid JSON in profile file AGENTS/CONFIG/fleet_meta.json"), "invalid JSON error was not useful");
+    assert(!fs.existsSync(invalidJsonTarget), "invalid JSON profile created a partial install directory");
+
+    const symlinkProfile = path.join(tempRoot, "symlink-profile");
+    makeProfile(symlinkProfile, "symlink-marker");
+    fs.symlinkSync(tempRoot, path.join(symlinkProfile, "extensions", "escape"));
+    const traversal = spawnSync(process.execPath, [SCAFFOLDER, path.join(tempRoot, "path-traversal-fleet"), "--profile-dir", symlinkProfile], {
+      encoding: "utf8",
+      windowsHide: true,
+    });
+    assert(traversal.status !== 0, "path traversal profile unexpectedly succeeded");
+    assert((traversal.stderr || "").includes("symbolic link"), "path traversal error was not useful");
+
+    console.log("verify:dry-run passed");
+    console.log(`Scaffolded: ${targetPath}`);
+  } finally {
+    fs.rmSync(tempRoot, { recursive: true, force: true });
+  }
+}
+
+main().catch((error) => {
+  console.error(`verify:dry-run failed: ${error.message}`);
+  process.exit(1);
+});
